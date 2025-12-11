@@ -1,0 +1,22 @@
+{
+  "openai-gpt-4.1-mini": {
+    "name": "openai-gpt-4.1-mini",
+    "vendor": "openai"
+  },
+  "openai-gpt-4.1": {
+    "name": "openai-gpt-4.1",
+    "vendor": "openai"
+  },
+  "anthropic-claude-3.5-sonnet": {
+    "name": "anthropic-claude-3.5-sonnet",
+    "vendor": "anthropic"
+  },
+  "google-gemini-1.5-pro": {
+    "name": "google-gemini-1.5-pro",
+    "vendor": "google"
+  },
+  "mistral-large-2": {
+    "name": "mistral-large-2",
+    "vendor": "mistral"
+  }
+}
