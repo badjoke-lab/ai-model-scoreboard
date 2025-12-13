@@ -1,77 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-
-type IndexData = {
-  version: string;
-  updatedAt: string;
-  modelsCount: number;
-  fullCount: number;
-  provisionalCount: number;
-  notListedCount: number;
-};
-
-type RankingEntry = {
-  model: string;
-  vendor: string;
-  layer: string;
-  score: number;
-};
+import { useV4Snapshot } from "@/lib/useV4Snapshot";
 
 export default function V4PreviewPage() {
-  const [indexData, setIndexData] = useState<IndexData | null>(null);
-  const [rankings, setRankings] = useState<RankingEntry[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    const loadData = async () => {
-      try {
-        const [indexRes, rankingsRes] = await Promise.all([
-          fetch("/data/v4/index.json"),
-          fetch("/data/v4/rankings.json"),
-        ]);
-
-        if (!indexRes.ok || !rankingsRes.ok) {
-          throw new Error("Unable to load snapshot files");
-        }
-
-        const [indexJson, rankingsJson] = await Promise.all([
-          indexRes.json(),
-          rankingsRes.json(),
-        ]);
-
-        if (!isMounted) return;
-
-        setIndexData(indexJson);
-        setRankings(rankingsJson);
-      } catch (err) {
-        if (!isMounted) return;
-        setError(err instanceof Error ? err.message : "Something went wrong");
-      } finally {
-        if (!isMounted) return;
-        setLoading(false);
-      }
-    };
-
-    void loadData();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  const updatedLabel = useMemo(() => {
-    if (!indexData?.updatedAt) return "—";
-    return new Date(indexData.updatedAt).toLocaleString();
-  }, [indexData?.updatedAt]);
-
-  const sortedRankings = useMemo(
-    () => [...rankings].sort((a, b) => b.score - a.score),
-    [rankings],
-  );
+  const { indexData, updatedLabel, sortedRankings, loading, error } = useV4Snapshot();
 
   return (
     <div className="space-y-8">
