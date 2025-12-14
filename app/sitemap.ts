@@ -1,27 +1,20 @@
 import type { MetadataRoute } from "next";
 
-import { fetchLeaderboard } from "@/lib/fetchers";
+import { loadV4Leaderboard } from "@/lib/v4-snapshot";
 import { SITE_URL } from "@/lib/metadata";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
-  let leaderboardModels = [] as Awaited<ReturnType<typeof fetchLeaderboard>>["leaderboard"];
-
-  try {
-    const data = await fetchLeaderboard();
-    leaderboardModels = data.leaderboard;
-  } catch (error) {
-    console.error("Failed to fetch leaderboard for sitemap", error);
-  }
+  const { index } = await loadV4Leaderboard();
+  const updatedAt = index.updatedAt ? new Date(index.updatedAt) : new Date();
 
   return [
     {
       url: `${SITE_URL}/`,
-      lastModified: now,
+      lastModified: updatedAt,
     },
-    ...leaderboardModels.map((model) => ({
-      url: `${SITE_URL}/${model.slug}`,
-      lastModified: new Date(model.updatedAt ?? now),
-    })),
+    {
+      url: `${SITE_URL}/scores`,
+      lastModified: updatedAt,
+    },
   ];
 }
