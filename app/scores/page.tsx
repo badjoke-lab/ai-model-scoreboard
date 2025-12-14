@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { loadV4Leaderboard, type V4LeaderboardRow } from "@/lib/v4-snapshot";
 
 function formatScore(value: number): string {
@@ -88,7 +90,14 @@ function LeaderboardRow({ entry }: { entry: V4LeaderboardRow }) {
   return (
     <tr className="hover:bg-surface">
       <td className="px-4 py-3 text-sm font-semibold text-slate-500">{entry.rank}</td>
-      <td className="px-4 py-3 font-semibold text-slate-50">{entry.displayName}</td>
+      <td className="px-4 py-3 font-semibold text-slate-50">
+        <Link
+          href={`/models/${encodeURIComponent(entry.model)}`}
+          className="text-slate-50 underline-offset-2 hover:text-accent hover:underline"
+        >
+          {entry.displayName}
+        </Link>
+      </td>
       <td className="px-4 py-3 text-slate-300">{entry.displayVendor}</td>
       <td className="px-4 py-3 font-semibold text-slate-50">{formatScore(entry.score)}</td>
       <td className="px-4 py-3 text-slate-100">{formatScore(entry.scores.performance)}</td>
@@ -109,7 +118,14 @@ function LeaderboardCard({ entry }: { entry: V4LeaderboardRow }) {
             <span className="rounded-md border border-slate-800 px-2 py-1 font-semibold text-slate-200">#{entry.rank}</span>
             <LayerBadge layer={entry.layer} />
           </div>
-          <div className="text-lg font-semibold text-slate-50">{entry.displayName}</div>
+          <div className="text-lg font-semibold text-slate-50">
+            <Link
+              href={`/models/${encodeURIComponent(entry.model)}`}
+              className="hover:text-accent"
+            >
+              {entry.displayName}
+            </Link>
+          </div>
           <div className="text-sm text-slate-400">{entry.displayVendor}</div>
         </div>
         <div className="text-right">
