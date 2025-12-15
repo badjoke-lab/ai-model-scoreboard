@@ -12,7 +12,7 @@ function formatDate(value: string | undefined): string {
   return Number.isNaN(date.getTime()) ? "—" : date.toLocaleString();
 }
 
-function LayerBadge({ layer }: { layer: "full" | "provisional" | "not-listed" }) {
+function LayerBadge({ layer }: { layer: "full" | "provisional" | "rejected" | "not-listed" }) {
   if (!layer) return null;
   const label = layer.replace("-", " ");
   const colorClasses =
@@ -20,7 +20,9 @@ function LayerBadge({ layer }: { layer: "full" | "provisional" | "not-listed" })
       ? "border-emerald-500/50 text-emerald-300"
       : layer === "provisional"
         ? "border-amber-400/60 text-amber-200"
-        : "border-slate-600 text-slate-400";
+        : layer === "rejected"
+          ? "border-rose-500/50 text-rose-200"
+          : "border-slate-600 text-slate-400";
 
   return (
     <span
