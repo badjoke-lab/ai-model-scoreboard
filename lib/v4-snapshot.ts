@@ -21,7 +21,7 @@ export type V4ScoreBreakdown = {
 export type V4RankingEntry = {
   model: string;
   vendor: string;
-  layer: "full" | "provisional" | "not-listed";
+  layer: "full" | "provisional" | "rejected" | "not-listed";
   score: number;
   scores: V4ScoreBreakdown;
   updatedAt?: string;
