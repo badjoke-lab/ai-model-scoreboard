@@ -4,7 +4,6 @@ import type { ReactNode } from "react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { baseMetadata } from "@/lib/metadata";
-import ReleaseBanner from "@/components/ReleaseBanner";
 import { shellClass } from "@/lib/layout";
 
 export const metadata: Metadata = baseMetadata;
@@ -15,7 +14,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="min-h-screen bg-background text-slate-100">
         <div className="flex min-h-screen flex-col">
           <Header />
-          <ReleaseBanner />
           <main className={`${shellClass} flex-1 flex flex-col py-10 sm:py-12`}>
             {children}
           </main>
