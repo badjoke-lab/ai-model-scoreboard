@@ -5,7 +5,10 @@ import { usePathname } from "next/navigation";
 
 import { shellClass } from "@/lib/layout";
 
-const navItems = [{ href: "/", label: "Scores" }];
+const navItems = [
+  { href: "/", label: "Scores" },
+  { href: "/methodology", label: "Methodology" },
+];
 
 export default function Header() {
   const pathname = usePathname();
