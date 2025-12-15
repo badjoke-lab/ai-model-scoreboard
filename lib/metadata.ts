@@ -39,7 +39,7 @@ export const baseMetadata: Metadata = {
         url: DEFAULT_IMAGE,
         width: 1200,
         height: 630,
-        alt: "AI Model Scoreboard leaderboard preview",
+        alt: "AI Model Scoreboard leaderboard",
       },
     ],
   },
@@ -61,7 +61,7 @@ export function buildPageMetadata({
 }: BuildMetadataOptions): Metadata {
   const fullTitle = `${title} | ${SITE_NAME}`;
   const url = `${SITE_URL}${path}`;
-  const alt = imageAlt ?? `${title} preview`;
+  const alt = imageAlt ?? `${title} | ${SITE_NAME}`;
 
   return {
     title: fullTitle,

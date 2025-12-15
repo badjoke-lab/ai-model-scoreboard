@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 import { shellClass } from "@/lib/layout";
 
-const DISMISS_KEY = "aims-v3-banner-dismissed";
+const DISMISS_KEY = "aims-v4-banner-dismissed";
 
 export default function ReleaseBanner() {
   const [visible, setVisible] = useState(false);
@@ -32,14 +32,13 @@ export default function ReleaseBanner() {
         className={`${shellClass} flex flex-col gap-2 py-3 text-sm sm:flex-row sm:items-center sm:justify-between`}
       >
         <div className="space-y-1">
-          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.25em]">Launch</p>
-          <p className="text-sm font-semibold text-accent">v3 is live — read the launch notes and recent deltas.</p>
+          <p className="text-[0.7rem] font-semibold uppercase tracking-[0.25em]">Update</p>
+          <p className="text-sm font-semibold text-accent">
+            AMS v4 is live — scores are updated from the latest snapshot.
+          </p>
           <div className="flex flex-wrap gap-3 text-[0.85rem]">
-            <Link href="/docs/changelog" className="underline underline-offset-4 hover:text-accent/80">
-              Changelog & Launch notes
-            </Link>
-            <Link href="/support" className="underline underline-offset-4 hover:text-accent/80">
-              Share feedback
+            <Link href="/docs" className="underline underline-offset-4 hover:text-accent/80">
+              Read the docs
             </Link>
           </div>
         </div>

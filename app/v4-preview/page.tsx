@@ -203,20 +203,18 @@ export default function V4PreviewPage() {
   return (
     <div className={`${shellClass} space-y-8`}>
       <header className="space-y-2">
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">
-          AMS · v4 Preview
-        </p>
+        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">AMS · v4</p>
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-          <h1 className="text-3xl font-semibold text-slate-50 sm:text-4xl">Offline snapshot</h1>
+          <h1 className="text-3xl font-semibold text-slate-50 sm:text-4xl">Offline snapshot (v4)</h1>
           <div className="text-xs text-slate-500">
             <p>Snapshot updated: {updatedLabel}</p>
             {state.index ? <p>Models in snapshot: {state.index.modelsCount}</p> : null}
           </div>
         </div>
         <p className="max-w-3xl text-sm text-slate-400">
-          Quick client-side preview of the latest AMS v4 snapshot copied into
+          Client-side view of the AMS v4 snapshot bundled at {" "}
           <code className="mx-1 rounded bg-slate-900/50 px-1.5 py-0.5 text-[0.75rem] text-slate-200">/public/data/v4</code>.
-          This view is for debugging only and does not affect the live v3 experience.
+          This view mirrors the live leaderboard data and is intended for debugging only.
         </p>
       </header>
 
