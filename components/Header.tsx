@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation";
 import { shellClass } from "@/lib/layout";
 
 const navItems = [
-  { href: "/", label: "Scores" },
-  { href: "/methodology", label: "Methodology" },
+  { href: "/scores", label: "SCORES" },
+  { href: "/methodology", label: "METHODOLOGY" },
 ];
 
 export default function Header() {
@@ -31,8 +31,8 @@ export default function Header() {
         <nav aria-label="Primary navigation" className="flex items-center gap-3 sm:gap-4 text-sm">
           {navItems.map((item) => {
             const active =
-              item.href === "/"
-                ? pathname === "/"
+              item.href === "/scores"
+                ? pathname === "/" || pathname?.startsWith(item.href)
                 : pathname?.startsWith(item.href);
             return (
               <Link
