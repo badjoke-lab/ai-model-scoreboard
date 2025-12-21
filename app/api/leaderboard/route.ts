@@ -1,20 +1,43 @@
+import fs from "fs/promises";
+import path from "path";
 import { NextResponse } from "next/server";
-
-import sampleData from "@/lib/data/sample.json";
-import { normalizeModelScores } from "@/lib/normalizers";
-import type { V4LeaderboardResponse } from "@/types/v4";
 
 export const revalidate = 0;
 
-export async function GET() {
-  const leaderboard = sampleData.models
-    .map(normalizeModelScores)
-    .sort((a, b) => b.total - a.total);
-
-  const payload: V4LeaderboardResponse = {
-    status: "ok",
-    leaderboard,
+type V4RankingEntry = {
+  model: string;
+  vendor: string;
+  layer: string;
+  score: number;
+  scores: {
+    performance: number;
+    safety: number;
+    adoption: number;
+    openness: number;
+    cost: number;
   };
+  updatedAt: string;
+};
 
-  return NextResponse.json(payload, { headers: { "X-Robots-Tag": "noindex, nofollow" } });
+async function readJson<T>(fileName: string): Promise<T> {
+  const fullPath = path.join(process.cwd(), "public", "data", "v4", fileName);
+  const raw = await fs.readFile(fullPath, "utf8");
+  return JSON.parse(raw) as T;
+}
+
+export async function GET() {
+  try {
+    const rankings = await readJson<V4RankingEntry[]>("rankings.json");
+    const leaderboard = [...rankings].sort((a, b) => b.score - a.score);
+
+    return NextResponse.json(
+      { status: "ok", leaderboard },
+      { headers: { "X-Robots-Tag": "noindex, nofollow" } }
+    );
+  } catch {
+    return NextResponse.json(
+      { status: "error", error: "Failed to load leaderboard" },
+      { status: 500, headers: { "X-Robots-Tag": "noindex, nofollow" } }
+    );
+  }
 }
