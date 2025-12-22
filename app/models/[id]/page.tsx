@@ -9,7 +9,16 @@ function formatScore(value: number): string {
 function formatDate(value: string | undefined): string {
   if (!value) return "—";
   const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? "—" : date.toLocaleString();
+  return Number.isNaN(date.getTime())
+    ? "—"
+    : date.toLocaleString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
 }
 
 function LayerBadge({ layer }: { layer: "full" | "provisional" | "rejected" | "not-listed" }) {

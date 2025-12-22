@@ -63,7 +63,18 @@ export default async function ModelDetailPage({ params }: { params: { slug: stri
             <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-300">Evidence</h2>
             <p className="text-xs text-slate-500">Signals and reports attached to the v4 scorecard.</p>
           </div>
-          <span className="text-xs text-slate-500">Updated {new Date(model.updatedAt).toLocaleString()}</span>
+          <span className="text-xs text-slate-500">
+            Updated
+            {" "}
+            {new Date(model.updatedAt).toLocaleString("en-US", {
+              year: "numeric",
+              month: "short",
+              day: "2-digit",
+              hour: "2-digit",
+              minute: "2-digit",
+              second: "2-digit",
+            })}
+          </span>
         </div>
         <div className="space-y-3">
           {model.evidence.map((item) => (
@@ -84,7 +95,13 @@ function EvidenceRow({ item }: { item: V4Model["evidence"][number] }) {
     <div className="flex flex-col gap-1 rounded-lg border border-slate-800/70 bg-background/50 p-3 sm:flex-row sm:items-center sm:justify-between">
       <div>
         <p className="text-sm font-semibold text-slate-200">{item.title}</p>
-        <p className="text-xs text-slate-500">{new Date(item.date).toLocaleDateString()}</p>
+        <p className="text-xs text-slate-500">
+          {new Date(item.date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "2-digit",
+          })}
+        </p>
       </div>
       {item.url && (
         <Link href={item.url} className="text-xs font-semibold uppercase tracking-wide text-accent hover:text-accent/80" target="_blank" rel="noreferrer">
