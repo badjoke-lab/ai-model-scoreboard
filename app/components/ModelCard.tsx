@@ -8,7 +8,14 @@ interface ModelCardProps {
 }
 
 export function ModelCard({ model, rank }: ModelCardProps) {
-  const formattedUpdatedAt = new Date(model.updatedAt).toLocaleString();
+  const formattedUpdatedAt = new Date(model.updatedAt).toLocaleString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+  });
 
   return (
     <article className="rounded-2xl border border-slate-800 bg-background/60 p-4 shadow-lg transition hover:border-accent">
