@@ -9,6 +9,7 @@
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "check:routes": "node scripts/check-route-safety.js",
+    "check:v4": "node scripts/check_v4_snapshot.mjs",
     "ci": "npm run check:routes && npm run typecheck && next build"
   },
   "dependencies": {
