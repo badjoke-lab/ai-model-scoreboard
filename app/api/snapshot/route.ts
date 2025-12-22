@@ -1,49 +1,73 @@
-cd ~/ai-model-scoreboard
-
-cat > app/api/snapshot/route.ts <<'EOF'
 import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
 
 export const revalidate = 0;
 
-async function readV4Json(fileName: string) {
-  const fullPath = path.join(process.cwd(), "public", "data", "v4", fileName);
-  const raw = await fs.readFile(fullPath, "utf8");
-  return JSON.parse(raw);
+type SnapshotMeta = {
+  version: string;
+  updatedAt: string;
+  modelsCount: number;
+  fullCount: number;
+  provisionalCount: number;
+  notListedCount: number;
+};
+
+type RankingEntry = {
+  model: string;
+  vendor: string;
+  layer: string;
+  score: number;
+  scores: {
+    performance: number;
+    safety: number;
+    adoption: number;
+    openness: number;
+    cost: number;
+  };
+  updatedAt: string;
+};
+
+type ModelsMap = Record<
+  string,
+  {
+    model: string;
+    vendor: string;
+    layer: string;
+    total: number;
+    scores: {
+      performance: number;
+      safety: number;
+      adoption: number;
+      openness: number;
+      cost: number;
+    };
+    updatedAt: string;
+  }
+>;
+
+function dataPath(file: string) {
+  return path.join(process.cwd(), "public", "data", "v4", file);
 }
 
-function toModelsArray(modelsRaw: unknown): any[] {
-  if (!modelsRaw) return [];
-  if (Array.isArray(modelsRaw)) return modelsRaw;
-  if (typeof modelsRaw === "object") return Object.values(modelsRaw as Record<string, any>);
-  return [];
+async function readJson<T>(file: string): Promise<T> {
+  const raw = await fs.readFile(dataPath(file), "utf8");
+  return JSON.parse(raw) as T;
 }
 
 export async function GET() {
   try {
-    const meta = await readV4Json("index.json");
-    const rankings = await readV4Json("rankings.json");
-    const modelsRaw = await readV4Json("models.json");
-
-    const models = toModelsArray(modelsRaw);
-
-    // minimal safety checks (fail fast with clear message)
-    if (!meta || meta.version !== "v4") {
-      return NextResponse.json(
-        { status: "error", error: "Invalid snapshot meta (index.json)" },
-        { status: 500, headers: { "X-Robots-Tag": "noindex, nofollow" } }
-      );
-    }
-    if (!Array.isArray(rankings)) {
-      return NextResponse.json(
-        { status: "error", error: "rankings.json must be an array" },
-        { status: 500, headers: { "X-Robots-Tag": "noindex, nofollow" } }
-      );
-    }
+    const meta = await readJson<SnapshotMeta>("index.json");
+    const leaderboard = await readJson<RankingEntry[]>("rankings.json");
+    const models = await readJson<ModelsMap>("models.json");
 
     return NextResponse.json(
-      { status: "ok", meta, rankings, models },
+      {
+        status: "ok",
+        meta,
+        leaderboardCount: Array.isArray(leaderboard) ? leaderboard.length : 0,
+        modelsCount: models ? Object.keys(models).length : 0,
+      },
       { headers: { "X-Robots-Tag": "noindex, nofollow" } }
     );
   } catch (err: any) {
@@ -53,4 +77,3 @@ export async function GET() {
     );
   }
 }
-EOF

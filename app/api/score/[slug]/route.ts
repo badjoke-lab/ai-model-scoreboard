@@ -1,40 +1,52 @@
-cat > app/api/score/[slug]/route.ts <<'EOF'
 import { NextResponse } from "next/server";
 import fs from "fs/promises";
 import path from "path";
 
 export const revalidate = 0;
 
-async function readV4Json(fileName: string) {
-  const fullPath = path.join(process.cwd(), "public", "data", "v4", fileName);
-  const raw = await fs.readFile(fullPath, "utf8");
-  return JSON.parse(raw);
+type ModelScore = {
+  model: string;
+  vendor: string;
+  layer: string;
+  total: number;
+  scores: {
+    performance: number;
+    safety: number;
+    adoption: number;
+    openness: number;
+    cost: number;
+  };
+  updatedAt: string;
+};
+
+type ModelsMap = Record<string, ModelScore>;
+
+function dataPath(file: string) {
+  return path.join(process.cwd(), "public", "data", "v4", file);
 }
 
-function findInArrayBySlug(arr: any[], slug: string) {
-  const s = slug.toLowerCase();
-  return arr.find((x) => {
-    const a = String(x?.slug ?? x?.id ?? x?.model ?? "").toLowerCase();
-    return a === s;
-  });
+async function readJson<T>(file: string): Promise<T> {
+  const raw = await fs.readFile(dataPath(file), "utf8");
+  return JSON.parse(raw) as T;
 }
 
-export async function GET(_req: Request, ctx: { params: { slug: string } }) {
-  const slug = ctx.params.slug;
-
+export async function GET(
+  _req: Request,
+  ctx: { params: { slug: string } }
+) {
   try {
-    const modelsRaw = await readV4Json("models.json");
-
-    let model: any = null;
-
-    if (Array.isArray(modelsRaw)) {
-      model = findInArrayBySlug(modelsRaw, slug);
-    } else if (modelsRaw && typeof modelsRaw === "object") {
-      // ✅ your current format: { "openai-gpt-4.1-mini": {...}, ... }
-      model = (modelsRaw as Record<string, any>)[slug] ?? null;
+    const slug = ctx?.params?.slug;
+    if (!slug) {
+      return NextResponse.json(
+        { status: "error", error: "Missing slug" },
+        { status: 400, headers: { "X-Robots-Tag": "noindex, nofollow" } }
+      );
     }
 
-    if (!model) {
+    const models = await readJson<ModelsMap>("models.json");
+    const hit = models?.[slug];
+
+    if (!hit) {
       return NextResponse.json(
         { status: "not_found", slug },
         { status: 404, headers: { "X-Robots-Tag": "noindex, nofollow" } }
@@ -42,7 +54,7 @@ export async function GET(_req: Request, ctx: { params: { slug: string } }) {
     }
 
     return NextResponse.json(
-      { status: "ok", model },
+      { status: "ok", model: hit },
       { headers: { "X-Robots-Tag": "noindex, nofollow" } }
     );
   } catch (err: any) {
@@ -52,4 +64,3 @@ export async function GET(_req: Request, ctx: { params: { slug: string } }) {
     );
   }
 }
-EOF
