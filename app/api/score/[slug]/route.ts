@@ -4,22 +4,13 @@ import path from "path";
 
 export const revalidate = 0;
 
-type ModelScore = {
-  model: string;
+type ModelInfo = {
+  name: string;
   vendor: string;
-  layer: string;
-  total: number;
-  scores: {
-    performance: number;
-    safety: number;
-    adoption: number;
-    openness: number;
-    cost: number;
-  };
-  updatedAt: string;
+  [key: string]: unknown;
 };
 
-type ModelsMap = Record<string, ModelScore>;
+type ModelsMap = Record<string, ModelInfo>;
 
 function dataPath(file: string) {
   return path.join(process.cwd(), "public", "data", "v4", file);
@@ -38,7 +29,7 @@ export async function GET(
     const slug = ctx?.params?.slug;
     if (!slug) {
       return NextResponse.json(
-        { status: "error", error: "Missing slug" },
+        { error: "Missing slug" },
         { status: 400, headers: { "X-Robots-Tag": "noindex, nofollow" } }
       );
     }
@@ -48,18 +39,17 @@ export async function GET(
 
     if (!hit) {
       return NextResponse.json(
-        { status: "not_found", slug },
+        { error: "Not found", slug },
         { status: 404, headers: { "X-Robots-Tag": "noindex, nofollow" } }
       );
     }
 
-    return NextResponse.json(
-      { status: "ok", model: hit },
-      { headers: { "X-Robots-Tag": "noindex, nofollow" } }
-    );
+    return NextResponse.json(hit, {
+      headers: { "X-Robots-Tag": "noindex, nofollow" },
+    });
   } catch (err: any) {
     return NextResponse.json(
-      { status: "error", error: String(err?.message ?? err) },
+      { error: String(err?.message ?? err) },
       { status: 500, headers: { "X-Robots-Tag": "noindex, nofollow" } }
     );
   }

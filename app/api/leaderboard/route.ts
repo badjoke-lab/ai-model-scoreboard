@@ -31,13 +31,12 @@ async function readJson<T>(file: string): Promise<T> {
 export async function GET() {
   try {
     const leaderboard = await readJson<RankingEntry[]>("rankings.json");
-    return NextResponse.json(
-      { status: "ok", leaderboard },
-      { headers: { "X-Robots-Tag": "noindex, nofollow" } }
-    );
+    return NextResponse.json(leaderboard, {
+      headers: { "X-Robots-Tag": "noindex, nofollow" },
+    });
   } catch (err: any) {
     return NextResponse.json(
-      { status: "error", error: String(err?.message ?? err) },
+      { error: String(err?.message ?? err) },
       { status: 500, headers: { "X-Robots-Tag": "noindex, nofollow" } }
     );
   }
