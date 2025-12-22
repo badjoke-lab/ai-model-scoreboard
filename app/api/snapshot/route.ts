@@ -31,18 +31,8 @@ type RankingEntry = {
 type ModelsMap = Record<
   string,
   {
-    model: string;
+    name: string;
     vendor: string;
-    layer: string;
-    total: number;
-    scores: {
-      performance: number;
-      safety: number;
-      adoption: number;
-      openness: number;
-      cost: number;
-    };
-    updatedAt: string;
   }
 >;
 
@@ -60,19 +50,41 @@ export async function GET() {
     const meta = await readJson<SnapshotMeta>("index.json");
     const leaderboard = await readJson<RankingEntry[]>("rankings.json");
     const models = await readJson<ModelsMap>("models.json");
+    const notListed = await readJson<unknown[]>("not-listed.json");
+
+    const leaderboardCount = Array.isArray(leaderboard) ? leaderboard.length : 0;
+    const modelsCount = models ? Object.keys(models).length : 0;
+    const notListedCount = Array.isArray(notListed) ? notListed.length : 0;
+    const layerCounts = (Array.isArray(leaderboard) ? leaderboard : []).reduce(
+      (acc, entry) => {
+        const layer = String(entry?.layer ?? "").toLowerCase();
+        if (layer === "full") acc.full += 1;
+        else if (layer === "provisional") acc.provisional += 1;
+        return acc;
+      },
+      { full: 0, provisional: 0 }
+    );
+
+    const normalizedMeta: SnapshotMeta = {
+      ...meta,
+      modelsCount,
+      fullCount: layerCounts.full,
+      provisionalCount: layerCounts.provisional,
+      notListedCount,
+    };
 
     return NextResponse.json(
       {
-        status: "ok",
-        meta,
-        leaderboardCount: Array.isArray(leaderboard) ? leaderboard.length : 0,
-        modelsCount: models ? Object.keys(models).length : 0,
+        meta: normalizedMeta,
+        rankings: leaderboard,
+        models,
+        notListed,
       },
       { headers: { "X-Robots-Tag": "noindex, nofollow" } }
     );
   } catch (err: any) {
     return NextResponse.json(
-      { status: "error", error: String(err?.message ?? err) },
+      { error: String(err?.message ?? err) },
       { status: 500, headers: { "X-Robots-Tag": "noindex, nofollow" } }
     );
   }

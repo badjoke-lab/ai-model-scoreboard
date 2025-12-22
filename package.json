@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run check:routes && npm run typecheck && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "check:routes": "node scripts/check-route-safety.js",
+    "ci": "npm run check:routes && npm run typecheck && next build"
   },
   "dependencies": {
     "next": "14.2.3",
