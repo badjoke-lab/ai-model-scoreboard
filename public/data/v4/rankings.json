@@ -11,7 +11,7 @@
       "openness": 0,
       "cost": 100
     },
-    "updatedAt": "2025-12-22T16:05:12.942Z"
+    "updatedAt": "2025-12-23T11:31:47.716Z"
   },
   {
     "model": "openai-gpt-4.1",
@@ -25,7 +25,7 @@
       "openness": 0,
       "cost": 100
     },
-    "updatedAt": "2025-12-22T16:05:12.943Z"
+    "updatedAt": "2025-12-23T11:31:47.716Z"
   },
   {
     "model": "anthropic-claude-3.5-sonnet",
@@ -39,7 +39,7 @@
       "openness": 0,
       "cost": 100
     },
-    "updatedAt": "2025-12-22T16:05:12.943Z"
+    "updatedAt": "2025-12-23T11:31:47.716Z"
   },
   {
     "model": "google-gemini-1.5-pro",
@@ -53,7 +53,7 @@
       "openness": 0,
       "cost": 100
     },
-    "updatedAt": "2025-12-22T16:05:12.943Z"
+    "updatedAt": "2025-12-23T11:31:47.716Z"
   },
   {
     "model": "mistral-large-2",
@@ -67,6 +67,6 @@
       "openness": 0,
       "cost": 100
     },
-    "updatedAt": "2025-12-22T16:05:12.943Z"
+    "updatedAt": "2025-12-23T11:31:47.716Z"
   }
 ]
