@@ -3,9 +3,7 @@ import path from "path";
 
 const ROOT = process.cwd();
 const DATA_DIR = path.join(ROOT, "public", "data", "v4");
-const requiredIndexKeys = [
-  "version",
-  "updatedAt",
+const requiredCountKeys = [
   "modelsCount",
   "fullCount",
   "provisionalCount",
@@ -39,26 +37,32 @@ function validateIndex(data) {
     return;
   }
 
-  for (const key of requiredIndexKeys) {
+  if ("meta" in data && (typeof data.meta !== "object" || data.meta === null || Array.isArray(data.meta))) {
+    errors.push("index.json.meta must be an object");
+  }
+
+  const version = data?.meta?.version ?? data.version;
+  if (typeof version !== "string") {
+    errors.push(
+      "index.json.meta.version must be a string (or index.json.version for backward compatibility)",
+    );
+  } else if (version !== "v4") {
+    errors.push('index.json.meta.version must equal "v4"');
+  }
+
+  const updatedAt = data?.meta?.updatedAt ?? data.updatedAt;
+  if (typeof updatedAt !== "string") {
+    errors.push(
+      "index.json.meta.updatedAt must be a string (or index.json.updatedAt for backward compatibility)",
+    );
+  } else if (Number.isNaN(Date.parse(updatedAt))) {
+    errors.push("index.json.meta.updatedAt must be an ISO 8601 date string");
+  }
+
+  requiredCountKeys.forEach((key) => {
     if (!(key in data)) {
       errors.push(`index.json is missing required key "${key}"`);
-    }
-  }
-
-  if (typeof data.version !== "string") {
-    errors.push("index.json.version must be a string");
-  }
-  if (typeof data.updatedAt !== "string") {
-    errors.push("index.json.updatedAt must be a string");
-  }
-
-  [
-    "modelsCount",
-    "fullCount",
-    "provisionalCount",
-    "notListedCount",
-  ].forEach((key) => {
-    if (key in data && !Number.isFinite(data[key])) {
+    } else if (!Number.isFinite(data[key])) {
       errors.push(`index.json.${key} must be a number`);
     }
   });
