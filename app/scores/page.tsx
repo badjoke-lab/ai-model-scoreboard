@@ -20,7 +20,7 @@ type V4SnapshotIndex = {
 type V4RankingEntry = {
   model: string;
   vendor: string;
-  layer: string; // "full" | "provisional" | "rejected" etc.
+  layer: "full" | "provisional" | "rejected" | "not-listed";
   score: number;
   scores: {
     performance: number;
@@ -32,21 +32,21 @@ type V4RankingEntry = {
   updatedAt: string;
 };
 
-async function readJson<T>(fileName: string): Promise<T | null> {
-  try {
-    const fullPath = path.join(process.cwd(), "public", "data", "v4", fileName);
-    const raw = await fs.readFile(fullPath, "utf8");
-    return JSON.parse(raw) as T;
-  } catch (err) {
-    console.error("[scores] Failed to read", fileName, err);
-    return null;
-  }
+async function readJson<T>(fileName: string): Promise<T> {
+  const fullPath = path.join(process.cwd(), "public", "data", "v4", fileName);
+  const raw = await fs.readFile(fullPath, "utf8");
+  return JSON.parse(raw) as T;
 }
 
 async function loadSnapshot() {
-  const index = await readJson<V4SnapshotIndex>("index.json");
-  const rankings = (await readJson<V4RankingEntry[]>("rankings.json")) ?? [];
-  return { meta: index?.meta ?? null, rankings };
+  try {
+    const index = await readJson<V4SnapshotIndex>("index.json");
+    const rankings = await readJson<V4RankingEntry[]>("rankings.json");
+    return { meta: index.meta, rankings };
+  } catch (err) {
+    console.error("[scores] Failed to load v4 snapshot", err);
+    return { meta: null, rankings: null };
+  }
 }
 
 function formatUpdatedLabel(iso?: string | null) {
@@ -71,6 +71,7 @@ function isFiniteNumber(v: unknown): v is number {
 function validateSnapshot(meta: V4SnapshotMeta, rankings: V4RankingEntry[]) {
   const fatal: string[] = [];
   const warn: string[] = [];
+  const seenModels = new Set<string>();
 
   // meta checks
   if (meta.version !== "v4") {
@@ -90,18 +91,14 @@ function validateSnapshot(meta: V4SnapshotMeta, rankings: V4RankingEntry[]) {
     if (rankings.length === 0) {
       fatal.push(`rankings.json: empty (0 entries)`);
     }
-    if (
-      isFiniteNumber(meta.modelsCount) &&
-      rankings.length > 0 &&
-      meta.modelsCount !== rankings.length
-    ) {
-      warn.push(
+
+    if (isFiniteNumber(meta.modelsCount) && meta.modelsCount !== rankings.length) {
+      fatal.push(
         `Mismatch: index.modelsCount (${meta.modelsCount}) !== rankings.length (${rankings.length})`
       );
     }
 
-    // spot-check first N entries (cheap but effective)
-    for (let i = 0; i < Math.min(rankings.length, 20); i++) {
+    for (let i = 0; i < rankings.length; i++) {
       const e = rankings[i];
       if (!e || typeof e !== "object") {
         fatal.push(`rankings.json: entry[${i}] is not an object`);
@@ -112,7 +109,17 @@ function validateSnapshot(meta: V4SnapshotMeta, rankings: V4RankingEntry[]) {
         break;
       }
       if (!e.vendor || typeof e.vendor !== "string") {
-        warn.push(`rankings.json: entry[${i}].vendor is missing/invalid`);
+        fatal.push(`rankings.json: entry[${i}].vendor is missing/invalid`);
+        break;
+      }
+      if (seenModels.has(e.model)) {
+        fatal.push(`rankings.json: duplicate model slug "${e.model}"`);
+        break;
+      }
+      seenModels.add(e.model);
+      if (!["full", "provisional", "rejected", "not-listed"].includes(e.layer)) {
+        fatal.push(`rankings.json: entry[${i}].layer is invalid`);
+        break;
       }
       if (!isFiniteNumber(e.score)) {
         fatal.push(`rankings.json: entry[${i}].score is missing/invalid`);
@@ -130,6 +137,21 @@ function validateSnapshot(meta: V4SnapshotMeta, rankings: V4RankingEntry[]) {
         }
       }
       if (fatal.length) break;
+    }
+
+    for (let i = 1; i < rankings.length; i++) {
+      const prev = rankings[i - 1];
+      const current = rankings[i];
+      if (prev.score < current.score) {
+        fatal.push(`rankings.json: order must be score desc (index ${i - 1} before ${i})`);
+        break;
+      }
+      if (prev.score === current.score && prev.model.localeCompare(current.model) > 0) {
+        fatal.push(
+          `rankings.json: tie-breaker must be model slug asc (index ${i - 1} before ${i})`
+        );
+        break;
+      }
     }
   }
 
@@ -196,7 +218,7 @@ export default async function ScoresPage() {
   const { meta, rankings } = await loadSnapshot();
   const lastUpdatedLabel = formatUpdatedLabel(meta?.updatedAt);
 
-  if (!meta) {
+  if (!meta || !rankings) {
     return (
       <main className="mx-auto max-w-6xl px-4 py-10 space-y-4">
         <h1 className="text-3xl font-semibold text-slate-50">Leaderboard</h1>
@@ -246,8 +268,6 @@ export default async function ScoresPage() {
       </main>
     );
   }
-
-  const sorted = [...rankings].sort((a, b) => b.score - a.score);
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-10 space-y-8">
@@ -303,7 +323,7 @@ export default async function ScoresPage() {
 
       {/* Mobile cards */}
       <div className="space-y-3 md:hidden">
-        {sorted.map((entry, index) => (
+        {rankings.map((entry, index) => (
           <div
             key={entry.model}
             className="rounded-2xl border border-slate-800 bg-surface/70 p-4 shadow"
@@ -375,7 +395,7 @@ export default async function ScoresPage() {
         </div>
 
         <div className="divide-y divide-slate-800/80">
-          {sorted.map((entry, index) => (
+          {rankings.map((entry, index) => (
             <div
               key={entry.model}
               className="grid grid-cols-9 items-center px-4 py-3 text-sm text-slate-200 hover:bg-surface/80"
