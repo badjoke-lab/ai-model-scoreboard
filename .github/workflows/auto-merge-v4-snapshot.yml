@@ -1,0 +1,132 @@
+name: Auto-merge v4 snapshots
+
+on:
+  pull_request:
+    types: [opened, synchronize, labeled]
+  workflow_run:
+    workflows: ["CI", "Validate v4 snapshot"]
+    types:
+      - completed
+
+permissions:
+  contents: write
+  pull-requests: write
+  checks: read
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Evaluate snapshot PR for auto-merge
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            const requiredChecks = [
+              "CI / build",
+              "Validate v4 snapshot / validate",
+            ];
+
+            let prNumber;
+            if (context.eventName === "pull_request") {
+              prNumber = context.payload.pull_request.number;
+            } else if (context.eventName === "workflow_run") {
+              const pullRequests = context.payload.workflow_run.pull_requests || [];
+              if (!pullRequests.length) {
+                core.info("Decision: skipped (workflow_run has no pull requests)");
+                return;
+              }
+              prNumber = pullRequests[0].number;
+            } else {
+              core.info(`Decision: skipped (unsupported event ${context.eventName})`);
+              return;
+            }
+
+            const { data: pr } = await github.rest.pulls.get({
+              owner,
+              repo,
+              pull_number: prNumber,
+            });
+
+            const prUrl = pr.html_url;
+            core.info(`PR: ${prUrl}`);
+
+            const branchOk = pr.head.ref.startsWith("chore/update-v4-snapshot-");
+            const labels = pr.labels.map((label) => label.name);
+            const labelOk = labels.includes("snapshot");
+
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner,
+              repo,
+              pull_number: prNumber,
+              per_page: 100,
+            });
+
+            const touchesV4 = files.some((file) =>
+              file.filename.startsWith("public/data/v4/")
+            );
+            const onlyV4 = files.every((file) =>
+              file.filename.startsWith("public/data/v4/")
+            );
+
+            if (!branchOk || !labelOk || !touchesV4 || !onlyV4) {
+              core.info(
+                `Decision: skipped (branchOk=${branchOk}, labelOk=${labelOk}, touchesV4=${touchesV4}, onlyV4=${onlyV4})`
+              );
+              return;
+            }
+
+            const { data: checks } = await github.rest.checks.listForRef({
+              owner,
+              repo,
+              ref: pr.head.sha,
+            });
+
+            const checkRuns = checks.check_runs || [];
+            const checkStates = requiredChecks.map((name) => {
+              const match = checkRuns.find((run) => run.name === name);
+              return {
+                name,
+                status: match?.status || "missing",
+                conclusion: match?.conclusion || "missing",
+              };
+            });
+
+            core.info(`Required checks: ${JSON.stringify(checkStates)}`);
+
+            const allSuccess = checkStates.every(
+              (check) => check.conclusion === "success"
+            );
+
+            if (allSuccess && pr.mergeable_state === "clean") {
+              core.info("Decision: merging now (checks green)");
+              await github.rest.pulls.merge({
+                owner,
+                repo,
+                pull_number: prNumber,
+                merge_method: "squash",
+              });
+              return;
+            }
+
+            if (pr.auto_merge) {
+              core.info("Decision: skipped (auto-merge already enabled)");
+              return;
+            }
+
+            core.info("Decision: enabling auto-merge (checks pending or mergeable_state not clean)");
+            await github.graphql(
+              `mutation EnableAutoMerge($pullRequestId: ID!, $mergeMethod: PullRequestMergeMethod!) {
+                enablePullRequestAutoMerge(input: {pullRequestId: $pullRequestId, mergeMethod: $mergeMethod}) {
+                  pullRequest {
+                    number
+                  }
+                }
+              }`,
+              {
+                pullRequestId: pr.node_id,
+                mergeMethod: "SQUASH",
+              }
+            );
