@@ -1,12 +1,4 @@
 {
-  "openai-gpt-4.1-mini": {
-    "name": "openai-gpt-4.1-mini",
-    "vendor": "openai"
-  },
-  "openai-gpt-4.1": {
-    "name": "openai-gpt-4.1",
-    "vendor": "openai"
-  },
   "anthropic-claude-3.5-sonnet": {
     "name": "anthropic-claude-3.5-sonnet",
     "vendor": "anthropic"
@@ -18,5 +10,13 @@
   "mistral-large-2": {
     "name": "mistral-large-2",
     "vendor": "mistral"
+  },
+  "openai-gpt-4.1": {
+    "name": "openai-gpt-4.1",
+    "vendor": "openai"
+  },
+  "openai-gpt-4.1-mini": {
+    "name": "openai-gpt-4.1-mini",
+    "vendor": "openai"
   }
 }

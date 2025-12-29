@@ -65,6 +65,8 @@ function validateRankings(data, errors) {
     return;
   }
 
+  const seenModels = new Set();
+
   data.forEach((entry, idx) => {
     const prefix = `rankings.json[${idx}]`;
     if (!assertObject(entry, prefix, errors)) return;
@@ -78,8 +80,18 @@ function validateRankings(data, errors) {
     ["model", "vendor"].forEach((field) => {
       if (field in entry && typeof entry[field] !== "string") {
         errors.push(`${prefix}.${field} must be a string`);
+      } else if (field in entry && entry[field].trim() === "") {
+        errors.push(`${prefix}.${field} must be a non-empty string`);
       }
     });
+
+    if (typeof entry.model === "string" && entry.model.trim() !== "") {
+      if (seenModels.has(entry.model)) {
+        errors.push(`rankings.json contains duplicate model slug "${entry.model}"`);
+      } else {
+        seenModels.add(entry.model);
+      }
+    }
 
     if ("layer" in entry && typeof entry.layer === "string") {
       if (!ALLOWED_LAYERS.has(entry.layer)) {
@@ -138,6 +150,12 @@ function validateRankings(data, errors) {
 function validateModels(data, errors) {
   if (!assertObject(data, "models.json", errors)) return;
 
+  const slugs = Object.keys(data);
+  const sortedSlugs = [...slugs].sort((a, b) => a.localeCompare(b));
+  if (slugs.length > 1 && slugs.some((slug, idx) => slug !== sortedSlugs[idx])) {
+    errors.push("models.json keys must be sorted ascending by model slug");
+  }
+
   Object.entries(data).forEach(([slug, model]) => {
     const prefix = `models.json[${slug}]`;
     if (!slug || typeof slug !== "string") {
@@ -189,6 +207,80 @@ export function validateSnapshotData(indexData, rankingsData, modelsData, notLis
   if (rankingsData) validateRankings(rankingsData, errors);
   if (modelsData) validateModels(modelsData, errors);
   if (notListedData) validateNotListed(notListedData, errors);
+
+  if (rankingsData && modelsData && Array.isArray(rankingsData)) {
+    rankingsData.forEach((entry, idx) => {
+      if (!entry || typeof entry !== "object") return;
+      if (typeof entry.model !== "string" || entry.model.trim() === "") return;
+      const meta = modelsData[entry.model];
+      if (!meta) {
+        errors.push(
+          `models.json is missing metadata for rankings.json[${idx}].model "${entry.model}"`
+        );
+        return;
+      }
+      if (
+        typeof entry.vendor === "string" &&
+        typeof meta.vendor === "string" &&
+        entry.vendor !== meta.vendor
+      ) {
+        errors.push(
+          `vendor mismatch for "${entry.model}": rankings.json has "${entry.vendor}", models.json has "${meta.vendor}"`
+        );
+      }
+    });
+  }
+
+  if (rankingsData && notListedData && Array.isArray(rankingsData) && Array.isArray(notListedData)) {
+    const rankingModels = new Set(
+      rankingsData
+        .map((entry) => (typeof entry?.model === "string" ? entry.model : null))
+        .filter(Boolean)
+    );
+    notListedData.forEach((slug) => {
+      if (typeof slug === "string" && rankingModels.has(slug)) {
+        errors.push(`not-listed.json must not include listed model "${slug}"`);
+      }
+    });
+  }
+
+  if (indexData && rankingsData && Array.isArray(rankingsData)) {
+    const modelsCount = rankingsData.length;
+    if (indexData.meta?.modelsCount !== modelsCount) {
+      errors.push(
+        `index.json.meta.modelsCount (${indexData.meta?.modelsCount}) must equal rankings.json length (${modelsCount})`
+      );
+    }
+
+    const layerCounts = rankingsData.reduce(
+      (acc, entry) => {
+        if (entry?.layer === "full") acc.full += 1;
+        if (entry?.layer === "provisional") acc.provisional += 1;
+        return acc;
+      },
+      { full: 0, provisional: 0 }
+    );
+
+    if (indexData.meta?.fullCount !== layerCounts.full) {
+      errors.push(
+        `index.json.meta.fullCount (${indexData.meta?.fullCount}) must equal number of "full" rankings (${layerCounts.full})`
+      );
+    }
+    if (indexData.meta?.provisionalCount !== layerCounts.provisional) {
+      errors.push(
+        `index.json.meta.provisionalCount (${indexData.meta?.provisionalCount}) must equal number of "provisional" rankings (${layerCounts.provisional})`
+      );
+    }
+  }
+
+  if (indexData && notListedData && Array.isArray(notListedData)) {
+    if (indexData.meta?.notListedCount !== notListedData.length) {
+      errors.push(
+        `index.json.meta.notListedCount (${indexData.meta?.notListedCount}) must equal not-listed.json length (${notListedData.length})`
+      );
+    }
+  }
+
   return errors;
 }
 

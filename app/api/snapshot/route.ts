@@ -59,30 +59,9 @@ export async function GET() {
     const models = await readJson<ModelsMap>("models.json");
     const notListed = await readJson<unknown[]>("not-listed.json");
 
-    const leaderboardCount = Array.isArray(leaderboard) ? leaderboard.length : 0;
-    const modelsCount = models ? Object.keys(models).length : 0;
-    const notListedCount = Array.isArray(notListed) ? notListed.length : 0;
-    const layerCounts = (Array.isArray(leaderboard) ? leaderboard : []).reduce(
-      (acc, entry) => {
-        const layer = String(entry?.layer ?? "").toLowerCase();
-        if (layer === "full") acc.full += 1;
-        else if (layer === "provisional") acc.provisional += 1;
-        return acc;
-      },
-      { full: 0, provisional: 0 }
-    );
-
-    const normalizedMeta: SnapshotMeta = {
-      ...index.meta,
-      modelsCount,
-      fullCount: layerCounts.full,
-      provisionalCount: layerCounts.provisional,
-      notListedCount,
-    };
-
     return NextResponse.json(
       {
-        meta: normalizedMeta,
+        meta: index.meta as SnapshotMeta,
         rankings: leaderboard,
         models,
         notListed,

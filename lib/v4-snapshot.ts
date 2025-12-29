@@ -76,6 +76,17 @@ async function loadV4SnapshotData(): Promise<{
   return { index, rankings, models, notListed };
 }
 
+function requireModelMetadata(
+  models: Record<string, V4ModelMetadata>,
+  modelId: string
+): V4ModelMetadata {
+  const meta = models[modelId];
+  if (!meta) {
+    throw new Error(`Missing models.json entry for "${modelId}"`);
+  }
+  return meta;
+}
+
 export async function loadV4Leaderboard(): Promise<{
   index: V4IndexData;
   rankings: V4LeaderboardRow[];
@@ -83,17 +94,13 @@ export async function loadV4Leaderboard(): Promise<{
 }> {
   const { index, rankings, models } = await loadV4SnapshotData();
 
-  const sortedRankings = [...rankings]
-    .filter((entry) => typeof entry.score === "number")
-    .sort((a, b) => b.score - a.score);
-
-  const enriched = sortedRankings.map((entry, idx) => {
-    const meta = models[entry.model];
+  const enriched = rankings.map((entry, idx) => {
+    const meta = requireModelMetadata(models, entry.model);
     return {
       ...entry,
       rank: idx + 1,
-      displayName: meta?.name ?? entry.model,
-      displayVendor: meta?.vendor ?? entry.vendor,
+      displayName: meta.name,
+      displayVendor: meta.vendor,
     } satisfies V4LeaderboardRow;
   });
 
@@ -107,18 +114,18 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
 }> {
   const { index, rankings, models, notListed } = await loadV4SnapshotData();
   const ranking = rankings.find((entry) => entry.model === modelId);
-  const meta = models[modelId];
 
   if (ranking) {
+    const meta = requireModelMetadata(models, ranking.model);
     return {
       detail: {
         id: ranking.model,
-        name: meta?.name ?? ranking.model,
-        vendor: meta?.vendor ?? ranking.vendor,
+        name: meta.name,
+        vendor: meta.vendor,
         layer: ranking.layer,
         score: ranking.score,
         scores: ranking.scores,
-        updatedAt: ranking.updatedAt ?? index.meta.updatedAt,
+        updatedAt: ranking.updatedAt,
       },
       isNotListed: false,
       index,

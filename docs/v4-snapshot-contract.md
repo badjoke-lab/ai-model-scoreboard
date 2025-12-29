@@ -31,26 +31,33 @@ This document is the single source of truth for the v4 snapshot schema consumed 
 **Ordering**
 - Not applicable (object map). The contract does not require a key order.
 
+**Cross-file requirements**
+- `modelsCount` must equal `rankings.json.length`.
+- `fullCount` must equal the number of `rankings.json` entries with `layer: "full"`.
+- `provisionalCount` must equal the number of `rankings.json` entries with `layer: "provisional"`.
+- `notListedCount` must equal `not-listed.json.length`.
+
 ### `public/data/v4/rankings.json`
 
 Array of leaderboard entries.
 
 **Required keys per entry**
-- `model` (string, model slug)
-- `vendor` (string)
+- `model` (string, non-empty model slug)
+- `vendor` (string, non-empty)
 - `layer` (string, one of `full`, `provisional`, `rejected`, `not-listed`)
-- `score` (number)
+- `score` (number, finite)
 - `scores` (object)
-  - `performance` (number)
-  - `safety` (number)
-  - `adoption` (number)
-  - `openness` (number)
-  - `cost` (number)
+  - `performance` (number, finite)
+  - `safety` (number, finite)
+  - `adoption` (number, finite)
+  - `openness` (number, finite)
+  - `cost` (number, finite)
 - `updatedAt` (ISO 8601 timestamp string)
 
 **Ordering**
 - Sorted by `score` descending.
 - Tie-breaker: `model` slug ascending (lexicographic).
+- No duplicate `model` slugs.
 
 ### `public/data/v4/models.json`
 
@@ -60,8 +67,12 @@ Object map keyed by model slug.
 - `name` (string, non-empty)
 - `vendor` (string, non-empty)
 
+**Cross-file requirements**
+- Every `rankings.json[*].model` slug must exist as a key in `models.json`.
+- For any shared slug, `rankings.json[*].vendor` must equal `models.json[slug].vendor`.
+
 **Ordering**
-- Not applicable (object map). The contract does not require a key order.
+- Keys must be sorted ascending by model slug (lexicographic). This makes the JSON stable for diffs.
 
 ### `public/data/v4/not-listed.json`
 
@@ -73,15 +84,18 @@ Array of model slugs that are not listed.
 **Ordering**
 - Sorted ascending by model slug.
 - No duplicates.
+- Entries must not overlap with any `rankings.json[*].model` slug.
 
-## Breaking vs. Non-breaking changes
+## Compatibility Policy (Breaking vs. Non-breaking changes)
 
 **Breaking changes (not allowed without a version bump)**
 - Removing or renaming any required key.
 - Changing a required key's type.
 - Changing the `index.json` structure away from `meta`.
 - Changing the allowed `layer` values.
-- Changing ordering guarantees for `rankings.json` or `not-listed.json`.
+- Changing ordering guarantees for `rankings.json`, `models.json`, or `not-listed.json`.
+- Allowing duplicate model slugs in any of the files.
+- Removing the cross-file requirements between `rankings.json` and `models.json`.
 
 **Non-breaking changes (allowed)**
 - Adding optional keys to `meta`, ranking entries, or model metadata.
