@@ -27,5 +27,10 @@ export async function fetchSnapshotMeta(): Promise<V4SnapshotMeta> {
     throw new Error(`Failed to fetch snapshot meta: ${response.status}`);
   }
 
-  return response.json();
+  const payload = (await response.json()) as { meta?: V4SnapshotMeta };
+  if (!payload?.meta) {
+    throw new Error("Snapshot index missing meta payload");
+  }
+
+  return payload.meta;
 }

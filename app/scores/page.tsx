@@ -13,6 +13,10 @@ type V4SnapshotMeta = {
   notListedCount: number;
 };
 
+type V4SnapshotIndex = {
+  meta: V4SnapshotMeta;
+};
+
 type V4RankingEntry = {
   model: string;
   vendor: string;
@@ -40,9 +44,9 @@ async function readJson<T>(fileName: string): Promise<T | null> {
 }
 
 async function loadSnapshot() {
-  const meta = await readJson<V4SnapshotMeta>("index.json");
+  const index = await readJson<V4SnapshotIndex>("index.json");
   const rankings = (await readJson<V4RankingEntry[]>("rankings.json")) ?? [];
-  return { meta, rankings };
+  return { meta: index?.meta ?? null, rankings };
 }
 
 function formatUpdatedLabel(iso?: string | null) {

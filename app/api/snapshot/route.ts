@@ -13,6 +13,10 @@ type SnapshotMeta = {
   notListedCount: number;
 };
 
+type SnapshotIndex = {
+  meta: SnapshotMeta;
+};
+
 type RankingEntry = {
   model: string;
   vendor: string;
@@ -47,7 +51,10 @@ async function readJson<T>(file: string): Promise<T> {
 
 export async function GET() {
   try {
-    const meta = await readJson<SnapshotMeta>("index.json");
+    const index = await readJson<SnapshotIndex>("index.json");
+    if (!index?.meta) {
+      throw new Error("Snapshot index is missing meta");
+    }
     const leaderboard = await readJson<RankingEntry[]>("rankings.json");
     const models = await readJson<ModelsMap>("models.json");
     const notListed = await readJson<unknown[]>("not-listed.json");
@@ -66,7 +73,7 @@ export async function GET() {
     );
 
     const normalizedMeta: SnapshotMeta = {
-      ...meta,
+      ...index.meta,
       modelsCount,
       fullCount: layerCounts.full,
       provisionalCount: layerCounts.provisional,
