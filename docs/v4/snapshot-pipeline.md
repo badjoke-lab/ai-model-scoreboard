@@ -62,4 +62,12 @@ Run it locally with:
 node scripts/validate_v4_snapshot.mjs
 ```
 
+## Auto-merge for daily snapshots
+
+Daily snapshot PRs opened by `private-engine` use the branch prefix
+`chore/update-v4-snapshot-` and include the `snapshot` label. When those PRs
+only change `public/data/v4/**`, GitHub Actions enables auto-merge (squash) once
+`Validate v4 snapshot` and `CI / build` checks are green. If the checks already
+passed, the workflow merges immediately without bypassing protections.
+
 Future automation should mirror these steps while keeping the public files authoritative for the site.
