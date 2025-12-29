@@ -37,24 +37,21 @@ function validateIndex(data) {
     return;
   }
 
-  if ("meta" in data && (typeof data.meta !== "object" || data.meta === null || Array.isArray(data.meta))) {
+  if (typeof data.meta !== "object" || data.meta === null || Array.isArray(data.meta)) {
     errors.push("index.json.meta must be an object");
+    return;
   }
 
-  const version = data?.meta?.version ?? data.version;
+  const version = data.meta.version;
   if (typeof version !== "string") {
-    errors.push(
-      "index.json.meta.version must be a string (or index.json.version for backward compatibility)",
-    );
+    errors.push("index.json.meta.version must be a string");
   } else if (version !== "v4") {
     errors.push('index.json.meta.version must equal "v4"');
   }
 
-  const updatedAt = data?.meta?.updatedAt ?? data.updatedAt;
+  const updatedAt = data.meta.updatedAt;
   if (typeof updatedAt !== "string") {
-    errors.push(
-      "index.json.meta.updatedAt must be a string (or index.json.updatedAt for backward compatibility)",
-    );
+    errors.push("index.json.meta.updatedAt must be a string");
   } else if (Number.isNaN(Date.parse(updatedAt))) {
     errors.push("index.json.meta.updatedAt must be an ISO 8601 date string");
   }

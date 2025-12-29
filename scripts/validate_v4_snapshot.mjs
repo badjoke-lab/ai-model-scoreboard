@@ -30,9 +30,13 @@ function validateIndex(data) {
 
   if (typeof data.meta.version !== "string") {
     errors.push("index.json.meta.version must be a string");
+  } else if (data.meta.version !== "v4") {
+    errors.push('index.json.meta.version must equal "v4"');
   }
   if (typeof data.meta.updatedAt !== "string") {
     errors.push("index.json.meta.updatedAt must be a string");
+  } else if (Number.isNaN(Date.parse(data.meta.updatedAt))) {
+    errors.push("index.json.meta.updatedAt must be an ISO 8601 date string");
   }
 
   ["modelsCount", "fullCount", "provisionalCount", "notListedCount"].forEach(
