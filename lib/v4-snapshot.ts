@@ -1,13 +1,17 @@
 import { promises as fs } from "fs";
 import path from "path";
 
-export type V4IndexData = {
+export type V4SnapshotMeta = {
   version: string;
   updatedAt: string;
   modelsCount: number;
   fullCount: number;
   provisionalCount: number;
   notListedCount: number;
+};
+
+export type V4IndexData = {
+  meta: V4SnapshotMeta;
 };
 
 export type V4ScoreBreakdown = {
@@ -24,7 +28,7 @@ export type V4RankingEntry = {
   layer: "full" | "provisional" | "rejected" | "not-listed";
   score: number;
   scores: V4ScoreBreakdown;
-  updatedAt?: string;
+  updatedAt: string;
 };
 
 export type V4ModelMetadata = {
@@ -47,7 +51,7 @@ export type V4ModelDetail = {
   layer: V4RankingEntry["layer"];
   score: number;
   scores: V4ScoreBreakdown;
-  updatedAt?: string;
+  updatedAt: string;
 };
 
 async function readJsonFile<T>(filename: string): Promise<T> {
@@ -114,7 +118,7 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
         layer: ranking.layer,
         score: ranking.score,
         scores: ranking.scores,
-        updatedAt: ranking.updatedAt ?? index.updatedAt,
+        updatedAt: ranking.updatedAt ?? index.meta.updatedAt,
       },
       isNotListed: false,
       index,

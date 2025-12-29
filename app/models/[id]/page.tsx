@@ -89,7 +89,7 @@ export default async function ModelDetailPage({ params }: { params: { id: string
     );
   }
 
-  const updatedLabel = formatDate(detail.updatedAt ?? index.updatedAt);
+  const updatedLabel = formatDate(detail.updatedAt ?? index.meta.updatedAt);
 
   return (
     <div className="space-y-8">
