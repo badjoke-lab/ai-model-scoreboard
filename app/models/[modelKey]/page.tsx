@@ -1,6 +1,10 @@
 import Link from "next/link";
 
-import { loadV4ModelDetail, type V4EnrichmentSignal } from "@/lib/v4-snapshot";
+import {
+  loadV4ModelDetail,
+  type V4EnrichmentSignal,
+  type V4EvidenceItem,
+} from "@/lib/v4-snapshot";
 
 function formatScore(value: number): string {
   return value.toFixed(1);
@@ -21,6 +25,14 @@ function formatDate(value: string | undefined): string {
       });
 }
 
+function formatStatus(status: "adopted" | "provisional" | "denied") {
+  return status === "adopted"
+    ? "Adopted"
+    : status === "provisional"
+      ? "Provisional"
+      : "Denied";
+}
+
 function LayerBadge({ layer }: { layer: "full" | "provisional" | "rejected" | "not-listed" }) {
   if (!layer) return null;
   const label = layer.replace("-", " ");
@@ -32,6 +44,25 @@ function LayerBadge({ layer }: { layer: "full" | "provisional" | "rejected" | "n
         : layer === "rejected"
           ? "border-rose-500/50 text-rose-200"
           : "border-slate-600 text-slate-400";
+
+  return (
+    <span
+      className={`rounded-full border bg-slate-900/60 px-2 py-1 text-[0.65rem] uppercase tracking-wide ${colorClasses}`}
+    >
+      {label}
+    </span>
+  );
+}
+
+function StatusBadge({ status }: { status: "adopted" | "provisional" | "denied" }) {
+  const label =
+    status === "adopted" ? "Adopted" : status === "provisional" ? "Provisional" : "Denied";
+  const colorClasses =
+    status === "adopted"
+      ? "border-emerald-400/60 text-emerald-200"
+      : status === "provisional"
+        ? "border-amber-400/60 text-amber-200"
+        : "border-rose-500/50 text-rose-200";
 
   return (
     <span
@@ -74,22 +105,84 @@ function EnrichmentRow({
   );
 }
 
-export default async function ModelDetailPage({ params }: { params: { id: string } }) {
-  const modelId = decodeURIComponent(params.id);
-  const { detail, isNotListed, index } = await loadV4ModelDetail(modelId);
+function EvidenceRow({ item }: { item: V4EvidenceItem }) {
+  return (
+    <div className="rounded-2xl border border-slate-800/80 bg-background/60 p-4 shadow">
+      <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400">
+        <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[0.65rem] uppercase tracking-wide text-slate-300">
+          {item.type}
+        </span>
+        {item.status ? (
+          <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[0.65rem] uppercase tracking-wide text-slate-400">
+            {item.status}
+          </span>
+        ) : null}
+      </div>
+      {item.summary ? <p className="mt-2 text-sm text-slate-200">{item.summary}</p> : null}
+      {item.reasonCodes?.length ? (
+        <div className="mt-3 flex flex-wrap gap-2 text-[0.7rem]">
+          {item.reasonCodes.map((code) => (
+            <span
+              key={code}
+              className="rounded-full border border-slate-700/70 bg-slate-900/50 px-2 py-0.5 text-slate-300"
+            >
+              {code}
+            </span>
+          ))}
+        </div>
+      ) : null}
+      {item.refs?.length ? (
+        <ul className="mt-3 space-y-2 text-xs text-slate-400">
+          {item.refs.map((ref, index) => (
+            <li key={`${ref.label ?? ref.url ?? "ref"}-${index}`} className="space-y-1">
+              <div className="font-semibold text-slate-300">{ref.label ?? "Reference"}</div>
+              {ref.note ? <div className="text-slate-500">{ref.note}</div> : null}
+              {ref.url ? (
+                <Link
+                  href={ref.url}
+                  className="text-xs font-semibold text-accent hover:text-accent/80"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View source →
+                </Link>
+              ) : null}
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </div>
+  );
+}
+
+export default async function ModelDetailPage({
+  params,
+}: {
+  params: { modelKey: string };
+}) {
+  const modelKey = decodeURIComponent(params.modelKey);
+  const { detail, isNotListed, notListedEntry, index } = await loadV4ModelDetail(modelKey);
 
   if (!detail && isNotListed) {
     return (
       <div className="space-y-6">
         <header className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">AI Model Scoreboard · v4</p>
-          <h1 className="text-3xl font-semibold text-slate-50">{modelId}</h1>
+          <h1 className="text-3xl font-semibold text-slate-50">{modelKey}</h1>
         </header>
         <div className="space-y-3 rounded-2xl border border-slate-800 bg-surface/70 p-5 text-slate-200 shadow-lg">
           <p className="text-lg font-semibold text-slate-50">This model is currently not listed in the v4 scoreboard.</p>
           <p className="text-sm text-slate-400">
             The model is known to the AMS pipeline but is intentionally excluded from the published leaderboard snapshot.
           </p>
+          {notListedEntry?.reason ? (
+            <p className="text-sm text-slate-400">Decision reason: {notListedEntry.reason}</p>
+          ) : null}
+          {notListedEntry?.source ? (
+            <p className="text-xs uppercase tracking-wide text-slate-500">
+              Decision source: {notListedEntry.source}
+            </p>
+          ) : null}
         </div>
         <Link href="/v4" className="text-sm font-semibold text-accent underline">
           ← Back to leaderboard
@@ -121,6 +214,7 @@ export default async function ModelDetailPage({ params }: { params: { id: string
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div className="space-y-3">
             <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
+              <StatusBadge status={detail.status} />
               <LayerBadge layer={detail.layer} />
               <span className="rounded-full border border-slate-800 px-3 py-1 font-semibold uppercase tracking-wide text-slate-300">
                 {detail.vendor}
@@ -136,6 +230,31 @@ export default async function ModelDetailPage({ params }: { params: { id: string
           </div>
         </div>
       </header>
+
+      <section className="space-y-3 rounded-2xl border border-slate-800 bg-surface/70 p-5 shadow-xl">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <h2 className="text-lg font-semibold text-slate-100">Identity</h2>
+          <p className="text-xs text-slate-400">Canonical identifiers and adoption status.</p>
+        </div>
+        <div className="grid grid-cols-1 gap-4 text-sm text-slate-300 sm:grid-cols-2">
+          <div>
+            <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Model key</p>
+            <p className="font-semibold text-slate-50">{detail.id}</p>
+          </div>
+          <div>
+            <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Provider</p>
+            <p className="font-semibold text-slate-50">{detail.vendor}</p>
+          </div>
+          <div>
+            <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Adoption status</p>
+            <p className="font-semibold text-slate-50">{formatStatus(detail.status)}</p>
+          </div>
+          <div>
+            <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Listing layer</p>
+            <p className="font-semibold text-slate-50">{detail.layer}</p>
+          </div>
+        </div>
+      </section>
 
       <section className="space-y-3">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
@@ -160,6 +279,29 @@ export default async function ModelDetailPage({ params }: { params: { id: string
           <EnrichmentRow label="Developer activity" signal={detail.enrichment?.github} />
           <EnrichmentRow label="Audit evidence" signal={detail.enrichment?.audit} />
         </div>
+      </section>
+
+      <section className="space-y-3">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+          <h2 className="text-lg font-semibold text-slate-100">Evidence</h2>
+          <p className="text-xs text-slate-400">Reason codes and references used by the v4 evidence pipeline.</p>
+        </div>
+        {detail.evidenceError ? (
+          <div className="rounded-2xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-100">
+            Evidence file missing or invalid: {detail.evidenceError}
+          </div>
+        ) : null}
+        {detail.evidenceItems.length ? (
+          <div className="space-y-3">
+            {detail.evidenceItems.map((item, index) => (
+              <EvidenceRow key={`${item.type}-${index}`} item={item} />
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-2xl border border-slate-800 bg-surface/70 px-4 py-3 text-sm text-slate-400">
+            No evidence items are available for this model in the current snapshot.
+          </div>
+        )}
       </section>
 
       <section className="space-y-3 rounded-2xl border border-slate-800 bg-surface/80 p-5 shadow-xl">
