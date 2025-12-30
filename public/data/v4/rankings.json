@@ -11,7 +11,7 @@
       "openness": 15,
       "cost": 45
     },
-    "updatedAt": "2025-12-30T02:09:10.262Z"
+    "updatedAt": "2025-12-30T03:46:14.945Z"
   },
   {
     "model": "example-missing-vendor",
@@ -25,6 +25,6 @@
       "openness": 0,
       "cost": 0
     },
-    "updatedAt": "2025-12-30T02:09:10.262Z"
+    "updatedAt": "2025-12-30T03:46:14.945Z"
   }
 ]
