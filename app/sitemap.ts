@@ -13,7 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: updatedAt,
     },
     {
-      url: `${SITE_URL}/scores`,
+      url: `${SITE_URL}/v4`,
       lastModified: updatedAt,
     },
   ];

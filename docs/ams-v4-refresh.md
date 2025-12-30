@@ -75,11 +75,11 @@ Vercel will deploy automatically.
 
 ---
 
-## 3. Verify on /v4-preview
+## 3. Verify on /v4
 
 Once the deployment finishes, open:
 
-* `https://ai-model-scoreboard.vercel.app/v4-preview`
+* `https://ai-model-scoreboard.vercel.app/v4`
 
 Check that:
 

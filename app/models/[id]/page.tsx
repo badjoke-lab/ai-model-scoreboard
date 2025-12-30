@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { loadV4ModelDetail } from "@/lib/v4-snapshot";
+import { loadV4ModelDetail, type V4EnrichmentSignal } from "@/lib/v4-snapshot";
 
 function formatScore(value: number): string {
   return value.toFixed(1);
@@ -51,6 +51,29 @@ function ScorePill({ label, value }: { label: string; value: string }) {
   );
 }
 
+function EnrichmentRow({
+  label,
+  signal,
+}: {
+  label: string;
+  signal: V4EnrichmentSignal | null | undefined;
+}) {
+  const status = signal?.status ?? "Unavailable";
+  const statusCode = signal?.status_code ?? "missing";
+
+  return (
+    <div className="rounded-xl border border-slate-800/80 bg-surface/80 px-4 py-3">
+      <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">{label}</p>
+      <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-slate-200">
+        <span className="font-semibold">{status}</span>
+        <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[0.7rem] text-slate-400">
+          {statusCode}
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export default async function ModelDetailPage({ params }: { params: { id: string } }) {
   const modelId = decodeURIComponent(params.id);
   const { detail, isNotListed, index } = await loadV4ModelDetail(modelId);
@@ -68,7 +91,7 @@ export default async function ModelDetailPage({ params }: { params: { id: string
             The model is known to the AMS pipeline but is intentionally excluded from the published leaderboard snapshot.
           </p>
         </div>
-        <Link href="/scores" className="text-sm font-semibold text-accent underline">
+        <Link href="/v4" className="text-sm font-semibold text-accent underline">
           ← Back to leaderboard
         </Link>
       </div>
@@ -81,7 +104,7 @@ export default async function ModelDetailPage({ params }: { params: { id: string
         <h1 className="text-2xl font-semibold text-slate-50">Model not found in v4 snapshot</h1>
         <p className="text-sm text-slate-400">We couldn&apos;t find this model in the published v4 data.</p>
         <div className="pt-2">
-          <Link href="/scores" className="text-sm font-semibold text-accent underline">
+          <Link href="/v4" className="text-sm font-semibold text-accent underline">
             ← Back to leaderboard
           </Link>
         </div>
@@ -128,6 +151,17 @@ export default async function ModelDetailPage({ params }: { params: { id: string
         </div>
       </section>
 
+      <section className="space-y-3">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+          <h2 className="text-lg font-semibold text-slate-100">Enrichment signals</h2>
+          <p className="text-xs text-slate-400">Signals derived from the latest enrichment pipeline.</p>
+        </div>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          <EnrichmentRow label="Developer activity" signal={detail.enrichment?.github} />
+          <EnrichmentRow label="Audit evidence" signal={detail.enrichment?.audit} />
+        </div>
+      </section>
+
       <section className="space-y-3 rounded-2xl border border-slate-800 bg-surface/80 p-5 shadow-xl">
         <h2 className="text-lg font-semibold text-slate-100">How to read these scores</h2>
         <div className="space-y-2 text-sm leading-relaxed text-slate-300">
@@ -145,7 +179,7 @@ export default async function ModelDetailPage({ params }: { params: { id: string
         </div>
       </section>
 
-      <Link href="/scores" className="text-sm font-semibold text-accent underline">
+      <Link href="/v4" className="text-sm font-semibold text-accent underline">
         ← Back to leaderboard
       </Link>
     </div>
