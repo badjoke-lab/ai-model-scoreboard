@@ -1,0 +1,14 @@
+{
+  "allow": [
+    {
+      "slug": "openai-gpt-4.1",
+      "reason": "seed allow"
+    }
+  ],
+  "deny": [
+    {
+      "slug": "example-denied-model",
+      "reason": "policy: blocked source"
+    }
+  ]
+}

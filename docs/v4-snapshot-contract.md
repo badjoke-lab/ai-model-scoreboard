@@ -93,8 +93,9 @@ Array of model slugs that are not listed.
 - Changing a required key's type.
 - Changing the `index.json` structure away from `meta`.
 - Changing the allowed `layer` values.
-- Changing ordering guarantees for `rankings.json`, `models.json`, or `not-listed.json`.
-- Allowing duplicate model slugs in any of the files.
+- Changing ordering guarantees for `rankings.json`, `models.json`, or `not-listed.json` (including tie-breakers).
+- Allowing duplicate model slugs in any of the files (including `rankings.json` and `not-listed.json`).
+- Skipping or bypassing the required-key validation for `rankings.json`, `models.json`, or `not-listed.json`.
 - Removing the cross-file requirements between `rankings.json` and `models.json`.
 
 **Non-breaking changes (allowed)**

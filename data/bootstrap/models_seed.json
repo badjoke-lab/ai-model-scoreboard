@@ -1,0 +1,21 @@
+[
+  {
+    "name": "OpenAI GPT-4.1",
+    "slug": "openai-gpt-4.1",
+    "vendor": "OpenAI"
+  },
+  {
+    "name": "Anthropic Claude 3.5 Sonnet",
+    "slug": "anthropic-claude-3.5-sonnet",
+    "vendor": "Anthropic"
+  },
+  {
+    "name": "Example Missing Vendor",
+    "slug": "example-missing-vendor"
+  },
+  {
+    "name": "Example Denied Model",
+    "slug": "example-denied-model",
+    "vendor": "Acme"
+  }
+]
