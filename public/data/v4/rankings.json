@@ -1,30 +1,534 @@
 [
   {
-    "model": "openai-gpt-4.1",
-    "vendor": "openai",
+    "model": "meta-llama-3.1-405b",
+    "vendor": "Meta",
     "layer": "full",
-    "score": 77.8,
+    "score": 80.3,
     "scores": {
-      "performance": 92,
-      "safety": 88,
-      "adoption": 88,
-      "openness": 15,
-      "cost": 45
+      "performance": 86.2,
+      "safety": 84.2,
+      "adoption": 82.3,
+      "openness": 79,
+      "cost": 70
     },
-    "updatedAt": "2025-12-30T03:46:14.945Z"
+    "updatedAt": "2025-02-15T18:00:00Z"
   },
   {
-    "model": "example-missing-vendor",
-    "vendor": "unknown",
-    "layer": "provisional",
-    "score": 0,
+    "model": "meta-llama-3.1-70b",
+    "vendor": "Meta",
+    "layer": "full",
+    "score": 80.3,
     "scores": {
-      "performance": 0,
-      "safety": 0,
-      "adoption": 0,
-      "openness": 0,
-      "cost": 0
+      "performance": 85.4,
+      "safety": 81.4,
+      "adoption": 81.6,
+      "openness": 85,
+      "cost": 68
     },
-    "updatedAt": "2025-12-30T03:46:14.945Z"
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "meta-llama-3.1-8b",
+    "vendor": "Meta",
+    "layer": "full",
+    "score": 79.2,
+    "scores": {
+      "performance": 84.6,
+      "safety": 81.6,
+      "adoption": 80.9,
+      "openness": 83,
+      "cost": 66
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "mistral-medium",
+    "vendor": "Mistral",
+    "layer": "full",
+    "score": 79.0,
+    "scores": {
+      "performance": 82.2,
+      "safety": 79.2,
+      "adoption": 78.8,
+      "openness": 85,
+      "cost": 70
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "mistral-large",
+    "vendor": "Mistral",
+    "layer": "full",
+    "score": 78.5,
+    "scores": {
+      "performance": 83.0,
+      "safety": 79.0,
+      "adoption": 79.5,
+      "openness": 79,
+      "cost": 72
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "meta-llama-3-70b",
+    "vendor": "Meta",
+    "layer": "full",
+    "score": 78.2,
+    "scores": {
+      "performance": 83.8,
+      "safety": 81.8,
+      "adoption": 80.2,
+      "openness": 81,
+      "cost": 64
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "mistral-small",
+    "vendor": "Mistral",
+    "layer": "full",
+    "score": 78.0,
+    "scores": {
+      "performance": 81.4,
+      "safety": 79.4,
+      "adoption": 78.1,
+      "openness": 83,
+      "cost": 68
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "mistral-8x22b",
+    "vendor": "Mistral",
+    "layer": "full",
+    "score": 76.3,
+    "scores": {
+      "performance": 80.6,
+      "safety": 76.6,
+      "adoption": 77.4,
+      "openness": 81,
+      "cost": 66
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "mistral-8x7b",
+    "vendor": "Mistral",
+    "layer": "full",
+    "score": 75.3,
+    "scores": {
+      "performance": 79.8,
+      "safety": 76.8,
+      "adoption": 76.7,
+      "openness": 79,
+      "cost": 64
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "openai-gpt-4.1",
+    "vendor": "OpenAI",
+    "layer": "full",
+    "score": 75.2,
+    "scores": {
+      "performance": 95.0,
+      "safety": 91.0,
+      "adoption": 90.0,
+      "openness": 30,
+      "cost": 70
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "deepseek-v3",
+    "vendor": "DeepSeek",
+    "layer": "full",
+    "score": 75.1,
+    "scores": {
+      "performance": 77.4,
+      "safety": 74.4,
+      "adoption": 74.6,
+      "openness": 81,
+      "cost": 68
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "alibaba-qwen2.5-32b",
+    "vendor": "Alibaba",
+    "layer": "full",
+    "score": 74.9,
+    "scores": {
+      "performance": 75.0,
+      "safety": 72.0,
+      "adoption": 72.5,
+      "openness": 83,
+      "cost": 72
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "openai-gpt-4o",
+    "vendor": "OpenAI",
+    "layer": "full",
+    "score": 74.1,
+    "scores": {
+      "performance": 94.2,
+      "safety": 91.2,
+      "adoption": 89.3,
+      "openness": 28,
+      "cost": 68
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "alibaba-qwen2.5-72b",
+    "vendor": "Alibaba",
+    "layer": "full",
+    "score": 74.0,
+    "scores": {
+      "performance": 75.8,
+      "safety": 71.8,
+      "adoption": 73.2,
+      "openness": 85,
+      "cost": 64
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "deepseek-r1",
+    "vendor": "DeepSeek",
+    "layer": "full",
+    "score": 74.0,
+    "scores": {
+      "performance": 76.6,
+      "safety": 74.6,
+      "adoption": 73.9,
+      "openness": 79,
+      "cost": 66
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "alibaba-qwen2-72b",
+    "vendor": "Alibaba",
+    "layer": "full",
+    "score": 73.8,
+    "scores": {
+      "performance": 74.2,
+      "safety": 72.2,
+      "adoption": 71.8,
+      "openness": 81,
+      "cost": 70
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "openai-gpt-4o-mini",
+    "vendor": "OpenAI",
+    "layer": "full",
+    "score": 73.1,
+    "scores": {
+      "performance": 93.4,
+      "safety": 91.4,
+      "adoption": 88.6,
+      "openness": 26,
+      "cost": 66
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "anthropic-claude-3-opus",
+    "vendor": "Anthropic",
+    "layer": "full",
+    "score": 72.9,
+    "scores": {
+      "performance": 91.0,
+      "safety": 89.0,
+      "adoption": 86.5,
+      "openness": 28,
+      "cost": 70
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "microsoft-phi-3.5-medium",
+    "vendor": "Microsoft",
+    "layer": "full",
+    "score": 72.7,
+    "scores": {
+      "performance": 72.6,
+      "safety": 69.6,
+      "adoption": 70.4,
+      "openness": 85,
+      "cost": 66
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "microsoft-phi-3.5-mini",
+    "vendor": "Microsoft",
+    "layer": "full",
+    "score": 72.2,
+    "scores": {
+      "performance": 73.4,
+      "safety": 69.4,
+      "adoption": 71.1,
+      "openness": 79,
+      "cost": 68
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "anthropic-claude-3.5-sonnet",
+    "vendor": "Anthropic",
+    "layer": "full",
+    "score": 72.0,
+    "scores": {
+      "performance": 91.8,
+      "safety": 88.8,
+      "adoption": 87.2,
+      "openness": 30,
+      "cost": 62
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "ibm-granite-34b",
+    "vendor": "IBM",
+    "layer": "full",
+    "score": 72.0,
+    "scores": {
+      "performance": 71.0,
+      "safety": 67.0,
+      "adoption": 69.0,
+      "openness": 81,
+      "cost": 72
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "nvidia-nemotron-4-340b",
+    "vendor": "NVIDIA",
+    "layer": "full",
+    "score": 71.7,
+    "scores": {
+      "performance": 71.8,
+      "safety": 69.8,
+      "adoption": 69.7,
+      "openness": 83,
+      "cost": 64
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "snowflake-arctic",
+    "vendor": "Snowflake",
+    "layer": "full",
+    "score": 71.5,
+    "scores": {
+      "performance": 69.4,
+      "safety": 67.4,
+      "adoption": 67.6,
+      "openness": 85,
+      "cost": 68
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "anthropic-claude-3.5-opus",
+    "vendor": "Anthropic",
+    "layer": "full",
+    "score": 71.4,
+    "scores": {
+      "performance": 92.6,
+      "safety": 88.6,
+      "adoption": 87.9,
+      "openness": 24,
+      "cost": 64
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "google-gemini-1.5-pro",
+    "vendor": "Google",
+    "layer": "full",
+    "score": 71.2,
+    "scores": {
+      "performance": 90.2,
+      "safety": 86.2,
+      "adoption": 85.8,
+      "openness": 26,
+      "cost": 68
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "databricks-dbrx-instruct",
+    "vendor": "Databricks",
+    "layer": "full",
+    "score": 70.9,
+    "scores": {
+      "performance": 70.2,
+      "safety": 67.2,
+      "adoption": 68.3,
+      "openness": 79,
+      "cost": 70
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "google-gemini-1.0-ultra",
+    "vendor": "Google",
+    "layer": "full",
+    "score": 70.7,
+    "scores": {
+      "performance": 88.6,
+      "safety": 86.6,
+      "adoption": 84.4,
+      "openness": 30,
+      "cost": 64
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "google-gemini-1.5-flash",
+    "vendor": "Google",
+    "layer": "full",
+    "score": 70.2,
+    "scores": {
+      "performance": 89.4,
+      "safety": 86.4,
+      "adoption": 85.1,
+      "openness": 24,
+      "cost": 66
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "xai-grok-1.5",
+    "vendor": "xAI",
+    "layer": "full",
+    "score": 70.0,
+    "scores": {
+      "performance": 87.0,
+      "safety": 84.0,
+      "adoption": 83.0,
+      "openness": 26,
+      "cost": 70
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "together-stride-1",
+    "vendor": "Together",
+    "layer": "provisional",
+    "score": 69.7,
+    "scores": {
+      "performance": 67.0,
+      "safety": 65.0,
+      "adoption": 65.5,
+      "openness": 79,
+      "cost": 72
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "stability-stablelm-2-12b",
+    "vendor": "Stability AI",
+    "layer": "provisional",
+    "score": 69.6,
+    "scores": {
+      "performance": 66.2,
+      "safety": 62.2,
+      "adoption": 64.8,
+      "openness": 85,
+      "cost": 70
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "xai-grok-2",
+    "vendor": "xAI",
+    "layer": "full",
+    "score": 69.1,
+    "scores": {
+      "performance": 87.8,
+      "safety": 83.8,
+      "adoption": 83.7,
+      "openness": 28,
+      "cost": 62
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "groq-llama-3-70b",
+    "vendor": "Groq",
+    "layer": "provisional",
+    "score": 68.6,
+    "scores": {
+      "performance": 65.4,
+      "safety": 62.4,
+      "adoption": 64.1,
+      "openness": 83,
+      "cost": 68
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "cohere-command-r-plus",
+    "vendor": "Cohere",
+    "layer": "full",
+    "score": 66.4,
+    "scores": {
+      "performance": 79.0,
+      "safety": 77.0,
+      "adoption": 76.0,
+      "openness": 30,
+      "cost": 70
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "cohere-command-r",
+    "vendor": "Cohere",
+    "layer": "full",
+    "score": 64.7,
+    "scores": {
+      "performance": 78.2,
+      "safety": 74.2,
+      "adoption": 75.3,
+      "openness": 28,
+      "cost": 68
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "ai21-jamba-1.5-large",
+    "vendor": "AI21 Labs",
+    "layer": "provisional",
+    "score": 58.4,
+    "scores": {
+      "performance": 68.6,
+      "safety": 64.6,
+      "adoption": 66.9,
+      "openness": 28,
+      "cost": 64
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
+  },
+  {
+    "model": "ai21-jamba-1.5-mini",
+    "vendor": "AI21 Labs",
+    "layer": "provisional",
+    "score": 57.4,
+    "scores": {
+      "performance": 67.8,
+      "safety": 64.8,
+      "adoption": 66.2,
+      "openness": 26,
+      "cost": 62
+    },
+    "updatedAt": "2025-02-15T18:00:00Z"
   }
 ]
