@@ -1,0 +1,35 @@
+{
+  "evidenceItems": [
+    {
+      "type": "release",
+      "status": "verified",
+      "reasonCodes": [
+        "release-notes",
+        "model-card"
+      ],
+      "summary": "Release documentation and model card for Mixtral 8x22B.",
+      "refs": [
+        {
+          "label": "Mistral model overview",
+          "url": "https://mistral.ai",
+          "note": "Primary vendor documentation."
+        }
+      ]
+    },
+    {
+      "type": "benchmark",
+      "status": "reported",
+      "reasonCodes": [
+        "public-benchmark"
+      ],
+      "summary": "Public benchmark summaries referenced for Mixtral 8x22B.",
+      "refs": [
+        {
+          "label": "Leaderboard references",
+          "url": "https://ai-model-scoreboard.vercel.app/methodology",
+          "note": "Scoring methodology and benchmark sources."
+        }
+      ]
+    }
+  ]
+}

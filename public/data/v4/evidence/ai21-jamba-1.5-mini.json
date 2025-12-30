@@ -1,0 +1,35 @@
+{
+  "evidenceItems": [
+    {
+      "type": "release",
+      "status": "verified",
+      "reasonCodes": [
+        "release-notes",
+        "model-card"
+      ],
+      "summary": "Release documentation and model card for Jamba 1.5 Mini.",
+      "refs": [
+        {
+          "label": "AI21 Labs model overview",
+          "url": "https://www.ai21.com",
+          "note": "Primary vendor documentation."
+        }
+      ]
+    },
+    {
+      "type": "benchmark",
+      "status": "reported",
+      "reasonCodes": [
+        "public-benchmark"
+      ],
+      "summary": "Public benchmark summaries referenced for Jamba 1.5 Mini.",
+      "refs": [
+        {
+          "label": "Leaderboard references",
+          "url": "https://ai-model-scoreboard.vercel.app/methodology",
+          "note": "Scoring methodology and benchmark sources."
+        }
+      ]
+    }
+  ]
+}

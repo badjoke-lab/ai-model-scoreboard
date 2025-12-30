@@ -1,18 +1,154 @@
 {
+  "ai21-jamba-1.5-large": {
+    "name": "Jamba 1.5 Large",
+    "vendor": "AI21 Labs"
+  },
+  "ai21-jamba-1.5-mini": {
+    "name": "Jamba 1.5 Mini",
+    "vendor": "AI21 Labs"
+  },
+  "alibaba-qwen2-72b": {
+    "name": "Qwen2 72B",
+    "vendor": "Alibaba"
+  },
+  "alibaba-qwen2.5-32b": {
+    "name": "Qwen2.5 32B",
+    "vendor": "Alibaba"
+  },
+  "alibaba-qwen2.5-72b": {
+    "name": "Qwen2.5 72B",
+    "vendor": "Alibaba"
+  },
+  "anthropic-claude-3-opus": {
+    "name": "Claude 3 Opus",
+    "vendor": "Anthropic"
+  },
+  "anthropic-claude-3.5-opus": {
+    "name": "Claude 3.5 Opus",
+    "vendor": "Anthropic"
+  },
   "anthropic-claude-3.5-sonnet": {
-    "name": "Anthropic Claude 3.5 Sonnet",
-    "vendor": "anthropic"
+    "name": "Claude 3.5 Sonnet",
+    "vendor": "Anthropic"
   },
-  "example-denied-model": {
-    "name": "Example Denied Model",
-    "vendor": "acme"
+  "cohere-command-r": {
+    "name": "Command R",
+    "vendor": "Cohere"
   },
-  "example-missing-vendor": {
-    "name": "Example Missing Vendor",
-    "vendor": "unknown"
+  "cohere-command-r-plus": {
+    "name": "Command R+",
+    "vendor": "Cohere"
+  },
+  "databricks-dbrx-instruct": {
+    "name": "DBRX Instruct",
+    "vendor": "Databricks"
+  },
+  "deepseek-r1": {
+    "name": "DeepSeek R1",
+    "vendor": "DeepSeek"
+  },
+  "deepseek-v3": {
+    "name": "DeepSeek V3",
+    "vendor": "DeepSeek"
+  },
+  "google-gemini-1.0-ultra": {
+    "name": "Gemini 1.0 Ultra",
+    "vendor": "Google"
+  },
+  "google-gemini-1.5-flash": {
+    "name": "Gemini 1.5 Flash",
+    "vendor": "Google"
+  },
+  "google-gemini-1.5-pro": {
+    "name": "Gemini 1.5 Pro",
+    "vendor": "Google"
+  },
+  "groq-llama-3-70b": {
+    "name": "Llama 3 70B (Groq)",
+    "vendor": "Groq"
+  },
+  "ibm-granite-34b": {
+    "name": "Granite 34B",
+    "vendor": "IBM"
+  },
+  "meta-llama-3-70b": {
+    "name": "Llama 3 70B",
+    "vendor": "Meta"
+  },
+  "meta-llama-3.1-405b": {
+    "name": "Llama 3.1 405B",
+    "vendor": "Meta"
+  },
+  "meta-llama-3.1-70b": {
+    "name": "Llama 3.1 70B",
+    "vendor": "Meta"
+  },
+  "meta-llama-3.1-8b": {
+    "name": "Llama 3.1 8B",
+    "vendor": "Meta"
+  },
+  "microsoft-phi-3.5-medium": {
+    "name": "Phi-3.5 Medium",
+    "vendor": "Microsoft"
+  },
+  "microsoft-phi-3.5-mini": {
+    "name": "Phi-3.5 Mini",
+    "vendor": "Microsoft"
+  },
+  "mistral-8x22b": {
+    "name": "Mixtral 8x22B",
+    "vendor": "Mistral"
+  },
+  "mistral-8x7b": {
+    "name": "Mixtral 8x7B",
+    "vendor": "Mistral"
+  },
+  "mistral-large": {
+    "name": "Mistral Large",
+    "vendor": "Mistral"
+  },
+  "mistral-medium": {
+    "name": "Mistral Medium",
+    "vendor": "Mistral"
+  },
+  "mistral-small": {
+    "name": "Mistral Small",
+    "vendor": "Mistral"
+  },
+  "nvidia-nemotron-4-340b": {
+    "name": "Nemotron-4 340B",
+    "vendor": "NVIDIA"
   },
   "openai-gpt-4.1": {
-    "name": "OpenAI GPT-4.1",
-    "vendor": "openai"
+    "name": "GPT-4.1",
+    "vendor": "OpenAI"
+  },
+  "openai-gpt-4o": {
+    "name": "GPT-4o",
+    "vendor": "OpenAI"
+  },
+  "openai-gpt-4o-mini": {
+    "name": "GPT-4o mini",
+    "vendor": "OpenAI"
+  },
+  "snowflake-arctic": {
+    "name": "Arctic",
+    "vendor": "Snowflake"
+  },
+  "stability-stablelm-2-12b": {
+    "name": "StableLM 2 12B",
+    "vendor": "Stability AI"
+  },
+  "together-stride-1": {
+    "name": "Stride 1",
+    "vendor": "Together"
+  },
+  "xai-grok-1.5": {
+    "name": "Grok-1.5",
+    "vendor": "xAI"
+  },
+  "xai-grok-2": {
+    "name": "Grok-2",
+    "vendor": "xAI"
   }
 }

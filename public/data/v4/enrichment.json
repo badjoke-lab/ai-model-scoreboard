@@ -1,1 +1,384 @@
-{}
+{
+  "models": {
+    "openai-gpt-4.1": {
+      "github": {
+        "status": "limited",
+        "status_code": "restricted"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "openai-gpt-4o": {
+      "github": {
+        "status": "limited",
+        "status_code": "restricted"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "openai-gpt-4o-mini": {
+      "github": {
+        "status": "limited",
+        "status_code": "restricted"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "anthropic-claude-3.5-opus": {
+      "github": {
+        "status": "limited",
+        "status_code": "restricted"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "anthropic-claude-3.5-sonnet": {
+      "github": {
+        "status": "limited",
+        "status_code": "restricted"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "anthropic-claude-3-opus": {
+      "github": {
+        "status": "limited",
+        "status_code": "restricted"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "google-gemini-1.5-pro": {
+      "github": {
+        "status": "limited",
+        "status_code": "restricted"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "google-gemini-1.5-flash": {
+      "github": {
+        "status": "limited",
+        "status_code": "restricted"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "google-gemini-1.0-ultra": {
+      "github": {
+        "status": "limited",
+        "status_code": "restricted"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "xai-grok-2": {
+      "github": {
+        "status": "limited",
+        "status_code": "restricted"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "xai-grok-1.5": {
+      "github": {
+        "status": "limited",
+        "status_code": "restricted"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "meta-llama-3.1-405b": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "meta-llama-3.1-70b": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "meta-llama-3.1-8b": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "meta-llama-3-70b": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "mistral-large": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "mistral-medium": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "mistral-small": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "mistral-8x22b": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "mistral-8x7b": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "cohere-command-r-plus": {
+      "github": {
+        "status": "limited",
+        "status_code": "restricted"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "cohere-command-r": {
+      "github": {
+        "status": "limited",
+        "status_code": "restricted"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "deepseek-v3": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "deepseek-r1": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "alibaba-qwen2.5-72b": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "alibaba-qwen2.5-32b": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "alibaba-qwen2-72b": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "microsoft-phi-3.5-mini": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "microsoft-phi-3.5-medium": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "nvidia-nemotron-4-340b": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "ibm-granite-34b": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "databricks-dbrx-instruct": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "snowflake-arctic": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "ai21-jamba-1.5-large": {
+      "github": {
+        "status": "limited",
+        "status_code": "restricted"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "ai21-jamba-1.5-mini": {
+      "github": {
+        "status": "limited",
+        "status_code": "restricted"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "together-stride-1": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    },
+    "stability-stablelm-2-12b": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "reviewed",
+        "status_code": "ok"
+      }
+    },
+    "groq-llama-3-70b": {
+      "github": {
+        "status": "active",
+        "status_code": "ok"
+      },
+      "audit": {
+        "status": "partial",
+        "status_code": "incomplete"
+      }
+    }
+  }
+}
