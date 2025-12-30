@@ -7,6 +7,7 @@
     "build": "npm run check:routes && npm run typecheck && next build",
     "start": "next start",
     "lint": "next lint",
+    "snapshot": "node scripts/snapshot_v4.mjs",
     "typecheck": "tsc --noEmit",
     "check:routes": "node scripts/check-route-safety.js",
     "check:v4": "node scripts/check_v4_snapshot.mjs",

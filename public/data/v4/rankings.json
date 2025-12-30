@@ -2,71 +2,29 @@
   {
     "model": "openai-gpt-4.1",
     "vendor": "openai",
-    "layer": "provisional",
-    "score": 48.31000000000001,
+    "layer": "full",
+    "score": 77.8,
     "scores": {
-      "performance": 84.4,
-      "safety": 16,
-      "adoption": 9,
-      "openness": 0,
-      "cost": 100
+      "performance": 92,
+      "safety": 88,
+      "adoption": 88,
+      "openness": 15,
+      "cost": 45
     },
-    "updatedAt": "2025-12-23T11:31:47.716Z"
+    "updatedAt": "2025-12-30T03:46:14.945Z"
   },
   {
-    "model": "anthropic-claude-3.5-sonnet",
-    "vendor": "anthropic",
+    "model": "example-missing-vendor",
+    "vendor": "unknown",
     "layer": "provisional",
-    "score": 47.99000000000001,
+    "score": 0,
     "scores": {
-      "performance": 83.60000000000001,
-      "safety": 16,
-      "adoption": 9,
+      "performance": 0,
+      "safety": 0,
+      "adoption": 0,
       "openness": 0,
-      "cost": 100
+      "cost": 0
     },
-    "updatedAt": "2025-12-23T11:31:47.716Z"
-  },
-  {
-    "model": "google-gemini-1.5-pro",
-    "vendor": "google",
-    "layer": "provisional",
-    "score": 47.35000000000001,
-    "scores": {
-      "performance": 82,
-      "safety": 16,
-      "adoption": 9,
-      "openness": 0,
-      "cost": 100
-    },
-    "updatedAt": "2025-12-23T11:31:47.716Z"
-  },
-  {
-    "model": "mistral-large-2",
-    "vendor": "mistral",
-    "layer": "provisional",
-    "score": 47.03000000000001,
-    "scores": {
-      "performance": 81.2,
-      "safety": 16,
-      "adoption": 9,
-      "openness": 0,
-      "cost": 100
-    },
-    "updatedAt": "2025-12-23T11:31:47.716Z"
-  },
-  {
-    "model": "openai-gpt-4.1-mini",
-    "vendor": "openai",
-    "layer": "provisional",
-    "score": 45.75000000000001,
-    "scores": {
-      "performance": 78,
-      "safety": 16,
-      "adoption": 9,
-      "openness": 0,
-      "cost": 100
-    },
-    "updatedAt": "2025-12-23T11:31:47.716Z"
+    "updatedAt": "2025-12-30T03:46:14.945Z"
   }
 ]
