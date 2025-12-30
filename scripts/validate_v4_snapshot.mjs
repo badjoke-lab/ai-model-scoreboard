@@ -38,6 +38,13 @@ function isIsoDateString(value) {
 function validateIndex(data, errors) {
   if (!assertObject(data, "index.json", errors)) return;
 
+  const allowedTopLevelKeys = new Set(["meta"]);
+  Object.keys(data).forEach((key) => {
+    if (!allowedTopLevelKeys.has(key)) {
+      errors.push(`index.json must not include unexpected top-level key "${key}"`);
+    }
+  });
+
   if (!assertObject(data.meta, "index.json.meta", errors)) return;
 
   if (typeof data.meta.version !== "string") {
@@ -53,8 +60,12 @@ function validateIndex(data, errors) {
   REQUIRED_COUNT_KEYS.forEach((key) => {
     if (!(key in data.meta)) {
       errors.push(`index.json.meta is missing required key "${key}"`);
-    } else if (!Number.isFinite(data.meta[key]) || data.meta[key] < 0) {
-      errors.push(`index.json.meta.${key} must be a non-negative number`);
+    } else if (
+      !Number.isFinite(data.meta[key]) ||
+      data.meta[key] < 0 ||
+      !Number.isInteger(data.meta[key])
+    ) {
+      errors.push(`index.json.meta.${key} must be a non-negative integer`);
     }
   });
 }
