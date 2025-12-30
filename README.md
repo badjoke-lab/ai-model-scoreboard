@@ -10,6 +10,10 @@ App Router exposes matching APIs for the live snapshot, ranked leaderboard, and 
 - Health check: `/api/health` reports live fetch/cache/score status
 - Methodology: https://ai-model-scoreboard.vercel.app/methodology
 
+## Documentation
+- [V4 Methodology Spec (internal)](docs/v4/methodology-spec.md)
+- [V4 Output JSON Mapping](docs/v4/output-json-mapping.md)
+
 ## Getting started
 Requirements:
 - Node.js 18+
