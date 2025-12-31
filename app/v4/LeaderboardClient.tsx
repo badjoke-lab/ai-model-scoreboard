@@ -19,6 +19,16 @@ function formatScore(value: number) {
   return Number.isFinite(value) ? value.toFixed(1) : "—";
 }
 
+function formatUpdatedAt(value: string) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "—";
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+  });
+}
+
 function mapLayerToStatus(layer: V4RankingEntry["layer"]): LeaderboardEntry["status"] {
   if (layer === "full") return "adopted";
   if (layer === "provisional") return "provisional";
@@ -150,19 +160,17 @@ export default function LeaderboardClient({
         <>
           <div className="space-y-3 md:hidden">
             {filtered.map((entry, index) => (
-              <div
+              <Link
                 key={entry.model}
+                href={`/models/${encodeURIComponent(entry.model)}`}
                 className="rounded-2xl border border-slate-800 bg-surface/70 p-4 shadow"
               >
                 <div className="flex items-center justify-between gap-2">
                   <div>
                     <div className="text-xs text-slate-500">#{index + 1}</div>
-                    <Link
-                      href={`/models/${encodeURIComponent(entry.model)}`}
-                      className="text-base font-semibold text-slate-50 hover:text-accent"
-                    >
+                    <div className="text-base font-semibold text-slate-50 hover:text-accent">
                       {entry.displayName}
-                    </Link>
+                    </div>
                     <div className="text-xs text-slate-500">{entry.displayVendor}</div>
                   </div>
                   <div className="text-right">
@@ -171,6 +179,9 @@ export default function LeaderboardClient({
                       {formatScore(entry.score)}
                     </div>
                   </div>
+                </div>
+                <div className="mt-2 text-xs text-slate-500">
+                  Updated {formatUpdatedAt(entry.updatedAt)}
                 </div>
                 <div className="mt-2 flex flex-wrap items-center gap-2">
                   <LayerBadge layer={entry.layer} />
@@ -207,16 +218,17 @@ export default function LeaderboardClient({
                     </dd>
                   </div>
                 </dl>
-              </div>
+              </Link>
             ))}
           </div>
 
           <div className="hidden overflow-hidden rounded-2xl border border-slate-800 bg-surface/70 shadow md:block">
-            <div className="grid grid-cols-9 bg-surface px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-wide text-slate-400">
+            <div className="grid grid-cols-10 bg-surface px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-wide text-slate-400">
               <span className="col-span-1">#</span>
               <span className="col-span-3">Model</span>
               <span className="col-span-2">Vendor</span>
               <span className="col-span-1">Layer</span>
+              <span className="col-span-1">Updated</span>
               <span className="col-span-1 text-right">Total</span>
               <span className="col-span-1 text-right">Perf</span>
               <span className="col-span-1 text-right">Safety</span>
@@ -224,21 +236,19 @@ export default function LeaderboardClient({
 
             <div className="divide-y divide-slate-800/80">
               {filtered.map((entry, index) => (
-                <div
+                <Link
                   key={entry.model}
-                  className="grid grid-cols-9 items-center px-4 py-3 text-sm text-slate-200 hover:bg-surface/80"
+                  href={`/models/${encodeURIComponent(entry.model)}`}
+                  className="grid grid-cols-10 items-center px-4 py-3 text-sm text-slate-200 hover:bg-surface/80"
                 >
                   <span className="col-span-1 text-sm font-semibold text-slate-500">
                     {index + 1}
                   </span>
 
                   <div className="col-span-3">
-                    <Link
-                      href={`/models/${encodeURIComponent(entry.model)}`}
-                      className="font-semibold text-slate-50 hover:text-accent"
-                    >
+                    <div className="font-semibold text-slate-50 hover:text-accent">
                       {entry.displayName}
-                    </Link>
+                    </div>
                     <div className="text-xs text-slate-500">{entry.model}</div>
                   </div>
 
@@ -250,6 +260,10 @@ export default function LeaderboardClient({
                     <LayerBadge layer={entry.layer} />
                   </div>
 
+                  <span className="col-span-1 text-xs text-slate-400">
+                    {formatUpdatedAt(entry.updatedAt)}
+                  </span>
+
                   <span className="col-span-1 text-right font-semibold text-slate-50">
                     {formatScore(entry.score)}
                   </span>
@@ -259,7 +273,7 @@ export default function LeaderboardClient({
                   <span className="col-span-1 text-right text-slate-200">
                     {formatScore(entry.scores.safety)}
                   </span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

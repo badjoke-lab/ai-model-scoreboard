@@ -78,6 +78,13 @@ export type V4EvidenceReference = {
   note?: string;
 };
 
+export type V4ScoreDetailItem = {
+  itemKey: string;
+  value: number;
+  reasons?: string[];
+  evidenceRefs?: V4EvidenceReference[];
+};
+
 export type V4EvidenceItem = {
   type: string;
   status?: string;
@@ -96,6 +103,7 @@ export type V4ModelDetail = {
   decisionSource?: string | null;
   score: number;
   scores: V4ScoreBreakdown;
+  scoreDetails: V4ScoreDetailItem[];
   updatedAt: string;
   enrichment: V4EnrichmentEntry | null;
   evidenceItems: V4EvidenceItem[];
@@ -217,30 +225,90 @@ function normalizeNotListedEntry(
   return { slug, reason, source };
 }
 
+function parseEvidenceRefString(raw: string): V4EvidenceReference {
+  const trimmed = raw.trim();
+  if (!trimmed) return { label: raw };
+
+  const lower = trimmed.toLowerCase();
+  if (lower.startsWith("arxiv_id:")) {
+    const id = trimmed.slice("arxiv_id:".length).trim();
+    return {
+      label: id ? `arXiv:${id}` : trimmed,
+      url: id ? `https://arxiv.org/abs/${id}` : undefined,
+    };
+  }
+  if (lower.startsWith("openrouter_model_page:")) {
+    const url = trimmed.slice("openrouter_model_page:".length).trim();
+    return { label: "OpenRouter model page", url: url || undefined };
+  }
+  if (lower.startsWith("github_repo:")) {
+    const url = trimmed.slice("github_repo:".length).trim();
+    return { label: "GitHub repository", url: url || undefined };
+  }
+  if (/^https?:\/\//i.test(trimmed)) {
+    return { label: trimmed, url: trimmed };
+  }
+
+  return { label: trimmed };
+}
+
+function normalizeEvidenceRefEntry(entry: unknown): V4EvidenceReference | null {
+  if (typeof entry === "string") {
+    return parseEvidenceRefString(entry);
+  }
+  if (!isObject(entry)) return null;
+  const label =
+    typeof entry.label === "string"
+      ? entry.label
+      : typeof entry.title === "string"
+        ? entry.title
+        : typeof entry.name === "string"
+          ? entry.name
+          : undefined;
+  const url = typeof entry.url === "string" ? entry.url : undefined;
+  const note =
+    typeof entry.note === "string"
+      ? entry.note
+      : typeof entry.summary === "string"
+        ? entry.summary
+        : undefined;
+  const value =
+    typeof entry.value === "string"
+      ? entry.value
+      : typeof entry.ref === "string"
+        ? entry.ref
+        : typeof entry.id === "string"
+          ? entry.id
+          : undefined;
+
+  if (url) {
+    return { label, url, note };
+  }
+  if (value) {
+    const parsed = parseEvidenceRefString(value);
+    return {
+      label: label ?? parsed.label,
+      url: parsed.url,
+      note,
+    };
+  }
+  if (label && /^https?:\/\//i.test(label)) {
+    return { label, url: label, note };
+  }
+  if (!label) return null;
+  return { label, note };
+}
+
 function normalizeEvidenceRefs(raw: unknown): V4EvidenceReference[] | undefined {
   if (!Array.isArray(raw)) return undefined;
   const refs = raw
-    .map((entry) => {
-      if (typeof entry === "string") {
-        return { label: entry };
-      }
-      if (!isObject(entry)) return null;
-      const label =
-        typeof entry.label === "string"
-          ? entry.label
-          : typeof entry.title === "string"
-            ? entry.title
-            : undefined;
-      const url = typeof entry.url === "string" ? entry.url : undefined;
-      const note =
-        typeof entry.note === "string"
-          ? entry.note
-          : typeof entry.summary === "string"
-            ? entry.summary
-            : undefined;
-      return { label, url, note };
-    })
+    .map((entry) => normalizeEvidenceRefEntry(entry))
     .filter(Boolean) as V4EvidenceReference[];
+  return refs.length ? refs : undefined;
+}
+
+function collectEvidenceRefs(...inputs: unknown[]): V4EvidenceReference[] | undefined {
+  const refs = inputs.flatMap((input) => normalizeEvidenceRefs(input) ?? []);
   return refs.length ? refs : undefined;
 }
 
@@ -253,6 +321,92 @@ function normalizeReasonCodes(raw: unknown): string[] | undefined {
     return [raw];
   }
   return undefined;
+}
+
+function normalizeScoreDetailItem(
+  key: string,
+  raw: unknown
+): V4ScoreDetailItem | null {
+  if (typeof raw === "number" && Number.isFinite(raw)) {
+    return { itemKey: key, value: raw };
+  }
+  if (!isObject(raw)) return null;
+  const value =
+    typeof raw.value === "number"
+      ? raw.value
+      : typeof raw.score === "number"
+        ? raw.score
+        : typeof raw.points === "number"
+          ? raw.points
+          : typeof raw.total === "number"
+            ? raw.total
+            : null;
+  if (value === null || !Number.isFinite(value)) return null;
+  const reasons = normalizeReasonCodes(
+    raw.reasons ?? raw.reasonCodes ?? raw.reason_codes ?? raw.reason
+  );
+  const evidenceRefs = collectEvidenceRefs(
+    raw.evidenceRefs ?? raw.evidence_refs,
+    raw.refs,
+    raw.references,
+    raw.sources,
+    raw.urls
+  );
+  return {
+    itemKey: key,
+    value,
+    reasons,
+    evidenceRefs,
+  };
+}
+
+function normalizeScoreDetails(raw: unknown): V4ScoreDetailItem[] | null {
+  if (!raw) return null;
+  if (Array.isArray(raw)) {
+    const items = raw
+      .map((item) => {
+        if (!isObject(item)) return null;
+        const key =
+          typeof item.itemKey === "string"
+            ? item.itemKey
+            : typeof item.key === "string"
+              ? item.key
+              : typeof item.metric === "string"
+                ? item.metric
+                : typeof item.category === "string"
+                  ? item.category
+                  : undefined;
+        if (!key) return null;
+        return normalizeScoreDetailItem(key, item);
+      })
+      .filter(Boolean) as V4ScoreDetailItem[];
+    return items.length ? items : null;
+  }
+
+  if (isObject(raw)) {
+    const source =
+      (raw.scoreDetails as unknown) ??
+      raw.score_breakdown ??
+      raw.scoreBreakdown ??
+      raw.breakdown ??
+      raw.items ??
+      raw.scores ??
+      raw.score_items ??
+      raw.scoreItems ??
+      null;
+
+    if (Array.isArray(source)) {
+      return normalizeScoreDetails(source);
+    }
+    if (isObject(source)) {
+      const items = Object.entries(source)
+        .map(([key, value]) => normalizeScoreDetailItem(key, value))
+        .filter(Boolean) as V4ScoreDetailItem[];
+      return items.length ? items : null;
+    }
+  }
+
+  return null;
 }
 
 function normalizeEvidenceItems(raw: unknown): V4EvidenceItem[] {
@@ -281,8 +435,13 @@ function normalizeEvidenceItems(raw: unknown): V4EvidenceItem[] {
       const reasonCodes = normalizeReasonCodes(
         item.reasonCodes ?? item.reason_codes ?? item.reasons ?? item.reason
       );
-      const refs = normalizeEvidenceRefs(
-        item.refs ?? item.references ?? item.sources ?? item.urls
+      const refs = collectEvidenceRefs(
+        item.refs,
+        item.references,
+        item.sources,
+        item.urls,
+        item.evidenceRefs,
+        item.evidence_refs
       );
       const summary =
         typeof item.summary === "string"
@@ -362,11 +521,14 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
   const enrichment = enrichmentResult.data
     ? normalizeEnrichment(enrichmentResult.data)
     : {};
+  const decisionsResult = await readJsonFileSafe<unknown>(files.enrichmentDecisions);
+  const decisionsData = decisionsResult.data;
   const evidencePath = path.join(files.evidenceDir, `${modelId}.json`);
   const evidenceResult = await readJsonFileSafe<unknown>(evidencePath);
   const evidenceItems = evidenceResult.data
     ? normalizeEvidenceItems(evidenceResult.data)
     : [];
+  const evidenceScoreDetails = normalizeScoreDetails(evidenceResult.data);
   const ranking = rankings.find((entry) => entry.model === modelId);
   const notListedEntry = notListed
     .map((entry) => normalizeNotListedEntry(entry))
@@ -378,13 +540,44 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
       models: { ok: true },
       notListed: { ok: true },
       enrichment: { ok: !enrichmentResult.error, error: enrichmentResult.error },
-      enrichmentDecisions: { ok: true },
+      enrichmentDecisions: {
+        ok: !decisionsResult.error,
+        error: decisionsResult.error,
+      },
     },
-    errors: [enrichmentResult.error, evidenceResult.error].filter(Boolean) as string[],
+    errors: [
+      enrichmentResult.error,
+      decisionsResult.error,
+      evidenceResult.error,
+    ].filter(Boolean) as string[],
   };
 
   if (ranking) {
     const meta = requireModelMetadata(models, ranking.model);
+    const normalizedDetails =
+      evidenceScoreDetails ?? normalizeScoreDetails(ranking) ?? null;
+    const scoreDetails =
+      normalizedDetails ??
+      Object.entries(ranking.scores).map(([key, value]) => ({
+        itemKey: key,
+        value,
+      }));
+    const decisionEntry =
+      isObject(decisionsData) && isObject(decisionsData.models)
+        ? (decisionsData.models as Record<string, unknown>)[ranking.model]
+        : isObject(decisionsData)
+          ? (decisionsData as Record<string, unknown>)[ranking.model]
+          : null;
+    const decisionReason = isObject(decisionEntry)
+      ? (decisionEntry.reason ??
+          decisionEntry.reasons ??
+          decisionEntry.status_reason ??
+          decisionEntry.decision_reason ??
+          null)
+      : null;
+    const decisionSource = isObject(decisionEntry)
+      ? (decisionEntry.source ?? decisionEntry.decision_source ?? null)
+      : null;
     return {
       detail: {
         id: ranking.model,
@@ -392,10 +585,16 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
         vendor: meta.vendor,
         layer: ranking.layer,
         status: mapLayerToStatus(ranking.layer),
-        decisionReason: null,
-        decisionSource: null,
+        decisionReason:
+          typeof decisionReason === "string"
+            ? decisionReason
+            : Array.isArray(decisionReason)
+              ? decisionReason.filter((entry) => typeof entry === "string").join(", ")
+              : null,
+        decisionSource: typeof decisionSource === "string" ? decisionSource : null,
         score: ranking.score,
         scores: ranking.scores,
+        scoreDetails,
         updatedAt: ranking.updatedAt,
         enrichment: enrichment[ranking.model] ?? null,
         evidenceItems,

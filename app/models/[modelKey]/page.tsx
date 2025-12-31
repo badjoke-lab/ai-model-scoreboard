@@ -4,6 +4,8 @@ import {
   loadV4ModelDetail,
   type V4EnrichmentSignal,
   type V4EvidenceItem,
+  type V4EvidenceReference,
+  type V4ScoreDetailItem,
 } from "@/lib/v4-snapshot";
 
 function formatScore(value: number): string {
@@ -137,20 +139,84 @@ function EvidenceRow({ item }: { item: V4EvidenceItem }) {
             <li key={`${ref.label ?? ref.url ?? "ref"}-${index}`} className="space-y-1">
               <div className="font-semibold text-slate-300">{ref.label ?? "Reference"}</div>
               {ref.note ? <div className="text-slate-500">{ref.note}</div> : null}
-              {ref.url ? (
-                <Link
-                  href={ref.url}
-                  className="text-xs font-semibold text-accent hover:text-accent/80"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  View source →
-                </Link>
-              ) : null}
+              <EvidenceRefs refs={[ref]} />
             </li>
           ))}
         </ul>
       ) : null}
+    </div>
+  );
+}
+
+function EvidenceRefs({ refs }: { refs?: V4EvidenceReference[] }) {
+  if (!refs?.length) return null;
+  return (
+    <div className="flex flex-wrap gap-2 text-xs">
+      {refs.map((ref, index) => {
+        const label = ref.label ?? ref.url ?? "Reference";
+        if (ref.url) {
+          return (
+            <Link
+              key={`${label}-${index}`}
+              href={ref.url}
+              className="font-semibold text-accent hover:text-accent/80"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {label} →
+            </Link>
+          );
+        }
+        return (
+          <span key={`${label}-${index}`} className="text-slate-400">
+            {label}
+          </span>
+        );
+      })}
+    </div>
+  );
+}
+
+function ScoreBreakdownItem({ item }: { item: V4ScoreDetailItem }) {
+  return (
+    <div className="rounded-2xl border border-slate-800/80 bg-surface/80 p-4 shadow">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">
+            {item.itemKey}
+          </p>
+          <p className="text-2xl font-semibold text-slate-50">
+            {formatScore(item.value)}
+          </p>
+        </div>
+        <div className="text-xs text-slate-400">
+          <p className="uppercase tracking-wide text-slate-500">Reasons</p>
+          {item.reasons?.length ? (
+            <div className="mt-1 flex flex-wrap gap-2">
+              {item.reasons.map((reason) => (
+                <span
+                  key={reason}
+                  className="rounded-full border border-slate-700/70 bg-slate-900/50 px-2 py-0.5 text-[0.65rem] text-slate-300"
+                >
+                  {reason}
+                </span>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-1 text-[0.7rem] text-slate-500">No reasons provided.</p>
+          )}
+        </div>
+      </div>
+      <div className="mt-3 text-xs text-slate-400">
+        <p className="uppercase tracking-wide text-slate-500">Evidence refs</p>
+        {item.evidenceRefs?.length ? (
+          <div className="mt-1">
+            <EvidenceRefs refs={item.evidenceRefs} />
+          </div>
+        ) : (
+          <p className="mt-1 text-[0.7rem] text-slate-500">No evidence refs.</p>
+        )}
+      </div>
     </div>
   );
 }
@@ -256,10 +322,39 @@ export default async function ModelDetailPage({
         </div>
       </section>
 
+      <section className="space-y-3 rounded-2xl border border-slate-800 bg-surface/70 p-5 shadow-xl">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <h2 className="text-lg font-semibold text-slate-100">Status</h2>
+          <p className="text-xs text-slate-400">Decision status and recorded reasons.</p>
+        </div>
+        <div className="space-y-3 text-sm text-slate-300">
+          <div className="flex flex-wrap items-center gap-2">
+            <StatusBadge status={detail.status} />
+            <LayerBadge layer={detail.layer} />
+          </div>
+          {detail.decisionReason ? (
+            <div>
+              <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Reasons</p>
+              <p className="font-semibold text-slate-50">{detail.decisionReason}</p>
+            </div>
+          ) : (
+            <p className="text-xs text-slate-500">No decision reasons were published for this model.</p>
+          )}
+          {detail.decisionSource ? (
+            <div className="text-xs text-slate-500">Source: {detail.decisionSource}</div>
+          ) : null}
+        </div>
+      </section>
+
       <section className="space-y-3">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-lg font-semibold text-slate-100">Score breakdown</h2>
           <p className="text-xs text-slate-400">Higher scores indicate stronger performance in that dimension.</p>
+        </div>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {detail.scoreDetails.map((item) => (
+            <ScoreBreakdownItem key={item.itemKey} item={item} />
+          ))}
         </div>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <ScorePill label="Performance" value={formatScore(detail.scores.performance)} />
