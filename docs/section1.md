@@ -1,28 +1,53 @@
-# 🟥 AI Model Scoreboard v4 – Internal Specification (English)
+# AMS v4 Spec — Section 1: Definition of Done / Non-negotiables
 
-## Section 1 – Model intake, promotion, and rejection
+This document set (section1–8 + scoring.md) is the single source of truth for AMS v4.
+No “best effort”, no “unknown”, no “manual patching” is allowed unless explicitly stated.
 
-### Purpose
-AI Model Scoreboard v4 uses fixed rules to decide whether a model is listed, promoted, or removed. Decisions are automatic and rely on objective evidence so the leaderboard can be reproduced without manual judgment.
+## 1. Goal (what “complete” means)
+After merge & daily operation, AMS v4 must satisfy ALL:
 
-### Listing tiers
-- **Full Listing**: Meets every scoring requirement, is updated recently, and has no blocking safety incidents. Models appear in the main leaderboard with full cards.
-- **Provisional**: New or under-documented models. They may have sparse public data, recent major releases, or early risk signals. Scores may include estimates and are shown with a Provisional badge.
-- **Rejected**: Not shown on the leaderboard. Triggered by critical incidents, unreliable data, or long-term neglect.
+### Data (private-engine)
+- Models automatically increase daily from OpenRouter.
+- Models can increase/decrease WITHOUT editing seed (seed may exist, but must not be required).
+- For EVERY model (adopted + provisional), enrichment is ALWAYS attempted daily.
+- Evidence results ALWAYS store a reason code (ok/not_found/rate_limited/blocked/ambiguous/invalid/missing_source_link). “unknown” is forbidden.
+- ALL scoring items are computed for EVERY model (no silent skip).
+- Every score is traceable via decisions/evidence references.
+- v4 output is deterministic (same inputs => same outputs).
 
-### Promotion
-A Provisional model is promoted to Full when all scoring inputs are available, the latest update is within the last 30 days, and there are zero or one resolved incidents. Promotion can happen in the daily 00:00 UTC batch or during lazy updates when a request is processed.
+### UI (ai-model-scoreboard)
+- Zero dummy-only paths in production.
+- Dozens+ real models are shown.
+- /models/[modelKey] opens for ALL models in adopted+provisional (and also for denied if present in not-listed).
+- Detail page shows: absolute metrics + score breakdown + evidence (with reason codes).
+- /v4 is the production route. Old routes are removed or clearly marked.
 
-### Demotion
-- Lack of updates or missing required fields will move a Full model to Provisional until the gaps are resolved.
-- Provisional models that remain stale for 60 days are demoted to Rejected.
-- Any critical incident immediately demotes a model to Rejected. Multiple minor incidents will demote to Provisional while evidence is reviewed by the automated checks.
+### Ops
+- Daily pipeline fails fast and stops when broken.
+- Logs must make root cause obvious (which file/key/step).
+- No manual intervention is needed for the system to keep increasing.
 
-### Display rules
-- Full and Provisional models appear in the leaderboard with their scores.
-- Rejected models are omitted from the UI; internal logs retain reasons for traceability.
+## 2. Non-negotiable rules
+1) UNKNOWN IS FORBIDDEN  
+All missing data must become a reason code outcome, not “unknown”.
 
-### Guiding principles
-- All thresholds are numeric and deterministic.
-- Human overrides are avoided; if data is missing, the pipeline errs on the side of caution.
-- Methodology published to users is a concise view of these rules without exposing internal weighting logic.
+2) ALWAYS ATTEMPT ENRICHMENT  
+Even if missing links exist, emit `missing_source_link` (still an attempt outcome).
+
+3) ALL ITEMS MUST PRODUCE NUMBERS  
+Every scoring item outputs 0–100 for every model.
+
+4) TRACEABILITY  
+Every item must link to inputs (absolute metrics) or evidence statuses + decision reasons.
+
+5) DETERMINISM  
+No randomness. Stable sort. Stable rounding. Stable keys.
+
+## 3. Daily pipeline (high level)
+1) Intake models (OpenRouter) + optional seed merge
+2) Normalize + dedupe -> canonical modelKey set
+3) Apply allow/deny rules -> adoption.json + decisions.json
+4) Enrichment for adopted+provisional -> evidence/{modelKey}.json (+ evidence/index.json)
+5) Scoring (absolute metrics + evidence + ops metrics if available) -> models.json + rankings.json + not-listed.json + index.json
+6) Validate ALL outputs (schema/type + cross-file references)
+7) Copy outputs to UI repo and create PR if diff exists
