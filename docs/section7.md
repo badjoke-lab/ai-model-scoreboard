@@ -1,60 +1,75 @@
-# AMS v4 Spec — Section 7: UI contract (no dummy, /v4 production, model pages required)
+# AMS v4 — Traceability: How Scores link to Decisions/Evidence
 
-## 1. Data loading rule
-UI must read from public/data/v4/index.json manifest, then load referenced files.
-No hard-coded dummy dataset in production route.
+## 0. Goal
+A user (and CI) must be able to answer:
+- Why is this model adopted/provisional/denied?
+- Why did this item score become X?
+- What evidence was used (or failed), and why?
 
-## 2. Production routes
-- /v4 is the canonical production route.
-- old routes must be removed or clearly labeled as legacy (no silent confusion).
+This requires **machine-linkable fields**.
 
-## 3. /v4 list (rankings)
-Must render:
-- updatedAt / generatedAt
-- rows from rankings.json
-- search/filter by name/provider/status
-- evidence summary badge (e.g., okCount/4)
-- link to /models/[modelKey]
+---
 
-## 4. /models/[modelKey] (detail page) — REQUIRED
-Must work for all adopted+provisional modelKey.
+## 1. Adoption Trace
+Source:
+- `decisions.json`
 
-Detail must display:
+Rule:
+- For every model in `models.json`, UI must be able to locate its decisions entry by `modelKey`.
 
-### A) Identity
-- modelKey
-- name
-- provider
-- rawRef (id/canonicalSlug if available)
-- status (adopted/provisional/denied) + reasons from decisions.json
+Required linkage:
+- `models.json.models[].status` must match decisions entry status.
+- `models.json.models[].statusReasons[]` (optional direct copy) may exist, but at minimum:
+  - UI must show `decisions.entries[modelKey].reasons[]`.
 
-### B) Absolute metrics (must be visible)
-- context_length
-- max_output_tokens
-- pricing input/output
-- modalities
-- supportsTools
-- supportsStructuredOutput
-- rate limits if present
-- architecture/params if present
-If missing: display evidence outcome/reason codes (not unknown).
+---
 
-### C) Evidence section (must be visible)
-Render 4 evidence items with:
-- type
-- status badge
-- reasons[] (non-empty)
-- refs[] links
-- extracted fields (if ok)
+## 2. Evidence Trace
+Source:
+- `evidence/{modelKey}.json`
 
-### D) Scoring breakdown (must be visible)
-- overall score
-- category totals
-- all scoring item rows:
-  - score 0–100
-  - inputs used
-  - refs: evidence type/status used
-  - deterministic penalty note when evidence not ok
+Rule:
+- For every modelKey in adopted+provisional, evidence file must exist.
+- Evidence file must contain all 4 evidence types.
 
-## 5. UI empty-state is forbidden for required files
-If evidence file is missing or malformed => show “data contract broken” error message (not silent empty UI).
+Required linkage fields:
+- In each scoring item object (models.json):
+  - `usedEvidence.type`
+  - `usedEvidence.status`
+  - `penaltyReasons[]`
+
+Interpretation:
+- If `usedEvidence.status != ok`, then:
+  - the item’s score must reflect a deterministic penalty rule (section6)
+  - and `penaltyReasons[]` must include the status and/or reason codes.
+
+---
+
+## 3. Score Explanation Contract
+For each scoring item:
+- The score must be reproducible from:
+  - `inputs`
+  - evidence status/reasons (if evidence-based)
+  - fixed formula in section6
+
+Forbidden:
+- “Hidden heuristics” not in section6
+- “Manual overrides” not logged
+- “unknown” placeholder that avoids scoring
+
+---
+
+## 4. UI Display Requirements for Traceability
+On `/models/[modelKey]`:
+- For each scoring item row:
+  - show score
+  - show inputs used
+  - show “Used evidence: <type>(<status>)”
+  - show penaltyReasons when non-ok
+- For Evidence section:
+  - show status, reasons, refs, extracted
+- For Decisions section:
+  - show status + reasons
+
+If any of the above missing:
+- treat as bug (not “nice-to-have”).
