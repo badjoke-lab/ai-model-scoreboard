@@ -1,28 +1,60 @@
-# 🟥 AI Model Scoreboard v4 – Internal Specification (English)
+# AMS v4 Spec — Section 7: UI contract (no dummy, /v4 production, model pages required)
 
-## Section 7 — Error handling and safeguards
+## 1. Data loading rule
+UI must read from public/data/v4/index.json manifest, then load referenced files.
+No hard-coded dummy dataset in production route.
 
-### Purpose
-Keep the UI stable even when data sources fail. The guiding rule is: broken inputs must not break the leaderboard.
+## 2. Production routes
+- /v4 is the canonical production route.
+- old routes must be removed or clearly labeled as legacy (no silent confusion).
 
-### Fault isolation
-- Errors are contained at the model level. A failure for one vendor does not stop the rest of the pipeline.
-- Use retries and stale-cache fallbacks for transient API issues.
+## 3. /v4 list (rankings)
+Must render:
+- updatedAt / generatedAt
+- rows from rankings.json
+- search/filter by name/provider/status
+- evidence summary badge (e.g., okCount/4)
+- link to /models/[modelKey]
 
-### Data validation
-- Reject snapshots with missing mandatory fields.
-- Flag suspicious ranges and cap extreme outliers.
-- Mark incomplete entries so downstream scoring can reduce confidence instead of guessing.
+## 4. /models/[modelKey] (detail page) — REQUIRED
+Must work for all adopted+provisional modelKey.
 
-### Rollback strategy
-- If scoring fails, republish the last successful snapshot.
-- CI should surface alerts, but the production JSON remains stable.
+Detail must display:
 
-### Incident logging
-- Store incident metadata alongside models so demotion decisions are auditable.
-- Keep internal logs private to avoid leaking sensitive indicators.
+### A) Identity
+- modelKey
+- name
+- provider
+- rawRef (id/canonicalSlug if available)
+- status (adopted/provisional/denied) + reasons from decisions.json
 
-### Resilience checklist
-- Benchmarks missing → reuse last good values with a warning.
-- Vendor API down → freeze current scores until the next successful pull.
-- Naming conflicts → canonicalize and prevent duplicates before publishing.
+### B) Absolute metrics (must be visible)
+- context_length
+- max_output_tokens
+- pricing input/output
+- modalities
+- supportsTools
+- supportsStructuredOutput
+- rate limits if present
+- architecture/params if present
+If missing: display evidence outcome/reason codes (not unknown).
+
+### C) Evidence section (must be visible)
+Render 4 evidence items with:
+- type
+- status badge
+- reasons[] (non-empty)
+- refs[] links
+- extracted fields (if ok)
+
+### D) Scoring breakdown (must be visible)
+- overall score
+- category totals
+- all scoring item rows:
+  - score 0–100
+  - inputs used
+  - refs: evidence type/status used
+  - deterministic penalty note when evidence not ok
+
+## 5. UI empty-state is forbidden for required files
+If evidence file is missing or malformed => show “data contract broken” error message (not silent empty UI).
