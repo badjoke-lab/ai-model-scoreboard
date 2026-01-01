@@ -1,33 +1,133 @@
-# 🟥 AI Model Scoreboard v4 – Internal Specification (English)
+# AMS v4 Spec — Section 2: Output files & stable schema contract
 
-## Section 2 – Performance score
+## 1. v4 public data folder (UI contract)
+UI reads ONLY from:
+`public/data/v4/`
 
-### Purpose
-The performance score measures model capability using transparent, third-party evidence. Only objective benchmarks are included to keep rankings reproducible.
+The generator (private-engine) MUST output:
+- index.json
+- adoption.json
+- decisions.json
+- models.json
+- rankings.json
+- not-listed.json
+- evidence/index.json
+- evidence/{modelKey}.json (for every adopted+provisional modelKey; and optionally for denied models)
 
-### Data sources we use
-- Standard third-party benchmarks (e.g., LM Eval Harness suites).
-- Chatbot Arena Elo, stored on a quarterly fixed scale.
-- Vendor benchmarks with reduced weight when no independent data exists.
+## 2. index.json (meta-based manifest) — REQUIRED
+Purpose: make UI deterministic and decoupled from filenames drift.
 
-### Data we exclude
-- Social media sentiment or anecdotal reviews.
-- Marketing posts and unverifiable community tests.
-- Any subjective human evaluation without a stable protocol.
+Shape (stable):
+{
+  "meta": {
+    "schemaVersion": "v4",
+    "generatedAt": "ISO-8601",
+    "source": { "openrouter": true, "seed": true|false },
+    "counts": {
+      "intake": number,
+      "adopted": number,
+      "provisional": number,
+      "denied": number
+    }
+  },
+  "files": {
+    "adoption": "adoption.json",
+    "decisions": "decisions.json",
+    "models": "models.json",
+    "rankings": "rankings.json",
+    "notListed": "not-listed.json",
+    "evidenceIndex": "evidence/index.json"
+  }
+}
 
-### Scoring families and weights
-| Family | What it measures | Typical inputs | Weight |
-| --- | --- | --- | --- |
-| General Reasoning | Broad QA and reasoning | MMLU, MMLU-Pro, BigBench | 0.40 |
-| Coding Ability | Code generation and repair | HumanEval, MBPP, other code suites | 0.30 |
-| Math & STEM | Structured calculation | GSM8K, MATH | 0.20 |
-| Chat Quality | Dialog quality | Arena Elo, vendor chat benchmarks | 0.10 |
+## 3. adoption.json — REQUIRED
+Purpose: adopted/provisional lists for UI and scoring loops.
+Must include:
+{
+  "meta": { "generatedAt": "...", "rulesHash": "..." },
+  "adopted": [ { "modelKey": "...", "source": "openrouter|seed", "rawRef": {...} } ],
+  "provisional": [ { "modelKey": "...", "source": "...", "rawRef": {...}, "missing": ["fieldA", ...] } ]
+}
 
-### Calculation steps
-1. Normalize every benchmark to a 0–100 scale per family.
-2. Apply family weights and compute the weighted mean.
-3. Cap outliers and drop stale benchmark runs.
-4. Record missing families as “not available” rather than zero so they do not distort the score.
+## 4. decisions.json — REQUIRED
+Purpose: machine-auditable “why status”.
+Must include:
+{
+  "meta": { "generatedAt": "...", "rulesSummary": {...}, "rulesHash": "..." },
+  "items": [
+    {
+      "modelKey": "...",
+      "status": "adopted|provisional|denied",
+      "source": "openrouter|seed",
+      "rawRef": { "id": "...", "canonicalSlug": "..." },
+      "normalized": { "name": "...", "provider": "...", "slug": "..." },
+      "reasons": ["..."] 
+    }
+  ]
+}
 
-### Rationale
-Separating families prevents unrelated metrics from being averaged together. The weighted structure keeps the leaderboard stable even when one data source is temporarily missing.
+## 5. evidence/index.json — REQUIRED
+Purpose: list evidence coverage and paths.
+{
+  "meta": { "generatedAt": "...", "types": ["official_page","dev_activity","paper","audit"] },
+  "models": [
+    { "modelKey": "...", "path": "evidence/<modelKey>.json" }
+  ]
+}
+
+## 6. evidence/{modelKey}.json — REQUIRED
+Purpose: store enrichment attempt outcomes (no unknown).
+{
+  "meta": { "generatedAt": "...", "modelKey": "..." },
+  "evidenceItems": [
+    {
+      "type": "official_page|dev_activity|paper|audit",
+      "status": "ok|not_found|ambiguous|rate_limited|blocked|invalid|missing_source_link",
+      "reasons": ["..."],
+      "refs": ["https://...", "..."],
+      "extracted": { ... } 
+    }
+  ]
+}
+
+## 7. models.json — REQUIRED
+Purpose: per-model absolute metrics + all scoring item results + references.
+
+Top-level must be:
+{
+  "meta": { "generatedAt": "...", "schemaVersion":"v4" },
+  "models": {
+     "<modelKey>": {
+        "identity": {...},
+        "absolute": {...},
+        "status": {...},
+        "scores": {
+          "items": { "<itemKey>": { "score":0-100, "inputs":{...}, "refs":{...} } },
+          "categories": { "<categoryKey>": 0-100 },
+          "overall": 0-100
+        }
+     }
+  }
+}
+
+## 8. rankings.json — REQUIRED
+Purpose: sorted list used by /v4 list.
+{
+  "meta": { "generatedAt":"...", "sort":"overall_desc_then_key" },
+  "rows": [
+    { "rank":1, "modelKey":"...", "name":"...", "provider":"...", "status":"...", "overall": 0-100, "categories": {...}, "evidenceOkCount": 0-4 }
+  ]
+}
+
+## 9. not-listed.json — REQUIRED
+Purpose: denied models with reasons (traceability).
+{
+  "meta": { "generatedAt":"..." },
+  "denied": [
+    { "modelKey":"...", "name":"...", "provider":"...", "reasons":["..."] }
+  ]
+}
+
+## 10. Stability rule
+Once published, the above shapes are treated as public contract.
+Breaking changes require schemaVersion bump (NOT allowed in v4 tasks).
