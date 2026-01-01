@@ -1,53 +1,82 @@
-# AMS v4 Spec — Section 1: Definition of Done / Non-negotiables
+# AMS v4 — Product Definition (Completion Criteria)
 
-This document set (section1–8 + scoring.md) is the single source of truth for AMS v4.
-No “best effort”, no “unknown”, no “manual patching” is allowed unless explicitly stated.
+## 0. Purpose
+AI Model Scoreboard (AMS) v4 is a **deterministic daily-updating scoreboard** that:
+- Automatically discovers models (OpenRouter)
+- Attempts external evidence collection for every model (no skipping)
+- Computes **all scoring items** for every model (no “unknown” escape)
+- Publishes machine-auditable outputs (decisions/evidence + scores)
+- Renders real data in UI (no dummy) including per-model detail pages
 
-## 1. Goal (what “complete” means)
-After merge & daily operation, AMS v4 must satisfy ALL:
+This document defines **what “complete” means**. If any of the below is not true, v4 is **not complete**.
 
-### Data (private-engine)
-- Models automatically increase daily from OpenRouter.
-- Models can increase/decrease WITHOUT editing seed (seed may exist, but must not be required).
-- For EVERY model (adopted + provisional), enrichment is ALWAYS attempted daily.
-- Evidence results ALWAYS store a reason code (ok/not_found/rate_limited/blocked/ambiguous/invalid/missing_source_link). “unknown” is forbidden.
-- ALL scoring items are computed for EVERY model (no silent skip).
-- Every score is traceable via decisions/evidence references.
-- v4 output is deterministic (same inputs => same outputs).
+---
 
-### UI (ai-model-scoreboard)
-- Zero dummy-only paths in production.
-- Dozens+ real models are shown.
-- /models/[modelKey] opens for ALL models in adopted+provisional (and also for denied if present in not-listed).
-- Detail page shows: absolute metrics + score breakdown + evidence (with reason codes).
-- /v4 is the production route. Old routes are removed or clearly marked.
+## 1. Completion Criteria (MUST ALL be true)
 
-### Ops
-- Daily pipeline fails fast and stops when broken.
-- Logs must make root cause obvious (which file/key/step).
-- No manual intervention is needed for the system to keep increasing.
+### 1.1 Data / private-engine
+- **Daily model discovery from OpenRouter**
+  - New models can appear without manual edits.
+- **Models can increase/decrease without seed**
+  - Seed is only a bootstrap fallback; OpenRouter is the primary intake.
+- **External info collection attempted for EVERY model**
+  - For every adopted + provisional modelKey, evidence collection runs for each evidence type.
+- **Evidence always records a reason code**
+  - Evidence status must be one of:
+    - `ok | not_found | rate_limited | blocked | ambiguous | invalid | missing_source_link`
+  - `unknown` is forbidden.
+- **All scoring items are always computed**
+  - Every model must have a 0–100 score for every item (no silent skip).
+  - Missing evidence becomes a deterministic penalty (with reason codes recorded).
+- **Auditability**
+  - You can trace “why this model exists / why this score happened” via:
+    - `decisions.json` (adoption reasons)
+    - `evidence/*` (collection results + reason codes)
+    - `models.json` (item scores + usedEvidence + penalties)
+- **Deterministic v4 output**
+  - Given identical inputs and identical runs (same API payloads), output must be stable:
+    - same modelKey normalization
+    - same decision outcome
+    - same evidence statuses
+    - same scores
+- **v4 outputs are copied to UI repo deterministically**
+  - Copy step includes evidence folder and all v4 files.
 
-## 2. Non-negotiable rules
-1) UNKNOWN IS FORBIDDEN  
-All missing data must become a reason code outcome, not “unknown”.
+### 1.2 UI / ai-model-scoreboard
+- **Dummy = 0**
+  - No hardcoded dummy models in production route.
+- **Real models shown**
+  - Rankings shows **dozens+ models** from v4 data.
+- **Per-model detail pages work for all models**
+  - `/models/[modelKey]` opens for every model in v4 `models.json`.
+- **Model pages show full breakdown + evidence**
+  - Absolute metrics (“spec”) shown
+  - Adoption status + reasons shown
+  - Evidence shown with reason codes + refs + extracted
+  - All scoring items shown with usedEvidence link
+- **/v4 is production**
+  - `/v4` is canonical route; old routes are removed or explicitly marked as legacy.
 
-2) ALWAYS ATTEMPT ENRICHMENT  
-Even if missing links exist, emit `missing_source_link` (still an attempt outcome).
+### 1.3 Operations
+- **Daily must stop on break**
+  - If secrets missing, validation fails, schema invalid, etc. → job fails (not “best effort”).
+- **Logs must explain failure immediately**
+  - Logs must clearly say which stage failed and why.
+- **No manual intervention required to keep increasing**
+  - Daily can run indefinitely without hand-editing to accept new models.
 
-3) ALL ITEMS MUST PRODUCE NUMBERS  
-Every scoring item outputs 0–100 for every model.
+---
 
-4) TRACEABILITY  
-Every item must link to inputs (absolute metrics) or evidence statuses + decision reasons.
+## 2. Non-Negotiables (Contract Rules)
+1) `unknown` is forbidden in outputs.  
+2) Evidence is attempted for every model and every evidence type.  
+3) Every scoring item is computed for every model every day.  
+4) Every computed score must be explainable by machine logs (decisions/evidence).  
+5) Deterministic outputs: no randomness, no nondeterministic ordering.
 
-5) DETERMINISM  
-No randomness. Stable sort. Stable rounding. Stable keys.
+---
 
-## 3. Daily pipeline (high level)
-1) Intake models (OpenRouter) + optional seed merge
-2) Normalize + dedupe -> canonical modelKey set
-3) Apply allow/deny rules -> adoption.json + decisions.json
-4) Enrichment for adopted+provisional -> evidence/{modelKey}.json (+ evidence/index.json)
-5) Scoring (absolute metrics + evidence + ops metrics if available) -> models.json + rankings.json + not-listed.json + index.json
-6) Validate ALL outputs (schema/type + cross-file references)
-7) Copy outputs to UI repo and create PR if diff exists
+## 3. Definitions
+- **Absolute metrics (“spec”)**: cross-model comparable “PC spec-like” values (context length, pricing, modalities, tool support, structured output support, etc.). These MUST be shown and MUST affect scoring.
+- **All scoring items**: the full v4 list defined in section6. Every model gets a numeric score per item.
+- **Evidence**: external info collection result for a model, per evidence type, with reason codes.
