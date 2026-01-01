@@ -1,22 +1,32 @@
-# 🟥 AI Model Scoreboard v4 – Internal Specification (English)
+# AMS v4 Spec — Section 8: Operations (daily automation + logs + no manual intervention)
 
-## Section 8 — Future expansion (v5+ roadmap)
+## 1. Daily schedule
+- Runs daily at fixed time (UTC).
+- Steps:
+  1) generate v4 outputs in private-engine
+  2) validate
+  3) copy to UI repo
+  4) create/update PR only if diff exists
+  5) merge triggers deployment (Vercel)
 
-### Purpose
-Outline forward-looking ideas so v4 remains compatible with later improvements.
+## 2. Stop-on-failure
+Any failure stops the daily job:
+- missing API key
+- intake fetch failure
+- validation failure
+- copy/checkout failure
 
-### Potential new axes
-- **Long-context capability**: evaluate sustained accuracy at large context lengths.
-- **Multimodality**: score vision, audio, video, code execution, and tool use as separate abilities.
-- **Latency and throughput**: track responsiveness for real-time use cases.
+## 3. Log requirements (must be enough to debug in 1 minute)
+Logs must include:
+- changed=true/false
+- generatedAt
+- counts (intake/adopted/provisional/denied)
+- PR URL if created/updated
+- if failure: step name + root error + file/key pointer
 
-### Data improvements
-- Expand official source coverage and add additional independent benchmark suites.
-- Introduce stronger provenance tracking for every metric to improve auditability.
-
-### Automation enhancements
-- More granular incremental updates instead of full daily rebuilds.
-- Better anomaly detection to spot data drift and vendor regressions automatically.
-
-### Localization
-The MVP is English-only. Future versions can reintroduce localization once the pipeline and content are stable.
+## 4. No manual intervention definition
+System is considered “self-running” if:
+- new models appear automatically from OpenRouter
+- enrichment always runs and produces reason-coded evidence
+- scoring always produces full item set
+- UI updates via PR without editing seed/config
