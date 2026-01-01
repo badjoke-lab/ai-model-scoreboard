@@ -1,78 +1,107 @@
-# AMS v4 Spec — Section 4: Enrichment (evidence) — always attempt, never unknown
+# AMS v4 — Model Detail Page Spec (/models/[modelKey]) + Routing
 
-## 1. Evidence types (fixed set)
-For every adopted + provisional model, generate exactly these 4 evidence items:
-1) official_page
-2) dev_activity
-3) paper
-4) audit
+## 0. Route Rules
+- Canonical production route is `/v4`.
+- Model detail pages live at:
+  - `/models/[modelKey]`
+- `/v4` must link into model pages.
+- Legacy routes must be either removed or explicitly marked as legacy.
 
-## 2. Status codes (exclusive)
-- ok
-- not_found
-- ambiguous
-- rate_limited
-- blocked
-- invalid
-- missing_source_link
+---
 
-"unknown" is forbidden.
+## 1. Model Detail Page Layout (FIXED 4 blocks)
 
-## 3. “Always attempt” definition
-Even if we do not have a link to query, we MUST output an evidence item with:
-status = missing_source_link
-reasons = ["no_canonical_link_in_intake"] (example)
-refs = [] (or provider landing if known)
+### Block A — Absolute Metrics (Spec / “PC spec”)
+Purpose:
+- Cross-model comparable absolute metrics
+- MUST display for every model
+- MUST affect scoring (section6)
 
-This counts as an attempted enrichment outcome.
+Required fields (show as key-value table):
+- `modelKey`
+- `name`
+- `provider`
+- `canonicalSlug`
+- `sourceRef` (raw id)
+- `contextLength`
+- `maxOutputTokens`
+- `pricing.input` and `pricing.output`
+- `modalities` (text/image/audio/video flags)
+- `supportsTools`
+- `supportsJson`
+- optional: `rateLimits` if available
+- `trainingCutoff` and `releaseDate`:
+  - If not directly available, they must be represented as evidence-derived outcomes:
+    - show the evidence status + reason codes (“not_found”, etc.)
+  - Displaying nothing is a bug.
 
-## 4. Deterministic source policy (no free scraping)
-Evidence collection MUST rely on deterministic inputs:
-- intake-provided URLs/ids
-- curated provider landing URLs map (static map in code/config)
-- deterministic endpoints only (e.g., GitHub API for dev_activity when repo URL is known)
+Rule:
+- If a value is missing, UI must show:
+  - “Unavailable” plus a link/label to the relevant evidence status + reason
+  - NOT “unknown”.
 
-No uncontrolled web scraping.
+---
 
-## 5. Evidence logic per type
+### Block B — Adoption Status + Decision Reasons
+Purpose:
+- Explain why the model is adopted/provisional/denied.
 
-### 5.1 official_page
-- If intake provides a canonical URL => validate URL => ok
-- Else if provider landing exists in curated map => set ref=landing and status=not_found (unless a deterministic mapping finds a page)
-- Else missing_source_link
+Required:
+- `status` badge (adopted / provisional / denied)
+- `decisions.reasons[]` displayed as list
+- `decisions.source` (openrouter|seed)
+- `updatedAt` (from v4 meta)
 
-### 5.2 dev_activity
-- Only ok when an official repository URL exists (from seed or deterministic mapping).
-- Use GitHub API (or equivalent deterministic API).
-- Extract:
-  - repoUrl
-  - latestCommitAt
-  - commits90d
-  - release180d (boolean)
-- If no repoUrl => missing_source_link or not_found (depending on whether mapping was attempted)
+Rule:
+- reasons[] must be non-empty. Empty is a bug.
 
-### 5.3 paper
-- Only ok when a deterministic paper identifier exists (arXiv id / DOI) in seed/mapping.
-- If none => missing_source_link or not_found
-- If multiple conflicting candidates => ambiguous
-- Extract:
-  - hits
-  - top[] (title, url, year, venue)
+---
 
-### 5.4 audit
-- Only ok when a deterministic audit/security report link exists in seed/mapping.
-- If none => not_found (treat as “no public audit evidence”)
-- Extract:
-  - reports[] (name, url, date, scope)
+### Block C — Evidence (External collection results)
+Purpose:
+- Show the machine results of evidence collection.
+- Every model has exactly 4 evidence types.
 
-## 6. Rate limiting / blocked
-If API returns 429 => rate_limited
-If 403/robot => blocked
-If response schema invalid => invalid
-Always put error hint in reasons[] (e.g., "http_429", "http_403", "json_parse_error")
+Evidence types (fixed set):
+1) `official_page`
+2) `dev_activity`
+3) `paper`
+4) `audit`
 
-## 7. Output requirement
-For each modelKey:
-- evidence/{modelKey}.json MUST exist
-- evidenceItems MUST have 4 entries (types fixed)
-- each entry MUST include status + reasons[] (non-empty)
+Each evidence type MUST show:
+- `status` badge:
+  - `ok | not_found | rate_limited | blocked | ambiguous | invalid | missing_source_link`
+- `reasons[]` list (non-empty)
+- `refs[]` list as links (may be empty)
+- `extracted` (structured fields when ok)
+
+Rule:
+- Missing evidence items is a bug.
+- `unknown` is forbidden.
+
+(Concrete UI behavior is in section5.)
+
+---
+
+### Block D — Score Breakdown (ALL items)
+Purpose:
+- Explain the score; no hidden items; no skipping.
+
+Required:
+- `overall` score + category totals
+- Full list of scoring items (from section6) with:
+  - item score 0–100
+  - inputs used
+  - usedEvidence type + status
+  - penaltyReasons (reason codes) if applicable
+
+Rule:
+- If an item is absent for a model, it is a bug.
+- If an item is present but lacks usedEvidence linkage, it is a bug.
+
+---
+
+## 2. Linking Rules
+- Rankings entries link to `/models/[modelKey]`
+- Evidence section includes a “References” list aggregating refs across evidence types (deduped)
+- Score items should link/anchor to relevant evidence type if applicable
