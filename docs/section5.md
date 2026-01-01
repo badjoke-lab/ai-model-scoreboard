@@ -1,25 +1,24 @@
-# 🟥 AI Model Scoreboard v4 – Internal Specification (English)
+# AMS v4 Spec — Section 5: Scoring overview (full formulas in scoring.md)
 
-## Section 5 – Methodology publishing rules
+Scoring is fully defined in scoring.md.
+This section only states structure and invariants.
 
-### Purpose
-Translate the internal specification into a public-facing methodology without exposing proprietary formulas. Transparency is balanced with protections against score gaming.
+## 1. Invariants
+- Every model gets a score (0–100) for EVERY scoring item.
+- Missing inputs are handled deterministically via evidence status codes.
+- No item is skipped.
+- All item scores are traceable (inputs + evidence refs + decision refs).
+- Overall score is deterministic and stable.
 
-### What we publish
-- The goals of AMS: fairness, reproducibility, and objectivity.
-- High-level explanations of listing layers (Full, Provisional, Not Listed).
-- The existence of scoring axes (performance, safety, adoption, openness, cost) without revealing coefficients.
-- Update frequency and the fact that snapshots are rebuilt automatically.
+## 2. Scoring layers
+- Layer A: Absolute Metrics (Spec) — “PC-spec equivalent”
+- Layer B: Evidence-based Trust — official/dev/paper/audit results
+- Layer C: Ops Quality — latency/throughput/reliability (if available; if not, deterministic penalty)
 
-### What stays private
-- Exact scoring formulas, thresholds, and correction factors.
-- Internal incident handling heuristics and risk weights.
-- Debug logs and any data that could be used to reverse-engineer the ranking logic.
-
-### Publishing guidelines
-- Keep wording concise and neutral so it is easy to translate later.
-- Avoid examples that could be misused to overfit a single benchmark.
-- Document data freshness expectations and how missing inputs are handled.
-
-### Anti-gaming stance
-The methodology should make clear that AMS uses only verifiable data, so attempts to manipulate social sentiment or unstable community tests have no impact on scores.
+## 3. Output embedding
+models.json includes:
+- absolute metrics
+- evidence refs/statuses
+- per-item score with inputs & refs
+- category totals
+- overall score
