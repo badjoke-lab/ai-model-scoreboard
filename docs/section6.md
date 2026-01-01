@@ -1,28 +1,44 @@
-# 🟥 AI Model Scoreboard v4 – Internal Specification (English)
+# AMS v4 Spec — Section 6: Validation, determinism, and failure semantics
 
-## Section 6 — Automation pipeline
+## 1. Determinism rules
+- Stable sorting:
+  - rankings: sort by overall desc, then modelKey asc
+- Stable rounding:
+  - All item scores are integers 0–100 (round half-up)
+- Stable timestamps:
+  - generatedAt is recorded, but must NOT affect ranking ordering.
+- No randomness, no time-based drift except generatedAt.
 
-### Purpose
-Describe how AMS runs end-to-end without manual steps while keeping scoring logic private and published data stable.
+## 2. Validation scope (must validate ALL)
+Validator MUST fail the job if ANY of these fail:
+- index.json shape and file references exist
+- adoption.json + decisions.json shapes and cross-references consistent
+- evidence/index.json exists and every listed path exists
+- every evidence/{modelKey}.json includes exactly 4 types
+- models.json includes all models and all scoring items
+- rankings.json rows count matches adopted+provisional (policy-defined)
+- not-listed.json includes denied models
 
-### Repository layout (public vs private)
-- `/docs/` – public-facing methodology and internal notes.
-- `/public/` – finalized JSON consumed by the UI.
-- `/scripts/` – helper scripts safe to disclose.
-- `/data/raw` and `/data/processed` – optional staging areas for collected data.
-- `/internal/` – private pipeline logic (fetching, scoring, rules, canonicalization). This content is not committed to the public repo.
+## 3. Error message requirements
+On validation error, message MUST specify:
+- file path
+- JSON pointer (key path)
+- expected vs actual type/value
 
-### Pipeline layers
-1. **Model discovery**: crawl vendor APIs and marketplaces to detect new models and renamed entries.
-2. **Data fetch**: collect pricing, specs, benchmarks, incidents, and transparency signals; apply fallbacks when sources are unavailable.
-3. **Processing & scoring**: normalize data, compute scores, and assign listing layers using deterministic rules.
-4. **Publishing**: write public JSON files for the site; strip any sensitive intermediate fields.
-5. **Scheduler**: run daily at 00:00 UTC via CI; allow manual re-runs when debugging.
+Example:
+"validate failed: evidence/gpt-4o.json -> evidenceItems[2].status expected enum, got 'unknown'"
 
-### Secrecy controls
-- Keep scoring logic in CI secrets or private artifacts so formulas are not exposed.
-- Publish only the results needed by the UI.
-- Avoid retaining debug logs that could leak internal thresholds.
+## 4. Failure semantics (“broken => stop”)
+Daily pipeline MUST stop (fail CI) when:
+- required secret missing
+- intake fetch fails
+- any validator check fails
+- outputs cannot be written
 
-### Fail-soft behavior
-If any layer fails, reuse the last good snapshot and alert via CI logs. The goal is to keep the site functional even when inputs are partially broken.
+No “continue with partial data”.
+Partial outputs are not allowed.
+
+## 5. Ops metrics (optional but deterministic)
+If ops metrics are collected:
+- they must be stored as deterministic aggregates (p50/p95 over fixed window)
+- if unavailable => reason code and deterministic penalty
