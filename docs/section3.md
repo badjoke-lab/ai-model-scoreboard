@@ -1,30 +1,66 @@
-# 🟥 AI Model Scoreboard v4 – Internal Specification (English)
+# AMS v4 Spec — Section 3: Intake, normalization, modelKey, adoption rules
 
-## Section 3 – Layer management and incident handling
+## 1. Intake source
+Primary: OpenRouter models endpoint.
+Secondary: local seed JSON (optional; MUST NOT be required for growth).
 
-### Purpose
-This section documents how the automated pipeline assigns models to Full, Provisional, or Rejected tiers and how incidents trigger movement between layers. All decisions run on the daily 00:00 UTC loop with no manual overrides.
+## 2. Canonical identity fields (intake -> normalized)
+From OpenRouter, attempt to extract:
+- id
+- canonical_slug (preferred)
+- name
+- created
+- context_length
+- pricing (input/output)
+- modalities (in/out if available)
+- tool/function calling support if available
+- structured output support if available
+- top_provider / provider hints if available
 
-### Evaluation cadence
-- Layers are recalculated every day at 00:00 UTC.
-- Critical incidents can trigger immediate demotion without waiting for the next loop.
+## 3. modelKey definition (deterministic)
+modelKey MUST be stable and derived from normalized canonical identifier:
+- prefer canonical_slug if exists and non-empty
+- else fallback to id
+Normalize:
+- lowercase
+- trim
+- spaces => "-"
+- remove illegal chars (keep [a-z0-9._-])
+- collapse repeated separators
 
-### Layer definitions
-| Layer | Meaning | Score visibility | Leaderboard visibility |
-| --- | --- | --- | --- |
-| Full Listing | Fully adopted model | Scores shown | Appears in rankings |
-| Provisional | Limited evidence or early-stage model | Scores shown with caveats | Appears in rankings |
-| Rejected | Insufficient data or serious risk | Not shown | Not listed in rankings |
+## 4. Dedupe rule
+Deduplicate by modelKey.
+If multiple candidates:
+- keep the record with the most filled absolute metrics fields
+- tie-break by latest created, then lexical id
 
-### Incident policy
-- **Critical incident (1x)**: Immediate move to Rejected.
-- **Multiple medium incidents**: Move to Provisional while the system gathers more evidence.
-- **Resolved incidents**: A model can return to Full when recent evidence is healthy and data is complete.
+## 5. Adoption statuses
+Statuses:
+- adopted: included in rankings and detail pages
+- provisional: included in detail pages and rankings (with flag), but may rank lower due to missing required absolute metrics/evidence penalties
+- denied: excluded from rankings by default, but listed in not-listed with reasons
 
-### Staleness rules
-- If a model’s update timestamp drifts beyond the freshness threshold, it is moved to Provisional.
-- Continued staleness beyond 60 days moves it to Rejected so unreliable entries do not linger.
+## 6. allowlist/denylist rules
+- denylist: hard deny with explicit reason string
+- allowlist: force adopt even if some fields missing (still subject to evidence/scoring penalties if missing)
 
-### Objectives
-- Keep the leaderboard trustworthy by never showing entries with broken data.
-- Ensure every rule is numeric and explainable so that methodology can be published without revealing sensitive weighting details.
+Rules output MUST be fully logged into decisions.json.
+
+## 7. Minimal required absolute metrics for adoption vs provisional
+Define minimal set:
+- name
+- provider (or derivable provider label)
+- context_length
+- pricing.input
+- pricing.output
+
+If missing any -> provisional with reasons listing missing fields.
+
+## 8. Seed behavior (non-required)
+Seed is allowed for:
+- bootstrapping provider label mapping
+- adding models absent from OpenRouter
+BUT the system MUST still grow from OpenRouter alone.
+
+If a model exists in both seed and OpenRouter:
+- merge fields (OpenRouter wins for raw catalog metrics; seed may supply missing provider label).
