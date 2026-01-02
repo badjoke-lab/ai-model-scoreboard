@@ -1,0 +1,103 @@
+[
+  {
+    "id": "openai-gpt-4.1-mini",
+    "provider": "openai",
+    "family": "gpt-4.1",
+    "displayName": "GPT-4.1 mini",
+    "tier": "mini",
+    "releaseDate": "2024-06-01",
+    "contextLengthTokens": 128000,
+    "pricing": {
+      "inputUsdPer1k": 0.00015,
+      "outputUsdPer1k": 0.00060
+    },
+    "benchmarks": {
+      "mmlu": 0.80,
+      "arenaElo": 1200
+    },
+    "safety": {
+      "incidents": 0
+    }
+  },
+  {
+    "id": "openai-gpt-4.1",
+    "provider": "openai",
+    "family": "gpt-4.1",
+    "displayName": "GPT-4.1",
+    "tier": "flagship",
+    "releaseDate": "2024-06-01",
+    "contextLengthTokens": 128000,
+    "pricing": {
+      "inputUsdPer1k": 0.00500,
+      "outputUsdPer1k": 0.01500
+    },
+    "benchmarks": {
+      "mmlu": 0.88,
+      "arenaElo": 1350
+    },
+    "safety": {
+      "incidents": 0
+    }
+  },
+  {
+    "id": "anthropic-claude-3.5-sonnet",
+    "provider": "anthropic",
+    "family": "claude-3.5",
+    "displayName": "Claude 3.5 Sonnet",
+    "tier": "flagship",
+    "releaseDate": "2024-07-01",
+    "contextLengthTokens": 200000,
+    "pricing": {
+      "inputUsdPer1k": 0.00300,
+      "outputUsdPer1k": 0.01500
+    },
+    "benchmarks": {
+      "mmlu": 0.87,
+      "arenaElo": 1330
+    },
+    "safety": {
+      "incidents": 0
+    }
+  },
+  {
+    "id": "google-gemini-1.5-pro",
+    "provider": "google",
+    "family": "gemini-1.5",
+    "displayName": "Gemini 1.5 Pro",
+    "tier": "flagship",
+    "releaseDate": "2024-05-01",
+    "contextLengthTokens": 1000000,
+    "pricing": {
+      "inputUsdPer1k": 0.00350,
+      "outputUsdPer1k": 0.01000
+    },
+    "benchmarks": {
+      "mmlu": 0.85,
+      "arenaElo": 1300
+    },
+    "safety": {
+      "incidents": 0
+    }
+  },
+  {
+    "id": "mistral-large-2",
+    "provider": "mistral",
+    "family": "mistral-large",
+    "displayName": "Mistral Large 2",
+    "tier": "flagship",
+    "releaseDate": "2024-08-01",
+    "contextLengthTokens": 128000,
+    "pricing": {
+      "inputUsdPer1k": 0.00200,
+      "outputUsdPer1k": 0.00600
+    },
+    "benchmarks": {
+      "mmlu": 0.84,
+      "arenaElo": 1280
+    },
+    "safety": {
+      "incidents": 0
+    }
+  }
+]
+

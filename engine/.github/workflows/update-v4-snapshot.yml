@@ -1,0 +1,107 @@
+name: Update v4 snapshot
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * *"
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout private-engine
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate snapshot
+        run: npm run snapshot
+
+      - name: Debug index.json meta
+        run: cat output/index.json
+
+      - name: Capture snapshot metadata
+        id: metadata
+        run: |
+          UPDATED_AT=$(jq -r '.updatedAt // empty' output/index.json)
+          if [ -z "$UPDATED_AT" ]; then
+            echo "[snapshot] missing updatedAt in output/index.json"
+            cat output/index.json | head -n 40
+            exit 1
+          fi
+          echo "[snapshot] using key: updatedAt"
+          echo "updated_at=${UPDATED_AT}" >> "$GITHUB_OUTPUT"
+          echo "title_date=$(date -u +%F)" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout ai-model-scoreboard
+        uses: actions/checkout@v4
+        with:
+          repository: badjoke-lab/ai-model-scoreboard
+          token: ${{ secrets.AI_MODEL_SCOREBOARD_PAT }}
+          path: ui
+          fetch-depth: 0
+
+      - name: Update UI data files
+        run: |
+          mkdir -p ui/public/data/v4
+          cp output/index.json output/rankings.json output/models.json output/not-listed.json ui/public/data/v4/
+
+      - name: Check for changes
+        id: diff
+        run: |
+          cd ui
+          if git diff --quiet --exit-code -- public/data/v4; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: No changes detected
+        if: steps.diff.outputs.changed == 'false'
+        run: echo "No changes to publish. No PR will be created."
+
+      - name: Log snapshot metadata
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          echo "title_date=${{ steps.metadata.outputs.title_date }}"
+          echo "updated_at=${{ steps.metadata.outputs.updated_at }}"
+          echo "changed=true"
+
+      - name: Create pull request
+        if: steps.diff.outputs.changed == 'true'
+        id: cpr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.AI_MODEL_SCOREBOARD_PAT }}
+          path: ui
+          commit-message: Update v4 snapshot (${{ steps.metadata.outputs.title_date }})
+          branch: chore/update-v4-snapshot-${{ steps.metadata.outputs.title_date }}
+          title: Update v4 snapshot (${{ steps.metadata.outputs.title_date }})
+          body: |
+            Automated snapshot refresh.
+
+            updatedAt: `${{ steps.metadata.outputs.updated_at }}`
+          labels: |
+            snapshot
+          add-paths: |
+            public/data/v4/index.json
+            public/data/v4/rankings.json
+            public/data/v4/models.json
+            public/data/v4/not-listed.json
+
+      - name: Show PR result
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          if [ -n "${{ steps.cpr.outputs.pull-request-url }}" ]; then
+            echo "PR: ${{ steps.cpr.outputs.pull-request-url }} (operation: ${{ steps.cpr.outputs.pull-request-operation }})"
+          else
+            echo "No PR created (no diff)."
+          fi

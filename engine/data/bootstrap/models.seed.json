@@ -1,0 +1,12 @@
+[
+  {
+    "modelKey": "openai/gpt-4.1-mini",
+    "name": "GPT-4.1 mini",
+    "provider": "OpenAI"
+  },
+  {
+    "modelKey": "anthropic/claude-3.5-sonnet",
+    "name": "Claude 3.5 Sonnet",
+    "provider": "Anthropic"
+  }
+]
