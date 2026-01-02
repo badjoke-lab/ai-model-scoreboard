@@ -1,0 +1,50 @@
+name: v4-cron
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: v4-cron
+  cancel-in-progress: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # UI deps（必要なら）
+      - run: npm ci || true
+
+      # engine 実行 → 生成物をUIが読む場所へ同期
+      - name: Run engine and sync artifacts
+        run: |
+          cd engine
+          npm ci
+          npm run snapshot
+          cd ..
+          mkdir -p public/data/v4
+          rsync -a --delete engine/output/v4/ public/data/v4/
+
+      - name: Commit updated artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/v4 engine/output/v4 engine/cache || true
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          git commit -m "chore(v4): auto update $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git push

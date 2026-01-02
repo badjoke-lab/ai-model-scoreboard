@@ -1,0 +1,72 @@
+name: v4-cron
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: v4-cron
+  cancel-in-progress: true
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - run: npm ci
+
+      - name: Run v4 pipeline
+        run: npm run snapshot
+
+      - name: Write heartbeat
+        run: |
+          mkdir -p cache
+          node -e "const fs=require('fs'); fs.writeFileSync('cache/v4-last-success.json', JSON.stringify({ok:true, ts:new Date().toISOString(), sha: process.env.GITHUB_SHA}, null, 2));"
+
+      - name: Commit outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add output/v4 cache/openrouter-models.json cache/v4-last-success.json || true
+
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+
+          git pull --rebase
+          git commit -m "chore(v4): auto update $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git push
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `v4-cron failed: ${new Date().toISOString()}`;
+            const body = [
+              `Workflow: ${context.workflow}`,
+              `Run: ${context.runId}`,
+              `Commit: ${context.sha}`,
+              `URL: https://github.com/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+            ].join('\n');
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body
+            });
