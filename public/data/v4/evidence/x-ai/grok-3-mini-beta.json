@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "updatedAt": "2026-01-02T18:47:13.000Z",
+    "modelKey": "x-ai/grok-3-mini-beta"
+  },
+  "evidenceItems": [
+    {
+      "type": "official_page",
+      "status": "ok",
+      "reasons": [
+        "ok",
+        "openrouter_model_page_only"
+      ],
+      "refs": [
+        "https://openrouter.ai/models/x-ai/grok-3-mini-beta"
+      ],
+      "extracted": {
+        "url": "https://openrouter.ai/models/x-ai/grok-3-mini-beta"
+      }
+    },
+    {
+      "type": "dev_activity",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link",
+        "repo_link_missing"
+      ],
+      "refs": [
+        "missing:github_repo"
+      ]
+    },
+    {
+      "type": "paper",
+      "status": "not_found",
+      "reasons": [
+        "no_known_paper_source",
+        "not_found"
+      ],
+      "refs": [
+        "arxiv_query:\"xAI: Grok 3 Mini Beta\""
+      ]
+    },
+    {
+      "type": "audit",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link",
+        "no_known_audit_source"
+      ],
+      "refs": [
+        "missing:audit_link"
+      ]
+    }
+  ]
+}

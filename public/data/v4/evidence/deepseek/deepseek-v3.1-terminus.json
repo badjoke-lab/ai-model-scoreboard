@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "updatedAt": "2026-01-02T18:47:13.000Z",
+    "modelKey": "deepseek/deepseek-v3.1-terminus"
+  },
+  "evidenceItems": [
+    {
+      "type": "official_page",
+      "status": "ok",
+      "reasons": [
+        "ok",
+        "openrouter_model_page",
+        "provider_fallback"
+      ],
+      "refs": [
+        "https://openrouter.ai/models/deepseek/deepseek-v3.1-terminus",
+        "https://www.deepseek.com"
+      ],
+      "extracted": {
+        "url": "https://www.deepseek.com"
+      }
+    },
+    {
+      "type": "dev_activity",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link",
+        "repo_link_missing"
+      ],
+      "refs": [
+        "missing:github_repo"
+      ]
+    },
+    {
+      "type": "paper",
+      "status": "not_found",
+      "reasons": [
+        "no_known_paper_source",
+        "not_found"
+      ],
+      "refs": [
+        "arxiv_query:\"DeepSeek: DeepSeek V3.1 Terminus (exacto)\""
+      ]
+    },
+    {
+      "type": "audit",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link",
+        "no_known_audit_source"
+      ],
+      "refs": [
+        "missing:audit_link"
+      ]
+    }
+  ]
+}

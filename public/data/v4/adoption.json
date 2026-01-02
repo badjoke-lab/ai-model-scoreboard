@@ -1,0 +1,1925 @@
+{
+  "adopted": [
+    {
+      "modelKey": "ai21/jamba-large-1.7",
+      "name": "AI21: Jamba Large 1.7",
+      "provider": "ai21",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "ai21/jamba-mini-1.7",
+      "name": "AI21: Jamba Mini 1.7",
+      "provider": "ai21",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "aion-labs/aion-1.0",
+      "name": "AionLabs: Aion-1.0",
+      "provider": "aion-labs",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "aion-labs/aion-1.0-mini",
+      "name": "AionLabs: Aion-1.0-Mini",
+      "provider": "aion-labs",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "aion-labs/aion-rp-llama-3.1-8b",
+      "name": "AionLabs: Aion-RP 1.0 (8B)",
+      "provider": "aion-labs",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "alfredpros/codellama-7b-instruct-solidity",
+      "name": "AlfredPros: CodeLLaMa 7B Instruct Solidity",
+      "provider": "alfredpros",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "alibaba/tongyi-deepresearch-30b-a3b",
+      "name": "Tongyi DeepResearch 30B A3B (free)",
+      "provider": "alibaba",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "allenai/olmo-2-0325-32b-instruct",
+      "name": "AllenAI: Olmo 2 32B Instruct",
+      "provider": "allenai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "allenai/olmo-3-32b-think-20251121",
+      "name": "AllenAI: Olmo 3 32B Think (free)",
+      "provider": "allenai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "allenai/olmo-3-7b-instruct-20251121",
+      "name": "AllenAI: Olmo 3 7B Instruct",
+      "provider": "allenai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "allenai/olmo-3-7b-think-20251121",
+      "name": "AllenAI: Olmo 3 7B Think",
+      "provider": "allenai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "allenai/olmo-3.1-32b-think-20251215",
+      "name": "AllenAI: Olmo 3.1 32B Think (free)",
+      "provider": "allenai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "alpindale/goliath-120b",
+      "name": "Goliath 120B",
+      "provider": "alpindale",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "amazon/nova-2-lite-v1",
+      "name": "Amazon: Nova 2 Lite",
+      "provider": "amazon",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "amazon/nova-lite-v1",
+      "name": "Amazon: Nova Lite 1.0",
+      "provider": "amazon",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "amazon/nova-micro-v1",
+      "name": "Amazon: Nova Micro 1.0",
+      "provider": "amazon",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "amazon/nova-premier-v1",
+      "name": "Amazon: Nova Premier 1.0",
+      "provider": "amazon",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "amazon/nova-pro-v1",
+      "name": "Amazon: Nova Pro 1.0",
+      "provider": "amazon",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "anthracite-org/magnum-v4-72b",
+      "name": "Magnum v4 72B",
+      "provider": "anthracite-org",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "anthropic/claude-3-5-haiku",
+      "name": "Anthropic: Claude 3.5 Haiku",
+      "provider": "anthropic",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "anthropic/claude-3-5-haiku-20241022",
+      "name": "Anthropic: Claude 3.5 Haiku (2024-10-22)",
+      "provider": "anthropic",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "anthropic/claude-3-7-sonnet-20250219",
+      "name": "Anthropic: Claude 3.7 Sonnet (thinking)",
+      "provider": "anthropic",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "anthropic/claude-3-haiku",
+      "name": "Anthropic: Claude 3 Haiku",
+      "provider": "anthropic",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "anthropic/claude-3-opus",
+      "name": "Anthropic: Claude 3 Opus",
+      "provider": "anthropic",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "anthropic/claude-3.5-sonnet",
+      "name": "Anthropic: Claude 3.5 Sonnet",
+      "provider": "anthropic",
+      "source": "seed"
+    },
+    {
+      "modelKey": "anthropic/claude-4-opus-20250522",
+      "name": "Anthropic: Claude Opus 4",
+      "provider": "anthropic",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "anthropic/claude-4-sonnet-20250522",
+      "name": "Anthropic: Claude Sonnet 4",
+      "provider": "anthropic",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "anthropic/claude-4.1-opus-20250805",
+      "name": "Anthropic: Claude Opus 4.1",
+      "provider": "anthropic",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "anthropic/claude-4.5-haiku-20251001",
+      "name": "Anthropic: Claude Haiku 4.5",
+      "provider": "anthropic",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "anthropic/claude-4.5-opus-20251124",
+      "name": "Anthropic: Claude Opus 4.5",
+      "provider": "anthropic",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "anthropic/claude-4.5-sonnet-20250929",
+      "name": "Anthropic: Claude Sonnet 4.5",
+      "provider": "anthropic",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "arcee-ai/coder-large",
+      "name": "Arcee AI: Coder Large",
+      "provider": "arcee-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "arcee-ai/maestro-reasoning",
+      "name": "Arcee AI: Maestro Reasoning",
+      "provider": "arcee-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "arcee-ai/spotlight",
+      "name": "Arcee AI: Spotlight",
+      "provider": "arcee-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "arcee-ai/trinity-mini-20251201",
+      "name": "Arcee AI: Trinity Mini (free)",
+      "provider": "arcee-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "arcee-ai/virtuoso-large",
+      "name": "Arcee AI: Virtuoso Large",
+      "provider": "arcee-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "arliai/qwq-32b-arliai-rpr-v1",
+      "name": "ArliAI: QwQ 32B RpR v1",
+      "provider": "arliai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "baidu/ernie-4.5-21b-a3b",
+      "name": "Baidu: ERNIE 4.5 21B A3B",
+      "provider": "baidu",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "baidu/ernie-4.5-21b-a3b-thinking",
+      "name": "Baidu: ERNIE 4.5 21B A3B Thinking",
+      "provider": "baidu",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "baidu/ernie-4.5-300b-a47b",
+      "name": "Baidu: ERNIE 4.5 300B A47B",
+      "provider": "baidu",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "baidu/ernie-4.5-vl-28b-a3b",
+      "name": "Baidu: ERNIE 4.5 VL 28B A3B",
+      "provider": "baidu",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "baidu/ernie-4.5-vl-424b-a47b",
+      "name": "Baidu: ERNIE 4.5 VL 424B A47B",
+      "provider": "baidu",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "bytedance-seed/seed-1.6-20250625",
+      "name": "ByteDance Seed: Seed 1.6",
+      "provider": "bytedance-seed",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "bytedance-seed/seed-1.6-flash-20250625",
+      "name": "ByteDance Seed: Seed 1.6 Flash",
+      "provider": "bytedance-seed",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "bytedance/ui-tars-1.5-7b",
+      "name": "ByteDance: UI-TARS 7B",
+      "provider": "bytedance",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "cohere/command-a-03-2025",
+      "name": "Cohere: Command A",
+      "provider": "cohere",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "cohere/command-r-08-2024",
+      "name": "Cohere: Command R (08-2024)",
+      "provider": "cohere",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "cohere/command-r-plus-08-2024",
+      "name": "Cohere: Command R+ (08-2024)",
+      "provider": "cohere",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "cohere/command-r7b-12-2024",
+      "name": "Cohere: Command R7B (12-2024)",
+      "provider": "cohere",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepcogito/cogito-v2-preview-llama-109b-moe",
+      "name": "Cogito V2 Preview Llama 109B",
+      "provider": "deepcogito",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepcogito/cogito-v2-preview-llama-405b",
+      "name": "Deep Cogito: Cogito V2 Preview Llama 405B",
+      "provider": "deepcogito",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepcogito/cogito-v2-preview-llama-70b",
+      "name": "Deep Cogito: Cogito V2 Preview Llama 70B",
+      "provider": "deepcogito",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepcogito/cogito-v2.1-671b-20251118",
+      "name": "Deep Cogito: Cogito v2.1 671B",
+      "provider": "deepcogito",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepseek/deepseek-chat-v3",
+      "name": "DeepSeek: DeepSeek V3",
+      "provider": "deepseek",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepseek/deepseek-chat-v3-0324",
+      "name": "DeepSeek: DeepSeek V3 0324",
+      "provider": "deepseek",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepseek/deepseek-chat-v3.1",
+      "name": "DeepSeek: DeepSeek V3.1",
+      "provider": "deepseek",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepseek/deepseek-prover-v2",
+      "name": "DeepSeek: DeepSeek Prover V2",
+      "provider": "deepseek",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepseek/deepseek-r1",
+      "name": "DeepSeek: R1",
+      "provider": "deepseek",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepseek/deepseek-r1-0528",
+      "name": "DeepSeek: R1 0528 (free)",
+      "provider": "deepseek",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepseek/deepseek-r1-0528-qwen3-8b",
+      "name": "DeepSeek: DeepSeek R1 0528 Qwen3 8B",
+      "provider": "deepseek",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepseek/deepseek-r1-distill-llama-70b",
+      "name": "DeepSeek: R1 Distill Llama 70B",
+      "provider": "deepseek",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepseek/deepseek-r1-distill-qwen-14b",
+      "name": "DeepSeek: R1 Distill Qwen 14B",
+      "provider": "deepseek",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepseek/deepseek-r1-distill-qwen-32b",
+      "name": "DeepSeek: R1 Distill Qwen 32B",
+      "provider": "deepseek",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepseek/deepseek-v3.1-terminus",
+      "name": "DeepSeek: DeepSeek V3.1 Terminus (exacto)",
+      "provider": "deepseek",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepseek/deepseek-v3.2-20251201",
+      "name": "DeepSeek: DeepSeek V3.2",
+      "provider": "deepseek",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepseek/deepseek-v3.2-exp",
+      "name": "DeepSeek: DeepSeek V3.2 Exp",
+      "provider": "deepseek",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "deepseek/deepseek-v3.2-speciale-20251201",
+      "name": "DeepSeek: DeepSeek V3.2 Speciale",
+      "provider": "deepseek",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "eleutherai/llemma_7b",
+      "name": "EleutherAI: Llemma 7b",
+      "provider": "eleutherai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "essentialai/rnj-1-instruct",
+      "name": "EssentialAI: Rnj 1 Instruct",
+      "provider": "essentialai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemini-2.0-flash-001",
+      "name": "Google: Gemini 2.0 Flash",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemini-2.0-flash-exp",
+      "name": "Google: Gemini 2.0 Flash Experimental (free)",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemini-2.0-flash-lite-001",
+      "name": "Google: Gemini 2.0 Flash Lite",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemini-2.5-flash",
+      "name": "Google: Gemini 2.5 Flash",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemini-2.5-flash-image",
+      "name": "Google: Gemini 2.5 Flash Image (Nano Banana)",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemini-2.5-flash-image-preview",
+      "name": "Google: Gemini 2.5 Flash Image Preview (Nano Banana)",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemini-2.5-flash-lite",
+      "name": "Google: Gemini 2.5 Flash Lite",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemini-2.5-flash-lite-preview-09-2025",
+      "name": "Google: Gemini 2.5 Flash Lite Preview 09-2025",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemini-2.5-flash-preview-09-2025",
+      "name": "Google: Gemini 2.5 Flash Preview 09-2025",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemini-2.5-pro",
+      "name": "Google: Gemini 2.5 Pro",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemini-2.5-pro-preview-03-25",
+      "name": "Google: Gemini 2.5 Pro Preview 05-06",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemini-2.5-pro-preview-06-05",
+      "name": "Google: Gemini 2.5 Pro Preview 06-05",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemini-3-flash-preview-20251217",
+      "name": "Google: Gemini 3 Flash Preview",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemini-3-pro-image-preview-20251120",
+      "name": "Google: Nano Banana Pro (Gemini 3 Pro Image Preview)",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemini-3-pro-preview-20251117",
+      "name": "Google: Gemini 3 Pro Preview",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemma-2-27b-it",
+      "name": "Google: Gemma 2 27B",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemma-2-9b-it",
+      "name": "Google: Gemma 2 9B",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemma-3-12b-it",
+      "name": "Google: Gemma 3 12B (free)",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemma-3-27b-it",
+      "name": "Google: Gemma 3 27B (free)",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemma-3-4b-it",
+      "name": "Google: Gemma 3 4B (free)",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemma-3n-e2b-it",
+      "name": "Google: Gemma 3n 2B (free)",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "google/gemma-3n-e4b-it",
+      "name": "Google: Gemma 3n 4B (free)",
+      "provider": "google",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "gryphe/mythomax-l2-13b",
+      "name": "MythoMax 13B",
+      "provider": "gryphe",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "ibm-granite/granite-4.0-h-micro",
+      "name": "IBM: Granite 4.0 Micro",
+      "provider": "ibm-granite",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "inception/mercury",
+      "name": "Inception: Mercury",
+      "provider": "inception",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "inception/mercury-coder-small-beta",
+      "name": "Inception: Mercury Coder",
+      "provider": "inception",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "inflection/inflection-3-pi",
+      "name": "Inflection: Inflection 3 Pi",
+      "provider": "inflection",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "inflection/inflection-3-productivity",
+      "name": "Inflection: Inflection 3 Productivity",
+      "provider": "inflection",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "kwaipilot/kat-coder-pro-v1",
+      "name": "Kwaipilot: KAT-Coder-Pro V1 (free)",
+      "provider": "kwaipilot",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "liquid/lfm-2.2-6b",
+      "name": "LiquidAI/LFM2-2.6B",
+      "provider": "liquid",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "liquid/lfm2-8b-a1b",
+      "name": "LiquidAI/LFM2-8B-A1B",
+      "provider": "liquid",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mancer/weaver",
+      "name": "Mancer: Weaver (alpha)",
+      "provider": "mancer",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meituan/longcat-flash-chat",
+      "name": "Meituan: LongCat Flash Chat",
+      "provider": "meituan",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-3-70b-instruct",
+      "name": "Meta: Llama 3 70B Instruct",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-3-8b-instruct",
+      "name": "Meta: Llama 3 8B Instruct",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-3.1-405b",
+      "name": "Meta: Llama 3.1 405B (base)",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-3.1-405b-instruct",
+      "name": "Meta: Llama 3.1 405B Instruct (free)",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-3.1-70b-instruct",
+      "name": "Meta: Llama 3.1 70B Instruct",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-3.1-8b-instruct",
+      "name": "Meta: Llama 3.1 8B Instruct",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-3.2-11b-vision-instruct",
+      "name": "Meta: Llama 3.2 11B Vision Instruct",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-3.2-1b-instruct",
+      "name": "Meta: Llama 3.2 1B Instruct",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-3.2-3b-instruct",
+      "name": "Meta: Llama 3.2 3B Instruct (free)",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-3.2-90b-vision-instruct",
+      "name": "Meta: Llama 3.2 90B Vision Instruct",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-3.3-70b-instruct",
+      "name": "Meta: Llama 3.3 70B Instruct (free)",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-4-maverick-17b-128e-instruct",
+      "name": "Meta: Llama 4 Maverick",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-4-scout-17b-16e-instruct",
+      "name": "Meta: Llama 4 Scout",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-guard-2-8b",
+      "name": "Meta: LlamaGuard 2 8B",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-guard-3-8b",
+      "name": "Llama Guard 3 8B",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "meta-llama/llama-guard-4-12b",
+      "name": "Meta: Llama Guard 4 12B",
+      "provider": "meta-llama",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "microsoft/phi-3-medium-128k-instruct",
+      "name": "Microsoft: Phi-3 Medium 128K Instruct",
+      "provider": "microsoft",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "microsoft/phi-3-mini-128k-instruct",
+      "name": "Microsoft: Phi-3 Mini 128K Instruct",
+      "provider": "microsoft",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "microsoft/phi-3.5-mini-128k-instruct",
+      "name": "Microsoft: Phi-3.5 Mini 128K Instruct",
+      "provider": "microsoft",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "microsoft/phi-4",
+      "name": "Microsoft: Phi 4",
+      "provider": "microsoft",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "microsoft/phi-4-multimodal-instruct",
+      "name": "Microsoft: Phi 4 Multimodal Instruct",
+      "provider": "microsoft",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "microsoft/phi-4-reasoning-plus-04-30",
+      "name": "Microsoft: Phi 4 Reasoning Plus",
+      "provider": "microsoft",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "microsoft/wizardlm-2-8x22b",
+      "name": "WizardLM-2 8x22B",
+      "provider": "microsoft",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "minimax/minimax-01",
+      "name": "MiniMax: MiniMax-01",
+      "provider": "minimax",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "minimax/minimax-m1",
+      "name": "MiniMax: MiniMax M1",
+      "provider": "minimax",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "minimax/minimax-m2",
+      "name": "MiniMax: MiniMax M2",
+      "provider": "minimax",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "minimax/minimax-m2.1",
+      "name": "MiniMax: MiniMax M2.1",
+      "provider": "minimax",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/codestral-2508",
+      "name": "Mistral: Codestral 2508",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/devstral-2512",
+      "name": "Mistral: Devstral 2 2512 (free)",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/devstral-medium-2507",
+      "name": "Mistral: Devstral Medium",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/devstral-small-2505",
+      "name": "Mistral: Devstral Small 2505",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/devstral-small-2507",
+      "name": "Mistral: Devstral Small 1.1",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/ministral-14b-2512",
+      "name": "Mistral: Ministral 3 14B 2512",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/ministral-3b",
+      "name": "Mistral: Ministral 3B",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/ministral-3b-2512",
+      "name": "Mistral: Ministral 3 3B 2512",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/ministral-8b",
+      "name": "Mistral: Ministral 8B",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/ministral-8b-2512",
+      "name": "Mistral: Ministral 3 8B 2512",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-7b-instruct",
+      "name": "Mistral: Mistral 7B Instruct (free)",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-7b-instruct-v0.1",
+      "name": "Mistral: Mistral 7B Instruct v0.1",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-7b-instruct-v0.2",
+      "name": "Mistral: Mistral 7B Instruct v0.2",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-7b-instruct-v0.3",
+      "name": "Mistral: Mistral 7B Instruct v0.3",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-large",
+      "name": "Mistral Large",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-large-2407",
+      "name": "Mistral Large 2407",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-large-2411",
+      "name": "Mistral Large 2411",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-large-2512",
+      "name": "Mistral: Mistral Large 3 2512",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-medium-3",
+      "name": "Mistral: Mistral Medium 3",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-medium-3.1",
+      "name": "Mistral: Mistral Medium 3.1",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-nemo",
+      "name": "Mistral: Mistral Nemo",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-saba-2502",
+      "name": "Mistral: Saba",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-small-24b-instruct-2501",
+      "name": "Mistral: Mistral Small 3",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-small-3.1-24b-instruct-2503",
+      "name": "Mistral: Mistral Small 3.1 24B (free)",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-small-3.2-24b-instruct-2506",
+      "name": "Mistral: Mistral Small 3.2 24B",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-small-creative-20251216",
+      "name": "Mistral: Mistral Small Creative",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mistral-tiny",
+      "name": "Mistral Tiny",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mixtral-8x22b-instruct",
+      "name": "Mistral: Mixtral 8x22B Instruct",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/mixtral-8x7b-instruct",
+      "name": "Mistral: Mixtral 8x7B Instruct",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/pixtral-12b",
+      "name": "Mistral: Pixtral 12B",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/pixtral-large-2411",
+      "name": "Mistral: Pixtral Large 2411",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "mistralai/voxtral-small-24b-2507",
+      "name": "Mistral: Voxtral Small 24B 2507",
+      "provider": "mistralai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "moonshotai/kimi-dev-72b",
+      "name": "MoonshotAI: Kimi Dev 72B",
+      "provider": "moonshotai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "moonshotai/kimi-k2",
+      "name": "MoonshotAI: Kimi K2 0711 (free)",
+      "provider": "moonshotai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "moonshotai/kimi-k2-0905",
+      "name": "MoonshotAI: Kimi K2 0905",
+      "provider": "moonshotai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "moonshotai/kimi-k2-thinking-20251106",
+      "name": "MoonshotAI: Kimi K2 Thinking",
+      "provider": "moonshotai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "morph/morph-v3-fast",
+      "name": "Morph: Morph V3 Fast",
+      "provider": "morph",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "morph/morph-v3-large",
+      "name": "Morph: Morph V3 Large",
+      "provider": "morph",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "neversleep/llama-3.1-lumimaid-8b",
+      "name": "NeverSleep: Lumimaid v0.2 8B",
+      "provider": "neversleep",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "neversleep/noromaid-20b",
+      "name": "Noromaid 20B",
+      "provider": "neversleep",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "nex-agi/deepseek-v3.1-nex-n1",
+      "name": "Nex AGI: DeepSeek V3.1 Nex N1 (free)",
+      "provider": "nex-agi",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "nousresearch/deephermes-3-mistral-24b-preview",
+      "name": "Nous: DeepHermes 3 Mistral 24B Preview",
+      "provider": "nousresearch",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "nousresearch/hermes-2-pro-llama-3-8b",
+      "name": "NousResearch: Hermes 2 Pro - Llama-3 8B",
+      "provider": "nousresearch",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "nousresearch/hermes-3-llama-3.1-405b",
+      "name": "Nous: Hermes 3 405B Instruct (free)",
+      "provider": "nousresearch",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "nousresearch/hermes-3-llama-3.1-70b",
+      "name": "Nous: Hermes 3 70B Instruct",
+      "provider": "nousresearch",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "nousresearch/hermes-4-405b",
+      "name": "Nous: Hermes 4 405B",
+      "provider": "nousresearch",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "nousresearch/hermes-4-70b",
+      "name": "Nous: Hermes 4 70B",
+      "provider": "nousresearch",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "nvidia/llama-3.1-nemotron-70b-instruct",
+      "name": "NVIDIA: Llama 3.1 Nemotron 70B Instruct",
+      "provider": "nvidia",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+      "name": "NVIDIA: Llama 3.1 Nemotron Ultra 253B v1",
+      "provider": "nvidia",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+      "name": "NVIDIA: Llama 3.3 Nemotron Super 49B V1.5",
+      "provider": "nvidia",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "nvidia/nemotron-3-nano-30b-a3b",
+      "name": "NVIDIA: Nemotron 3 Nano 30B A3B (free)",
+      "provider": "nvidia",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "nvidia/nemotron-nano-12b-v2-vl",
+      "name": "NVIDIA: Nemotron Nano 12B 2 VL (free)",
+      "provider": "nvidia",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "nvidia/nemotron-nano-9b-v2",
+      "name": "NVIDIA: Nemotron Nano 9B V2 (free)",
+      "provider": "nvidia",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/chatgpt-4o-latest",
+      "name": "OpenAI: ChatGPT-4o",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/codex-mini",
+      "name": "OpenAI: Codex Mini",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-3.5-turbo",
+      "name": "OpenAI: GPT-3.5 Turbo",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-3.5-turbo-0613",
+      "name": "OpenAI: GPT-3.5 Turbo (older v0613)",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-3.5-turbo-16k",
+      "name": "OpenAI: GPT-3.5 Turbo 16k",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-3.5-turbo-instruct",
+      "name": "OpenAI: GPT-3.5 Turbo Instruct",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4",
+      "name": "OpenAI: GPT-4",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4-0314",
+      "name": "OpenAI: GPT-4 (older v0314)",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4-1106-preview",
+      "name": "OpenAI: GPT-4 Turbo (older v1106)",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4-turbo",
+      "name": "OpenAI: GPT-4 Turbo",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4-turbo-preview",
+      "name": "OpenAI: GPT-4 Turbo Preview",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4.1-2025-04-14",
+      "name": "OpenAI: GPT-4.1",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4.1-mini",
+      "name": "GPT-4.1 mini",
+      "provider": "openai",
+      "source": "seed"
+    },
+    {
+      "modelKey": "openai/gpt-4.1-mini-2025-04-14",
+      "name": "OpenAI: GPT-4.1 Mini",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4.1-nano-2025-04-14",
+      "name": "OpenAI: GPT-4.1 Nano",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4o",
+      "name": "OpenAI: GPT-4o",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4o-2024-05-13",
+      "name": "OpenAI: GPT-4o (2024-05-13)",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4o-2024-08-06",
+      "name": "OpenAI: GPT-4o (2024-08-06)",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4o-2024-11-20",
+      "name": "OpenAI: GPT-4o (2024-11-20)",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4o-audio-preview",
+      "name": "OpenAI: GPT-4o Audio",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4o-mini",
+      "name": "OpenAI: GPT-4o-mini",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4o-mini-2024-07-18",
+      "name": "OpenAI: GPT-4o-mini (2024-07-18)",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4o-mini-search-preview-2025-03-11",
+      "name": "OpenAI: GPT-4o-mini Search Preview",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-4o-search-preview-2025-03-11",
+      "name": "OpenAI: GPT-4o Search Preview",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5-2025-08-07",
+      "name": "OpenAI: GPT-5",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5-chat-2025-08-07",
+      "name": "OpenAI: GPT-5 Chat",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5-codex",
+      "name": "OpenAI: GPT-5 Codex",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5-image",
+      "name": "OpenAI: GPT-5 Image",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5-image-mini",
+      "name": "OpenAI: GPT-5 Image Mini",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5-mini-2025-08-07",
+      "name": "OpenAI: GPT-5 Mini",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5-nano-2025-08-07",
+      "name": "OpenAI: GPT-5 Nano",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5-pro-2025-10-06",
+      "name": "OpenAI: GPT-5 Pro",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5.1-20251113",
+      "name": "OpenAI: GPT-5.1",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5.1-chat-20251113",
+      "name": "OpenAI: GPT-5.1 Chat",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5.1-codex-20251113",
+      "name": "OpenAI: GPT-5.1-Codex",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5.1-codex-max-20251204",
+      "name": "OpenAI: GPT-5.1-Codex-Max",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5.1-codex-mini-20251113",
+      "name": "OpenAI: GPT-5.1-Codex-Mini",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5.2-20251211",
+      "name": "OpenAI: GPT-5.2",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5.2-chat-20251211",
+      "name": "OpenAI: GPT-5.2 Chat",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-5.2-pro-20251211",
+      "name": "OpenAI: GPT-5.2 Pro",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-oss-120b",
+      "name": "OpenAI: gpt-oss-120b (free)",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-oss-20b",
+      "name": "OpenAI: gpt-oss-20b (free)",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-oss-safeguard-20b",
+      "name": "OpenAI: gpt-oss-safeguard-20b",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/o1-2024-12-17",
+      "name": "OpenAI: o1",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/o1-pro",
+      "name": "OpenAI: o1-pro",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/o3-2025-04-16",
+      "name": "OpenAI: o3",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/o3-deep-research-2025-06-26",
+      "name": "OpenAI: o3 Deep Research",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/o3-mini-2025-01-31",
+      "name": "OpenAI: o3 Mini",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/o3-mini-high-2025-01-31",
+      "name": "OpenAI: o3 Mini High",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/o3-pro-2025-06-10",
+      "name": "OpenAI: o3 Pro",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/o4-mini-2025-04-16",
+      "name": "OpenAI: o4 Mini",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/o4-mini-deep-research-2025-06-26",
+      "name": "OpenAI: o4 Mini Deep Research",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/o4-mini-high-2025-04-16",
+      "name": "OpenAI: o4 Mini High",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "opengvlab/internvl3-78b",
+      "name": "OpenGVLab: InternVL3 78B",
+      "provider": "opengvlab",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openrouter/auto",
+      "name": "Auto Router",
+      "provider": "openrouter",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openrouter/bodybuilder",
+      "name": "Body Builder (beta)",
+      "provider": "openrouter",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "perplexity/sonar",
+      "name": "Perplexity: Sonar",
+      "provider": "perplexity",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "perplexity/sonar-deep-research",
+      "name": "Perplexity: Sonar Deep Research",
+      "provider": "perplexity",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "perplexity/sonar-pro",
+      "name": "Perplexity: Sonar Pro",
+      "provider": "perplexity",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "perplexity/sonar-pro-search",
+      "name": "Perplexity: Sonar Pro Search",
+      "provider": "perplexity",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "perplexity/sonar-reasoning",
+      "name": "Perplexity: Sonar Reasoning",
+      "provider": "perplexity",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "perplexity/sonar-reasoning-pro",
+      "name": "Perplexity: Sonar Reasoning Pro",
+      "provider": "perplexity",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "prime-intellect/intellect-3-20251126",
+      "name": "Prime Intellect: INTELLECT-3",
+      "provider": "prime-intellect",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen-2-vl-7b-instruct",
+      "name": "Qwen: Qwen2.5-VL 7B Instruct (free)",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen-2.5-72b-instruct",
+      "name": "Qwen2.5 72B Instruct",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen-2.5-7b-instruct",
+      "name": "Qwen: Qwen2.5 7B Instruct",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen-2.5-coder-32b-instruct",
+      "name": "Qwen2.5 Coder 32B Instruct",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen-max-2025-01-25",
+      "name": "Qwen: Qwen-Max",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen-plus-2025-01-25",
+      "name": "Qwen: Qwen-Plus",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen-plus-2025-07-28",
+      "name": "Qwen: Qwen Plus 0728",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen-turbo-2024-11-01",
+      "name": "Qwen: Qwen-Turbo",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen-vl-max-2025-01-25",
+      "name": "Qwen: Qwen VL Max",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen-vl-plus",
+      "name": "Qwen: Qwen VL Plus",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen2.5-coder-7b-instruct",
+      "name": "Qwen: Qwen2.5 Coder 7B Instruct",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen2.5-vl-32b-instruct",
+      "name": "Qwen: Qwen2.5 VL 32B Instruct",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen2.5-vl-72b-instruct",
+      "name": "Qwen: Qwen2.5 VL 72B Instruct",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-14b-04-28",
+      "name": "Qwen: Qwen3 14B",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-235b-a22b-04-28",
+      "name": "Qwen: Qwen3 235B A22B",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-235b-a22b-07-25",
+      "name": "Qwen: Qwen3 235B A22B Instruct 2507",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-235b-a22b-thinking-2507",
+      "name": "Qwen: Qwen3 235B A22B Thinking 2507",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-30b-a3b-04-28",
+      "name": "Qwen: Qwen3 30B A3B",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-30b-a3b-instruct-2507",
+      "name": "Qwen: Qwen3 30B A3B Instruct 2507",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-30b-a3b-thinking-2507",
+      "name": "Qwen: Qwen3 30B A3B Thinking 2507",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-32b-04-28",
+      "name": "Qwen: Qwen3 32B",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-4b-04-28",
+      "name": "Qwen: Qwen3 4B (free)",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-8b-04-28",
+      "name": "Qwen: Qwen3 8B",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-coder-30b-a3b-instruct",
+      "name": "Qwen: Qwen3 Coder 30B A3B Instruct",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-coder-480b-a35b-07-25",
+      "name": "Qwen: Qwen3 Coder 480B A35B (free)",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-coder-flash",
+      "name": "Qwen: Qwen3 Coder Flash",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-coder-plus",
+      "name": "Qwen: Qwen3 Coder Plus",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-max",
+      "name": "Qwen: Qwen3 Max",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-next-80b-a3b-instruct-2509",
+      "name": "Qwen: Qwen3 Next 80B A3B Instruct",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-next-80b-a3b-thinking-2509",
+      "name": "Qwen: Qwen3 Next 80B A3B Thinking",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-235b-a22b-instruct",
+      "name": "Qwen: Qwen3 VL 235B A22B Instruct",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-235b-a22b-thinking",
+      "name": "Qwen: Qwen3 VL 235B A22B Thinking",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-30b-a3b-instruct",
+      "name": "Qwen: Qwen3 VL 30B A3B Instruct",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-30b-a3b-thinking",
+      "name": "Qwen: Qwen3 VL 30B A3B Thinking",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-32b-instruct",
+      "name": "Qwen: Qwen3 VL 32B Instruct",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-8b-instruct",
+      "name": "Qwen: Qwen3 VL 8B Instruct",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-8b-thinking",
+      "name": "Qwen: Qwen3 VL 8B Thinking",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwq-32b",
+      "name": "Qwen: QwQ 32B",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "raifle/sorcererlm-8x22b",
+      "name": "SorcererLM 8x22B",
+      "provider": "raifle",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "relace/relace-apply-3",
+      "name": "Relace: Relace Apply 3",
+      "provider": "relace",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "relace/relace-search-20251208",
+      "name": "Relace: Relace Search",
+      "provider": "relace",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "sao10k/l3-euryale-70b",
+      "name": "Sao10k: Llama 3 Euryale 70B v2.1",
+      "provider": "sao10k",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "sao10k/l3-lunaris-8b",
+      "name": "Sao10K: Llama 3 8B Lunaris",
+      "provider": "sao10k",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "sao10k/l3.1-70b-hanami-x1",
+      "name": "Sao10K: Llama 3.1 70B Hanami x1",
+      "provider": "sao10k",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "sao10k/l3.1-euryale-70b",
+      "name": "Sao10K: Llama 3.1 Euryale 70B v2.2",
+      "provider": "sao10k",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "sao10k/l3.3-euryale-70b-v2.3",
+      "name": "Sao10K: Llama 3.3 Euryale 70B",
+      "provider": "sao10k",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "stepfun-ai/step3",
+      "name": "StepFun: Step3",
+      "provider": "stepfun-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "switchpoint/router",
+      "name": "Switchpoint Router",
+      "provider": "switchpoint",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "tencent/hunyuan-a13b-instruct",
+      "name": "Tencent: Hunyuan A13B Instruct",
+      "provider": "tencent",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "thedrummer/cydonia-24b-v4.1",
+      "name": "TheDrummer: Cydonia 24B V4.1",
+      "provider": "thedrummer",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "thedrummer/rocinante-12b",
+      "name": "TheDrummer: Rocinante 12B",
+      "provider": "thedrummer",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "thedrummer/skyfall-36b-v2",
+      "name": "TheDrummer: Skyfall 36B V2",
+      "provider": "thedrummer",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "thedrummer/unslopnemo-12b",
+      "name": "TheDrummer: UnslopNemo 12B",
+      "provider": "thedrummer",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "thudm/glm-4.1v-9b-thinking",
+      "name": "THUDM: GLM 4.1V 9B Thinking",
+      "provider": "thudm",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "tngtech/deepseek-r1t-chimera",
+      "name": "TNG: DeepSeek R1T Chimera (free)",
+      "provider": "tngtech",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "tngtech/deepseek-r1t2-chimera",
+      "name": "TNG: DeepSeek R1T2 Chimera (free)",
+      "provider": "tngtech",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "tngtech/tng-r1t-chimera",
+      "name": "TNG: R1T Chimera (free)",
+      "provider": "tngtech",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "undi95/remm-slerp-l2-13b",
+      "name": "ReMM SLERP 13B",
+      "provider": "undi95",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "venice/uncensored",
+      "name": "Venice: Uncensored (free)",
+      "provider": "cognitivecomputations",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "x-ai/grok-3",
+      "name": "xAI: Grok 3",
+      "provider": "x-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "x-ai/grok-3-beta",
+      "name": "xAI: Grok 3 Beta",
+      "provider": "x-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "x-ai/grok-3-mini",
+      "name": "xAI: Grok 3 Mini",
+      "provider": "x-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "x-ai/grok-3-mini-beta",
+      "name": "xAI: Grok 3 Mini Beta",
+      "provider": "x-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "x-ai/grok-4-07-09",
+      "name": "xAI: Grok 4",
+      "provider": "x-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "x-ai/grok-4-fast",
+      "name": "xAI: Grok 4 Fast",
+      "provider": "x-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "x-ai/grok-4.1-fast",
+      "name": "xAI: Grok 4.1 Fast",
+      "provider": "x-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "x-ai/grok-code-fast-1",
+      "name": "xAI: Grok Code Fast 1",
+      "provider": "x-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "xiaomi/mimo-v2-flash-20251210",
+      "name": "Xiaomi: MiMo-V2-Flash (free)",
+      "provider": "xiaomi",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "z-ai/glm-4-32b-0414",
+      "name": "Z.AI: GLM 4 32B",
+      "provider": "z-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "z-ai/glm-4.5",
+      "name": "Z.AI: GLM 4.5",
+      "provider": "z-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "z-ai/glm-4.5-air",
+      "name": "Z.AI: GLM 4.5 Air (free)",
+      "provider": "z-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "z-ai/glm-4.5v",
+      "name": "Z.AI: GLM 4.5V",
+      "provider": "z-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "z-ai/glm-4.6",
+      "name": "Z.AI: GLM 4.6",
+      "provider": "z-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "z-ai/glm-4.6-20251208",
+      "name": "Z.AI: GLM 4.6V",
+      "provider": "z-ai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "z-ai/glm-4.7-20251222",
+      "name": "Z.AI: GLM 4.7",
+      "provider": "z-ai",
+      "source": "openrouter"
+    }
+  ],
+  "provisional": []
+}

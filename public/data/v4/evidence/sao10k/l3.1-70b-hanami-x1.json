@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "updatedAt": "2026-01-02T18:47:13.000Z",
+    "modelKey": "sao10k/l3.1-70b-hanami-x1"
+  },
+  "evidenceItems": [
+    {
+      "type": "official_page",
+      "status": "ok",
+      "reasons": [
+        "ok",
+        "openrouter_model_page_only"
+      ],
+      "refs": [
+        "https://openrouter.ai/models/sao10k/l3.1-70b-hanami-x1"
+      ],
+      "extracted": {
+        "url": "https://openrouter.ai/models/sao10k/l3.1-70b-hanami-x1"
+      }
+    },
+    {
+      "type": "dev_activity",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link",
+        "repo_link_missing"
+      ],
+      "refs": [
+        "missing:github_repo"
+      ]
+    },
+    {
+      "type": "paper",
+      "status": "not_found",
+      "reasons": [
+        "no_known_paper_source",
+        "not_found"
+      ],
+      "refs": [
+        "arxiv_query:\"Sao10K: Llama 3.1 70B Hanami x1\""
+      ]
+    },
+    {
+      "type": "audit",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link",
+        "no_known_audit_source"
+      ],
+      "refs": [
+        "missing:audit_link"
+      ]
+    }
+  ]
+}

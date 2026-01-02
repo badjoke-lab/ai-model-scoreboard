@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "updatedAt": "2026-01-02T18:47:13.000Z",
+    "modelKey": "qwen/qwen2.5-vl-72b-instruct"
+  },
+  "evidenceItems": [
+    {
+      "type": "official_page",
+      "status": "ok",
+      "reasons": [
+        "ok",
+        "openrouter_model_page",
+        "provider_fallback"
+      ],
+      "refs": [
+        "https://openrouter.ai/models/qwen/qwen2.5-vl-72b-instruct",
+        "https://qwenlm.ai"
+      ],
+      "extracted": {
+        "url": "https://qwenlm.ai"
+      }
+    },
+    {
+      "type": "dev_activity",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link",
+        "repo_link_missing"
+      ],
+      "refs": [
+        "missing:github_repo"
+      ]
+    },
+    {
+      "type": "paper",
+      "status": "not_found",
+      "reasons": [
+        "no_known_paper_source",
+        "not_found"
+      ],
+      "refs": [
+        "arxiv_query:\"Qwen: Qwen2.5 VL 72B Instruct\""
+      ]
+    },
+    {
+      "type": "audit",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link",
+        "no_known_audit_source"
+      ],
+      "refs": [
+        "missing:audit_link"
+      ]
+    }
+  ]
+}

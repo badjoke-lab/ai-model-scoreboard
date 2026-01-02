@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "updatedAt": "2026-01-02T18:47:13.000Z",
+    "modelKey": "google/gemini-2.0-flash-exp"
+  },
+  "evidenceItems": [
+    {
+      "type": "official_page",
+      "status": "ok",
+      "reasons": [
+        "ok",
+        "openrouter_model_page",
+        "provider_fallback"
+      ],
+      "refs": [
+        "https://ai.google",
+        "https://openrouter.ai/models/google/gemini-2.0-flash-exp"
+      ],
+      "extracted": {
+        "url": "https://ai.google"
+      }
+    },
+    {
+      "type": "dev_activity",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link",
+        "repo_link_missing"
+      ],
+      "refs": [
+        "missing:github_repo"
+      ]
+    },
+    {
+      "type": "paper",
+      "status": "not_found",
+      "reasons": [
+        "no_known_paper_source",
+        "not_found"
+      ],
+      "refs": [
+        "arxiv_query:\"Google: Gemini 2.0 Flash Experimental (free)\""
+      ]
+    },
+    {
+      "type": "audit",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link",
+        "no_known_audit_source"
+      ],
+      "refs": [
+        "missing:audit_link"
+      ]
+    }
+  ]
+}

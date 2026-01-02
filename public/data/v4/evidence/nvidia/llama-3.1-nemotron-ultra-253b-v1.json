@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "updatedAt": "2026-01-02T18:47:13.000Z",
+    "modelKey": "nvidia/llama-3.1-nemotron-ultra-253b-v1"
+  },
+  "evidenceItems": [
+    {
+      "type": "official_page",
+      "status": "ok",
+      "reasons": [
+        "ok",
+        "openrouter_model_page_only"
+      ],
+      "refs": [
+        "https://openrouter.ai/models/nvidia/llama-3.1-nemotron-ultra-253b-v1"
+      ],
+      "extracted": {
+        "url": "https://openrouter.ai/models/nvidia/llama-3.1-nemotron-ultra-253b-v1"
+      }
+    },
+    {
+      "type": "dev_activity",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link",
+        "repo_link_missing"
+      ],
+      "refs": [
+        "missing:github_repo"
+      ]
+    },
+    {
+      "type": "paper",
+      "status": "not_found",
+      "reasons": [
+        "no_known_paper_source",
+        "not_found"
+      ],
+      "refs": [
+        "arxiv_query:\"NVIDIA: Llama 3.1 Nemotron Ultra 253B v1\""
+      ]
+    },
+    {
+      "type": "audit",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link",
+        "no_known_audit_source"
+      ],
+      "refs": [
+        "missing:audit_link"
+      ]
+    }
+  ]
+}

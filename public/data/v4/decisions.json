@@ -1,0 +1,5467 @@
+{
+  "meta": {
+    "generatedAt": "2026-01-02T18:47:13.000Z",
+    "requiredFields": [
+      "modelKey",
+      "name",
+      "provider"
+    ],
+    "allowlistCount": 0,
+    "denylistCount": 0,
+    "totals": {
+      "total": 320,
+      "adopted": 320,
+      "provisional": 0,
+      "denied": 0,
+      "sources": {
+        "openrouter": 318,
+        "seed": 2
+      }
+    },
+    "rules": {
+      "allowlist": [],
+      "denylist": []
+    }
+  },
+  "decisions": [
+    {
+      "modelKey": "ai21/jamba-large-1.7",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "AI21: Jamba Large 1.7",
+        "slug": "ai21/jamba-large-1.7",
+        "provider": "ai21"
+      },
+      "rawRef": {
+        "id": "ai21/jamba-large-1.7",
+        "canonical_slug": "ai21/jamba-large-1.7"
+      }
+    },
+    {
+      "modelKey": "ai21/jamba-mini-1.7",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "AI21: Jamba Mini 1.7",
+        "slug": "ai21/jamba-mini-1.7",
+        "provider": "ai21"
+      },
+      "rawRef": {
+        "id": "ai21/jamba-mini-1.7",
+        "canonical_slug": "ai21/jamba-mini-1.7"
+      }
+    },
+    {
+      "modelKey": "aion-labs/aion-1.0",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "AionLabs: Aion-1.0",
+        "slug": "aion-labs/aion-1.0",
+        "provider": "aion-labs"
+      },
+      "rawRef": {
+        "id": "aion-labs/aion-1.0",
+        "canonical_slug": "aion-labs/aion-1.0"
+      }
+    },
+    {
+      "modelKey": "aion-labs/aion-1.0-mini",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "AionLabs: Aion-1.0-Mini",
+        "slug": "aion-labs/aion-1.0-mini",
+        "provider": "aion-labs"
+      },
+      "rawRef": {
+        "id": "aion-labs/aion-1.0-mini",
+        "canonical_slug": "aion-labs/aion-1.0-mini"
+      }
+    },
+    {
+      "modelKey": "aion-labs/aion-rp-llama-3.1-8b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "AionLabs: Aion-RP 1.0 (8B)",
+        "slug": "aion-labs/aion-rp-llama-3.1-8b",
+        "provider": "aion-labs"
+      },
+      "rawRef": {
+        "id": "aion-labs/aion-rp-llama-3.1-8b",
+        "canonical_slug": "aion-labs/aion-rp-llama-3.1-8b"
+      }
+    },
+    {
+      "modelKey": "alfredpros/codellama-7b-instruct-solidity",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "AlfredPros: CodeLLaMa 7B Instruct Solidity",
+        "slug": "alfredpros/codellama-7b-instruct-solidity",
+        "provider": "alfredpros"
+      },
+      "rawRef": {
+        "id": "alfredpros/codellama-7b-instruct-solidity",
+        "canonical_slug": "alfredpros/codellama-7b-instruct-solidity"
+      }
+    },
+    {
+      "modelKey": "alibaba/tongyi-deepresearch-30b-a3b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Tongyi DeepResearch 30B A3B (free)",
+        "slug": "alibaba/tongyi-deepresearch-30b-a3b",
+        "provider": "alibaba"
+      },
+      "rawRef": {
+        "id": "alibaba/tongyi-deepresearch-30b-a3b:free",
+        "canonical_slug": "alibaba/tongyi-deepresearch-30b-a3b"
+      }
+    },
+    {
+      "modelKey": "allenai/olmo-2-0325-32b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "AllenAI: Olmo 2 32B Instruct",
+        "slug": "allenai/olmo-2-0325-32b-instruct",
+        "provider": "allenai"
+      },
+      "rawRef": {
+        "id": "allenai/olmo-2-0325-32b-instruct",
+        "canonical_slug": "allenai/olmo-2-0325-32b-instruct"
+      }
+    },
+    {
+      "modelKey": "allenai/olmo-3-32b-think-20251121",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "AllenAI: Olmo 3 32B Think (free)",
+        "slug": "allenai/olmo-3-32b-think-20251121",
+        "provider": "allenai"
+      },
+      "rawRef": {
+        "id": "allenai/olmo-3-32b-think:free",
+        "canonical_slug": "allenai/olmo-3-32b-think-20251121"
+      }
+    },
+    {
+      "modelKey": "allenai/olmo-3-7b-instruct-20251121",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "AllenAI: Olmo 3 7B Instruct",
+        "slug": "allenai/olmo-3-7b-instruct-20251121",
+        "provider": "allenai"
+      },
+      "rawRef": {
+        "id": "allenai/olmo-3-7b-instruct",
+        "canonical_slug": "allenai/olmo-3-7b-instruct-20251121"
+      }
+    },
+    {
+      "modelKey": "allenai/olmo-3-7b-think-20251121",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "AllenAI: Olmo 3 7B Think",
+        "slug": "allenai/olmo-3-7b-think-20251121",
+        "provider": "allenai"
+      },
+      "rawRef": {
+        "id": "allenai/olmo-3-7b-think",
+        "canonical_slug": "allenai/olmo-3-7b-think-20251121"
+      }
+    },
+    {
+      "modelKey": "allenai/olmo-3.1-32b-think-20251215",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "AllenAI: Olmo 3.1 32B Think (free)",
+        "slug": "allenai/olmo-3.1-32b-think-20251215",
+        "provider": "allenai"
+      },
+      "rawRef": {
+        "id": "allenai/olmo-3.1-32b-think:free",
+        "canonical_slug": "allenai/olmo-3.1-32b-think-20251215"
+      }
+    },
+    {
+      "modelKey": "alpindale/goliath-120b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Goliath 120B",
+        "slug": "alpindale/goliath-120b",
+        "provider": "alpindale"
+      },
+      "rawRef": {
+        "id": "alpindale/goliath-120b",
+        "canonical_slug": "alpindale/goliath-120b"
+      }
+    },
+    {
+      "modelKey": "amazon/nova-2-lite-v1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Amazon: Nova 2 Lite",
+        "slug": "amazon/nova-2-lite-v1",
+        "provider": "amazon"
+      },
+      "rawRef": {
+        "id": "amazon/nova-2-lite-v1",
+        "canonical_slug": "amazon/nova-2-lite-v1"
+      }
+    },
+    {
+      "modelKey": "amazon/nova-lite-v1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Amazon: Nova Lite 1.0",
+        "slug": "amazon/nova-lite-v1",
+        "provider": "amazon"
+      },
+      "rawRef": {
+        "id": "amazon/nova-lite-v1",
+        "canonical_slug": "amazon/nova-lite-v1"
+      }
+    },
+    {
+      "modelKey": "amazon/nova-micro-v1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Amazon: Nova Micro 1.0",
+        "slug": "amazon/nova-micro-v1",
+        "provider": "amazon"
+      },
+      "rawRef": {
+        "id": "amazon/nova-micro-v1",
+        "canonical_slug": "amazon/nova-micro-v1"
+      }
+    },
+    {
+      "modelKey": "amazon/nova-premier-v1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Amazon: Nova Premier 1.0",
+        "slug": "amazon/nova-premier-v1",
+        "provider": "amazon"
+      },
+      "rawRef": {
+        "id": "amazon/nova-premier-v1",
+        "canonical_slug": "amazon/nova-premier-v1"
+      }
+    },
+    {
+      "modelKey": "amazon/nova-pro-v1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Amazon: Nova Pro 1.0",
+        "slug": "amazon/nova-pro-v1",
+        "provider": "amazon"
+      },
+      "rawRef": {
+        "id": "amazon/nova-pro-v1",
+        "canonical_slug": "amazon/nova-pro-v1"
+      }
+    },
+    {
+      "modelKey": "anthracite-org/magnum-v4-72b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Magnum v4 72B",
+        "slug": "anthracite-org/magnum-v4-72b",
+        "provider": "anthracite-org"
+      },
+      "rawRef": {
+        "id": "anthracite-org/magnum-v4-72b",
+        "canonical_slug": "anthracite-org/magnum-v4-72b"
+      }
+    },
+    {
+      "modelKey": "anthropic/claude-3-5-haiku",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Anthropic: Claude 3.5 Haiku",
+        "slug": "anthropic/claude-3-5-haiku",
+        "provider": "anthropic"
+      },
+      "rawRef": {
+        "id": "anthropic/claude-3.5-haiku",
+        "canonical_slug": "anthropic/claude-3-5-haiku"
+      }
+    },
+    {
+      "modelKey": "anthropic/claude-3-5-haiku-20241022",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Anthropic: Claude 3.5 Haiku (2024-10-22)",
+        "slug": "anthropic/claude-3-5-haiku-20241022",
+        "provider": "anthropic"
+      },
+      "rawRef": {
+        "id": "anthropic/claude-3.5-haiku-20241022",
+        "canonical_slug": "anthropic/claude-3-5-haiku-20241022"
+      }
+    },
+    {
+      "modelKey": "anthropic/claude-3-7-sonnet-20250219",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Anthropic: Claude 3.7 Sonnet (thinking)",
+        "slug": "anthropic/claude-3-7-sonnet-20250219",
+        "provider": "anthropic"
+      },
+      "rawRef": {
+        "id": "anthropic/claude-3.7-sonnet:thinking",
+        "canonical_slug": "anthropic/claude-3-7-sonnet-20250219"
+      }
+    },
+    {
+      "modelKey": "anthropic/claude-3-haiku",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Anthropic: Claude 3 Haiku",
+        "slug": "anthropic/claude-3-haiku",
+        "provider": "anthropic"
+      },
+      "rawRef": {
+        "id": "anthropic/claude-3-haiku",
+        "canonical_slug": "anthropic/claude-3-haiku"
+      }
+    },
+    {
+      "modelKey": "anthropic/claude-3-opus",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Anthropic: Claude 3 Opus",
+        "slug": "anthropic/claude-3-opus",
+        "provider": "anthropic"
+      },
+      "rawRef": {
+        "id": "anthropic/claude-3-opus",
+        "canonical_slug": "anthropic/claude-3-opus"
+      }
+    },
+    {
+      "modelKey": "anthropic/claude-3.5-sonnet",
+      "source": "seed",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Anthropic: Claude 3.5 Sonnet",
+        "slug": "anthropic/claude-3.5-sonnet",
+        "provider": "anthropic"
+      },
+      "rawRef": {
+        "id": "anthropic/claude-3.5-sonnet",
+        "canonical_slug": "anthropic/claude-3.5-sonnet"
+      }
+    },
+    {
+      "modelKey": "anthropic/claude-4-opus-20250522",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Anthropic: Claude Opus 4",
+        "slug": "anthropic/claude-4-opus-20250522",
+        "provider": "anthropic"
+      },
+      "rawRef": {
+        "id": "anthropic/claude-opus-4",
+        "canonical_slug": "anthropic/claude-4-opus-20250522"
+      }
+    },
+    {
+      "modelKey": "anthropic/claude-4-sonnet-20250522",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Anthropic: Claude Sonnet 4",
+        "slug": "anthropic/claude-4-sonnet-20250522",
+        "provider": "anthropic"
+      },
+      "rawRef": {
+        "id": "anthropic/claude-sonnet-4",
+        "canonical_slug": "anthropic/claude-4-sonnet-20250522"
+      }
+    },
+    {
+      "modelKey": "anthropic/claude-4.1-opus-20250805",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Anthropic: Claude Opus 4.1",
+        "slug": "anthropic/claude-4.1-opus-20250805",
+        "provider": "anthropic"
+      },
+      "rawRef": {
+        "id": "anthropic/claude-opus-4.1",
+        "canonical_slug": "anthropic/claude-4.1-opus-20250805"
+      }
+    },
+    {
+      "modelKey": "anthropic/claude-4.5-haiku-20251001",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Anthropic: Claude Haiku 4.5",
+        "slug": "anthropic/claude-4.5-haiku-20251001",
+        "provider": "anthropic"
+      },
+      "rawRef": {
+        "id": "anthropic/claude-haiku-4.5",
+        "canonical_slug": "anthropic/claude-4.5-haiku-20251001"
+      }
+    },
+    {
+      "modelKey": "anthropic/claude-4.5-opus-20251124",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Anthropic: Claude Opus 4.5",
+        "slug": "anthropic/claude-4.5-opus-20251124",
+        "provider": "anthropic"
+      },
+      "rawRef": {
+        "id": "anthropic/claude-opus-4.5",
+        "canonical_slug": "anthropic/claude-4.5-opus-20251124"
+      }
+    },
+    {
+      "modelKey": "anthropic/claude-4.5-sonnet-20250929",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Anthropic: Claude Sonnet 4.5",
+        "slug": "anthropic/claude-4.5-sonnet-20250929",
+        "provider": "anthropic"
+      },
+      "rawRef": {
+        "id": "anthropic/claude-sonnet-4.5",
+        "canonical_slug": "anthropic/claude-4.5-sonnet-20250929"
+      }
+    },
+    {
+      "modelKey": "arcee-ai/coder-large",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Arcee AI: Coder Large",
+        "slug": "arcee-ai/coder-large",
+        "provider": "arcee-ai"
+      },
+      "rawRef": {
+        "id": "arcee-ai/coder-large",
+        "canonical_slug": "arcee-ai/coder-large"
+      }
+    },
+    {
+      "modelKey": "arcee-ai/maestro-reasoning",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Arcee AI: Maestro Reasoning",
+        "slug": "arcee-ai/maestro-reasoning",
+        "provider": "arcee-ai"
+      },
+      "rawRef": {
+        "id": "arcee-ai/maestro-reasoning",
+        "canonical_slug": "arcee-ai/maestro-reasoning"
+      }
+    },
+    {
+      "modelKey": "arcee-ai/spotlight",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Arcee AI: Spotlight",
+        "slug": "arcee-ai/spotlight",
+        "provider": "arcee-ai"
+      },
+      "rawRef": {
+        "id": "arcee-ai/spotlight",
+        "canonical_slug": "arcee-ai/spotlight"
+      }
+    },
+    {
+      "modelKey": "arcee-ai/trinity-mini-20251201",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Arcee AI: Trinity Mini (free)",
+        "slug": "arcee-ai/trinity-mini-20251201",
+        "provider": "arcee-ai"
+      },
+      "rawRef": {
+        "id": "arcee-ai/trinity-mini:free",
+        "canonical_slug": "arcee-ai/trinity-mini-20251201"
+      }
+    },
+    {
+      "modelKey": "arcee-ai/virtuoso-large",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Arcee AI: Virtuoso Large",
+        "slug": "arcee-ai/virtuoso-large",
+        "provider": "arcee-ai"
+      },
+      "rawRef": {
+        "id": "arcee-ai/virtuoso-large",
+        "canonical_slug": "arcee-ai/virtuoso-large"
+      }
+    },
+    {
+      "modelKey": "arliai/qwq-32b-arliai-rpr-v1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "ArliAI: QwQ 32B RpR v1",
+        "slug": "arliai/qwq-32b-arliai-rpr-v1",
+        "provider": "arliai"
+      },
+      "rawRef": {
+        "id": "arliai/qwq-32b-arliai-rpr-v1",
+        "canonical_slug": "arliai/qwq-32b-arliai-rpr-v1"
+      }
+    },
+    {
+      "modelKey": "baidu/ernie-4.5-21b-a3b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Baidu: ERNIE 4.5 21B A3B",
+        "slug": "baidu/ernie-4.5-21b-a3b",
+        "provider": "baidu"
+      },
+      "rawRef": {
+        "id": "baidu/ernie-4.5-21b-a3b",
+        "canonical_slug": "baidu/ernie-4.5-21b-a3b"
+      }
+    },
+    {
+      "modelKey": "baidu/ernie-4.5-21b-a3b-thinking",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Baidu: ERNIE 4.5 21B A3B Thinking",
+        "slug": "baidu/ernie-4.5-21b-a3b-thinking",
+        "provider": "baidu"
+      },
+      "rawRef": {
+        "id": "baidu/ernie-4.5-21b-a3b-thinking",
+        "canonical_slug": "baidu/ernie-4.5-21b-a3b-thinking"
+      }
+    },
+    {
+      "modelKey": "baidu/ernie-4.5-300b-a47b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Baidu: ERNIE 4.5 300B A47B",
+        "slug": "baidu/ernie-4.5-300b-a47b",
+        "provider": "baidu"
+      },
+      "rawRef": {
+        "id": "baidu/ernie-4.5-300b-a47b",
+        "canonical_slug": "baidu/ernie-4.5-300b-a47b"
+      }
+    },
+    {
+      "modelKey": "baidu/ernie-4.5-vl-28b-a3b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Baidu: ERNIE 4.5 VL 28B A3B",
+        "slug": "baidu/ernie-4.5-vl-28b-a3b",
+        "provider": "baidu"
+      },
+      "rawRef": {
+        "id": "baidu/ernie-4.5-vl-28b-a3b",
+        "canonical_slug": "baidu/ernie-4.5-vl-28b-a3b"
+      }
+    },
+    {
+      "modelKey": "baidu/ernie-4.5-vl-424b-a47b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Baidu: ERNIE 4.5 VL 424B A47B",
+        "slug": "baidu/ernie-4.5-vl-424b-a47b",
+        "provider": "baidu"
+      },
+      "rawRef": {
+        "id": "baidu/ernie-4.5-vl-424b-a47b",
+        "canonical_slug": "baidu/ernie-4.5-vl-424b-a47b"
+      }
+    },
+    {
+      "modelKey": "bytedance-seed/seed-1.6-20250625",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "ByteDance Seed: Seed 1.6",
+        "slug": "bytedance-seed/seed-1.6-20250625",
+        "provider": "bytedance-seed"
+      },
+      "rawRef": {
+        "id": "bytedance-seed/seed-1.6",
+        "canonical_slug": "bytedance-seed/seed-1.6-20250625"
+      }
+    },
+    {
+      "modelKey": "bytedance-seed/seed-1.6-flash-20250625",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "ByteDance Seed: Seed 1.6 Flash",
+        "slug": "bytedance-seed/seed-1.6-flash-20250625",
+        "provider": "bytedance-seed"
+      },
+      "rawRef": {
+        "id": "bytedance-seed/seed-1.6-flash",
+        "canonical_slug": "bytedance-seed/seed-1.6-flash-20250625"
+      }
+    },
+    {
+      "modelKey": "bytedance/ui-tars-1.5-7b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "ByteDance: UI-TARS 7B",
+        "slug": "bytedance/ui-tars-1.5-7b",
+        "provider": "bytedance"
+      },
+      "rawRef": {
+        "id": "bytedance/ui-tars-1.5-7b",
+        "canonical_slug": "bytedance/ui-tars-1.5-7b"
+      }
+    },
+    {
+      "modelKey": "cohere/command-a-03-2025",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Cohere: Command A",
+        "slug": "cohere/command-a-03-2025",
+        "provider": "cohere"
+      },
+      "rawRef": {
+        "id": "cohere/command-a",
+        "canonical_slug": "cohere/command-a-03-2025"
+      }
+    },
+    {
+      "modelKey": "cohere/command-r-08-2024",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Cohere: Command R (08-2024)",
+        "slug": "cohere/command-r-08-2024",
+        "provider": "cohere"
+      },
+      "rawRef": {
+        "id": "cohere/command-r-08-2024",
+        "canonical_slug": "cohere/command-r-08-2024"
+      }
+    },
+    {
+      "modelKey": "cohere/command-r-plus-08-2024",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Cohere: Command R+ (08-2024)",
+        "slug": "cohere/command-r-plus-08-2024",
+        "provider": "cohere"
+      },
+      "rawRef": {
+        "id": "cohere/command-r-plus-08-2024",
+        "canonical_slug": "cohere/command-r-plus-08-2024"
+      }
+    },
+    {
+      "modelKey": "cohere/command-r7b-12-2024",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Cohere: Command R7B (12-2024)",
+        "slug": "cohere/command-r7b-12-2024",
+        "provider": "cohere"
+      },
+      "rawRef": {
+        "id": "cohere/command-r7b-12-2024",
+        "canonical_slug": "cohere/command-r7b-12-2024"
+      }
+    },
+    {
+      "modelKey": "deepcogito/cogito-v2-preview-llama-109b-moe",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Cogito V2 Preview Llama 109B",
+        "slug": "deepcogito/cogito-v2-preview-llama-109b-moe",
+        "provider": "deepcogito"
+      },
+      "rawRef": {
+        "id": "deepcogito/cogito-v2-preview-llama-109b-moe",
+        "canonical_slug": "deepcogito/cogito-v2-preview-llama-109b-moe"
+      }
+    },
+    {
+      "modelKey": "deepcogito/cogito-v2-preview-llama-405b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Deep Cogito: Cogito V2 Preview Llama 405B",
+        "slug": "deepcogito/cogito-v2-preview-llama-405b",
+        "provider": "deepcogito"
+      },
+      "rawRef": {
+        "id": "deepcogito/cogito-v2-preview-llama-405b",
+        "canonical_slug": "deepcogito/cogito-v2-preview-llama-405b"
+      }
+    },
+    {
+      "modelKey": "deepcogito/cogito-v2-preview-llama-70b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Deep Cogito: Cogito V2 Preview Llama 70B",
+        "slug": "deepcogito/cogito-v2-preview-llama-70b",
+        "provider": "deepcogito"
+      },
+      "rawRef": {
+        "id": "deepcogito/cogito-v2-preview-llama-70b",
+        "canonical_slug": "deepcogito/cogito-v2-preview-llama-70b"
+      }
+    },
+    {
+      "modelKey": "deepcogito/cogito-v2.1-671b-20251118",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Deep Cogito: Cogito v2.1 671B",
+        "slug": "deepcogito/cogito-v2.1-671b-20251118",
+        "provider": "deepcogito"
+      },
+      "rawRef": {
+        "id": "deepcogito/cogito-v2.1-671b",
+        "canonical_slug": "deepcogito/cogito-v2.1-671b-20251118"
+      }
+    },
+    {
+      "modelKey": "deepseek/deepseek-chat-v3",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "DeepSeek: DeepSeek V3",
+        "slug": "deepseek/deepseek-chat-v3",
+        "provider": "deepseek"
+      },
+      "rawRef": {
+        "id": "deepseek/deepseek-chat",
+        "canonical_slug": "deepseek/deepseek-chat-v3"
+      }
+    },
+    {
+      "modelKey": "deepseek/deepseek-chat-v3-0324",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "DeepSeek: DeepSeek V3 0324",
+        "slug": "deepseek/deepseek-chat-v3-0324",
+        "provider": "deepseek"
+      },
+      "rawRef": {
+        "id": "deepseek/deepseek-chat-v3-0324",
+        "canonical_slug": "deepseek/deepseek-chat-v3-0324"
+      }
+    },
+    {
+      "modelKey": "deepseek/deepseek-chat-v3.1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "DeepSeek: DeepSeek V3.1",
+        "slug": "deepseek/deepseek-chat-v3.1",
+        "provider": "deepseek"
+      },
+      "rawRef": {
+        "id": "deepseek/deepseek-chat-v3.1",
+        "canonical_slug": "deepseek/deepseek-chat-v3.1"
+      }
+    },
+    {
+      "modelKey": "deepseek/deepseek-prover-v2",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "DeepSeek: DeepSeek Prover V2",
+        "slug": "deepseek/deepseek-prover-v2",
+        "provider": "deepseek"
+      },
+      "rawRef": {
+        "id": "deepseek/deepseek-prover-v2",
+        "canonical_slug": "deepseek/deepseek-prover-v2"
+      }
+    },
+    {
+      "modelKey": "deepseek/deepseek-r1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "DeepSeek: R1",
+        "slug": "deepseek/deepseek-r1",
+        "provider": "deepseek"
+      },
+      "rawRef": {
+        "id": "deepseek/deepseek-r1",
+        "canonical_slug": "deepseek/deepseek-r1"
+      }
+    },
+    {
+      "modelKey": "deepseek/deepseek-r1-0528",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "DeepSeek: R1 0528 (free)",
+        "slug": "deepseek/deepseek-r1-0528",
+        "provider": "deepseek"
+      },
+      "rawRef": {
+        "id": "deepseek/deepseek-r1-0528:free",
+        "canonical_slug": "deepseek/deepseek-r1-0528"
+      }
+    },
+    {
+      "modelKey": "deepseek/deepseek-r1-0528-qwen3-8b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "DeepSeek: DeepSeek R1 0528 Qwen3 8B",
+        "slug": "deepseek/deepseek-r1-0528-qwen3-8b",
+        "provider": "deepseek"
+      },
+      "rawRef": {
+        "id": "deepseek/deepseek-r1-0528-qwen3-8b",
+        "canonical_slug": "deepseek/deepseek-r1-0528-qwen3-8b"
+      }
+    },
+    {
+      "modelKey": "deepseek/deepseek-r1-distill-llama-70b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "DeepSeek: R1 Distill Llama 70B",
+        "slug": "deepseek/deepseek-r1-distill-llama-70b",
+        "provider": "deepseek"
+      },
+      "rawRef": {
+        "id": "deepseek/deepseek-r1-distill-llama-70b",
+        "canonical_slug": "deepseek/deepseek-r1-distill-llama-70b"
+      }
+    },
+    {
+      "modelKey": "deepseek/deepseek-r1-distill-qwen-14b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "DeepSeek: R1 Distill Qwen 14B",
+        "slug": "deepseek/deepseek-r1-distill-qwen-14b",
+        "provider": "deepseek"
+      },
+      "rawRef": {
+        "id": "deepseek/deepseek-r1-distill-qwen-14b",
+        "canonical_slug": "deepseek/deepseek-r1-distill-qwen-14b"
+      }
+    },
+    {
+      "modelKey": "deepseek/deepseek-r1-distill-qwen-32b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "DeepSeek: R1 Distill Qwen 32B",
+        "slug": "deepseek/deepseek-r1-distill-qwen-32b",
+        "provider": "deepseek"
+      },
+      "rawRef": {
+        "id": "deepseek/deepseek-r1-distill-qwen-32b",
+        "canonical_slug": "deepseek/deepseek-r1-distill-qwen-32b"
+      }
+    },
+    {
+      "modelKey": "deepseek/deepseek-v3.1-terminus",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "DeepSeek: DeepSeek V3.1 Terminus (exacto)",
+        "slug": "deepseek/deepseek-v3.1-terminus",
+        "provider": "deepseek"
+      },
+      "rawRef": {
+        "id": "deepseek/deepseek-v3.1-terminus:exacto",
+        "canonical_slug": "deepseek/deepseek-v3.1-terminus"
+      }
+    },
+    {
+      "modelKey": "deepseek/deepseek-v3.2-20251201",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "DeepSeek: DeepSeek V3.2",
+        "slug": "deepseek/deepseek-v3.2-20251201",
+        "provider": "deepseek"
+      },
+      "rawRef": {
+        "id": "deepseek/deepseek-v3.2",
+        "canonical_slug": "deepseek/deepseek-v3.2-20251201"
+      }
+    },
+    {
+      "modelKey": "deepseek/deepseek-v3.2-exp",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "DeepSeek: DeepSeek V3.2 Exp",
+        "slug": "deepseek/deepseek-v3.2-exp",
+        "provider": "deepseek"
+      },
+      "rawRef": {
+        "id": "deepseek/deepseek-v3.2-exp",
+        "canonical_slug": "deepseek/deepseek-v3.2-exp"
+      }
+    },
+    {
+      "modelKey": "deepseek/deepseek-v3.2-speciale-20251201",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "DeepSeek: DeepSeek V3.2 Speciale",
+        "slug": "deepseek/deepseek-v3.2-speciale-20251201",
+        "provider": "deepseek"
+      },
+      "rawRef": {
+        "id": "deepseek/deepseek-v3.2-speciale",
+        "canonical_slug": "deepseek/deepseek-v3.2-speciale-20251201"
+      }
+    },
+    {
+      "modelKey": "eleutherai/llemma_7b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "EleutherAI: Llemma 7b",
+        "slug": "eleutherai/llemma_7b",
+        "provider": "eleutherai"
+      },
+      "rawRef": {
+        "id": "eleutherai/llemma_7b",
+        "canonical_slug": "eleutherai/llemma_7b"
+      }
+    },
+    {
+      "modelKey": "essentialai/rnj-1-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "EssentialAI: Rnj 1 Instruct",
+        "slug": "essentialai/rnj-1-instruct",
+        "provider": "essentialai"
+      },
+      "rawRef": {
+        "id": "essentialai/rnj-1-instruct",
+        "canonical_slug": "essentialai/rnj-1-instruct"
+      }
+    },
+    {
+      "modelKey": "google/gemini-2.0-flash-001",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemini 2.0 Flash",
+        "slug": "google/gemini-2.0-flash-001",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemini-2.0-flash-001",
+        "canonical_slug": "google/gemini-2.0-flash-001"
+      }
+    },
+    {
+      "modelKey": "google/gemini-2.0-flash-exp",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemini 2.0 Flash Experimental (free)",
+        "slug": "google/gemini-2.0-flash-exp",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemini-2.0-flash-exp:free",
+        "canonical_slug": "google/gemini-2.0-flash-exp"
+      }
+    },
+    {
+      "modelKey": "google/gemini-2.0-flash-lite-001",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemini 2.0 Flash Lite",
+        "slug": "google/gemini-2.0-flash-lite-001",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemini-2.0-flash-lite-001",
+        "canonical_slug": "google/gemini-2.0-flash-lite-001"
+      }
+    },
+    {
+      "modelKey": "google/gemini-2.5-flash",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemini 2.5 Flash",
+        "slug": "google/gemini-2.5-flash",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemini-2.5-flash",
+        "canonical_slug": "google/gemini-2.5-flash"
+      }
+    },
+    {
+      "modelKey": "google/gemini-2.5-flash-image",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemini 2.5 Flash Image (Nano Banana)",
+        "slug": "google/gemini-2.5-flash-image",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemini-2.5-flash-image",
+        "canonical_slug": "google/gemini-2.5-flash-image"
+      }
+    },
+    {
+      "modelKey": "google/gemini-2.5-flash-image-preview",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemini 2.5 Flash Image Preview (Nano Banana)",
+        "slug": "google/gemini-2.5-flash-image-preview",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemini-2.5-flash-image-preview",
+        "canonical_slug": "google/gemini-2.5-flash-image-preview"
+      }
+    },
+    {
+      "modelKey": "google/gemini-2.5-flash-lite",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemini 2.5 Flash Lite",
+        "slug": "google/gemini-2.5-flash-lite",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemini-2.5-flash-lite",
+        "canonical_slug": "google/gemini-2.5-flash-lite"
+      }
+    },
+    {
+      "modelKey": "google/gemini-2.5-flash-lite-preview-09-2025",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemini 2.5 Flash Lite Preview 09-2025",
+        "slug": "google/gemini-2.5-flash-lite-preview-09-2025",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemini-2.5-flash-lite-preview-09-2025",
+        "canonical_slug": "google/gemini-2.5-flash-lite-preview-09-2025"
+      }
+    },
+    {
+      "modelKey": "google/gemini-2.5-flash-preview-09-2025",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemini 2.5 Flash Preview 09-2025",
+        "slug": "google/gemini-2.5-flash-preview-09-2025",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemini-2.5-flash-preview-09-2025",
+        "canonical_slug": "google/gemini-2.5-flash-preview-09-2025"
+      }
+    },
+    {
+      "modelKey": "google/gemini-2.5-pro",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemini 2.5 Pro",
+        "slug": "google/gemini-2.5-pro",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemini-2.5-pro",
+        "canonical_slug": "google/gemini-2.5-pro"
+      }
+    },
+    {
+      "modelKey": "google/gemini-2.5-pro-preview-03-25",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemini 2.5 Pro Preview 05-06",
+        "slug": "google/gemini-2.5-pro-preview-03-25",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemini-2.5-pro-preview-05-06",
+        "canonical_slug": "google/gemini-2.5-pro-preview-03-25"
+      }
+    },
+    {
+      "modelKey": "google/gemini-2.5-pro-preview-06-05",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemini 2.5 Pro Preview 06-05",
+        "slug": "google/gemini-2.5-pro-preview-06-05",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemini-2.5-pro-preview",
+        "canonical_slug": "google/gemini-2.5-pro-preview-06-05"
+      }
+    },
+    {
+      "modelKey": "google/gemini-3-flash-preview-20251217",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemini 3 Flash Preview",
+        "slug": "google/gemini-3-flash-preview-20251217",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemini-3-flash-preview",
+        "canonical_slug": "google/gemini-3-flash-preview-20251217"
+      }
+    },
+    {
+      "modelKey": "google/gemini-3-pro-image-preview-20251120",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Nano Banana Pro (Gemini 3 Pro Image Preview)",
+        "slug": "google/gemini-3-pro-image-preview-20251120",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemini-3-pro-image-preview",
+        "canonical_slug": "google/gemini-3-pro-image-preview-20251120"
+      }
+    },
+    {
+      "modelKey": "google/gemini-3-pro-preview-20251117",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemini 3 Pro Preview",
+        "slug": "google/gemini-3-pro-preview-20251117",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemini-3-pro-preview",
+        "canonical_slug": "google/gemini-3-pro-preview-20251117"
+      }
+    },
+    {
+      "modelKey": "google/gemma-2-27b-it",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemma 2 27B",
+        "slug": "google/gemma-2-27b-it",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemma-2-27b-it",
+        "canonical_slug": "google/gemma-2-27b-it"
+      }
+    },
+    {
+      "modelKey": "google/gemma-2-9b-it",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemma 2 9B",
+        "slug": "google/gemma-2-9b-it",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemma-2-9b-it",
+        "canonical_slug": "google/gemma-2-9b-it"
+      }
+    },
+    {
+      "modelKey": "google/gemma-3-12b-it",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemma 3 12B (free)",
+        "slug": "google/gemma-3-12b-it",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemma-3-12b-it:free",
+        "canonical_slug": "google/gemma-3-12b-it"
+      }
+    },
+    {
+      "modelKey": "google/gemma-3-27b-it",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemma 3 27B (free)",
+        "slug": "google/gemma-3-27b-it",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemma-3-27b-it:free",
+        "canonical_slug": "google/gemma-3-27b-it"
+      }
+    },
+    {
+      "modelKey": "google/gemma-3-4b-it",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemma 3 4B (free)",
+        "slug": "google/gemma-3-4b-it",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemma-3-4b-it:free",
+        "canonical_slug": "google/gemma-3-4b-it"
+      }
+    },
+    {
+      "modelKey": "google/gemma-3n-e2b-it",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemma 3n 2B (free)",
+        "slug": "google/gemma-3n-e2b-it",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemma-3n-e2b-it:free",
+        "canonical_slug": "google/gemma-3n-e2b-it"
+      }
+    },
+    {
+      "modelKey": "google/gemma-3n-e4b-it",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Google: Gemma 3n 4B (free)",
+        "slug": "google/gemma-3n-e4b-it",
+        "provider": "google"
+      },
+      "rawRef": {
+        "id": "google/gemma-3n-e4b-it:free",
+        "canonical_slug": "google/gemma-3n-e4b-it"
+      }
+    },
+    {
+      "modelKey": "gryphe/mythomax-l2-13b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "MythoMax 13B",
+        "slug": "gryphe/mythomax-l2-13b",
+        "provider": "gryphe"
+      },
+      "rawRef": {
+        "id": "gryphe/mythomax-l2-13b",
+        "canonical_slug": "gryphe/mythomax-l2-13b"
+      }
+    },
+    {
+      "modelKey": "ibm-granite/granite-4.0-h-micro",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "IBM: Granite 4.0 Micro",
+        "slug": "ibm-granite/granite-4.0-h-micro",
+        "provider": "ibm-granite"
+      },
+      "rawRef": {
+        "id": "ibm-granite/granite-4.0-h-micro",
+        "canonical_slug": "ibm-granite/granite-4.0-h-micro"
+      }
+    },
+    {
+      "modelKey": "inception/mercury",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Inception: Mercury",
+        "slug": "inception/mercury",
+        "provider": "inception"
+      },
+      "rawRef": {
+        "id": "inception/mercury",
+        "canonical_slug": "inception/mercury"
+      }
+    },
+    {
+      "modelKey": "inception/mercury-coder-small-beta",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Inception: Mercury Coder",
+        "slug": "inception/mercury-coder-small-beta",
+        "provider": "inception"
+      },
+      "rawRef": {
+        "id": "inception/mercury-coder",
+        "canonical_slug": "inception/mercury-coder-small-beta"
+      }
+    },
+    {
+      "modelKey": "inflection/inflection-3-pi",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Inflection: Inflection 3 Pi",
+        "slug": "inflection/inflection-3-pi",
+        "provider": "inflection"
+      },
+      "rawRef": {
+        "id": "inflection/inflection-3-pi",
+        "canonical_slug": "inflection/inflection-3-pi"
+      }
+    },
+    {
+      "modelKey": "inflection/inflection-3-productivity",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Inflection: Inflection 3 Productivity",
+        "slug": "inflection/inflection-3-productivity",
+        "provider": "inflection"
+      },
+      "rawRef": {
+        "id": "inflection/inflection-3-productivity",
+        "canonical_slug": "inflection/inflection-3-productivity"
+      }
+    },
+    {
+      "modelKey": "kwaipilot/kat-coder-pro-v1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Kwaipilot: KAT-Coder-Pro V1 (free)",
+        "slug": "kwaipilot/kat-coder-pro-v1",
+        "provider": "kwaipilot"
+      },
+      "rawRef": {
+        "id": "kwaipilot/kat-coder-pro:free",
+        "canonical_slug": "kwaipilot/kat-coder-pro-v1"
+      }
+    },
+    {
+      "modelKey": "liquid/lfm-2.2-6b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "LiquidAI/LFM2-2.6B",
+        "slug": "liquid/lfm-2.2-6b",
+        "provider": "liquid"
+      },
+      "rawRef": {
+        "id": "liquid/lfm-2.2-6b",
+        "canonical_slug": "liquid/lfm-2.2-6b"
+      }
+    },
+    {
+      "modelKey": "liquid/lfm2-8b-a1b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "LiquidAI/LFM2-8B-A1B",
+        "slug": "liquid/lfm2-8b-a1b",
+        "provider": "liquid"
+      },
+      "rawRef": {
+        "id": "liquid/lfm2-8b-a1b",
+        "canonical_slug": "liquid/lfm2-8b-a1b"
+      }
+    },
+    {
+      "modelKey": "mancer/weaver",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mancer: Weaver (alpha)",
+        "slug": "mancer/weaver",
+        "provider": "mancer"
+      },
+      "rawRef": {
+        "id": "mancer/weaver",
+        "canonical_slug": "mancer/weaver"
+      }
+    },
+    {
+      "modelKey": "meituan/longcat-flash-chat",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meituan: LongCat Flash Chat",
+        "slug": "meituan/longcat-flash-chat",
+        "provider": "meituan"
+      },
+      "rawRef": {
+        "id": "meituan/longcat-flash-chat",
+        "canonical_slug": "meituan/longcat-flash-chat"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-3-70b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meta: Llama 3 70B Instruct",
+        "slug": "meta-llama/llama-3-70b-instruct",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-3-70b-instruct",
+        "canonical_slug": "meta-llama/llama-3-70b-instruct"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-3-8b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meta: Llama 3 8B Instruct",
+        "slug": "meta-llama/llama-3-8b-instruct",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-3-8b-instruct",
+        "canonical_slug": "meta-llama/llama-3-8b-instruct"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-3.1-405b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meta: Llama 3.1 405B (base)",
+        "slug": "meta-llama/llama-3.1-405b",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-3.1-405b",
+        "canonical_slug": "meta-llama/llama-3.1-405b"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-3.1-405b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meta: Llama 3.1 405B Instruct (free)",
+        "slug": "meta-llama/llama-3.1-405b-instruct",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-3.1-405b-instruct:free",
+        "canonical_slug": "meta-llama/llama-3.1-405b-instruct"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-3.1-70b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meta: Llama 3.1 70B Instruct",
+        "slug": "meta-llama/llama-3.1-70b-instruct",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-3.1-70b-instruct",
+        "canonical_slug": "meta-llama/llama-3.1-70b-instruct"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-3.1-8b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meta: Llama 3.1 8B Instruct",
+        "slug": "meta-llama/llama-3.1-8b-instruct",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-3.1-8b-instruct",
+        "canonical_slug": "meta-llama/llama-3.1-8b-instruct"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-3.2-11b-vision-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meta: Llama 3.2 11B Vision Instruct",
+        "slug": "meta-llama/llama-3.2-11b-vision-instruct",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-3.2-11b-vision-instruct",
+        "canonical_slug": "meta-llama/llama-3.2-11b-vision-instruct"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-3.2-1b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meta: Llama 3.2 1B Instruct",
+        "slug": "meta-llama/llama-3.2-1b-instruct",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-3.2-1b-instruct",
+        "canonical_slug": "meta-llama/llama-3.2-1b-instruct"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-3.2-3b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meta: Llama 3.2 3B Instruct (free)",
+        "slug": "meta-llama/llama-3.2-3b-instruct",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-3.2-3b-instruct:free",
+        "canonical_slug": "meta-llama/llama-3.2-3b-instruct"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-3.2-90b-vision-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meta: Llama 3.2 90B Vision Instruct",
+        "slug": "meta-llama/llama-3.2-90b-vision-instruct",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-3.2-90b-vision-instruct",
+        "canonical_slug": "meta-llama/llama-3.2-90b-vision-instruct"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-3.3-70b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meta: Llama 3.3 70B Instruct (free)",
+        "slug": "meta-llama/llama-3.3-70b-instruct",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-3.3-70b-instruct:free",
+        "canonical_slug": "meta-llama/llama-3.3-70b-instruct"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-4-maverick-17b-128e-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meta: Llama 4 Maverick",
+        "slug": "meta-llama/llama-4-maverick-17b-128e-instruct",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-4-maverick",
+        "canonical_slug": "meta-llama/llama-4-maverick-17b-128e-instruct"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-4-scout-17b-16e-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meta: Llama 4 Scout",
+        "slug": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-4-scout",
+        "canonical_slug": "meta-llama/llama-4-scout-17b-16e-instruct"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-guard-2-8b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meta: LlamaGuard 2 8B",
+        "slug": "meta-llama/llama-guard-2-8b",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-guard-2-8b",
+        "canonical_slug": "meta-llama/llama-guard-2-8b"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-guard-3-8b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Llama Guard 3 8B",
+        "slug": "meta-llama/llama-guard-3-8b",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-guard-3-8b",
+        "canonical_slug": "meta-llama/llama-guard-3-8b"
+      }
+    },
+    {
+      "modelKey": "meta-llama/llama-guard-4-12b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Meta: Llama Guard 4 12B",
+        "slug": "meta-llama/llama-guard-4-12b",
+        "provider": "meta-llama"
+      },
+      "rawRef": {
+        "id": "meta-llama/llama-guard-4-12b",
+        "canonical_slug": "meta-llama/llama-guard-4-12b"
+      }
+    },
+    {
+      "modelKey": "microsoft/phi-3-medium-128k-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Microsoft: Phi-3 Medium 128K Instruct",
+        "slug": "microsoft/phi-3-medium-128k-instruct",
+        "provider": "microsoft"
+      },
+      "rawRef": {
+        "id": "microsoft/phi-3-medium-128k-instruct",
+        "canonical_slug": "microsoft/phi-3-medium-128k-instruct"
+      }
+    },
+    {
+      "modelKey": "microsoft/phi-3-mini-128k-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Microsoft: Phi-3 Mini 128K Instruct",
+        "slug": "microsoft/phi-3-mini-128k-instruct",
+        "provider": "microsoft"
+      },
+      "rawRef": {
+        "id": "microsoft/phi-3-mini-128k-instruct",
+        "canonical_slug": "microsoft/phi-3-mini-128k-instruct"
+      }
+    },
+    {
+      "modelKey": "microsoft/phi-3.5-mini-128k-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Microsoft: Phi-3.5 Mini 128K Instruct",
+        "slug": "microsoft/phi-3.5-mini-128k-instruct",
+        "provider": "microsoft"
+      },
+      "rawRef": {
+        "id": "microsoft/phi-3.5-mini-128k-instruct",
+        "canonical_slug": "microsoft/phi-3.5-mini-128k-instruct"
+      }
+    },
+    {
+      "modelKey": "microsoft/phi-4",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Microsoft: Phi 4",
+        "slug": "microsoft/phi-4",
+        "provider": "microsoft"
+      },
+      "rawRef": {
+        "id": "microsoft/phi-4",
+        "canonical_slug": "microsoft/phi-4"
+      }
+    },
+    {
+      "modelKey": "microsoft/phi-4-multimodal-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Microsoft: Phi 4 Multimodal Instruct",
+        "slug": "microsoft/phi-4-multimodal-instruct",
+        "provider": "microsoft"
+      },
+      "rawRef": {
+        "id": "microsoft/phi-4-multimodal-instruct",
+        "canonical_slug": "microsoft/phi-4-multimodal-instruct"
+      }
+    },
+    {
+      "modelKey": "microsoft/phi-4-reasoning-plus-04-30",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Microsoft: Phi 4 Reasoning Plus",
+        "slug": "microsoft/phi-4-reasoning-plus-04-30",
+        "provider": "microsoft"
+      },
+      "rawRef": {
+        "id": "microsoft/phi-4-reasoning-plus",
+        "canonical_slug": "microsoft/phi-4-reasoning-plus-04-30"
+      }
+    },
+    {
+      "modelKey": "microsoft/wizardlm-2-8x22b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "WizardLM-2 8x22B",
+        "slug": "microsoft/wizardlm-2-8x22b",
+        "provider": "microsoft"
+      },
+      "rawRef": {
+        "id": "microsoft/wizardlm-2-8x22b",
+        "canonical_slug": "microsoft/wizardlm-2-8x22b"
+      }
+    },
+    {
+      "modelKey": "minimax/minimax-01",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "MiniMax: MiniMax-01",
+        "slug": "minimax/minimax-01",
+        "provider": "minimax"
+      },
+      "rawRef": {
+        "id": "minimax/minimax-01",
+        "canonical_slug": "minimax/minimax-01"
+      }
+    },
+    {
+      "modelKey": "minimax/minimax-m1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "MiniMax: MiniMax M1",
+        "slug": "minimax/minimax-m1",
+        "provider": "minimax"
+      },
+      "rawRef": {
+        "id": "minimax/minimax-m1",
+        "canonical_slug": "minimax/minimax-m1"
+      }
+    },
+    {
+      "modelKey": "minimax/minimax-m2",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "MiniMax: MiniMax M2",
+        "slug": "minimax/minimax-m2",
+        "provider": "minimax"
+      },
+      "rawRef": {
+        "id": "minimax/minimax-m2",
+        "canonical_slug": "minimax/minimax-m2"
+      }
+    },
+    {
+      "modelKey": "minimax/minimax-m2.1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "MiniMax: MiniMax M2.1",
+        "slug": "minimax/minimax-m2.1",
+        "provider": "minimax"
+      },
+      "rawRef": {
+        "id": "minimax/minimax-m2.1",
+        "canonical_slug": "minimax/minimax-m2.1"
+      }
+    },
+    {
+      "modelKey": "mistralai/codestral-2508",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Codestral 2508",
+        "slug": "mistralai/codestral-2508",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/codestral-2508",
+        "canonical_slug": "mistralai/codestral-2508"
+      }
+    },
+    {
+      "modelKey": "mistralai/devstral-2512",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Devstral 2 2512 (free)",
+        "slug": "mistralai/devstral-2512",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/devstral-2512:free",
+        "canonical_slug": "mistralai/devstral-2512"
+      }
+    },
+    {
+      "modelKey": "mistralai/devstral-medium-2507",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Devstral Medium",
+        "slug": "mistralai/devstral-medium-2507",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/devstral-medium",
+        "canonical_slug": "mistralai/devstral-medium-2507"
+      }
+    },
+    {
+      "modelKey": "mistralai/devstral-small-2505",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Devstral Small 2505",
+        "slug": "mistralai/devstral-small-2505",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/devstral-small-2505",
+        "canonical_slug": "mistralai/devstral-small-2505"
+      }
+    },
+    {
+      "modelKey": "mistralai/devstral-small-2507",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Devstral Small 1.1",
+        "slug": "mistralai/devstral-small-2507",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/devstral-small",
+        "canonical_slug": "mistralai/devstral-small-2507"
+      }
+    },
+    {
+      "modelKey": "mistralai/ministral-14b-2512",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Ministral 3 14B 2512",
+        "slug": "mistralai/ministral-14b-2512",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/ministral-14b-2512",
+        "canonical_slug": "mistralai/ministral-14b-2512"
+      }
+    },
+    {
+      "modelKey": "mistralai/ministral-3b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Ministral 3B",
+        "slug": "mistralai/ministral-3b",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/ministral-3b",
+        "canonical_slug": "mistralai/ministral-3b"
+      }
+    },
+    {
+      "modelKey": "mistralai/ministral-3b-2512",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Ministral 3 3B 2512",
+        "slug": "mistralai/ministral-3b-2512",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/ministral-3b-2512",
+        "canonical_slug": "mistralai/ministral-3b-2512"
+      }
+    },
+    {
+      "modelKey": "mistralai/ministral-8b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Ministral 8B",
+        "slug": "mistralai/ministral-8b",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/ministral-8b",
+        "canonical_slug": "mistralai/ministral-8b"
+      }
+    },
+    {
+      "modelKey": "mistralai/ministral-8b-2512",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Ministral 3 8B 2512",
+        "slug": "mistralai/ministral-8b-2512",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/ministral-8b-2512",
+        "canonical_slug": "mistralai/ministral-8b-2512"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-7b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Mistral 7B Instruct (free)",
+        "slug": "mistralai/mistral-7b-instruct",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-7b-instruct:free",
+        "canonical_slug": "mistralai/mistral-7b-instruct"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-7b-instruct-v0.1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Mistral 7B Instruct v0.1",
+        "slug": "mistralai/mistral-7b-instruct-v0.1",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-7b-instruct-v0.1",
+        "canonical_slug": "mistralai/mistral-7b-instruct-v0.1"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-7b-instruct-v0.2",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Mistral 7B Instruct v0.2",
+        "slug": "mistralai/mistral-7b-instruct-v0.2",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-7b-instruct-v0.2",
+        "canonical_slug": "mistralai/mistral-7b-instruct-v0.2"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-7b-instruct-v0.3",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Mistral 7B Instruct v0.3",
+        "slug": "mistralai/mistral-7b-instruct-v0.3",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-7b-instruct-v0.3",
+        "canonical_slug": "mistralai/mistral-7b-instruct-v0.3"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-large",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral Large",
+        "slug": "mistralai/mistral-large",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-large",
+        "canonical_slug": "mistralai/mistral-large"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-large-2407",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral Large 2407",
+        "slug": "mistralai/mistral-large-2407",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-large-2407",
+        "canonical_slug": "mistralai/mistral-large-2407"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-large-2411",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral Large 2411",
+        "slug": "mistralai/mistral-large-2411",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-large-2411",
+        "canonical_slug": "mistralai/mistral-large-2411"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-large-2512",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Mistral Large 3 2512",
+        "slug": "mistralai/mistral-large-2512",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-large-2512",
+        "canonical_slug": "mistralai/mistral-large-2512"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-medium-3",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Mistral Medium 3",
+        "slug": "mistralai/mistral-medium-3",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-medium-3",
+        "canonical_slug": "mistralai/mistral-medium-3"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-medium-3.1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Mistral Medium 3.1",
+        "slug": "mistralai/mistral-medium-3.1",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-medium-3.1",
+        "canonical_slug": "mistralai/mistral-medium-3.1"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-nemo",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Mistral Nemo",
+        "slug": "mistralai/mistral-nemo",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-nemo",
+        "canonical_slug": "mistralai/mistral-nemo"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-saba-2502",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Saba",
+        "slug": "mistralai/mistral-saba-2502",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-saba",
+        "canonical_slug": "mistralai/mistral-saba-2502"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-small-24b-instruct-2501",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Mistral Small 3",
+        "slug": "mistralai/mistral-small-24b-instruct-2501",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-small-24b-instruct-2501",
+        "canonical_slug": "mistralai/mistral-small-24b-instruct-2501"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-small-3.1-24b-instruct-2503",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Mistral Small 3.1 24B (free)",
+        "slug": "mistralai/mistral-small-3.1-24b-instruct-2503",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-small-3.1-24b-instruct:free",
+        "canonical_slug": "mistralai/mistral-small-3.1-24b-instruct-2503"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-small-3.2-24b-instruct-2506",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Mistral Small 3.2 24B",
+        "slug": "mistralai/mistral-small-3.2-24b-instruct-2506",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-small-3.2-24b-instruct",
+        "canonical_slug": "mistralai/mistral-small-3.2-24b-instruct-2506"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-small-creative-20251216",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Mistral Small Creative",
+        "slug": "mistralai/mistral-small-creative-20251216",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-small-creative",
+        "canonical_slug": "mistralai/mistral-small-creative-20251216"
+      }
+    },
+    {
+      "modelKey": "mistralai/mistral-tiny",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral Tiny",
+        "slug": "mistralai/mistral-tiny",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mistral-tiny",
+        "canonical_slug": "mistralai/mistral-tiny"
+      }
+    },
+    {
+      "modelKey": "mistralai/mixtral-8x22b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Mixtral 8x22B Instruct",
+        "slug": "mistralai/mixtral-8x22b-instruct",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mixtral-8x22b-instruct",
+        "canonical_slug": "mistralai/mixtral-8x22b-instruct"
+      }
+    },
+    {
+      "modelKey": "mistralai/mixtral-8x7b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Mixtral 8x7B Instruct",
+        "slug": "mistralai/mixtral-8x7b-instruct",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/mixtral-8x7b-instruct",
+        "canonical_slug": "mistralai/mixtral-8x7b-instruct"
+      }
+    },
+    {
+      "modelKey": "mistralai/pixtral-12b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Pixtral 12B",
+        "slug": "mistralai/pixtral-12b",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/pixtral-12b",
+        "canonical_slug": "mistralai/pixtral-12b"
+      }
+    },
+    {
+      "modelKey": "mistralai/pixtral-large-2411",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Pixtral Large 2411",
+        "slug": "mistralai/pixtral-large-2411",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/pixtral-large-2411",
+        "canonical_slug": "mistralai/pixtral-large-2411"
+      }
+    },
+    {
+      "modelKey": "mistralai/voxtral-small-24b-2507",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Mistral: Voxtral Small 24B 2507",
+        "slug": "mistralai/voxtral-small-24b-2507",
+        "provider": "mistralai"
+      },
+      "rawRef": {
+        "id": "mistralai/voxtral-small-24b-2507",
+        "canonical_slug": "mistralai/voxtral-small-24b-2507"
+      }
+    },
+    {
+      "modelKey": "moonshotai/kimi-dev-72b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "MoonshotAI: Kimi Dev 72B",
+        "slug": "moonshotai/kimi-dev-72b",
+        "provider": "moonshotai"
+      },
+      "rawRef": {
+        "id": "moonshotai/kimi-dev-72b",
+        "canonical_slug": "moonshotai/kimi-dev-72b"
+      }
+    },
+    {
+      "modelKey": "moonshotai/kimi-k2",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "MoonshotAI: Kimi K2 0711 (free)",
+        "slug": "moonshotai/kimi-k2",
+        "provider": "moonshotai"
+      },
+      "rawRef": {
+        "id": "moonshotai/kimi-k2:free",
+        "canonical_slug": "moonshotai/kimi-k2"
+      }
+    },
+    {
+      "modelKey": "moonshotai/kimi-k2-0905",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "MoonshotAI: Kimi K2 0905",
+        "slug": "moonshotai/kimi-k2-0905",
+        "provider": "moonshotai"
+      },
+      "rawRef": {
+        "id": "moonshotai/kimi-k2-0905",
+        "canonical_slug": "moonshotai/kimi-k2-0905"
+      }
+    },
+    {
+      "modelKey": "moonshotai/kimi-k2-thinking-20251106",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "MoonshotAI: Kimi K2 Thinking",
+        "slug": "moonshotai/kimi-k2-thinking-20251106",
+        "provider": "moonshotai"
+      },
+      "rawRef": {
+        "id": "moonshotai/kimi-k2-thinking",
+        "canonical_slug": "moonshotai/kimi-k2-thinking-20251106"
+      }
+    },
+    {
+      "modelKey": "morph/morph-v3-fast",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Morph: Morph V3 Fast",
+        "slug": "morph/morph-v3-fast",
+        "provider": "morph"
+      },
+      "rawRef": {
+        "id": "morph/morph-v3-fast",
+        "canonical_slug": "morph/morph-v3-fast"
+      }
+    },
+    {
+      "modelKey": "morph/morph-v3-large",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Morph: Morph V3 Large",
+        "slug": "morph/morph-v3-large",
+        "provider": "morph"
+      },
+      "rawRef": {
+        "id": "morph/morph-v3-large",
+        "canonical_slug": "morph/morph-v3-large"
+      }
+    },
+    {
+      "modelKey": "neversleep/llama-3.1-lumimaid-8b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "NeverSleep: Lumimaid v0.2 8B",
+        "slug": "neversleep/llama-3.1-lumimaid-8b",
+        "provider": "neversleep"
+      },
+      "rawRef": {
+        "id": "neversleep/llama-3.1-lumimaid-8b",
+        "canonical_slug": "neversleep/llama-3.1-lumimaid-8b"
+      }
+    },
+    {
+      "modelKey": "neversleep/noromaid-20b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Noromaid 20B",
+        "slug": "neversleep/noromaid-20b",
+        "provider": "neversleep"
+      },
+      "rawRef": {
+        "id": "neversleep/noromaid-20b",
+        "canonical_slug": "neversleep/noromaid-20b"
+      }
+    },
+    {
+      "modelKey": "nex-agi/deepseek-v3.1-nex-n1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Nex AGI: DeepSeek V3.1 Nex N1 (free)",
+        "slug": "nex-agi/deepseek-v3.1-nex-n1",
+        "provider": "nex-agi"
+      },
+      "rawRef": {
+        "id": "nex-agi/deepseek-v3.1-nex-n1:free",
+        "canonical_slug": "nex-agi/deepseek-v3.1-nex-n1"
+      }
+    },
+    {
+      "modelKey": "nousresearch/deephermes-3-mistral-24b-preview",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Nous: DeepHermes 3 Mistral 24B Preview",
+        "slug": "nousresearch/deephermes-3-mistral-24b-preview",
+        "provider": "nousresearch"
+      },
+      "rawRef": {
+        "id": "nousresearch/deephermes-3-mistral-24b-preview",
+        "canonical_slug": "nousresearch/deephermes-3-mistral-24b-preview"
+      }
+    },
+    {
+      "modelKey": "nousresearch/hermes-2-pro-llama-3-8b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "NousResearch: Hermes 2 Pro - Llama-3 8B",
+        "slug": "nousresearch/hermes-2-pro-llama-3-8b",
+        "provider": "nousresearch"
+      },
+      "rawRef": {
+        "id": "nousresearch/hermes-2-pro-llama-3-8b",
+        "canonical_slug": "nousresearch/hermes-2-pro-llama-3-8b"
+      }
+    },
+    {
+      "modelKey": "nousresearch/hermes-3-llama-3.1-405b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Nous: Hermes 3 405B Instruct (free)",
+        "slug": "nousresearch/hermes-3-llama-3.1-405b",
+        "provider": "nousresearch"
+      },
+      "rawRef": {
+        "id": "nousresearch/hermes-3-llama-3.1-405b:free",
+        "canonical_slug": "nousresearch/hermes-3-llama-3.1-405b"
+      }
+    },
+    {
+      "modelKey": "nousresearch/hermes-3-llama-3.1-70b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Nous: Hermes 3 70B Instruct",
+        "slug": "nousresearch/hermes-3-llama-3.1-70b",
+        "provider": "nousresearch"
+      },
+      "rawRef": {
+        "id": "nousresearch/hermes-3-llama-3.1-70b",
+        "canonical_slug": "nousresearch/hermes-3-llama-3.1-70b"
+      }
+    },
+    {
+      "modelKey": "nousresearch/hermes-4-405b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Nous: Hermes 4 405B",
+        "slug": "nousresearch/hermes-4-405b",
+        "provider": "nousresearch"
+      },
+      "rawRef": {
+        "id": "nousresearch/hermes-4-405b",
+        "canonical_slug": "nousresearch/hermes-4-405b"
+      }
+    },
+    {
+      "modelKey": "nousresearch/hermes-4-70b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Nous: Hermes 4 70B",
+        "slug": "nousresearch/hermes-4-70b",
+        "provider": "nousresearch"
+      },
+      "rawRef": {
+        "id": "nousresearch/hermes-4-70b",
+        "canonical_slug": "nousresearch/hermes-4-70b"
+      }
+    },
+    {
+      "modelKey": "nvidia/llama-3.1-nemotron-70b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "NVIDIA: Llama 3.1 Nemotron 70B Instruct",
+        "slug": "nvidia/llama-3.1-nemotron-70b-instruct",
+        "provider": "nvidia"
+      },
+      "rawRef": {
+        "id": "nvidia/llama-3.1-nemotron-70b-instruct",
+        "canonical_slug": "nvidia/llama-3.1-nemotron-70b-instruct"
+      }
+    },
+    {
+      "modelKey": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "NVIDIA: Llama 3.1 Nemotron Ultra 253B v1",
+        "slug": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+        "provider": "nvidia"
+      },
+      "rawRef": {
+        "id": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
+        "canonical_slug": "nvidia/llama-3.1-nemotron-ultra-253b-v1"
+      }
+    },
+    {
+      "modelKey": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "NVIDIA: Llama 3.3 Nemotron Super 49B V1.5",
+        "slug": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+        "provider": "nvidia"
+      },
+      "rawRef": {
+        "id": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
+        "canonical_slug": "nvidia/llama-3.3-nemotron-super-49b-v1.5"
+      }
+    },
+    {
+      "modelKey": "nvidia/nemotron-3-nano-30b-a3b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "NVIDIA: Nemotron 3 Nano 30B A3B (free)",
+        "slug": "nvidia/nemotron-3-nano-30b-a3b",
+        "provider": "nvidia"
+      },
+      "rawRef": {
+        "id": "nvidia/nemotron-3-nano-30b-a3b:free",
+        "canonical_slug": "nvidia/nemotron-3-nano-30b-a3b"
+      }
+    },
+    {
+      "modelKey": "nvidia/nemotron-nano-12b-v2-vl",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "NVIDIA: Nemotron Nano 12B 2 VL (free)",
+        "slug": "nvidia/nemotron-nano-12b-v2-vl",
+        "provider": "nvidia"
+      },
+      "rawRef": {
+        "id": "nvidia/nemotron-nano-12b-v2-vl:free",
+        "canonical_slug": "nvidia/nemotron-nano-12b-v2-vl"
+      }
+    },
+    {
+      "modelKey": "nvidia/nemotron-nano-9b-v2",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "NVIDIA: Nemotron Nano 9B V2 (free)",
+        "slug": "nvidia/nemotron-nano-9b-v2",
+        "provider": "nvidia"
+      },
+      "rawRef": {
+        "id": "nvidia/nemotron-nano-9b-v2:free",
+        "canonical_slug": "nvidia/nemotron-nano-9b-v2"
+      }
+    },
+    {
+      "modelKey": "openai/chatgpt-4o-latest",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: ChatGPT-4o",
+        "slug": "openai/chatgpt-4o-latest",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/chatgpt-4o-latest",
+        "canonical_slug": "openai/chatgpt-4o-latest"
+      }
+    },
+    {
+      "modelKey": "openai/codex-mini",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: Codex Mini",
+        "slug": "openai/codex-mini",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/codex-mini",
+        "canonical_slug": "openai/codex-mini"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-3.5-turbo",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-3.5 Turbo",
+        "slug": "openai/gpt-3.5-turbo",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-3.5-turbo",
+        "canonical_slug": "openai/gpt-3.5-turbo"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-3.5-turbo-0613",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-3.5 Turbo (older v0613)",
+        "slug": "openai/gpt-3.5-turbo-0613",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-3.5-turbo-0613",
+        "canonical_slug": "openai/gpt-3.5-turbo-0613"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-3.5-turbo-16k",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-3.5 Turbo 16k",
+        "slug": "openai/gpt-3.5-turbo-16k",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-3.5-turbo-16k",
+        "canonical_slug": "openai/gpt-3.5-turbo-16k"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-3.5-turbo-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-3.5 Turbo Instruct",
+        "slug": "openai/gpt-3.5-turbo-instruct",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-3.5-turbo-instruct",
+        "canonical_slug": "openai/gpt-3.5-turbo-instruct"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4",
+        "slug": "openai/gpt-4",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4",
+        "canonical_slug": "openai/gpt-4"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4-0314",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4 (older v0314)",
+        "slug": "openai/gpt-4-0314",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4-0314",
+        "canonical_slug": "openai/gpt-4-0314"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4-1106-preview",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4 Turbo (older v1106)",
+        "slug": "openai/gpt-4-1106-preview",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4-1106-preview",
+        "canonical_slug": "openai/gpt-4-1106-preview"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4-turbo",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4 Turbo",
+        "slug": "openai/gpt-4-turbo",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4-turbo",
+        "canonical_slug": "openai/gpt-4-turbo"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4-turbo-preview",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4 Turbo Preview",
+        "slug": "openai/gpt-4-turbo-preview",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4-turbo-preview",
+        "canonical_slug": "openai/gpt-4-turbo-preview"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4.1-2025-04-14",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4.1",
+        "slug": "openai/gpt-4.1-2025-04-14",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4.1",
+        "canonical_slug": "openai/gpt-4.1-2025-04-14"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4.1-mini",
+      "source": "seed",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "GPT-4.1 mini",
+        "slug": "openai/gpt-4.1-mini",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4.1-mini"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4.1-mini-2025-04-14",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4.1 Mini",
+        "slug": "openai/gpt-4.1-mini-2025-04-14",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4.1-mini",
+        "canonical_slug": "openai/gpt-4.1-mini-2025-04-14"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4.1-nano-2025-04-14",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4.1 Nano",
+        "slug": "openai/gpt-4.1-nano-2025-04-14",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4.1-nano",
+        "canonical_slug": "openai/gpt-4.1-nano-2025-04-14"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4o",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4o",
+        "slug": "openai/gpt-4o",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4o",
+        "canonical_slug": "openai/gpt-4o"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4o-2024-05-13",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4o (2024-05-13)",
+        "slug": "openai/gpt-4o-2024-05-13",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4o-2024-05-13",
+        "canonical_slug": "openai/gpt-4o-2024-05-13"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4o-2024-08-06",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4o (2024-08-06)",
+        "slug": "openai/gpt-4o-2024-08-06",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4o-2024-08-06",
+        "canonical_slug": "openai/gpt-4o-2024-08-06"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4o-2024-11-20",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4o (2024-11-20)",
+        "slug": "openai/gpt-4o-2024-11-20",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4o-2024-11-20",
+        "canonical_slug": "openai/gpt-4o-2024-11-20"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4o-audio-preview",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4o Audio",
+        "slug": "openai/gpt-4o-audio-preview",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4o-audio-preview",
+        "canonical_slug": "openai/gpt-4o-audio-preview"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4o-mini",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4o-mini",
+        "slug": "openai/gpt-4o-mini",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4o-mini",
+        "canonical_slug": "openai/gpt-4o-mini"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4o-mini-2024-07-18",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4o-mini (2024-07-18)",
+        "slug": "openai/gpt-4o-mini-2024-07-18",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4o-mini-2024-07-18",
+        "canonical_slug": "openai/gpt-4o-mini-2024-07-18"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4o-mini-search-preview-2025-03-11",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4o-mini Search Preview",
+        "slug": "openai/gpt-4o-mini-search-preview-2025-03-11",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4o-mini-search-preview",
+        "canonical_slug": "openai/gpt-4o-mini-search-preview-2025-03-11"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-4o-search-preview-2025-03-11",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-4o Search Preview",
+        "slug": "openai/gpt-4o-search-preview-2025-03-11",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-4o-search-preview",
+        "canonical_slug": "openai/gpt-4o-search-preview-2025-03-11"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5-2025-08-07",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5",
+        "slug": "openai/gpt-5-2025-08-07",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5",
+        "canonical_slug": "openai/gpt-5-2025-08-07"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5-chat-2025-08-07",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5 Chat",
+        "slug": "openai/gpt-5-chat-2025-08-07",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5-chat",
+        "canonical_slug": "openai/gpt-5-chat-2025-08-07"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5-codex",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5 Codex",
+        "slug": "openai/gpt-5-codex",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5-codex",
+        "canonical_slug": "openai/gpt-5-codex"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5-image",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5 Image",
+        "slug": "openai/gpt-5-image",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5-image",
+        "canonical_slug": "openai/gpt-5-image"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5-image-mini",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5 Image Mini",
+        "slug": "openai/gpt-5-image-mini",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5-image-mini",
+        "canonical_slug": "openai/gpt-5-image-mini"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5-mini-2025-08-07",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5 Mini",
+        "slug": "openai/gpt-5-mini-2025-08-07",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5-mini",
+        "canonical_slug": "openai/gpt-5-mini-2025-08-07"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5-nano-2025-08-07",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5 Nano",
+        "slug": "openai/gpt-5-nano-2025-08-07",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5-nano",
+        "canonical_slug": "openai/gpt-5-nano-2025-08-07"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5-pro-2025-10-06",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5 Pro",
+        "slug": "openai/gpt-5-pro-2025-10-06",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5-pro",
+        "canonical_slug": "openai/gpt-5-pro-2025-10-06"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5.1-20251113",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5.1",
+        "slug": "openai/gpt-5.1-20251113",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5.1",
+        "canonical_slug": "openai/gpt-5.1-20251113"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5.1-chat-20251113",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5.1 Chat",
+        "slug": "openai/gpt-5.1-chat-20251113",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5.1-chat",
+        "canonical_slug": "openai/gpt-5.1-chat-20251113"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5.1-codex-20251113",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5.1-Codex",
+        "slug": "openai/gpt-5.1-codex-20251113",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5.1-codex",
+        "canonical_slug": "openai/gpt-5.1-codex-20251113"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5.1-codex-max-20251204",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5.1-Codex-Max",
+        "slug": "openai/gpt-5.1-codex-max-20251204",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5.1-codex-max",
+        "canonical_slug": "openai/gpt-5.1-codex-max-20251204"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5.1-codex-mini-20251113",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5.1-Codex-Mini",
+        "slug": "openai/gpt-5.1-codex-mini-20251113",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5.1-codex-mini",
+        "canonical_slug": "openai/gpt-5.1-codex-mini-20251113"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5.2-20251211",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5.2",
+        "slug": "openai/gpt-5.2-20251211",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5.2",
+        "canonical_slug": "openai/gpt-5.2-20251211"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5.2-chat-20251211",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5.2 Chat",
+        "slug": "openai/gpt-5.2-chat-20251211",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5.2-chat",
+        "canonical_slug": "openai/gpt-5.2-chat-20251211"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5.2-pro-20251211",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5.2 Pro",
+        "slug": "openai/gpt-5.2-pro-20251211",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5.2-pro",
+        "canonical_slug": "openai/gpt-5.2-pro-20251211"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-oss-120b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: gpt-oss-120b (free)",
+        "slug": "openai/gpt-oss-120b",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-oss-120b:free",
+        "canonical_slug": "openai/gpt-oss-120b"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-oss-20b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: gpt-oss-20b (free)",
+        "slug": "openai/gpt-oss-20b",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-oss-20b:free",
+        "canonical_slug": "openai/gpt-oss-20b"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-oss-safeguard-20b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: gpt-oss-safeguard-20b",
+        "slug": "openai/gpt-oss-safeguard-20b",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-oss-safeguard-20b",
+        "canonical_slug": "openai/gpt-oss-safeguard-20b"
+      }
+    },
+    {
+      "modelKey": "openai/o1-2024-12-17",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: o1",
+        "slug": "openai/o1-2024-12-17",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/o1",
+        "canonical_slug": "openai/o1-2024-12-17"
+      }
+    },
+    {
+      "modelKey": "openai/o1-pro",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: o1-pro",
+        "slug": "openai/o1-pro",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/o1-pro",
+        "canonical_slug": "openai/o1-pro"
+      }
+    },
+    {
+      "modelKey": "openai/o3-2025-04-16",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: o3",
+        "slug": "openai/o3-2025-04-16",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/o3",
+        "canonical_slug": "openai/o3-2025-04-16"
+      }
+    },
+    {
+      "modelKey": "openai/o3-deep-research-2025-06-26",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: o3 Deep Research",
+        "slug": "openai/o3-deep-research-2025-06-26",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/o3-deep-research",
+        "canonical_slug": "openai/o3-deep-research-2025-06-26"
+      }
+    },
+    {
+      "modelKey": "openai/o3-mini-2025-01-31",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: o3 Mini",
+        "slug": "openai/o3-mini-2025-01-31",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/o3-mini",
+        "canonical_slug": "openai/o3-mini-2025-01-31"
+      }
+    },
+    {
+      "modelKey": "openai/o3-mini-high-2025-01-31",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: o3 Mini High",
+        "slug": "openai/o3-mini-high-2025-01-31",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/o3-mini-high",
+        "canonical_slug": "openai/o3-mini-high-2025-01-31"
+      }
+    },
+    {
+      "modelKey": "openai/o3-pro-2025-06-10",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: o3 Pro",
+        "slug": "openai/o3-pro-2025-06-10",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/o3-pro",
+        "canonical_slug": "openai/o3-pro-2025-06-10"
+      }
+    },
+    {
+      "modelKey": "openai/o4-mini-2025-04-16",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: o4 Mini",
+        "slug": "openai/o4-mini-2025-04-16",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/o4-mini",
+        "canonical_slug": "openai/o4-mini-2025-04-16"
+      }
+    },
+    {
+      "modelKey": "openai/o4-mini-deep-research-2025-06-26",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: o4 Mini Deep Research",
+        "slug": "openai/o4-mini-deep-research-2025-06-26",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/o4-mini-deep-research",
+        "canonical_slug": "openai/o4-mini-deep-research-2025-06-26"
+      }
+    },
+    {
+      "modelKey": "openai/o4-mini-high-2025-04-16",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: o4 Mini High",
+        "slug": "openai/o4-mini-high-2025-04-16",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/o4-mini-high",
+        "canonical_slug": "openai/o4-mini-high-2025-04-16"
+      }
+    },
+    {
+      "modelKey": "opengvlab/internvl3-78b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenGVLab: InternVL3 78B",
+        "slug": "opengvlab/internvl3-78b",
+        "provider": "opengvlab"
+      },
+      "rawRef": {
+        "id": "opengvlab/internvl3-78b",
+        "canonical_slug": "opengvlab/internvl3-78b"
+      }
+    },
+    {
+      "modelKey": "openrouter/auto",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Auto Router",
+        "slug": "openrouter/auto",
+        "provider": "openrouter"
+      },
+      "rawRef": {
+        "id": "openrouter/auto",
+        "canonical_slug": "openrouter/auto"
+      }
+    },
+    {
+      "modelKey": "openrouter/bodybuilder",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Body Builder (beta)",
+        "slug": "openrouter/bodybuilder",
+        "provider": "openrouter"
+      },
+      "rawRef": {
+        "id": "openrouter/bodybuilder",
+        "canonical_slug": "openrouter/bodybuilder"
+      }
+    },
+    {
+      "modelKey": "perplexity/sonar",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Perplexity: Sonar",
+        "slug": "perplexity/sonar",
+        "provider": "perplexity"
+      },
+      "rawRef": {
+        "id": "perplexity/sonar",
+        "canonical_slug": "perplexity/sonar"
+      }
+    },
+    {
+      "modelKey": "perplexity/sonar-deep-research",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Perplexity: Sonar Deep Research",
+        "slug": "perplexity/sonar-deep-research",
+        "provider": "perplexity"
+      },
+      "rawRef": {
+        "id": "perplexity/sonar-deep-research",
+        "canonical_slug": "perplexity/sonar-deep-research"
+      }
+    },
+    {
+      "modelKey": "perplexity/sonar-pro",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Perplexity: Sonar Pro",
+        "slug": "perplexity/sonar-pro",
+        "provider": "perplexity"
+      },
+      "rawRef": {
+        "id": "perplexity/sonar-pro",
+        "canonical_slug": "perplexity/sonar-pro"
+      }
+    },
+    {
+      "modelKey": "perplexity/sonar-pro-search",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Perplexity: Sonar Pro Search",
+        "slug": "perplexity/sonar-pro-search",
+        "provider": "perplexity"
+      },
+      "rawRef": {
+        "id": "perplexity/sonar-pro-search",
+        "canonical_slug": "perplexity/sonar-pro-search"
+      }
+    },
+    {
+      "modelKey": "perplexity/sonar-reasoning",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Perplexity: Sonar Reasoning",
+        "slug": "perplexity/sonar-reasoning",
+        "provider": "perplexity"
+      },
+      "rawRef": {
+        "id": "perplexity/sonar-reasoning",
+        "canonical_slug": "perplexity/sonar-reasoning"
+      }
+    },
+    {
+      "modelKey": "perplexity/sonar-reasoning-pro",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Perplexity: Sonar Reasoning Pro",
+        "slug": "perplexity/sonar-reasoning-pro",
+        "provider": "perplexity"
+      },
+      "rawRef": {
+        "id": "perplexity/sonar-reasoning-pro",
+        "canonical_slug": "perplexity/sonar-reasoning-pro"
+      }
+    },
+    {
+      "modelKey": "prime-intellect/intellect-3-20251126",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Prime Intellect: INTELLECT-3",
+        "slug": "prime-intellect/intellect-3-20251126",
+        "provider": "prime-intellect"
+      },
+      "rawRef": {
+        "id": "prime-intellect/intellect-3",
+        "canonical_slug": "prime-intellect/intellect-3-20251126"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen-2-vl-7b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen2.5-VL 7B Instruct (free)",
+        "slug": "qwen/qwen-2-vl-7b-instruct",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-2.5-vl-7b-instruct:free",
+        "canonical_slug": "qwen/qwen-2-vl-7b-instruct"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen-2.5-72b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen2.5 72B Instruct",
+        "slug": "qwen/qwen-2.5-72b-instruct",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-2.5-72b-instruct",
+        "canonical_slug": "qwen/qwen-2.5-72b-instruct"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen-2.5-7b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen2.5 7B Instruct",
+        "slug": "qwen/qwen-2.5-7b-instruct",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-2.5-7b-instruct",
+        "canonical_slug": "qwen/qwen-2.5-7b-instruct"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen-2.5-coder-32b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen2.5 Coder 32B Instruct",
+        "slug": "qwen/qwen-2.5-coder-32b-instruct",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-2.5-coder-32b-instruct",
+        "canonical_slug": "qwen/qwen-2.5-coder-32b-instruct"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen-max-2025-01-25",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen-Max",
+        "slug": "qwen/qwen-max-2025-01-25",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-max",
+        "canonical_slug": "qwen/qwen-max-2025-01-25"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen-plus-2025-01-25",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen-Plus",
+        "slug": "qwen/qwen-plus-2025-01-25",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-plus",
+        "canonical_slug": "qwen/qwen-plus-2025-01-25"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen-plus-2025-07-28",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen Plus 0728",
+        "slug": "qwen/qwen-plus-2025-07-28",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-plus-2025-07-28",
+        "canonical_slug": "qwen/qwen-plus-2025-07-28"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen-turbo-2024-11-01",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen-Turbo",
+        "slug": "qwen/qwen-turbo-2024-11-01",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-turbo",
+        "canonical_slug": "qwen/qwen-turbo-2024-11-01"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen-vl-max-2025-01-25",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen VL Max",
+        "slug": "qwen/qwen-vl-max-2025-01-25",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-vl-max",
+        "canonical_slug": "qwen/qwen-vl-max-2025-01-25"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen-vl-plus",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen VL Plus",
+        "slug": "qwen/qwen-vl-plus",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-vl-plus",
+        "canonical_slug": "qwen/qwen-vl-plus"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen2.5-coder-7b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen2.5 Coder 7B Instruct",
+        "slug": "qwen/qwen2.5-coder-7b-instruct",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen2.5-coder-7b-instruct",
+        "canonical_slug": "qwen/qwen2.5-coder-7b-instruct"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen2.5-vl-32b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen2.5 VL 32B Instruct",
+        "slug": "qwen/qwen2.5-vl-32b-instruct",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen2.5-vl-32b-instruct",
+        "canonical_slug": "qwen/qwen2.5-vl-32b-instruct"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen2.5-vl-72b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen2.5 VL 72B Instruct",
+        "slug": "qwen/qwen2.5-vl-72b-instruct",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen2.5-vl-72b-instruct",
+        "canonical_slug": "qwen/qwen2.5-vl-72b-instruct"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-14b-04-28",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 14B",
+        "slug": "qwen/qwen3-14b-04-28",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-14b",
+        "canonical_slug": "qwen/qwen3-14b-04-28"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-235b-a22b-04-28",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 235B A22B",
+        "slug": "qwen/qwen3-235b-a22b-04-28",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-235b-a22b",
+        "canonical_slug": "qwen/qwen3-235b-a22b-04-28"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-235b-a22b-07-25",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 235B A22B Instruct 2507",
+        "slug": "qwen/qwen3-235b-a22b-07-25",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-235b-a22b-2507",
+        "canonical_slug": "qwen/qwen3-235b-a22b-07-25"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-235b-a22b-thinking-2507",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 235B A22B Thinking 2507",
+        "slug": "qwen/qwen3-235b-a22b-thinking-2507",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-235b-a22b-thinking-2507",
+        "canonical_slug": "qwen/qwen3-235b-a22b-thinking-2507"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-30b-a3b-04-28",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 30B A3B",
+        "slug": "qwen/qwen3-30b-a3b-04-28",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-30b-a3b",
+        "canonical_slug": "qwen/qwen3-30b-a3b-04-28"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-30b-a3b-instruct-2507",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 30B A3B Instruct 2507",
+        "slug": "qwen/qwen3-30b-a3b-instruct-2507",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-30b-a3b-instruct-2507",
+        "canonical_slug": "qwen/qwen3-30b-a3b-instruct-2507"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-30b-a3b-thinking-2507",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 30B A3B Thinking 2507",
+        "slug": "qwen/qwen3-30b-a3b-thinking-2507",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-30b-a3b-thinking-2507",
+        "canonical_slug": "qwen/qwen3-30b-a3b-thinking-2507"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-32b-04-28",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 32B",
+        "slug": "qwen/qwen3-32b-04-28",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-32b",
+        "canonical_slug": "qwen/qwen3-32b-04-28"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-4b-04-28",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 4B (free)",
+        "slug": "qwen/qwen3-4b-04-28",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-4b:free",
+        "canonical_slug": "qwen/qwen3-4b-04-28"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-8b-04-28",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 8B",
+        "slug": "qwen/qwen3-8b-04-28",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-8b",
+        "canonical_slug": "qwen/qwen3-8b-04-28"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-coder-30b-a3b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 Coder 30B A3B Instruct",
+        "slug": "qwen/qwen3-coder-30b-a3b-instruct",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-coder-30b-a3b-instruct",
+        "canonical_slug": "qwen/qwen3-coder-30b-a3b-instruct"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-coder-480b-a35b-07-25",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 Coder 480B A35B (free)",
+        "slug": "qwen/qwen3-coder-480b-a35b-07-25",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-coder:free",
+        "canonical_slug": "qwen/qwen3-coder-480b-a35b-07-25"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-coder-flash",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 Coder Flash",
+        "slug": "qwen/qwen3-coder-flash",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-coder-flash",
+        "canonical_slug": "qwen/qwen3-coder-flash"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-coder-plus",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 Coder Plus",
+        "slug": "qwen/qwen3-coder-plus",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-coder-plus",
+        "canonical_slug": "qwen/qwen3-coder-plus"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-max",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 Max",
+        "slug": "qwen/qwen3-max",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-max",
+        "canonical_slug": "qwen/qwen3-max"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-next-80b-a3b-instruct-2509",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 Next 80B A3B Instruct",
+        "slug": "qwen/qwen3-next-80b-a3b-instruct-2509",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-next-80b-a3b-instruct",
+        "canonical_slug": "qwen/qwen3-next-80b-a3b-instruct-2509"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-next-80b-a3b-thinking-2509",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 Next 80B A3B Thinking",
+        "slug": "qwen/qwen3-next-80b-a3b-thinking-2509",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-next-80b-a3b-thinking",
+        "canonical_slug": "qwen/qwen3-next-80b-a3b-thinking-2509"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-235b-a22b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 VL 235B A22B Instruct",
+        "slug": "qwen/qwen3-vl-235b-a22b-instruct",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-vl-235b-a22b-instruct",
+        "canonical_slug": "qwen/qwen3-vl-235b-a22b-instruct"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-235b-a22b-thinking",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 VL 235B A22B Thinking",
+        "slug": "qwen/qwen3-vl-235b-a22b-thinking",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-vl-235b-a22b-thinking",
+        "canonical_slug": "qwen/qwen3-vl-235b-a22b-thinking"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-30b-a3b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 VL 30B A3B Instruct",
+        "slug": "qwen/qwen3-vl-30b-a3b-instruct",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-vl-30b-a3b-instruct",
+        "canonical_slug": "qwen/qwen3-vl-30b-a3b-instruct"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-30b-a3b-thinking",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 VL 30B A3B Thinking",
+        "slug": "qwen/qwen3-vl-30b-a3b-thinking",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-vl-30b-a3b-thinking",
+        "canonical_slug": "qwen/qwen3-vl-30b-a3b-thinking"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-32b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 VL 32B Instruct",
+        "slug": "qwen/qwen3-vl-32b-instruct",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-vl-32b-instruct",
+        "canonical_slug": "qwen/qwen3-vl-32b-instruct"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-8b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 VL 8B Instruct",
+        "slug": "qwen/qwen3-vl-8b-instruct",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-vl-8b-instruct",
+        "canonical_slug": "qwen/qwen3-vl-8b-instruct"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-8b-thinking",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 VL 8B Thinking",
+        "slug": "qwen/qwen3-vl-8b-thinking",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-vl-8b-thinking",
+        "canonical_slug": "qwen/qwen3-vl-8b-thinking"
+      }
+    },
+    {
+      "modelKey": "qwen/qwq-32b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: QwQ 32B",
+        "slug": "qwen/qwq-32b",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwq-32b",
+        "canonical_slug": "qwen/qwq-32b"
+      }
+    },
+    {
+      "modelKey": "raifle/sorcererlm-8x22b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "SorcererLM 8x22B",
+        "slug": "raifle/sorcererlm-8x22b",
+        "provider": "raifle"
+      },
+      "rawRef": {
+        "id": "raifle/sorcererlm-8x22b",
+        "canonical_slug": "raifle/sorcererlm-8x22b"
+      }
+    },
+    {
+      "modelKey": "relace/relace-apply-3",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Relace: Relace Apply 3",
+        "slug": "relace/relace-apply-3",
+        "provider": "relace"
+      },
+      "rawRef": {
+        "id": "relace/relace-apply-3",
+        "canonical_slug": "relace/relace-apply-3"
+      }
+    },
+    {
+      "modelKey": "relace/relace-search-20251208",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Relace: Relace Search",
+        "slug": "relace/relace-search-20251208",
+        "provider": "relace"
+      },
+      "rawRef": {
+        "id": "relace/relace-search",
+        "canonical_slug": "relace/relace-search-20251208"
+      }
+    },
+    {
+      "modelKey": "sao10k/l3-euryale-70b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Sao10k: Llama 3 Euryale 70B v2.1",
+        "slug": "sao10k/l3-euryale-70b",
+        "provider": "sao10k"
+      },
+      "rawRef": {
+        "id": "sao10k/l3-euryale-70b",
+        "canonical_slug": "sao10k/l3-euryale-70b"
+      }
+    },
+    {
+      "modelKey": "sao10k/l3-lunaris-8b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Sao10K: Llama 3 8B Lunaris",
+        "slug": "sao10k/l3-lunaris-8b",
+        "provider": "sao10k"
+      },
+      "rawRef": {
+        "id": "sao10k/l3-lunaris-8b",
+        "canonical_slug": "sao10k/l3-lunaris-8b"
+      }
+    },
+    {
+      "modelKey": "sao10k/l3.1-70b-hanami-x1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Sao10K: Llama 3.1 70B Hanami x1",
+        "slug": "sao10k/l3.1-70b-hanami-x1",
+        "provider": "sao10k"
+      },
+      "rawRef": {
+        "id": "sao10k/l3.1-70b-hanami-x1",
+        "canonical_slug": "sao10k/l3.1-70b-hanami-x1"
+      }
+    },
+    {
+      "modelKey": "sao10k/l3.1-euryale-70b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Sao10K: Llama 3.1 Euryale 70B v2.2",
+        "slug": "sao10k/l3.1-euryale-70b",
+        "provider": "sao10k"
+      },
+      "rawRef": {
+        "id": "sao10k/l3.1-euryale-70b",
+        "canonical_slug": "sao10k/l3.1-euryale-70b"
+      }
+    },
+    {
+      "modelKey": "sao10k/l3.3-euryale-70b-v2.3",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Sao10K: Llama 3.3 Euryale 70B",
+        "slug": "sao10k/l3.3-euryale-70b-v2.3",
+        "provider": "sao10k"
+      },
+      "rawRef": {
+        "id": "sao10k/l3.3-euryale-70b",
+        "canonical_slug": "sao10k/l3.3-euryale-70b-v2.3"
+      }
+    },
+    {
+      "modelKey": "stepfun-ai/step3",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "StepFun: Step3",
+        "slug": "stepfun-ai/step3",
+        "provider": "stepfun-ai"
+      },
+      "rawRef": {
+        "id": "stepfun-ai/step3",
+        "canonical_slug": "stepfun-ai/step3"
+      }
+    },
+    {
+      "modelKey": "switchpoint/router",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Switchpoint Router",
+        "slug": "switchpoint/router",
+        "provider": "switchpoint"
+      },
+      "rawRef": {
+        "id": "switchpoint/router",
+        "canonical_slug": "switchpoint/router"
+      }
+    },
+    {
+      "modelKey": "tencent/hunyuan-a13b-instruct",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Tencent: Hunyuan A13B Instruct",
+        "slug": "tencent/hunyuan-a13b-instruct",
+        "provider": "tencent"
+      },
+      "rawRef": {
+        "id": "tencent/hunyuan-a13b-instruct",
+        "canonical_slug": "tencent/hunyuan-a13b-instruct"
+      }
+    },
+    {
+      "modelKey": "thedrummer/cydonia-24b-v4.1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "TheDrummer: Cydonia 24B V4.1",
+        "slug": "thedrummer/cydonia-24b-v4.1",
+        "provider": "thedrummer"
+      },
+      "rawRef": {
+        "id": "thedrummer/cydonia-24b-v4.1",
+        "canonical_slug": "thedrummer/cydonia-24b-v4.1"
+      }
+    },
+    {
+      "modelKey": "thedrummer/rocinante-12b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "TheDrummer: Rocinante 12B",
+        "slug": "thedrummer/rocinante-12b",
+        "provider": "thedrummer"
+      },
+      "rawRef": {
+        "id": "thedrummer/rocinante-12b",
+        "canonical_slug": "thedrummer/rocinante-12b"
+      }
+    },
+    {
+      "modelKey": "thedrummer/skyfall-36b-v2",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "TheDrummer: Skyfall 36B V2",
+        "slug": "thedrummer/skyfall-36b-v2",
+        "provider": "thedrummer"
+      },
+      "rawRef": {
+        "id": "thedrummer/skyfall-36b-v2",
+        "canonical_slug": "thedrummer/skyfall-36b-v2"
+      }
+    },
+    {
+      "modelKey": "thedrummer/unslopnemo-12b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "TheDrummer: UnslopNemo 12B",
+        "slug": "thedrummer/unslopnemo-12b",
+        "provider": "thedrummer"
+      },
+      "rawRef": {
+        "id": "thedrummer/unslopnemo-12b",
+        "canonical_slug": "thedrummer/unslopnemo-12b"
+      }
+    },
+    {
+      "modelKey": "thudm/glm-4.1v-9b-thinking",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "THUDM: GLM 4.1V 9B Thinking",
+        "slug": "thudm/glm-4.1v-9b-thinking",
+        "provider": "thudm"
+      },
+      "rawRef": {
+        "id": "thudm/glm-4.1v-9b-thinking",
+        "canonical_slug": "thudm/glm-4.1v-9b-thinking"
+      }
+    },
+    {
+      "modelKey": "tngtech/deepseek-r1t-chimera",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "TNG: DeepSeek R1T Chimera (free)",
+        "slug": "tngtech/deepseek-r1t-chimera",
+        "provider": "tngtech"
+      },
+      "rawRef": {
+        "id": "tngtech/deepseek-r1t-chimera:free",
+        "canonical_slug": "tngtech/deepseek-r1t-chimera"
+      }
+    },
+    {
+      "modelKey": "tngtech/deepseek-r1t2-chimera",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "TNG: DeepSeek R1T2 Chimera (free)",
+        "slug": "tngtech/deepseek-r1t2-chimera",
+        "provider": "tngtech"
+      },
+      "rawRef": {
+        "id": "tngtech/deepseek-r1t2-chimera:free",
+        "canonical_slug": "tngtech/deepseek-r1t2-chimera"
+      }
+    },
+    {
+      "modelKey": "tngtech/tng-r1t-chimera",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "TNG: R1T Chimera (free)",
+        "slug": "tngtech/tng-r1t-chimera",
+        "provider": "tngtech"
+      },
+      "rawRef": {
+        "id": "tngtech/tng-r1t-chimera:free",
+        "canonical_slug": "tngtech/tng-r1t-chimera"
+      }
+    },
+    {
+      "modelKey": "undi95/remm-slerp-l2-13b",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "ReMM SLERP 13B",
+        "slug": "undi95/remm-slerp-l2-13b",
+        "provider": "undi95"
+      },
+      "rawRef": {
+        "id": "undi95/remm-slerp-l2-13b",
+        "canonical_slug": "undi95/remm-slerp-l2-13b"
+      }
+    },
+    {
+      "modelKey": "venice/uncensored",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Venice: Uncensored (free)",
+        "slug": "venice/uncensored",
+        "provider": "cognitivecomputations"
+      },
+      "rawRef": {
+        "id": "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+        "canonical_slug": "venice/uncensored"
+      }
+    },
+    {
+      "modelKey": "x-ai/grok-3",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "xAI: Grok 3",
+        "slug": "x-ai/grok-3",
+        "provider": "x-ai"
+      },
+      "rawRef": {
+        "id": "x-ai/grok-3",
+        "canonical_slug": "x-ai/grok-3"
+      }
+    },
+    {
+      "modelKey": "x-ai/grok-3-beta",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "xAI: Grok 3 Beta",
+        "slug": "x-ai/grok-3-beta",
+        "provider": "x-ai"
+      },
+      "rawRef": {
+        "id": "x-ai/grok-3-beta",
+        "canonical_slug": "x-ai/grok-3-beta"
+      }
+    },
+    {
+      "modelKey": "x-ai/grok-3-mini",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "xAI: Grok 3 Mini",
+        "slug": "x-ai/grok-3-mini",
+        "provider": "x-ai"
+      },
+      "rawRef": {
+        "id": "x-ai/grok-3-mini",
+        "canonical_slug": "x-ai/grok-3-mini"
+      }
+    },
+    {
+      "modelKey": "x-ai/grok-3-mini-beta",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "xAI: Grok 3 Mini Beta",
+        "slug": "x-ai/grok-3-mini-beta",
+        "provider": "x-ai"
+      },
+      "rawRef": {
+        "id": "x-ai/grok-3-mini-beta",
+        "canonical_slug": "x-ai/grok-3-mini-beta"
+      }
+    },
+    {
+      "modelKey": "x-ai/grok-4-07-09",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "xAI: Grok 4",
+        "slug": "x-ai/grok-4-07-09",
+        "provider": "x-ai"
+      },
+      "rawRef": {
+        "id": "x-ai/grok-4",
+        "canonical_slug": "x-ai/grok-4-07-09"
+      }
+    },
+    {
+      "modelKey": "x-ai/grok-4-fast",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "xAI: Grok 4 Fast",
+        "slug": "x-ai/grok-4-fast",
+        "provider": "x-ai"
+      },
+      "rawRef": {
+        "id": "x-ai/grok-4-fast",
+        "canonical_slug": "x-ai/grok-4-fast"
+      }
+    },
+    {
+      "modelKey": "x-ai/grok-4.1-fast",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "xAI: Grok 4.1 Fast",
+        "slug": "x-ai/grok-4.1-fast",
+        "provider": "x-ai"
+      },
+      "rawRef": {
+        "id": "x-ai/grok-4.1-fast",
+        "canonical_slug": "x-ai/grok-4.1-fast"
+      }
+    },
+    {
+      "modelKey": "x-ai/grok-code-fast-1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "xAI: Grok Code Fast 1",
+        "slug": "x-ai/grok-code-fast-1",
+        "provider": "x-ai"
+      },
+      "rawRef": {
+        "id": "x-ai/grok-code-fast-1",
+        "canonical_slug": "x-ai/grok-code-fast-1"
+      }
+    },
+    {
+      "modelKey": "xiaomi/mimo-v2-flash-20251210",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Xiaomi: MiMo-V2-Flash (free)",
+        "slug": "xiaomi/mimo-v2-flash-20251210",
+        "provider": "xiaomi"
+      },
+      "rawRef": {
+        "id": "xiaomi/mimo-v2-flash:free",
+        "canonical_slug": "xiaomi/mimo-v2-flash-20251210"
+      }
+    },
+    {
+      "modelKey": "z-ai/glm-4-32b-0414",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Z.AI: GLM 4 32B",
+        "slug": "z-ai/glm-4-32b-0414",
+        "provider": "z-ai"
+      },
+      "rawRef": {
+        "id": "z-ai/glm-4-32b",
+        "canonical_slug": "z-ai/glm-4-32b-0414"
+      }
+    },
+    {
+      "modelKey": "z-ai/glm-4.5",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Z.AI: GLM 4.5",
+        "slug": "z-ai/glm-4.5",
+        "provider": "z-ai"
+      },
+      "rawRef": {
+        "id": "z-ai/glm-4.5",
+        "canonical_slug": "z-ai/glm-4.5"
+      }
+    },
+    {
+      "modelKey": "z-ai/glm-4.5-air",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Z.AI: GLM 4.5 Air (free)",
+        "slug": "z-ai/glm-4.5-air",
+        "provider": "z-ai"
+      },
+      "rawRef": {
+        "id": "z-ai/glm-4.5-air:free",
+        "canonical_slug": "z-ai/glm-4.5-air"
+      }
+    },
+    {
+      "modelKey": "z-ai/glm-4.5v",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Z.AI: GLM 4.5V",
+        "slug": "z-ai/glm-4.5v",
+        "provider": "z-ai"
+      },
+      "rawRef": {
+        "id": "z-ai/glm-4.5v",
+        "canonical_slug": "z-ai/glm-4.5v"
+      }
+    },
+    {
+      "modelKey": "z-ai/glm-4.6",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Z.AI: GLM 4.6",
+        "slug": "z-ai/glm-4.6",
+        "provider": "z-ai"
+      },
+      "rawRef": {
+        "id": "z-ai/glm-4.6",
+        "canonical_slug": "z-ai/glm-4.6"
+      }
+    },
+    {
+      "modelKey": "z-ai/glm-4.6-20251208",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Z.AI: GLM 4.6V",
+        "slug": "z-ai/glm-4.6-20251208",
+        "provider": "z-ai"
+      },
+      "rawRef": {
+        "id": "z-ai/glm-4.6v",
+        "canonical_slug": "z-ai/glm-4.6-20251208"
+      }
+    },
+    {
+      "modelKey": "z-ai/glm-4.7-20251222",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Z.AI: GLM 4.7",
+        "slug": "z-ai/glm-4.7-20251222",
+        "provider": "z-ai"
+      },
+      "rawRef": {
+        "id": "z-ai/glm-4.7",
+        "canonical_slug": "z-ai/glm-4.7-20251222"
+      }
+    }
+  ]
+}
