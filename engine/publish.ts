@@ -201,7 +201,8 @@ export async function publishArtifacts(
  */
 async function writeJson(filePath: string, data: any): Promise<void> {
   const json = JSON.stringify(data, null, 2);
-  await fs.writeFile(filePath, json, "utf8");
+  await fs.mkdir(path.dirname(filePath), { recursive: true });
+  await fs.writeFile(filePath, json + "\n", "utf8");
 }
 
 /**
