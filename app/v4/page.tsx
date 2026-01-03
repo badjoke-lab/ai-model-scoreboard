@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import {
   loadV4SnapshotWithDiagnostics,
-  type V4RankingEntry,
+  type V4LeaderboardRow,
   type V4SnapshotMeta,
   type V4ModelMetadata,
 } from "@/lib/v4-snapshot";
@@ -32,7 +32,7 @@ function isFiniteNumber(v: unknown): v is number {
 
 function validateSnapshot(
   meta: V4SnapshotMeta,
-  rankings: V4RankingEntry[],
+  rankings: V4LeaderboardRow[],
   models: Record<string, V4ModelMetadata>
 ) {
   const fatal: string[] = [];
@@ -267,6 +267,11 @@ export default async function V4Page() {
               <span className="rounded-full border border-slate-700 px-2 py-0.5">
                 Models: {meta.modelsCount}
               </span>
+              {typeof meta.evidenceCount === "number" ? (
+                <span className="rounded-full border border-slate-700 px-2 py-0.5">
+                  Evidence: {meta.evidenceCount}
+                </span>
+              ) : null}
               <span className="rounded-full border border-slate-700 px-2 py-0.5">
                 Full: {meta.fullCount}
               </span>

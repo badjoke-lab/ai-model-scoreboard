@@ -3,11 +3,14 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
+import { getCategoryScore } from "@/lib/v4/categories";
 import type { V4LeaderboardRow, V4ModelMetadata } from "@/lib/v4-snapshot";
 
 const STATUS_OPTIONS = ["all", "adopted", "provisional", "denied"] as const;
+const SORT_KEYS = ["overall", "C1", "C2", "C3", "C4", "C5"] as const;
 
 type StatusFilter = (typeof STATUS_OPTIONS)[number];
+type SortKey = (typeof SORT_KEYS)[number];
 
 type LeaderboardEntry = V4LeaderboardRow & {
   status: "adopted" | "provisional" | "denied";
@@ -70,11 +73,10 @@ export default function LeaderboardClient({
   models: Record<string, V4ModelMetadata>;
 }) {
   const [query, setQuery] = useState("");
-  const [provider, setProvider] = useState("");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
+  const [sortKey, setSortKey] = useState<SortKey>("overall");
 
   const normalizedQuery = query.trim().toLowerCase();
-  const normalizedProvider = provider.trim().toLowerCase();
 
   const entries = useMemo(() => {
     return rankings.map((entry) => {
@@ -94,38 +96,43 @@ export default function LeaderboardClient({
       const matchesQuery =
         !normalizedQuery ||
         entry.displayName.toLowerCase().includes(normalizedQuery) ||
-        entry.model.toLowerCase().includes(normalizedQuery);
-      const matchesProvider =
-        !normalizedProvider ||
-        entry.displayVendor.toLowerCase().includes(normalizedProvider) ||
-        entry.vendor.toLowerCase().includes(normalizedProvider);
+        entry.model.toLowerCase().includes(normalizedQuery) ||
+        entry.displayVendor.toLowerCase().includes(normalizedQuery) ||
+        entry.vendor.toLowerCase().includes(normalizedQuery);
       const matchesStatus = statusFilter === "all" || entry.status === statusFilter;
-      return matchesQuery && matchesProvider && matchesStatus;
+      return matchesQuery && matchesStatus;
     });
-  }, [entries, normalizedQuery, normalizedProvider, statusFilter]);
+  }, [entries, normalizedQuery, statusFilter]);
+
+  const sorted = useMemo(() => {
+    const result = [...filtered];
+    result.sort((a, b) => {
+      const scoreFor = (entry: LeaderboardEntry) => {
+        if (sortKey === "overall") return entry.score;
+        return (
+          getCategoryScore(entry.scores.categories ?? entry.scores, sortKey) ??
+          getCategoryScore(entry.scores.categories ?? entry.scores, sortKey.toLowerCase()) ??
+          0
+        );
+      };
+      const delta = scoreFor(b) - scoreFor(a);
+      if (delta !== 0) return delta;
+      return a.model.localeCompare(b.model);
+    });
+    return result;
+  }, [filtered, sortKey]);
 
   return (
     <div className="space-y-6">
       <section className="grid gap-3 rounded-2xl border border-slate-800 bg-surface/70 p-4 shadow sm:grid-cols-3">
         <div>
           <label className="text-[0.7rem] uppercase tracking-wide text-slate-500">
-            Search by name
+            Search model or provider
           </label>
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
-            placeholder="e.g. GPT-4.1"
-            className="mt-2 w-full rounded-lg border border-slate-800 bg-background/80 px-3 py-2 text-sm text-slate-200"
-          />
-        </div>
-        <div>
-          <label className="text-[0.7rem] uppercase tracking-wide text-slate-500">
-            Provider
-          </label>
-          <input
-            value={provider}
-            onChange={(event) => setProvider(event.target.value)}
-            placeholder="e.g. openai"
+            placeholder="e.g. GPT-4.1 or OpenAI"
             className="mt-2 w-full rounded-lg border border-slate-800 bg-background/80 px-3 py-2 text-sm text-slate-200"
           />
         </div>
@@ -145,20 +152,37 @@ export default function LeaderboardClient({
             ))}
           </select>
         </div>
+        <div>
+          <label className="text-[0.7rem] uppercase tracking-wide text-slate-500">
+            Sort by
+          </label>
+          <select
+            value={sortKey}
+            onChange={(event) => setSortKey(event.target.value as SortKey)}
+            className="mt-2 w-full rounded-lg border border-slate-800 bg-background/80 px-3 py-2 text-sm text-slate-200"
+          >
+            <option value="overall">Overall</option>
+            <option value="C1">C1 Performance</option>
+            <option value="C2">C2 Safety</option>
+            <option value="C3">C3 Adoption</option>
+            <option value="C4">C4 Openness</option>
+            <option value="C5">C5 Cost</option>
+          </select>
+        </div>
       </section>
 
       <div className="text-xs text-slate-400">
-        Showing {filtered.length} of {rankings.length} models
+        Showing {sorted.length} of {rankings.length} models
       </div>
 
-      {filtered.length === 0 ? (
+      {sorted.length === 0 ? (
         <div className="rounded-2xl border border-slate-800 bg-surface/70 px-4 py-3 text-sm text-slate-400">
           No models match the current filters.
         </div>
       ) : (
         <>
           <div className="space-y-3 md:hidden">
-            {filtered.map((entry, index) => (
+            {sorted.map((entry, index) => (
               <Link
                 key={entry.model}
                 href={`/models/${encodeURIComponent(entry.model)}`}
@@ -173,7 +197,7 @@ export default function LeaderboardClient({
                     <div className="text-xs text-slate-500">{entry.displayVendor}</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-xs text-slate-500">Total</div>
+                    <div className="text-xs text-slate-500">Overall</div>
                     <div className="text-xl font-semibold text-slate-50">
                       {formatScore(entry.score)}
                     </div>
@@ -184,39 +208,46 @@ export default function LeaderboardClient({
                 </div>
                 <div className="mt-2 flex flex-wrap items-center gap-2">
                   <LayerBadge layer={entry.layer} />
-                  <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[0.65rem] uppercase tracking-wide text-slate-400">
-                    Evidence: {entry.evidenceOkCount}/4
-                  </span>
                 </div>
                 <dl className="mt-3 grid grid-cols-2 gap-x-6 gap-y-1 text-xs text-slate-400">
                   <div>
-                    <dt className="text-[0.65rem] uppercase">Performance</dt>
+                    <dt className="text-[0.65rem] uppercase">C1 Performance</dt>
                     <dd className="font-medium text-slate-200">
-                      {formatScore(entry.scores.performance)}
+                      {formatScore(
+                        getCategoryScore(entry.scores.categories ?? entry.scores, "C1") ?? 0
+                      )}
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-[0.65rem] uppercase">Safety</dt>
+                    <dt className="text-[0.65rem] uppercase">C2 Safety</dt>
                     <dd className="font-medium text-slate-200">
-                      {formatScore(entry.scores.safety)}
+                      {formatScore(
+                        getCategoryScore(entry.scores.categories ?? entry.scores, "C2") ?? 0
+                      )}
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-[0.65rem] uppercase">Adoption</dt>
+                    <dt className="text-[0.65rem] uppercase">C3 Adoption</dt>
                     <dd className="font-medium text-slate-200">
-                      {formatScore(entry.scores.adoption)}
+                      {formatScore(
+                        getCategoryScore(entry.scores.categories ?? entry.scores, "C3") ?? 0
+                      )}
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-[0.65rem] uppercase">Openness</dt>
+                    <dt className="text-[0.65rem] uppercase">C4 Openness</dt>
                     <dd className="font-medium text-slate-200">
-                      {formatScore(entry.scores.openness)}
+                      {formatScore(
+                        getCategoryScore(entry.scores.categories ?? entry.scores, "C4") ?? 0
+                      )}
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-[0.65rem] uppercase">Cost</dt>
+                    <dt className="text-[0.65rem] uppercase">C5 Cost</dt>
                     <dd className="font-medium text-slate-200">
-                      {formatScore(entry.scores.cost)}
+                      {formatScore(
+                        getCategoryScore(entry.scores.categories ?? entry.scores, "C5") ?? 0
+                      )}
                     </dd>
                   </div>
                 </dl>
@@ -225,24 +256,25 @@ export default function LeaderboardClient({
           </div>
 
           <div className="hidden overflow-hidden rounded-2xl border border-slate-800 bg-surface/70 shadow md:block">
-            <div className="grid grid-cols-11 bg-surface px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-wide text-slate-400">
+            <div className="grid grid-cols-13 bg-surface px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-wide text-slate-400">
               <span className="col-span-1">#</span>
               <span className="col-span-3">Model</span>
-              <span className="col-span-2">Vendor</span>
-              <span className="col-span-1">Layer</span>
-              <span className="col-span-2">Evidence</span>
-              <span className="col-span-1">Updated</span>
-              <span className="col-span-1 text-right">Total</span>
-              <span className="col-span-1 text-right">Perf</span>
-              <span className="col-span-1 text-right">Safety</span>
+              <span className="col-span-2">Provider</span>
+              <span className="col-span-1 text-right">Overall</span>
+              <span className="col-span-1 text-right">C1</span>
+              <span className="col-span-1 text-right">C2</span>
+              <span className="col-span-1 text-right">C3</span>
+              <span className="col-span-1 text-right">C4</span>
+              <span className="col-span-1 text-right">C5</span>
+              <span className="col-span-1">Status</span>
             </div>
 
             <div className="divide-y divide-slate-800/80">
-              {filtered.map((entry, index) => (
+              {sorted.map((entry, index) => (
                 <Link
                   key={entry.model}
                   href={`/models/${encodeURIComponent(entry.model)}`}
-                  className="grid grid-cols-11 items-center px-4 py-3 text-sm text-slate-200 hover:bg-surface/80"
+                  className="grid grid-cols-13 items-center px-4 py-3 text-sm text-slate-200 hover:bg-surface/80"
                 >
                   <span className="col-span-1 text-sm font-semibold text-slate-500">
                     {index + 1}
@@ -259,27 +291,39 @@ export default function LeaderboardClient({
                     <div className="text-sm text-slate-200">{entry.displayVendor}</div>
                   </div>
 
-                  <div className="col-span-1">
-                    <LayerBadge layer={entry.layer} />
-                  </div>
-
-                  <div className="col-span-2 text-xs text-slate-400">
-                    Evidence: {entry.evidenceOkCount}/4
-                  </div>
-
-                  <span className="col-span-1 text-xs text-slate-400">
-                    {formatUpdatedAt(entry.updatedAt)}
-                  </span>
-
                   <span className="col-span-1 text-right font-semibold text-slate-50">
                     {formatScore(entry.score)}
                   </span>
                   <span className="col-span-1 text-right text-slate-200">
-                    {formatScore(entry.scores.performance)}
+                    {formatScore(
+                      getCategoryScore(entry.scores.categories ?? entry.scores, "C1") ?? 0
+                    )}
                   </span>
                   <span className="col-span-1 text-right text-slate-200">
-                    {formatScore(entry.scores.safety)}
+                    {formatScore(
+                      getCategoryScore(entry.scores.categories ?? entry.scores, "C2") ?? 0
+                    )}
                   </span>
+                  <span className="col-span-1 text-right text-slate-200">
+                    {formatScore(
+                      getCategoryScore(entry.scores.categories ?? entry.scores, "C3") ?? 0
+                    )}
+                  </span>
+                  <span className="col-span-1 text-right text-slate-200">
+                    {formatScore(
+                      getCategoryScore(entry.scores.categories ?? entry.scores, "C4") ?? 0
+                    )}
+                  </span>
+                  <span className="col-span-1 text-right text-slate-200">
+                    {formatScore(
+                      getCategoryScore(entry.scores.categories ?? entry.scores, "C5") ?? 0
+                    )}
+                  </span>
+
+                  <div className="col-span-1">
+                    <LayerBadge layer={entry.layer} />
+                  </div>
+
                 </Link>
               ))}
             </div>

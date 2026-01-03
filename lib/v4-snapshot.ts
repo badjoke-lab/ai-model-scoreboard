@@ -15,6 +15,7 @@ export type V4ScoreCategories = Record<string, number>;
 
 export type V4ScoreItem = {
   score: number;
+  weight?: number;
   inputs?: Record<string, unknown>;
   usedEvidence?: Array<{ type?: string; status?: string }>;
   penaltyReasons?: string[];
@@ -81,9 +82,27 @@ export type V4ModelDetail = {
   score: number;
   categories: V4ScoreCategories;
   scoreItems: Record<string, V4ScoreItem> | null;
+  scoreGroups: V4ScoreGroup[];
+  overallFormula: V4OverallFormula;
   updatedAt: string;
   evidenceItems: V4EvidenceItem[];
+  evidenceCount: number;
+  rank: number | null;
   raw: Record<string, unknown>;
+};
+
+export type V4ScoreGroup = {
+  key: "Spec" | "Evidence" | "Ops";
+  label: string;
+  items: Array<{ key: string; item: V4ScoreItem }>;
+  weight: number;
+  total: number | null;
+};
+
+export type V4OverallFormula = {
+  weightedTotal: number | null;
+  totalWeight: number;
+  categoryTotals: Array<{ key: string; weight: number; total: number | null }>;
 };
 
 type SnapshotFileStatus = {
@@ -335,8 +354,10 @@ function normalizeScoreItems(raw: unknown): Record<string, V4ScoreItem> | null {
           ? value.value
           : null;
     if (score === null || !Number.isFinite(score)) continue;
+    const weight = typeof value.weight === "number" ? value.weight : undefined;
     normalized[key] = {
       score,
+      weight,
       inputs: isObject(value.inputs) ? (value.inputs as Record<string, unknown>) : undefined,
       usedEvidence: Array.isArray(value.usedEvidence)
         ? (value.usedEvidence as Array<{ type?: string; status?: string }>)
@@ -369,6 +390,76 @@ function countEvidenceOk(items: V4EvidenceItem[]): number {
     }
   }
   return buckets.size;
+}
+
+const GROUP_WEIGHTS: Record<V4ScoreGroup["key"], number> = {
+  Spec: 0.45,
+  Evidence: 0.35,
+  Ops: 0.2,
+};
+
+function buildScoreGroups(
+  scoreItems: Record<string, V4ScoreItem> | null
+): V4ScoreGroup[] {
+  const groups: Record<V4ScoreGroup["key"], V4ScoreGroup> = {
+    Spec: { key: "Spec", label: "Spec (S1–S8)", items: [], weight: GROUP_WEIGHTS.Spec, total: null },
+    Evidence: {
+      key: "Evidence",
+      label: "Evidence (T1–T4)",
+      items: [],
+      weight: GROUP_WEIGHTS.Evidence,
+      total: null,
+    },
+    Ops: { key: "Ops", label: "Ops (Q1–Q3)", items: [], weight: GROUP_WEIGHTS.Ops, total: null },
+  };
+
+  if (scoreItems) {
+    for (const [key, item] of Object.entries(scoreItems)) {
+      if (key.startsWith("S")) {
+        groups.Spec.items.push({ key, item });
+      } else if (key.startsWith("T")) {
+        groups.Evidence.items.push({ key, item });
+      } else if (key.startsWith("Q")) {
+        groups.Ops.items.push({ key, item });
+      }
+    }
+  }
+
+  for (const group of Object.values(groups)) {
+    if (!group.items.length) continue;
+    let weightSum = 0;
+    let weightedScore = 0;
+    for (const { item } of group.items) {
+      const weight = typeof item.weight === "number" ? item.weight : 1;
+      weightSum += weight;
+      weightedScore += item.score * weight;
+    }
+    group.total = weightSum ? Math.round((weightedScore / weightSum) * 100) / 100 : null;
+  }
+
+  return Object.values(groups);
+}
+
+function computeOverallFormula(groups: V4ScoreGroup[]): V4OverallFormula {
+  const categoryTotals = groups.map((group) => ({
+    key: group.key,
+    weight: group.weight,
+    total: group.total,
+  }));
+  let weightedTotal = 0;
+  let totalWeight = 0;
+  for (const group of categoryTotals) {
+    totalWeight += group.weight;
+    if (typeof group.total === "number") {
+      weightedTotal += group.total * group.weight;
+    }
+  }
+  const total = totalWeight ? Math.round((weightedTotal / totalWeight) * 100) / 100 : null;
+  return {
+    weightedTotal: total,
+    totalWeight,
+    categoryTotals,
+  };
 }
 
 async function loadLatestSnapshotWithMeta(): Promise<{
@@ -493,6 +584,9 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
   const categories = normalizeCategories(scoreSource);
   const scoreItems = normalizeScoreItems(scoreSource);
   const updatedAt = ranking?.updatedAt ?? meta.updatedAt;
+  const rank = ranking ? rankings.findIndex((entry) => entry.model === ranking.model) + 1 : null;
+  const scoreGroups = buildScoreGroups(scoreItems);
+  const overallFormula = computeOverallFormula(scoreGroups);
 
   return {
     detail: {
@@ -504,8 +598,12 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
       score,
       categories,
       scoreItems,
+      scoreGroups,
+      overallFormula,
       updatedAt,
       evidenceItems,
+      evidenceCount: evidenceItems.length,
+      rank,
       raw: {
         ranking: ranking ?? null,
         model: modelMeta ?? null,
@@ -550,12 +648,4 @@ export async function loadV4SnapshotWithDiagnostics(): Promise<{
     notListed: resolveNotListed(latest),
     diagnostics,
   };
-}
-
-export function getCategoryScore(
-  categories: V4ScoreCategories,
-  key: string
-): number | null {
-  const value = categories[key];
-  return typeof value === "number" && Number.isFinite(value) ? value : null;
 }

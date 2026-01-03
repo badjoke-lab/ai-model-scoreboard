@@ -1,7 +1,7 @@
 import Link from "next/link";
 
+import { getCategoryLabel, getCategoryScore } from "@/lib/v4/categories";
 import {
-  getCategoryScore,
   loadV4ModelDetail,
   type V4EvidenceItem,
   type V4EvidenceReference,
@@ -159,7 +159,38 @@ function EvidenceRefs({ refs }: { refs?: V4EvidenceReference[] }) {
   );
 }
 
+function EvidenceLinks({
+  refs,
+}: {
+  refs: { label: string; url?: string }[];
+}) {
+  if (!refs.length) return <span className="text-slate-500">—</span>;
+  return (
+    <div className="flex flex-wrap gap-2">
+      {refs.map((ref) =>
+        ref.url ? (
+          <Link
+            key={ref.label}
+            href={ref.url}
+            className="font-semibold text-accent hover:text-accent/80"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {ref.label} →
+          </Link>
+        ) : (
+          <span key={ref.label} className="text-slate-400">
+            {ref.label}
+          </span>
+        )
+      )}
+    </div>
+  );
+}
+
 function ScoreBreakdownItem({ label, item }: { label: string; item: V4ScoreItem }) {
+  const weight = typeof item.weight === "number" ? item.weight : 1;
+  const subtotal = typeof item.weight === "number" ? item.score * item.weight : null;
   return (
     <div className="rounded-2xl border border-slate-800/80 bg-surface/80 p-4 shadow">
       <div className="flex flex-wrap items-start justify-between gap-3">
@@ -183,21 +214,11 @@ function ScoreBreakdownItem({ label, item }: { label: string; item: V4ScoreItem 
         </div>
       </div>
       <div className="mt-3 text-xs text-slate-400">
-        <p className="uppercase tracking-wide text-slate-500">Evidence refs</p>
-        {item.usedEvidence?.length ? (
-          <div className="mt-1 flex flex-wrap gap-2 text-[0.7rem] text-slate-300">
-            {item.usedEvidence.map((ref, index) => (
-              <span
-                key={`${ref.type ?? "evidence"}-${index}`}
-                className="rounded-full border border-slate-700/70 bg-slate-900/50 px-2 py-0.5"
-              >
-                {ref.type ?? "evidence"}: {ref.status ?? "unknown"}
-              </span>
-            ))}
-          </div>
-        ) : (
-          <p className="mt-1 text-[0.7rem] text-slate-500">No evidence refs.</p>
-        )}
+        <p className="uppercase tracking-wide text-slate-500">Weight & subtotal</p>
+        <div className="mt-1 flex flex-wrap gap-4 text-[0.7rem] text-slate-300">
+          <span>Weight: {formatScore(weight)}</span>
+          <span>Subtotal: {subtotal === null ? "—" : formatScore(subtotal)}</span>
+        </div>
       </div>
     </div>
   );
@@ -254,6 +275,18 @@ export default async function ModelDetailPage({
   }
 
   const updatedLabel = formatDate(detail.updatedAt ?? meta.updatedAt);
+  const evidenceCountLabel = detail.evidenceCount.toString();
+  const rankLabel = detail.rank ? `#${detail.rank}` : "—";
+
+  const evidenceRefsByType = detail.evidenceItems.reduce<Record<string, V4EvidenceReference[]>>(
+    (acc, item) => {
+      if (item.refs?.length) {
+        acc[item.type] = item.refs;
+      }
+      return acc;
+    },
+    {}
+  );
 
   return (
     <div className="space-y-8">
@@ -269,14 +302,19 @@ export default async function ModelDetailPage({
                   {detail.vendor}
                 </span>
               ) : null}
+              <span className="rounded-full border border-slate-800 px-3 py-1 font-semibold uppercase tracking-wide text-slate-300">
+                Rank {rankLabel}
+              </span>
             </div>
             <h1 className="text-3xl font-semibold leading-tight text-slate-50 sm:text-4xl">{detail.name}</h1>
-            <p className="text-sm text-slate-400">Snapshot-driven detail sourced from the bundled v4 JSON files.</p>
+            <p className="text-sm text-slate-400">
+              Updated {updatedLabel} · Evidence items {evidenceCountLabel}
+            </p>
           </div>
           <div className="self-start rounded-2xl border border-slate-800 bg-background/70 px-5 py-4 text-right text-sm text-slate-300 shadow-xl">
             <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">Overall score</p>
             <p className="text-4xl font-semibold text-slate-50">{formatScore(detail.score)}</p>
-            <p className="text-[0.7rem] text-slate-500">Updated {updatedLabel}</p>
+            <p className="text-[0.7rem] text-slate-500">Rank {rankLabel}</p>
           </div>
         </div>
       </header>
@@ -308,30 +346,99 @@ export default async function ModelDetailPage({
 
       <section className="space-y-3">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Category breakdown</h2>
-          <p className="text-xs text-slate-400">Scores for each core category and sub-score item.</p>
+          <h2 className="text-lg font-semibold text-slate-100">Category breakdown (C1–C5)</h2>
+          <p className="text-xs text-slate-400">Summary scores for the five public categories.</p>
         </div>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {[
-            { key: "performance", label: "C1 · Performance" },
-            { key: "safety", label: "C2 · Safety" },
-            { key: "adoption", label: "C3 · Adoption" },
-          ].map((item) => (
-            <div key={item.key} className="rounded-xl border border-slate-800/80 bg-surface/80 px-4 py-3">
-              <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">{item.label}</p>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
+          {(["C1", "C2", "C3", "C4", "C5"] as const).map((key) => (
+            <div key={key} className="rounded-xl border border-slate-800/80 bg-surface/80 px-4 py-3">
+              <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">
+                {key} · {getCategoryLabel(key)}
+              </p>
               <p className="text-lg font-semibold text-slate-50">
-                {formatScore(getCategoryScore(detail.categories, item.key))}
+                {formatScore(getCategoryScore(detail.categories, key))}
               </p>
             </div>
           ))}
         </div>
-        {detail.scoreItems ? (
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {Object.entries(detail.scoreItems).map(([key, item]) => (
-              <ScoreBreakdownItem key={key} label={key} item={item} />
+      </section>
+
+      <section className="space-y-4">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+          <h2 className="text-lg font-semibold text-slate-100">Scoring breakdown (Spec/Evidence/Ops)</h2>
+          <p className="text-xs text-slate-400">
+            Category totals use equal-weight item averages. Overall uses weighted sum.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-slate-800 bg-surface/70 p-4 text-xs text-slate-300">
+          <div className="font-semibold text-slate-200">Overall formula</div>
+          <div className="mt-2 flex flex-wrap gap-3">
+            {detail.overallFormula.categoryTotals.map((category) => (
+              <span key={category.key}>
+                {category.weight} × {category.key}({category.total ?? "—"})
+              </span>
             ))}
           </div>
-        ) : null}
+          <div className="mt-2 text-sm text-slate-200">
+            Overall = {detail.overallFormula.weightedTotal ?? "—"}
+          </div>
+        </div>
+        {detail.scoreGroups.map((group) => (
+          <div key={group.key} className="space-y-3 rounded-2xl border border-slate-800 bg-surface/70 p-4">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <p className="text-sm font-semibold text-slate-100">{group.label}</p>
+                <p className="text-xs text-slate-400">
+                  Total = mean(items) · Weight {group.weight}
+                </p>
+              </div>
+              <div className="text-right text-sm text-slate-200">
+                Total {group.total ?? "—"}
+              </div>
+            </div>
+            {group.items.length ? (
+              <div className="overflow-hidden rounded-xl border border-slate-800">
+                <div className="grid grid-cols-6 bg-surface px-3 py-2 text-[0.65rem] uppercase tracking-wide text-slate-500">
+                  <span className="col-span-1">Item</span>
+                  <span className="col-span-1 text-right">Score</span>
+                  <span className="col-span-1 text-right">Weight</span>
+                  <span className="col-span-1 text-right">Subtotal</span>
+                  <span className="col-span-2">Evidence links</span>
+                </div>
+                <div className="divide-y divide-slate-800/80 text-xs text-slate-300">
+                  {group.items.map(({ key, item }) => {
+                    const weight = typeof item.weight === "number" ? item.weight : 1;
+                    const subtotal =
+                      typeof item.weight === "number" ? item.score * item.weight : null;
+                    const evidenceLinks = (item.usedEvidence ?? []).flatMap((ref) => {
+                      const refs = evidenceRefsByType[ref.type ?? ""] ?? [];
+                      return refs.map((evidenceRef, index) => ({
+                        label: evidenceRef.label ?? `${ref.type ?? "evidence"}-${index + 1}`,
+                        url: evidenceRef.url,
+                      }));
+                    });
+
+                    return (
+                      <div key={key} className="grid grid-cols-6 px-3 py-2">
+                        <span className="col-span-1 font-semibold text-slate-200">{key}</span>
+                        <span className="col-span-1 text-right">{formatScore(item.score)}</span>
+                        <span className="col-span-1 text-right">{formatScore(weight)}</span>
+                        <span className="col-span-1 text-right">
+                          {subtotal === null ? "—" : formatScore(subtotal)}
+                        </span>
+                        <div className="col-span-2">
+                          <EvidenceLinks refs={evidenceLinks} />
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ) : (
+              <div className="text-xs text-slate-500">No items recorded for this category.</div>
+            )}
+          </div>
+        ))}
       </section>
 
       <section className="space-y-3">
