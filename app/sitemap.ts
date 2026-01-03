@@ -5,7 +5,7 @@ import { SITE_URL } from "@/lib/metadata";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const { index } = await loadV4Leaderboard();
-  const updatedAt = index.meta.updatedAt ? new Date(index.meta.updatedAt) : new Date();
+  const updatedAt = index?.updatedAt ? new Date(index.updatedAt) : new Date();
 
   return [
     {

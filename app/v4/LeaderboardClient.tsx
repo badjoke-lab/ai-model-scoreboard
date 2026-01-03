@@ -6,13 +6,16 @@ import { useMemo, useState } from "react";
 import type { V4ModelMetadata, V4RankingEntry } from "@/lib/v4-snapshot";
 
 const STATUS_OPTIONS = ["all", "adopted", "provisional", "denied"] as const;
+const EVIDENCE_STATUS_OPTIONS = ["all", "ok", "issue"] as const;
 
 type StatusFilter = (typeof STATUS_OPTIONS)[number];
+type EvidenceStatusFilter = (typeof EVIDENCE_STATUS_OPTIONS)[number];
 
 type LeaderboardEntry = V4RankingEntry & {
   displayName: string;
   displayVendor: string;
   status: "adopted" | "provisional" | "denied";
+  evidenceStatus: "ok" | "issue";
 };
 
 function formatScore(value: number) {
@@ -64,18 +67,36 @@ function formatStatusLabel(status: StatusFilter) {
   return status.charAt(0).toUpperCase() + status.slice(1);
 }
 
+function formatEvidenceStatusLabel(status: EvidenceStatusFilter) {
+  if (status === "all") return "All";
+  return status === "ok" ? "OK" : "Issue";
+}
+
+function parseNumberInput(value: string) {
+  if (!value.trim()) return null;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
 export default function LeaderboardClient({
   rankings,
   models,
+  evidenceStatusByModel,
 }: {
   rankings: V4RankingEntry[];
   models: Record<string, V4ModelMetadata>;
+  evidenceStatusByModel: Record<string, "ok" | "issue">;
 }) {
-  const [query, setQuery] = useState("");
   const [provider, setProvider] = useState("");
   const [statusFilter, setStatusFilter] = useState<StatusFilter>("all");
+  const [evidenceStatusFilter, setEvidenceStatusFilter] =
+    useState<EvidenceStatusFilter>("all");
+  const [minOverall, setMinOverall] = useState("");
+  const [maxOverall, setMaxOverall] = useState("");
+  const [minSpec, setMinSpec] = useState("");
+  const [minEvidence, setMinEvidence] = useState("");
+  const [minOps, setMinOps] = useState("");
 
-  const normalizedQuery = query.trim().toLowerCase();
   const normalizedProvider = provider.trim().toLowerCase();
 
   const entries = useMemo(() => {
@@ -86,39 +107,62 @@ export default function LeaderboardClient({
         displayName: meta?.name ?? entry.model,
         displayVendor: meta?.vendor ?? entry.vendor,
         status: mapLayerToStatus(entry.layer),
+        evidenceStatus: evidenceStatusByModel[entry.model] ?? "issue",
       } satisfies LeaderboardEntry;
     });
-  }, [rankings, models]);
+  }, [rankings, models, evidenceStatusByModel]);
 
   const filtered = useMemo(() => {
+    const minOverallValue = parseNumberInput(minOverall);
+    const maxOverallValue = parseNumberInput(maxOverall);
+    const minSpecValue = parseNumberInput(minSpec);
+    const minEvidenceValue = parseNumberInput(minEvidence);
+    const minOpsValue = parseNumberInput(minOps);
+
     return entries.filter((entry) => {
-      const matchesQuery =
-        !normalizedQuery ||
-        entry.displayName.toLowerCase().includes(normalizedQuery) ||
-        entry.model.toLowerCase().includes(normalizedQuery);
       const matchesProvider =
         !normalizedProvider ||
         entry.displayVendor.toLowerCase().includes(normalizedProvider) ||
         entry.vendor.toLowerCase().includes(normalizedProvider);
       const matchesStatus = statusFilter === "all" || entry.status === statusFilter;
-      return matchesQuery && matchesProvider && matchesStatus;
+      const matchesEvidence =
+        evidenceStatusFilter === "all" || entry.evidenceStatus === evidenceStatusFilter;
+      const matchesOverallMin =
+        minOverallValue === null || entry.score >= minOverallValue;
+      const matchesOverallMax =
+        maxOverallValue === null || entry.score <= maxOverallValue;
+      const matchesSpecMin =
+        minSpecValue === null || entry.scores.spec >= minSpecValue;
+      const matchesEvidenceMin =
+        minEvidenceValue === null || entry.scores.evidence >= minEvidenceValue;
+      const matchesOpsMin = minOpsValue === null || entry.scores.ops >= minOpsValue;
+
+      return (
+        matchesProvider &&
+        matchesStatus &&
+        matchesEvidence &&
+        matchesOverallMin &&
+        matchesOverallMax &&
+        matchesSpecMin &&
+        matchesEvidenceMin &&
+        matchesOpsMin
+      );
     });
-  }, [entries, normalizedQuery, normalizedProvider, statusFilter]);
+  }, [
+    entries,
+    normalizedProvider,
+    statusFilter,
+    evidenceStatusFilter,
+    minOverall,
+    maxOverall,
+    minSpec,
+    minEvidence,
+    minOps,
+  ]);
 
   return (
     <div className="space-y-6">
-      <section className="grid gap-3 rounded-2xl border border-slate-800 bg-surface/70 p-4 shadow sm:grid-cols-3">
-        <div>
-          <label className="text-[0.7rem] uppercase tracking-wide text-slate-500">
-            Search by name
-          </label>
-          <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="e.g. GPT-4.1"
-            className="mt-2 w-full rounded-lg border border-slate-800 bg-background/80 px-3 py-2 text-sm text-slate-200"
-          />
-        </div>
+      <section className="grid gap-3 rounded-2xl border border-slate-800 bg-surface/70 p-4 shadow md:grid-cols-5">
         <div>
           <label className="text-[0.7rem] uppercase tracking-wide text-slate-500">
             Provider
@@ -145,6 +189,73 @@ export default function LeaderboardClient({
               </option>
             ))}
           </select>
+        </div>
+        <div>
+          <label className="text-[0.7rem] uppercase tracking-wide text-slate-500">
+            Evidence status
+          </label>
+          <select
+            value={evidenceStatusFilter}
+            onChange={(event) =>
+              setEvidenceStatusFilter(event.target.value as EvidenceStatusFilter)
+            }
+            className="mt-2 w-full rounded-lg border border-slate-800 bg-background/80 px-3 py-2 text-sm text-slate-200"
+          >
+            {EVIDENCE_STATUS_OPTIONS.map((status) => (
+              <option key={status} value={status}>
+                {formatEvidenceStatusLabel(status)}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label className="text-[0.7rem] uppercase tracking-wide text-slate-500">
+            Overall range
+          </label>
+          <div className="mt-2 grid grid-cols-2 gap-2">
+            <input
+              value={minOverall}
+              onChange={(event) => setMinOverall(event.target.value)}
+              placeholder="Min"
+              inputMode="decimal"
+              className="w-full rounded-lg border border-slate-800 bg-background/80 px-3 py-2 text-sm text-slate-200"
+            />
+            <input
+              value={maxOverall}
+              onChange={(event) => setMaxOverall(event.target.value)}
+              placeholder="Max"
+              inputMode="decimal"
+              className="w-full rounded-lg border border-slate-800 bg-background/80 px-3 py-2 text-sm text-slate-200"
+            />
+          </div>
+        </div>
+        <div>
+          <label className="text-[0.7rem] uppercase tracking-wide text-slate-500">
+            Min Spec/Evidence/Ops
+          </label>
+          <div className="mt-2 grid grid-cols-3 gap-2">
+            <input
+              value={minSpec}
+              onChange={(event) => setMinSpec(event.target.value)}
+              placeholder="Spec"
+              inputMode="decimal"
+              className="w-full rounded-lg border border-slate-800 bg-background/80 px-3 py-2 text-sm text-slate-200"
+            />
+            <input
+              value={minEvidence}
+              onChange={(event) => setMinEvidence(event.target.value)}
+              placeholder="Evidence"
+              inputMode="decimal"
+              className="w-full rounded-lg border border-slate-800 bg-background/80 px-3 py-2 text-sm text-slate-200"
+            />
+            <input
+              value={minOps}
+              onChange={(event) => setMinOps(event.target.value)}
+              placeholder="Ops"
+              inputMode="decimal"
+              className="w-full rounded-lg border border-slate-800 bg-background/80 px-3 py-2 text-sm text-slate-200"
+            />
+          </div>
         </div>
       </section>
 
@@ -174,7 +285,7 @@ export default function LeaderboardClient({
                     <div className="text-xs text-slate-500">{entry.displayVendor}</div>
                   </div>
                   <div className="text-right">
-                    <div className="text-xs text-slate-500">Total</div>
+                    <div className="text-xs text-slate-500">Overall</div>
                     <div className="text-xl font-semibold text-slate-50">
                       {formatScore(entry.score)}
                     </div>
@@ -185,36 +296,33 @@ export default function LeaderboardClient({
                 </div>
                 <div className="mt-2 flex flex-wrap items-center gap-2">
                   <LayerBadge layer={entry.layer} />
+                  <span
+                    className={`rounded-full border px-2 py-0.5 text-[0.65rem] uppercase tracking-wide ${
+                      entry.evidenceStatus === "ok"
+                        ? "border-emerald-500/40 text-emerald-300"
+                        : "border-amber-500/40 text-amber-200"
+                    }`}
+                  >
+                    Evidence {entry.evidenceStatus}
+                  </span>
                 </div>
-                <dl className="mt-3 grid grid-cols-2 gap-x-6 gap-y-1 text-xs text-slate-400">
+                <dl className="mt-3 grid grid-cols-3 gap-x-6 gap-y-1 text-xs text-slate-400">
                   <div>
-                    <dt className="text-[0.65rem] uppercase">Performance</dt>
+                    <dt className="text-[0.65rem] uppercase">Spec</dt>
                     <dd className="font-medium text-slate-200">
-                      {formatScore(entry.scores.performance)}
+                      {formatScore(entry.scores.spec)}
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-[0.65rem] uppercase">Safety</dt>
+                    <dt className="text-[0.65rem] uppercase">Evidence</dt>
                     <dd className="font-medium text-slate-200">
-                      {formatScore(entry.scores.safety)}
+                      {formatScore(entry.scores.evidence)}
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-[0.65rem] uppercase">Adoption</dt>
+                    <dt className="text-[0.65rem] uppercase">Ops</dt>
                     <dd className="font-medium text-slate-200">
-                      {formatScore(entry.scores.adoption)}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-[0.65rem] uppercase">Openness</dt>
-                    <dd className="font-medium text-slate-200">
-                      {formatScore(entry.scores.openness)}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-[0.65rem] uppercase">Cost</dt>
-                    <dd className="font-medium text-slate-200">
-                      {formatScore(entry.scores.cost)}
+                      {formatScore(entry.scores.ops)}
                     </dd>
                   </div>
                 </dl>
@@ -223,15 +331,17 @@ export default function LeaderboardClient({
           </div>
 
           <div className="hidden overflow-hidden rounded-2xl border border-slate-800 bg-surface/70 shadow md:block">
-            <div className="grid grid-cols-10 bg-surface px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-wide text-slate-400">
+            <div className="grid grid-cols-12 bg-surface px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-wide text-slate-400">
               <span className="col-span-1">#</span>
               <span className="col-span-3">Model</span>
               <span className="col-span-2">Vendor</span>
               <span className="col-span-1">Layer</span>
               <span className="col-span-1">Updated</span>
-              <span className="col-span-1 text-right">Total</span>
-              <span className="col-span-1 text-right">Perf</span>
-              <span className="col-span-1 text-right">Safety</span>
+              <span className="col-span-1 text-right">Overall</span>
+              <span className="col-span-1 text-right">Spec</span>
+              <span className="col-span-1 text-right">Evidence</span>
+              <span className="col-span-1 text-right">Ops</span>
+              <span className="col-span-1 text-right">Evidence Status</span>
             </div>
 
             <div className="divide-y divide-slate-800/80">
@@ -239,7 +349,7 @@ export default function LeaderboardClient({
                 <Link
                   key={entry.model}
                   href={`/models/${encodeURIComponent(entry.model)}`}
-                  className="grid grid-cols-10 items-center px-4 py-3 text-sm text-slate-200 hover:bg-surface/80"
+                  className="grid grid-cols-12 items-center px-4 py-3 text-sm text-slate-200 hover:bg-surface/80"
                 >
                   <span className="col-span-1 text-sm font-semibold text-slate-500">
                     {index + 1}
@@ -268,10 +378,16 @@ export default function LeaderboardClient({
                     {formatScore(entry.score)}
                   </span>
                   <span className="col-span-1 text-right text-slate-200">
-                    {formatScore(entry.scores.performance)}
+                    {formatScore(entry.scores.spec)}
                   </span>
                   <span className="col-span-1 text-right text-slate-200">
-                    {formatScore(entry.scores.safety)}
+                    {formatScore(entry.scores.evidence)}
+                  </span>
+                  <span className="col-span-1 text-right text-slate-200">
+                    {formatScore(entry.scores.ops)}
+                  </span>
+                  <span className="col-span-1 text-right text-xs text-slate-400">
+                    {entry.evidenceStatus}
                   </span>
                 </Link>
               ))}

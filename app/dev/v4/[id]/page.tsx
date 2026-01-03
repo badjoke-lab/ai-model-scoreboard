@@ -69,7 +69,7 @@ export default async function DevV4ModelDetailPage({
             This model is currently not listed in the v4 leaderboard.
           </p>
           <p className="text-sm text-slate-400">
-            Reason: {notListedEntry.reason ?? "No reason provided"}
+            Reason: {notListedEntry.reason ?? "Missing reason (snapshot error)"}
           </p>
         </div>
         <Link href="/dev/v4" className="mt-6 inline-block text-sm font-semibold text-accent underline">
@@ -93,7 +93,7 @@ export default async function DevV4ModelDetailPage({
     );
   }
 
-  const updatedLabel = formatDate(ranking.updatedAt ?? index.meta.updatedAt);
+  const updatedLabel = formatDate(ranking.updatedAt ?? index.updatedAt);
   const displayName = meta?.name ?? ranking.model;
   const displayVendor = meta?.vendor ?? ranking.vendor;
 
@@ -122,7 +122,7 @@ export default async function DevV4ModelDetailPage({
               </p>
             </div>
             <div className="self-start rounded-2xl border border-slate-800 bg-background/70 px-5 py-4 text-right text-sm text-slate-300 shadow-xl">
-              <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">Total score</p>
+              <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">Overall</p>
               <p className="text-4xl font-semibold text-slate-50">
                 {ranking.score === null ? "N/A" : ranking.score.toFixed(1)}
               </p>
@@ -135,7 +135,7 @@ export default async function DevV4ModelDetailPage({
           <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
             <h2 className="text-lg font-semibold text-slate-100">Score breakdown</h2>
             <p className="text-xs text-slate-400">
-              All scoring categories are shown, missing values appear as N/A.
+              Spec/Evidence/Ops values as emitted by the v4 engine.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -153,17 +153,9 @@ export default async function DevV4ModelDetailPage({
           <h2 className="text-lg font-semibold text-slate-100">How to read these scores</h2>
           <div className="space-y-2 text-sm leading-relaxed text-slate-300">
             <p>
-              The Total score is a composite that balances capability, safety posture, market traction, openness,
-              and estimated cost efficiency. Higher totals suggest well-rounded models that perform strongly across
-              categories.
+              Overall = 0.45 × Spec + 0.35 × Evidence + 0.20 × Ops. These values
+              are provided directly by the snapshot pipeline.
             </p>
-            <ul className="list-disc space-y-1 pl-5 text-slate-400">
-              <li>Performance captures general task quality across benchmarks.</li>
-              <li>Safety reflects alignment and guardrail effectiveness.</li>
-              <li>Adoption tracks ecosystem traction and integrator interest.</li>
-              <li>Openness highlights licensing transparency and release practices.</li>
-              <li>Cost estimates relative runtime affordability (higher is better).</li>
-            </ul>
           </div>
         </section>
 

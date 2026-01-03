@@ -1,30 +1,27 @@
 import type { V4DeltaBreakdown, V4Model, V4ScoreBreakdown } from "@/types/v4";
 
-const SCORE_MULTIPLIER = 10;
-
-function scaleScoreBreakdown(breakdown?: V4ScoreBreakdown): V4ScoreBreakdown {
+function normalizeScoreBreakdown(breakdown?: V4ScoreBreakdown): V4ScoreBreakdown {
   return {
-    reasoning: (breakdown?.reasoning ?? 0) * SCORE_MULTIPLIER,
-    coding: (breakdown?.coding ?? 0) * SCORE_MULTIPLIER,
-    chat: (breakdown?.chat ?? 0) * SCORE_MULTIPLIER,
-    safety: (breakdown?.safety ?? 0) * SCORE_MULTIPLIER,
+    spec: breakdown?.spec ?? 0,
+    evidence: breakdown?.evidence ?? 0,
+    ops: breakdown?.ops ?? 0,
   };
 }
 
-function scaleDeltaBreakdown(delta?: V4DeltaBreakdown): V4DeltaBreakdown {
-  const scaledScores = scaleScoreBreakdown(delta);
+function normalizeDeltaBreakdown(delta?: V4DeltaBreakdown): V4DeltaBreakdown {
+  const normalizedScores = normalizeScoreBreakdown(delta);
 
   return {
-    ...scaledScores,
-    total: (delta?.total ?? 0) * SCORE_MULTIPLIER,
+    ...normalizedScores,
+    overall: delta?.overall ?? 0,
   };
 }
 
 export function normalizeModelScores(model: V4Model): V4Model {
   return {
     ...model,
-    subscores: scaleScoreBreakdown(model.subscores),
-    delta30d: scaleDeltaBreakdown(model.delta30d),
-    total: (model.total ?? 0) * SCORE_MULTIPLIER,
+    scores: normalizeScoreBreakdown(model.scores),
+    delta30d: normalizeDeltaBreakdown(model.delta30d),
+    overall: model.overall ?? 0,
   };
 }

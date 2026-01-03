@@ -39,7 +39,6 @@ function validateSnapshot(
   const warn: string[] = [];
   const seenModels = new Set<string>();
 
-  // meta checks
   if (meta.version !== "v4") {
     fatal.push(`index.json: version must be "v4" (got "${String(meta.version)}")`);
   }
@@ -47,15 +46,14 @@ function validateSnapshot(
     warn.push(`index.json: updatedAt looks invalid (${String(meta.updatedAt)})`);
   }
   if (!isFiniteNumber(meta.modelsCount) || meta.modelsCount < 0) {
-    fatal.push(`index.json: modelsCount must be a non-negative number`);
+    fatal.push("index.json: modelsCount must be a non-negative number");
   }
 
-  // rankings checks
   if (!Array.isArray(rankings)) {
-    fatal.push(`rankings.json: must be an array`);
+    fatal.push("rankings.json: must be an array");
   } else {
     if (rankings.length === 0) {
-      fatal.push(`rankings.json: empty (0 entries)`);
+      fatal.push("rankings.json: empty (0 entries)");
     }
 
     if (isFiniteNumber(meta.modelsCount) && meta.modelsCount !== rankings.length) {
@@ -87,10 +85,6 @@ function validateSnapshot(
         fatal.push(`models.json: missing entry for "${e.model}"`);
         break;
       }
-      if (!["full", "provisional", "rejected", "not-listed"].includes(e.layer)) {
-        fatal.push(`rankings.json: entry[${i}].layer is invalid`);
-        break;
-      }
       if (!isFiniteNumber(e.score)) {
         fatal.push(`rankings.json: entry[${i}].score is missing/invalid`);
         break;
@@ -100,28 +94,13 @@ function validateSnapshot(
         break;
       }
       const s = e.scores as Record<string, unknown>;
-      for (const k of ["performance", "safety", "adoption", "openness", "cost"] as const) {
+      for (const k of ["spec", "evidence", "ops"] as const) {
         if (!isFiniteNumber(s[k])) {
           fatal.push(`rankings.json: entry[${i}].scores.${k} is missing/invalid`);
           break;
         }
       }
       if (fatal.length) break;
-    }
-
-    for (let i = 1; i < rankings.length; i++) {
-      const prev = rankings[i - 1];
-      const current = rankings[i];
-      if (prev.score < current.score) {
-        fatal.push(`rankings.json: order must be score desc (index ${i - 1} before ${i})`);
-        break;
-      }
-      if (prev.score === current.score && prev.model.localeCompare(current.model) > 0) {
-        fatal.push(
-          `rankings.json: tie-breaker must be model slug asc (index ${i - 1} before ${i})`
-        );
-        break;
-      }
     }
   }
 
@@ -162,7 +141,7 @@ function AlertBox({
 
 export default async function V4Page() {
   const snapshot = await loadV4SnapshotWithDiagnostics();
-  const meta = snapshot.index?.meta ?? null;
+  const meta = snapshot.index ?? null;
   const rankings = snapshot.rankings ?? null;
   const models = snapshot.models ?? null;
   const lastUpdatedLabel = formatUpdatedLabel(meta?.updatedAt);
@@ -197,7 +176,6 @@ export default async function V4Page() {
     );
   }
 
-  // If broken, do not render leaderboard.
   if (fatal.length) {
     return (
       <main className="mx-auto max-w-6xl px-4 py-10 space-y-6">
@@ -205,17 +183,15 @@ export default async function V4Page() {
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">
             AIMS · v4
           </p>
-          <h1 className="text-3xl font-semibold text-slate-50 md:text-4xl">
-            Leaderboard
-          </h1>
+          <h1 className="text-3xl font-semibold text-slate-50 md:text-4xl">Leaderboard</h1>
           <p className="text-xs text-slate-400">Last updated: {lastUpdatedLabel}</p>
           <p className="text-sm text-slate-400">
-            Snapshot validation failed, so the leaderboard is temporarily hidden.
-            Please check the snapshot generation/copy/commit pipeline.
+            Snapshot validation failed, so the leaderboard is temporarily hidden. Please
+            check the snapshot generation/copy/commit pipeline.
           </p>
         </header>
 
-        <AlertBox variant="error" title="Validation errors" items={fatal} />
+        <AlertBox variant="error" title="Snapshot load error" items={fatal} />
         <AlertBox variant="warn" title="Warnings" items={warn} />
 
         <div className="text-sm text-slate-400 space-y-2">
@@ -236,7 +212,6 @@ export default async function V4Page() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-10 space-y-8">
-      {/* Header */}
       <header className="space-y-3">
         <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">
           AIMS · v4
@@ -248,13 +223,12 @@ export default async function V4Page() {
 
         <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <h1 className="text-3xl font-semibold text-slate-50 md:text-4xl">
-              Leaderboard
-            </h1>
+            <h1 className="text-3xl font-semibold text-slate-50 md:text-4xl">Leaderboard</h1>
             <p className="text-xs text-slate-400">Last updated: {lastUpdatedLabel}</p>
             <p className="mt-2 max-w-3xl text-sm text-slate-400">
-              Rankings based on the latest snapshot generated by the AMS v4 engine.
-              Total is an aggregate of performance / safety / adoption / openness / cost.
+              Rankings are snapshot-driven. Overall scores are provided by the v4 engine
+              and must satisfy the formula Overall = 0.45 × Spec + 0.35 × Evidence + 0.20 ×
+              Ops.
             </p>
           </div>
           <div className="flex flex-col items-start gap-2 md:items-end">
@@ -267,7 +241,7 @@ export default async function V4Page() {
                 Models: {meta.modelsCount}
               </span>
               <span className="rounded-full border border-slate-700 px-2 py-0.5">
-                Full: {meta.fullCount}
+                Adopted: {meta.fullCount}
               </span>
               <span className="rounded-full border border-slate-700 px-2 py-0.5">
                 Provisional: {meta.provisionalCount}
@@ -286,7 +260,11 @@ export default async function V4Page() {
         </div>
       </header>
 
-      <LeaderboardClient rankings={rankings} models={models} />
+      <LeaderboardClient
+        rankings={rankings}
+        models={models}
+        evidenceStatusByModel={snapshot.evidenceStatusByModel}
+      />
     </main>
   );
 }
