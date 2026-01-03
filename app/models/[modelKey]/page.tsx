@@ -1,15 +1,15 @@
 import Link from "next/link";
 
 import {
+  getCategoryScore,
   loadV4ModelDetail,
-  type V4EnrichmentSignal,
   type V4EvidenceItem,
   type V4EvidenceReference,
-  type V4ScoreDetailItem,
+  type V4ScoreItem,
 } from "@/lib/v4-snapshot";
 
-function formatScore(value: number): string {
-  return value.toFixed(1);
+function formatScore(value?: number | null): string {
+  return typeof value === "number" && Number.isFinite(value) ? value.toFixed(1) : "—";
 }
 
 function formatDate(value: string | undefined): string {
@@ -75,44 +75,16 @@ function StatusBadge({ status }: { status: "adopted" | "provisional" | "denied" 
   );
 }
 
-function ScorePill({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-xl border border-slate-800/80 bg-surface/80 px-4 py-3">
-      <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">{label}</p>
-      <p className="text-lg font-semibold text-slate-50">{value}</p>
-    </div>
-  );
-}
-
-function EnrichmentRow({
-  label,
-  signal,
-}: {
-  label: string;
-  signal: V4EnrichmentSignal | null | undefined;
-}) {
-  const status = signal?.status ?? "Unavailable";
-  const statusCode = signal?.status_code ?? "missing";
-
-  return (
-    <div className="rounded-xl border border-slate-800/80 bg-surface/80 px-4 py-3">
-      <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">{label}</p>
-      <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-slate-200">
-        <span className="font-semibold">{status}</span>
-        <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[0.7rem] text-slate-400">
-          {statusCode}
-        </span>
-      </div>
-    </div>
-  );
-}
-
 function EvidenceRow({ item }: { item: V4EvidenceItem }) {
+  const typeLabel =
+    item.type.toLowerCase() === "audit" || item.type.toLowerCase() === "security"
+      ? "audit/security"
+      : item.type;
   return (
     <div className="rounded-2xl border border-slate-800/80 bg-background/60 p-4 shadow">
       <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400">
         <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[0.65rem] uppercase tracking-wide text-slate-300">
-          {item.type}
+          {typeLabel}
         </span>
         {item.status ? (
           <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[0.65rem] uppercase tracking-wide text-slate-400">
@@ -121,28 +93,38 @@ function EvidenceRow({ item }: { item: V4EvidenceItem }) {
         ) : null}
       </div>
       {item.summary ? <p className="mt-2 text-sm text-slate-200">{item.summary}</p> : null}
-      {item.reasonCodes?.length ? (
-        <div className="mt-3 flex flex-wrap gap-2 text-[0.7rem]">
-          {item.reasonCodes.map((code) => (
-            <span
-              key={code}
-              className="rounded-full border border-slate-700/70 bg-slate-900/50 px-2 py-0.5 text-slate-300"
-            >
-              {code}
-            </span>
-          ))}
+      {item.reasons?.length ? (
+        <div className="mt-3">
+          <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">Reasons</p>
+          <ul className="mt-2 list-disc space-y-1 pl-4 text-xs text-slate-300">
+            {item.reasons.map((code) => (
+              <li key={code}>{code}</li>
+            ))}
+          </ul>
         </div>
       ) : null}
       {item.refs?.length ? (
-        <ul className="mt-3 space-y-2 text-xs text-slate-400">
-          {item.refs.map((ref, index) => (
-            <li key={`${ref.label ?? ref.url ?? "ref"}-${index}`} className="space-y-1">
-              <div className="font-semibold text-slate-300">{ref.label ?? "Reference"}</div>
-              {ref.note ? <div className="text-slate-500">{ref.note}</div> : null}
-              <EvidenceRefs refs={[ref]} />
-            </li>
-          ))}
-        </ul>
+        <div className="mt-3">
+          <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">Refs</p>
+          <EvidenceRefs refs={item.refs} />
+        </div>
+      ) : null}
+      {item.extracted ? (
+        <div className="mt-3 text-xs text-slate-400">
+          <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">Extracted</p>
+          <dl className="mt-2 grid gap-1">
+            {Object.entries(item.extracted).map(([key, value]) => (
+              <div key={key} className="flex flex-wrap gap-2">
+                <dt className="font-semibold text-slate-300">{key}</dt>
+                <dd className="text-slate-400">
+                  {typeof value === "string" || typeof value === "number"
+                    ? String(value)
+                    : JSON.stringify(value)}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       ) : null}
     </div>
   );
@@ -177,31 +159,24 @@ function EvidenceRefs({ refs }: { refs?: V4EvidenceReference[] }) {
   );
 }
 
-function ScoreBreakdownItem({ item }: { item: V4ScoreDetailItem }) {
+function ScoreBreakdownItem({ label, item }: { label: string; item: V4ScoreItem }) {
   return (
     <div className="rounded-2xl border border-slate-800/80 bg-surface/80 p-4 shadow">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">
-            {item.itemKey}
-          </p>
+          <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">{label}</p>
           <p className="text-2xl font-semibold text-slate-50">
-            {formatScore(item.value)}
+            {formatScore(item.score)}
           </p>
         </div>
         <div className="text-xs text-slate-400">
           <p className="uppercase tracking-wide text-slate-500">Reasons</p>
-          {item.reasons?.length ? (
-            <div className="mt-1 flex flex-wrap gap-2">
-              {item.reasons.map((reason) => (
-                <span
-                  key={reason}
-                  className="rounded-full border border-slate-700/70 bg-slate-900/50 px-2 py-0.5 text-[0.65rem] text-slate-300"
-                >
-                  {reason}
-                </span>
+          {item.penaltyReasons?.length ? (
+            <ul className="mt-1 list-disc space-y-1 pl-4 text-[0.7rem] text-slate-300">
+              {item.penaltyReasons.map((reason) => (
+                <li key={reason}>{reason}</li>
               ))}
-            </div>
+            </ul>
           ) : (
             <p className="mt-1 text-[0.7rem] text-slate-500">No reasons provided.</p>
           )}
@@ -209,9 +184,16 @@ function ScoreBreakdownItem({ item }: { item: V4ScoreDetailItem }) {
       </div>
       <div className="mt-3 text-xs text-slate-400">
         <p className="uppercase tracking-wide text-slate-500">Evidence refs</p>
-        {item.evidenceRefs?.length ? (
-          <div className="mt-1">
-            <EvidenceRefs refs={item.evidenceRefs} />
+        {item.usedEvidence?.length ? (
+          <div className="mt-1 flex flex-wrap gap-2 text-[0.7rem] text-slate-300">
+            {item.usedEvidence.map((ref, index) => (
+              <span
+                key={`${ref.type ?? "evidence"}-${index}`}
+                className="rounded-full border border-slate-700/70 bg-slate-900/50 px-2 py-0.5"
+              >
+                {ref.type ?? "evidence"}: {ref.status ?? "unknown"}
+              </span>
+            ))}
           </div>
         ) : (
           <p className="mt-1 text-[0.7rem] text-slate-500">No evidence refs.</p>
@@ -227,7 +209,7 @@ export default async function ModelDetailPage({
   params: { modelKey: string };
 }) {
   const modelKey = decodeURIComponent(params.modelKey);
-  const { detail, isNotListed, notListedEntry, index } = await loadV4ModelDetail(modelKey);
+  const { detail, isNotListed, notListedEntry, meta } = await loadV4ModelDetail(modelKey);
 
   if (!detail && isNotListed) {
     return (
@@ -271,7 +253,7 @@ export default async function ModelDetailPage({
     );
   }
 
-  const updatedLabel = formatDate(detail.updatedAt ?? index.meta.updatedAt);
+  const updatedLabel = formatDate(detail.updatedAt ?? meta.updatedAt);
 
   return (
     <div className="space-y-8">
@@ -282,15 +264,17 @@ export default async function ModelDetailPage({
             <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
               <StatusBadge status={detail.status} />
               <LayerBadge layer={detail.layer} />
-              <span className="rounded-full border border-slate-800 px-3 py-1 font-semibold uppercase tracking-wide text-slate-300">
-                {detail.vendor}
-              </span>
+              {detail.vendor ? (
+                <span className="rounded-full border border-slate-800 px-3 py-1 font-semibold uppercase tracking-wide text-slate-300">
+                  {detail.vendor}
+                </span>
+              ) : null}
             </div>
             <h1 className="text-3xl font-semibold leading-tight text-slate-50 sm:text-4xl">{detail.name}</h1>
             <p className="text-sm text-slate-400">Snapshot-driven detail sourced from the bundled v4 JSON files.</p>
           </div>
           <div className="self-start rounded-2xl border border-slate-800 bg-background/70 px-5 py-4 text-right text-sm text-slate-300 shadow-xl">
-            <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">Total score</p>
+            <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">Overall score</p>
             <p className="text-4xl font-semibold text-slate-50">{formatScore(detail.score)}</p>
             <p className="text-[0.7rem] text-slate-500">Updated {updatedLabel}</p>
           </div>
@@ -299,8 +283,8 @@ export default async function ModelDetailPage({
 
       <section className="space-y-3 rounded-2xl border border-slate-800 bg-surface/70 p-5 shadow-xl">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Identity</h2>
-          <p className="text-xs text-slate-400">Canonical identifiers and adoption status.</p>
+          <h2 className="text-lg font-semibold text-slate-100">Summary</h2>
+          <p className="text-xs text-slate-400">Key identifiers, status, and overall score.</p>
         </div>
         <div className="grid grid-cols-1 gap-4 text-sm text-slate-300 sm:grid-cols-2">
           <div>
@@ -309,10 +293,10 @@ export default async function ModelDetailPage({
           </div>
           <div>
             <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Provider</p>
-            <p className="font-semibold text-slate-50">{detail.vendor}</p>
+            <p className="font-semibold text-slate-50">{detail.vendor || "—"}</p>
           </div>
           <div>
-            <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Adoption status</p>
+            <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Status</p>
             <p className="font-semibold text-slate-50">{formatStatus(detail.status)}</p>
           </div>
           <div>
@@ -322,70 +306,39 @@ export default async function ModelDetailPage({
         </div>
       </section>
 
-      <section className="space-y-3 rounded-2xl border border-slate-800 bg-surface/70 p-5 shadow-xl">
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Status</h2>
-          <p className="text-xs text-slate-400">Decision status and recorded reasons.</p>
-        </div>
-        <div className="space-y-3 text-sm text-slate-300">
-          <div className="flex flex-wrap items-center gap-2">
-            <StatusBadge status={detail.status} />
-            <LayerBadge layer={detail.layer} />
-          </div>
-          {detail.decisionReason ? (
-            <div>
-              <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Reasons</p>
-              <p className="font-semibold text-slate-50">{detail.decisionReason}</p>
-            </div>
-          ) : (
-            <p className="text-xs text-slate-500">No decision reasons were published for this model.</p>
-          )}
-          {detail.decisionSource ? (
-            <div className="text-xs text-slate-500">Source: {detail.decisionSource}</div>
-          ) : null}
-        </div>
-      </section>
-
       <section className="space-y-3">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Score breakdown</h2>
-          <p className="text-xs text-slate-400">Higher scores indicate stronger performance in that dimension.</p>
-        </div>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {detail.scoreDetails.map((item) => (
-            <ScoreBreakdownItem key={item.itemKey} item={item} />
-          ))}
+          <h2 className="text-lg font-semibold text-slate-100">Category breakdown</h2>
+          <p className="text-xs text-slate-400">Scores for each core category and sub-score item.</p>
         </div>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <ScorePill label="Performance" value={formatScore(detail.scores.performance)} />
-          <ScorePill label="Safety" value={formatScore(detail.scores.safety)} />
-          <ScorePill label="Adoption" value={formatScore(detail.scores.adoption)} />
-          <ScorePill label="Openness" value={formatScore(detail.scores.openness)} />
-          <ScorePill label="Cost" value={formatScore(detail.scores.cost)} />
+          {[
+            { key: "performance", label: "C1 · Performance" },
+            { key: "safety", label: "C2 · Safety" },
+            { key: "adoption", label: "C3 · Adoption" },
+          ].map((item) => (
+            <div key={item.key} className="rounded-xl border border-slate-800/80 bg-surface/80 px-4 py-3">
+              <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">{item.label}</p>
+              <p className="text-lg font-semibold text-slate-50">
+                {formatScore(getCategoryScore(detail.categories, item.key))}
+              </p>
+            </div>
+          ))}
         </div>
-      </section>
-
-      <section className="space-y-3">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Enrichment signals</h2>
-          <p className="text-xs text-slate-400">Signals derived from the latest enrichment pipeline.</p>
-        </div>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <EnrichmentRow label="Developer activity" signal={detail.enrichment?.github} />
-          <EnrichmentRow label="Audit evidence" signal={detail.enrichment?.audit} />
-        </div>
+        {detail.scoreItems ? (
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {Object.entries(detail.scoreItems).map(([key, item]) => (
+              <ScoreBreakdownItem key={key} label={key} item={item} />
+            ))}
+          </div>
+        ) : null}
       </section>
 
       <section className="space-y-3">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-lg font-semibold text-slate-100">Evidence</h2>
-          <p className="text-xs text-slate-400">Reason codes and references used by the v4 evidence pipeline.</p>
+          <p className="text-xs text-slate-400">Evidence signals captured for this model.</p>
         </div>
-        {detail.evidenceError ? (
-          <div className="rounded-2xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-100">
-            Evidence file missing or invalid: {detail.evidenceError}
-          </div>
-        ) : null}
         {detail.evidenceItems.length ? (
           <div className="space-y-3">
             {detail.evidenceItems.map((item, index) => (
@@ -400,20 +353,15 @@ export default async function ModelDetailPage({
       </section>
 
       <section className="space-y-3 rounded-2xl border border-slate-800 bg-surface/80 p-5 shadow-xl">
-        <h2 className="text-lg font-semibold text-slate-100">How to read these scores</h2>
-        <div className="space-y-2 text-sm leading-relaxed text-slate-300">
-          <p>
-            The Total score is a composite that balances capability, safety posture, market traction, openness, and estimated cost
-            efficiency. Higher totals suggest well-rounded models that perform strongly across categories.
-          </p>
-          <ul className="list-disc space-y-1 pl-5 text-slate-400">
-            <li>Performance captures general task quality across benchmarks.</li>
-            <li>Safety reflects alignment and guardrail effectiveness.</li>
-            <li>Adoption tracks ecosystem traction and integrator interest.</li>
-            <li>Openness highlights licensing transparency and release practices.</li>
-            <li>Cost estimates relative runtime affordability (higher is better).</li>
-          </ul>
-        </div>
+        <h2 className="text-lg font-semibold text-slate-100">Raw</h2>
+        <details className="rounded-xl border border-slate-800/80 bg-background/60 p-4 text-xs text-slate-300">
+          <summary className="cursor-pointer text-sm font-semibold text-slate-200">
+            View raw snapshot JSON
+          </summary>
+          <pre className="mt-3 overflow-x-auto whitespace-pre-wrap break-words">
+            {JSON.stringify(detail.raw, null, 2)}
+          </pre>
+        </details>
       </section>
 
       <Link href="/v4" className="text-sm font-semibold text-accent underline">

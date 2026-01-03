@@ -3,15 +3,13 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
-import type { V4ModelMetadata, V4RankingEntry } from "@/lib/v4-snapshot";
+import type { V4LeaderboardRow, V4ModelMetadata } from "@/lib/v4-snapshot";
 
 const STATUS_OPTIONS = ["all", "adopted", "provisional", "denied"] as const;
 
 type StatusFilter = (typeof STATUS_OPTIONS)[number];
 
-type LeaderboardEntry = V4RankingEntry & {
-  displayName: string;
-  displayVendor: string;
+type LeaderboardEntry = V4LeaderboardRow & {
   status: "adopted" | "provisional" | "denied";
 };
 
@@ -29,7 +27,7 @@ function formatUpdatedAt(value: string) {
   });
 }
 
-function mapLayerToStatus(layer: V4RankingEntry["layer"]): LeaderboardEntry["status"] {
+function mapLayerToStatus(layer: V4LeaderboardRow["layer"]): LeaderboardEntry["status"] {
   if (layer === "full") return "adopted";
   if (layer === "provisional") return "provisional";
   return "denied";
@@ -68,7 +66,7 @@ export default function LeaderboardClient({
   rankings,
   models,
 }: {
-  rankings: V4RankingEntry[];
+  rankings: V4LeaderboardRow[];
   models: Record<string, V4ModelMetadata>;
 }) {
   const [query, setQuery] = useState("");
@@ -83,8 +81,9 @@ export default function LeaderboardClient({
       const meta = models[entry.model];
       return {
         ...entry,
-        displayName: meta?.name ?? entry.model,
-        displayVendor: meta?.vendor ?? entry.vendor,
+        displayName: entry.displayName ?? meta?.name ?? entry.model,
+        displayVendor: entry.displayVendor ?? meta?.vendor ?? entry.vendor,
+        evidenceOkCount: entry.evidenceOkCount ?? 0,
         status: mapLayerToStatus(entry.layer),
       } satisfies LeaderboardEntry;
     });
@@ -185,6 +184,9 @@ export default function LeaderboardClient({
                 </div>
                 <div className="mt-2 flex flex-wrap items-center gap-2">
                   <LayerBadge layer={entry.layer} />
+                  <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[0.65rem] uppercase tracking-wide text-slate-400">
+                    Evidence: {entry.evidenceOkCount}/4
+                  </span>
                 </div>
                 <dl className="mt-3 grid grid-cols-2 gap-x-6 gap-y-1 text-xs text-slate-400">
                   <div>
@@ -223,11 +225,12 @@ export default function LeaderboardClient({
           </div>
 
           <div className="hidden overflow-hidden rounded-2xl border border-slate-800 bg-surface/70 shadow md:block">
-            <div className="grid grid-cols-10 bg-surface px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-wide text-slate-400">
+            <div className="grid grid-cols-11 bg-surface px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-wide text-slate-400">
               <span className="col-span-1">#</span>
               <span className="col-span-3">Model</span>
               <span className="col-span-2">Vendor</span>
               <span className="col-span-1">Layer</span>
+              <span className="col-span-2">Evidence</span>
               <span className="col-span-1">Updated</span>
               <span className="col-span-1 text-right">Total</span>
               <span className="col-span-1 text-right">Perf</span>
@@ -239,7 +242,7 @@ export default function LeaderboardClient({
                 <Link
                   key={entry.model}
                   href={`/models/${encodeURIComponent(entry.model)}`}
-                  className="grid grid-cols-10 items-center px-4 py-3 text-sm text-slate-200 hover:bg-surface/80"
+                  className="grid grid-cols-11 items-center px-4 py-3 text-sm text-slate-200 hover:bg-surface/80"
                 >
                   <span className="col-span-1 text-sm font-semibold text-slate-500">
                     {index + 1}
@@ -258,6 +261,10 @@ export default function LeaderboardClient({
 
                   <div className="col-span-1">
                     <LayerBadge layer={entry.layer} />
+                  </div>
+
+                  <div className="col-span-2 text-xs text-slate-400">
+                    Evidence: {entry.evidenceOkCount}/4
                   </div>
 
                   <span className="col-span-1 text-xs text-slate-400">

@@ -13,8 +13,11 @@ type SnapshotMeta = {
   notListedCount: number;
 };
 
-type SnapshotIndex = {
-  meta: SnapshotMeta;
+type SnapshotFile = {
+  meta?: SnapshotMeta;
+  rankings?: RankingEntry[];
+  models?: ModelsMap;
+  notListed?: unknown[];
 };
 
 type RankingEntry = {
@@ -51,20 +54,18 @@ async function readJson<T>(file: string): Promise<T> {
 
 export async function GET() {
   try {
-    const index = await readJson<SnapshotIndex>("index.json");
-    if (!index?.meta) {
-      throw new Error("Snapshot index is missing meta");
+    const latest = await readJson<SnapshotFile>("latest.json");
+    const meta = await readJson<SnapshotMeta>("latest.meta.json");
+    if (!meta) {
+      throw new Error("Snapshot meta is missing");
     }
-    const leaderboard = await readJson<RankingEntry[]>("rankings.json");
-    const models = await readJson<ModelsMap>("models.json");
-    const notListed = await readJson<unknown[]>("not-listed.json");
 
     return NextResponse.json(
       {
-        meta: index.meta as SnapshotMeta,
-        rankings: leaderboard,
-        models,
-        notListed,
+        meta,
+        rankings: latest.rankings ?? [],
+        models: latest.models ?? {},
+        notListed: latest.notListed ?? [],
       },
       { headers: { "X-Robots-Tag": "noindex, nofollow" } }
     );

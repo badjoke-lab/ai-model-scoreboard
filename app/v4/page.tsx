@@ -41,70 +41,71 @@ function validateSnapshot(
 
   // meta checks
   if (meta.version !== "v4") {
-    fatal.push(`index.json: version must be "v4" (got "${String(meta.version)}")`);
+    fatal.push(`latest.meta.json: version must be "v4" (got "${String(meta.version)}")`);
   }
   if (!meta.updatedAt || Number.isNaN(new Date(meta.updatedAt).getTime())) {
-    warn.push(`index.json: updatedAt looks invalid (${String(meta.updatedAt)})`);
+    warn.push(`latest.meta.json: updatedAt looks invalid (${String(meta.updatedAt)})`);
   }
   if (!isFiniteNumber(meta.modelsCount) || meta.modelsCount < 0) {
-    fatal.push(`index.json: modelsCount must be a non-negative number`);
+    fatal.push(`latest.meta.json: modelsCount must be a non-negative number`);
   }
 
   // rankings checks
   if (!Array.isArray(rankings)) {
-    fatal.push(`rankings.json: must be an array`);
+    fatal.push(`latest.json: rankings must be an array`);
   } else {
     if (rankings.length === 0) {
-      fatal.push(`rankings.json: empty (0 entries)`);
+      fatal.push(`latest.json: rankings empty (0 entries)`);
     }
 
     if (isFiniteNumber(meta.modelsCount) && meta.modelsCount !== rankings.length) {
       fatal.push(
-        `Mismatch: index.modelsCount (${meta.modelsCount}) !== rankings.length (${rankings.length})`
+        `Mismatch: meta.modelsCount (${meta.modelsCount}) !== rankings.length (${rankings.length})`
       );
     }
 
     for (let i = 0; i < rankings.length; i++) {
       const e = rankings[i];
       if (!e || typeof e !== "object") {
-        fatal.push(`rankings.json: entry[${i}] is not an object`);
+        fatal.push(`latest.json: rankings[${i}] is not an object`);
         break;
       }
       if (!e.model || typeof e.model !== "string") {
-        fatal.push(`rankings.json: entry[${i}].model is missing/invalid`);
+        fatal.push(`latest.json: rankings[${i}].model is missing/invalid`);
         break;
       }
       if (!e.vendor || typeof e.vendor !== "string") {
-        fatal.push(`rankings.json: entry[${i}].vendor is missing/invalid`);
+        fatal.push(`latest.json: rankings[${i}].vendor is missing/invalid`);
         break;
       }
       if (seenModels.has(e.model)) {
-        fatal.push(`rankings.json: duplicate model slug "${e.model}"`);
+        fatal.push(`latest.json: duplicate model slug "${e.model}"`);
         break;
       }
       seenModels.add(e.model);
       if (!models[e.model]) {
-        fatal.push(`models.json: missing entry for "${e.model}"`);
+        fatal.push(`latest.json: models missing entry for "${e.model}"`);
         break;
       }
       if (!["full", "provisional", "rejected", "not-listed"].includes(e.layer)) {
-        fatal.push(`rankings.json: entry[${i}].layer is invalid`);
+        fatal.push(`latest.json: rankings[${i}].layer is invalid`);
         break;
       }
       if (!isFiniteNumber(e.score)) {
-        fatal.push(`rankings.json: entry[${i}].score is missing/invalid`);
+        fatal.push(`latest.json: rankings[${i}].score is missing/invalid`);
         break;
       }
       if (!e.scores || typeof e.scores !== "object") {
-        fatal.push(`rankings.json: entry[${i}].scores is missing/invalid`);
+        fatal.push(`latest.json: rankings[${i}].scores is missing/invalid`);
         break;
       }
       const s = e.scores as Record<string, unknown>;
-      for (const k of ["performance", "safety", "adoption", "openness", "cost"] as const) {
-        if (!isFiniteNumber(s[k])) {
-          fatal.push(`rankings.json: entry[${i}].scores.${k} is missing/invalid`);
-          break;
-        }
+      const categories =
+        s && typeof s.categories === "object" && s.categories
+          ? (s.categories as Record<string, unknown>)
+          : s;
+      if (!Object.keys(categories).length) {
+        warn.push(`latest.json: rankings[${i}].scores has no category breakdown`);
       }
       if (fatal.length) break;
     }
@@ -113,12 +114,12 @@ function validateSnapshot(
       const prev = rankings[i - 1];
       const current = rankings[i];
       if (prev.score < current.score) {
-        fatal.push(`rankings.json: order must be score desc (index ${i - 1} before ${i})`);
+        fatal.push(`latest.json: order must be score desc (index ${i - 1} before ${i})`);
         break;
       }
       if (prev.score === current.score && prev.model.localeCompare(current.model) > 0) {
         fatal.push(
-          `rankings.json: tie-breaker must be model slug asc (index ${i - 1} before ${i})`
+          `latest.json: tie-breaker must be model slug asc (index ${i - 1} before ${i})`
         );
         break;
       }
@@ -162,7 +163,7 @@ function AlertBox({
 
 export default async function V4Page() {
   const snapshot = await loadV4SnapshotWithDiagnostics();
-  const meta = snapshot.index?.meta ?? null;
+  const meta = snapshot.meta ?? null;
   const rankings = snapshot.rankings ?? null;
   const models = snapshot.models ?? null;
   const lastUpdatedLabel = formatUpdatedLabel(meta?.updatedAt);
