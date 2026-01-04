@@ -26371,21 +26371,21 @@
     "name": "MiniMax: MiniMax M2.1",
     "vendor": "minimax",
     "released": "2025-12-23T01:56:37.000Z",
-    "context": 196608,
+    "context": 204800,
     "type": "text->text",
     "pricing": {
-      "input": 1.2e-7,
-      "output": 4.8e-7,
+      "input": 3e-7,
+      "output": 0.0000012,
       "currency": "USD"
     },
     "scores": {
-      "overall": 17.999998147692274,
+      "overall": 17.999995101538374,
       "categories": {
         "performance": 0,
         "safety": 40,
         "adoption": 0,
         "openness": 0,
-        "cost": 99.99998147692274
+        "cost": 99.99995101538374
       },
       "items": {
         "S1": {
