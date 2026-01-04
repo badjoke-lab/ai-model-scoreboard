@@ -174,6 +174,9 @@ export default async function V4Page() {
   if (snapshot.diagnostics.errors.length) {
     fatal.unshift(...snapshot.diagnostics.errors);
   }
+  if (snapshot.diagnostics.warnings?.length) {
+    warn.unshift(...snapshot.diagnostics.warnings);
+  }
 
   const staleness = getSnapshotStaleness(meta?.updatedAt, 3);
   if (staleness.isStale) {
@@ -286,7 +289,11 @@ export default async function V4Page() {
         </div>
       </header>
 
-      <LeaderboardClient rankings={rankings} models={models} />
+      <LeaderboardClient
+        rankings={rankings}
+        models={models}
+        evidenceSummaries={snapshot.evidenceSummaries ?? {}}
+      />
     </main>
   );
 }

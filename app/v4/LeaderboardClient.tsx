@@ -3,7 +3,11 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
-import type { V4ModelMetadata, V4RankingEntry } from "@/lib/v4-snapshot";
+import type {
+  V4EvidenceSummaryLite,
+  V4ModelMetadata,
+  V4RankingEntry,
+} from "@/lib/v4-snapshot";
 
 const STATUS_OPTIONS = ["all", "adopted", "provisional", "denied"] as const;
 
@@ -13,10 +17,19 @@ type LeaderboardEntry = V4RankingEntry & {
   displayName: string;
   displayVendor: string;
   status: "adopted" | "provisional" | "denied";
+  evidenceCount: number;
+  evidenceTopReason?: string;
+  hasEvidence: boolean;
 };
 
 function formatScore(value: number) {
   return Number.isFinite(value) ? value.toFixed(1) : "—";
+}
+
+function formatReasonLabel(reason: string) {
+  return reason
+    .replace(/[_-]+/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
 function formatUpdatedAt(value: string) {
@@ -67,9 +80,11 @@ function formatStatusLabel(status: StatusFilter) {
 export default function LeaderboardClient({
   rankings,
   models,
+  evidenceSummaries,
 }: {
   rankings: V4RankingEntry[];
   models: Record<string, V4ModelMetadata>;
+  evidenceSummaries: Record<string, V4EvidenceSummaryLite>;
 }) {
   const [query, setQuery] = useState("");
   const [provider, setProvider] = useState("");
@@ -81,14 +96,19 @@ export default function LeaderboardClient({
   const entries = useMemo(() => {
     return rankings.map((entry) => {
       const meta = models[entry.model];
+      const evidence = evidenceSummaries[entry.model];
+      const evidenceCount = evidence?.count ?? 0;
       return {
         ...entry,
         displayName: meta?.name ?? entry.model,
         displayVendor: meta?.vendor ?? entry.vendor,
         status: mapLayerToStatus(entry.layer),
+        evidenceCount,
+        evidenceTopReason: evidence?.topReason,
+        hasEvidence: evidence?.hasEvidence ?? evidenceCount > 0,
       } satisfies LeaderboardEntry;
     });
-  }, [rankings, models]);
+  }, [rankings, models, evidenceSummaries]);
 
   const filtered = useMemo(() => {
     return entries.filter((entry) => {
@@ -176,45 +196,60 @@ export default function LeaderboardClient({
                   <div className="text-right">
                     <div className="text-xs text-slate-500">Total</div>
                     <div className="text-xl font-semibold text-slate-50">
-                      {formatScore(entry.score)}
+                      {entry.hasEvidence ? formatScore(entry.score) : "—"}
                     </div>
+                    {!entry.hasEvidence ? (
+                      <div className="text-[0.7rem] text-slate-500">
+                        Insufficient evidence
+                      </div>
+                    ) : null}
                   </div>
                 </div>
                 <div className="mt-2 text-xs text-slate-500">
                   Updated {formatUpdatedAt(entry.updatedAt)}
                 </div>
+                <div className="mt-1 text-xs text-slate-500">
+                  Evidence: {entry.evidenceCount}
+                </div>
                 <div className="mt-2 flex flex-wrap items-center gap-2">
                   <LayerBadge layer={entry.layer} />
                 </div>
+                {entry.hasEvidence && entry.evidenceTopReason ? (
+                  <div className="mt-2 text-xs text-slate-400">
+                    Top reason: {formatReasonLabel(entry.evidenceTopReason)}
+                  </div>
+                ) : null}
                 <dl className="mt-3 grid grid-cols-2 gap-x-6 gap-y-1 text-xs text-slate-400">
                   <div>
                     <dt className="text-[0.65rem] uppercase">Performance</dt>
                     <dd className="font-medium text-slate-200">
-                      {formatScore(entry.scores.performance)}
+                      {entry.hasEvidence
+                        ? formatScore(entry.scores.performance)
+                        : "—"}
                     </dd>
                   </div>
                   <div>
                     <dt className="text-[0.65rem] uppercase">Safety</dt>
                     <dd className="font-medium text-slate-200">
-                      {formatScore(entry.scores.safety)}
+                      {entry.hasEvidence ? formatScore(entry.scores.safety) : "—"}
                     </dd>
                   </div>
                   <div>
                     <dt className="text-[0.65rem] uppercase">Adoption</dt>
                     <dd className="font-medium text-slate-200">
-                      {formatScore(entry.scores.adoption)}
+                      {entry.hasEvidence ? formatScore(entry.scores.adoption) : "—"}
                     </dd>
                   </div>
                   <div>
                     <dt className="text-[0.65rem] uppercase">Openness</dt>
                     <dd className="font-medium text-slate-200">
-                      {formatScore(entry.scores.openness)}
+                      {entry.hasEvidence ? formatScore(entry.scores.openness) : "—"}
                     </dd>
                   </div>
                   <div>
                     <dt className="text-[0.65rem] uppercase">Cost</dt>
                     <dd className="font-medium text-slate-200">
-                      {formatScore(entry.scores.cost)}
+                      {entry.hasEvidence ? formatScore(entry.scores.cost) : "—"}
                     </dd>
                   </div>
                 </dl>
@@ -223,12 +258,13 @@ export default function LeaderboardClient({
           </div>
 
           <div className="hidden overflow-hidden rounded-2xl border border-slate-800 bg-surface/70 shadow md:block">
-            <div className="grid grid-cols-10 bg-surface px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-wide text-slate-400">
+            <div className="grid grid-cols-12 bg-surface px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-wide text-slate-400">
               <span className="col-span-1">#</span>
               <span className="col-span-3">Model</span>
               <span className="col-span-2">Vendor</span>
               <span className="col-span-1">Layer</span>
               <span className="col-span-1">Updated</span>
+              <span className="col-span-1">Evidence</span>
               <span className="col-span-1 text-right">Total</span>
               <span className="col-span-1 text-right">Perf</span>
               <span className="col-span-1 text-right">Safety</span>
@@ -239,7 +275,7 @@ export default function LeaderboardClient({
                 <Link
                   key={entry.model}
                   href={`/models/${encodeURIComponent(entry.model)}`}
-                  className="grid grid-cols-10 items-center px-4 py-3 text-sm text-slate-200 hover:bg-surface/80"
+                  className="grid grid-cols-12 items-center px-4 py-3 text-sm text-slate-200 hover:bg-surface/80"
                 >
                   <span className="col-span-1 text-sm font-semibold text-slate-500">
                     {index + 1}
@@ -250,6 +286,11 @@ export default function LeaderboardClient({
                       {entry.displayName}
                     </div>
                     <div className="text-xs text-slate-500">{entry.model}</div>
+                    {entry.hasEvidence && entry.evidenceTopReason ? (
+                      <div className="text-[0.7rem] text-slate-400">
+                        Top reason: {formatReasonLabel(entry.evidenceTopReason)}
+                      </div>
+                    ) : null}
                   </div>
 
                   <div className="col-span-2">
@@ -264,14 +305,18 @@ export default function LeaderboardClient({
                     {formatUpdatedAt(entry.updatedAt)}
                   </span>
 
+                  <span className="col-span-1 text-xs text-slate-400">
+                    {entry.evidenceCount}
+                  </span>
+
                   <span className="col-span-1 text-right font-semibold text-slate-50">
-                    {formatScore(entry.score)}
+                    {entry.hasEvidence ? formatScore(entry.score) : "—"}
                   </span>
                   <span className="col-span-1 text-right text-slate-200">
-                    {formatScore(entry.scores.performance)}
+                    {entry.hasEvidence ? formatScore(entry.scores.performance) : "—"}
                   </span>
                   <span className="col-span-1 text-right text-slate-200">
-                    {formatScore(entry.scores.safety)}
+                    {entry.hasEvidence ? formatScore(entry.scores.safety) : "—"}
                   </span>
                 </Link>
               ))}

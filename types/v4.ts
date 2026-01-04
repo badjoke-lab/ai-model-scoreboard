@@ -1,8 +1,9 @@
 export type V4ScoreBreakdown = {
-  reasoning: number;
-  coding: number;
-  chat: number;
+  performance: number;
   safety: number;
+  adoption: number;
+  openness: number;
+  cost: number;
 };
 
 export type V4DeltaBreakdown = V4ScoreBreakdown & {
@@ -16,7 +17,7 @@ export interface V4Model {
   vendor: string;
   modality: string[];
   summary: string;
-  subscores: V4ScoreBreakdown;
+  scores: V4ScoreBreakdown;
   evidence: { title: string; url: string; date: string }[];
   updatedAt: string;
   tags: string[];
