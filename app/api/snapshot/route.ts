@@ -22,13 +22,7 @@ type RankingEntry = {
   vendor: string;
   layer: string;
   score: number;
-  scores: {
-    performance: number;
-    safety: number;
-    adoption: number;
-    openness: number;
-    cost: number;
-  };
+  scores: Record<string, unknown>;
   updatedAt: string;
 };
 

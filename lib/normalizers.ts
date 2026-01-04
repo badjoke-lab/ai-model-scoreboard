@@ -4,11 +4,9 @@ const SCORE_MULTIPLIER = 10;
 
 function scaleScoreBreakdown(breakdown?: V4ScoreBreakdown): V4ScoreBreakdown {
   return {
-    performance: (breakdown?.performance ?? 0) * SCORE_MULTIPLIER,
-    safety: (breakdown?.safety ?? 0) * SCORE_MULTIPLIER,
-    adoption: (breakdown?.adoption ?? 0) * SCORE_MULTIPLIER,
-    openness: (breakdown?.openness ?? 0) * SCORE_MULTIPLIER,
-    cost: (breakdown?.cost ?? 0) * SCORE_MULTIPLIER,
+    spec: (breakdown?.spec ?? 0) * SCORE_MULTIPLIER,
+    evidence: (breakdown?.evidence ?? 0) * SCORE_MULTIPLIER,
+    ops: (breakdown?.ops ?? 0) * SCORE_MULTIPLIER,
   };
 }
 

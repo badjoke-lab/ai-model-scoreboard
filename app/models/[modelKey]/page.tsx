@@ -5,6 +5,7 @@ import {
   type V4EvidenceItem,
   type V4EvidenceReference,
 } from "@/lib/v4-snapshot";
+import { V4_DIMENSIONS, type V4DimensionKey } from "@/lib/v4-dimensions";
 
 function formatScore(value: number): string {
   return value.toFixed(1);
@@ -149,16 +150,18 @@ function formatReasonLabel(reason: string) {
     .replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
-type CategoryScore = {
+type DimensionScore = {
+  key: V4DimensionKey;
   label: string;
   value: number;
   reasons: string[];
   evidenceRefs: V4EvidenceReference[];
-  hasEvidence: boolean;
 };
 
-function ScoreBreakdownItem({ item }: { item: CategoryScore }) {
-  const hasReasonedEvidence = item.hasEvidence && item.reasons.length > 0;
+function ScoreBreakdownItem({ item }: { item: DimensionScore }) {
+  const hasEvidenceRefs = item.evidenceRefs.length > 0;
+  const hasReasons = item.reasons.length > 0;
+  const hasReasonedEvidence = hasReasons;
   return (
     <div className="rounded-2xl border border-slate-800/80 bg-surface/80 p-4 shadow">
       <div className="flex flex-wrap items-start justify-between gap-3">
@@ -175,7 +178,7 @@ function ScoreBreakdownItem({ item }: { item: CategoryScore }) {
         </div>
         <div className="text-xs text-slate-400">
           <p className="uppercase tracking-wide text-slate-500">Reasons</p>
-          {hasReasonedEvidence ? (
+          {hasReasons ? (
             <div className="mt-2 space-y-2">
               {item.reasons.map((reason) => (
                 <div key={reason} className="space-y-1">
@@ -187,13 +190,19 @@ function ScoreBreakdownItem({ item }: { item: CategoryScore }) {
                       {formatReasonLabel(reason)}
                     </span>
                   </div>
-                  <EvidenceRefs refs={item.evidenceRefs} />
                 </div>
               ))}
+              {hasEvidenceRefs ? (
+                <EvidenceRefs refs={item.evidenceRefs} />
+              ) : (
+                <p className="text-[0.7rem] text-slate-500">
+                  No published evidence refs for this category.
+                </p>
+              )}
             </div>
           ) : (
             <p className="mt-1 text-[0.7rem] text-slate-500">
-              No published evidence for this category.
+              No published scoring rationale (evidence refs required).
             </p>
           )}
         </div>
@@ -253,47 +262,48 @@ export default async function ModelDetailPage({
   }
 
   const updatedLabel = formatDate(detail.updatedAt ?? index.meta.updatedAt);
-  const evidenceSummary = detail.evidenceSummary;
-  const categoryItems: CategoryScore[] = [
-    {
-      label: "Performance",
-      value: detail.scores.performance,
-      reasons: evidenceSummary.reasonCodes,
-      evidenceRefs: evidenceSummary.refs,
-      hasEvidence: evidenceSummary.hasEvidence,
-    },
-    {
-      label: "Safety",
-      value: detail.scores.safety,
-      reasons: evidenceSummary.reasonCodes,
-      evidenceRefs: evidenceSummary.refs,
-      hasEvidence: evidenceSummary.hasEvidence,
-    },
-    {
-      label: "Adoption",
-      value: detail.scores.adoption,
-      reasons: evidenceSummary.reasonCodes,
-      evidenceRefs: evidenceSummary.refs,
-      hasEvidence: evidenceSummary.hasEvidence,
-    },
-    {
-      label: "Openness",
-      value: detail.scores.openness,
-      reasons: evidenceSummary.reasonCodes,
-      evidenceRefs: evidenceSummary.refs,
-      hasEvidence: evidenceSummary.hasEvidence,
-    },
-    {
-      label: "Cost",
-      value: detail.scores.cost,
-      reasons: evidenceSummary.reasonCodes,
-      evidenceRefs: evidenceSummary.refs,
-      hasEvidence: evidenceSummary.hasEvidence,
-    },
-  ];
-  const hasMinimumEvidence = categoryItems.every(
-    (item) => item.hasEvidence && item.reasons.length > 0
-  );
+  const evidenceRefs = detail.evidenceSummary.refs;
+  const dimensionReasons: Record<V4DimensionKey, string[]> = {
+    spec: [],
+    evidence: detail.evidenceSummary.reasonCodes,
+    ops: [],
+  };
+  if (detail.scoreItems) {
+    for (const [key, item] of Object.entries(detail.scoreItems)) {
+      if (key.startsWith("S")) {
+        const reasons = item.penaltyReasons ?? [];
+        if (reasons.length) dimensionReasons.spec.push(...reasons);
+      }
+      if (key.startsWith("T")) {
+        const reasons = item.penaltyReasons ?? [];
+        if (reasons.length) dimensionReasons.evidence.push(...reasons);
+      }
+      if (key.startsWith("Q")) {
+        const reasons = item.penaltyReasons ?? [];
+        if (reasons.length) dimensionReasons.ops.push(...reasons);
+      }
+      const usedEvidenceReasons =
+        item.usedEvidence?.flatMap((entry) => {
+          if (!entry.type || !entry.status) return [];
+          return [`evidence_${entry.type}_${entry.status}`];
+        }) ?? [];
+      if (usedEvidenceReasons.length) {
+        if (key.startsWith("S")) dimensionReasons.spec.push(...usedEvidenceReasons);
+        if (key.startsWith("T")) dimensionReasons.evidence.push(...usedEvidenceReasons);
+        if (key.startsWith("Q")) dimensionReasons.ops.push(...usedEvidenceReasons);
+      }
+    }
+  }
+
+  const dimensionItems: DimensionScore[] = V4_DIMENSIONS.map((dimension) => ({
+    key: dimension.key,
+    label: dimension.label,
+    value: detail.scores[dimension.key],
+    reasons: Array.from(new Set(dimensionReasons[dimension.key])),
+    evidenceRefs: dimension.key === "evidence" ? evidenceRefs : [],
+  }));
+
+  const hasMinimumEvidence = dimensionItems.every((item) => item.reasons.length > 0);
 
   return (
     <div className="space-y-8">
@@ -365,7 +375,7 @@ export default async function ModelDetailPage({
               <p className="font-semibold text-slate-50">{detail.decisionReason}</p>
             </div>
           ) : (
-            <p className="text-xs text-slate-500">No decision reasons were published for this model.</p>
+            <p className="text-xs text-slate-500">No published decision record.</p>
           )}
           {detail.decisionSource ? (
             <div className="text-xs text-slate-500">Source: {detail.decisionSource}</div>
@@ -376,11 +386,11 @@ export default async function ModelDetailPage({
       <section className="space-y-3">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-lg font-semibold text-slate-100">Score breakdown</h2>
-          <p className="text-xs text-slate-400">Higher scores indicate stronger performance in that dimension.</p>
+          <p className="text-xs text-slate-400">Higher scores indicate stronger results in that dimension.</p>
         </div>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {categoryItems.map((item) => (
-            <ScoreBreakdownItem key={item.label} item={item} />
+          {dimensionItems.map((item) => (
+            <ScoreBreakdownItem key={item.key} item={item} />
           ))}
         </div>
       </section>

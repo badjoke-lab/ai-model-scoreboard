@@ -1,9 +1,7 @@
 export type V4ScoreBreakdown = {
-  performance: number;
-  safety: number;
-  adoption: number;
-  openness: number;
-  cost: number;
+  spec: number;
+  evidence: number;
+  ops: number;
 };
 
 export type V4DeltaBreakdown = V4ScoreBreakdown & {

@@ -8,6 +8,7 @@ import type {
   V4ModelMetadata,
   V4RankingEntry,
 } from "@/lib/v4-snapshot";
+import { V4_DIMENSIONS, type V4DimensionKey } from "@/lib/v4-dimensions";
 
 const STATUS_OPTIONS = ["all", "adopted", "provisional", "denied"] as const;
 
@@ -20,6 +21,8 @@ type LeaderboardEntry = V4RankingEntry & {
   evidenceCount: number;
   evidenceTopReason?: string;
   hasEvidence: boolean;
+  dimensionReasons: Record<V4DimensionKey, string[]>;
+  dimensionHasRefs: Record<V4DimensionKey, boolean>;
 };
 
 function formatScore(value: number) {
@@ -48,6 +51,31 @@ function mapLayerToStatus(layer: V4RankingEntry["layer"]): LeaderboardEntry["sta
   return "denied";
 }
 
+function collectDimensionReasons(
+  scoreItems: V4RankingEntry["scoreItems"] | undefined,
+  prefix: string
+): string[] {
+  if (!scoreItems) return [];
+  const reasons = Object.entries(scoreItems)
+    .filter(([key]) => key.startsWith(prefix))
+    .flatMap(([, item]) => {
+      const penaltyReasons = item.penaltyReasons ?? [];
+      if (penaltyReasons.length) return penaltyReasons;
+      const evidenceStatuses =
+        item.usedEvidence?.flatMap((entry) => {
+          if (!entry.type || !entry.status) return [];
+          return [`evidence_${entry.type}_${entry.status}`];
+        }) ?? [];
+      return evidenceStatuses.length ? evidenceStatuses : [];
+    })
+    .filter((reason) => Boolean(reason));
+  return Array.from(new Set(reasons));
+}
+
+function isInsufficientEvidence(reasons: string[], hasEvidenceRefs: boolean) {
+  return reasons.length === 0 && !hasEvidenceRefs;
+}
+
 function LayerBadge({ layer }: { layer: string }) {
   const normalized = layer.toLowerCase();
 
@@ -68,6 +96,19 @@ function LayerBadge({ layer }: { layer: string }) {
     className =
       "inline-flex items-center rounded-full border border-rose-500/40 bg-rose-500/10 px-2 py-0.5 text-[0.7rem] font-medium text-rose-300";
   }
+
+  return <span className={className}>{label}</span>;
+}
+
+function StatusBadge({ status }: { status: LeaderboardEntry["status"] }) {
+  const label =
+    status === "adopted" ? "Adopted" : status === "provisional" ? "Provisional" : "Denied";
+  const className =
+    status === "adopted"
+      ? "rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-0.5 text-[0.65rem] uppercase tracking-wide text-emerald-300"
+      : status === "provisional"
+        ? "rounded-full border border-amber-500/40 bg-amber-500/10 px-2 py-0.5 text-[0.65rem] uppercase tracking-wide text-amber-300"
+        : "rounded-full border border-rose-500/40 bg-rose-500/10 px-2 py-0.5 text-[0.65rem] uppercase tracking-wide text-rose-300";
 
   return <span className={className}>{label}</span>;
 }
@@ -98,6 +139,16 @@ export default function LeaderboardClient({
       const meta = models[entry.model];
       const evidence = evidenceSummaries[entry.model];
       const evidenceCount = evidence?.count ?? 0;
+      const dimensionReasons: Record<V4DimensionKey, string[]> = {
+        spec: collectDimensionReasons(entry.scoreItems, "S"),
+        evidence: collectDimensionReasons(entry.scoreItems, "T"),
+        ops: collectDimensionReasons(entry.scoreItems, "Q"),
+      };
+      const dimensionHasRefs: Record<V4DimensionKey, boolean> = {
+        spec: false,
+        evidence: (evidence?.count ?? 0) > 0,
+        ops: false,
+      };
       return {
         ...entry,
         displayName: meta?.name ?? entry.model,
@@ -106,6 +157,8 @@ export default function LeaderboardClient({
         evidenceCount,
         evidenceTopReason: evidence?.topReason,
         hasEvidence: evidence?.hasEvidence ?? evidenceCount > 0,
+        dimensionReasons,
+        dimensionHasRefs,
       } satisfies LeaderboardEntry;
     });
   }, [rankings, models, evidenceSummaries]);
@@ -179,12 +232,20 @@ export default function LeaderboardClient({
       ) : (
         <>
           <div className="space-y-3 md:hidden">
-            {filtered.map((entry, index) => (
-              <Link
-                key={entry.model}
-                href={`/models/${encodeURIComponent(entry.model)}`}
-                className="rounded-2xl border border-slate-800 bg-surface/70 p-4 shadow"
-              >
+            {filtered.map((entry, index) => {
+              const insufficientDimensions = V4_DIMENSIONS.some((dimension) =>
+                isInsufficientEvidence(
+                  entry.dimensionReasons[dimension.key],
+                  entry.dimensionHasRefs[dimension.key]
+                )
+              );
+              const totalScore = insufficientDimensions ? "—" : formatScore(entry.score);
+              return (
+                <Link
+                  key={entry.model}
+                  href={`/models/${encodeURIComponent(entry.model)}`}
+                  className="rounded-2xl border border-slate-800 bg-surface/70 p-4 shadow"
+                >
                 <div className="flex items-center justify-between gap-2">
                   <div>
                     <div className="text-xs text-slate-500">#{index + 1}</div>
@@ -193,16 +254,14 @@ export default function LeaderboardClient({
                     </div>
                     <div className="text-xs text-slate-500">{entry.displayVendor}</div>
                   </div>
-                  <div className="text-right">
-                    <div className="text-xs text-slate-500">Total</div>
-                    <div className="text-xl font-semibold text-slate-50">
-                      {entry.hasEvidence ? formatScore(entry.score) : "—"}
-                    </div>
-                    {!entry.hasEvidence ? (
-                      <div className="text-[0.7rem] text-slate-500">
-                        Insufficient evidence
-                      </div>
-                    ) : null}
+                    <div className="text-right">
+                      <div className="text-xs text-slate-500">Total</div>
+                      <div className="text-xl font-semibold text-slate-50">{totalScore}</div>
+                      {insufficientDimensions ? (
+                        <div className="text-[0.7rem] text-slate-500">
+                          Insufficient evidence
+                        </div>
+                      ) : null}
                   </div>
                 </div>
                 <div className="mt-2 text-xs text-slate-500">
@@ -212,6 +271,7 @@ export default function LeaderboardClient({
                   Evidence: {entry.evidenceCount}
                 </div>
                 <div className="mt-2 flex flex-wrap items-center gap-2">
+                  <StatusBadge status={entry.status} />
                   <LayerBadge layer={entry.layer} />
                 </div>
                 {entry.hasEvidence && entry.evidenceTopReason ? (
@@ -219,55 +279,51 @@ export default function LeaderboardClient({
                     Top reason: {formatReasonLabel(entry.evidenceTopReason)}
                   </div>
                 ) : null}
-                <dl className="mt-3 grid grid-cols-2 gap-x-6 gap-y-1 text-xs text-slate-400">
-                  <div>
-                    <dt className="text-[0.65rem] uppercase">Performance</dt>
-                    <dd className="font-medium text-slate-200">
-                      {entry.hasEvidence
-                        ? formatScore(entry.scores.performance)
-                        : "—"}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-[0.65rem] uppercase">Safety</dt>
-                    <dd className="font-medium text-slate-200">
-                      {entry.hasEvidence ? formatScore(entry.scores.safety) : "—"}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-[0.65rem] uppercase">Adoption</dt>
-                    <dd className="font-medium text-slate-200">
-                      {entry.hasEvidence ? formatScore(entry.scores.adoption) : "—"}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-[0.65rem] uppercase">Openness</dt>
-                    <dd className="font-medium text-slate-200">
-                      {entry.hasEvidence ? formatScore(entry.scores.openness) : "—"}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className="text-[0.65rem] uppercase">Cost</dt>
-                    <dd className="font-medium text-slate-200">
-                      {entry.hasEvidence ? formatScore(entry.scores.cost) : "—"}
-                    </dd>
-                  </div>
+                <dl className="mt-3 grid grid-cols-2 gap-x-6 gap-y-2 text-xs text-slate-400">
+                  {V4_DIMENSIONS.map((dimension) => {
+                    const reasons = entry.dimensionReasons[dimension.key];
+                    const hasRefs = entry.dimensionHasRefs[dimension.key];
+                    const insufficient = isInsufficientEvidence(reasons, hasRefs);
+                    return (
+                      <div key={dimension.key}>
+                        <dt className="text-[0.65rem] uppercase">{dimension.label}</dt>
+                        <dd className="font-medium text-slate-200">
+                          {insufficient ? "—" : formatScore(entry.scores[dimension.key])}
+                        </dd>
+                        {insufficient ? (
+                          <div className="text-[0.65rem] text-slate-500">
+                            Insufficient evidence
+                          </div>
+                        ) : null}
+                      </div>
+                    );
+                  })}
                 </dl>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
 
           <div className="hidden overflow-hidden rounded-2xl border border-slate-800 bg-surface/70 shadow md:block">
-            <div className="grid grid-cols-12 bg-surface px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-wide text-slate-400">
-              <span className="col-span-1">#</span>
-              <span className="col-span-3">Model</span>
-              <span className="col-span-2">Vendor</span>
-              <span className="col-span-1">Layer</span>
-              <span className="col-span-1">Updated</span>
-              <span className="col-span-1">Evidence</span>
-              <span className="col-span-1 text-right">Total</span>
-              <span className="col-span-1 text-right">Perf</span>
-              <span className="col-span-1 text-right">Safety</span>
+            <div
+              className="grid bg-surface px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-wide text-slate-400"
+              style={{
+                gridTemplateColumns: `60px minmax(220px, 2fr) minmax(140px, 1fr) minmax(110px, 1fr) minmax(130px, 1fr) minmax(120px, 1fr) minmax(90px, 1fr) minmax(90px, 1fr) repeat(${V4_DIMENSIONS.length}, minmax(90px, 1fr))`,
+              }}
+            >
+              <span>#</span>
+              <span>Model</span>
+              <span>Vendor</span>
+              <span>Layer</span>
+              <span>Status</span>
+              <span>Updated</span>
+              <span>Evidence</span>
+              <span className="text-right">Total</span>
+              {V4_DIMENSIONS.map((dimension) => (
+                <span key={dimension.key} className="text-right">
+                  {dimension.label}
+                </span>
+              ))}
             </div>
 
             <div className="divide-y divide-slate-800/80">
@@ -275,13 +331,16 @@ export default function LeaderboardClient({
                 <Link
                   key={entry.model}
                   href={`/models/${encodeURIComponent(entry.model)}`}
-                  className="grid grid-cols-12 items-center px-4 py-3 text-sm text-slate-200 hover:bg-surface/80"
+                  className="grid items-center px-4 py-3 text-sm text-slate-200 hover:bg-surface/80"
+                  style={{
+                    gridTemplateColumns: `60px minmax(220px, 2fr) minmax(140px, 1fr) minmax(110px, 1fr) minmax(130px, 1fr) minmax(120px, 1fr) minmax(90px, 1fr) minmax(90px, 1fr) repeat(${V4_DIMENSIONS.length}, minmax(90px, 1fr))`,
+                  }}
                 >
-                  <span className="col-span-1 text-sm font-semibold text-slate-500">
+                  <span className="text-sm font-semibold text-slate-500">
                     {index + 1}
                   </span>
 
-                  <div className="col-span-3">
+                  <div>
                     <div className="font-semibold text-slate-50 hover:text-accent">
                       {entry.displayName}
                     </div>
@@ -293,31 +352,46 @@ export default function LeaderboardClient({
                     ) : null}
                   </div>
 
-                  <div className="col-span-2">
+                  <div>
                     <div className="text-sm text-slate-200">{entry.displayVendor}</div>
                   </div>
 
-                  <div className="col-span-1">
+                  <div>
                     <LayerBadge layer={entry.layer} />
                   </div>
 
-                  <span className="col-span-1 text-xs text-slate-400">
+                  <div>
+                    <StatusBadge status={entry.status} />
+                  </div>
+
+                  <span className="text-xs text-slate-400">
                     {formatUpdatedAt(entry.updatedAt)}
                   </span>
 
-                  <span className="col-span-1 text-xs text-slate-400">
+                  <span className="text-xs text-slate-400">
                     {entry.evidenceCount}
                   </span>
 
-                  <span className="col-span-1 text-right font-semibold text-slate-50">
-                    {entry.hasEvidence ? formatScore(entry.score) : "—"}
+                  <span className="text-right font-semibold text-slate-50">
+                    {V4_DIMENSIONS.some((dimension) =>
+                      isInsufficientEvidence(
+                        entry.dimensionReasons[dimension.key],
+                        entry.dimensionHasRefs[dimension.key]
+                      )
+                    )
+                      ? "—"
+                      : formatScore(entry.score)}
                   </span>
-                  <span className="col-span-1 text-right text-slate-200">
-                    {entry.hasEvidence ? formatScore(entry.scores.performance) : "—"}
-                  </span>
-                  <span className="col-span-1 text-right text-slate-200">
-                    {entry.hasEvidence ? formatScore(entry.scores.safety) : "—"}
-                  </span>
+                  {V4_DIMENSIONS.map((dimension) => {
+                    const reasons = entry.dimensionReasons[dimension.key];
+                    const hasRefs = entry.dimensionHasRefs[dimension.key];
+                    const insufficient = isInsufficientEvidence(reasons, hasRefs);
+                    return (
+                      <span key={dimension.key} className="text-right text-slate-200">
+                        {insufficient ? "—" : formatScore(entry.scores[dimension.key])}
+                      </span>
+                    );
+                  })}
                 </Link>
               ))}
             </div>
