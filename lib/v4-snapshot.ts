@@ -1,6 +1,8 @@
 import { promises as fs } from "fs";
 import path from "path";
 
+import { V4_DIMENSIONS, type V4DimensionKey } from "@/lib/v4-dimensions";
+
 export type V4SnapshotMeta = {
   version: string;
   updatedAt: string;
@@ -25,11 +27,38 @@ export type V4IndexData = {
 };
 
 export type V4ScoreBreakdown = {
-  performance: number;
-  safety: number;
-  adoption: number;
-  openness: number;
-  cost: number;
+  spec: number;
+  evidence: number;
+  ops: number;
+};
+
+type V4RawScoreBreakdown = Record<string, unknown>;
+
+type V4RawScores = {
+  overall?: unknown;
+  categories?: V4RawScoreBreakdown;
+  items?: Record<string, unknown>;
+  [key: string]: unknown;
+};
+
+export type V4ScoreItemEvidence = {
+  type?: string;
+  status?: string;
+};
+
+export type V4ScoreItem = {
+  score?: number;
+  penaltyReasons?: string[];
+  usedEvidence?: V4ScoreItemEvidence[];
+};
+
+type V4RawRankingEntry = {
+  model: string;
+  vendor: string;
+  layer: "full" | "provisional" | "rejected" | "not-listed";
+  score: number;
+  scores: V4RawScores | V4RawScoreBreakdown;
+  updatedAt: string;
 };
 
 export type V4RankingEntry = {
@@ -38,6 +67,7 @@ export type V4RankingEntry = {
   layer: "full" | "provisional" | "rejected" | "not-listed";
   score: number;
   scores: V4ScoreBreakdown;
+  scoreItems?: Record<string, V4ScoreItem>;
   updatedAt: string;
 };
 
@@ -93,6 +123,20 @@ export type V4EvidenceItem = {
   summary?: string;
 };
 
+export type V4EvidenceSummary = {
+  refCount: number;
+  refs: V4EvidenceReference[];
+  reasonCodes: string[];
+  hasEvidence: boolean;
+  topReason?: string;
+};
+
+export type V4EvidenceSummaryLite = {
+  count: number;
+  hasEvidence: boolean;
+  topReason?: string;
+};
+
 export type V4ModelDetail = {
   id: string;
   name: string;
@@ -104,9 +148,11 @@ export type V4ModelDetail = {
   score: number;
   scores: V4ScoreBreakdown;
   scoreDetails: V4ScoreDetailItem[];
+  scoreItems?: Record<string, V4ScoreItem>;
   updatedAt: string;
   enrichment: V4EnrichmentEntry | null;
   evidenceItems: V4EvidenceItem[];
+  evidenceSummary: V4EvidenceSummary;
   evidenceError?: string | null;
 };
 
@@ -125,10 +171,50 @@ export type V4SnapshotDiagnostics = {
     enrichmentDecisions: SnapshotFileStatus;
   };
   errors: string[];
+  warnings?: string[];
 };
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null;
+}
+
+function normalizeScoreBreakdown(
+  raw: unknown,
+  scoreItems?: Record<string, V4ScoreItem>
+): V4ScoreBreakdown {
+  const base: V4ScoreBreakdown = {
+    spec: 0,
+    evidence: 0,
+    ops: 0,
+  };
+  if (!isObject(raw)) return base;
+
+  const source = isObject(raw.categories) ? raw.categories : raw;
+  if (isObject(source)) {
+    for (const dimension of V4_DIMENSIONS) {
+      const value = source[dimension.key];
+      if (typeof value === "number" && Number.isFinite(value)) {
+        base[dimension.key] = value;
+      }
+    }
+  }
+
+  if (scoreItems) {
+    const specScores = collectItemScores(scoreItems, "S");
+    const evidenceScores = collectItemScores(scoreItems, "T");
+    const opsScores = collectItemScores(scoreItems, "Q");
+    if (specScores.length) {
+      base.spec = averageScore(specScores);
+    }
+    if (evidenceScores.length) {
+      base.evidence = averageScore(evidenceScores);
+    }
+    if (opsScores.length) {
+      base.ops = averageScore(opsScores);
+    }
+  }
+
+  return base;
 }
 
 function normalizeSignal(raw: unknown): V4EnrichmentSignal | null {
@@ -208,6 +294,52 @@ function resolveSnapshotFiles(index: V4IndexData | null): V4SnapshotFiles {
     enrichmentDecisions:
       index.files.enrichmentDecisions ?? DEFAULT_FILES.enrichmentDecisions,
     evidenceDir: index.files.evidenceDir ?? DEFAULT_FILES.evidenceDir,
+  };
+}
+
+function parseSnapshotMeta(source: Record<string, unknown>): V4SnapshotMeta {
+  return {
+    version: typeof source.version === "string" ? source.version : "v4",
+    updatedAt: typeof source.updatedAt === "string" ? source.updatedAt : "",
+    modelsCount: typeof source.modelsCount === "number" ? source.modelsCount : 0,
+    fullCount: typeof source.fullCount === "number" ? source.fullCount : 0,
+    provisionalCount:
+      typeof source.provisionalCount === "number" ? source.provisionalCount : 0,
+    notListedCount:
+      typeof source.notListedCount === "number" ? source.notListedCount : 0,
+  };
+}
+
+function normalizeIndexData(raw: unknown): V4IndexData | null {
+  if (!isObject(raw)) return null;
+  const metaSource = isObject(raw.meta) ? raw.meta : raw;
+  const meta = parseSnapshotMeta(metaSource);
+  const files = isObject(raw.files) ? raw.files : null;
+  const manifest = isObject(raw.manifest) ? raw.manifest : null;
+
+  const normalizedFiles: Partial<V4SnapshotFiles> = {
+    rankings:
+      (files?.rankings as string | undefined) ??
+      (manifest?.rankings as string | undefined),
+    models:
+      (files?.models as string | undefined) ?? (manifest?.models as string | undefined),
+    notListed:
+      (files?.notListed as string | undefined) ??
+      (manifest?.notListed as string | undefined),
+    evidenceDir:
+      (files?.evidenceDir as string | undefined) ??
+      (manifest?.evidence as string | undefined),
+    enrichment:
+      (files?.enrichment as string | undefined) ??
+      (manifest?.enrichment as string | undefined),
+    enrichmentDecisions:
+      (files?.enrichmentDecisions as string | undefined) ??
+      (manifest?.enrichmentDecisions as string | undefined),
+  };
+
+  return {
+    meta,
+    files: Object.values(normalizedFiles).some(Boolean) ? normalizedFiles : undefined,
   };
 }
 
@@ -321,6 +453,60 @@ function normalizeReasonCodes(raw: unknown): string[] | undefined {
     return [raw];
   }
   return undefined;
+}
+
+function normalizeScoreItem(raw: unknown): V4ScoreItem | null {
+  if (!isObject(raw)) return null;
+  const score =
+    typeof raw.score === "number" && Number.isFinite(raw.score) ? raw.score : undefined;
+  const penaltyReasons = normalizeReasonCodes(
+    raw.penaltyReasons ?? raw.penalty_reasons ?? raw.reasons ?? raw.reasonCodes
+  );
+  const usedEvidenceRaw = Array.isArray(raw.usedEvidence) ? raw.usedEvidence : [];
+  const usedEvidence = usedEvidenceRaw
+    .map((entry) =>
+      isObject(entry)
+        ? {
+            type: typeof entry.type === "string" ? entry.type : undefined,
+            status: typeof entry.status === "string" ? entry.status : undefined,
+          }
+        : null
+    )
+    .filter(Boolean) as V4ScoreItemEvidence[];
+
+  if (score === undefined && !penaltyReasons?.length && !usedEvidence.length) return null;
+
+  return {
+    score,
+    penaltyReasons,
+    usedEvidence: usedEvidence.length ? usedEvidence : undefined,
+  };
+}
+
+function normalizeScoreItems(rawScores: unknown): Record<string, V4ScoreItem> | undefined {
+  if (!isObject(rawScores)) return undefined;
+  const items = isObject(rawScores.items) ? rawScores.items : null;
+  if (!items || !isObject(items)) return undefined;
+  const normalized: Record<string, V4ScoreItem> = {};
+  for (const [key, value] of Object.entries(items)) {
+    const normalizedItem = normalizeScoreItem(value);
+    if (normalizedItem) {
+      normalized[key] = normalizedItem;
+    }
+  }
+  return Object.keys(normalized).length ? normalized : undefined;
+}
+
+function averageScore(values: number[]): number {
+  const sum = values.reduce((acc, value) => acc + value, 0);
+  return sum / values.length;
+}
+
+function collectItemScores(items: Record<string, V4ScoreItem>, prefix: string): number[] {
+  return Object.entries(items)
+    .filter(([key]) => key.startsWith(prefix))
+    .map(([, item]) => item.score)
+    .filter((value): value is number => typeof value === "number");
 }
 
 function normalizeScoreDetailItem(
@@ -454,10 +640,58 @@ function normalizeEvidenceItems(raw: unknown): V4EvidenceItem[] {
     .filter(Boolean) as V4EvidenceItem[];
 }
 
+function dedupeEvidenceRefs(refs: V4EvidenceReference[]): V4EvidenceReference[] {
+  const seen = new Set<string>();
+  return refs.filter((ref) => {
+    const key = `${ref.label ?? ""}|${ref.url ?? ""}|${ref.note ?? ""}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+export function summarizeEvidenceItems(items: V4EvidenceItem[]): V4EvidenceSummary {
+  const refs = dedupeEvidenceRefs(items.flatMap((item) => item.refs ?? []));
+  const refsWithUrls = refs.filter((ref) => Boolean(ref.url));
+  const reasonCodes = Array.from(
+    new Set(items.flatMap((item) => item.reasonCodes ?? []))
+  );
+  const reasonCodesWithRefs = Array.from(
+    new Set(
+      items
+        .filter((item) => (item.refs ?? []).some((ref) => Boolean(ref.url)))
+        .flatMap((item) => item.reasonCodes ?? [])
+    )
+  );
+  const primaryReasons = reasonCodesWithRefs.filter((code) => code !== "ok");
+  const topReason = primaryReasons[0] ?? reasonCodesWithRefs[0];
+
+  return {
+    refCount: refsWithUrls.length,
+    refs,
+    reasonCodes: reasonCodesWithRefs.length ? reasonCodesWithRefs : reasonCodes,
+    hasEvidence: refsWithUrls.length > 0,
+    topReason,
+  };
+}
+
 function mapLayerToStatus(layer: V4RankingEntry["layer"]): V4ModelDetail["status"] {
   if (layer === "full") return "adopted";
   if (layer === "provisional") return "provisional";
   return "denied";
+}
+
+function normalizeRankingEntry(entry: V4RawRankingEntry): V4RankingEntry {
+  const scoreItems = normalizeScoreItems(entry.scores);
+  return {
+    ...entry,
+    scores: normalizeScoreBreakdown(entry.scores, scoreItems),
+    scoreItems,
+  };
+}
+
+function normalizeRankings(data: V4RawRankingEntry[]): V4RankingEntry[] {
+  return data.map((entry) => normalizeRankingEntry(entry));
 }
 
 async function loadV4SnapshotData(): Promise<{
@@ -466,15 +700,25 @@ async function loadV4SnapshotData(): Promise<{
   models: Record<string, V4ModelMetadata>;
   notListed: V4NotListedEntry[];
 }> {
-  const index = await readJsonFile<V4IndexData>("index.json");
+  const indexRaw = await readJsonFile<unknown>("index.json");
+  const index = normalizeIndexData(indexRaw) ?? {
+    meta: {
+      version: "v4",
+      updatedAt: "",
+      modelsCount: 0,
+      fullCount: 0,
+      provisionalCount: 0,
+      notListedCount: 0,
+    },
+  };
   const files = resolveSnapshotFiles(index);
-  const [rankings, models, notListed] = await Promise.all([
-    readJsonFile<V4RankingEntry[]>(files.rankings),
+  const [rankingsRaw, models, notListed] = await Promise.all([
+    readJsonFile<V4RawRankingEntry[]>(files.rankings),
     readJsonFile<Record<string, V4ModelMetadata>>(files.models),
     readJsonFile<V4NotListedEntry[]>(files.notListed),
   ]);
 
-  return { index, rankings, models, notListed };
+  return { index, rankings: normalizeRankings(rankingsRaw), models, notListed };
 }
 
 function requireModelMetadata(
@@ -528,6 +772,7 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
   const evidenceItems = evidenceResult.data
     ? normalizeEvidenceItems(evidenceResult.data)
     : [];
+  const evidenceSummary = summarizeEvidenceItems(evidenceItems);
   const evidenceScoreDetails = normalizeScoreDetails(evidenceResult.data);
   const ranking = rankings.find((entry) => entry.model === modelId);
   const notListedEntry = notListed
@@ -595,9 +840,11 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
         score: ranking.score,
         scores: ranking.scores,
         scoreDetails,
+        scoreItems: ranking.scoreItems,
         updatedAt: ranking.updatedAt,
         enrichment: enrichment[ranking.model] ?? null,
         evidenceItems,
+        evidenceSummary,
         evidenceError: evidenceResult.error ?? null,
       },
       isNotListed: false,
@@ -623,46 +870,114 @@ export async function loadV4SnapshotWithDiagnostics(): Promise<{
   notListed: V4NotListedEntry[] | null;
   enrichment: V4EnrichmentSnapshot | null;
   enrichmentDecisions: unknown | null;
+  evidenceSummaries: Record<string, V4EvidenceSummaryLite> | null;
   diagnostics: V4SnapshotDiagnostics;
 }> {
-  const indexResult = await readJsonFileSafe<V4IndexData>("index.json");
-  const files = resolveSnapshotFiles(indexResult.data);
-  const [
-    rankingsResult,
-    modelsResult,
-    notListedResult,
-    enrichmentResult,
-    enrichmentDecisionsResult,
-  ] = await Promise.all([
-    readJsonFileSafe<V4RankingEntry[]>(files.rankings),
-    readJsonFileSafe<Record<string, V4ModelMetadata>>(files.models),
-    readJsonFileSafe<V4NotListedEntry[]>(files.notListed),
+  const indexResult = await readJsonFileSafe<unknown>("index.json");
+  const normalizedIndex = indexResult.data ? normalizeIndexData(indexResult.data) : null;
+  const latestMetaResult = await readJsonFileSafe<unknown>("latest.meta.json");
+  const latestResult = await readJsonFileSafe<unknown>("latest.json");
+  const files = resolveSnapshotFiles(normalizedIndex);
+  const [enrichmentResult, enrichmentDecisionsResult] = await Promise.all([
     readJsonFileSafe<unknown>(files.enrichment),
     readJsonFileSafe<unknown>(files.enrichmentDecisions),
   ]);
 
-  const errors = [
-    indexResult.error,
-    rankingsResult.error,
-    modelsResult.error,
-    notListedResult.error,
-    enrichmentResult.error,
-    enrichmentDecisionsResult.error,
+  const latestData = latestResult.data;
+  const latestObject = isObject(latestData) ? latestData : null;
+  const latestMeta =
+    latestObject && isObject(latestObject.meta)
+      ? parseSnapshotMeta(latestObject.meta as Record<string, unknown>)
+      : null;
+  const latestMetaFallback =
+    latestMetaResult.data && isObject(latestMetaResult.data)
+      ? parseSnapshotMeta(latestMetaResult.data as Record<string, unknown>)
+      : null;
+  const latestRankings = latestObject?.rankings;
+  const latestModels = latestObject?.models;
+  const latestNotListed = latestObject?.notListed;
+
+  const resolvedIndex = latestMetaFallback
+    ? { meta: latestMetaFallback }
+    : latestMeta
+      ? { meta: latestMeta }
+      : normalizedIndex;
+
+  const resolvedRankingsRaw = Array.isArray(latestRankings)
+    ? (latestRankings as V4RawRankingEntry[])
+    : null;
+  const resolvedModels = isObject(latestModels) ? latestModels : null;
+  const resolvedNotListed = Array.isArray(latestNotListed)
+    ? (latestNotListed as V4NotListedEntry[])
+    : null;
+
+  const resolvedRankings = resolvedRankingsRaw
+    ? normalizeRankings(resolvedRankingsRaw)
+    : null;
+
+  const warnings = [
+    enrichmentResult.error ? `Optional ${enrichmentResult.error}` : null,
+    enrichmentDecisionsResult.error ? `Optional ${enrichmentDecisionsResult.error}` : null,
   ].filter(Boolean) as string[];
 
+  const errors: string[] = [];
+  if (!latestMetaFallback) {
+    errors.push(latestMetaResult.error ?? "latest.meta.json: missing");
+  }
+  if (!latestObject) {
+    errors.push(latestResult.error ?? "latest.json: missing");
+  }
+  if (!resolvedIndex) {
+    errors.push(indexResult.error ?? "index.json: missing");
+  }
+  if (!resolvedRankingsRaw) {
+    errors.push(latestResult.error ?? "latest.json: rankings missing");
+  }
+  if (!resolvedModels) {
+    errors.push(latestResult.error ?? "latest.json: models missing");
+  }
+  if (!resolvedNotListed) {
+    errors.push(latestResult.error ?? "latest.json: notListed missing");
+  }
+
+  const evidenceSummaries: Record<string, V4EvidenceSummaryLite> | null =
+    resolvedRankings && resolvedRankings.length
+      ? Object.fromEntries(
+          await Promise.all(
+            resolvedRankings.map(async (entry) => {
+              const evidencePath = path.join(files.evidenceDir, `${entry.model}.json`);
+              const evidenceResult = await readJsonFileSafe<unknown>(evidencePath);
+              const items = evidenceResult.data
+                ? normalizeEvidenceItems(evidenceResult.data)
+                : [];
+              const summary = summarizeEvidenceItems(items);
+              return [
+                entry.model,
+                {
+                  count: summary.refCount,
+                  hasEvidence: summary.hasEvidence,
+                  topReason: summary.topReason,
+                } satisfies V4EvidenceSummaryLite,
+              ] as const;
+            })
+          )
+        )
+      : null;
+
   return {
-    index: indexResult.data,
-    rankings: rankingsResult.data,
-    models: modelsResult.data,
-    notListed: notListedResult.data,
+    index: resolvedIndex ?? null,
+    rankings: resolvedRankings,
+    models: resolvedModels as Record<string, V4ModelMetadata> | null,
+    notListed: resolvedNotListed ?? null,
     enrichment: enrichmentResult.data ? normalizeEnrichment(enrichmentResult.data) : null,
     enrichmentDecisions: enrichmentDecisionsResult.data,
+    evidenceSummaries,
     diagnostics: {
       files: {
         index: { ok: !indexResult.error, error: indexResult.error },
-        rankings: { ok: !rankingsResult.error, error: rankingsResult.error },
-        models: { ok: !modelsResult.error, error: modelsResult.error },
-        notListed: { ok: !notListedResult.error, error: notListedResult.error },
+        rankings: { ok: !latestResult.error, error: latestResult.error },
+        models: { ok: !latestResult.error, error: latestResult.error },
+        notListed: { ok: !latestResult.error, error: latestResult.error },
         enrichment: { ok: !enrichmentResult.error, error: enrichmentResult.error },
         enrichmentDecisions: {
           ok: !enrichmentDecisionsResult.error,
@@ -670,6 +985,7 @@ export async function loadV4SnapshotWithDiagnostics(): Promise<{
         },
       },
       errors,
+      warnings,
     },
   };
 }

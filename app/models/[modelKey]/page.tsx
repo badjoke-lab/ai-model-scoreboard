@@ -2,11 +2,10 @@ import Link from "next/link";
 
 import {
   loadV4ModelDetail,
-  type V4EnrichmentSignal,
   type V4EvidenceItem,
   type V4EvidenceReference,
-  type V4ScoreDetailItem,
 } from "@/lib/v4-snapshot";
+import { V4_DIMENSIONS, type V4DimensionKey } from "@/lib/v4-dimensions";
 
 function formatScore(value: number): string {
   return value.toFixed(1);
@@ -72,38 +71,6 @@ function StatusBadge({ status }: { status: "adopted" | "provisional" | "denied" 
     >
       {label}
     </span>
-  );
-}
-
-function ScorePill({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-xl border border-slate-800/80 bg-surface/80 px-4 py-3">
-      <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">{label}</p>
-      <p className="text-lg font-semibold text-slate-50">{value}</p>
-    </div>
-  );
-}
-
-function EnrichmentRow({
-  label,
-  signal,
-}: {
-  label: string;
-  signal: V4EnrichmentSignal | null | undefined;
-}) {
-  const status = signal?.status ?? "Unavailable";
-  const statusCode = signal?.status_code ?? "missing";
-
-  return (
-    <div className="rounded-xl border border-slate-800/80 bg-surface/80 px-4 py-3">
-      <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">{label}</p>
-      <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-slate-200">
-        <span className="font-semibold">{status}</span>
-        <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[0.7rem] text-slate-400">
-          {statusCode}
-        </span>
-      </div>
-    </div>
   );
 }
 
@@ -177,45 +144,68 @@ function EvidenceRefs({ refs }: { refs?: V4EvidenceReference[] }) {
   );
 }
 
-function ScoreBreakdownItem({ item }: { item: V4ScoreDetailItem }) {
+function formatReasonLabel(reason: string) {
+  return reason
+    .replace(/[_-]+/g, " ")
+    .replace(/\b\w/g, (char) => char.toUpperCase());
+}
+
+type DimensionScore = {
+  key: V4DimensionKey;
+  label: string;
+  value: number;
+  reasons: string[];
+  evidenceRefs: V4EvidenceReference[];
+};
+
+function ScoreBreakdownItem({ item }: { item: DimensionScore }) {
+  const hasEvidenceRefs = item.evidenceRefs.length > 0;
+  const hasReasons = item.reasons.length > 0;
+  const hasReasonedEvidence = hasReasons;
   return (
     <div className="rounded-2xl border border-slate-800/80 bg-surface/80 p-4 shadow">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">
-            {item.itemKey}
+            {item.label}
           </p>
           <p className="text-2xl font-semibold text-slate-50">
-            {formatScore(item.value)}
+            {hasReasonedEvidence ? formatScore(item.value) : "—"}
           </p>
+          {!hasReasonedEvidence ? (
+            <p className="text-[0.7rem] text-amber-200">Insufficient evidence</p>
+          ) : null}
         </div>
         <div className="text-xs text-slate-400">
           <p className="uppercase tracking-wide text-slate-500">Reasons</p>
-          {item.reasons?.length ? (
-            <div className="mt-1 flex flex-wrap gap-2">
+          {hasReasons ? (
+            <div className="mt-2 space-y-2">
               {item.reasons.map((reason) => (
-                <span
-                  key={reason}
-                  className="rounded-full border border-slate-700/70 bg-slate-900/50 px-2 py-0.5 text-[0.65rem] text-slate-300"
-                >
-                  {reason}
-                </span>
+                <div key={reason} className="space-y-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-full border border-slate-700/70 bg-slate-900/50 px-2 py-0.5 text-[0.65rem] text-slate-300">
+                      {reason}
+                    </span>
+                    <span className="text-[0.7rem] text-slate-500">
+                      {formatReasonLabel(reason)}
+                    </span>
+                  </div>
+                </div>
               ))}
+              {hasEvidenceRefs ? (
+                <EvidenceRefs refs={item.evidenceRefs} />
+              ) : (
+                <p className="text-[0.7rem] text-slate-500">
+                  No published evidence refs for this category.
+                </p>
+              )}
             </div>
           ) : (
-            <p className="mt-1 text-[0.7rem] text-slate-500">No reasons provided.</p>
+            <p className="mt-1 text-[0.7rem] text-slate-500">
+              No published scoring rationale (evidence refs required).
+            </p>
           )}
         </div>
-      </div>
-      <div className="mt-3 text-xs text-slate-400">
-        <p className="uppercase tracking-wide text-slate-500">Evidence refs</p>
-        {item.evidenceRefs?.length ? (
-          <div className="mt-1">
-            <EvidenceRefs refs={item.evidenceRefs} />
-          </div>
-        ) : (
-          <p className="mt-1 text-[0.7rem] text-slate-500">No evidence refs.</p>
-        )}
       </div>
     </div>
   );
@@ -272,6 +262,48 @@ export default async function ModelDetailPage({
   }
 
   const updatedLabel = formatDate(detail.updatedAt ?? index.meta.updatedAt);
+  const evidenceRefs = detail.evidenceSummary.refs;
+  const dimensionReasons: Record<V4DimensionKey, string[]> = {
+    spec: [],
+    evidence: detail.evidenceSummary.reasonCodes,
+    ops: [],
+  };
+  if (detail.scoreItems) {
+    for (const [key, item] of Object.entries(detail.scoreItems)) {
+      if (key.startsWith("S")) {
+        const reasons = item.penaltyReasons ?? [];
+        if (reasons.length) dimensionReasons.spec.push(...reasons);
+      }
+      if (key.startsWith("T")) {
+        const reasons = item.penaltyReasons ?? [];
+        if (reasons.length) dimensionReasons.evidence.push(...reasons);
+      }
+      if (key.startsWith("Q")) {
+        const reasons = item.penaltyReasons ?? [];
+        if (reasons.length) dimensionReasons.ops.push(...reasons);
+      }
+      const usedEvidenceReasons =
+        item.usedEvidence?.flatMap((entry) => {
+          if (!entry.type || !entry.status) return [];
+          return [`evidence_${entry.type}_${entry.status}`];
+        }) ?? [];
+      if (usedEvidenceReasons.length) {
+        if (key.startsWith("S")) dimensionReasons.spec.push(...usedEvidenceReasons);
+        if (key.startsWith("T")) dimensionReasons.evidence.push(...usedEvidenceReasons);
+        if (key.startsWith("Q")) dimensionReasons.ops.push(...usedEvidenceReasons);
+      }
+    }
+  }
+
+  const dimensionItems: DimensionScore[] = V4_DIMENSIONS.map((dimension) => ({
+    key: dimension.key,
+    label: dimension.label,
+    value: detail.scores[dimension.key],
+    reasons: Array.from(new Set(dimensionReasons[dimension.key])),
+    evidenceRefs: dimension.key === "evidence" ? evidenceRefs : [],
+  }));
+
+  const hasMinimumEvidence = dimensionItems.every((item) => item.reasons.length > 0);
 
   return (
     <div className="space-y-8">
@@ -291,7 +323,12 @@ export default async function ModelDetailPage({
           </div>
           <div className="self-start rounded-2xl border border-slate-800 bg-background/70 px-5 py-4 text-right text-sm text-slate-300 shadow-xl">
             <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">Total score</p>
-            <p className="text-4xl font-semibold text-slate-50">{formatScore(detail.score)}</p>
+            <p className="text-4xl font-semibold text-slate-50">
+              {hasMinimumEvidence ? formatScore(detail.score) : "—"}
+            </p>
+            {!hasMinimumEvidence ? (
+              <p className="text-[0.7rem] text-amber-200">Insufficient evidence</p>
+            ) : null}
             <p className="text-[0.7rem] text-slate-500">Updated {updatedLabel}</p>
           </div>
         </div>
@@ -338,7 +375,7 @@ export default async function ModelDetailPage({
               <p className="font-semibold text-slate-50">{detail.decisionReason}</p>
             </div>
           ) : (
-            <p className="text-xs text-slate-500">No decision reasons were published for this model.</p>
+            <p className="text-xs text-slate-500">No published decision record.</p>
           )}
           {detail.decisionSource ? (
             <div className="text-xs text-slate-500">Source: {detail.decisionSource}</div>
@@ -349,30 +386,12 @@ export default async function ModelDetailPage({
       <section className="space-y-3">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-lg font-semibold text-slate-100">Score breakdown</h2>
-          <p className="text-xs text-slate-400">Higher scores indicate stronger performance in that dimension.</p>
+          <p className="text-xs text-slate-400">Higher scores indicate stronger results in that dimension.</p>
         </div>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {detail.scoreDetails.map((item) => (
-            <ScoreBreakdownItem key={item.itemKey} item={item} />
+          {dimensionItems.map((item) => (
+            <ScoreBreakdownItem key={item.key} item={item} />
           ))}
-        </div>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <ScorePill label="Performance" value={formatScore(detail.scores.performance)} />
-          <ScorePill label="Safety" value={formatScore(detail.scores.safety)} />
-          <ScorePill label="Adoption" value={formatScore(detail.scores.adoption)} />
-          <ScorePill label="Openness" value={formatScore(detail.scores.openness)} />
-          <ScorePill label="Cost" value={formatScore(detail.scores.cost)} />
-        </div>
-      </section>
-
-      <section className="space-y-3">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Enrichment signals</h2>
-          <p className="text-xs text-slate-400">Signals derived from the latest enrichment pipeline.</p>
-        </div>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <EnrichmentRow label="Developer activity" signal={detail.enrichment?.github} />
-          <EnrichmentRow label="Audit evidence" signal={detail.enrichment?.audit} />
         </div>
       </section>
 
@@ -397,23 +416,6 @@ export default async function ModelDetailPage({
             No evidence items are available for this model in the current snapshot.
           </div>
         )}
-      </section>
-
-      <section className="space-y-3 rounded-2xl border border-slate-800 bg-surface/80 p-5 shadow-xl">
-        <h2 className="text-lg font-semibold text-slate-100">How to read these scores</h2>
-        <div className="space-y-2 text-sm leading-relaxed text-slate-300">
-          <p>
-            The Total score is a composite that balances capability, safety posture, market traction, openness, and estimated cost
-            efficiency. Higher totals suggest well-rounded models that perform strongly across categories.
-          </p>
-          <ul className="list-disc space-y-1 pl-5 text-slate-400">
-            <li>Performance captures general task quality across benchmarks.</li>
-            <li>Safety reflects alignment and guardrail effectiveness.</li>
-            <li>Adoption tracks ecosystem traction and integrator interest.</li>
-            <li>Openness highlights licensing transparency and release practices.</li>
-            <li>Cost estimates relative runtime affordability (higher is better).</li>
-          </ul>
-        </div>
       </section>
 
       <Link href="/v4" className="text-sm font-semibold text-accent underline">

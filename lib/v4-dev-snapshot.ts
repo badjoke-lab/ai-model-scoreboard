@@ -12,11 +12,9 @@ export type V4IndexData = {
 };
 
 export const V4_SCORE_ITEMS = [
-  { key: "performance", label: "Performance" },
-  { key: "safety", label: "Safety" },
-  { key: "adoption", label: "Adoption" },
-  { key: "openness", label: "Openness" },
-  { key: "cost", label: "Cost" },
+  { key: "spec", label: "Spec" },
+  { key: "evidence", label: "Evidence" },
+  { key: "ops", label: "Ops" },
 ] as const;
 
 export type V4ScoreKey = (typeof V4_SCORE_ITEMS)[number]["key"];

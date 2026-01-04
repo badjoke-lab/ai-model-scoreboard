@@ -153,16 +153,13 @@ export default async function DevV4ModelDetailPage({
           <h2 className="text-lg font-semibold text-slate-100">How to read these scores</h2>
           <div className="space-y-2 text-sm leading-relaxed text-slate-300">
             <p>
-              The Total score is a composite that balances capability, safety posture, market traction, openness,
-              and estimated cost efficiency. Higher totals suggest well-rounded models that perform strongly across
-              categories.
+              The Total score is a composite that balances Spec, Evidence, and Ops signals. Higher totals suggest
+              well-rounded models that perform strongly across categories.
             </p>
             <ul className="list-disc space-y-1 pl-5 text-slate-400">
-              <li>Performance captures general task quality across benchmarks.</li>
-              <li>Safety reflects alignment and guardrail effectiveness.</li>
-              <li>Adoption tracks ecosystem traction and integrator interest.</li>
-              <li>Openness highlights licensing transparency and release practices.</li>
-              <li>Cost estimates relative runtime affordability (higher is better).</li>
+              <li>Spec summarizes absolute metrics like context, pricing, and modalities.</li>
+              <li>Evidence captures published verification across evidence types.</li>
+              <li>Ops reflects operational quality signals when available.</li>
             </ul>
           </div>
         </section>
