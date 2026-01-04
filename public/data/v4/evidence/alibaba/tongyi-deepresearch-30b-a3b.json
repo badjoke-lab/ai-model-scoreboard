@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-04T20:37:49.678Z",
+    "updatedAt": "2026-01-04T21:32:36.762Z",
     "modelKey": "alibaba/tongyi-deepresearch-30b-a3b"
   },
   "evidenceItems": [
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Tongyi DeepResearch 30B A3B (free)\""
+        "arxiv_query:\"Tongyi DeepResearch 30B A3B\""
       ]
     },
     {

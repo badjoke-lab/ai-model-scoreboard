@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-04T20:37:49.678Z",
-    "runId": "20698785947"
+    "updatedAt": "2026-01-04T21:32:36.762Z",
+    "runId": "20699426443"
   },
   "models": [
     {
@@ -148,10 +148,6 @@
     {
       "modelKey": "arcee-ai/virtuoso-large",
       "path": "evidence/arcee-ai/virtuoso-large.json"
-    },
-    {
-      "modelKey": "arliai/qwq-32b-arliai-rpr-v1",
-      "path": "evidence/arliai/qwq-32b-arliai-rpr-v1.json"
     },
     {
       "modelKey": "baidu/ernie-4.5-21b-a3b",
