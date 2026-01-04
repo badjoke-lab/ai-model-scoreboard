@@ -1,7 +1,10 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 import {
   loadV4ModelDetail,
+  loadV4SnapshotWithDiagnostics,
+  type V4ModelDetail,
   type V4EvidenceItem,
   type V4EvidenceReference,
 } from "@/lib/v4-snapshot";
@@ -32,6 +35,22 @@ function formatStatus(status: "adopted" | "provisional" | "denied") {
     : status === "provisional"
       ? "Provisional"
       : "Denied";
+}
+
+function formatPricing(pricing: V4ModelDetail["pricing"]) {
+  if (!pricing) return null;
+  const formatter = new Intl.NumberFormat("en-US", {
+    maximumSignificantDigits: 3,
+  });
+  const parts: string[] = [];
+  if (typeof pricing.input === "number") {
+    parts.push(`Input ${formatter.format(pricing.input)}`);
+  }
+  if (typeof pricing.output === "number") {
+    parts.push(`Output ${formatter.format(pricing.output)}`);
+  }
+  if (!parts.length) return null;
+  return `${parts.join(" / ")} ${pricing.currency ?? ""}`.trim();
 }
 
 function LayerBadge({ layer }: { layer: "full" | "provisional" | "rejected" | "not-listed" }) {
@@ -144,24 +163,13 @@ function EvidenceRefs({ refs }: { refs?: V4EvidenceReference[] }) {
   );
 }
 
-function formatReasonLabel(reason: string) {
-  return reason
-    .replace(/[_-]+/g, " ")
-    .replace(/\b\w/g, (char) => char.toUpperCase());
-}
-
 type DimensionScore = {
   key: V4DimensionKey;
   label: string;
   value: number;
-  reasons: string[];
-  evidenceRefs: V4EvidenceReference[];
 };
 
 function ScoreBreakdownItem({ item }: { item: DimensionScore }) {
-  const hasEvidenceRefs = item.evidenceRefs.length > 0;
-  const hasReasons = item.reasons.length > 0;
-  const hasReasonedEvidence = hasReasons;
   return (
     <div className="rounded-2xl border border-slate-800/80 bg-surface/80 p-4 shadow">
       <div className="flex flex-wrap items-start justify-between gap-3">
@@ -170,41 +178,8 @@ function ScoreBreakdownItem({ item }: { item: DimensionScore }) {
             {item.label}
           </p>
           <p className="text-2xl font-semibold text-slate-50">
-            {hasReasonedEvidence ? formatScore(item.value) : "—"}
+            {formatScore(item.value)}
           </p>
-          {!hasReasonedEvidence ? (
-            <p className="text-[0.7rem] text-amber-200">Insufficient evidence</p>
-          ) : null}
-        </div>
-        <div className="text-xs text-slate-400">
-          <p className="uppercase tracking-wide text-slate-500">Reasons</p>
-          {hasReasons ? (
-            <div className="mt-2 space-y-2">
-              {item.reasons.map((reason) => (
-                <div key={reason} className="space-y-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className="rounded-full border border-slate-700/70 bg-slate-900/50 px-2 py-0.5 text-[0.65rem] text-slate-300">
-                      {reason}
-                    </span>
-                    <span className="text-[0.7rem] text-slate-500">
-                      {formatReasonLabel(reason)}
-                    </span>
-                  </div>
-                </div>
-              ))}
-              {hasEvidenceRefs ? (
-                <EvidenceRefs refs={item.evidenceRefs} />
-              ) : (
-                <p className="text-[0.7rem] text-slate-500">
-                  No published evidence refs for this category.
-                </p>
-              )}
-            </div>
-          ) : (
-            <p className="mt-1 text-[0.7rem] text-slate-500">
-              No published scoring rationale (evidence refs required).
-            </p>
-          )}
         </div>
       </div>
     </div>
@@ -214,9 +189,55 @@ function ScoreBreakdownItem({ item }: { item: DimensionScore }) {
 export default async function ModelDetailPage({
   params,
 }: {
-  params: { modelKey: string };
+  params: { modelKey: string[] };
 }) {
-  const modelKey = decodeURIComponent(params.modelKey);
+  const segments = (params.modelKey ?? []).map((segment) => decodeURIComponent(segment));
+  const modelKey = segments.join("/");
+  const snapshot = await loadV4SnapshotWithDiagnostics();
+  const models = snapshot.models ?? {};
+
+  if (!models[modelKey] && segments.length === 1) {
+    const slug = segments[0];
+    const matches = Object.keys(models).filter((key) => key.split("/").pop() === slug);
+
+    if (matches.length === 1) {
+      redirect(`/models/${encodeURIComponent(matches[0])}`);
+    }
+
+    if (matches.length > 1) {
+      return (
+        <div className="space-y-6">
+          <header className="space-y-2">
+            <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">
+              AI Model Scoreboard · v4
+            </p>
+            <h1 className="text-3xl font-semibold text-slate-50">Multiple matches</h1>
+            <p className="text-sm text-slate-400">
+              &quot;{slug}&quot; matches multiple models. Choose the exact model key
+              below.
+            </p>
+          </header>
+          <ul className="space-y-3 rounded-2xl border border-slate-800 bg-surface/70 p-4 text-sm text-slate-200 shadow-lg">
+            {matches.map((match) => (
+              <li key={match}>
+                <Link
+                  href={`/models/${encodeURIComponent(match)}`}
+                  className="font-semibold text-accent hover:text-accent/80"
+                >
+                  {models[match]?.name ?? match}
+                </Link>
+                <div className="text-xs text-slate-500">{match}</div>
+              </li>
+            ))}
+          </ul>
+          <Link href="/v4" className="text-sm font-semibold text-accent underline">
+            ← Back to leaderboard
+          </Link>
+        </div>
+      );
+    }
+  }
+
   const { detail, isNotListed, notListedEntry, index } = await loadV4ModelDetail(modelKey);
 
   if (!detail && isNotListed) {
@@ -262,48 +283,15 @@ export default async function ModelDetailPage({
   }
 
   const updatedLabel = formatDate(detail.updatedAt ?? index.meta.updatedAt);
-  const evidenceRefs = detail.evidenceSummary.refs;
-  const dimensionReasons: Record<V4DimensionKey, string[]> = {
-    spec: [],
-    evidence: detail.evidenceSummary.reasonCodes,
-    ops: [],
-  };
-  if (detail.scoreItems) {
-    for (const [key, item] of Object.entries(detail.scoreItems)) {
-      if (key.startsWith("S")) {
-        const reasons = item.penaltyReasons ?? [];
-        if (reasons.length) dimensionReasons.spec.push(...reasons);
-      }
-      if (key.startsWith("T")) {
-        const reasons = item.penaltyReasons ?? [];
-        if (reasons.length) dimensionReasons.evidence.push(...reasons);
-      }
-      if (key.startsWith("Q")) {
-        const reasons = item.penaltyReasons ?? [];
-        if (reasons.length) dimensionReasons.ops.push(...reasons);
-      }
-      const usedEvidenceReasons =
-        item.usedEvidence?.flatMap((entry) => {
-          if (!entry.type || !entry.status) return [];
-          return [`evidence_${entry.type}_${entry.status}`];
-        }) ?? [];
-      if (usedEvidenceReasons.length) {
-        if (key.startsWith("S")) dimensionReasons.spec.push(...usedEvidenceReasons);
-        if (key.startsWith("T")) dimensionReasons.evidence.push(...usedEvidenceReasons);
-        if (key.startsWith("Q")) dimensionReasons.ops.push(...usedEvidenceReasons);
-      }
-    }
-  }
-
+  const pricingLabel = formatPricing(detail.pricing);
   const dimensionItems: DimensionScore[] = V4_DIMENSIONS.map((dimension) => ({
     key: dimension.key,
     label: dimension.label,
-    value: detail.scores[dimension.key],
-    reasons: Array.from(new Set(dimensionReasons[dimension.key])),
-    evidenceRefs: dimension.key === "evidence" ? evidenceRefs : [],
+    value: detail.scores[dimension.key] ?? 0,
   }));
-
-  const hasMinimumEvidence = dimensionItems.every((item) => item.reasons.length > 0);
+  const scoreItems = Object.entries(detail.scoreItems ?? {}).sort((a, b) =>
+    a[0].localeCompare(b[0], undefined, { numeric: true })
+  );
 
   return (
     <div className="space-y-8">
@@ -319,16 +307,23 @@ export default async function ModelDetailPage({
               </span>
             </div>
             <h1 className="text-3xl font-semibold leading-tight text-slate-50 sm:text-4xl">{detail.name}</h1>
+            <div className="flex flex-wrap gap-3 text-xs text-slate-400">
+              {detail.released ? (
+                <span>Released {formatDate(detail.released)}</span>
+              ) : null}
+              {detail.context ? (
+                <span>Context {detail.context.toLocaleString()}</span>
+              ) : null}
+              {detail.type ? <span>Type {detail.type}</span> : null}
+              {pricingLabel ? <span>Pricing {pricingLabel}</span> : null}
+            </div>
             <p className="text-sm text-slate-400">Snapshot-driven detail sourced from the bundled v4 JSON files.</p>
           </div>
           <div className="self-start rounded-2xl border border-slate-800 bg-background/70 px-5 py-4 text-right text-sm text-slate-300 shadow-xl">
             <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">Total score</p>
             <p className="text-4xl font-semibold text-slate-50">
-              {hasMinimumEvidence ? formatScore(detail.score) : "—"}
+              {formatScore(detail.score)}
             </p>
-            {!hasMinimumEvidence ? (
-              <p className="text-[0.7rem] text-amber-200">Insufficient evidence</p>
-            ) : null}
             <p className="text-[0.7rem] text-slate-500">Updated {updatedLabel}</p>
           </div>
         </div>
@@ -397,6 +392,58 @@ export default async function ModelDetailPage({
 
       <section className="space-y-3">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+          <h2 className="text-lg font-semibold text-slate-100">Item breakdown</h2>
+          <p className="text-xs text-slate-400">Item-level scores from S/T/Q inputs.</p>
+        </div>
+        {scoreItems.length ? (
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+            {scoreItems.map(([key, item]) => (
+              <div
+                key={key}
+                className="rounded-2xl border border-slate-800/80 bg-surface/80 p-4 text-sm text-slate-200 shadow"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="text-xs uppercase tracking-wide text-slate-500">{key}</div>
+                  <div className="text-lg font-semibold text-slate-50">
+                    {typeof item.score === "number" ? formatScore(item.score) : "—"}
+                  </div>
+                </div>
+                {item.penaltyReasons?.length ? (
+                  <div className="mt-3 flex flex-wrap gap-2 text-[0.7rem] text-slate-300">
+                    {item.penaltyReasons.map((reason) => (
+                      <span
+                        key={`${key}-${reason}`}
+                        className="rounded-full border border-slate-700/70 bg-slate-900/50 px-2 py-0.5"
+                      >
+                        {reason}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+                {item.usedEvidence?.length ? (
+                  <div className="mt-3 flex flex-wrap gap-2 text-[0.7rem] text-slate-400">
+                    {item.usedEvidence.map((evidence, index) => (
+                      <span
+                        key={`${key}-evidence-${index}`}
+                        className="rounded-full border border-slate-700/70 bg-slate-900/50 px-2 py-0.5"
+                      >
+                        {evidence.type ?? "evidence"}:{evidence.status ?? "unknown"}
+                      </span>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="rounded-2xl border border-slate-800 bg-surface/70 px-4 py-3 text-sm text-slate-400">
+            No item breakdown is available for this model in the current snapshot.
+          </div>
+        )}
+      </section>
+
+      <section className="space-y-3">
+        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="text-lg font-semibold text-slate-100">Evidence</h2>
           <p className="text-xs text-slate-400">Reason codes and references used by the v4 evidence pipeline.</p>
         </div>
@@ -407,7 +454,7 @@ export default async function ModelDetailPage({
         ) : null}
         {detail.evidenceItems.length ? (
           <div className="space-y-3">
-            {detail.evidenceItems.map((item, index) => (
+            {detail.evidenceItems.slice(0, 4).map((item, index) => (
               <EvidenceRow key={`${item.type}-${index}`} item={item} />
             ))}
           </div>

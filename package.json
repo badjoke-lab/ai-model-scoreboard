@@ -11,7 +11,9 @@
     "typecheck": "tsc --noEmit",
     "check:routes": "node scripts/check-route-safety.js",
     "check:v4": "node scripts/check_v4_snapshot.mjs",
-    "ci": "npm run check:routes && npm run typecheck && next build"
+    "ci": "npm run check:routes && npm run typecheck && next build",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed"
   },
   "dependencies": {
     "next": "14.2.3",
@@ -27,6 +29,7 @@
     "tailwindcss": "^3.4.0",
     "typescript": "^5.6.0",
     "eslint": "^8.57.0",
-    "eslint-config-next": "14.2.3"
+    "eslint-config-next": "14.2.3",
+    "@playwright/test": "^1.46.1"
   }
 }

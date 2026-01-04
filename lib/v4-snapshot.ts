@@ -2,20 +2,19 @@ import { promises as fs } from "fs";
 import path from "path";
 
 import { V4_DIMENSIONS, type V4DimensionKey } from "@/lib/v4-dimensions";
+import {
+  loadV4Snapshot,
+  resolveEvidencePath,
+  type V4SnapshotMeta as LoaderSnapshotMeta,
+} from "@/lib/v4/loadSnapshot";
 
-export type V4SnapshotMeta = {
-  version: string;
-  updatedAt: string;
-  modelsCount: number;
-  fullCount: number;
-  provisionalCount: number;
-  notListedCount: number;
-};
+export type V4SnapshotMeta = LoaderSnapshotMeta;
 
 export type V4SnapshotFiles = {
   rankings: string;
   models: string;
   notListed: string;
+  evidenceIndex: string;
   enrichment: string;
   enrichmentDecisions: string;
   evidenceDir: string;
@@ -26,11 +25,7 @@ export type V4IndexData = {
   files?: Partial<V4SnapshotFiles>;
 };
 
-export type V4ScoreBreakdown = {
-  spec: number;
-  evidence: number;
-  ops: number;
-};
+export type V4ScoreBreakdown = Record<V4DimensionKey, number>;
 
 type V4RawScoreBreakdown = Record<string, unknown>;
 
@@ -66,7 +61,11 @@ export type V4RankingEntry = {
   vendor: string;
   layer: "full" | "provisional" | "rejected" | "not-listed";
   score: number;
-  scores: V4ScoreBreakdown;
+  scores: {
+    overall: number;
+    categories: V4ScoreBreakdown;
+    items?: Record<string, V4ScoreItem>;
+  };
   scoreItems?: Record<string, V4ScoreItem>;
   updatedAt: string;
 };
@@ -74,6 +73,20 @@ export type V4RankingEntry = {
 export type V4ModelMetadata = {
   name: string;
   vendor: string;
+  released?: string;
+  context?: number;
+  type?: string;
+  pricing?: {
+    input?: number;
+    output?: number;
+    currency?: string;
+  };
+  layer?: "full" | "provisional" | "rejected" | "not-listed";
+  scores?: {
+    overall?: number;
+    categories?: Record<string, number>;
+    items?: Record<string, unknown>;
+  };
 };
 
 export type V4EnrichmentSignal = {
@@ -141,6 +154,14 @@ export type V4ModelDetail = {
   id: string;
   name: string;
   vendor: string;
+  released?: string;
+  context?: number;
+  type?: string;
+  pricing?: {
+    input?: number;
+    output?: number;
+    currency?: string;
+  };
   layer: V4RankingEntry["layer"];
   status: "adopted" | "provisional" | "denied";
   decisionReason?: string | null;
@@ -178,15 +199,10 @@ function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null;
 }
 
-function normalizeScoreBreakdown(
-  raw: unknown,
-  scoreItems?: Record<string, V4ScoreItem>
-): V4ScoreBreakdown {
-  const base: V4ScoreBreakdown = {
-    spec: 0,
-    evidence: 0,
-    ops: 0,
-  };
+function normalizeScoreBreakdown(raw: unknown): V4ScoreBreakdown {
+  const base = Object.fromEntries(
+    V4_DIMENSIONS.map((dimension) => [dimension.key, 0])
+  ) as V4ScoreBreakdown;
   if (!isObject(raw)) return base;
 
   const source = isObject(raw.categories) ? raw.categories : raw;
@@ -196,21 +212,6 @@ function normalizeScoreBreakdown(
       if (typeof value === "number" && Number.isFinite(value)) {
         base[dimension.key] = value;
       }
-    }
-  }
-
-  if (scoreItems) {
-    const specScores = collectItemScores(scoreItems, "S");
-    const evidenceScores = collectItemScores(scoreItems, "T");
-    const opsScores = collectItemScores(scoreItems, "Q");
-    if (specScores.length) {
-      base.spec = averageScore(specScores);
-    }
-    if (evidenceScores.length) {
-      base.evidence = averageScore(evidenceScores);
-    }
-    if (opsScores.length) {
-      base.ops = averageScore(opsScores);
     }
   }
 
@@ -279,6 +280,7 @@ const DEFAULT_FILES: V4SnapshotFiles = {
   rankings: "rankings.json",
   models: "models.json",
   notListed: "not-listed.json",
+  evidenceIndex: "evidence/index.json",
   enrichment: "enrichment.json",
   enrichmentDecisions: "enrichment-decisions.json",
   evidenceDir: "evidence",
@@ -290,6 +292,7 @@ function resolveSnapshotFiles(index: V4IndexData | null): V4SnapshotFiles {
     rankings: index.files.rankings ?? DEFAULT_FILES.rankings,
     models: index.files.models ?? DEFAULT_FILES.models,
     notListed: index.files.notListed ?? DEFAULT_FILES.notListed,
+    evidenceIndex: index.files.evidenceIndex ?? DEFAULT_FILES.evidenceIndex,
     enrichment: index.files.enrichment ?? DEFAULT_FILES.enrichment,
     enrichmentDecisions:
       index.files.enrichmentDecisions ?? DEFAULT_FILES.enrichmentDecisions,
@@ -326,6 +329,9 @@ function normalizeIndexData(raw: unknown): V4IndexData | null {
     notListed:
       (files?.notListed as string | undefined) ??
       (manifest?.notListed as string | undefined),
+    evidenceIndex:
+      (files?.evidenceIndex as string | undefined) ??
+      (manifest?.evidenceIndex as string | undefined),
     evidenceDir:
       (files?.evidenceDir as string | undefined) ??
       (manifest?.evidence as string | undefined),
@@ -681,12 +687,31 @@ function mapLayerToStatus(layer: V4RankingEntry["layer"]): V4ModelDetail["status
   return "denied";
 }
 
+function normalizeScores(
+  rawScores: V4RawScores | V4RawScoreBreakdown,
+  fallbackOverall: number
+): V4RankingEntry["scores"] {
+  const overall =
+    isObject(rawScores) &&
+    typeof rawScores.overall === "number" &&
+    Number.isFinite(rawScores.overall)
+      ? rawScores.overall
+      : fallbackOverall;
+  const categories = normalizeScoreBreakdown(rawScores);
+  const scoreItems = normalizeScoreItems(rawScores);
+  return {
+    overall,
+    categories,
+    items: scoreItems,
+  };
+}
+
 function normalizeRankingEntry(entry: V4RawRankingEntry): V4RankingEntry {
-  const scoreItems = normalizeScoreItems(entry.scores);
+  const scores = normalizeScores(entry.scores, entry.score);
   return {
     ...entry,
-    scores: normalizeScoreBreakdown(entry.scores, scoreItems),
-    scoreItems,
+    scores,
+    scoreItems: scores.items,
   };
 }
 
@@ -699,26 +724,29 @@ async function loadV4SnapshotData(): Promise<{
   rankings: V4RankingEntry[];
   models: Record<string, V4ModelMetadata>;
   notListed: V4NotListedEntry[];
+  evidenceIndexByKey: Record<string, string>;
 }> {
-  const indexRaw = await readJsonFile<unknown>("index.json");
-  const index = normalizeIndexData(indexRaw) ?? {
-    meta: {
-      version: "v4",
-      updatedAt: "",
-      modelsCount: 0,
-      fullCount: 0,
-      provisionalCount: 0,
-      notListedCount: 0,
-    },
+  const snapshot = await loadV4Snapshot();
+  const files: V4SnapshotFiles = {
+    rankings: snapshot.index.files.rankings,
+    models: snapshot.index.files.models,
+    notListed: snapshot.index.files.notListed,
+    evidenceIndex: snapshot.index.files.evidenceIndex,
+    evidenceDir: snapshot.index.files.evidenceDir,
+    enrichment: DEFAULT_FILES.enrichment,
+    enrichmentDecisions: DEFAULT_FILES.enrichmentDecisions,
   };
-  const files = resolveSnapshotFiles(index);
-  const [rankingsRaw, models, notListed] = await Promise.all([
-    readJsonFile<V4RawRankingEntry[]>(files.rankings),
-    readJsonFile<Record<string, V4ModelMetadata>>(files.models),
-    readJsonFile<V4NotListedEntry[]>(files.notListed),
-  ]);
-
-  return { index, rankings: normalizeRankings(rankingsRaw), models, notListed };
+  const index: V4IndexData = {
+    meta: snapshot.index.meta,
+    files,
+  };
+  return {
+    index,
+    rankings: normalizeRankings(snapshot.rankings as V4RawRankingEntry[]),
+    models: snapshot.modelsByKey,
+    notListed: snapshot.notListed as V4NotListedEntry[],
+    evidenceIndexByKey: snapshot.evidenceIndexByKey,
+  };
 }
 
 function requireModelMetadata(
@@ -759,7 +787,8 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
   index: V4IndexData;
   diagnostics: V4SnapshotDiagnostics;
 }> {
-  const { index, rankings, models, notListed } = await loadV4SnapshotData();
+  const { index, rankings, models, notListed, evidenceIndexByKey } =
+    await loadV4SnapshotData();
   const files = resolveSnapshotFiles(index);
   const enrichmentResult = await readJsonFileSafe<unknown>(files.enrichment);
   const enrichment = enrichmentResult.data
@@ -767,7 +796,7 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
     : {};
   const decisionsResult = await readJsonFileSafe<unknown>(files.enrichmentDecisions);
   const decisionsData = decisionsResult.data;
-  const evidencePath = path.join(files.evidenceDir, `${modelId}.json`);
+  const evidencePath = resolveEvidencePath(modelId, evidenceIndexByKey, files);
   const evidenceResult = await readJsonFileSafe<unknown>(evidencePath);
   const evidenceItems = evidenceResult.data
     ? normalizeEvidenceItems(evidenceResult.data)
@@ -803,7 +832,7 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
       evidenceScoreDetails ?? normalizeScoreDetails(ranking) ?? null;
     const scoreDetails =
       normalizedDetails ??
-      Object.entries(ranking.scores).map(([key, value]) => ({
+      Object.entries(ranking.scores.categories).map(([key, value]) => ({
         itemKey: key,
         value,
       }));
@@ -828,6 +857,10 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
         id: ranking.model,
         name: meta.name,
         vendor: meta.vendor,
+        released: meta.released,
+        context: meta.context,
+        type: meta.type,
+        pricing: meta.pricing,
         layer: ranking.layer,
         status: mapLayerToStatus(ranking.layer),
         decisionReason:
@@ -838,7 +871,7 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
               : null,
         decisionSource: typeof decisionSource === "string" ? decisionSource : null,
         score: ranking.score,
-        scores: ranking.scores,
+        scores: ranking.scores.categories,
         scoreDetails,
         scoreItems: ranking.scoreItems,
         updatedAt: ranking.updatedAt,
@@ -875,77 +908,43 @@ export async function loadV4SnapshotWithDiagnostics(): Promise<{
 }> {
   const indexResult = await readJsonFileSafe<unknown>("index.json");
   const normalizedIndex = indexResult.data ? normalizeIndexData(indexResult.data) : null;
-  const latestMetaResult = await readJsonFileSafe<unknown>("latest.meta.json");
-  const latestResult = await readJsonFileSafe<unknown>("latest.json");
-  const files = resolveSnapshotFiles(normalizedIndex);
+  let snapshotData: Awaited<ReturnType<typeof loadV4Snapshot>> | null = null;
+  let snapshotError: string | undefined;
+
+  try {
+    snapshotData = await loadV4Snapshot();
+  } catch (err) {
+    snapshotError = err instanceof Error ? err.message : String(err);
+  }
+
+  const resolvedIndex = snapshotData
+    ? { meta: snapshotData.index.meta, files: snapshotData.index.files }
+    : normalizedIndex;
+  const files = resolveSnapshotFiles(resolvedIndex);
+
   const [enrichmentResult, enrichmentDecisionsResult] = await Promise.all([
     readJsonFileSafe<unknown>(files.enrichment),
     readJsonFileSafe<unknown>(files.enrichmentDecisions),
   ]);
 
-  const latestData = latestResult.data;
-  const latestObject = isObject(latestData) ? latestData : null;
-  const latestMeta =
-    latestObject && isObject(latestObject.meta)
-      ? parseSnapshotMeta(latestObject.meta as Record<string, unknown>)
-      : null;
-  const latestMetaFallback =
-    latestMetaResult.data && isObject(latestMetaResult.data)
-      ? parseSnapshotMeta(latestMetaResult.data as Record<string, unknown>)
-      : null;
-  const latestRankings = latestObject?.rankings;
-  const latestModels = latestObject?.models;
-  const latestNotListed = latestObject?.notListed;
-
-  const resolvedIndex = latestMetaFallback
-    ? { meta: latestMetaFallback }
-    : latestMeta
-      ? { meta: latestMeta }
-      : normalizedIndex;
-
-  const resolvedRankingsRaw = Array.isArray(latestRankings)
-    ? (latestRankings as V4RawRankingEntry[])
+  const resolvedRankings = snapshotData
+    ? normalizeRankings(snapshotData.rankings as V4RawRankingEntry[])
     : null;
-  const resolvedModels = isObject(latestModels) ? latestModels : null;
-  const resolvedNotListed = Array.isArray(latestNotListed)
-    ? (latestNotListed as V4NotListedEntry[])
+  const resolvedModels = snapshotData ? snapshotData.modelsByKey : null;
+  const resolvedNotListed = snapshotData
+    ? (snapshotData.notListed as V4NotListedEntry[])
     : null;
-
-  const resolvedRankings = resolvedRankingsRaw
-    ? normalizeRankings(resolvedRankingsRaw)
-    : null;
-
-  const warnings = [
-    enrichmentResult.error ? `Optional ${enrichmentResult.error}` : null,
-    enrichmentDecisionsResult.error ? `Optional ${enrichmentDecisionsResult.error}` : null,
-  ].filter(Boolean) as string[];
-
-  const errors: string[] = [];
-  if (!latestMetaFallback) {
-    errors.push(latestMetaResult.error ?? "latest.meta.json: missing");
-  }
-  if (!latestObject) {
-    errors.push(latestResult.error ?? "latest.json: missing");
-  }
-  if (!resolvedIndex) {
-    errors.push(indexResult.error ?? "index.json: missing");
-  }
-  if (!resolvedRankingsRaw) {
-    errors.push(latestResult.error ?? "latest.json: rankings missing");
-  }
-  if (!resolvedModels) {
-    errors.push(latestResult.error ?? "latest.json: models missing");
-  }
-  if (!resolvedNotListed) {
-    errors.push(latestResult.error ?? "latest.json: notListed missing");
-  }
 
   const evidenceSummaries: Record<string, V4EvidenceSummaryLite> | null =
-    resolvedRankings && resolvedRankings.length
+    resolvedRankings && resolvedRankings.length && snapshotData
       ? Object.fromEntries(
           await Promise.all(
             resolvedRankings.map(async (entry) => {
-              const evidencePath = path.join(files.evidenceDir, `${entry.model}.json`);
+              const evidencePath = resolveEvidencePath(
+                entry.model,
+                snapshotData.evidenceIndexByKey,
+                files
+              );
               const evidenceResult = await readJsonFileSafe<unknown>(evidencePath);
               const items = evidenceResult.data
                 ? normalizeEvidenceItems(evidenceResult.data)
@@ -964,10 +963,23 @@ export async function loadV4SnapshotWithDiagnostics(): Promise<{
         )
       : null;
 
+  const warnings = [
+    enrichmentResult.error ? `Optional ${enrichmentResult.error}` : null,
+    enrichmentDecisionsResult.error ? `Optional ${enrichmentDecisionsResult.error}` : null,
+  ].filter(Boolean) as string[];
+
+  const errors: string[] = [];
+  if (!resolvedIndex) {
+    errors.push(indexResult.error ?? "index.json: missing");
+  }
+  if (!snapshotData) {
+    errors.push(snapshotError ?? "snapshot: failed to load");
+  }
+
   return {
     index: resolvedIndex ?? null,
     rankings: resolvedRankings,
-    models: resolvedModels as Record<string, V4ModelMetadata> | null,
+    models: resolvedModels ?? null,
     notListed: resolvedNotListed ?? null,
     enrichment: enrichmentResult.data ? normalizeEnrichment(enrichmentResult.data) : null,
     enrichmentDecisions: enrichmentDecisionsResult.data,
@@ -975,9 +987,9 @@ export async function loadV4SnapshotWithDiagnostics(): Promise<{
     diagnostics: {
       files: {
         index: { ok: !indexResult.error, error: indexResult.error },
-        rankings: { ok: !latestResult.error, error: latestResult.error },
-        models: { ok: !latestResult.error, error: latestResult.error },
-        notListed: { ok: !latestResult.error, error: latestResult.error },
+        rankings: { ok: !snapshotError, error: snapshotError },
+        models: { ok: !snapshotError, error: snapshotError },
+        notListed: { ok: !snapshotError, error: snapshotError },
         enrichment: { ok: !enrichmentResult.error, error: enrichmentResult.error },
         enrichmentDecisions: {
           ok: !enrichmentDecisionsResult.error,
