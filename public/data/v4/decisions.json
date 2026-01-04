@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-04T19:29:10.916Z",
+    "generatedAt": "2026-01-04T20:37:49.678Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 319,
-      "adopted": 319,
+      "total": 320,
+      "adopted": 320,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 317,
+        "openrouter": 318,
         "seed": 2
       }
     },
@@ -134,12 +134,12 @@
         "meets required fields"
       ],
       "normalized": {
-        "name": "Tongyi DeepResearch 30B A3B",
+        "name": "Tongyi DeepResearch 30B A3B (free)",
         "slug": "alibaba/tongyi-deepresearch-30b-a3b",
         "provider": "alibaba"
       },
       "rawRef": {
-        "id": "alibaba/tongyi-deepresearch-30b-a3b",
+        "id": "alibaba/tongyi-deepresearch-30b-a3b:free",
         "canonical_slug": "alibaba/tongyi-deepresearch-30b-a3b"
       }
     },
@@ -634,6 +634,23 @@
       "rawRef": {
         "id": "arcee-ai/virtuoso-large",
         "canonical_slug": "arcee-ai/virtuoso-large"
+      }
+    },
+    {
+      "modelKey": "arliai/qwq-32b-arliai-rpr-v1",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "ArliAI: QwQ 32B RpR v1",
+        "slug": "arliai/qwq-32b-arliai-rpr-v1",
+        "provider": "arliai"
+      },
+      "rawRef": {
+        "id": "arliai/qwq-32b-arliai-rpr-v1",
+        "canonical_slug": "arliai/qwq-32b-arliai-rpr-v1"
       }
     },
     {
@@ -5131,12 +5148,12 @@
         "meets required fields"
       ],
       "normalized": {
-        "name": "TNG: R1T Chimera",
+        "name": "TNG: R1T Chimera (free)",
         "slug": "tngtech/tng-r1t-chimera",
         "provider": "tngtech"
       },
       "rawRef": {
-        "id": "tngtech/tng-r1t-chimera",
+        "id": "tngtech/tng-r1t-chimera:free",
         "canonical_slug": "tngtech/tng-r1t-chimera"
       }
     },

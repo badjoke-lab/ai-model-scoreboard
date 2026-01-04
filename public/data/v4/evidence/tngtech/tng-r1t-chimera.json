@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-04T19:29:10.916Z",
+    "updatedAt": "2026-01-04T20:37:49.678Z",
     "modelKey": "tngtech/tng-r1t-chimera"
   },
   "evidenceItems": [
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"TNG: R1T Chimera\""
+        "arxiv_query:\"TNG: R1T Chimera (free)\""
       ]
     },
     {

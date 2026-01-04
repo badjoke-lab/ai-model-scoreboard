@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-04T19:29:10.916Z",
+  "updatedAt": "2026-01-04T20:37:49.678Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -56,6 +56,7 @@
       "evidence/arcee-ai/spotlight.json",
       "evidence/arcee-ai/trinity-mini-20251201.json",
       "evidence/arcee-ai/virtuoso-large.json",
+      "evidence/arliai/qwq-32b-arliai-rpr-v1.json",
       "evidence/baidu/ernie-4.5-21b-a3b.json",
       "evidence/baidu/ernie-4.5-21b-a3b-thinking.json",
       "evidence/baidu/ernie-4.5-300b-a47b.json",
@@ -377,6 +378,7 @@
       "evidence/arcee-ai/spotlight.json",
       "evidence/arcee-ai/trinity-mini-20251201.json",
       "evidence/arcee-ai/virtuoso-large.json",
+      "evidence/arliai/qwq-32b-arliai-rpr-v1.json",
       "evidence/baidu/ernie-4.5-21b-a3b.json",
       "evidence/baidu/ernie-4.5-21b-a3b-thinking.json",
       "evidence/baidu/ernie-4.5-300b-a47b.json",
@@ -662,8 +664,8 @@
       "evidence/z-ai/glm-4.7-20251222.json"
     ]
   },
-  "modelsCount": 319,
+  "modelsCount": 320,
   "fullCount": 0,
-  "provisionalCount": 319,
+  "provisionalCount": 320,
   "notListedCount": 0
 }

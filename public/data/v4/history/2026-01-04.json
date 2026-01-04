@@ -1,4 +1,8 @@
 {
+  "alibaba/tongyi-deepresearch-30b-a3b": {
+    "score": 18,
+    "layer": "provisional"
+  },
   "allenai/olmo-3-32b-think-20251121": {
     "score": 18,
     "layer": "provisional"
@@ -119,6 +123,10 @@
     "score": 18,
     "layer": "provisional"
   },
+  "tngtech/tng-r1t-chimera": {
+    "score": 18,
+    "layer": "provisional"
+  },
   "venice/uncensored": {
     "score": 18,
     "layer": "provisional"
@@ -173,6 +181,10 @@
   },
   "qwen/qwen2.5-coder-7b-instruct": {
     "score": 17.999999739999993,
+    "layer": "provisional"
+  },
+  "arliai/qwq-32b-arliai-rpr-v1": {
+    "score": 17.99999969384615,
     "layer": "provisional"
   },
   "deepseek/deepseek-r1-distill-llama-70b": {
@@ -295,6 +307,10 @@
     "score": 17.999999163076907,
     "layer": "provisional"
   },
+  "qwen/qwen2.5-vl-72b-instruct": {
+    "score": 17.999999039999985,
+    "layer": "provisional"
+  },
   "qwen/qwen3-coder-30b-a3b-instruct": {
     "score": 17.99999901692306,
     "layer": "provisional"
@@ -389,10 +405,6 @@
   },
   "qwen/qwen3-235b-a22b-07-25": {
     "score": 17.999998563846127,
-    "layer": "provisional"
-  },
-  "alibaba/tongyi-deepresearch-30b-a3b": {
-    "score": 17.999998563076897,
     "layer": "provisional"
   },
   "opengvlab/internvl3-78b": {
@@ -523,10 +535,6 @@
     "score": 17.999997639999957,
     "layer": "provisional"
   },
-  "qwen/qwen2.5-vl-72b-instruct": {
-    "score": 17.999997639999957,
-    "layer": "provisional"
-  },
   "qwen/qwen3-vl-30b-a3b-instruct": {
     "score": 17.999997639999957,
     "layer": "provisional"
@@ -619,10 +627,6 @@
     "score": 17.999996332307624,
     "layer": "provisional"
   },
-  "tngtech/tng-r1t-chimera": {
-    "score": 17.99999629384609,
-    "layer": "provisional"
-  },
   "qwen/qwen3-next-80b-a3b-thinking-2509": {
     "score": 17.99999625538455,
     "layer": "provisional"
@@ -684,6 +688,18 @@
     "layer": "provisional"
   },
   "deepseek/deepseek-chat-v3": {
+    "score": 17.999995101538374,
+    "layer": "provisional"
+  },
+  "deepseek/deepseek-r1": {
+    "score": 17.999995101538374,
+    "layer": "provisional"
+  },
+  "nousresearch/hermes-4-405b": {
+    "score": 17.999995101538374,
+    "layer": "provisional"
+  },
+  "qwen/qwen3-vl-235b-a22b-thinking": {
     "score": 17.999995101538374,
     "layer": "provisional"
   },
@@ -871,16 +887,8 @@
     "score": 17.99998940923058,
     "layer": "provisional"
   },
-  "deepseek/deepseek-r1": {
-    "score": 17.999989255384424,
-    "layer": "provisional"
-  },
   "morph/morph-v3-large": {
     "score": 17.99998887076903,
-    "layer": "provisional"
-  },
-  "qwen/qwen3-vl-235b-a22b-thinking": {
-    "score": 17.9999886399998,
     "layer": "provisional"
   },
   "neversleep/noromaid-20b": {
@@ -913,10 +921,6 @@
   },
   "arcee-ai/maestro-reasoning": {
     "score": 17.999985639999743,
-    "layer": "provisional"
-  },
-  "nousresearch/hermes-4-405b": {
-    "score": 17.999985563076663,
     "layer": "provisional"
   },
   "relace/relace-search-20251208": {

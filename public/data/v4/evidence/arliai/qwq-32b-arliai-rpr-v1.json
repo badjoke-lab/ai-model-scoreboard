@@ -1,7 +1,7 @@
 {
   "meta": {
     "updatedAt": "2026-01-04T20:37:49.678Z",
-    "modelKey": "z-ai/glm-4.6"
+    "modelKey": "arliai/qwq-32b-arliai-rpr-v1"
   },
   "evidenceItems": [
     {
@@ -12,10 +12,10 @@
         "openrouter_model_page_only"
       ],
       "refs": [
-        "https://openrouter.ai/models/z-ai/glm-4.6"
+        "https://openrouter.ai/models/arliai/qwq-32b-arliai-rpr-v1"
       ],
       "extracted": {
-        "url": "https://openrouter.ai/models/z-ai/glm-4.6"
+        "url": "https://openrouter.ai/models/arliai/qwq-32b-arliai-rpr-v1"
       }
     },
     {
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Z.AI: GLM 4.6\""
+        "arxiv_query:\"ArliAI: QwQ 32B RpR v1\""
       ]
     },
     {

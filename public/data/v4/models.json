@@ -1236,24 +1236,24 @@
     "layer": "provisional"
   },
   "alibaba/tongyi-deepresearch-30b-a3b": {
-    "name": "Tongyi DeepResearch 30B A3B",
+    "name": "Tongyi DeepResearch 30B A3B (free)",
     "vendor": "alibaba",
     "released": "2025-09-18T15:53:24.000Z",
     "context": 131072,
     "type": "text->text",
     "pricing": {
-      "input": 9e-8,
-      "output": 4e-7,
+      "input": 0,
+      "output": 0,
       "currency": "USD"
     },
     "scores": {
-      "overall": 17.999998563076897,
+      "overall": 18,
       "categories": {
         "performance": 0,
         "safety": 40,
         "adoption": 0,
         "openness": 0,
-        "cost": 99.99998563076896
+        "cost": 100
       },
       "items": {
         "S1": {
@@ -7415,6 +7415,212 @@
     },
     "layer": "provisional"
   },
+  "arliai/qwq-32b-arliai-rpr-v1": {
+    "name": "ArliAI: QwQ 32B RpR v1",
+    "vendor": "arliai",
+    "released": "2025-04-13T14:53:02.000Z",
+    "context": 32768,
+    "type": "text->text",
+    "pricing": {
+      "input": 3e-8,
+      "output": 1.1e-7,
+      "currency": "USD"
+    },
+    "scores": {
+      "overall": 17.99999969384615,
+      "categories": {
+        "performance": 0,
+        "safety": 40,
+        "adoption": 0,
+        "openness": 0,
+        "cost": 99.99999693846146
+      },
+      "items": {
+        "S1": {
+          "score": 0,
+          "inputs": {},
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": [
+            "missing_posture_signal_1",
+            "missing_posture_signal_2"
+          ]
+        },
+        "S2": {
+          "score": 0,
+          "inputs": {},
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": [
+            "missing_posture_signal_1",
+            "missing_posture_signal_2"
+          ]
+        },
+        "S3": {
+          "score": 0,
+          "inputs": {},
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": [
+            "missing_posture_signal_1",
+            "missing_posture_signal_2"
+          ]
+        },
+        "S4": {
+          "score": 0,
+          "inputs": {},
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "missing_posture_signal_1",
+            "missing_posture_signal_2",
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "S5": {
+          "score": 0,
+          "inputs": {},
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": [
+            "missing_posture_signal_1"
+          ]
+        },
+        "S6": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_minor_incidents"
+          ]
+        },
+        "S7": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_major_incidents"
+          ]
+        },
+        "S8": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_critical_incidents"
+          ]
+        },
+        "T1": {
+          "score": 0,
+          "inputs": {},
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": [
+            "missing_posture_signal_1",
+            "missing_posture_signal_2",
+            "missing_posture_signal_3"
+          ]
+        },
+        "T2": {
+          "score": 0,
+          "inputs": {},
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": [
+            "missing_posture_signal_1",
+            "missing_posture_signal_2",
+            "missing_posture_signal_3"
+          ]
+        },
+        "T3": {
+          "score": 0,
+          "inputs": {},
+          "usedEvidence": [
+            {
+              "type": "paper",
+              "status": "not_found"
+            }
+          ],
+          "penaltyReasons": [
+            "missing_posture_signal_1",
+            "missing_posture_signal_2",
+            "evidence_paper_not_found"
+          ]
+        },
+        "T4": {
+          "score": 0,
+          "inputs": {},
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "missing_posture_signal_1",
+            "missing_posture_signal_2",
+            "missing_posture_signal_3",
+            "missing_posture_signal_4",
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "Q1": {
+          "score": 0,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_benchmark_general"
+          ]
+        },
+        "Q2": {
+          "score": 0,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_benchmark_coding"
+          ]
+        },
+        "Q3": {
+          "score": 0,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_benchmark_math",
+            "missing_benchmark_chat"
+          ]
+        }
+      }
+    },
+    "layer": "provisional"
+  },
   "baidu/ernie-4.5-21b-a3b": {
     "name": "Baidu: ERNIE 4.5 21B A3B",
     "vendor": "baidu",
@@ -11542,18 +11748,18 @@
     "context": 163840,
     "type": "text->text",
     "pricing": {
-      "input": 7e-7,
-      "output": 0.0000024,
+      "input": 3e-7,
+      "output": 0.0000012,
       "currency": "USD"
     },
     "scores": {
-      "overall": 17.999989255384424,
+      "overall": 17.999995101538374,
       "categories": {
         "performance": 0,
         "safety": 40,
         "adoption": 0,
         "openness": 0,
-        "cost": 99.99989255384423
+        "cost": 99.99995101538374
       },
       "items": {
         "S1": {
@@ -35644,18 +35850,18 @@
     "context": 131072,
     "type": "text->text",
     "pricing": {
-      "input": 0.000001,
-      "output": 0.000003,
+      "input": 3e-7,
+      "output": 0.0000012,
       "currency": "USD"
     },
     "scores": {
-      "overall": 17.999985563076663,
+      "overall": 17.999995101538374,
       "categories": {
         "performance": 0,
         "safety": 40,
         "adoption": 0,
         "openness": 0,
-        "cost": 99.99985563076665
+        "cost": 99.99995101538374
       },
       "items": {
         "S1": {
@@ -52739,18 +52945,18 @@
     "context": 32768,
     "type": "text+image->text",
     "pricing": {
-      "input": 1.5e-7,
-      "output": 6e-7,
+      "input": 7e-8,
+      "output": 2.6e-7,
       "currency": "USD"
     },
     "scores": {
-      "overall": 17.999997639999957,
+      "overall": 17.999999039999985,
       "categories": {
         "performance": 0,
         "safety": 40,
         "adoption": 0,
         "openness": 0,
-        "cost": 99.99997639999957
+        "cost": 99.99999039999982
       },
       "items": {
         "S1": {
@@ -56653,18 +56859,18 @@
     "context": 262144,
     "type": "text+image->text",
     "pricing": {
-      "input": 4.5e-7,
-      "output": 0.0000035,
+      "input": 3e-7,
+      "output": 0.0000012,
       "currency": "USD"
     },
     "scores": {
-      "overall": 17.9999886399998,
+      "overall": 17.999995101538374,
       "categories": {
         "performance": 0,
         "safety": 40,
         "adoption": 0,
         "openness": 0,
-        "cost": 99.99988639999798
+        "cost": 99.99995101538374
       },
       "items": {
         "S1": {
@@ -61797,24 +62003,24 @@
     "layer": "provisional"
   },
   "tngtech/tng-r1t-chimera": {
-    "name": "TNG: R1T Chimera",
+    "name": "TNG: R1T Chimera (free)",
     "vendor": "tngtech",
     "released": "2025-11-26T19:09:21.000Z",
     "context": 163840,
     "type": "text->text",
     "pricing": {
-      "input": 2.5e-7,
-      "output": 8.5e-7,
+      "input": 0,
+      "output": 0,
       "currency": "USD"
     },
     "scores": {
-      "overall": 17.99999629384609,
+      "overall": 18,
       "categories": {
         "performance": 0,
         "safety": 40,
         "adoption": 0,
         "openness": 0,
-        "cost": 99.99996293846087
+        "cost": 100
       },
       "items": {
         "S1": {
