@@ -38,7 +38,7 @@
     },
     {
       "modelKey": "alibaba/tongyi-deepresearch-30b-a3b",
-      "name": "Tongyi DeepResearch 30B A3B (free)",
+      "name": "Tongyi DeepResearch 30B A3B",
       "provider": "alibaba",
       "source": "openrouter"
     },
@@ -214,12 +214,6 @@
       "modelKey": "arcee-ai/virtuoso-large",
       "name": "Arcee AI: Virtuoso Large",
       "provider": "arcee-ai",
-      "source": "openrouter"
-    },
-    {
-      "modelKey": "arliai/qwq-32b-arliai-rpr-v1",
-      "name": "ArliAI: QwQ 32B RpR v1",
-      "provider": "arliai",
       "source": "openrouter"
     },
     {
@@ -1808,7 +1802,7 @@
     },
     {
       "modelKey": "tngtech/tng-r1t-chimera",
-      "name": "TNG: R1T Chimera (free)",
+      "name": "TNG: R1T Chimera",
       "provider": "tngtech",
       "source": "openrouter"
     },
