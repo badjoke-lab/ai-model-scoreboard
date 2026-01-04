@@ -30,7 +30,8 @@ async function readJson<T>(file: string): Promise<T> {
 
 export async function GET() {
   try {
-    const leaderboard = await readJson<RankingEntry[]>("rankings.json");
+    const latest = await readJson<{ rankings?: RankingEntry[] }>("latest.json");
+    const leaderboard = latest.rankings ?? [];
     return NextResponse.json(leaderboard, {
       headers: { "X-Robots-Tag": "noindex, nofollow" },
     });

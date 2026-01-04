@@ -34,8 +34,8 @@ export async function GET(
       );
     }
 
-    const models = await readJson<ModelsMap>("models.json");
-    const hit = models?.[slug];
+    const latest = await readJson<{ models?: ModelsMap }>("latest.json");
+    const hit = latest.models?.[slug];
 
     if (!hit) {
       return NextResponse.json(

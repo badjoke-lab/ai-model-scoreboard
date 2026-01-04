@@ -2,14 +2,11 @@
 
 import { useEffect, useState } from "react";
 
-type HealthBadge = "LIVE" | "STALE" | "ERROR" | "LOADING";
+type HealthBadge = "OK" | "DEGRADED" | "ERROR" | "LOADING";
 
 interface HealthPayload {
-  status?: string;
-  snapshot?: { ageSeconds?: number | null };
+  status?: "ok" | "degraded";
 }
-
-const STALE_THRESHOLD_SECONDS = 6 * 60 * 60;
 
 export default function HealthIndicator() {
   const [status, setStatus] = useState<HealthBadge>("LOADING");
@@ -25,22 +22,11 @@ export default function HealthIndicator() {
         }
 
         const payload = (await response.json()) as HealthPayload;
-        const healthStatus = payload.status?.toLowerCase();
-        const snapshotAgeSeconds = payload.snapshot?.ageSeconds ?? null;
+        const healthStatus = payload.status ?? "degraded";
 
         if (cancelled) return;
 
-        if (healthStatus !== "ok") {
-          setStatus("ERROR");
-          return;
-        }
-
-        if (typeof snapshotAgeSeconds === "number") {
-          setStatus(snapshotAgeSeconds >= STALE_THRESHOLD_SECONDS ? "STALE" : "LIVE");
-          return;
-        }
-
-        setStatus("ERROR");
+        setStatus(healthStatus === "ok" ? "OK" : "DEGRADED");
       } catch (error) {
         if (!cancelled) {
           setStatus("ERROR");
@@ -58,22 +44,22 @@ export default function HealthIndicator() {
   }, []);
 
   const color =
-    status === "LIVE"
+    status === "OK"
       ? "text-emerald-400"
-      : status === "STALE"
+      : status === "DEGRADED"
         ? "text-amber-300"
         : status === "ERROR"
           ? "text-rose-400"
           : "text-slate-500";
 
   const label =
-    status === "LIVE"
-      ? "Healthy"
-      : status === "STALE"
-        ? "Degraded"
+    status === "OK"
+      ? "OK"
+      : status === "DEGRADED"
+        ? "DEGRADED"
         : status === "ERROR"
-          ? "Unavailable"
-          : "Checking";
+          ? "UNAVAILABLE"
+          : "CHECKING";
 
   return (
     <a
