@@ -467,6 +467,10 @@
     "score": 17.999998178461507,
     "layer": "provisional"
   },
+  "minimax/minimax-m2.1": {
+    "score": 17.999998147692274,
+    "layer": "provisional"
+  },
   "neversleep/llama-3.1-lumimaid-8b": {
     "score": 17.99999810153843,
     "layer": "provisional"
@@ -680,10 +684,6 @@
     "layer": "provisional"
   },
   "deepseek/deepseek-r1": {
-    "score": 17.999995101538374,
-    "layer": "provisional"
-  },
-  "minimax/minimax-m2.1": {
     "score": 17.999995101538374,
     "layer": "provisional"
   },
