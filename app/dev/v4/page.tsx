@@ -82,7 +82,7 @@ function LeaderboardRow({
   displayVendor: string;
 }) {
   return (
-    <div className="grid grid-cols-10 items-center gap-2 border-b border-slate-800/70 px-4 py-3 text-sm text-slate-200 last:border-b-0">
+    <div className="grid grid-cols-9 items-center gap-2 border-b border-slate-800/70 px-4 py-3 text-sm text-slate-200 last:border-b-0">
       <span className="text-slate-500">#{index + 1}</span>
       <Link
         href={`/dev/v4/${encodeURIComponent(entry.model)}`}
@@ -97,7 +97,7 @@ function LeaderboardRow({
       <span className="col-span-1 text-right font-semibold text-slate-50">
         {formatScore(entry.score)}
       </span>
-      {V4_SCORE_ITEMS.slice(0, 2).map((item) => (
+      {V4_SCORE_ITEMS.map((item) => (
         <span key={item.key} className="col-span-1 text-right text-slate-300">
           {formatScore(entry.scores[item.key])}
         </span>
@@ -108,9 +108,9 @@ function LeaderboardRow({
 
 export default async function DevV4Page() {
   const { index, rankings, models, notListed, diagnostics } = await loadV4DevSnapshot();
-  const updatedLabel = formatDate(index.meta.updatedAt);
-  const modelCountLabel = Number.isFinite(index.meta.modelsCount)
-    ? index.meta.modelsCount
+  const updatedLabel = formatDate(index.updatedAt);
+  const modelCountLabel = Number.isFinite(index.modelsCount)
+    ? index.modelsCount
     : rankings.length;
 
   return (
@@ -142,13 +142,13 @@ export default async function DevV4Page() {
 
         {rankings.length ? (
           <div className="overflow-hidden rounded-2xl border border-slate-800 bg-surface/70 shadow">
-            <div className="grid grid-cols-10 gap-2 bg-slate-900/80 px-4 py-3 text-[0.7rem] font-semibold uppercase tracking-wide text-slate-400">
+            <div className="grid grid-cols-9 gap-2 bg-slate-900/80 px-4 py-3 text-[0.7rem] font-semibold uppercase tracking-wide text-slate-400">
               <span>#</span>
               <span className="col-span-3">Model</span>
               <span className="col-span-2">Vendor</span>
               <span className="col-span-1">Layer</span>
-              <span className="col-span-1 text-right">Total</span>
-              {V4_SCORE_ITEMS.slice(0, 2).map((item) => (
+              <span className="col-span-1 text-right">Overall</span>
+              {V4_SCORE_ITEMS.map((item) => (
                 <span key={item.key} className="col-span-1 text-right">
                   {item.label}
                 </span>
@@ -202,7 +202,7 @@ export default async function DevV4Page() {
                   </Link>
                 </div>
                 <p className="mt-2 text-xs text-slate-400">
-                  Reason: {entry.reason ?? "No reason provided"}
+                  Reason: {entry.reason ?? "Missing reason (snapshot error)"}
                 </p>
               </div>
             ))}

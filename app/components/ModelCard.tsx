@@ -22,8 +22,12 @@ export function ModelCard({ model, rank }: ModelCardProps) {
       <div className="flex items-start justify-between gap-4">
         <div className="space-y-2">
           <div className="flex items-center gap-2 text-xs uppercase tracking-wide text-slate-500">
-            <span className="rounded-md border border-slate-800 px-2 py-1 font-semibold">#{rank}</span>
-            <span className="rounded-md border border-slate-800 px-2 py-1 font-semibold">{model.vendor}</span>
+            <span className="rounded-md border border-slate-800 px-2 py-1 font-semibold">
+              #{rank}
+            </span>
+            <span className="rounded-md border border-slate-800 px-2 py-1 font-semibold">
+              {model.vendor}
+            </span>
           </div>
           <Link href={`/${model.slug}`} className="text-xl font-semibold text-slate-50 hover:text-accent">
             {model.name}
@@ -37,8 +41,8 @@ export function ModelCard({ model, rank }: ModelCardProps) {
           </div>
         </div>
         <div className="text-right">
-          <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">Total</p>
-          <p className="text-3xl font-semibold text-slate-50">{model.total.toFixed(1)}</p>
+          <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">Overall</p>
+          <p className="text-3xl font-semibold text-slate-50">{model.overall.toFixed(1)}</p>
           <p className="text-xs text-slate-500">Updated {formattedUpdatedAt}</p>
         </div>
       </div>

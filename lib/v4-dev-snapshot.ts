@@ -7,16 +7,25 @@ export type V4SnapshotMeta = {
   notListedCount: number;
 };
 
-export type V4IndexData = {
-  meta: V4SnapshotMeta;
+export type V4SnapshotManifest = {
+  index: string;
+  rankings: string;
+  models: string;
+  notListed: string;
+  decisions: string;
+  evidenceIndex: string;
+  evidence: string;
+  files: string[];
+};
+
+export type V4IndexData = V4SnapshotMeta & {
+  manifest: V4SnapshotManifest;
 };
 
 export const V4_SCORE_ITEMS = [
-  { key: "performance", label: "Performance" },
-  { key: "safety", label: "Safety" },
-  { key: "adoption", label: "Adoption" },
-  { key: "openness", label: "Openness" },
-  { key: "cost", label: "Cost" },
+  { key: "spec", label: "Spec" },
+  { key: "evidence", label: "Evidence" },
+  { key: "ops", label: "Ops" },
 ] as const;
 
 export type V4ScoreKey = (typeof V4_SCORE_ITEMS)[number]["key"];
@@ -51,15 +60,25 @@ export type V4SnapshotDiagnostics = {
   errors: string[];
 };
 
+const FALLBACK_MANIFEST: V4SnapshotManifest = {
+  index: "index.json",
+  rankings: "rankings.json",
+  models: "models.json",
+  notListed: "not-listed.json",
+  decisions: "decisions.json",
+  evidenceIndex: "evidence/index.json",
+  evidence: "evidence/",
+  files: [],
+};
+
 const FALLBACK_INDEX: V4IndexData = {
-  meta: {
-    version: "v4",
-    updatedAt: "",
-    modelsCount: 0,
-    fullCount: 0,
-    provisionalCount: 0,
-    notListedCount: 0,
-  },
+  version: "v4",
+  updatedAt: "",
+  modelsCount: 0,
+  fullCount: 0,
+  provisionalCount: 0,
+  notListedCount: 0,
+  manifest: FALLBACK_MANIFEST,
 };
 
 function isObject(value: unknown): value is Record<string, unknown> {
@@ -94,26 +113,45 @@ async function fetchSnapshotJson(file: string): Promise<{ data: unknown | null; 
   }
 }
 
+function normalizeManifest(raw: unknown): V4SnapshotManifest {
+  if (!isObject(raw)) return FALLBACK_MANIFEST;
+  const files = Array.isArray(raw.files) ? raw.files.filter((entry) => typeof entry === "string") : [];
+  const getString = (key: string, fallback: string) =>
+    typeof raw[key] === "string" ? (raw[key] as string) : fallback;
+
+  return {
+    index: getString("index", FALLBACK_MANIFEST.index),
+    rankings: getString("rankings", FALLBACK_MANIFEST.rankings),
+    models: getString("models", FALLBACK_MANIFEST.models),
+    notListed: getString("notListed", FALLBACK_MANIFEST.notListed),
+    decisions: getString("decisions", FALLBACK_MANIFEST.decisions),
+    evidenceIndex: getString("evidenceIndex", FALLBACK_MANIFEST.evidenceIndex),
+    evidence: getString("evidence", FALLBACK_MANIFEST.evidence),
+    files,
+  };
+}
+
 function parseIndex(data: unknown): { data: V4IndexData; errors: string[] } {
   const errors: string[] = [];
   if (!isObject(data)) {
     return { data: FALLBACK_INDEX, errors: ["index.json: expected object"] };
   }
-  const metaRaw = isObject(data.meta) ? data.meta : null;
-  if (!metaRaw) {
-    errors.push("index.json: missing meta object");
-  }
-  const meta = metaRaw ?? {};
-  const normalized: V4SnapshotMeta = {
-    version: typeof meta.version === "string" ? meta.version : "v4",
-    updatedAt: typeof meta.updatedAt === "string" ? meta.updatedAt : "",
-    modelsCount: parseNumber(meta.modelsCount),
-    fullCount: parseNumber(meta.fullCount),
-    provisionalCount: parseNumber(meta.provisionalCount),
-    notListedCount: parseNumber(meta.notListedCount),
+
+  const manifest = normalizeManifest(data.manifest);
+  const version = typeof data.version === "string" ? data.version : "v4";
+  const updatedAt = typeof data.updatedAt === "string" ? data.updatedAt : "";
+
+  const normalized: V4IndexData = {
+    version,
+    updatedAt,
+    modelsCount: parseNumber(data.modelsCount),
+    fullCount: parseNumber(data.fullCount),
+    provisionalCount: parseNumber(data.provisionalCount),
+    notListedCount: parseNumber(data.notListedCount),
+    manifest,
   };
 
-  return { data: { meta: normalized }, errors };
+  return { data: normalized, errors };
 }
 
 function normalizeScores(value: unknown): V4ScoreBreakdown {
@@ -237,28 +275,28 @@ export async function loadIndex(): Promise<{
   return loadJsonWithParse("index.json", parseIndex, FALLBACK_INDEX);
 }
 
-export async function loadRankings(): Promise<{
+export async function loadRankings(file: string): Promise<{
   data: V4RankingEntry[];
   ok: boolean;
   errors: string[];
 }> {
-  return loadJsonWithParse("rankings.json", parseRankings, []);
+  return loadJsonWithParse(file, parseRankings, []);
 }
 
-export async function loadModels(): Promise<{
+export async function loadModels(file: string): Promise<{
   data: Record<string, V4ModelMetadata>;
   ok: boolean;
   errors: string[];
 }> {
-  return loadJsonWithParse("models.json", parseModels, {});
+  return loadJsonWithParse(file, parseModels, {});
 }
 
-export async function loadNotListed(): Promise<{
+export async function loadNotListed(file: string): Promise<{
   data: V4NotListedEntry[];
   ok: boolean;
   errors: string[];
 }> {
-  return loadJsonWithParse("not-listed.json", parseNotListed, []);
+  return loadJsonWithParse(file, parseNotListed, []);
 }
 
 export async function loadV4DevSnapshot(): Promise<{
@@ -268,23 +306,25 @@ export async function loadV4DevSnapshot(): Promise<{
   notListed: V4NotListedEntry[];
   diagnostics: V4SnapshotDiagnostics;
 }> {
-  const [index, rankings, models, notListed] = await Promise.all([
-    loadIndex(),
-    loadRankings(),
-    loadModels(),
-    loadNotListed(),
+  const indexResult = await loadIndex();
+  const manifest = indexResult.data.manifest;
+
+  const [rankings, models, notListed] = await Promise.all([
+    loadRankings(manifest.rankings || "rankings.json"),
+    loadModels(manifest.models || "models.json"),
+    loadNotListed(manifest.notListed || "not-listed.json"),
   ]);
 
-  const errors = [...index.errors, ...rankings.errors, ...models.errors, ...notListed.errors];
+  const errors = [...indexResult.errors, ...rankings.errors, ...models.errors, ...notListed.errors];
 
   return {
-    index: index.data,
+    index: indexResult.data,
     rankings: rankings.data,
     models: models.data,
     notListed: notListed.data,
     diagnostics: {
       files: {
-        index: { ok: index.ok, error: index.errors[0] },
+        index: { ok: indexResult.ok, error: indexResult.errors[0] },
         rankings: { ok: rankings.ok, error: rankings.errors[0] },
         models: { ok: models.ok, error: models.errors[0] },
         notListed: { ok: notListed.ok, error: notListed.errors[0] },

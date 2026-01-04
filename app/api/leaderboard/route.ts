@@ -1,37 +1,21 @@
 import { NextResponse } from "next/server";
-import fs from "fs/promises";
-import path from "path";
+
+import { loadV4SnapshotWithDiagnostics } from "@/lib/v4-snapshot";
 
 export const revalidate = 0;
 
-type RankingEntry = {
-  model: string;
-  vendor: string;
-  layer: string;
-  score: number;
-  scores: {
-    performance: number;
-    safety: number;
-    adoption: number;
-    openness: number;
-    cost: number;
-  };
-  updatedAt: string;
-};
-
-function dataPath(file: string) {
-  return path.join(process.cwd(), "public", "data", "v4", file);
-}
-
-async function readJson<T>(file: string): Promise<T> {
-  const raw = await fs.readFile(dataPath(file), "utf8");
-  return JSON.parse(raw) as T;
-}
-
 export async function GET() {
   try {
-    const leaderboard = await readJson<RankingEntry[]>("rankings.json");
-    return NextResponse.json(leaderboard, {
+    const snapshot = await loadV4SnapshotWithDiagnostics();
+
+    if (!snapshot.rankings || snapshot.diagnostics.errors.length) {
+      return NextResponse.json(
+        { error: "Snapshot validation failed", issues: snapshot.diagnostics.errors },
+        { status: 503, headers: { "X-Robots-Tag": "noindex, nofollow" } }
+      );
+    }
+
+    return NextResponse.json(snapshot.rankings, {
       headers: { "X-Robots-Tag": "noindex, nofollow" },
     });
   } catch (err: any) {

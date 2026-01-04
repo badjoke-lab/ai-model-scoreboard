@@ -2,14 +2,13 @@ import Link from "next/link";
 
 import {
   loadV4ModelDetail,
-  type V4EnrichmentSignal,
   type V4EvidenceItem,
   type V4EvidenceReference,
-  type V4ScoreDetailItem,
+  V4_REQUIRED_EVIDENCE_TYPES,
 } from "@/lib/v4-snapshot";
 
 function formatScore(value: number): string {
-  return value.toFixed(1);
+  return Number.isFinite(value) ? value.toFixed(1) : "—";
 }
 
 function formatDate(value: string | undefined): string {
@@ -75,79 +74,6 @@ function StatusBadge({ status }: { status: "adopted" | "provisional" | "denied" 
   );
 }
 
-function ScorePill({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="rounded-xl border border-slate-800/80 bg-surface/80 px-4 py-3">
-      <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">{label}</p>
-      <p className="text-lg font-semibold text-slate-50">{value}</p>
-    </div>
-  );
-}
-
-function EnrichmentRow({
-  label,
-  signal,
-}: {
-  label: string;
-  signal: V4EnrichmentSignal | null | undefined;
-}) {
-  const status = signal?.status ?? "Unavailable";
-  const statusCode = signal?.status_code ?? "missing";
-
-  return (
-    <div className="rounded-xl border border-slate-800/80 bg-surface/80 px-4 py-3">
-      <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">{label}</p>
-      <div className="mt-1 flex flex-wrap items-center gap-2 text-sm text-slate-200">
-        <span className="font-semibold">{status}</span>
-        <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[0.7rem] text-slate-400">
-          {statusCode}
-        </span>
-      </div>
-    </div>
-  );
-}
-
-function EvidenceRow({ item }: { item: V4EvidenceItem }) {
-  return (
-    <div className="rounded-2xl border border-slate-800/80 bg-background/60 p-4 shadow">
-      <div className="flex flex-wrap items-center gap-2 text-xs text-slate-400">
-        <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[0.65rem] uppercase tracking-wide text-slate-300">
-          {item.type}
-        </span>
-        {item.status ? (
-          <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[0.65rem] uppercase tracking-wide text-slate-400">
-            {item.status}
-          </span>
-        ) : null}
-      </div>
-      {item.summary ? <p className="mt-2 text-sm text-slate-200">{item.summary}</p> : null}
-      {item.reasonCodes?.length ? (
-        <div className="mt-3 flex flex-wrap gap-2 text-[0.7rem]">
-          {item.reasonCodes.map((code) => (
-            <span
-              key={code}
-              className="rounded-full border border-slate-700/70 bg-slate-900/50 px-2 py-0.5 text-slate-300"
-            >
-              {code}
-            </span>
-          ))}
-        </div>
-      ) : null}
-      {item.refs?.length ? (
-        <ul className="mt-3 space-y-2 text-xs text-slate-400">
-          {item.refs.map((ref, index) => (
-            <li key={`${ref.label ?? ref.url ?? "ref"}-${index}`} className="space-y-1">
-              <div className="font-semibold text-slate-300">{ref.label ?? "Reference"}</div>
-              {ref.note ? <div className="text-slate-500">{ref.note}</div> : null}
-              <EvidenceRefs refs={[ref]} />
-            </li>
-          ))}
-        </ul>
-      ) : null}
-    </div>
-  );
-}
-
 function EvidenceRefs({ refs }: { refs?: V4EvidenceReference[] }) {
   if (!refs?.length) return null;
   return (
@@ -177,46 +103,48 @@ function EvidenceRefs({ refs }: { refs?: V4EvidenceReference[] }) {
   );
 }
 
-function ScoreBreakdownItem({ item }: { item: V4ScoreDetailItem }) {
+function EvidenceRow({ item }: { item: V4EvidenceItem }) {
   return (
-    <div className="rounded-2xl border border-slate-800/80 bg-surface/80 p-4 shadow">
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">
-            {item.itemKey}
-          </p>
-          <p className="text-2xl font-semibold text-slate-50">
-            {formatScore(item.value)}
-          </p>
+    <tr className="border-b border-slate-800/70 last:border-b-0">
+      <td className="px-3 py-3 text-sm font-semibold text-slate-200">
+        {item.type.replace("_", " ")}
+      </td>
+      <td className="px-3 py-3 text-sm text-slate-200">{item.status}</td>
+      <td className="px-3 py-3 text-sm text-slate-200">
+        {item.score !== null && item.score !== undefined ? formatScore(item.score) : "—"}
+      </td>
+      <td className="px-3 py-3">
+        <div className="flex flex-wrap gap-2 text-[0.7rem] text-slate-300">
+          {item.reasons.map((reason) => (
+            <span
+              key={reason}
+              className="rounded-full border border-slate-700/70 bg-slate-900/50 px-2 py-0.5"
+            >
+              {reason}
+            </span>
+          ))}
         </div>
-        <div className="text-xs text-slate-400">
-          <p className="uppercase tracking-wide text-slate-500">Reasons</p>
-          {item.reasons?.length ? (
-            <div className="mt-1 flex flex-wrap gap-2">
-              {item.reasons.map((reason) => (
-                <span
-                  key={reason}
-                  className="rounded-full border border-slate-700/70 bg-slate-900/50 px-2 py-0.5 text-[0.65rem] text-slate-300"
-                >
-                  {reason}
-                </span>
-              ))}
-            </div>
-          ) : (
-            <p className="mt-1 text-[0.7rem] text-slate-500">No reasons provided.</p>
-          )}
-        </div>
-      </div>
-      <div className="mt-3 text-xs text-slate-400">
-        <p className="uppercase tracking-wide text-slate-500">Evidence refs</p>
-        {item.evidenceRefs?.length ? (
-          <div className="mt-1">
-            <EvidenceRefs refs={item.evidenceRefs} />
-          </div>
-        ) : (
-          <p className="mt-1 text-[0.7rem] text-slate-500">No evidence refs.</p>
-        )}
-      </div>
+      </td>
+      <td className="px-3 py-3">
+        <EvidenceRefs refs={item.refs} />
+      </td>
+    </tr>
+  );
+}
+
+function AlertBox({ items }: { items: string[] }) {
+  if (!items.length) return null;
+  return (
+    <div className="rounded-2xl border border-rose-500/30 bg-rose-500/10 px-4 py-3 text-sm text-rose-100 shadow-sm">
+      <p className="font-semibold">Snapshot load error</p>
+      <ul className="mt-2 list-disc space-y-1 pl-5 text-[0.85rem]">
+        {items.slice(0, 10).map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      {items.length > 10 ? (
+        <p className="mt-2 text-xs opacity-80">…and {items.length - 10} more</p>
+      ) : null}
     </div>
   );
 }
@@ -227,19 +155,45 @@ export default async function ModelDetailPage({
   params: { modelKey: string };
 }) {
   const modelKey = decodeURIComponent(params.modelKey);
-  const { detail, isNotListed, notListedEntry, index } = await loadV4ModelDetail(modelKey);
+  const { detail, isNotListed, notListedEntry, index, diagnostics } =
+    await loadV4ModelDetail(modelKey);
+
+  if (diagnostics.errors.length) {
+    return (
+      <div className="space-y-6">
+        <header className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">
+            AI Model Scoreboard · v4
+          </p>
+          <h1 className="text-2xl font-semibold text-slate-50">Snapshot load error</h1>
+          <p className="text-sm text-slate-400">
+            The snapshot data for this model violates the v4 contract.
+          </p>
+        </header>
+        <AlertBox items={diagnostics.errors} />
+        <Link href="/v4" className="text-sm font-semibold text-accent underline">
+          ← Back to leaderboard
+        </Link>
+      </div>
+    );
+  }
 
   if (!detail && isNotListed) {
     return (
       <div className="space-y-6">
         <header className="space-y-2">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">AI Model Scoreboard · v4</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">
+            AI Model Scoreboard · v4
+          </p>
           <h1 className="text-3xl font-semibold text-slate-50">{modelKey}</h1>
         </header>
         <div className="space-y-3 rounded-2xl border border-slate-800 bg-surface/70 p-5 text-slate-200 shadow-lg">
-          <p className="text-lg font-semibold text-slate-50">This model is currently not listed in the v4 scoreboard.</p>
+          <p className="text-lg font-semibold text-slate-50">
+            This model is currently not listed in the v4 scoreboard.
+          </p>
           <p className="text-sm text-slate-400">
-            The model is known to the AMS pipeline but is intentionally excluded from the published leaderboard snapshot.
+            The model is known to the AMS pipeline but is intentionally excluded from the
+            published leaderboard snapshot.
           </p>
           {notListedEntry?.reason ? (
             <p className="text-sm text-slate-400">Decision reason: {notListedEntry.reason}</p>
@@ -261,7 +215,9 @@ export default async function ModelDetailPage({
     return (
       <div className="space-y-4 text-center">
         <h1 className="text-2xl font-semibold text-slate-50">Model not found in v4 snapshot</h1>
-        <p className="text-sm text-slate-400">We couldn&apos;t find this model in the published v4 data.</p>
+        <p className="text-sm text-slate-400">
+          We couldn&apos;t find this model in the published v4 data.
+        </p>
         <div className="pt-2">
           <Link href="/v4" className="text-sm font-semibold text-accent underline">
             ← Back to leaderboard
@@ -271,12 +227,15 @@ export default async function ModelDetailPage({
     );
   }
 
-  const updatedLabel = formatDate(detail.updatedAt ?? index.meta.updatedAt);
+  const updatedLabel = formatDate(detail.updatedAt ?? index?.updatedAt);
+  const pricing = detail.modelMetadata.pricing ?? {};
 
   return (
     <div className="space-y-8">
       <header className="space-y-3">
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">AI Model Scoreboard · v4</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">
+          AI Model Scoreboard · v4
+        </p>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div className="space-y-3">
             <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
@@ -286,12 +245,18 @@ export default async function ModelDetailPage({
                 {detail.vendor}
               </span>
             </div>
-            <h1 className="text-3xl font-semibold leading-tight text-slate-50 sm:text-4xl">{detail.name}</h1>
-            <p className="text-sm text-slate-400">Snapshot-driven detail sourced from the bundled v4 JSON files.</p>
+            <h1 className="text-3xl font-semibold leading-tight text-slate-50 sm:text-4xl">
+              {detail.name}
+            </h1>
+            <p className="text-sm text-slate-400">
+              Snapshot-driven detail sourced from the bundled v4 JSON files.
+            </p>
           </div>
           <div className="self-start rounded-2xl border border-slate-800 bg-background/70 px-5 py-4 text-right text-sm text-slate-300 shadow-xl">
-            <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">Total score</p>
-            <p className="text-4xl font-semibold text-slate-50">{formatScore(detail.score)}</p>
+            <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">Overall</p>
+            <p className="text-4xl font-semibold text-slate-50">
+              {formatScore(detail.score)}
+            </p>
             <p className="text-[0.7rem] text-slate-500">Updated {updatedLabel}</p>
           </div>
         </div>
@@ -299,8 +264,8 @@ export default async function ModelDetailPage({
 
       <section className="space-y-3 rounded-2xl border border-slate-800 bg-surface/70 p-5 shadow-xl">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Identity</h2>
-          <p className="text-xs text-slate-400">Canonical identifiers and adoption status.</p>
+          <h2 className="text-lg font-semibold text-slate-100">Model Summary</h2>
+          <p className="text-xs text-slate-400">Core identifiers and decision reasons.</p>
         </div>
         <div className="grid grid-cols-1 gap-4 text-sm text-slate-300 sm:grid-cols-2">
           <div>
@@ -320,100 +285,128 @@ export default async function ModelDetailPage({
             <p className="font-semibold text-slate-50">{detail.layer}</p>
           </div>
         </div>
-      </section>
-
-      <section className="space-y-3 rounded-2xl border border-slate-800 bg-surface/70 p-5 shadow-xl">
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Status</h2>
-          <p className="text-xs text-slate-400">Decision status and recorded reasons.</p>
-        </div>
-        <div className="space-y-3 text-sm text-slate-300">
-          <div className="flex flex-wrap items-center gap-2">
-            <StatusBadge status={detail.status} />
-            <LayerBadge layer={detail.layer} />
+        <div>
+          <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Decision reasons</p>
+          <div className="mt-2 flex flex-wrap gap-2 text-xs text-slate-300">
+            {detail.decision.reasons.map((reason) => (
+              <span
+                key={reason}
+                className="rounded-full border border-slate-700/70 bg-slate-900/50 px-2 py-0.5"
+              >
+                {reason}
+              </span>
+            ))}
           </div>
-          {detail.decisionReason ? (
-            <div>
-              <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Reasons</p>
-              <p className="font-semibold text-slate-50">{detail.decisionReason}</p>
-            </div>
-          ) : (
-            <p className="text-xs text-slate-500">No decision reasons were published for this model.</p>
-          )}
-          {detail.decisionSource ? (
-            <div className="text-xs text-slate-500">Source: {detail.decisionSource}</div>
+          {detail.decision.source ? (
+            <p className="mt-2 text-xs text-slate-500">Source: {detail.decision.source}</p>
           ) : null}
         </div>
       </section>
 
-      <section className="space-y-3">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Score breakdown</h2>
-          <p className="text-xs text-slate-400">Higher scores indicate stronger performance in that dimension.</p>
+      <section className="space-y-3 rounded-2xl border border-slate-800 bg-surface/70 p-5 shadow-xl">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <h2 className="text-lg font-semibold text-slate-100">Spec Table</h2>
+          <p className="text-xs text-slate-400">Absolute metrics used by the spec rules.</p>
         </div>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {detail.scoreDetails.map((item) => (
-            <ScoreBreakdownItem key={item.itemKey} item={item} />
-          ))}
-        </div>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <ScorePill label="Performance" value={formatScore(detail.scores.performance)} />
-          <ScorePill label="Safety" value={formatScore(detail.scores.safety)} />
-          <ScorePill label="Adoption" value={formatScore(detail.scores.adoption)} />
-          <ScorePill label="Openness" value={formatScore(detail.scores.openness)} />
-          <ScorePill label="Cost" value={formatScore(detail.scores.cost)} />
+        <div className="grid grid-cols-1 gap-4 text-sm text-slate-300 sm:grid-cols-2">
+          <div>
+            <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Release date</p>
+            <p className="font-semibold text-slate-50">
+              {detail.modelMetadata.released ? formatDate(detail.modelMetadata.released) : "—"}
+            </p>
+          </div>
+          <div>
+            <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Context length</p>
+            <p className="font-semibold text-slate-50">
+              {detail.modelMetadata.context ?? "—"}
+            </p>
+          </div>
+          <div>
+            <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Model type</p>
+            <p className="font-semibold text-slate-50">{detail.modelMetadata.type ?? "—"}</p>
+          </div>
+          <div>
+            <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Pricing</p>
+            <p className="font-semibold text-slate-50">
+              {pricing.input !== undefined || pricing.output !== undefined
+                ? `${pricing.input ?? "—"} / ${pricing.output ?? "—"} ${
+                    pricing.currency ?? ""
+                  }`
+                : "—"}
+            </p>
+          </div>
         </div>
       </section>
 
       <section className="space-y-3">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Enrichment signals</h2>
-          <p className="text-xs text-slate-400">Signals derived from the latest enrichment pipeline.</p>
+          <h2 className="text-lg font-semibold text-slate-100">Evidence Table</h2>
+          <p className="text-xs text-slate-400">
+            Evidence status and reasons by required type.
+          </p>
         </div>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-          <EnrichmentRow label="Developer activity" signal={detail.enrichment?.github} />
-          <EnrichmentRow label="Audit evidence" signal={detail.enrichment?.audit} />
+        <div className="overflow-hidden rounded-2xl border border-slate-800 bg-surface/70 shadow">
+          <table className="w-full text-left text-xs text-slate-400">
+            <thead className="bg-slate-900/80 text-[0.7rem] uppercase tracking-wide text-slate-500">
+              <tr>
+                <th className="px-3 py-3">Type</th>
+                <th className="px-3 py-3">Status</th>
+                <th className="px-3 py-3">Score</th>
+                <th className="px-3 py-3">Reasons</th>
+                <th className="px-3 py-3">References</th>
+              </tr>
+            </thead>
+            <tbody>
+              {V4_REQUIRED_EVIDENCE_TYPES.map((type) => {
+                const item = detail.evidenceItems.find((entry) => entry.type === type);
+                if (!item) return null;
+                return <EvidenceRow key={type} item={item} />;
+              })}
+            </tbody>
+          </table>
         </div>
       </section>
 
       <section className="space-y-3">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Evidence</h2>
-          <p className="text-xs text-slate-400">Reason codes and references used by the v4 evidence pipeline.</p>
+          <h2 className="text-lg font-semibold text-slate-100">Score Breakdown</h2>
+          <p className="text-xs text-slate-400">
+            Overall = 0.45 × Spec + 0.35 × Evidence + 0.20 × Ops (no UI-side
+            recalculation).
+          </p>
         </div>
-        {detail.evidenceError ? (
-          <div className="rounded-2xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-sm text-amber-100">
-            Evidence file missing or invalid: {detail.evidenceError}
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div className="rounded-xl border border-slate-800/80 bg-surface/80 px-4 py-3">
+            <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Spec</p>
+            <p className="text-lg font-semibold text-slate-50">
+              {formatScore(detail.scores.spec)}
+            </p>
           </div>
-        ) : null}
-        {detail.evidenceItems.length ? (
-          <div className="space-y-3">
-            {detail.evidenceItems.map((item, index) => (
-              <EvidenceRow key={`${item.type}-${index}`} item={item} />
-            ))}
+          <div className="rounded-xl border border-slate-800/80 bg-surface/80 px-4 py-3">
+            <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Evidence</p>
+            <p className="text-lg font-semibold text-slate-50">
+              {formatScore(detail.scores.evidence)}
+            </p>
           </div>
-        ) : (
-          <div className="rounded-2xl border border-slate-800 bg-surface/70 px-4 py-3 text-sm text-slate-400">
-            No evidence items are available for this model in the current snapshot.
+          <div className="rounded-xl border border-slate-800/80 bg-surface/80 px-4 py-3">
+            <p className="text-[0.7rem] uppercase tracking-wide text-slate-500">Ops</p>
+            <p className="text-lg font-semibold text-slate-50">
+              {formatScore(detail.scores.ops)}
+            </p>
           </div>
-        )}
+        </div>
       </section>
 
       <section className="space-y-3 rounded-2xl border border-slate-800 bg-surface/80 p-5 shadow-xl">
-        <h2 className="text-lg font-semibold text-slate-100">How to read these scores</h2>
-        <div className="space-y-2 text-sm leading-relaxed text-slate-300">
-          <p>
-            The Total score is a composite that balances capability, safety posture, market traction, openness, and estimated cost
-            efficiency. Higher totals suggest well-rounded models that perform strongly across categories.
-          </p>
-          <ul className="list-disc space-y-1 pl-5 text-slate-400">
-            <li>Performance captures general task quality across benchmarks.</li>
-            <li>Safety reflects alignment and guardrail effectiveness.</li>
-            <li>Adoption tracks ecosystem traction and integrator interest.</li>
-            <li>Openness highlights licensing transparency and release practices.</li>
-            <li>Cost estimates relative runtime affordability (higher is better).</li>
-          </ul>
-        </div>
+        <h2 className="text-lg font-semibold text-slate-100">Raw Inputs</h2>
+        <details className="rounded-xl border border-slate-800/80 bg-background/60 p-4 text-sm text-slate-300">
+          <summary className="cursor-pointer text-xs font-semibold uppercase tracking-wide text-slate-400">
+            View JSON payloads
+          </summary>
+          <pre className="mt-3 whitespace-pre-wrap text-xs text-slate-400">
+            {JSON.stringify(detail.rawInputs, null, 2)}
+          </pre>
+        </details>
       </section>
 
       <Link href="/v4" className="text-sm font-semibold text-accent underline">
