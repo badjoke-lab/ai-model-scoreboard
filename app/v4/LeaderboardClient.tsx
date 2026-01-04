@@ -8,7 +8,7 @@ import type {
   V4ModelMetadata,
   V4RankingEntry,
 } from "@/lib/v4-snapshot";
-import { V4_DIMENSIONS, type V4DimensionKey } from "@/lib/v4-dimensions";
+import { V4_DIMENSIONS } from "@/lib/v4-dimensions";
 
 const STATUS_OPTIONS = ["all", "adopted", "provisional", "denied"] as const;
 
@@ -21,8 +21,6 @@ type LeaderboardEntry = V4RankingEntry & {
   evidenceCount: number;
   evidenceTopReason?: string;
   hasEvidence: boolean;
-  dimensionReasons: Record<V4DimensionKey, string[]>;
-  dimensionHasRefs: Record<V4DimensionKey, boolean>;
 };
 
 function formatScore(value: number) {
@@ -51,30 +49,6 @@ function mapLayerToStatus(layer: V4RankingEntry["layer"]): LeaderboardEntry["sta
   return "denied";
 }
 
-function collectDimensionReasons(
-  scoreItems: V4RankingEntry["scoreItems"] | undefined,
-  prefix: string
-): string[] {
-  if (!scoreItems) return [];
-  const reasons = Object.entries(scoreItems)
-    .filter(([key]) => key.startsWith(prefix))
-    .flatMap(([, item]) => {
-      const penaltyReasons = item.penaltyReasons ?? [];
-      if (penaltyReasons.length) return penaltyReasons;
-      const evidenceStatuses =
-        item.usedEvidence?.flatMap((entry) => {
-          if (!entry.type || !entry.status) return [];
-          return [`evidence_${entry.type}_${entry.status}`];
-        }) ?? [];
-      return evidenceStatuses.length ? evidenceStatuses : [];
-    })
-    .filter((reason) => Boolean(reason));
-  return Array.from(new Set(reasons));
-}
-
-function isInsufficientEvidence(reasons: string[], hasEvidenceRefs: boolean) {
-  return reasons.length === 0 && !hasEvidenceRefs;
-}
 
 function LayerBadge({ layer }: { layer: string }) {
   const normalized = layer.toLowerCase();
@@ -139,16 +113,6 @@ export default function LeaderboardClient({
       const meta = models[entry.model];
       const evidence = evidenceSummaries[entry.model];
       const evidenceCount = evidence?.count ?? 0;
-      const dimensionReasons: Record<V4DimensionKey, string[]> = {
-        spec: collectDimensionReasons(entry.scoreItems, "S"),
-        evidence: collectDimensionReasons(entry.scoreItems, "T"),
-        ops: collectDimensionReasons(entry.scoreItems, "Q"),
-      };
-      const dimensionHasRefs: Record<V4DimensionKey, boolean> = {
-        spec: false,
-        evidence: (evidence?.count ?? 0) > 0,
-        ops: false,
-      };
       return {
         ...entry,
         displayName: meta?.name ?? entry.model,
@@ -157,8 +121,6 @@ export default function LeaderboardClient({
         evidenceCount,
         evidenceTopReason: evidence?.topReason,
         hasEvidence: evidence?.hasEvidence ?? evidenceCount > 0,
-        dimensionReasons,
-        dimensionHasRefs,
       } satisfies LeaderboardEntry;
     });
   }, [rankings, models, evidenceSummaries]);
@@ -233,13 +195,7 @@ export default function LeaderboardClient({
         <>
           <div className="space-y-3 md:hidden">
             {filtered.map((entry, index) => {
-              const insufficientDimensions = V4_DIMENSIONS.some((dimension) =>
-                isInsufficientEvidence(
-                  entry.dimensionReasons[dimension.key],
-                  entry.dimensionHasRefs[dimension.key]
-                )
-              );
-              const totalScore = insufficientDimensions ? "—" : formatScore(entry.score);
+              const totalScore = formatScore(entry.score);
               return (
                 <Link
                   key={entry.model}
@@ -257,11 +213,6 @@ export default function LeaderboardClient({
                     <div className="text-right">
                       <div className="text-xs text-slate-500">Total</div>
                       <div className="text-xl font-semibold text-slate-50">{totalScore}</div>
-                      {insufficientDimensions ? (
-                        <div className="text-[0.7rem] text-slate-500">
-                          Insufficient evidence
-                        </div>
-                      ) : null}
                   </div>
                 </div>
                 <div className="mt-2 text-xs text-slate-500">
@@ -281,20 +232,12 @@ export default function LeaderboardClient({
                 ) : null}
                 <dl className="mt-3 grid grid-cols-2 gap-x-6 gap-y-2 text-xs text-slate-400">
                   {V4_DIMENSIONS.map((dimension) => {
-                    const reasons = entry.dimensionReasons[dimension.key];
-                    const hasRefs = entry.dimensionHasRefs[dimension.key];
-                    const insufficient = isInsufficientEvidence(reasons, hasRefs);
                     return (
                       <div key={dimension.key}>
                         <dt className="text-[0.65rem] uppercase">{dimension.label}</dt>
                         <dd className="font-medium text-slate-200">
-                          {insufficient ? "—" : formatScore(entry.scores[dimension.key])}
+                          {formatScore(entry.scores.categories?.[dimension.key] ?? 0)}
                         </dd>
-                        {insufficient ? (
-                          <div className="text-[0.65rem] text-slate-500">
-                            Insufficient evidence
-                          </div>
-                        ) : null}
                       </div>
                     );
                   })}
@@ -373,22 +316,12 @@ export default function LeaderboardClient({
                   </span>
 
                   <span className="text-right font-semibold text-slate-50">
-                    {V4_DIMENSIONS.some((dimension) =>
-                      isInsufficientEvidence(
-                        entry.dimensionReasons[dimension.key],
-                        entry.dimensionHasRefs[dimension.key]
-                      )
-                    )
-                      ? "—"
-                      : formatScore(entry.score)}
+                    {formatScore(entry.score)}
                   </span>
                   {V4_DIMENSIONS.map((dimension) => {
-                    const reasons = entry.dimensionReasons[dimension.key];
-                    const hasRefs = entry.dimensionHasRefs[dimension.key];
-                    const insufficient = isInsufficientEvidence(reasons, hasRefs);
                     return (
                       <span key={dimension.key} className="text-right text-slate-200">
-                        {insufficient ? "—" : formatScore(entry.scores[dimension.key])}
+                        {formatScore(entry.scores.categories?.[dimension.key] ?? 0)}
                       </span>
                     );
                   })}
