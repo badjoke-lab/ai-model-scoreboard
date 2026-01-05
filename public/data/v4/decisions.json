@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-05T18:50:17.614Z",
+    "generatedAt": "2026-01-05T19:33:37.688Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -5131,12 +5131,12 @@
         "meets required fields"
       ],
       "normalized": {
-        "name": "TNG: R1T Chimera",
+        "name": "TNG: R1T Chimera (free)",
         "slug": "tngtech/tng-r1t-chimera",
         "provider": "tngtech"
       },
       "rawRef": {
-        "id": "tngtech/tng-r1t-chimera",
+        "id": "tngtech/tng-r1t-chimera:free",
         "canonical_slug": "tngtech/tng-r1t-chimera"
       }
     },

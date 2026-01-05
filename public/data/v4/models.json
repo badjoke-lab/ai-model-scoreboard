@@ -63297,24 +63297,24 @@
     "layer": "full"
   },
   "tngtech/tng-r1t-chimera": {
-    "name": "TNG: R1T Chimera",
+    "name": "TNG: R1T Chimera (free)",
     "vendor": "tngtech",
     "released": "2025-11-26T19:09:21.000Z",
     "context": 163840,
     "type": "text->text",
     "pricing": {
-      "input": 2.5e-7,
-      "output": 8.5e-7,
+      "input": 0,
+      "output": 0,
       "currency": "USD"
     },
     "scores": {
-      "overall": 67.9323162938461,
+      "overall": 67.93232,
       "categories": {
         "performance": 62.185800000000015,
         "safety": 70,
         "adoption": 68.72,
         "openness": 58.333333333333336,
-        "cost": 99.99996293846087
+        "cost": 100
       },
       "items": {
         "S1": {
