@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-05T20:41:53.856Z",
+  "updatedAt": "2026-01-05T21:36:20.647Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -43,7 +43,6 @@
       "evidence/anthropic/claude-3-5-haiku-20241022.json",
       "evidence/anthropic/claude-3-7-sonnet-20250219.json",
       "evidence/anthropic/claude-3-haiku.json",
-      "evidence/anthropic/claude-3-opus.json",
       "evidence/anthropic/claude-3.5-sonnet.json",
       "evidence/anthropic/claude-4-opus-20250522.json",
       "evidence/anthropic/claude-4-sonnet-20250522.json",
@@ -364,7 +363,6 @@
       "evidence/anthropic/claude-3-5-haiku-20241022.json",
       "evidence/anthropic/claude-3-7-sonnet-20250219.json",
       "evidence/anthropic/claude-3-haiku.json",
-      "evidence/anthropic/claude-3-opus.json",
       "evidence/anthropic/claude-3.5-sonnet.json",
       "evidence/anthropic/claude-4-opus-20250522.json",
       "evidence/anthropic/claude-4-sonnet-20250522.json",
@@ -662,8 +660,8 @@
       "evidence/z-ai/glm-4.7-20251222.json"
     ]
   },
-  "modelsCount": 319,
-  "fullCount": 304,
+  "modelsCount": 318,
+  "fullCount": 303,
   "provisionalCount": 15,
   "notListedCount": 0
 }

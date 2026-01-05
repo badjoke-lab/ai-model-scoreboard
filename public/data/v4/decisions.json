@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-05T20:41:53.856Z",
+    "generatedAt": "2026-01-05T21:36:20.647Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 319,
-      "adopted": 319,
+      "total": 318,
+      "adopted": 318,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 317,
+        "openrouter": 316,
         "seed": 2
       }
     },
@@ -413,23 +413,6 @@
       "rawRef": {
         "id": "anthropic/claude-3-haiku",
         "canonical_slug": "anthropic/claude-3-haiku"
-      }
-    },
-    {
-      "modelKey": "anthropic/claude-3-opus",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "Anthropic: Claude 3 Opus",
-        "slug": "anthropic/claude-3-opus",
-        "provider": "anthropic"
-      },
-      "rawRef": {
-        "id": "anthropic/claude-3-opus",
-        "canonical_slug": "anthropic/claude-3-opus"
       }
     },
     {
