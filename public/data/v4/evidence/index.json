@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-05T21:36:20.647Z",
-    "runId": "20729885374"
+    "updatedAt": "2026-01-05T22:40:56.709Z",
+    "runId": "20731394383"
   },
   "models": [
     {
@@ -964,10 +964,6 @@
     {
       "modelKey": "perplexity/sonar-pro-search",
       "path": "evidence/perplexity/sonar-pro-search.json"
-    },
-    {
-      "modelKey": "perplexity/sonar-reasoning",
-      "path": "evidence/perplexity/sonar-reasoning.json"
     },
     {
       "modelKey": "perplexity/sonar-reasoning-pro",

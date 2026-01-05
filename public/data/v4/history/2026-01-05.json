@@ -1215,10 +1215,6 @@
     "score": 61.6485572738461,
     "layer": "full"
   },
-  "perplexity/sonar-reasoning": {
-    "score": 61.64226096615347,
-    "layer": "full"
-  },
   "mistralai/mistral-large-2411": {
     "score": 61.584410966153285,
     "layer": "full"

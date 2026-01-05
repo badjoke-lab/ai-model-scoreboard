@@ -1441,12 +1441,6 @@
       "source": "openrouter"
     },
     {
-      "modelKey": "perplexity/sonar-reasoning",
-      "name": "Perplexity: Sonar Reasoning",
-      "provider": "perplexity",
-      "source": "openrouter"
-    },
-    {
       "modelKey": "perplexity/sonar-reasoning-pro",
       "name": "Perplexity: Sonar Reasoning Pro",
       "provider": "perplexity",

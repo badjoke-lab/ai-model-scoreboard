@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-05T21:36:20.647Z",
+    "generatedAt": "2026-01-05T22:40:56.709Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 318,
-      "adopted": 318,
+      "total": 317,
+      "adopted": 317,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 316,
+        "openrouter": 315,
         "seed": 2
       }
     },
@@ -4101,23 +4101,6 @@
       "rawRef": {
         "id": "perplexity/sonar-pro-search",
         "canonical_slug": "perplexity/sonar-pro-search"
-      }
-    },
-    {
-      "modelKey": "perplexity/sonar-reasoning",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "Perplexity: Sonar Reasoning",
-        "slug": "perplexity/sonar-reasoning",
-        "provider": "perplexity"
-      },
-      "rawRef": {
-        "id": "perplexity/sonar-reasoning",
-        "canonical_slug": "perplexity/sonar-reasoning"
       }
     },
     {

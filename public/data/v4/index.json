@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-05T21:36:20.647Z",
+  "updatedAt": "2026-01-05T22:40:56.709Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -260,7 +260,6 @@
       "evidence/perplexity/sonar-deep-research.json",
       "evidence/perplexity/sonar-pro.json",
       "evidence/perplexity/sonar-pro-search.json",
-      "evidence/perplexity/sonar-reasoning.json",
       "evidence/perplexity/sonar-reasoning-pro.json",
       "evidence/prime-intellect/intellect-3-20251126.json",
       "evidence/qwen/qwen-2-vl-7b-instruct.json",
@@ -580,7 +579,6 @@
       "evidence/perplexity/sonar-deep-research.json",
       "evidence/perplexity/sonar-pro.json",
       "evidence/perplexity/sonar-pro-search.json",
-      "evidence/perplexity/sonar-reasoning.json",
       "evidence/perplexity/sonar-reasoning-pro.json",
       "evidence/prime-intellect/intellect-3-20251126.json",
       "evidence/qwen/qwen-2-vl-7b-instruct.json",
@@ -660,8 +658,8 @@
       "evidence/z-ai/glm-4.7-20251222.json"
     ]
   },
-  "modelsCount": 318,
-  "fullCount": 303,
+  "modelsCount": 317,
+  "fullCount": 302,
   "provisionalCount": 15,
   "notListedCount": 0
 }
