@@ -23,7 +23,7 @@ jobs:
         run: npm ci
 
       - name: Validate v4 snapshot data
-        run: npm run check:v4
+        run: npm run v4:verify
 
       - name: Build
         run: npm run build
