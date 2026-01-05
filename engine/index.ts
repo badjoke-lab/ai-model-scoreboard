@@ -70,7 +70,7 @@ export async function runEngine(): Promise<void> {
 
   // 5. Layer assignment
   console.info("[AMS v4] Layer assignment.");
-  const layered = assignLayers(scored);
+  const layered = assignLayers(scored, adoptionArtifacts.decisions.decisions);
 
   // 6. Validate output payload
   const payload = buildPublishPayload(

@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "snapshot": "node scripts/snapshot_v4.mjs",
+    "v4:regenerate": "npm run snapshot",
+    "v4:verify": "node scripts/v4_verify.mjs",
     "typecheck": "tsc --noEmit",
     "check:routes": "node scripts/check-route-safety.js",
     "check:v4": "node scripts/check_v4_snapshot.mjs",

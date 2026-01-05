@@ -20,6 +20,7 @@ import {
   ScoredModel,
   LayerAssignedModel,
   Layer,
+  AdoptionDecisionEntry,
 } from "./types";
 import { loadPreviousDaySnapshot } from "./previous-snapshot";
 
@@ -29,12 +30,17 @@ import { loadPreviousDaySnapshot } from "./previous-snapshot";
  * Output: Models with assigned layers
  */
 export function assignLayers(
-  scored: ScoredModel[]
+  scored: ScoredModel[],
+  decisions: AdoptionDecisionEntry[] = []
 ): LayerAssignedModel[] {
   const prevSnapshot = loadPreviousDaySnapshot(); // may be null
+  const decisionMap = new Map(
+    decisions.map((decision) => [decision.modelKey, decision.status])
+  );
 
   return scored.map((model) => {
-    const layer = determineLayer(model, prevSnapshot);
+    const decisionStatus = decisionMap.get(model.id);
+    const layer = determineLayer(model, prevSnapshot, decisionStatus);
     return {
       ...model,
       layer,
@@ -52,8 +58,15 @@ export function assignLayers(
  */
 function determineLayer(
   model: ScoredModel,
-  prevSnapshot: any
+  prevSnapshot: any,
+  decisionStatus?: AdoptionDecisionEntry["status"]
 ): Layer {
+  if (decisionStatus === "denied") {
+    return "not-listed";
+  }
+  if (decisionStatus === "provisional") {
+    return "provisional";
+  }
   const prev = prevSnapshot?.rankings?.find((r: any) => r.model === model.id);
   const incidents = (prevSnapshot?.incidentsByModel || {})[model.id] || {};
   const critical = incidents.critical || 0;
