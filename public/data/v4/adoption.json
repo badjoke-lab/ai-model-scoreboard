@@ -50,7 +50,7 @@
     },
     {
       "modelKey": "allenai/olmo-3-32b-think-20251121",
-      "name": "AllenAI: Olmo 3 32B Think (free)",
+      "name": "AllenAI: Olmo 3 32B Think",
       "provider": "allenai",
       "source": "openrouter"
     },
@@ -68,7 +68,7 @@
     },
     {
       "modelKey": "allenai/olmo-3.1-32b-think-20251215",
-      "name": "AllenAI: Olmo 3.1 32B Think (free)",
+      "name": "AllenAI: Olmo 3.1 32B Think",
       "provider": "allenai",
       "source": "openrouter"
     },

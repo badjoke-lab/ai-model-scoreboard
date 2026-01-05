@@ -1688,24 +1688,24 @@
     "layer": "full"
   },
   "allenai/olmo-3-32b-think-20251121": {
-    "name": "AllenAI: Olmo 3 32B Think (free)",
+    "name": "AllenAI: Olmo 3 32B Think",
     "vendor": "allenai",
     "released": "2025-11-21T20:51:16.000Z",
     "context": 65536,
     "type": "text->text",
     "pricing": {
-      "input": 0,
-      "output": 0,
+      "input": 1.5e-7,
+      "output": 5e-7,
       "currency": "USD"
     },
     "scores": {
-      "overall": 70.22330000000001,
+      "overall": 70.2232978707692,
       "categories": {
         "performance": 70.62450000000001,
         "safety": 55,
         "adoption": 81.49,
         "openness": 58.333333333333336,
-        "cost": 100
+        "cost": 99.99997870769192
       },
       "items": {
         "S1": {
@@ -2321,24 +2321,24 @@
     "layer": "full"
   },
   "allenai/olmo-3.1-32b-think-20251215": {
-    "name": "AllenAI: Olmo 3.1 32B Think (free)",
+    "name": "AllenAI: Olmo 3.1 32B Think",
     "vendor": "allenai",
     "released": "2025-12-16T17:55:19.000Z",
     "context": 65536,
     "type": "text->text",
     "pricing": {
-      "input": 0,
-      "output": 0,
+      "input": 1.5e-7,
+      "output": 5e-7,
       "currency": "USD"
     },
     "scores": {
-      "overall": 61.114020000000004,
+      "overall": 61.114017870769196,
       "categories": {
         "performance": 62.293800000000005,
         "safety": 60,
         "adoption": 61.31,
         "openness": 33.33333333333333,
-        "cost": 100
+        "cost": 99.99997870769192
       },
       "items": {
         "S1": {

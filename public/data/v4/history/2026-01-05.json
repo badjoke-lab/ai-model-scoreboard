@@ -528,7 +528,7 @@
     "layer": "full"
   },
   "allenai/olmo-3-32b-think-20251121": {
-    "score": 70.22330000000001,
+    "score": 70.2232978707692,
     "layer": "full"
   },
   "minimax/minimax-m2.1": {
@@ -1244,7 +1244,7 @@
     "layer": "full"
   },
   "allenai/olmo-3.1-32b-think-20251215": {
-    "score": 61.114020000000004,
+    "score": 61.114017870769196,
     "layer": "full"
   },
   "xiaomi/mimo-v2-flash-20251210": {

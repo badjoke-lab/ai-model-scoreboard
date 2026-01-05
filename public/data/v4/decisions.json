@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-05T17:41:45.944Z",
+    "generatedAt": "2026-01-05T18:50:17.614Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -168,12 +168,12 @@
         "meets required fields"
       ],
       "normalized": {
-        "name": "AllenAI: Olmo 3 32B Think (free)",
+        "name": "AllenAI: Olmo 3 32B Think",
         "slug": "allenai/olmo-3-32b-think-20251121",
         "provider": "allenai"
       },
       "rawRef": {
-        "id": "allenai/olmo-3-32b-think:free",
+        "id": "allenai/olmo-3-32b-think",
         "canonical_slug": "allenai/olmo-3-32b-think-20251121"
       }
     },
@@ -219,12 +219,12 @@
         "meets required fields"
       ],
       "normalized": {
-        "name": "AllenAI: Olmo 3.1 32B Think (free)",
+        "name": "AllenAI: Olmo 3.1 32B Think",
         "slug": "allenai/olmo-3.1-32b-think-20251215",
         "provider": "allenai"
       },
       "rawRef": {
-        "id": "allenai/olmo-3.1-32b-think:free",
+        "id": "allenai/olmo-3.1-32b-think",
         "canonical_slug": "allenai/olmo-3.1-32b-think-20251215"
       }
     },

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-05T17:41:45.944Z",
+    "updatedAt": "2026-01-05T18:50:17.614Z",
     "modelKey": "allenai/olmo-3.1-32b-think-20251215"
   },
   "evidenceItems": [
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"AllenAI: Olmo 3.1 32B Think (free)\""
+        "arxiv_query:\"AllenAI: Olmo 3.1 32B Think\""
       ]
     },
     {
