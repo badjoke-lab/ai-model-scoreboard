@@ -11,7 +11,8 @@
     "check:routes": "node scripts/check-route-safety.js",
     "check:v4": "node scripts/check_v4_snapshot.mjs",
     "ci": "npm run check:routes && npm run typecheck && next build",
-    "v4:validate-output": "node scripts/v4-validate-output.js"
+    "v4:validate-output": "node scripts/v4-validate-output.js",
+    "v4:verify": "npm run check:v4"
   },
   "dependencies": {
     "next": "14.2.3",
