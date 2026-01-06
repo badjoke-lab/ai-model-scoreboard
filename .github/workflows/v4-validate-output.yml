@@ -1,0 +1,32 @@
+name: v4-validate-output
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install & Validate
+        shell: bash
+        run: |
+          set -e
+          if [ -f pnpm-lock.yaml ]; then
+            corepack enable || true
+            pnpm install --frozen-lockfile
+            pnpm run v4:validate-output
+          elif [ -f package-lock.json ]; then
+            npm ci
+            npm run v4:validate-output
+          elif [ -f yarn.lock ]; then
+            yarn install --frozen-lockfile
+            yarn v4:validate-output
+          else
+            npm install
+            npm run v4:validate-output
+          fi

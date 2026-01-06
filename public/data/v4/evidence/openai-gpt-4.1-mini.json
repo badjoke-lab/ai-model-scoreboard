@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "modelKey": "openai-gpt-4.1-mini",
+    "updatedAt": "2026-01-06T11:52:35.969Z"
+  },
+  "evidenceItems": [
+    {
+      "type": "official_page",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link"
+      ],
+      "refs": [],
+      "extracted": null
+    },
+    {
+      "type": "dev_activity",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link"
+      ],
+      "refs": [],
+      "extracted": null
+    },
+    {
+      "type": "paper",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link"
+      ],
+      "refs": [],
+      "extracted": null
+    },
+    {
+      "type": "audit",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link"
+      ],
+      "refs": [],
+      "extracted": null
+    }
+  ]
+}
