@@ -447,10 +447,6 @@
     "score": 70.75393365846142,
     "layer": "full"
   },
-  "microsoft/phi-3-mini-128k-instruct": {
-    "score": 70.70061919692307,
-    "layer": "full"
-  },
   "openai/gpt-5.1-chat-20251113": {
     "score": 70.69412750461476,
     "layer": "full"
@@ -789,10 +785,6 @@
   },
   "qwen/qwen-2.5-72b-instruct": {
     "score": 67.72849837384614,
-    "layer": "full"
-  },
-  "microsoft/phi-3.5-mini-128k-instruct": {
-    "score": 67.60915919692306,
     "layer": "full"
   },
   "z-ai/glm-4.6": {
@@ -1186,10 +1178,6 @@
   "openai/gpt-5.1-codex-20251113": {
     "score": 62.047727504614755,
     "layer": "provisional"
-  },
-  "microsoft/phi-3-medium-128k-instruct": {
-    "score": 62.00741019692289,
-    "layer": "full"
   },
   "arcee-ai/virtuoso-large": {
     "score": 61.95869165846138,

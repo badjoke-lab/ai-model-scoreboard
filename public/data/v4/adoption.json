@@ -697,24 +697,6 @@
       "source": "openrouter"
     },
     {
-      "modelKey": "microsoft/phi-3-medium-128k-instruct",
-      "name": "Microsoft: Phi-3 Medium 128K Instruct",
-      "provider": "microsoft",
-      "source": "openrouter"
-    },
-    {
-      "modelKey": "microsoft/phi-3-mini-128k-instruct",
-      "name": "Microsoft: Phi-3 Mini 128K Instruct",
-      "provider": "microsoft",
-      "source": "openrouter"
-    },
-    {
-      "modelKey": "microsoft/phi-3.5-mini-128k-instruct",
-      "name": "Microsoft: Phi-3.5 Mini 128K Instruct",
-      "provider": "microsoft",
-      "source": "openrouter"
-    },
-    {
       "modelKey": "microsoft/phi-4",
       "name": "Microsoft: Phi 4",
       "provider": "microsoft",

@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-06T14:43:32.995Z",
-    "runId": "20751745897"
+    "updatedAt": "2026-01-06T15:40:47.224Z",
+    "runId": "20753381508"
   },
   "models": [
     {
@@ -468,18 +468,6 @@
     {
       "modelKey": "meta-llama/llama-guard-4-12b",
       "path": "evidence/meta-llama/llama-guard-4-12b.json"
-    },
-    {
-      "modelKey": "microsoft/phi-3-medium-128k-instruct",
-      "path": "evidence/microsoft/phi-3-medium-128k-instruct.json"
-    },
-    {
-      "modelKey": "microsoft/phi-3-mini-128k-instruct",
-      "path": "evidence/microsoft/phi-3-mini-128k-instruct.json"
-    },
-    {
-      "modelKey": "microsoft/phi-3.5-mini-128k-instruct",
-      "path": "evidence/microsoft/phi-3.5-mini-128k-instruct.json"
     },
     {
       "modelKey": "microsoft/phi-4",

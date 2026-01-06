@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-06T14:43:32.995Z",
+  "updatedAt": "2026-01-06T15:40:47.224Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -136,9 +136,6 @@
       "evidence/meta-llama/llama-guard-2-8b.json",
       "evidence/meta-llama/llama-guard-3-8b.json",
       "evidence/meta-llama/llama-guard-4-12b.json",
-      "evidence/microsoft/phi-3-medium-128k-instruct.json",
-      "evidence/microsoft/phi-3-mini-128k-instruct.json",
-      "evidence/microsoft/phi-3.5-mini-128k-instruct.json",
       "evidence/microsoft/phi-4.json",
       "evidence/microsoft/phi-4-multimodal-instruct.json",
       "evidence/microsoft/phi-4-reasoning-plus-04-30.json",
@@ -455,9 +452,6 @@
       "evidence/meta-llama/llama-guard-2-8b.json",
       "evidence/meta-llama/llama-guard-3-8b.json",
       "evidence/meta-llama/llama-guard-4-12b.json",
-      "evidence/microsoft/phi-3-medium-128k-instruct.json",
-      "evidence/microsoft/phi-3-mini-128k-instruct.json",
-      "evidence/microsoft/phi-3.5-mini-128k-instruct.json",
       "evidence/microsoft/phi-4.json",
       "evidence/microsoft/phi-4-multimodal-instruct.json",
       "evidence/microsoft/phi-4-reasoning-plus-04-30.json",
@@ -658,8 +652,8 @@
       "evidence/z-ai/glm-4.7-20251222.json"
     ]
   },
-  "modelsCount": 317,
-  "fullCount": 302,
+  "modelsCount": 314,
+  "fullCount": 299,
   "provisionalCount": 15,
   "notListedCount": 0
 }
