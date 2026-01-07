@@ -661,5 +661,13 @@
   "modelsCount": 317,
   "fullCount": 302,
   "provisionalCount": 15,
-  "notListedCount": 0
+  "notListedCount": 0,
+  "meta": {
+    "version": "v4",
+    "updatedAt": "2026-01-06T14:43:32.995Z",
+    "modelsCount": 317,
+    "fullCount": 302,
+    "provisionalCount": 15,
+    "notListedCount": 0
+  }
 }

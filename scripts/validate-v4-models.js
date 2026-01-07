@@ -2,8 +2,36 @@
 
 const fs = require("fs");
 
-const FILE = "public/data/v4/models.json";
 
+const OVERRIDE_MODELS_JSON = process.env.MODELS_JSON || process.argv[2];
+const CANDIDATE_MODELS_JSON = [
+  // 開発中の生成物（最優先）
+  "output/models.json",
+  "data/v4/models.json",
+
+  // UI が参照する正本
+  "public/data/v4/models.json",
+
+  // 予備
+  "data/models.json",
+];
+
+function pickModelsJsonPath() {
+  if (OVERRIDE_MODELS_JSON) return OVERRIDE_MODELS_JSON;
+for (const p of CANDIDATE_MODELS_JSON) {
+    if (fs.existsSync(p)) return p;
+  }
+  return CANDIDATE_MODELS_JSON[0];
+}
+
+const MODELS_JSON = pickModelsJsonPath();
+const FILE = MODELS_JSON;
+console.log("[validate:v4] using:", MODELS_JSON);
+if (!fs.existsSync(MODELS_JSON)) {
+  console.error("[validate:v4] MODELS_JSON does not exist:", MODELS_JSON);
+  console.error("[validate:v4] candidates:", CANDIDATE_MODELS_JSON.join(", "));
+  process.exit(1);
+}
 // 仕様で問題になっていた「根拠リンク無しなのに出るペナルティ理由」
 const DROP_REASONS = new Set([
   "missing_minor_incidents",
@@ -53,29 +81,85 @@ function hasAnyLink(ue) {
 
 // root から “モデルっぽいオブジェクト”を拾う（形が揺れても耐える）
 function extractModels(root) {
-  // models.json の形が揺れても耐える（array / {models:...} / top-level map）
+  // models.json の形が揺れても耐える（array / {models|data|items} / top-level map）
   if (Array.isArray(root)) return root;
 
   if (isObj(root)) {
     if (Array.isArray(root.models)) return root.models;
-    if (isObj(root.models)) return Object.values(root.models);
+    if (isObj(root.models)) {
+      return Object.entries(root.models)
+        .filter(([, v]) => isObj(v))
+        .map(([k, v]) => ({ modelKey: k, ...v }));
+    }
 
     if (Array.isArray(root.data)) return root.data;
-    if (isObj(root.data)) return Object.values(root.data);
+    if (isObj(root.data)) {
+      return Object.entries(root.data)
+        .filter(([, v]) => isObj(v))
+        .map(([k, v]) => ({ modelKey: k, ...v }));
+    }
 
     if (Array.isArray(root.items)) return root.items;
-    if (isObj(root.items)) return Object.values(root.items);
+    if (isObj(root.items)) {
+      return Object.entries(root.items)
+        .filter(([, v]) => isObj(v))
+        .map(([k, v]) => ({ modelKey: k, ...v }));
+    }
 
-    // お前の現状：トップが辞書 { "anthropic/claude-...": {...}, ... }
-    const vals = Object.values(root).filter(isObj);
-    const modelish = vals.filter((v) =>
-      ("overallScore" in v) || ("categoryScores" in v) || ("itemScores" in v) || ("evidenceRef" in v)
-    );
-    if (modelish.length) return modelish;
+    // トップが辞書 { "provider/model": {...}, ... } の形
+    const entries = Object.entries(root).filter(([, v]) => isObj(v));
+    return entries.map(([k, v]) => ({ modelKey: k, ...v }));
   }
 
   return [];
 }
+
+function pickV4Block(m) {
+  if (!isObj(m)) return null;
+
+  const hasTop = ("overallScore" in m) || ("categoryScores" in m) || ("itemScores" in m) || ("evidenceRef" in m);
+  if (hasTop) return null;
+
+  const cands = [
+    m.v4,
+    m.v4Scores,
+    m.scores && m.scores.v4,
+    m.score && m.score.v4,
+    m.scoring && m.scoring.v4,
+    m.analysis && m.analysis.v4,
+    m.result && m.result.v4,
+  ].filter(isObj);
+
+  for (const b of cands) {
+    const ok = ("overallScore" in b) || ("categoryScores" in b) || ("itemScores" in b) || ("evidenceRef" in b);
+    if (ok) return b;
+
+    if (isObj(b.scores)) {
+      const b2 = b.scores;
+      const ok2 = ("overallScore" in b2) || ("categoryScores" in b2) || ("itemScores" in b2) || ("evidenceRef" in b2);
+      if (ok2) return b2;
+    }
+  }
+  return null;
+}
+
+function normalizeModel(m) {
+  if (!isObj(m)) return m;
+
+  const v4 = pickV4Block(m);
+  if (!v4) return m;
+
+  const out = { ...m };
+  for (const [k, v] of Object.entries(v4)) {
+    if (!(k in out)) out[k] = v;
+  }
+
+  if (!("adoptionStatus" in out) && ("adoption" in out)) out.adoptionStatus = out.adoption;
+  if (!("evidenceRef" in out) && ("evidence" in out)) out.evidenceRef = out.evidence;
+
+  return out;
+}
+
 
 function validateEvidenceRef(model, idxLabel) {
   const ev = model.evidenceRef;
@@ -173,7 +257,7 @@ function main() {
     process.exit(1);
   }
 
-  const models = extractModels(root);
+  const models = extractModels(root).map(normalizeModel);
   if (!models.length) {
     fail(`no models found in ${FILE} (shape unexpected)`);
   }
