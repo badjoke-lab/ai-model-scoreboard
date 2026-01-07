@@ -12,7 +12,9 @@
     "check:v4": "node scripts/check_v4_snapshot.mjs",
     "ci": "npm run check:routes && npm run typecheck && next build",
     "v4:validate-output": "node scripts/v4-validate-output.js",
-    "v4:verify": "npm run check:v4"
+    "v4:verify": "npm run check:v4",
+    "test:api-smoke": "node scripts/api-smoke.mjs",
+    "validate:v4": "node scripts/validate-v4-models.js"
   },
   "dependencies": {
     "next": "14.2.3",
