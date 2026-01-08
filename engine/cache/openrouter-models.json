@@ -1,5 +1,60 @@
 [
   {
+    "id": "allenai/olmo-3.1-32b-instruct",
+    "canonical_slug": "allenai/olmo-3.1-32b-instruct-20251215",
+    "hugging_face_id": "allenai/Olmo-3.1-32B-Instruct",
+    "name": "AllenAI: Olmo 3.1 32B Instruct",
+    "created": 1767728554,
+    "description": "Olmo 3.1 32B Instruct is a large-scale, 32-billion-parameter instruction-tuned language model engineered for high-performance conversational AI, multi-turn dialogue, and practical instruction following. As part of the Olmo 3.1 family, this variant emphasizes responsiveness to complex user directions and robust chat interactions while retaining strong capabilities on reasoning and coding benchmarks. Developed by Ai2 under the Apache 2.0 license, Olmo 3.1 32B Instruct reflects the Olmo initiative’s commitment to openness and transparency.",
+    "context_length": 65536,
+    "architecture": {
+      "modality": "text->text",
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other",
+      "instruct_type": null
+    },
+    "pricing": {
+      "prompt": "0.0000002",
+      "completion": "0.0000006",
+      "request": "0",
+      "image": "0",
+      "web_search": "0",
+      "internal_reasoning": "0"
+    },
+    "top_provider": {
+      "context_length": 65536,
+      "max_completion_tokens": null,
+      "is_moderated": false
+    },
+    "per_request_limits": null,
+    "supported_parameters": [
+      "frequency_penalty",
+      "max_tokens",
+      "min_p",
+      "presence_penalty",
+      "repetition_penalty",
+      "response_format",
+      "seed",
+      "stop",
+      "structured_outputs",
+      "temperature",
+      "tool_choice",
+      "tools",
+      "top_k",
+      "top_p"
+    ],
+    "default_parameters": {
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "frequency_penalty": null
+    }
+  },
+  {
     "id": "bytedance-seed/seed-1.6-flash",
     "canonical_slug": "bytedance-seed/seed-1.6-flash-20250625",
     "hugging_face_id": "",

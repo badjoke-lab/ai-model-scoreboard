@@ -2320,6 +2320,217 @@
     },
     "layer": "full"
   },
+  "allenai/olmo-3.1-32b-instruct-20251215": {
+    "name": "AllenAI: Olmo 3.1 32B Instruct",
+    "vendor": "allenai",
+    "released": "2026-01-06T19:42:34.000Z",
+    "context": 65536,
+    "type": "text->text",
+    "pricing": {
+      "input": 2e-7,
+      "output": 6e-7,
+      "currency": "USD"
+    },
+    "scores": {
+      "overall": 69.2204972738461,
+      "categories": {
+        "performance": 66.59750000000001,
+        "safety": 65,
+        "adoption": 72.21000000000001,
+        "openness": 58.333333333333336,
+        "cost": 99.999972738461
+      },
+      "items": {
+        "S1": {
+          "score": 50,
+          "inputs": {
+            "safetySection": true,
+            "highRisk": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S2": {
+          "score": 100,
+          "inputs": {
+            "rlhf": true,
+            "dataDisclosure": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S3": {
+          "score": 0,
+          "inputs": {
+            "misusePolicy": false,
+            "harmMitigation": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S4": {
+          "score": 50,
+          "inputs": {
+            "redTeam": true,
+            "independentAudit": false
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "S5": {
+          "score": 0,
+          "inputs": {
+            "transparencyUpdate": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S6": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_minor_incidents"
+          ]
+        },
+        "S7": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_major_incidents"
+          ]
+        },
+        "S8": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_critical_incidents"
+          ]
+        },
+        "T1": {
+          "score": 66.66666666666666,
+          "inputs": {
+            "modelCard": true,
+            "overview": true,
+            "limitations": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T2": {
+          "score": 100,
+          "inputs": {
+            "dataCategories": true,
+            "dataFiltering": true,
+            "copyright": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T3": {
+          "score": 50,
+          "inputs": {
+            "architecture": true,
+            "parameterScale": false
+          },
+          "usedEvidence": [
+            {
+              "type": "paper",
+              "status": "not_found"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_paper_not_found"
+          ]
+        },
+        "T4": {
+          "score": 25,
+          "inputs": {
+            "safetyControls": true,
+            "riskLimits": false,
+            "externalReview": false,
+            "transparencyReport": false
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "Q1": {
+          "score": 87.34,
+          "inputs": {
+            "benchmark": 87.34
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q2": {
+          "score": 50.88,
+          "inputs": {
+            "benchmark": 50.88
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q3": {
+          "score": 54.56995,
+          "inputs": {
+            "math": 45.82,
+            "chat": 61.66,
+            "arena": 76.91,
+            "vendor": 55.04
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        }
+      }
+    },
+    "layer": "full"
+  },
   "allenai/olmo-3.1-32b-think-20251215": {
     "name": "AllenAI: Olmo 3.1 32B Think",
     "vendor": "allenai",

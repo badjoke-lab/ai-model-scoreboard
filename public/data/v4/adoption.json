@@ -67,6 +67,12 @@
       "source": "openrouter"
     },
     {
+      "modelKey": "allenai/olmo-3.1-32b-instruct-20251215",
+      "name": "AllenAI: Olmo 3.1 32B Instruct",
+      "provider": "allenai",
+      "source": "openrouter"
+    },
+    {
       "modelKey": "allenai/olmo-3.1-32b-think-20251215",
       "name": "AllenAI: Olmo 3.1 32B Think",
       "provider": "allenai",

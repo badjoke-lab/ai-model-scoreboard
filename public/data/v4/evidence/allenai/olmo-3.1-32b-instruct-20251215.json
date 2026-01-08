@@ -1,7 +1,7 @@
 {
   "meta": {
     "updatedAt": "2026-01-08T17:45:30.701Z",
-    "modelKey": "meituan/longcat-flash-chat"
+    "modelKey": "allenai/olmo-3.1-32b-instruct-20251215"
   },
   "evidenceItems": [
     {
@@ -12,10 +12,10 @@
         "openrouter_model_page_only"
       ],
       "refs": [
-        "https://openrouter.ai/models/meituan/longcat-flash-chat"
+        "https://openrouter.ai/models/allenai/olmo-3.1-32b-instruct-20251215"
       ],
       "extracted": {
-        "url": "https://openrouter.ai/models/meituan/longcat-flash-chat"
+        "url": "https://openrouter.ai/models/allenai/olmo-3.1-32b-instruct-20251215"
       }
     },
     {
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Meituan: LongCat Flash Chat\""
+        "arxiv_query:\"AllenAI: Olmo 3.1 32B Instruct\""
       ]
     },
     {

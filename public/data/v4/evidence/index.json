@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-08T16:50:28.084Z",
-    "runId": "20824594918"
+    "updatedAt": "2026-01-08T17:45:30.701Z",
+    "runId": "20826216938"
   },
   "models": [
     {
@@ -48,6 +48,10 @@
     {
       "modelKey": "allenai/olmo-3-7b-think-20251121",
       "path": "evidence/allenai/olmo-3-7b-think-20251121.json"
+    },
+    {
+      "modelKey": "allenai/olmo-3.1-32b-instruct-20251215",
+      "path": "evidence/allenai/olmo-3.1-32b-instruct-20251215.json"
     },
     {
       "modelKey": "allenai/olmo-3.1-32b-think-20251215",

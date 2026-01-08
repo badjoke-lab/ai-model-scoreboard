@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-08T16:50:28.084Z",
+  "updatedAt": "2026-01-08T17:45:30.701Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -31,6 +31,7 @@
       "evidence/allenai/olmo-3-32b-think-20251121.json",
       "evidence/allenai/olmo-3-7b-instruct-20251121.json",
       "evidence/allenai/olmo-3-7b-think-20251121.json",
+      "evidence/allenai/olmo-3.1-32b-instruct-20251215.json",
       "evidence/allenai/olmo-3.1-32b-think-20251215.json",
       "evidence/alpindale/goliath-120b.json",
       "evidence/amazon/nova-2-lite-v1.json",
@@ -347,6 +348,7 @@
       "evidence/allenai/olmo-3-32b-think-20251121.json",
       "evidence/allenai/olmo-3-7b-instruct-20251121.json",
       "evidence/allenai/olmo-3-7b-think-20251121.json",
+      "evidence/allenai/olmo-3.1-32b-instruct-20251215.json",
       "evidence/allenai/olmo-3.1-32b-think-20251215.json",
       "evidence/alpindale/goliath-120b.json",
       "evidence/amazon/nova-2-lite-v1.json",
@@ -652,8 +654,8 @@
       "evidence/z-ai/glm-4.7-20251222.json"
     ]
   },
-  "modelsCount": 314,
-  "fullCount": 299,
+  "modelsCount": 315,
+  "fullCount": 300,
   "provisionalCount": 15,
   "notListedCount": 0
 }

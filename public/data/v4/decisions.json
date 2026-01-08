@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-08T16:50:28.084Z",
+    "generatedAt": "2026-01-08T17:45:30.701Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 314,
-      "adopted": 314,
+      "total": 315,
+      "adopted": 315,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 312,
+        "openrouter": 313,
         "seed": 2
       }
     },
@@ -209,6 +209,23 @@
       "rawRef": {
         "id": "allenai/olmo-3-7b-think",
         "canonical_slug": "allenai/olmo-3-7b-think-20251121"
+      }
+    },
+    {
+      "modelKey": "allenai/olmo-3.1-32b-instruct-20251215",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "AllenAI: Olmo 3.1 32B Instruct",
+        "slug": "allenai/olmo-3.1-32b-instruct-20251215",
+        "provider": "allenai"
+      },
+      "rawRef": {
+        "id": "allenai/olmo-3.1-32b-instruct",
+        "canonical_slug": "allenai/olmo-3.1-32b-instruct-20251215"
       }
     },
     {
