@@ -25959,18 +25959,18 @@
     "context": 196608,
     "type": "text->text",
     "pricing": {
-      "input": 1.2e-7,
-      "output": 4.8e-7,
+      "input": 2.8e-7,
+      "output": 0.0000012,
       "currency": "USD"
     },
     "scores": {
-      "overall": 70.1050381661538,
+      "overall": 70.10503527384606,
       "categories": {
         "performance": 69.68510000000002,
         "safety": 70,
         "adoption": 71.53999999999999,
         "openness": 50,
-        "cost": 99.99998166153809
+        "cost": 99.99995273846059
       },
       "items": {
         "S1": {
@@ -33555,18 +33555,18 @@
     "context": 262144,
     "type": "text->text",
     "pricing": {
-      "input": 3.2e-7,
-      "output": 4.8e-7,
+      "input": 4e-7,
+      "output": 0.00000175,
       "currency": "USD"
     },
     "scores": {
-      "overall": 58.62205662769225,
+      "overall": 58.62205308153834,
       "categories": {
         "performance": 57.72640000000002,
         "safety": 45,
         "adoption": 60.21,
         "openness": 50,
-        "cost": 99.99996627692241
+        "cost": 99.99993081538325
       },
       "items": {
         "S1": {
@@ -56340,18 +56340,18 @@
     "context": 262144,
     "type": "text->text",
     "pricing": {
-      "input": 6e-8,
-      "output": 6e-7,
+      "input": 9e-8,
+      "output": 0.0000011,
       "currency": "USD"
     },
     "scores": {
-      "overall": 64.5330383507692,
+      "overall": 64.53303696615379,
       "categories": {
         "performance": 65.00510000000003,
         "safety": 55,
         "adoption": 58.53999999999999,
         "openness": 58.333333333333336,
-        "cost": 99.99998350769197
+        "cost": 99.99996966153788
       },
       "items": {
         "S1": {
@@ -56762,18 +56762,18 @@
     "context": 262144,
     "type": "text+image->text",
     "pricing": {
-      "input": 1.2e-7,
-      "output": 5.6e-7,
+      "input": 2e-7,
+      "output": 0.0000012,
       "currency": "USD"
     },
     "scores": {
-      "overall": 73.64455798153844,
+      "overall": 73.6445558892307,
       "categories": {
         "performance": 70.04390000000002,
         "safety": 75,
         "adoption": 79.18,
         "openness": 58.333333333333336,
-        "cost": 99.99997981538421
+        "cost": 99.99995889230688
       },
       "items": {
         "S1": {
@@ -66046,18 +66046,18 @@
     "context": 202752,
     "type": "text->text",
     "pricing": {
-      "input": 1.6e-7,
-      "output": 8e-7,
+      "input": 4e-7,
+      "output": 0.0000015,
       "currency": "USD"
     },
     "scores": {
-      "overall": 65.20693711999995,
+      "overall": 65.20693365846142,
       "categories": {
         "performance": 73.50610000000002,
         "safety": 65,
         "adoption": 77.03,
         "openness": 8.333333333333332,
-        "cost": 99.99997119999942
+        "cost": 99.99993658461413
       },
       "items": {
         "S1": {

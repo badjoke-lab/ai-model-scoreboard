@@ -168,7 +168,7 @@
     "layer": "full"
   },
   "qwen/qwen3-vl-235b-a22b-instruct": {
-    "score": 73.64455798153844,
+    "score": 73.6445558892307,
     "layer": "full"
   },
   "google/gemma-3-4b-it": {
@@ -528,7 +528,7 @@
     "layer": "full"
   },
   "minimax/minimax-m2.1": {
-    "score": 70.1050381661538,
+    "score": 70.10503527384606,
     "layer": "full"
   },
   "tngtech/deepseek-r1t2-chimera": {
@@ -976,7 +976,7 @@
     "layer": "full"
   },
   "z-ai/glm-4.7-20251222": {
-    "score": 65.20693711999995,
+    "score": 65.20693365846142,
     "layer": "provisional"
   },
   "qwen/qwen2.5-vl-32b-instruct": {
@@ -1060,7 +1060,7 @@
     "layer": "full"
   },
   "qwen/qwen3-next-80b-a3b-instruct-2509": {
-    "score": 64.5330383507692,
+    "score": 64.53303696615379,
     "layer": "full"
   },
   "deepseek/deepseek-v3.1-terminus": {
@@ -1244,7 +1244,7 @@
     "layer": "full"
   },
   "moonshotai/kimi-k2-thinking-20251106": {
-    "score": 58.62205662769225,
+    "score": 58.62205308153834,
     "layer": "full"
   },
   "nousresearch/hermes-3-llama-3.1-70b": {
