@@ -8676,7 +8676,11 @@
       "top_logprobs",
       "top_p"
     ],
-    "default_parameters": {}
+    "default_parameters": {
+      "temperature": null,
+      "top_p": null,
+      "frequency_penalty": null
+    }
   },
   {
     "id": "x-ai/grok-3",
