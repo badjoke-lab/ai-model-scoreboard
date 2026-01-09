@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-06T14:43:32.995Z",
+    "generatedAt": "2026-01-09T11:33:35.518Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 317,
-      "adopted": 317,
+      "total": 315,
+      "adopted": 315,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 315,
+        "openrouter": 313,
         "seed": 2
       }
     },
@@ -209,6 +209,23 @@
       "rawRef": {
         "id": "allenai/olmo-3-7b-think",
         "canonical_slug": "allenai/olmo-3-7b-think-20251121"
+      }
+    },
+    {
+      "modelKey": "allenai/olmo-3.1-32b-instruct-20251215",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "AllenAI: Olmo 3.1 32B Instruct",
+        "slug": "allenai/olmo-3.1-32b-instruct-20251215",
+        "provider": "allenai"
+      },
+      "rawRef": {
+        "id": "allenai/olmo-3.1-32b-instruct",
+        "canonical_slug": "allenai/olmo-3.1-32b-instruct-20251215"
       }
     },
     {
@@ -1994,57 +2011,6 @@
       "rawRef": {
         "id": "meta-llama/llama-guard-4-12b",
         "canonical_slug": "meta-llama/llama-guard-4-12b"
-      }
-    },
-    {
-      "modelKey": "microsoft/phi-3-medium-128k-instruct",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "Microsoft: Phi-3 Medium 128K Instruct",
-        "slug": "microsoft/phi-3-medium-128k-instruct",
-        "provider": "microsoft"
-      },
-      "rawRef": {
-        "id": "microsoft/phi-3-medium-128k-instruct",
-        "canonical_slug": "microsoft/phi-3-medium-128k-instruct"
-      }
-    },
-    {
-      "modelKey": "microsoft/phi-3-mini-128k-instruct",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "Microsoft: Phi-3 Mini 128K Instruct",
-        "slug": "microsoft/phi-3-mini-128k-instruct",
-        "provider": "microsoft"
-      },
-      "rawRef": {
-        "id": "microsoft/phi-3-mini-128k-instruct",
-        "canonical_slug": "microsoft/phi-3-mini-128k-instruct"
-      }
-    },
-    {
-      "modelKey": "microsoft/phi-3.5-mini-128k-instruct",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "Microsoft: Phi-3.5 Mini 128K Instruct",
-        "slug": "microsoft/phi-3.5-mini-128k-instruct",
-        "provider": "microsoft"
-      },
-      "rawRef": {
-        "id": "microsoft/phi-3.5-mini-128k-instruct",
-        "canonical_slug": "microsoft/phi-3.5-mini-128k-instruct"
       }
     },
     {

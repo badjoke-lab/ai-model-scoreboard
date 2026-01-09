@@ -1,7 +1,7 @@
 {
   "meta": {
-    "updatedAt": "2026-01-06T14:43:32.995Z",
-    "modelKey": "microsoft/phi-3-mini-128k-instruct"
+    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "modelKey": "allenai/olmo-3.1-32b-instruct-20251215"
   },
   "evidenceItems": [
     {
@@ -12,10 +12,10 @@
         "openrouter_model_page_only"
       ],
       "refs": [
-        "https://openrouter.ai/models/microsoft/phi-3-mini-128k-instruct"
+        "https://openrouter.ai/models/allenai/olmo-3.1-32b-instruct-20251215"
       ],
       "extracted": {
-        "url": "https://openrouter.ai/models/microsoft/phi-3-mini-128k-instruct"
+        "url": "https://openrouter.ai/models/allenai/olmo-3.1-32b-instruct-20251215"
       }
     },
     {
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Microsoft: Phi-3 Mini 128K Instruct\""
+        "arxiv_query:\"AllenAI: Olmo 3.1 32B Instruct\""
       ]
     },
     {
