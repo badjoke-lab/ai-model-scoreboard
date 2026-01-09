@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "eleutherai/llemma_7b",
+    "name": "EleutherAI: Llemma 7b",
+    "vendor": "eleutherai"
+  }
 }

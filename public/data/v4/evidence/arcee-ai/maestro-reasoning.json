@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "arcee-ai/maestro-reasoning",
+    "name": "Arcee AI: Maestro Reasoning",
+    "vendor": "arcee-ai"
+  }
 }

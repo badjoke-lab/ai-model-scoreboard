@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "google/gemini-2.5-pro",
+    "name": "Google: Gemini 2.5 Pro",
+    "vendor": "google"
+  }
 }

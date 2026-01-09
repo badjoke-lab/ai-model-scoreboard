@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "amazon/nova-micro-v1",
+    "name": "Amazon: Nova Micro 1.0",
+    "vendor": "amazon"
+  }
 }

@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "morph/morph-v3-fast",
+    "name": "Morph: Morph V3 Fast",
+    "vendor": "morph"
+  }
 }

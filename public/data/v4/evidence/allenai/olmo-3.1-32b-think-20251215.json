@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "allenai/olmo-3.1-32b-think-20251215",
+    "name": "AllenAI: Olmo 3.1 32B Think",
+    "vendor": "allenai"
+  }
 }

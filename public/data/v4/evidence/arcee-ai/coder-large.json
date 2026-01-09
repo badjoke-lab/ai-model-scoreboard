@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "arcee-ai/coder-large",
+    "name": "Arcee AI: Coder Large",
+    "vendor": "arcee-ai"
+  }
 }

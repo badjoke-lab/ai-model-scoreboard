@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "sao10k/l3-lunaris-8b",
+    "name": "Sao10K: Llama 3 8B Lunaris",
+    "vendor": "sao10k"
+  }
 }

@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "meta-llama/llama-3.1-405b",
+    "name": "Meta: Llama 3.1 405B (base)",
+    "vendor": "meta-llama"
+  }
 }

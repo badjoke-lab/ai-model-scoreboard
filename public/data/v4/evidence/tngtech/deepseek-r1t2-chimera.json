@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "tngtech/deepseek-r1t2-chimera",
+    "name": "TNG: DeepSeek R1T2 Chimera (free)",
+    "vendor": "tngtech"
+  }
 }

@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "anthropic/claude-4-sonnet-20250522",
+    "name": "Anthropic: Claude Sonnet 4",
+    "vendor": "anthropic"
+  }
 }

@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "aion-labs/aion-1.0",
+    "name": "AionLabs: Aion-1.0",
+    "vendor": "aion-labs"
+  }
 }

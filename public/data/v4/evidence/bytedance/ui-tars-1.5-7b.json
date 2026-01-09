@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "bytedance/ui-tars-1.5-7b",
+    "name": "ByteDance: UI-TARS 7B",
+    "vendor": "bytedance"
+  }
 }

@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "z-ai/glm-4.5-air",
+    "name": "Z.AI: GLM 4.5 Air (free)",
+    "vendor": "z-ai"
+  }
 }

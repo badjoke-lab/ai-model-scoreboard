@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "openai/o4-mini-deep-research-2025-06-26",
+    "name": "OpenAI: o4 Mini Deep Research",
+    "vendor": "openai"
+  }
 }

@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "z-ai/glm-4-32b-0414",
+    "name": "Z.AI: GLM 4 32B",
+    "vendor": "z-ai"
+  }
 }

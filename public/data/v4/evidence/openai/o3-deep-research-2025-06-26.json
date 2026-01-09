@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "openai/o3-deep-research-2025-06-26",
+    "name": "OpenAI: o3 Deep Research",
+    "vendor": "openai"
+  }
 }

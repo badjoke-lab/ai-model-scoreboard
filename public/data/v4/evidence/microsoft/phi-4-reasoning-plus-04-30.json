@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "microsoft/phi-4-reasoning-plus-04-30",
+    "name": "Microsoft: Phi 4 Reasoning Plus",
+    "vendor": "microsoft"
+  }
 }

@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "gryphe/mythomax-l2-13b",
+    "name": "MythoMax 13B",
+    "vendor": "gryphe"
+  }
 }

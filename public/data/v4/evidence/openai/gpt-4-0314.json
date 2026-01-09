@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "openai/gpt-4-0314",
+    "name": "OpenAI: GPT-4 (older v0314)",
+    "vendor": "openai"
+  }
 }

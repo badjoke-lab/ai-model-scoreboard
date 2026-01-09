@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "openai/o3-mini-high-2025-01-31",
+    "name": "OpenAI: o3 Mini High",
+    "vendor": "openai"
+  }
 }

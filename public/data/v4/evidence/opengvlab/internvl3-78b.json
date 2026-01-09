@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "opengvlab/internvl3-78b",
+    "name": "OpenGVLab: InternVL3 78B",
+    "vendor": "opengvlab"
+  }
 }

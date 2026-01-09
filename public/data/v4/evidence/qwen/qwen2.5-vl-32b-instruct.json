@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "qwen/qwen2.5-vl-32b-instruct",
+    "name": "Qwen: Qwen2.5 VL 32B Instruct",
+    "vendor": "qwen"
+  }
 }

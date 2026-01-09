@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "x-ai/grok-4-07-09",
+    "name": "xAI: Grok 4",
+    "vendor": "x-ai"
+  }
 }

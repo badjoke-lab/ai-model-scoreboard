@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "google/gemma-3-4b-it",
+    "name": "Google: Gemma 3 4B (free)",
+    "vendor": "google"
+  }
 }

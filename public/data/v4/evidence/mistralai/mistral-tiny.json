@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "mistralai/mistral-tiny",
+    "name": "Mistral Tiny",
+    "vendor": "mistralai"
+  }
 }

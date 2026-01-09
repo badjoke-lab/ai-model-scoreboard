@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "nex-agi/deepseek-v3.1-nex-n1",
+    "name": "Nex AGI: DeepSeek V3.1 Nex N1 (free)",
+    "vendor": "nex-agi"
+  }
 }

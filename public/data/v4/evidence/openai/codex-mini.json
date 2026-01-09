@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "openai/codex-mini",
+    "name": "OpenAI: Codex Mini",
+    "vendor": "openai"
+  }
 }

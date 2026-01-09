@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "microsoft/phi-3.5-mini-128k-instruct",
+    "name": "Microsoft: Phi-3.5 Mini 128K Instruct",
+    "vendor": "microsoft"
+  }
 }

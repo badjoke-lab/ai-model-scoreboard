@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "qwen/qwen-turbo-2024-11-01",
+    "name": "Qwen: Qwen-Turbo",
+    "vendor": "qwen"
+  }
 }

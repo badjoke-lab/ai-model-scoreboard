@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "z-ai/glm-4.7-20251222",
+    "name": "Z.AI: GLM 4.7",
+    "vendor": "z-ai"
+  }
 }

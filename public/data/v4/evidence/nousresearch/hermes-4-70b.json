@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "nousresearch/hermes-4-70b",
+    "name": "Nous: Hermes 4 70B",
+    "vendor": "nousresearch"
+  }
 }

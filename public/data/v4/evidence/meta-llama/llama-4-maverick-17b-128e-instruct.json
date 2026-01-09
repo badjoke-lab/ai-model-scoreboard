@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "meta-llama/llama-4-maverick-17b-128e-instruct",
+    "name": "Meta: Llama 4 Maverick",
+    "vendor": "meta-llama"
+  }
 }

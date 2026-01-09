@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "alibaba/tongyi-deepresearch-30b-a3b",
+    "name": "Tongyi DeepResearch 30B A3B",
+    "vendor": "alibaba"
+  }
 }

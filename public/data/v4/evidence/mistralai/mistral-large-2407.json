@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "mistralai/mistral-large-2407",
+    "name": "Mistral Large 2407",
+    "vendor": "mistralai"
+  }
 }

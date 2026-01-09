@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "google/gemini-3-pro-image-preview-20251120",
+    "name": "Google: Nano Banana Pro (Gemini 3 Pro Image Preview)",
+    "vendor": "google"
+  }
 }

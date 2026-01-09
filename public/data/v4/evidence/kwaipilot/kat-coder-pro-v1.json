@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "kwaipilot/kat-coder-pro-v1",
+    "name": "Kwaipilot: KAT-Coder-Pro V1 (free)",
+    "vendor": "kwaipilot"
+  }
 }

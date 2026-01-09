@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "deepseek/deepseek-r1-0528",
+    "name": "DeepSeek: R1 0528 (free)",
+    "vendor": "deepseek"
+  }
 }

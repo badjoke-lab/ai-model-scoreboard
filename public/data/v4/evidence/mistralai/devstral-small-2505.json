@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "mistralai/devstral-small-2505",
+    "name": "Mistral: Devstral Small 2505",
+    "vendor": "mistralai"
+  }
 }

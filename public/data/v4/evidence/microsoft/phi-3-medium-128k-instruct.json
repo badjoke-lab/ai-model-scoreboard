@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "microsoft/phi-3-medium-128k-instruct",
+    "name": "Microsoft: Phi-3 Medium 128K Instruct",
+    "vendor": "microsoft"
+  }
 }

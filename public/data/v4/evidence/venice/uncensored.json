@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "venice/uncensored",
+    "name": "Venice: Uncensored (free)",
+    "vendor": "cognitivecomputations"
+  }
 }

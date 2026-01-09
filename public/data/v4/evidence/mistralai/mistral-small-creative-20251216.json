@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "mistralai/mistral-small-creative-20251216",
+    "name": "Mistral: Mistral Small Creative",
+    "vendor": "mistralai"
+  }
 }

@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "anthropic/claude-4.1-opus-20250805",
+    "name": "Anthropic: Claude Opus 4.1",
+    "vendor": "anthropic"
+  }
 }

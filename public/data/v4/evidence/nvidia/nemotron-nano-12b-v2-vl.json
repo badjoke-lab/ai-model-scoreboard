@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "nvidia/nemotron-nano-12b-v2-vl",
+    "name": "NVIDIA: Nemotron Nano 12B 2 VL (free)",
+    "vendor": "nvidia"
+  }
 }

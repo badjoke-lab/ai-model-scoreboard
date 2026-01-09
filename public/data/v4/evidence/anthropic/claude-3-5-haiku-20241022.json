@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "anthropic/claude-3-5-haiku-20241022",
+    "name": "Anthropic: Claude 3.5 Haiku (2024-10-22)",
+    "vendor": "anthropic"
+  }
 }

@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "qwen/qwen-vl-plus",
+    "name": "Qwen: Qwen VL Plus",
+    "vendor": "qwen"
+  }
 }

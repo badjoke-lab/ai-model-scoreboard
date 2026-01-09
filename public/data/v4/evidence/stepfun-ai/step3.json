@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "stepfun-ai/step3",
+    "name": "StepFun: Step3",
+    "vendor": "stepfun-ai"
+  }
 }
