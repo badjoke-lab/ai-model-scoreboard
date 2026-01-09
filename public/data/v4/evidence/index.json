@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-09T22:40:31.896Z",
-    "runId": "20867657490"
+    "updatedAt": "2026-01-09T23:34:15.138Z",
+    "runId": "20868690726"
   },
   "models": [
     {
@@ -32,6 +32,10 @@
     {
       "modelKey": "alibaba/tongyi-deepresearch-30b-a3b",
       "path": "evidence/alibaba/tongyi-deepresearch-30b-a3b.json"
+    },
+    {
+      "modelKey": "allenai/molmo-2-8b-20260109",
+      "path": "evidence/allenai/molmo-2-8b-20260109.json"
     },
     {
       "modelKey": "allenai/olmo-2-0325-32b-instruct",

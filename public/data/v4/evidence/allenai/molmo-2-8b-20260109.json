@@ -1,7 +1,7 @@
 {
   "meta": {
     "updatedAt": "2026-01-09T23:34:15.138Z",
-    "modelKey": "qwen/qwen2.5-coder-7b-instruct"
+    "modelKey": "allenai/molmo-2-8b-20260109"
   },
   "evidenceItems": [
     {
@@ -9,15 +9,13 @@
       "status": "ok",
       "reasons": [
         "ok",
-        "openrouter_model_page",
-        "provider_fallback"
+        "openrouter_model_page_only"
       ],
       "refs": [
-        "https://openrouter.ai/models/qwen/qwen2.5-coder-7b-instruct",
-        "https://qwenlm.ai"
+        "https://openrouter.ai/models/allenai/molmo-2-8b-20260109"
       ],
       "extracted": {
-        "url": "https://qwenlm.ai"
+        "url": "https://openrouter.ai/models/allenai/molmo-2-8b-20260109"
       }
     },
     {
@@ -39,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Qwen: Qwen2.5 Coder 7B Instruct\""
+        "arxiv_query:\"AllenAI: Molmo2 8B (free)\""
       ]
     },
     {

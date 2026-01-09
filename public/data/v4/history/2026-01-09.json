@@ -11,6 +11,10 @@
     "score": 77.60412000000001,
     "layer": "full"
   },
+  "allenai/molmo-2-8b-20260109": {
+    "score": 77.50772,
+    "layer": "full"
+  },
   "meituan/longcat-flash-chat": {
     "score": 77.47797671384612,
     "layer": "full"

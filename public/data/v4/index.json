@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-09T22:40:31.896Z",
+  "updatedAt": "2026-01-09T23:34:15.138Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -27,6 +27,7 @@
       "evidence/aion-labs/aion-rp-llama-3.1-8b.json",
       "evidence/alfredpros/codellama-7b-instruct-solidity.json",
       "evidence/alibaba/tongyi-deepresearch-30b-a3b.json",
+      "evidence/allenai/molmo-2-8b-20260109.json",
       "evidence/allenai/olmo-2-0325-32b-instruct.json",
       "evidence/allenai/olmo-3-32b-think-20251121.json",
       "evidence/allenai/olmo-3-7b-instruct-20251121.json",
@@ -344,6 +345,7 @@
       "evidence/aion-labs/aion-rp-llama-3.1-8b.json",
       "evidence/alfredpros/codellama-7b-instruct-solidity.json",
       "evidence/alibaba/tongyi-deepresearch-30b-a3b.json",
+      "evidence/allenai/molmo-2-8b-20260109.json",
       "evidence/allenai/olmo-2-0325-32b-instruct.json",
       "evidence/allenai/olmo-3-32b-think-20251121.json",
       "evidence/allenai/olmo-3-7b-instruct-20251121.json",
@@ -654,8 +656,8 @@
       "evidence/z-ai/glm-4.7-20251222.json"
     ]
   },
-  "modelsCount": 315,
-  "fullCount": 300,
+  "modelsCount": 316,
+  "fullCount": 301,
   "provisionalCount": 15,
   "notListedCount": 0
 }

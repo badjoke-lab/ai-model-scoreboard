@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-09T22:40:31.896Z",
+    "generatedAt": "2026-01-09T23:34:15.138Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 315,
-      "adopted": 315,
+      "total": 316,
+      "adopted": 316,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 313,
+        "openrouter": 314,
         "seed": 2
       }
     },
@@ -141,6 +141,23 @@
       "rawRef": {
         "id": "alibaba/tongyi-deepresearch-30b-a3b",
         "canonical_slug": "alibaba/tongyi-deepresearch-30b-a3b"
+      }
+    },
+    {
+      "modelKey": "allenai/molmo-2-8b-20260109",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "AllenAI: Molmo2 8B (free)",
+        "slug": "allenai/molmo-2-8b-20260109",
+        "provider": "allenai"
+      },
+      "rawRef": {
+        "id": "allenai/molmo-2-8b:free",
+        "canonical_slug": "allenai/molmo-2-8b-20260109"
       }
     },
     {
