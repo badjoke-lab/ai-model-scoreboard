@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "inflection/inflection-3-pi",
+    "name": "Inflection: Inflection 3 Pi",
+    "vendor": "inflection"
+  }
 }

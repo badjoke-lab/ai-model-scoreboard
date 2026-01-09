@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "relace/relace-search-20251208",
+    "name": "Relace: Relace Search",
+    "vendor": "relace"
+  }
 }

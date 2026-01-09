@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "mistralai/mistral-saba-2502",
+    "name": "Mistral: Saba",
+    "vendor": "mistralai"
+  }
 }

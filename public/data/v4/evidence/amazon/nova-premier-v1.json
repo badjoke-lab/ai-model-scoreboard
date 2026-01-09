@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "amazon/nova-premier-v1",
+    "name": "Amazon: Nova Premier 1.0",
+    "vendor": "amazon"
+  }
 }

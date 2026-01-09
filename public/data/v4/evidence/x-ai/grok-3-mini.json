@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "x-ai/grok-3-mini",
+    "name": "xAI: Grok 3 Mini",
+    "vendor": "x-ai"
+  }
 }

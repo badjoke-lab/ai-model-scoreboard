@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "openrouter/auto",
+    "name": "Auto Router",
+    "vendor": "openrouter"
+  }
 }

@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "openai/o1-2024-12-17",
+    "name": "OpenAI: o1",
+    "vendor": "openai"
+  }
 }

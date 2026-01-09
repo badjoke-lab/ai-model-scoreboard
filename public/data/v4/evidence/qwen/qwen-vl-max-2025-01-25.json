@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "qwen/qwen-vl-max-2025-01-25",
+    "name": "Qwen: Qwen VL Max",
+    "vendor": "qwen"
+  }
 }

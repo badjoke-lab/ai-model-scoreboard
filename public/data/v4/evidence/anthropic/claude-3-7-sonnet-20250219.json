@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "anthropic/claude-3-7-sonnet-20250219",
+    "name": "Anthropic: Claude 3.7 Sonnet (thinking)",
+    "vendor": "anthropic"
+  }
 }

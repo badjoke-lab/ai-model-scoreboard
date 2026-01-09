@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "google/gemini-3-pro-preview-20251117",
+    "name": "Google: Gemini 3 Pro Preview",
+    "vendor": "google"
+  }
 }

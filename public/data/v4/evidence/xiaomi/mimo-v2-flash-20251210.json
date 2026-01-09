@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "xiaomi/mimo-v2-flash-20251210",
+    "name": "Xiaomi: MiMo-V2-Flash (free)",
+    "vendor": "xiaomi"
+  }
 }

@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "arcee-ai/virtuoso-large",
+    "name": "Arcee AI: Virtuoso Large",
+    "vendor": "arcee-ai"
+  }
 }

@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "x-ai/grok-3-beta",
+    "name": "xAI: Grok 3 Beta",
+    "vendor": "x-ai"
+  }
 }

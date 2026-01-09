@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "deepseek/deepseek-r1-0528-qwen3-8b",
+    "name": "DeepSeek: DeepSeek R1 0528 Qwen3 8B",
+    "vendor": "deepseek"
+  }
 }

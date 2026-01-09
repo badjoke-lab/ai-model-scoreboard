@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "perplexity/sonar-pro-search",
+    "name": "Perplexity: Sonar Pro Search",
+    "vendor": "perplexity"
+  }
 }

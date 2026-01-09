@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "mistralai/mistral-small-3.1-24b-instruct-2503",
+    "name": "Mistral: Mistral Small 3.1 24B (free)",
+    "vendor": "mistralai"
+  }
 }

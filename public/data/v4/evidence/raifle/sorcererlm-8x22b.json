@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "raifle/sorcererlm-8x22b",
+    "name": "SorcererLM 8x22B",
+    "vendor": "raifle"
+  }
 }

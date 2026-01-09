@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "minimax/minimax-01",
+    "name": "MiniMax: MiniMax-01",
+    "vendor": "minimax"
+  }
 }

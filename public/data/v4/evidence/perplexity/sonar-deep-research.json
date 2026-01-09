@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "perplexity/sonar-deep-research",
+    "name": "Perplexity: Sonar Deep Research",
+    "vendor": "perplexity"
+  }
 }

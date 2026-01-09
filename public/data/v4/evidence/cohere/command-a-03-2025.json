@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "cohere/command-a-03-2025",
+    "name": "Cohere: Command A",
+    "vendor": "cohere"
+  }
 }

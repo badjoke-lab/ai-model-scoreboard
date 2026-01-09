@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "inception/mercury-coder-small-beta",
+    "name": "Inception: Mercury Coder",
+    "vendor": "inception"
+  }
 }

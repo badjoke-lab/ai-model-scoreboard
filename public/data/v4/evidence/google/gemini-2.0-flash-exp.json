@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "google/gemini-2.0-flash-exp",
+    "name": "Google: Gemini 2.0 Flash Experimental (free)",
+    "vendor": "google"
+  }
 }

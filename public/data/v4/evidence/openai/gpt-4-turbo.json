@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "openai/gpt-4-turbo",
+    "name": "OpenAI: GPT-4 Turbo",
+    "vendor": "openai"
+  }
 }

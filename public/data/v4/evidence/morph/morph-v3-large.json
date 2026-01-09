@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "morph/morph-v3-large",
+    "name": "Morph: Morph V3 Large",
+    "vendor": "morph"
+  }
 }

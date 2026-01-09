@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "anthracite-org/magnum-v4-72b",
+    "name": "Magnum v4 72B",
+    "vendor": "anthracite-org"
+  }
 }

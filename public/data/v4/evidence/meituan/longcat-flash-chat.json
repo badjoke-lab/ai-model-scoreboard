@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "meituan/longcat-flash-chat",
+    "name": "Meituan: LongCat Flash Chat",
+    "vendor": "meituan"
+  }
 }

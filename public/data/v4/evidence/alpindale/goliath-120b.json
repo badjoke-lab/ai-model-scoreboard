@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "alpindale/goliath-120b",
+    "name": "Goliath 120B",
+    "vendor": "alpindale"
+  }
 }

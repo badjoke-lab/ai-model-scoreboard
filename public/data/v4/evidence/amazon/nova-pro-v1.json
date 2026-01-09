@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "amazon/nova-pro-v1",
+    "name": "Amazon: Nova Pro 1.0",
+    "vendor": "amazon"
+  }
 }

@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "undi95/remm-slerp-l2-13b",
+    "name": "ReMM SLERP 13B",
+    "vendor": "undi95"
+  }
 }

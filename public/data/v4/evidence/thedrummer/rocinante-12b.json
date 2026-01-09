@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "thedrummer/rocinante-12b",
+    "name": "TheDrummer: Rocinante 12B",
+    "vendor": "thedrummer"
+  }
 }

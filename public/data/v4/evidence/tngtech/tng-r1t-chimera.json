@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "tngtech/tng-r1t-chimera",
+    "name": "TNG: R1T Chimera (free)",
+    "vendor": "tngtech"
+  }
 }

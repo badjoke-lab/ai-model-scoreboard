@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "mistralai/mistral-medium-3",
+    "name": "Mistral: Mistral Medium 3",
+    "vendor": "mistralai"
+  }
 }

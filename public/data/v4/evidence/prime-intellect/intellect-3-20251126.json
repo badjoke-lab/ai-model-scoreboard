@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "prime-intellect/intellect-3-20251126",
+    "name": "Prime Intellect: INTELLECT-3",
+    "vendor": "prime-intellect"
+  }
 }

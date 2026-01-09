@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "openai/o3-pro-2025-06-10",
+    "name": "OpenAI: o3 Pro",
+    "vendor": "openai"
+  }
 }

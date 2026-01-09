@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "arcee-ai/trinity-mini-20251201",
+    "name": "Arcee AI: Trinity Mini (free)",
+    "vendor": "arcee-ai"
+  }
 }

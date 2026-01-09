@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "arcee-ai/spotlight",
+    "name": "Arcee AI: Spotlight",
+    "vendor": "arcee-ai"
+  }
 }

@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "amazon/nova-2-lite-v1",
+    "name": "Amazon: Nova 2 Lite",
+    "vendor": "amazon"
+  }
 }

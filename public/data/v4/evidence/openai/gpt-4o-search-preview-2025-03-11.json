@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "openai/gpt-4o-search-preview-2025-03-11",
+    "name": "OpenAI: GPT-4o Search Preview",
+    "vendor": "openai"
+  }
 }

@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "google/gemini-2.5-flash",
+    "name": "Google: Gemini 2.5 Flash",
+    "vendor": "google"
+  }
 }

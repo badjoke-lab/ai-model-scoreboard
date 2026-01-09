@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "liquid/lfm2-8b-a1b",
+    "name": "LiquidAI/LFM2-8B-A1B",
+    "vendor": "liquid"
+  }
 }

@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "amazon/nova-lite-v1",
+    "name": "Amazon: Nova Lite 1.0",
+    "vendor": "amazon"
+  }
 }

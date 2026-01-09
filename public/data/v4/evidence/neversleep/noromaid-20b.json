@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "neversleep/noromaid-20b",
+    "name": "Noromaid 20B",
+    "vendor": "neversleep"
+  }
 }

@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "bytedance-seed/seed-1.6-flash-20250625",
+    "name": "ByteDance Seed: Seed 1.6 Flash",
+    "vendor": "bytedance-seed"
+  }
 }

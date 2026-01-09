@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "openai/gpt-oss-120b",
+    "name": "OpenAI: gpt-oss-120b (free)",
+    "vendor": "openai"
+  }
 }

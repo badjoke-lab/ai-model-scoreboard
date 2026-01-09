@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "moonshotai/kimi-k2",
+    "name": "MoonshotAI: Kimi K2 0711 (free)",
+    "vendor": "moonshotai"
+  }
 }

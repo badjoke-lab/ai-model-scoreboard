@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "microsoft/wizardlm-2-8x22b",
+    "name": "WizardLM-2 8x22B",
+    "vendor": "microsoft"
+  }
 }

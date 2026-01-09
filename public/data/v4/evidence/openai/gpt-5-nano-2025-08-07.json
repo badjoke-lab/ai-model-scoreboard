@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "openai/gpt-5-nano-2025-08-07",
+    "name": "OpenAI: GPT-5 Nano",
+    "vendor": "openai"
+  }
 }

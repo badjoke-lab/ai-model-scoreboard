@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "moonshotai/kimi-k2-thinking-20251106",
+    "name": "MoonshotAI: Kimi K2 Thinking",
+    "vendor": "moonshotai"
+  }
 }

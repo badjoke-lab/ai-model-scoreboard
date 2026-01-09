@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "google/gemma-3n-e2b-it",
+    "name": "Google: Gemma 3n 2B (free)",
+    "vendor": "google"
+  }
 }

@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "qwen/qwen3-32b-04-28",
+    "name": "Qwen: Qwen3 32B",
+    "vendor": "qwen"
+  }
 }

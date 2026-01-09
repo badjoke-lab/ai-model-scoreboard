@@ -53,5 +53,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "openai/chatgpt-4o-latest",
+    "name": "OpenAI: ChatGPT-4o",
+    "vendor": "openai"
+  }
 }

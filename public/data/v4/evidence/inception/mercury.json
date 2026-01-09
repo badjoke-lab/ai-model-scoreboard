@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "inception/mercury",
+    "name": "Inception: Mercury",
+    "vendor": "inception"
+  }
 }

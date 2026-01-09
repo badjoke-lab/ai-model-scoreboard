@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "x-ai/grok-code-fast-1",
+    "name": "xAI: Grok Code Fast 1",
+    "vendor": "x-ai"
+  }
 }

@@ -51,5 +51,10 @@
         "missing:audit_link"
       ]
     }
-  ]
+  ],
+  "identity": {
+    "modelKey": "mistralai/pixtral-12b",
+    "name": "Mistral: Pixtral 12B",
+    "vendor": "mistralai"
+  }
 }
