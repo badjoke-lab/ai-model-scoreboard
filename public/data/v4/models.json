@@ -34815,24 +34815,24 @@
     "layer": "full"
   },
   "nex-agi/deepseek-v3.1-nex-n1": {
-    "name": "Nex AGI: DeepSeek V3.1 Nex N1 (free)",
+    "name": "Nex AGI: DeepSeek V3.1 Nex N1",
     "vendor": "nex-agi",
     "released": "2025-12-08T14:33:13.000Z",
     "context": 131072,
     "type": "text->text",
     "pricing": {
-      "input": 0,
-      "output": 0,
+      "input": 2.7e-7,
+      "output": 0.000001,
       "currency": "USD"
     },
     "scores": {
-      "overall": 72.45942000000001,
+      "overall": 72.45941571384611,
       "categories": {
         "performance": 77.21480000000001,
         "safety": 65,
         "adoption": 90.49,
         "openness": 33.33333333333333,
-        "cost": 100
+        "cost": 99.9999571384611
       },
       "items": {
         "S1": {

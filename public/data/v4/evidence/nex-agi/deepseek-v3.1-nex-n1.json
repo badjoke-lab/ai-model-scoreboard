@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T16:47:56.604Z",
+    "updatedAt": "2026-01-09T17:42:08.035Z",
     "modelKey": "nex-agi/deepseek-v3.1-nex-n1"
   },
   "evidenceItems": [
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Nex AGI: DeepSeek V3.1 Nex N1 (free)\""
+        "arxiv_query:\"Nex AGI: DeepSeek V3.1 Nex N1\""
       ]
     },
     {

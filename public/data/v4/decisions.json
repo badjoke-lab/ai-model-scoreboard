@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-09T16:47:56.604Z",
+    "generatedAt": "2026-01-09T17:42:08.035Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -2837,12 +2837,12 @@
         "meets required fields"
       ],
       "normalized": {
-        "name": "Nex AGI: DeepSeek V3.1 Nex N1 (free)",
+        "name": "Nex AGI: DeepSeek V3.1 Nex N1",
         "slug": "nex-agi/deepseek-v3.1-nex-n1",
         "provider": "nex-agi"
       },
       "rawRef": {
-        "id": "nex-agi/deepseek-v3.1-nex-n1:free",
+        "id": "nex-agi/deepseek-v3.1-nex-n1",
         "canonical_slug": "nex-agi/deepseek-v3.1-nex-n1"
       }
     },
