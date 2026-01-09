@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "aion-labs/aion-rp-llama-3.1-8b"
   },
   "evidenceItems": [
@@ -51,10 +51,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "aion-labs/aion-rp-llama-3.1-8b",
-    "name": "AionLabs: Aion-RP 1.0 (8B)",
-    "vendor": "aion-labs"
-  }
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "deepseek/deepseek-v3.1-terminus"
   },
   "evidenceItems": [
@@ -53,10 +53,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "deepseek/deepseek-v3.1-terminus",
-    "name": "DeepSeek: DeepSeek V3.1 Terminus (exacto)",
-    "vendor": "deepseek"
-  }
+  ]
 }

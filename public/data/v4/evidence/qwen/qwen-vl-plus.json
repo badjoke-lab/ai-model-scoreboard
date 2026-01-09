@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "qwen/qwen-vl-plus"
   },
   "evidenceItems": [
@@ -53,10 +53,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "qwen/qwen-vl-plus",
-    "name": "Qwen: Qwen VL Plus",
-    "vendor": "qwen"
-  }
+  ]
 }

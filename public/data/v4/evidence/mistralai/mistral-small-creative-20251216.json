@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "mistralai/mistral-small-creative-20251216"
   },
   "evidenceItems": [
@@ -51,10 +51,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "mistralai/mistral-small-creative-20251216",
-    "name": "Mistral: Mistral Small Creative",
-    "vendor": "mistralai"
-  }
+  ]
 }

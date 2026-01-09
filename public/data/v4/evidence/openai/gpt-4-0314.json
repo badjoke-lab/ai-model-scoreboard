@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "openai/gpt-4-0314"
   },
   "evidenceItems": [
@@ -53,10 +53,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "openai/gpt-4-0314",
-    "name": "OpenAI: GPT-4 (older v0314)",
-    "vendor": "openai"
-  }
+  ]
 }

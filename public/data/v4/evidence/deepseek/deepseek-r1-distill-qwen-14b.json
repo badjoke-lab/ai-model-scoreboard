@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "deepseek/deepseek-r1-distill-qwen-14b"
   },
   "evidenceItems": [
@@ -53,10 +53,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "deepseek/deepseek-r1-distill-qwen-14b",
-    "name": "DeepSeek: R1 Distill Qwen 14B",
-    "vendor": "deepseek"
-  }
+  ]
 }

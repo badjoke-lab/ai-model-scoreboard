@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "sao10k/l3.3-euryale-70b-v2.3"
   },
   "evidenceItems": [
@@ -51,10 +51,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "sao10k/l3.3-euryale-70b-v2.3",
-    "name": "Sao10K: Llama 3.3 Euryale 70B",
-    "vendor": "sao10k"
-  }
+  ]
 }

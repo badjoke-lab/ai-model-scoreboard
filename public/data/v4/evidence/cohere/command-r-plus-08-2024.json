@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "cohere/command-r-plus-08-2024"
   },
   "evidenceItems": [
@@ -53,10 +53,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "cohere/command-r-plus-08-2024",
-    "name": "Cohere: Command R+ (08-2024)",
-    "vendor": "cohere"
-  }
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "mistralai/mistral-7b-instruct-v0.1"
   },
   "evidenceItems": [
@@ -51,10 +51,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "mistralai/mistral-7b-instruct-v0.1",
-    "name": "Mistral: Mistral 7B Instruct v0.1",
-    "vendor": "mistralai"
-  }
+  ]
 }

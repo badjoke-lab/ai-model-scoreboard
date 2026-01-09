@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "meta-llama/llama-guard-4-12b"
   },
   "evidenceItems": [
@@ -51,10 +51,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "meta-llama/llama-guard-4-12b",
-    "name": "Meta: Llama Guard 4 12B",
-    "vendor": "meta-llama"
-  }
+  ]
 }

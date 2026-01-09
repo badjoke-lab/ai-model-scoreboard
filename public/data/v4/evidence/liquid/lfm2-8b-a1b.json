@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "liquid/lfm2-8b-a1b"
   },
   "evidenceItems": [
@@ -51,10 +51,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "liquid/lfm2-8b-a1b",
-    "name": "LiquidAI/LFM2-8B-A1B",
-    "vendor": "liquid"
-  }
+  ]
 }

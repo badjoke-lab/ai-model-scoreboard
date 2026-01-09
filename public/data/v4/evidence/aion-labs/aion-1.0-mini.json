@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "aion-labs/aion-1.0-mini"
   },
   "evidenceItems": [
@@ -51,10 +51,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "aion-labs/aion-1.0-mini",
-    "name": "AionLabs: Aion-1.0-Mini",
-    "vendor": "aion-labs"
-  }
+  ]
 }

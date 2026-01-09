@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "opengvlab/internvl3-78b"
   },
   "evidenceItems": [
@@ -51,10 +51,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "opengvlab/internvl3-78b",
-    "name": "OpenGVLab: InternVL3 78B",
-    "vendor": "opengvlab"
-  }
+  ]
 }

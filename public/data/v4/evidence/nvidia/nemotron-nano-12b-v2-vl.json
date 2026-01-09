@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "nvidia/nemotron-nano-12b-v2-vl"
   },
   "evidenceItems": [
@@ -51,10 +51,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "nvidia/nemotron-nano-12b-v2-vl",
-    "name": "NVIDIA: Nemotron Nano 12B 2 VL (free)",
-    "vendor": "nvidia"
-  }
+  ]
 }

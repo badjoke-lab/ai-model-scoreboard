@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "google/gemini-3-flash-preview-20251217"
   },
   "evidenceItems": [
@@ -53,10 +53,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "google/gemini-3-flash-preview-20251217",
-    "name": "Google: Gemini 3 Flash Preview",
-    "vendor": "google"
-  }
+  ]
 }

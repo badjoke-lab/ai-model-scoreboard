@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "qwen/qwen-2-vl-7b-instruct"
   },
   "evidenceItems": [
@@ -53,10 +53,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "qwen/qwen-2-vl-7b-instruct",
-    "name": "Qwen: Qwen2.5-VL 7B Instruct (free)",
-    "vendor": "qwen"
-  }
+  ]
 }

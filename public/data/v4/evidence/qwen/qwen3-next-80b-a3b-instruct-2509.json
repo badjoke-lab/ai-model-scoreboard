@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "qwen/qwen3-next-80b-a3b-instruct-2509"
   },
   "evidenceItems": [
@@ -53,10 +53,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "qwen/qwen3-next-80b-a3b-instruct-2509",
-    "name": "Qwen: Qwen3 Next 80B A3B Instruct",
-    "vendor": "qwen"
-  }
+  ]
 }

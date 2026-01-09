@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "ai21/jamba-large-1.7"
   },
   "evidenceItems": [
@@ -51,10 +51,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "ai21/jamba-large-1.7",
-    "name": "AI21: Jamba Large 1.7",
-    "vendor": "ai21"
-  }
+  ]
 }

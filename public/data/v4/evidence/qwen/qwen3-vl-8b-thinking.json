@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "qwen/qwen3-vl-8b-thinking"
   },
   "evidenceItems": [
@@ -53,10 +53,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "qwen/qwen3-vl-8b-thinking",
-    "name": "Qwen: Qwen3 VL 8B Thinking",
-    "vendor": "qwen"
-  }
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "allenai/olmo-3.1-32b-instruct-20251215"
   },
   "evidenceItems": [
@@ -51,10 +51,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "microsoft/phi-3-mini-128k-instruct",
-    "name": "Microsoft: Phi-3 Mini 128K Instruct",
-    "vendor": "microsoft"
-  }
+  ]
 }

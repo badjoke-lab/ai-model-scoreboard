@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "nousresearch/hermes-2-pro-llama-3-8b"
   },
   "evidenceItems": [
@@ -51,10 +51,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "nousresearch/hermes-2-pro-llama-3-8b",
-    "name": "NousResearch: Hermes 2 Pro - Llama-3 8B",
-    "vendor": "nousresearch"
-  }
+  ]
 }

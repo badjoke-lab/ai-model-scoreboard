@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-09T11:33:35.518Z",
+    "updatedAt": "2026-01-09T13:08:22.144Z",
     "modelKey": "google/gemini-2.5-flash-lite"
   },
   "evidenceItems": [
@@ -53,10 +53,5 @@
         "missing:audit_link"
       ]
     }
-  ],
-  "identity": {
-    "modelKey": "google/gemini-2.5-flash-lite",
-    "name": "Google: Gemini 2.5 Flash Lite",
-    "vendor": "google"
-  }
+  ]
 }
