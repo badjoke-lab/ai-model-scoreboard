@@ -44,7 +44,7 @@
     },
     {
       "modelKey": "allenai/molmo-2-8b-20260109",
-      "name": "AllenAI: Molmo2 8B",
+      "name": "AllenAI: Molmo2 8B (free)",
       "provider": "allenai",
       "source": "openrouter"
     },

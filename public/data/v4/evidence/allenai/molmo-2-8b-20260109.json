@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-10T04:05:50.302Z",
+    "updatedAt": "2026-01-10T04:48:33.705Z",
     "modelKey": "allenai/molmo-2-8b-20260109"
   },
   "evidenceItems": [
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"AllenAI: Molmo2 8B\""
+        "arxiv_query:\"AllenAI: Molmo2 8B (free)\""
       ]
     },
     {
