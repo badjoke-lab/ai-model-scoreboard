@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-09T23:34:15.138Z",
+    "generatedAt": "2026-01-10T02:25:03.225Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -151,12 +151,12 @@
         "meets required fields"
       ],
       "normalized": {
-        "name": "AllenAI: Molmo2 8B (free)",
+        "name": "AllenAI: Molmo2 8B",
         "slug": "allenai/molmo-2-8b-20260109",
         "provider": "allenai"
       },
       "rawRef": {
-        "id": "allenai/molmo-2-8b:free",
+        "id": "allenai/molmo-2-8b",
         "canonical_slug": "allenai/molmo-2-8b-20260109"
       }
     },
