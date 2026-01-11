@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-10T23:33:12.024Z",
+    "generatedAt": "2026-01-11T02:40:40.743Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -1681,12 +1681,12 @@
         "meets required fields"
       ],
       "normalized": {
-        "name": "Kwaipilot: KAT-Coder-Pro V1 (free)",
+        "name": "Kwaipilot: KAT-Coder-Pro V1",
         "slug": "kwaipilot/kat-coder-pro-v1",
         "provider": "kwaipilot"
       },
       "rawRef": {
-        "id": "kwaipilot/kat-coder-pro:free",
+        "id": "kwaipilot/kat-coder-pro",
         "canonical_slug": "kwaipilot/kat-coder-pro-v1"
       }
     },

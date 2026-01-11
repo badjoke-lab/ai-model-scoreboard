@@ -20467,24 +20467,24 @@
     "layer": "full"
   },
   "kwaipilot/kat-coder-pro-v1": {
-    "name": "Kwaipilot: KAT-Coder-Pro V1 (free)",
+    "name": "Kwaipilot: KAT-Coder-Pro V1",
     "vendor": "kwaipilot",
     "released": "2025-11-10T03:38:32.000Z",
     "context": 256000,
     "type": "text->text",
     "pricing": {
-      "input": 0,
-      "output": 0,
+      "input": 2.07e-7,
+      "output": 8.28e-7,
       "currency": "USD"
     },
     "scores": {
-      "overall": 73.97648000000001,
+      "overall": 73.97647659538458,
       "categories": {
         "performance": 71.7687,
         "safety": 75,
         "adoption": 93.46000000000001,
         "openness": 41.66666666666667,
-        "cost": 100
+        "cost": 99.99996595384582
       },
       "items": {
         "S1": {

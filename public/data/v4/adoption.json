@@ -584,7 +584,7 @@
     },
     {
       "modelKey": "kwaipilot/kat-coder-pro-v1",
-      "name": "Kwaipilot: KAT-Coder-Pro V1 (free)",
+      "name": "Kwaipilot: KAT-Coder-Pro V1",
       "provider": "kwaipilot",
       "source": "openrouter"
     },
