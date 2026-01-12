@@ -141,6 +141,58 @@ function normalizeModelsJson() {
     return;
   }
 
+  const evidenceIndexPath = "public/data/v4/evidence/index.json";
+  const decisionsPath = "public/data/v4/decisions.json";
+  const adoptionPath = "public/data/v4/adoption.json";
+
+  const evidenceIndex = fs.existsSync(evidenceIndexPath) ? readJson(evidenceIndexPath) : null;
+  const decisionsRoot = fs.existsSync(decisionsPath) ? readJson(decisionsPath) : null;
+  const adoptionRoot = fs.existsSync(adoptionPath) ? readJson(adoptionPath) : null;
+
+  const evidenceMap = (() => {
+    if (!evidenceIndex || !isObject(evidenceIndex)) return {};
+    const models = evidenceIndex.models;
+    if (Array.isArray(models)) {
+      const out = {};
+      for (const row of models) {
+        if (!isObject(row)) continue;
+        const key = pickFirstStr(row, ["modelKey", "key", "id", "slug"]);
+        const pathValue = pickFirstStr(row, ["path", "file", "rel", "href", "url", "value", "evidence", "index"]);
+        if (key && pathValue) out[key] = pathValue;
+      }
+      return out;
+    }
+    if (isObject(models)) return { ...models };
+    return {};
+  })();
+
+  const adoptionStatusByKey = (() => {
+    const out = {};
+    if (decisionsRoot && isObject(decisionsRoot)) {
+      const rows = Array.isArray(decisionsRoot.decisions) ? decisionsRoot.decisions : Array.isArray(decisionsRoot) ? decisionsRoot : [];
+      for (const row of rows) {
+        if (!isObject(row)) continue;
+        const key = pickFirstStr(row, ["modelKey", "key", "id", "slug"]);
+        const status = pickFirstStr(row, ["status", "adoptionStatus", "adoption"]);
+        if (key && status) out[key] = status;
+      }
+    }
+    if (adoptionRoot && isObject(adoptionRoot)) {
+      const pushRows = (rows, status) => {
+        if (!Array.isArray(rows)) return;
+        for (const row of rows) {
+          if (!isObject(row)) continue;
+          const key = pickFirstStr(row, ["modelKey", "key", "id", "slug"]);
+          if (key && !out[key]) out[key] = status;
+        }
+      };
+      pushRows(adoptionRoot.adopted, "adopted");
+      pushRows(adoptionRoot.provisional, "provisional");
+      pushRows(adoptionRoot.denied, "denied");
+    }
+    return out;
+  })();
+
   const root = readJson(p);
 
   const keyOf = (m) => {
@@ -174,6 +226,66 @@ function normalizeModelsJson() {
     identity: 0,
     absoluteMetrics: 0,
     scoreBreakdown: 0,
+    overallScore: 0,
+    categoryScores: 0,
+    itemScores: 0,
+    scoreReasons: 0,
+    adoptionStatus: 0,
+    evidenceRef: 0,
+  };
+
+  const categoryKeys = ["C1", "C2", "C3", "C4", "C5", "C6", "C7"];
+  const legacyCategoryMap = {
+    performance: "C1",
+    safety: "C2",
+    adoption: "C3",
+    cost: "C4",
+    openness: "C5",
+  };
+
+  const extractItemScores = (items) => {
+    if (!isObject(items)) return {};
+    const out = {};
+    for (const [key, value] of Object.entries(items)) {
+      const score =
+        typeof value === "number"
+          ? value
+          : isObject(value)
+            ? toNumber(value.score ?? value.value ?? value.points ?? value.total)
+            : null;
+      if (typeof score === "number") out[key] = score;
+    }
+    return out;
+  };
+
+  const collectReasonsFromItems = (items, reasons) => {
+    if (!isObject(items)) return;
+    for (const item of Object.values(items)) {
+      if (!isObject(item)) continue;
+      const lists = [
+        item.penaltyReasons,
+        item.reasons,
+        item.reasonCodes,
+        item.reason_codes,
+      ];
+      for (const list of lists) {
+        if (!Array.isArray(list)) continue;
+        for (const entry of list) {
+          if (nonEmptyStr(entry)) reasons.add(entry.trim());
+          if (isObject(entry) && nonEmptyStr(entry.code)) reasons.add(entry.code.trim());
+        }
+      }
+    }
+  };
+
+  const normalizeEvidenceRef = (modelKey) => {
+    const raw = evidenceMap[modelKey];
+    if (!nonEmptyStr(raw)) return null;
+    if (/^https?:\/\//.test(raw)) return raw;
+    const trimmed = raw.trim().replace(/^public\//, "");
+    if (trimmed.startsWith("/")) return trimmed;
+    if (trimmed.startsWith("data/")) return "/" + trimmed;
+    return "/data/v4/" + trimmed.replace(/^\.?\/*/, "");
   };
 
   for (const r of rows) {
@@ -254,6 +366,85 @@ function normalizeModelsJson() {
 
         r.scoreBreakdown = out;
         patched.scoreBreakdown++;
+      }
+    }
+
+    if (typeof r.overallScore !== "number") {
+      const overall =
+        toNumber(r.scoreBreakdown?.overall) ??
+        toNumber(r.scores?.overallScore) ??
+        toNumber(r.scores?.overall) ??
+        toNumber(r.overall) ??
+        0;
+      r.overallScore = overall;
+      patched.overallScore++;
+    }
+
+    if (!isObject(r.categoryScores) || Object.keys(r.categoryScores).length === 0) {
+      const source =
+        (isObject(r.scoreBreakdown?.categories) && r.scoreBreakdown.categories) ||
+        (isObject(r.scoreBreakdown?.scores?.categories) && r.scoreBreakdown.scores.categories) ||
+        (isObject(r.scores?.categories) && r.scores.categories) ||
+        {};
+
+      const out = {};
+      const hasCanonical = categoryKeys.some((k) => Object.prototype.hasOwnProperty.call(source, k));
+      if (hasCanonical) {
+        for (const k of categoryKeys) {
+          const v = toNumber(source[k]) ?? 0;
+          out[k] = v;
+        }
+      } else {
+        for (const [key, value] of Object.entries(source)) {
+          const mapped = legacyCategoryMap[key];
+          if (!mapped) continue;
+          const v = toNumber(value);
+          if (typeof v === "number") out[mapped] = v;
+        }
+        for (const k of categoryKeys) {
+          if (!(k in out)) out[k] = 0;
+        }
+      }
+
+      r.categoryScores = out;
+      patched.categoryScores++;
+    }
+
+    if (!isObject(r.itemScores) || Object.keys(r.itemScores).length === 0) {
+      const items =
+        (isObject(r.scoreBreakdown?.items) && r.scoreBreakdown.items) ||
+        (isObject(r.scoreBreakdown?.scores?.items) && r.scoreBreakdown.scores.items) ||
+        (isObject(r.scores?.items) && r.scores.items) ||
+        {};
+      const out = extractItemScores(items);
+      r.itemScores = Object.fromEntries(Object.keys(out).sort().map((k) => [k, out[k]]));
+      patched.itemScores++;
+    }
+
+    if (!Array.isArray(r.scoreReasons)) {
+      const reasons = new Set();
+      collectReasonsFromItems(r.scores?.items, reasons);
+      collectReasonsFromItems(r.scoreBreakdown?.items, reasons);
+      r.scoreReasons = Array.from(reasons);
+      patched.scoreReasons++;
+    }
+
+    if (!nonEmptyStr(r.adoptionStatus)) {
+      const status =
+        pickFirstStr(r, ["adoptionStatus", "adoption", "status"]) ||
+        adoptionStatusByKey[r.modelKey] ||
+        null;
+      if (nonEmptyStr(status)) {
+        r.adoptionStatus = status;
+        patched.adoptionStatus++;
+      }
+    }
+
+    if (!nonEmptyStr(r.evidenceRef)) {
+      const ref = normalizeEvidenceRef(r.modelKey);
+      if (nonEmptyStr(ref)) {
+        r.evidenceRef = ref;
+        patched.evidenceRef++;
       }
     }
   }

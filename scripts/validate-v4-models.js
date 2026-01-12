@@ -194,6 +194,26 @@ function validateEvidenceRef(model, idxLabel) {
     return;
   }
 
+  if (typeof ev === "string") {
+    const ref = ev.trim();
+    if (ref.length === 0) {
+      fail(`${idxLabel}: evidenceRef empty`);
+      return;
+    }
+    if (!ref.endsWith(".json")) {
+      fail(`${idxLabel}: evidenceRef must point to json (${ref})`);
+      return;
+    }
+    if (/^https?:\/\//.test(ref)) return;
+    const cleaned = ref.replace(/^\/+/, "");
+    const rel = cleaned.startsWith("data/") ? cleaned.replace(/^data\//, "") : cleaned;
+    const localPath = path.resolve(process.cwd(), "public", rel);
+    if (!fs.existsSync(localPath)) {
+      fail(`${idxLabel}: evidenceRef not found on disk (${ref})`);
+    }
+    return;
+  }
+
   const found = new Set();
 
   // evidenceRef が配列でもオブジェクトでも対応
