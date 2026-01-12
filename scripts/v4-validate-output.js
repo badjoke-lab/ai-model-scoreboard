@@ -82,59 +82,25 @@ function extractBestModelArray(root){
 }
 
 function pickFilesFromIndex(idx){
-  // ★最優先：idx.files が指定していて、実ファイルも存在するならそれを使う
-  if (isObject(idx.files)) {
-    const models = idx.files.models;
-    const evidenceIndex = idx.files.evidenceIndex;
-    const okModels = (typeof models === "string") && exists(path.join(V4_DIR, models));
-    const okEvidence = (typeof evidenceIndex === "string") && exists(path.join(V4_DIR, evidenceIndex));
-    if (okModels && okEvidence) return idx.files;
-  }
+  const manifest = isObject(idx?.manifest)
+    ? idx.manifest
+    : isObject(idx?.meta?.manifest)
+      ? idx.meta.manifest
+      : null;
 
-  // 以下は従来どおり（揺れ対応 + fallback）
-  const candidates = [];
-  if (isObject(idx.files)) candidates.push(idx.files);
-  if (isObject(idx.paths)) candidates.push(idx.paths);
-  if (isObject(idx.dataFiles)) candidates.push(idx.dataFiles);
-  if (isObject(idx.outputs)) candidates.push(idx.outputs);
-
-  const direct = {};
-  for (const k of ["models","rankings","adoption","decisions","notListed","evidenceIndex"]) {
-    if (typeof idx[k] === "string") direct[k] = idx[k];
-  }
-  if (Object.keys(direct).length) candidates.push(direct);
-
-  const fallback = {
-    models: "models.json",
-    evidenceIndex: "evidence/index.json",
-    rankings: "rankings.json",
-    adoption: "adoption.json",
-    decisions: "decisions.json",
-    notListed: "not-listed.json",
-  };
-  candidates.push(fallback);
-
-  let best = null;
-  let bestScore = -1;
-  for (const cand of candidates){
-    let score = 0;
-    for (const k of Object.keys(fallback)){
-      const rel = cand[k];
-      if (typeof rel === "string" && exists(path.join(V4_DIR, rel))) score++;
-    }
-    if (score > bestScore){
-      best = cand;
-      bestScore = score;
-    }
-  }
-  return best || fallback;
+  assert(isObject(manifest), "index.json manifest missing (expected manifest or meta.manifest)");
+  assert(typeof manifest.models === "string", "index.json manifest.models missing");
+  assert(typeof manifest.evidenceIndex === "string", "index.json manifest.evidenceIndex missing");
+  return manifest;
 }
 
 function validateIndexJson(idx){
   assert(isObject(idx), "index.json must be an object");
-  assert(isObject(idx.meta), "index.json.meta missing");
-  assert(idx.meta.version === "v4", "index.json.meta.version must be 'v4'");
-  assert(typeof idx.meta.updatedAt === "string", "index.json.meta.updatedAt missing");
+  const meta = isObject(idx.meta) ? idx.meta : {};
+  const version = meta.version ?? idx.version;
+  const updatedAt = meta.updatedAt ?? idx.updatedAt;
+  assert(version === "v4", "index.json version must be 'v4'");
+  assert(typeof updatedAt === "string", "index.json.updatedAt missing");
 }
 
 function validateEvidenceIndex(eIdx){
