@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-11T23:33:18.264Z",
+    "updatedAt": "2026-01-12T02:35:58.012Z",
     "modelKey": "kwaipilot/kat-coder-pro-v1"
   },
   "evidenceItems": [
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Kwaipilot: KAT-Coder-Pro V1 (free)\""
+        "arxiv_query:\"Kwaipilot: KAT-Coder-Pro V1\""
       ]
     },
     {
