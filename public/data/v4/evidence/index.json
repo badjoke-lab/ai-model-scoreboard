@@ -4,1230 +4,312 @@
     "updatedAt": "2026-01-17T14:35:48.447Z",
     "runId": "21095854637"
   },
-  "models": [
-    {
-      "modelKey": "ai21/jamba-large-1.7",
-      "path": "evidence/ai21/jamba-large-1.7.json"
-    },
-    {
-      "modelKey": "ai21/jamba-mini-1.7",
-      "path": "evidence/ai21/jamba-mini-1.7.json"
-    },
-    {
-      "modelKey": "aion-labs/aion-1.0",
-      "path": "evidence/aion-labs/aion-1.0.json"
-    },
-    {
-      "modelKey": "aion-labs/aion-1.0-mini",
-      "path": "evidence/aion-labs/aion-1.0-mini.json"
-    },
-    {
-      "modelKey": "aion-labs/aion-rp-llama-3.1-8b",
-      "path": "evidence/aion-labs/aion-rp-llama-3.1-8b.json"
-    },
-    {
-      "modelKey": "alfredpros/codellama-7b-instruct-solidity",
-      "path": "evidence/alfredpros/codellama-7b-instruct-solidity.json"
-    },
-    {
-      "modelKey": "alibaba/tongyi-deepresearch-30b-a3b",
-      "path": "evidence/alibaba/tongyi-deepresearch-30b-a3b.json"
-    },
-    {
-      "modelKey": "allenai/molmo-2-8b-20260109",
-      "path": "evidence/allenai/molmo-2-8b-20260109.json"
-    },
-    {
-      "modelKey": "allenai/olmo-2-0325-32b-instruct",
-      "path": "evidence/allenai/olmo-2-0325-32b-instruct.json"
-    },
-    {
-      "modelKey": "allenai/olmo-3-32b-think-20251121",
-      "path": "evidence/allenai/olmo-3-32b-think-20251121.json"
-    },
-    {
-      "modelKey": "allenai/olmo-3-7b-instruct-20251121",
-      "path": "evidence/allenai/olmo-3-7b-instruct-20251121.json"
-    },
-    {
-      "modelKey": "allenai/olmo-3-7b-think-20251121",
-      "path": "evidence/allenai/olmo-3-7b-think-20251121.json"
-    },
-    {
-      "modelKey": "allenai/olmo-3.1-32b-instruct-20251215",
-      "path": "evidence/allenai/olmo-3.1-32b-instruct-20251215.json"
-    },
-    {
-      "modelKey": "allenai/olmo-3.1-32b-think-20251215",
-      "path": "evidence/allenai/olmo-3.1-32b-think-20251215.json"
-    },
-    {
-      "modelKey": "alpindale/goliath-120b",
-      "path": "evidence/alpindale/goliath-120b.json"
-    },
-    {
-      "modelKey": "amazon/nova-2-lite-v1",
-      "path": "evidence/amazon/nova-2-lite-v1.json"
-    },
-    {
-      "modelKey": "amazon/nova-lite-v1",
-      "path": "evidence/amazon/nova-lite-v1.json"
-    },
-    {
-      "modelKey": "amazon/nova-micro-v1",
-      "path": "evidence/amazon/nova-micro-v1.json"
-    },
-    {
-      "modelKey": "amazon/nova-premier-v1",
-      "path": "evidence/amazon/nova-premier-v1.json"
-    },
-    {
-      "modelKey": "amazon/nova-pro-v1",
-      "path": "evidence/amazon/nova-pro-v1.json"
-    },
-    {
-      "modelKey": "anthracite-org/magnum-v4-72b",
-      "path": "evidence/anthracite-org/magnum-v4-72b.json"
-    },
-    {
-      "modelKey": "anthropic/claude-3-5-haiku",
-      "path": "evidence/anthropic/claude-3-5-haiku.json"
-    },
-    {
-      "modelKey": "anthropic/claude-3-7-sonnet-20250219",
-      "path": "evidence/anthropic/claude-3-7-sonnet-20250219.json"
-    },
-    {
-      "modelKey": "anthropic/claude-3-haiku",
-      "path": "evidence/anthropic/claude-3-haiku.json"
-    },
-    {
-      "modelKey": "anthropic/claude-3.5-sonnet",
-      "path": "evidence/anthropic/claude-3.5-sonnet.json"
-    },
-    {
-      "modelKey": "anthropic/claude-4-opus-20250522",
-      "path": "evidence/anthropic/claude-4-opus-20250522.json"
-    },
-    {
-      "modelKey": "anthropic/claude-4-sonnet-20250522",
-      "path": "evidence/anthropic/claude-4-sonnet-20250522.json"
-    },
-    {
-      "modelKey": "anthropic/claude-4.1-opus-20250805",
-      "path": "evidence/anthropic/claude-4.1-opus-20250805.json"
-    },
-    {
-      "modelKey": "anthropic/claude-4.5-haiku-20251001",
-      "path": "evidence/anthropic/claude-4.5-haiku-20251001.json"
-    },
-    {
-      "modelKey": "anthropic/claude-4.5-opus-20251124",
-      "path": "evidence/anthropic/claude-4.5-opus-20251124.json"
-    },
-    {
-      "modelKey": "anthropic/claude-4.5-sonnet-20250929",
-      "path": "evidence/anthropic/claude-4.5-sonnet-20250929.json"
-    },
-    {
-      "modelKey": "arcee-ai/coder-large",
-      "path": "evidence/arcee-ai/coder-large.json"
-    },
-    {
-      "modelKey": "arcee-ai/maestro-reasoning",
-      "path": "evidence/arcee-ai/maestro-reasoning.json"
-    },
-    {
-      "modelKey": "arcee-ai/spotlight",
-      "path": "evidence/arcee-ai/spotlight.json"
-    },
-    {
-      "modelKey": "arcee-ai/trinity-mini-20251201",
-      "path": "evidence/arcee-ai/trinity-mini-20251201.json"
-    },
-    {
-      "modelKey": "arcee-ai/virtuoso-large",
-      "path": "evidence/arcee-ai/virtuoso-large.json"
-    },
-    {
-      "modelKey": "baidu/ernie-4.5-21b-a3b",
-      "path": "evidence/baidu/ernie-4.5-21b-a3b.json"
-    },
-    {
-      "modelKey": "baidu/ernie-4.5-21b-a3b-thinking",
-      "path": "evidence/baidu/ernie-4.5-21b-a3b-thinking.json"
-    },
-    {
-      "modelKey": "baidu/ernie-4.5-300b-a47b",
-      "path": "evidence/baidu/ernie-4.5-300b-a47b.json"
-    },
-    {
-      "modelKey": "baidu/ernie-4.5-vl-28b-a3b",
-      "path": "evidence/baidu/ernie-4.5-vl-28b-a3b.json"
-    },
-    {
-      "modelKey": "baidu/ernie-4.5-vl-424b-a47b",
-      "path": "evidence/baidu/ernie-4.5-vl-424b-a47b.json"
-    },
-    {
-      "modelKey": "bytedance-seed/seed-1.6-20250625",
-      "path": "evidence/bytedance-seed/seed-1.6-20250625.json"
-    },
-    {
-      "modelKey": "bytedance-seed/seed-1.6-flash-20250625",
-      "path": "evidence/bytedance-seed/seed-1.6-flash-20250625.json"
-    },
-    {
-      "modelKey": "bytedance/ui-tars-1.5-7b",
-      "path": "evidence/bytedance/ui-tars-1.5-7b.json"
-    },
-    {
-      "modelKey": "cohere/command-a-03-2025",
-      "path": "evidence/cohere/command-a-03-2025.json"
-    },
-    {
-      "modelKey": "cohere/command-r-08-2024",
-      "path": "evidence/cohere/command-r-08-2024.json"
-    },
-    {
-      "modelKey": "cohere/command-r-plus-08-2024",
-      "path": "evidence/cohere/command-r-plus-08-2024.json"
-    },
-    {
-      "modelKey": "cohere/command-r7b-12-2024",
-      "path": "evidence/cohere/command-r7b-12-2024.json"
-    },
-    {
-      "modelKey": "deepcogito/cogito-v2-preview-llama-109b-moe",
-      "path": "evidence/deepcogito/cogito-v2-preview-llama-109b-moe.json"
-    },
-    {
-      "modelKey": "deepcogito/cogito-v2-preview-llama-405b",
-      "path": "evidence/deepcogito/cogito-v2-preview-llama-405b.json"
-    },
-    {
-      "modelKey": "deepcogito/cogito-v2-preview-llama-70b",
-      "path": "evidence/deepcogito/cogito-v2-preview-llama-70b.json"
-    },
-    {
-      "modelKey": "deepcogito/cogito-v2.1-671b-20251118",
-      "path": "evidence/deepcogito/cogito-v2.1-671b-20251118.json"
-    },
-    {
-      "modelKey": "deepseek/deepseek-chat-v3",
-      "path": "evidence/deepseek/deepseek-chat-v3.json"
-    },
-    {
-      "modelKey": "deepseek/deepseek-chat-v3-0324",
-      "path": "evidence/deepseek/deepseek-chat-v3-0324.json"
-    },
-    {
-      "modelKey": "deepseek/deepseek-chat-v3.1",
-      "path": "evidence/deepseek/deepseek-chat-v3.1.json"
-    },
-    {
-      "modelKey": "deepseek/deepseek-r1",
-      "path": "evidence/deepseek/deepseek-r1.json"
-    },
-    {
-      "modelKey": "deepseek/deepseek-r1-0528",
-      "path": "evidence/deepseek/deepseek-r1-0528.json"
-    },
-    {
-      "modelKey": "deepseek/deepseek-r1-distill-llama-70b",
-      "path": "evidence/deepseek/deepseek-r1-distill-llama-70b.json"
-    },
-    {
-      "modelKey": "deepseek/deepseek-r1-distill-qwen-32b",
-      "path": "evidence/deepseek/deepseek-r1-distill-qwen-32b.json"
-    },
-    {
-      "modelKey": "deepseek/deepseek-v3.1-terminus",
-      "path": "evidence/deepseek/deepseek-v3.1-terminus.json"
-    },
-    {
-      "modelKey": "deepseek/deepseek-v3.2-20251201",
-      "path": "evidence/deepseek/deepseek-v3.2-20251201.json"
-    },
-    {
-      "modelKey": "deepseek/deepseek-v3.2-exp",
-      "path": "evidence/deepseek/deepseek-v3.2-exp.json"
-    },
-    {
-      "modelKey": "deepseek/deepseek-v3.2-speciale-20251201",
-      "path": "evidence/deepseek/deepseek-v3.2-speciale-20251201.json"
-    },
-    {
-      "modelKey": "eleutherai/llemma_7b",
-      "path": "evidence/eleutherai/llemma_7b.json"
-    },
-    {
-      "modelKey": "essentialai/rnj-1-instruct",
-      "path": "evidence/essentialai/rnj-1-instruct.json"
-    },
-    {
-      "modelKey": "google/gemini-2.0-flash-001",
-      "path": "evidence/google/gemini-2.0-flash-001.json"
-    },
-    {
-      "modelKey": "google/gemini-2.0-flash-exp",
-      "path": "evidence/google/gemini-2.0-flash-exp.json"
-    },
-    {
-      "modelKey": "google/gemini-2.0-flash-lite-001",
-      "path": "evidence/google/gemini-2.0-flash-lite-001.json"
-    },
-    {
-      "modelKey": "google/gemini-2.5-flash",
-      "path": "evidence/google/gemini-2.5-flash.json"
-    },
-    {
-      "modelKey": "google/gemini-2.5-flash-image",
-      "path": "evidence/google/gemini-2.5-flash-image.json"
-    },
-    {
-      "modelKey": "google/gemini-2.5-flash-lite",
-      "path": "evidence/google/gemini-2.5-flash-lite.json"
-    },
-    {
-      "modelKey": "google/gemini-2.5-flash-lite-preview-09-2025",
-      "path": "evidence/google/gemini-2.5-flash-lite-preview-09-2025.json"
-    },
-    {
-      "modelKey": "google/gemini-2.5-flash-preview-09-2025",
-      "path": "evidence/google/gemini-2.5-flash-preview-09-2025.json"
-    },
-    {
-      "modelKey": "google/gemini-2.5-pro",
-      "path": "evidence/google/gemini-2.5-pro.json"
-    },
-    {
-      "modelKey": "google/gemini-2.5-pro-preview-03-25",
-      "path": "evidence/google/gemini-2.5-pro-preview-03-25.json"
-    },
-    {
-      "modelKey": "google/gemini-2.5-pro-preview-06-05",
-      "path": "evidence/google/gemini-2.5-pro-preview-06-05.json"
-    },
-    {
-      "modelKey": "google/gemini-3-flash-preview-20251217",
-      "path": "evidence/google/gemini-3-flash-preview-20251217.json"
-    },
-    {
-      "modelKey": "google/gemini-3-pro-image-preview-20251120",
-      "path": "evidence/google/gemini-3-pro-image-preview-20251120.json"
-    },
-    {
-      "modelKey": "google/gemini-3-pro-preview-20251117",
-      "path": "evidence/google/gemini-3-pro-preview-20251117.json"
-    },
-    {
-      "modelKey": "google/gemma-2-27b-it",
-      "path": "evidence/google/gemma-2-27b-it.json"
-    },
-    {
-      "modelKey": "google/gemma-2-9b-it",
-      "path": "evidence/google/gemma-2-9b-it.json"
-    },
-    {
-      "modelKey": "google/gemma-3-12b-it",
-      "path": "evidence/google/gemma-3-12b-it.json"
-    },
-    {
-      "modelKey": "google/gemma-3-27b-it",
-      "path": "evidence/google/gemma-3-27b-it.json"
-    },
-    {
-      "modelKey": "google/gemma-3-4b-it",
-      "path": "evidence/google/gemma-3-4b-it.json"
-    },
-    {
-      "modelKey": "google/gemma-3n-e2b-it",
-      "path": "evidence/google/gemma-3n-e2b-it.json"
-    },
-    {
-      "modelKey": "google/gemma-3n-e4b-it",
-      "path": "evidence/google/gemma-3n-e4b-it.json"
-    },
-    {
-      "modelKey": "gryphe/mythomax-l2-13b",
-      "path": "evidence/gryphe/mythomax-l2-13b.json"
-    },
-    {
-      "modelKey": "ibm-granite/granite-4.0-h-micro",
-      "path": "evidence/ibm-granite/granite-4.0-h-micro.json"
-    },
-    {
-      "modelKey": "inception/mercury",
-      "path": "evidence/inception/mercury.json"
-    },
-    {
-      "modelKey": "inception/mercury-coder-small-beta",
-      "path": "evidence/inception/mercury-coder-small-beta.json"
-    },
-    {
-      "modelKey": "inflection/inflection-3-pi",
-      "path": "evidence/inflection/inflection-3-pi.json"
-    },
-    {
-      "modelKey": "inflection/inflection-3-productivity",
-      "path": "evidence/inflection/inflection-3-productivity.json"
-    },
-    {
-      "modelKey": "kwaipilot/kat-coder-pro-v1",
-      "path": "evidence/kwaipilot/kat-coder-pro-v1.json"
-    },
-    {
-      "modelKey": "liquid/lfm-2.2-6b",
-      "path": "evidence/liquid/lfm-2.2-6b.json"
-    },
-    {
-      "modelKey": "liquid/lfm2-8b-a1b",
-      "path": "evidence/liquid/lfm2-8b-a1b.json"
-    },
-    {
-      "modelKey": "mancer/weaver",
-      "path": "evidence/mancer/weaver.json"
-    },
-    {
-      "modelKey": "meituan/longcat-flash-chat",
-      "path": "evidence/meituan/longcat-flash-chat.json"
-    },
-    {
-      "modelKey": "meta-llama/llama-3-70b-instruct",
-      "path": "evidence/meta-llama/llama-3-70b-instruct.json"
-    },
-    {
-      "modelKey": "meta-llama/llama-3-8b-instruct",
-      "path": "evidence/meta-llama/llama-3-8b-instruct.json"
-    },
-    {
-      "modelKey": "meta-llama/llama-3.1-405b",
-      "path": "evidence/meta-llama/llama-3.1-405b.json"
-    },
-    {
-      "modelKey": "meta-llama/llama-3.1-405b-instruct",
-      "path": "evidence/meta-llama/llama-3.1-405b-instruct.json"
-    },
-    {
-      "modelKey": "meta-llama/llama-3.1-70b-instruct",
-      "path": "evidence/meta-llama/llama-3.1-70b-instruct.json"
-    },
-    {
-      "modelKey": "meta-llama/llama-3.1-8b-instruct",
-      "path": "evidence/meta-llama/llama-3.1-8b-instruct.json"
-    },
-    {
-      "modelKey": "meta-llama/llama-3.2-11b-vision-instruct",
-      "path": "evidence/meta-llama/llama-3.2-11b-vision-instruct.json"
-    },
-    {
-      "modelKey": "meta-llama/llama-3.2-1b-instruct",
-      "path": "evidence/meta-llama/llama-3.2-1b-instruct.json"
-    },
-    {
-      "modelKey": "meta-llama/llama-3.2-3b-instruct",
-      "path": "evidence/meta-llama/llama-3.2-3b-instruct.json"
-    },
-    {
-      "modelKey": "meta-llama/llama-3.3-70b-instruct",
-      "path": "evidence/meta-llama/llama-3.3-70b-instruct.json"
-    },
-    {
-      "modelKey": "meta-llama/llama-4-maverick-17b-128e-instruct",
-      "path": "evidence/meta-llama/llama-4-maverick-17b-128e-instruct.json"
-    },
-    {
-      "modelKey": "meta-llama/llama-4-scout-17b-16e-instruct",
-      "path": "evidence/meta-llama/llama-4-scout-17b-16e-instruct.json"
-    },
-    {
-      "modelKey": "meta-llama/llama-guard-2-8b",
-      "path": "evidence/meta-llama/llama-guard-2-8b.json"
-    },
-    {
-      "modelKey": "meta-llama/llama-guard-3-8b",
-      "path": "evidence/meta-llama/llama-guard-3-8b.json"
-    },
-    {
-      "modelKey": "meta-llama/llama-guard-4-12b",
-      "path": "evidence/meta-llama/llama-guard-4-12b.json"
-    },
-    {
-      "modelKey": "microsoft/phi-4",
-      "path": "evidence/microsoft/phi-4.json"
-    },
-    {
-      "modelKey": "microsoft/wizardlm-2-8x22b",
-      "path": "evidence/microsoft/wizardlm-2-8x22b.json"
-    },
-    {
-      "modelKey": "minimax/minimax-01",
-      "path": "evidence/minimax/minimax-01.json"
-    },
-    {
-      "modelKey": "minimax/minimax-m1",
-      "path": "evidence/minimax/minimax-m1.json"
-    },
-    {
-      "modelKey": "minimax/minimax-m2",
-      "path": "evidence/minimax/minimax-m2.json"
-    },
-    {
-      "modelKey": "minimax/minimax-m2.1",
-      "path": "evidence/minimax/minimax-m2.1.json"
-    },
-    {
-      "modelKey": "mistralai/codestral-2508",
-      "path": "evidence/mistralai/codestral-2508.json"
-    },
-    {
-      "modelKey": "mistralai/devstral-2512",
-      "path": "evidence/mistralai/devstral-2512.json"
-    },
-    {
-      "modelKey": "mistralai/devstral-medium-2507",
-      "path": "evidence/mistralai/devstral-medium-2507.json"
-    },
-    {
-      "modelKey": "mistralai/devstral-small-2507",
-      "path": "evidence/mistralai/devstral-small-2507.json"
-    },
-    {
-      "modelKey": "mistralai/ministral-14b-2512",
-      "path": "evidence/mistralai/ministral-14b-2512.json"
-    },
-    {
-      "modelKey": "mistralai/ministral-3b",
-      "path": "evidence/mistralai/ministral-3b.json"
-    },
-    {
-      "modelKey": "mistralai/ministral-3b-2512",
-      "path": "evidence/mistralai/ministral-3b-2512.json"
-    },
-    {
-      "modelKey": "mistralai/ministral-8b",
-      "path": "evidence/mistralai/ministral-8b.json"
-    },
-    {
-      "modelKey": "mistralai/ministral-8b-2512",
-      "path": "evidence/mistralai/ministral-8b-2512.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-7b-instruct",
-      "path": "evidence/mistralai/mistral-7b-instruct.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-7b-instruct-v0.1",
-      "path": "evidence/mistralai/mistral-7b-instruct-v0.1.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-7b-instruct-v0.2",
-      "path": "evidence/mistralai/mistral-7b-instruct-v0.2.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-7b-instruct-v0.3",
-      "path": "evidence/mistralai/mistral-7b-instruct-v0.3.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-large",
-      "path": "evidence/mistralai/mistral-large.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-large-2407",
-      "path": "evidence/mistralai/mistral-large-2407.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-large-2411",
-      "path": "evidence/mistralai/mistral-large-2411.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-large-2512",
-      "path": "evidence/mistralai/mistral-large-2512.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-medium-3",
-      "path": "evidence/mistralai/mistral-medium-3.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-medium-3.1",
-      "path": "evidence/mistralai/mistral-medium-3.1.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-nemo",
-      "path": "evidence/mistralai/mistral-nemo.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-saba-2502",
-      "path": "evidence/mistralai/mistral-saba-2502.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-small-24b-instruct-2501",
-      "path": "evidence/mistralai/mistral-small-24b-instruct-2501.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-small-3.1-24b-instruct-2503",
-      "path": "evidence/mistralai/mistral-small-3.1-24b-instruct-2503.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-small-3.2-24b-instruct-2506",
-      "path": "evidence/mistralai/mistral-small-3.2-24b-instruct-2506.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-small-creative-20251216",
-      "path": "evidence/mistralai/mistral-small-creative-20251216.json"
-    },
-    {
-      "modelKey": "mistralai/mistral-tiny",
-      "path": "evidence/mistralai/mistral-tiny.json"
-    },
-    {
-      "modelKey": "mistralai/mixtral-8x22b-instruct",
-      "path": "evidence/mistralai/mixtral-8x22b-instruct.json"
-    },
-    {
-      "modelKey": "mistralai/mixtral-8x7b-instruct",
-      "path": "evidence/mistralai/mixtral-8x7b-instruct.json"
-    },
-    {
-      "modelKey": "mistralai/pixtral-12b",
-      "path": "evidence/mistralai/pixtral-12b.json"
-    },
-    {
-      "modelKey": "mistralai/pixtral-large-2411",
-      "path": "evidence/mistralai/pixtral-large-2411.json"
-    },
-    {
-      "modelKey": "mistralai/voxtral-small-24b-2507",
-      "path": "evidence/mistralai/voxtral-small-24b-2507.json"
-    },
-    {
-      "modelKey": "moonshotai/kimi-dev-72b",
-      "path": "evidence/moonshotai/kimi-dev-72b.json"
-    },
-    {
-      "modelKey": "moonshotai/kimi-k2",
-      "path": "evidence/moonshotai/kimi-k2.json"
-    },
-    {
-      "modelKey": "moonshotai/kimi-k2-0905",
-      "path": "evidence/moonshotai/kimi-k2-0905.json"
-    },
-    {
-      "modelKey": "moonshotai/kimi-k2-thinking-20251106",
-      "path": "evidence/moonshotai/kimi-k2-thinking-20251106.json"
-    },
-    {
-      "modelKey": "morph/morph-v3-fast",
-      "path": "evidence/morph/morph-v3-fast.json"
-    },
-    {
-      "modelKey": "morph/morph-v3-large",
-      "path": "evidence/morph/morph-v3-large.json"
-    },
-    {
-      "modelKey": "neversleep/llama-3.1-lumimaid-8b",
-      "path": "evidence/neversleep/llama-3.1-lumimaid-8b.json"
-    },
-    {
-      "modelKey": "neversleep/noromaid-20b",
-      "path": "evidence/neversleep/noromaid-20b.json"
-    },
-    {
-      "modelKey": "nex-agi/deepseek-v3.1-nex-n1",
-      "path": "evidence/nex-agi/deepseek-v3.1-nex-n1.json"
-    },
-    {
-      "modelKey": "nousresearch/deephermes-3-mistral-24b-preview",
-      "path": "evidence/nousresearch/deephermes-3-mistral-24b-preview.json"
-    },
-    {
-      "modelKey": "nousresearch/hermes-2-pro-llama-3-8b",
-      "path": "evidence/nousresearch/hermes-2-pro-llama-3-8b.json"
-    },
-    {
-      "modelKey": "nousresearch/hermes-3-llama-3.1-405b",
-      "path": "evidence/nousresearch/hermes-3-llama-3.1-405b.json"
-    },
-    {
-      "modelKey": "nousresearch/hermes-3-llama-3.1-70b",
-      "path": "evidence/nousresearch/hermes-3-llama-3.1-70b.json"
-    },
-    {
-      "modelKey": "nousresearch/hermes-4-405b",
-      "path": "evidence/nousresearch/hermes-4-405b.json"
-    },
-    {
-      "modelKey": "nousresearch/hermes-4-70b",
-      "path": "evidence/nousresearch/hermes-4-70b.json"
-    },
-    {
-      "modelKey": "nvidia/llama-3.1-nemotron-70b-instruct",
-      "path": "evidence/nvidia/llama-3.1-nemotron-70b-instruct.json"
-    },
-    {
-      "modelKey": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
-      "path": "evidence/nvidia/llama-3.1-nemotron-ultra-253b-v1.json"
-    },
-    {
-      "modelKey": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
-      "path": "evidence/nvidia/llama-3.3-nemotron-super-49b-v1.5.json"
-    },
-    {
-      "modelKey": "nvidia/nemotron-3-nano-30b-a3b",
-      "path": "evidence/nvidia/nemotron-3-nano-30b-a3b.json"
-    },
-    {
-      "modelKey": "nvidia/nemotron-nano-12b-v2-vl",
-      "path": "evidence/nvidia/nemotron-nano-12b-v2-vl.json"
-    },
-    {
-      "modelKey": "nvidia/nemotron-nano-9b-v2",
-      "path": "evidence/nvidia/nemotron-nano-9b-v2.json"
-    },
-    {
-      "modelKey": "openai/chatgpt-4o-latest",
-      "path": "evidence/openai/chatgpt-4o-latest.json"
-    },
-    {
-      "modelKey": "openai/gpt-3.5-turbo",
-      "path": "evidence/openai/gpt-3.5-turbo.json"
-    },
-    {
-      "modelKey": "openai/gpt-3.5-turbo-0613",
-      "path": "evidence/openai/gpt-3.5-turbo-0613.json"
-    },
-    {
-      "modelKey": "openai/gpt-3.5-turbo-16k",
-      "path": "evidence/openai/gpt-3.5-turbo-16k.json"
-    },
-    {
-      "modelKey": "openai/gpt-3.5-turbo-instruct",
-      "path": "evidence/openai/gpt-3.5-turbo-instruct.json"
-    },
-    {
-      "modelKey": "openai/gpt-4",
-      "path": "evidence/openai/gpt-4.json"
-    },
-    {
-      "modelKey": "openai/gpt-4-0314",
-      "path": "evidence/openai/gpt-4-0314.json"
-    },
-    {
-      "modelKey": "openai/gpt-4-1106-preview",
-      "path": "evidence/openai/gpt-4-1106-preview.json"
-    },
-    {
-      "modelKey": "openai/gpt-4-turbo",
-      "path": "evidence/openai/gpt-4-turbo.json"
-    },
-    {
-      "modelKey": "openai/gpt-4-turbo-preview",
-      "path": "evidence/openai/gpt-4-turbo-preview.json"
-    },
-    {
-      "modelKey": "openai/gpt-4.1-2025-04-14",
-      "path": "evidence/openai/gpt-4.1-2025-04-14.json"
-    },
-    {
-      "modelKey": "openai/gpt-4.1-mini",
-      "path": "evidence/openai/gpt-4.1-mini.json"
-    },
-    {
-      "modelKey": "openai/gpt-4.1-mini-2025-04-14",
-      "path": "evidence/openai/gpt-4.1-mini-2025-04-14.json"
-    },
-    {
-      "modelKey": "openai/gpt-4.1-nano-2025-04-14",
-      "path": "evidence/openai/gpt-4.1-nano-2025-04-14.json"
-    },
-    {
-      "modelKey": "openai/gpt-4o",
-      "path": "evidence/openai/gpt-4o.json"
-    },
-    {
-      "modelKey": "openai/gpt-4o-2024-05-13",
-      "path": "evidence/openai/gpt-4o-2024-05-13.json"
-    },
-    {
-      "modelKey": "openai/gpt-4o-2024-08-06",
-      "path": "evidence/openai/gpt-4o-2024-08-06.json"
-    },
-    {
-      "modelKey": "openai/gpt-4o-2024-11-20",
-      "path": "evidence/openai/gpt-4o-2024-11-20.json"
-    },
-    {
-      "modelKey": "openai/gpt-4o-audio-preview",
-      "path": "evidence/openai/gpt-4o-audio-preview.json"
-    },
-    {
-      "modelKey": "openai/gpt-4o-mini",
-      "path": "evidence/openai/gpt-4o-mini.json"
-    },
-    {
-      "modelKey": "openai/gpt-4o-mini-2024-07-18",
-      "path": "evidence/openai/gpt-4o-mini-2024-07-18.json"
-    },
-    {
-      "modelKey": "openai/gpt-4o-mini-search-preview-2025-03-11",
-      "path": "evidence/openai/gpt-4o-mini-search-preview-2025-03-11.json"
-    },
-    {
-      "modelKey": "openai/gpt-4o-search-preview-2025-03-11",
-      "path": "evidence/openai/gpt-4o-search-preview-2025-03-11.json"
-    },
-    {
-      "modelKey": "openai/gpt-5-2025-08-07",
-      "path": "evidence/openai/gpt-5-2025-08-07.json"
-    },
-    {
-      "modelKey": "openai/gpt-5-chat-2025-08-07",
-      "path": "evidence/openai/gpt-5-chat-2025-08-07.json"
-    },
-    {
-      "modelKey": "openai/gpt-5-codex",
-      "path": "evidence/openai/gpt-5-codex.json"
-    },
-    {
-      "modelKey": "openai/gpt-5-image",
-      "path": "evidence/openai/gpt-5-image.json"
-    },
-    {
-      "modelKey": "openai/gpt-5-image-mini",
-      "path": "evidence/openai/gpt-5-image-mini.json"
-    },
-    {
-      "modelKey": "openai/gpt-5-mini-2025-08-07",
-      "path": "evidence/openai/gpt-5-mini-2025-08-07.json"
-    },
-    {
-      "modelKey": "openai/gpt-5-nano-2025-08-07",
-      "path": "evidence/openai/gpt-5-nano-2025-08-07.json"
-    },
-    {
-      "modelKey": "openai/gpt-5-pro-2025-10-06",
-      "path": "evidence/openai/gpt-5-pro-2025-10-06.json"
-    },
-    {
-      "modelKey": "openai/gpt-5.1-20251113",
-      "path": "evidence/openai/gpt-5.1-20251113.json"
-    },
-    {
-      "modelKey": "openai/gpt-5.1-chat-20251113",
-      "path": "evidence/openai/gpt-5.1-chat-20251113.json"
-    },
-    {
-      "modelKey": "openai/gpt-5.1-codex-20251113",
-      "path": "evidence/openai/gpt-5.1-codex-20251113.json"
-    },
-    {
-      "modelKey": "openai/gpt-5.1-codex-max-20251204",
-      "path": "evidence/openai/gpt-5.1-codex-max-20251204.json"
-    },
-    {
-      "modelKey": "openai/gpt-5.1-codex-mini-20251113",
-      "path": "evidence/openai/gpt-5.1-codex-mini-20251113.json"
-    },
-    {
-      "modelKey": "openai/gpt-5.2-20251211",
-      "path": "evidence/openai/gpt-5.2-20251211.json"
-    },
-    {
-      "modelKey": "openai/gpt-5.2-chat-20251211",
-      "path": "evidence/openai/gpt-5.2-chat-20251211.json"
-    },
-    {
-      "modelKey": "openai/gpt-5.2-codex-20260114",
-      "path": "evidence/openai/gpt-5.2-codex-20260114.json"
-    },
-    {
-      "modelKey": "openai/gpt-5.2-pro-20251211",
-      "path": "evidence/openai/gpt-5.2-pro-20251211.json"
-    },
-    {
-      "modelKey": "openai/gpt-oss-120b",
-      "path": "evidence/openai/gpt-oss-120b.json"
-    },
-    {
-      "modelKey": "openai/gpt-oss-20b",
-      "path": "evidence/openai/gpt-oss-20b.json"
-    },
-    {
-      "modelKey": "openai/gpt-oss-safeguard-20b",
-      "path": "evidence/openai/gpt-oss-safeguard-20b.json"
-    },
-    {
-      "modelKey": "openai/o1-2024-12-17",
-      "path": "evidence/openai/o1-2024-12-17.json"
-    },
-    {
-      "modelKey": "openai/o1-pro",
-      "path": "evidence/openai/o1-pro.json"
-    },
-    {
-      "modelKey": "openai/o3-2025-04-16",
-      "path": "evidence/openai/o3-2025-04-16.json"
-    },
-    {
-      "modelKey": "openai/o3-deep-research-2025-06-26",
-      "path": "evidence/openai/o3-deep-research-2025-06-26.json"
-    },
-    {
-      "modelKey": "openai/o3-mini-2025-01-31",
-      "path": "evidence/openai/o3-mini-2025-01-31.json"
-    },
-    {
-      "modelKey": "openai/o3-mini-high-2025-01-31",
-      "path": "evidence/openai/o3-mini-high-2025-01-31.json"
-    },
-    {
-      "modelKey": "openai/o3-pro-2025-06-10",
-      "path": "evidence/openai/o3-pro-2025-06-10.json"
-    },
-    {
-      "modelKey": "openai/o4-mini-2025-04-16",
-      "path": "evidence/openai/o4-mini-2025-04-16.json"
-    },
-    {
-      "modelKey": "openai/o4-mini-deep-research-2025-06-26",
-      "path": "evidence/openai/o4-mini-deep-research-2025-06-26.json"
-    },
-    {
-      "modelKey": "openai/o4-mini-high-2025-04-16",
-      "path": "evidence/openai/o4-mini-high-2025-04-16.json"
-    },
-    {
-      "modelKey": "opengvlab/internvl3-78b",
-      "path": "evidence/opengvlab/internvl3-78b.json"
-    },
-    {
-      "modelKey": "openrouter/auto",
-      "path": "evidence/openrouter/auto.json"
-    },
-    {
-      "modelKey": "openrouter/bodybuilder",
-      "path": "evidence/openrouter/bodybuilder.json"
-    },
-    {
-      "modelKey": "perplexity/sonar",
-      "path": "evidence/perplexity/sonar.json"
-    },
-    {
-      "modelKey": "perplexity/sonar-deep-research",
-      "path": "evidence/perplexity/sonar-deep-research.json"
-    },
-    {
-      "modelKey": "perplexity/sonar-pro",
-      "path": "evidence/perplexity/sonar-pro.json"
-    },
-    {
-      "modelKey": "perplexity/sonar-pro-search",
-      "path": "evidence/perplexity/sonar-pro-search.json"
-    },
-    {
-      "modelKey": "perplexity/sonar-reasoning-pro",
-      "path": "evidence/perplexity/sonar-reasoning-pro.json"
-    },
-    {
-      "modelKey": "prime-intellect/intellect-3-20251126",
-      "path": "evidence/prime-intellect/intellect-3-20251126.json"
-    },
-    {
-      "modelKey": "qwen/qwen-2-vl-7b-instruct",
-      "path": "evidence/qwen/qwen-2-vl-7b-instruct.json"
-    },
-    {
-      "modelKey": "qwen/qwen-2.5-72b-instruct",
-      "path": "evidence/qwen/qwen-2.5-72b-instruct.json"
-    },
-    {
-      "modelKey": "qwen/qwen-2.5-7b-instruct",
-      "path": "evidence/qwen/qwen-2.5-7b-instruct.json"
-    },
-    {
-      "modelKey": "qwen/qwen-2.5-coder-32b-instruct",
-      "path": "evidence/qwen/qwen-2.5-coder-32b-instruct.json"
-    },
-    {
-      "modelKey": "qwen/qwen-max-2025-01-25",
-      "path": "evidence/qwen/qwen-max-2025-01-25.json"
-    },
-    {
-      "modelKey": "qwen/qwen-plus-2025-01-25",
-      "path": "evidence/qwen/qwen-plus-2025-01-25.json"
-    },
-    {
-      "modelKey": "qwen/qwen-plus-2025-07-28",
-      "path": "evidence/qwen/qwen-plus-2025-07-28.json"
-    },
-    {
-      "modelKey": "qwen/qwen-turbo-2024-11-01",
-      "path": "evidence/qwen/qwen-turbo-2024-11-01.json"
-    },
-    {
-      "modelKey": "qwen/qwen-vl-max-2025-01-25",
-      "path": "evidence/qwen/qwen-vl-max-2025-01-25.json"
-    },
-    {
-      "modelKey": "qwen/qwen-vl-plus",
-      "path": "evidence/qwen/qwen-vl-plus.json"
-    },
-    {
-      "modelKey": "qwen/qwen2.5-coder-7b-instruct",
-      "path": "evidence/qwen/qwen2.5-coder-7b-instruct.json"
-    },
-    {
-      "modelKey": "qwen/qwen2.5-vl-32b-instruct",
-      "path": "evidence/qwen/qwen2.5-vl-32b-instruct.json"
-    },
-    {
-      "modelKey": "qwen/qwen2.5-vl-72b-instruct",
-      "path": "evidence/qwen/qwen2.5-vl-72b-instruct.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-14b-04-28",
-      "path": "evidence/qwen/qwen3-14b-04-28.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-235b-a22b-04-28",
-      "path": "evidence/qwen/qwen3-235b-a22b-04-28.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-235b-a22b-07-25",
-      "path": "evidence/qwen/qwen3-235b-a22b-07-25.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-235b-a22b-thinking-2507",
-      "path": "evidence/qwen/qwen3-235b-a22b-thinking-2507.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-30b-a3b-04-28",
-      "path": "evidence/qwen/qwen3-30b-a3b-04-28.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-30b-a3b-instruct-2507",
-      "path": "evidence/qwen/qwen3-30b-a3b-instruct-2507.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-30b-a3b-thinking-2507",
-      "path": "evidence/qwen/qwen3-30b-a3b-thinking-2507.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-32b-04-28",
-      "path": "evidence/qwen/qwen3-32b-04-28.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-4b-04-28",
-      "path": "evidence/qwen/qwen3-4b-04-28.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-8b-04-28",
-      "path": "evidence/qwen/qwen3-8b-04-28.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-coder-30b-a3b-instruct",
-      "path": "evidence/qwen/qwen3-coder-30b-a3b-instruct.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-coder-480b-a35b-07-25",
-      "path": "evidence/qwen/qwen3-coder-480b-a35b-07-25.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-coder-flash",
-      "path": "evidence/qwen/qwen3-coder-flash.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-coder-plus",
-      "path": "evidence/qwen/qwen3-coder-plus.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-max",
-      "path": "evidence/qwen/qwen3-max.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-next-80b-a3b-instruct-2509",
-      "path": "evidence/qwen/qwen3-next-80b-a3b-instruct-2509.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-next-80b-a3b-thinking-2509",
-      "path": "evidence/qwen/qwen3-next-80b-a3b-thinking-2509.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-vl-235b-a22b-instruct",
-      "path": "evidence/qwen/qwen3-vl-235b-a22b-instruct.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-vl-235b-a22b-thinking",
-      "path": "evidence/qwen/qwen3-vl-235b-a22b-thinking.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-vl-30b-a3b-instruct",
-      "path": "evidence/qwen/qwen3-vl-30b-a3b-instruct.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-vl-30b-a3b-thinking",
-      "path": "evidence/qwen/qwen3-vl-30b-a3b-thinking.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-vl-32b-instruct",
-      "path": "evidence/qwen/qwen3-vl-32b-instruct.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-vl-8b-instruct",
-      "path": "evidence/qwen/qwen3-vl-8b-instruct.json"
-    },
-    {
-      "modelKey": "qwen/qwen3-vl-8b-thinking",
-      "path": "evidence/qwen/qwen3-vl-8b-thinking.json"
-    },
-    {
-      "modelKey": "qwen/qwq-32b",
-      "path": "evidence/qwen/qwq-32b.json"
-    },
-    {
-      "modelKey": "raifle/sorcererlm-8x22b",
-      "path": "evidence/raifle/sorcererlm-8x22b.json"
-    },
-    {
-      "modelKey": "relace/relace-apply-3",
-      "path": "evidence/relace/relace-apply-3.json"
-    },
-    {
-      "modelKey": "relace/relace-search-20251208",
-      "path": "evidence/relace/relace-search-20251208.json"
-    },
-    {
-      "modelKey": "sao10k/l3-euryale-70b",
-      "path": "evidence/sao10k/l3-euryale-70b.json"
-    },
-    {
-      "modelKey": "sao10k/l3-lunaris-8b",
-      "path": "evidence/sao10k/l3-lunaris-8b.json"
-    },
-    {
-      "modelKey": "sao10k/l3.1-70b-hanami-x1",
-      "path": "evidence/sao10k/l3.1-70b-hanami-x1.json"
-    },
-    {
-      "modelKey": "sao10k/l3.1-euryale-70b",
-      "path": "evidence/sao10k/l3.1-euryale-70b.json"
-    },
-    {
-      "modelKey": "sao10k/l3.3-euryale-70b-v2.3",
-      "path": "evidence/sao10k/l3.3-euryale-70b-v2.3.json"
-    },
-    {
-      "modelKey": "stepfun-ai/step3",
-      "path": "evidence/stepfun-ai/step3.json"
-    },
-    {
-      "modelKey": "switchpoint/router",
-      "path": "evidence/switchpoint/router.json"
-    },
-    {
-      "modelKey": "tencent/hunyuan-a13b-instruct",
-      "path": "evidence/tencent/hunyuan-a13b-instruct.json"
-    },
-    {
-      "modelKey": "thedrummer/cydonia-24b-v4.1",
-      "path": "evidence/thedrummer/cydonia-24b-v4.1.json"
-    },
-    {
-      "modelKey": "thedrummer/rocinante-12b",
-      "path": "evidence/thedrummer/rocinante-12b.json"
-    },
-    {
-      "modelKey": "thedrummer/skyfall-36b-v2",
-      "path": "evidence/thedrummer/skyfall-36b-v2.json"
-    },
-    {
-      "modelKey": "thedrummer/unslopnemo-12b",
-      "path": "evidence/thedrummer/unslopnemo-12b.json"
-    },
-    {
-      "modelKey": "tngtech/deepseek-r1t-chimera",
-      "path": "evidence/tngtech/deepseek-r1t-chimera.json"
-    },
-    {
-      "modelKey": "tngtech/deepseek-r1t2-chimera",
-      "path": "evidence/tngtech/deepseek-r1t2-chimera.json"
-    },
-    {
-      "modelKey": "tngtech/tng-r1t-chimera",
-      "path": "evidence/tngtech/tng-r1t-chimera.json"
-    },
-    {
-      "modelKey": "undi95/remm-slerp-l2-13b",
-      "path": "evidence/undi95/remm-slerp-l2-13b.json"
-    },
-    {
-      "modelKey": "venice/uncensored",
-      "path": "evidence/venice/uncensored.json"
-    },
-    {
-      "modelKey": "x-ai/grok-3",
-      "path": "evidence/x-ai/grok-3.json"
-    },
-    {
-      "modelKey": "x-ai/grok-3-beta",
-      "path": "evidence/x-ai/grok-3-beta.json"
-    },
-    {
-      "modelKey": "x-ai/grok-3-mini",
-      "path": "evidence/x-ai/grok-3-mini.json"
-    },
-    {
-      "modelKey": "x-ai/grok-3-mini-beta",
-      "path": "evidence/x-ai/grok-3-mini-beta.json"
-    },
-    {
-      "modelKey": "x-ai/grok-4-07-09",
-      "path": "evidence/x-ai/grok-4-07-09.json"
-    },
-    {
-      "modelKey": "x-ai/grok-4-fast",
-      "path": "evidence/x-ai/grok-4-fast.json"
-    },
-    {
-      "modelKey": "x-ai/grok-4.1-fast",
-      "path": "evidence/x-ai/grok-4.1-fast.json"
-    },
-    {
-      "modelKey": "x-ai/grok-code-fast-1",
-      "path": "evidence/x-ai/grok-code-fast-1.json"
-    },
-    {
-      "modelKey": "xiaomi/mimo-v2-flash-20251210",
-      "path": "evidence/xiaomi/mimo-v2-flash-20251210.json"
-    },
-    {
-      "modelKey": "z-ai/glm-4-32b-0414",
-      "path": "evidence/z-ai/glm-4-32b-0414.json"
-    },
-    {
-      "modelKey": "z-ai/glm-4.5",
-      "path": "evidence/z-ai/glm-4.5.json"
-    },
-    {
-      "modelKey": "z-ai/glm-4.5-air",
-      "path": "evidence/z-ai/glm-4.5-air.json"
-    },
-    {
-      "modelKey": "z-ai/glm-4.5v",
-      "path": "evidence/z-ai/glm-4.5v.json"
-    },
-    {
-      "modelKey": "z-ai/glm-4.6",
-      "path": "evidence/z-ai/glm-4.6.json"
-    },
-    {
-      "modelKey": "z-ai/glm-4.6-20251208",
-      "path": "evidence/z-ai/glm-4.6-20251208.json"
-    },
-    {
-      "modelKey": "z-ai/glm-4.7-20251222",
-      "path": "evidence/z-ai/glm-4.7-20251222.json"
-    }
-  ]
+  "models": {
+    "ai21/jamba-large-1.7": "evidence/ai21/jamba-large-1.7.json",
+    "ai21/jamba-mini-1.7": "evidence/ai21/jamba-mini-1.7.json",
+    "aion-labs/aion-1.0": "evidence/aion-labs/aion-1.0.json",
+    "aion-labs/aion-1.0-mini": "evidence/aion-labs/aion-1.0-mini.json",
+    "aion-labs/aion-rp-llama-3.1-8b": "evidence/aion-labs/aion-rp-llama-3.1-8b.json",
+    "alfredpros/codellama-7b-instruct-solidity": "evidence/alfredpros/codellama-7b-instruct-solidity.json",
+    "alibaba/tongyi-deepresearch-30b-a3b": "evidence/alibaba/tongyi-deepresearch-30b-a3b.json",
+    "allenai/molmo-2-8b-20260109": "evidence/allenai/molmo-2-8b-20260109.json",
+    "allenai/olmo-2-0325-32b-instruct": "evidence/allenai/olmo-2-0325-32b-instruct.json",
+    "allenai/olmo-3-32b-think-20251121": "evidence/allenai/olmo-3-32b-think-20251121.json",
+    "allenai/olmo-3-7b-instruct-20251121": "evidence/allenai/olmo-3-7b-instruct-20251121.json",
+    "allenai/olmo-3-7b-think-20251121": "evidence/allenai/olmo-3-7b-think-20251121.json",
+    "allenai/olmo-3.1-32b-instruct-20251215": "evidence/allenai/olmo-3.1-32b-instruct-20251215.json",
+    "allenai/olmo-3.1-32b-think-20251215": "evidence/allenai/olmo-3.1-32b-think-20251215.json",
+    "alpindale/goliath-120b": "evidence/alpindale/goliath-120b.json",
+    "amazon/nova-2-lite-v1": "evidence/amazon/nova-2-lite-v1.json",
+    "amazon/nova-lite-v1": "evidence/amazon/nova-lite-v1.json",
+    "amazon/nova-micro-v1": "evidence/amazon/nova-micro-v1.json",
+    "amazon/nova-premier-v1": "evidence/amazon/nova-premier-v1.json",
+    "amazon/nova-pro-v1": "evidence/amazon/nova-pro-v1.json",
+    "anthracite-org/magnum-v4-72b": "evidence/anthracite-org/magnum-v4-72b.json",
+    "anthropic/claude-3-5-haiku": "evidence/anthropic/claude-3-5-haiku.json",
+    "anthropic/claude-3-7-sonnet-20250219": "evidence/anthropic/claude-3-7-sonnet-20250219.json",
+    "anthropic/claude-3-haiku": "evidence/anthropic/claude-3-haiku.json",
+    "anthropic/claude-3.5-sonnet": "evidence/anthropic/claude-3.5-sonnet.json",
+    "anthropic/claude-4-opus-20250522": "evidence/anthropic/claude-4-opus-20250522.json",
+    "anthropic/claude-4-sonnet-20250522": "evidence/anthropic/claude-4-sonnet-20250522.json",
+    "anthropic/claude-4.1-opus-20250805": "evidence/anthropic/claude-4.1-opus-20250805.json",
+    "anthropic/claude-4.5-haiku-20251001": "evidence/anthropic/claude-4.5-haiku-20251001.json",
+    "anthropic/claude-4.5-opus-20251124": "evidence/anthropic/claude-4.5-opus-20251124.json",
+    "anthropic/claude-4.5-sonnet-20250929": "evidence/anthropic/claude-4.5-sonnet-20250929.json",
+    "arcee-ai/coder-large": "evidence/arcee-ai/coder-large.json",
+    "arcee-ai/maestro-reasoning": "evidence/arcee-ai/maestro-reasoning.json",
+    "arcee-ai/spotlight": "evidence/arcee-ai/spotlight.json",
+    "arcee-ai/trinity-mini-20251201": "evidence/arcee-ai/trinity-mini-20251201.json",
+    "arcee-ai/virtuoso-large": "evidence/arcee-ai/virtuoso-large.json",
+    "baidu/ernie-4.5-21b-a3b": "evidence/baidu/ernie-4.5-21b-a3b.json",
+    "baidu/ernie-4.5-21b-a3b-thinking": "evidence/baidu/ernie-4.5-21b-a3b-thinking.json",
+    "baidu/ernie-4.5-300b-a47b": "evidence/baidu/ernie-4.5-300b-a47b.json",
+    "baidu/ernie-4.5-vl-28b-a3b": "evidence/baidu/ernie-4.5-vl-28b-a3b.json",
+    "baidu/ernie-4.5-vl-424b-a47b": "evidence/baidu/ernie-4.5-vl-424b-a47b.json",
+    "bytedance-seed/seed-1.6-20250625": "evidence/bytedance-seed/seed-1.6-20250625.json",
+    "bytedance-seed/seed-1.6-flash-20250625": "evidence/bytedance-seed/seed-1.6-flash-20250625.json",
+    "bytedance/ui-tars-1.5-7b": "evidence/bytedance/ui-tars-1.5-7b.json",
+    "cohere/command-a-03-2025": "evidence/cohere/command-a-03-2025.json",
+    "cohere/command-r-08-2024": "evidence/cohere/command-r-08-2024.json",
+    "cohere/command-r-plus-08-2024": "evidence/cohere/command-r-plus-08-2024.json",
+    "cohere/command-r7b-12-2024": "evidence/cohere/command-r7b-12-2024.json",
+    "deepcogito/cogito-v2-preview-llama-109b-moe": "evidence/deepcogito/cogito-v2-preview-llama-109b-moe.json",
+    "deepcogito/cogito-v2-preview-llama-405b": "evidence/deepcogito/cogito-v2-preview-llama-405b.json",
+    "deepcogito/cogito-v2-preview-llama-70b": "evidence/deepcogito/cogito-v2-preview-llama-70b.json",
+    "deepcogito/cogito-v2.1-671b-20251118": "evidence/deepcogito/cogito-v2.1-671b-20251118.json",
+    "deepseek/deepseek-chat-v3": "evidence/deepseek/deepseek-chat-v3.json",
+    "deepseek/deepseek-chat-v3-0324": "evidence/deepseek/deepseek-chat-v3-0324.json",
+    "deepseek/deepseek-chat-v3.1": "evidence/deepseek/deepseek-chat-v3.1.json",
+    "deepseek/deepseek-r1": "evidence/deepseek/deepseek-r1.json",
+    "deepseek/deepseek-r1-0528": "evidence/deepseek/deepseek-r1-0528.json",
+    "deepseek/deepseek-r1-distill-llama-70b": "evidence/deepseek/deepseek-r1-distill-llama-70b.json",
+    "deepseek/deepseek-r1-distill-qwen-32b": "evidence/deepseek/deepseek-r1-distill-qwen-32b.json",
+    "deepseek/deepseek-v3.1-terminus": "evidence/deepseek/deepseek-v3.1-terminus.json",
+    "deepseek/deepseek-v3.2-20251201": "evidence/deepseek/deepseek-v3.2-20251201.json",
+    "deepseek/deepseek-v3.2-exp": "evidence/deepseek/deepseek-v3.2-exp.json",
+    "deepseek/deepseek-v3.2-speciale-20251201": "evidence/deepseek/deepseek-v3.2-speciale-20251201.json",
+    "eleutherai/llemma_7b": "evidence/eleutherai/llemma_7b.json",
+    "essentialai/rnj-1-instruct": "evidence/essentialai/rnj-1-instruct.json",
+    "google/gemini-2.0-flash-001": "evidence/google/gemini-2.0-flash-001.json",
+    "google/gemini-2.0-flash-exp": "evidence/google/gemini-2.0-flash-exp.json",
+    "google/gemini-2.0-flash-lite-001": "evidence/google/gemini-2.0-flash-lite-001.json",
+    "google/gemini-2.5-flash": "evidence/google/gemini-2.5-flash.json",
+    "google/gemini-2.5-flash-image": "evidence/google/gemini-2.5-flash-image.json",
+    "google/gemini-2.5-flash-lite": "evidence/google/gemini-2.5-flash-lite.json",
+    "google/gemini-2.5-flash-lite-preview-09-2025": "evidence/google/gemini-2.5-flash-lite-preview-09-2025.json",
+    "google/gemini-2.5-flash-preview-09-2025": "evidence/google/gemini-2.5-flash-preview-09-2025.json",
+    "google/gemini-2.5-pro": "evidence/google/gemini-2.5-pro.json",
+    "google/gemini-2.5-pro-preview-03-25": "evidence/google/gemini-2.5-pro-preview-03-25.json",
+    "google/gemini-2.5-pro-preview-06-05": "evidence/google/gemini-2.5-pro-preview-06-05.json",
+    "google/gemini-3-flash-preview-20251217": "evidence/google/gemini-3-flash-preview-20251217.json",
+    "google/gemini-3-pro-image-preview-20251120": "evidence/google/gemini-3-pro-image-preview-20251120.json",
+    "google/gemini-3-pro-preview-20251117": "evidence/google/gemini-3-pro-preview-20251117.json",
+    "google/gemma-2-27b-it": "evidence/google/gemma-2-27b-it.json",
+    "google/gemma-2-9b-it": "evidence/google/gemma-2-9b-it.json",
+    "google/gemma-3-12b-it": "evidence/google/gemma-3-12b-it.json",
+    "google/gemma-3-27b-it": "evidence/google/gemma-3-27b-it.json",
+    "google/gemma-3-4b-it": "evidence/google/gemma-3-4b-it.json",
+    "google/gemma-3n-e2b-it": "evidence/google/gemma-3n-e2b-it.json",
+    "google/gemma-3n-e4b-it": "evidence/google/gemma-3n-e4b-it.json",
+    "gryphe/mythomax-l2-13b": "evidence/gryphe/mythomax-l2-13b.json",
+    "ibm-granite/granite-4.0-h-micro": "evidence/ibm-granite/granite-4.0-h-micro.json",
+    "inception/mercury": "evidence/inception/mercury.json",
+    "inception/mercury-coder-small-beta": "evidence/inception/mercury-coder-small-beta.json",
+    "inflection/inflection-3-pi": "evidence/inflection/inflection-3-pi.json",
+    "inflection/inflection-3-productivity": "evidence/inflection/inflection-3-productivity.json",
+    "kwaipilot/kat-coder-pro-v1": "evidence/kwaipilot/kat-coder-pro-v1.json",
+    "liquid/lfm-2.2-6b": "evidence/liquid/lfm-2.2-6b.json",
+    "liquid/lfm2-8b-a1b": "evidence/liquid/lfm2-8b-a1b.json",
+    "mancer/weaver": "evidence/mancer/weaver.json",
+    "meituan/longcat-flash-chat": "evidence/meituan/longcat-flash-chat.json",
+    "meta-llama/llama-3-70b-instruct": "evidence/meta-llama/llama-3-70b-instruct.json",
+    "meta-llama/llama-3-8b-instruct": "evidence/meta-llama/llama-3-8b-instruct.json",
+    "meta-llama/llama-3.1-405b": "evidence/meta-llama/llama-3.1-405b.json",
+    "meta-llama/llama-3.1-405b-instruct": "evidence/meta-llama/llama-3.1-405b-instruct.json",
+    "meta-llama/llama-3.1-70b-instruct": "evidence/meta-llama/llama-3.1-70b-instruct.json",
+    "meta-llama/llama-3.1-8b-instruct": "evidence/meta-llama/llama-3.1-8b-instruct.json",
+    "meta-llama/llama-3.2-11b-vision-instruct": "evidence/meta-llama/llama-3.2-11b-vision-instruct.json",
+    "meta-llama/llama-3.2-1b-instruct": "evidence/meta-llama/llama-3.2-1b-instruct.json",
+    "meta-llama/llama-3.2-3b-instruct": "evidence/meta-llama/llama-3.2-3b-instruct.json",
+    "meta-llama/llama-3.3-70b-instruct": "evidence/meta-llama/llama-3.3-70b-instruct.json",
+    "meta-llama/llama-4-maverick-17b-128e-instruct": "evidence/meta-llama/llama-4-maverick-17b-128e-instruct.json",
+    "meta-llama/llama-4-scout-17b-16e-instruct": "evidence/meta-llama/llama-4-scout-17b-16e-instruct.json",
+    "meta-llama/llama-guard-2-8b": "evidence/meta-llama/llama-guard-2-8b.json",
+    "meta-llama/llama-guard-3-8b": "evidence/meta-llama/llama-guard-3-8b.json",
+    "meta-llama/llama-guard-4-12b": "evidence/meta-llama/llama-guard-4-12b.json",
+    "microsoft/phi-4": "evidence/microsoft/phi-4.json",
+    "microsoft/wizardlm-2-8x22b": "evidence/microsoft/wizardlm-2-8x22b.json",
+    "minimax/minimax-01": "evidence/minimax/minimax-01.json",
+    "minimax/minimax-m1": "evidence/minimax/minimax-m1.json",
+    "minimax/minimax-m2": "evidence/minimax/minimax-m2.json",
+    "minimax/minimax-m2.1": "evidence/minimax/minimax-m2.1.json",
+    "mistralai/codestral-2508": "evidence/mistralai/codestral-2508.json",
+    "mistralai/devstral-2512": "evidence/mistralai/devstral-2512.json",
+    "mistralai/devstral-medium-2507": "evidence/mistralai/devstral-medium-2507.json",
+    "mistralai/devstral-small-2507": "evidence/mistralai/devstral-small-2507.json",
+    "mistralai/ministral-14b-2512": "evidence/mistralai/ministral-14b-2512.json",
+    "mistralai/ministral-3b": "evidence/mistralai/ministral-3b.json",
+    "mistralai/ministral-3b-2512": "evidence/mistralai/ministral-3b-2512.json",
+    "mistralai/ministral-8b": "evidence/mistralai/ministral-8b.json",
+    "mistralai/ministral-8b-2512": "evidence/mistralai/ministral-8b-2512.json",
+    "mistralai/mistral-7b-instruct": "evidence/mistralai/mistral-7b-instruct.json",
+    "mistralai/mistral-7b-instruct-v0.1": "evidence/mistralai/mistral-7b-instruct-v0.1.json",
+    "mistralai/mistral-7b-instruct-v0.2": "evidence/mistralai/mistral-7b-instruct-v0.2.json",
+    "mistralai/mistral-7b-instruct-v0.3": "evidence/mistralai/mistral-7b-instruct-v0.3.json",
+    "mistralai/mistral-large": "evidence/mistralai/mistral-large.json",
+    "mistralai/mistral-large-2407": "evidence/mistralai/mistral-large-2407.json",
+    "mistralai/mistral-large-2411": "evidence/mistralai/mistral-large-2411.json",
+    "mistralai/mistral-large-2512": "evidence/mistralai/mistral-large-2512.json",
+    "mistralai/mistral-medium-3": "evidence/mistralai/mistral-medium-3.json",
+    "mistralai/mistral-medium-3.1": "evidence/mistralai/mistral-medium-3.1.json",
+    "mistralai/mistral-nemo": "evidence/mistralai/mistral-nemo.json",
+    "mistralai/mistral-saba-2502": "evidence/mistralai/mistral-saba-2502.json",
+    "mistralai/mistral-small-24b-instruct-2501": "evidence/mistralai/mistral-small-24b-instruct-2501.json",
+    "mistralai/mistral-small-3.1-24b-instruct-2503": "evidence/mistralai/mistral-small-3.1-24b-instruct-2503.json",
+    "mistralai/mistral-small-3.2-24b-instruct-2506": "evidence/mistralai/mistral-small-3.2-24b-instruct-2506.json",
+    "mistralai/mistral-small-creative-20251216": "evidence/mistralai/mistral-small-creative-20251216.json",
+    "mistralai/mistral-tiny": "evidence/mistralai/mistral-tiny.json",
+    "mistralai/mixtral-8x22b-instruct": "evidence/mistralai/mixtral-8x22b-instruct.json",
+    "mistralai/mixtral-8x7b-instruct": "evidence/mistralai/mixtral-8x7b-instruct.json",
+    "mistralai/pixtral-12b": "evidence/mistralai/pixtral-12b.json",
+    "mistralai/pixtral-large-2411": "evidence/mistralai/pixtral-large-2411.json",
+    "mistralai/voxtral-small-24b-2507": "evidence/mistralai/voxtral-small-24b-2507.json",
+    "moonshotai/kimi-dev-72b": "evidence/moonshotai/kimi-dev-72b.json",
+    "moonshotai/kimi-k2": "evidence/moonshotai/kimi-k2.json",
+    "moonshotai/kimi-k2-0905": "evidence/moonshotai/kimi-k2-0905.json",
+    "moonshotai/kimi-k2-thinking-20251106": "evidence/moonshotai/kimi-k2-thinking-20251106.json",
+    "morph/morph-v3-fast": "evidence/morph/morph-v3-fast.json",
+    "morph/morph-v3-large": "evidence/morph/morph-v3-large.json",
+    "neversleep/llama-3.1-lumimaid-8b": "evidence/neversleep/llama-3.1-lumimaid-8b.json",
+    "neversleep/noromaid-20b": "evidence/neversleep/noromaid-20b.json",
+    "nex-agi/deepseek-v3.1-nex-n1": "evidence/nex-agi/deepseek-v3.1-nex-n1.json",
+    "nousresearch/deephermes-3-mistral-24b-preview": "evidence/nousresearch/deephermes-3-mistral-24b-preview.json",
+    "nousresearch/hermes-2-pro-llama-3-8b": "evidence/nousresearch/hermes-2-pro-llama-3-8b.json",
+    "nousresearch/hermes-3-llama-3.1-405b": "evidence/nousresearch/hermes-3-llama-3.1-405b.json",
+    "nousresearch/hermes-3-llama-3.1-70b": "evidence/nousresearch/hermes-3-llama-3.1-70b.json",
+    "nousresearch/hermes-4-405b": "evidence/nousresearch/hermes-4-405b.json",
+    "nousresearch/hermes-4-70b": "evidence/nousresearch/hermes-4-70b.json",
+    "nvidia/llama-3.1-nemotron-70b-instruct": "evidence/nvidia/llama-3.1-nemotron-70b-instruct.json",
+    "nvidia/llama-3.1-nemotron-ultra-253b-v1": "evidence/nvidia/llama-3.1-nemotron-ultra-253b-v1.json",
+    "nvidia/llama-3.3-nemotron-super-49b-v1.5": "evidence/nvidia/llama-3.3-nemotron-super-49b-v1.5.json",
+    "nvidia/nemotron-3-nano-30b-a3b": "evidence/nvidia/nemotron-3-nano-30b-a3b.json",
+    "nvidia/nemotron-nano-12b-v2-vl": "evidence/nvidia/nemotron-nano-12b-v2-vl.json",
+    "nvidia/nemotron-nano-9b-v2": "evidence/nvidia/nemotron-nano-9b-v2.json",
+    "openai/chatgpt-4o-latest": "evidence/openai/chatgpt-4o-latest.json",
+    "openai/gpt-3.5-turbo": "evidence/openai/gpt-3.5-turbo.json",
+    "openai/gpt-3.5-turbo-0613": "evidence/openai/gpt-3.5-turbo-0613.json",
+    "openai/gpt-3.5-turbo-16k": "evidence/openai/gpt-3.5-turbo-16k.json",
+    "openai/gpt-3.5-turbo-instruct": "evidence/openai/gpt-3.5-turbo-instruct.json",
+    "openai/gpt-4": "evidence/openai/gpt-4.json",
+    "openai/gpt-4-0314": "evidence/openai/gpt-4-0314.json",
+    "openai/gpt-4-1106-preview": "evidence/openai/gpt-4-1106-preview.json",
+    "openai/gpt-4-turbo": "evidence/openai/gpt-4-turbo.json",
+    "openai/gpt-4-turbo-preview": "evidence/openai/gpt-4-turbo-preview.json",
+    "openai/gpt-4.1-2025-04-14": "evidence/openai/gpt-4.1-2025-04-14.json",
+    "openai/gpt-4.1-mini": "evidence/openai/gpt-4.1-mini.json",
+    "openai/gpt-4.1-mini-2025-04-14": "evidence/openai/gpt-4.1-mini-2025-04-14.json",
+    "openai/gpt-4.1-nano-2025-04-14": "evidence/openai/gpt-4.1-nano-2025-04-14.json",
+    "openai/gpt-4o": "evidence/openai/gpt-4o.json",
+    "openai/gpt-4o-2024-05-13": "evidence/openai/gpt-4o-2024-05-13.json",
+    "openai/gpt-4o-2024-08-06": "evidence/openai/gpt-4o-2024-08-06.json",
+    "openai/gpt-4o-2024-11-20": "evidence/openai/gpt-4o-2024-11-20.json",
+    "openai/gpt-4o-audio-preview": "evidence/openai/gpt-4o-audio-preview.json",
+    "openai/gpt-4o-mini": "evidence/openai/gpt-4o-mini.json",
+    "openai/gpt-4o-mini-2024-07-18": "evidence/openai/gpt-4o-mini-2024-07-18.json",
+    "openai/gpt-4o-mini-search-preview-2025-03-11": "evidence/openai/gpt-4o-mini-search-preview-2025-03-11.json",
+    "openai/gpt-4o-search-preview-2025-03-11": "evidence/openai/gpt-4o-search-preview-2025-03-11.json",
+    "openai/gpt-5-2025-08-07": "evidence/openai/gpt-5-2025-08-07.json",
+    "openai/gpt-5-chat-2025-08-07": "evidence/openai/gpt-5-chat-2025-08-07.json",
+    "openai/gpt-5-codex": "evidence/openai/gpt-5-codex.json",
+    "openai/gpt-5-image": "evidence/openai/gpt-5-image.json",
+    "openai/gpt-5-image-mini": "evidence/openai/gpt-5-image-mini.json",
+    "openai/gpt-5-mini-2025-08-07": "evidence/openai/gpt-5-mini-2025-08-07.json",
+    "openai/gpt-5-nano-2025-08-07": "evidence/openai/gpt-5-nano-2025-08-07.json",
+    "openai/gpt-5-pro-2025-10-06": "evidence/openai/gpt-5-pro-2025-10-06.json",
+    "openai/gpt-5.1-20251113": "evidence/openai/gpt-5.1-20251113.json",
+    "openai/gpt-5.1-chat-20251113": "evidence/openai/gpt-5.1-chat-20251113.json",
+    "openai/gpt-5.1-codex-20251113": "evidence/openai/gpt-5.1-codex-20251113.json",
+    "openai/gpt-5.1-codex-max-20251204": "evidence/openai/gpt-5.1-codex-max-20251204.json",
+    "openai/gpt-5.1-codex-mini-20251113": "evidence/openai/gpt-5.1-codex-mini-20251113.json",
+    "openai/gpt-5.2-20251211": "evidence/openai/gpt-5.2-20251211.json",
+    "openai/gpt-5.2-chat-20251211": "evidence/openai/gpt-5.2-chat-20251211.json",
+    "openai/gpt-5.2-codex-20260114": "evidence/openai/gpt-5.2-codex-20260114.json",
+    "openai/gpt-5.2-pro-20251211": "evidence/openai/gpt-5.2-pro-20251211.json",
+    "openai/gpt-oss-120b": "evidence/openai/gpt-oss-120b.json",
+    "openai/gpt-oss-20b": "evidence/openai/gpt-oss-20b.json",
+    "openai/gpt-oss-safeguard-20b": "evidence/openai/gpt-oss-safeguard-20b.json",
+    "openai/o1-2024-12-17": "evidence/openai/o1-2024-12-17.json",
+    "openai/o1-pro": "evidence/openai/o1-pro.json",
+    "openai/o3-2025-04-16": "evidence/openai/o3-2025-04-16.json",
+    "openai/o3-deep-research-2025-06-26": "evidence/openai/o3-deep-research-2025-06-26.json",
+    "openai/o3-mini-2025-01-31": "evidence/openai/o3-mini-2025-01-31.json",
+    "openai/o3-mini-high-2025-01-31": "evidence/openai/o3-mini-high-2025-01-31.json",
+    "openai/o3-pro-2025-06-10": "evidence/openai/o3-pro-2025-06-10.json",
+    "openai/o4-mini-2025-04-16": "evidence/openai/o4-mini-2025-04-16.json",
+    "openai/o4-mini-deep-research-2025-06-26": "evidence/openai/o4-mini-deep-research-2025-06-26.json",
+    "openai/o4-mini-high-2025-04-16": "evidence/openai/o4-mini-high-2025-04-16.json",
+    "opengvlab/internvl3-78b": "evidence/opengvlab/internvl3-78b.json",
+    "openrouter/auto": "evidence/openrouter/auto.json",
+    "openrouter/bodybuilder": "evidence/openrouter/bodybuilder.json",
+    "perplexity/sonar": "evidence/perplexity/sonar.json",
+    "perplexity/sonar-deep-research": "evidence/perplexity/sonar-deep-research.json",
+    "perplexity/sonar-pro": "evidence/perplexity/sonar-pro.json",
+    "perplexity/sonar-pro-search": "evidence/perplexity/sonar-pro-search.json",
+    "perplexity/sonar-reasoning-pro": "evidence/perplexity/sonar-reasoning-pro.json",
+    "prime-intellect/intellect-3-20251126": "evidence/prime-intellect/intellect-3-20251126.json",
+    "qwen/qwen-2-vl-7b-instruct": "evidence/qwen/qwen-2-vl-7b-instruct.json",
+    "qwen/qwen-2.5-72b-instruct": "evidence/qwen/qwen-2.5-72b-instruct.json",
+    "qwen/qwen-2.5-7b-instruct": "evidence/qwen/qwen-2.5-7b-instruct.json",
+    "qwen/qwen-2.5-coder-32b-instruct": "evidence/qwen/qwen-2.5-coder-32b-instruct.json",
+    "qwen/qwen-max-2025-01-25": "evidence/qwen/qwen-max-2025-01-25.json",
+    "qwen/qwen-plus-2025-01-25": "evidence/qwen/qwen-plus-2025-01-25.json",
+    "qwen/qwen-plus-2025-07-28": "evidence/qwen/qwen-plus-2025-07-28.json",
+    "qwen/qwen-turbo-2024-11-01": "evidence/qwen/qwen-turbo-2024-11-01.json",
+    "qwen/qwen-vl-max-2025-01-25": "evidence/qwen/qwen-vl-max-2025-01-25.json",
+    "qwen/qwen-vl-plus": "evidence/qwen/qwen-vl-plus.json",
+    "qwen/qwen2.5-coder-7b-instruct": "evidence/qwen/qwen2.5-coder-7b-instruct.json",
+    "qwen/qwen2.5-vl-32b-instruct": "evidence/qwen/qwen2.5-vl-32b-instruct.json",
+    "qwen/qwen2.5-vl-72b-instruct": "evidence/qwen/qwen2.5-vl-72b-instruct.json",
+    "qwen/qwen3-14b-04-28": "evidence/qwen/qwen3-14b-04-28.json",
+    "qwen/qwen3-235b-a22b-04-28": "evidence/qwen/qwen3-235b-a22b-04-28.json",
+    "qwen/qwen3-235b-a22b-07-25": "evidence/qwen/qwen3-235b-a22b-07-25.json",
+    "qwen/qwen3-235b-a22b-thinking-2507": "evidence/qwen/qwen3-235b-a22b-thinking-2507.json",
+    "qwen/qwen3-30b-a3b-04-28": "evidence/qwen/qwen3-30b-a3b-04-28.json",
+    "qwen/qwen3-30b-a3b-instruct-2507": "evidence/qwen/qwen3-30b-a3b-instruct-2507.json",
+    "qwen/qwen3-30b-a3b-thinking-2507": "evidence/qwen/qwen3-30b-a3b-thinking-2507.json",
+    "qwen/qwen3-32b-04-28": "evidence/qwen/qwen3-32b-04-28.json",
+    "qwen/qwen3-4b-04-28": "evidence/qwen/qwen3-4b-04-28.json",
+    "qwen/qwen3-8b-04-28": "evidence/qwen/qwen3-8b-04-28.json",
+    "qwen/qwen3-coder-30b-a3b-instruct": "evidence/qwen/qwen3-coder-30b-a3b-instruct.json",
+    "qwen/qwen3-coder-480b-a35b-07-25": "evidence/qwen/qwen3-coder-480b-a35b-07-25.json",
+    "qwen/qwen3-coder-flash": "evidence/qwen/qwen3-coder-flash.json",
+    "qwen/qwen3-coder-plus": "evidence/qwen/qwen3-coder-plus.json",
+    "qwen/qwen3-max": "evidence/qwen/qwen3-max.json",
+    "qwen/qwen3-next-80b-a3b-instruct-2509": "evidence/qwen/qwen3-next-80b-a3b-instruct-2509.json",
+    "qwen/qwen3-next-80b-a3b-thinking-2509": "evidence/qwen/qwen3-next-80b-a3b-thinking-2509.json",
+    "qwen/qwen3-vl-235b-a22b-instruct": "evidence/qwen/qwen3-vl-235b-a22b-instruct.json",
+    "qwen/qwen3-vl-235b-a22b-thinking": "evidence/qwen/qwen3-vl-235b-a22b-thinking.json",
+    "qwen/qwen3-vl-30b-a3b-instruct": "evidence/qwen/qwen3-vl-30b-a3b-instruct.json",
+    "qwen/qwen3-vl-30b-a3b-thinking": "evidence/qwen/qwen3-vl-30b-a3b-thinking.json",
+    "qwen/qwen3-vl-32b-instruct": "evidence/qwen/qwen3-vl-32b-instruct.json",
+    "qwen/qwen3-vl-8b-instruct": "evidence/qwen/qwen3-vl-8b-instruct.json",
+    "qwen/qwen3-vl-8b-thinking": "evidence/qwen/qwen3-vl-8b-thinking.json",
+    "qwen/qwq-32b": "evidence/qwen/qwq-32b.json",
+    "raifle/sorcererlm-8x22b": "evidence/raifle/sorcererlm-8x22b.json",
+    "relace/relace-apply-3": "evidence/relace/relace-apply-3.json",
+    "relace/relace-search-20251208": "evidence/relace/relace-search-20251208.json",
+    "sao10k/l3-euryale-70b": "evidence/sao10k/l3-euryale-70b.json",
+    "sao10k/l3-lunaris-8b": "evidence/sao10k/l3-lunaris-8b.json",
+    "sao10k/l3.1-70b-hanami-x1": "evidence/sao10k/l3.1-70b-hanami-x1.json",
+    "sao10k/l3.1-euryale-70b": "evidence/sao10k/l3.1-euryale-70b.json",
+    "sao10k/l3.3-euryale-70b-v2.3": "evidence/sao10k/l3.3-euryale-70b-v2.3.json",
+    "stepfun-ai/step3": "evidence/stepfun-ai/step3.json",
+    "switchpoint/router": "evidence/switchpoint/router.json",
+    "tencent/hunyuan-a13b-instruct": "evidence/tencent/hunyuan-a13b-instruct.json",
+    "thedrummer/cydonia-24b-v4.1": "evidence/thedrummer/cydonia-24b-v4.1.json",
+    "thedrummer/rocinante-12b": "evidence/thedrummer/rocinante-12b.json",
+    "thedrummer/skyfall-36b-v2": "evidence/thedrummer/skyfall-36b-v2.json",
+    "thedrummer/unslopnemo-12b": "evidence/thedrummer/unslopnemo-12b.json",
+    "tngtech/deepseek-r1t-chimera": "evidence/tngtech/deepseek-r1t-chimera.json",
+    "tngtech/deepseek-r1t2-chimera": "evidence/tngtech/deepseek-r1t2-chimera.json",
+    "tngtech/tng-r1t-chimera": "evidence/tngtech/tng-r1t-chimera.json",
+    "undi95/remm-slerp-l2-13b": "evidence/undi95/remm-slerp-l2-13b.json",
+    "venice/uncensored": "evidence/venice/uncensored.json",
+    "x-ai/grok-3": "evidence/x-ai/grok-3.json",
+    "x-ai/grok-3-beta": "evidence/x-ai/grok-3-beta.json",
+    "x-ai/grok-3-mini": "evidence/x-ai/grok-3-mini.json",
+    "x-ai/grok-3-mini-beta": "evidence/x-ai/grok-3-mini-beta.json",
+    "x-ai/grok-4-07-09": "evidence/x-ai/grok-4-07-09.json",
+    "x-ai/grok-4-fast": "evidence/x-ai/grok-4-fast.json",
+    "x-ai/grok-4.1-fast": "evidence/x-ai/grok-4.1-fast.json",
+    "x-ai/grok-code-fast-1": "evidence/x-ai/grok-code-fast-1.json",
+    "xiaomi/mimo-v2-flash-20251210": "evidence/xiaomi/mimo-v2-flash-20251210.json",
+    "z-ai/glm-4-32b-0414": "evidence/z-ai/glm-4-32b-0414.json",
+    "z-ai/glm-4.5": "evidence/z-ai/glm-4.5.json",
+    "z-ai/glm-4.5-air": "evidence/z-ai/glm-4.5-air.json",
+    "z-ai/glm-4.5v": "evidence/z-ai/glm-4.5v.json",
+    "z-ai/glm-4.6": "evidence/z-ai/glm-4.6.json",
+    "z-ai/glm-4.6-20251208": "evidence/z-ai/glm-4.6-20251208.json",
+    "z-ai/glm-4.7-20251222": "evidence/z-ai/glm-4.7-20251222.json"
+  }
 }
