@@ -1,36 +1,62 @@
 "use strict";
 
 const fs = require("fs");
+const path = require("path");
 
+const BASE_DIR = process.env.V4_BASEDIR || process.argv[2] || path.join("public", "data", "v4");
+const INDEX_PATH = path.resolve(BASE_DIR, "index.json");
 
-const OVERRIDE_MODELS_JSON = process.env.MODELS_JSON || process.argv[2];
-const CANDIDATE_MODELS_JSON = [
-  // 開発中の生成物（最優先）
-  "output/models.json",
-  "data/v4/models.json",
-
-  // UI が参照する正本
-  "public/data/v4/models.json",
-
-  // 予備
-  "data/models.json",
-];
-
-function pickModelsJsonPath() {
-  if (OVERRIDE_MODELS_JSON) return OVERRIDE_MODELS_JSON;
-for (const p of CANDIDATE_MODELS_JSON) {
-    if (fs.existsSync(p)) return p;
-  }
-  return CANDIDATE_MODELS_JSON[0];
+function failHard(msg) {
+  console.error("[validate:v4] ERROR:", msg);
+  process.exit(1);
 }
 
-const MODELS_JSON = pickModelsJsonPath();
+if (!fs.existsSync(INDEX_PATH)) {
+  failHard(`index.json does not exist: ${INDEX_PATH}`);
+}
+
+function readJson(p) {
+  try {
+    return JSON.parse(fs.readFileSync(p, "utf-8"));
+  } catch (e) {
+    failHard(`failed to read json: ${p} (${e.message})`);
+  }
+}
+
+function getManifest(idx) {
+  if (idx && typeof idx === "object") {
+    if (idx.manifest && typeof idx.manifest === "object") return idx.manifest;
+    if (idx.meta && typeof idx.meta === "object" && idx.meta.manifest && typeof idx.meta.manifest === "object") {
+      return idx.meta.manifest;
+    }
+  }
+  return null;
+}
+
+const indexJson = readJson(INDEX_PATH);
+const manifest = getManifest(indexJson);
+if (!manifest) {
+  failHard(`index.json missing manifest (expected manifest or meta.manifest): ${INDEX_PATH}`);
+}
+if (typeof manifest.models !== "string" || manifest.models.trim().length === 0) {
+  failHard(`index.json manifest.models missing or invalid: ${INDEX_PATH}`);
+}
+
+const MODELS_JSON = path.resolve(BASE_DIR, manifest.models);
 const FILE = MODELS_JSON;
-console.log("[validate:v4] using:", MODELS_JSON);
+
+console.log(`[validate:v4] baseDir=${BASE_DIR}`);
+console.log(`[validate:v4] indexPath=${INDEX_PATH}`);
+console.log(`[validate:v4] indexRel=${path.relative(process.cwd(), INDEX_PATH)}`);
+console.log(`[validate:v4] modelsPath=${MODELS_JSON}`);
+if (typeof manifest.rankings === "string") {
+  console.log(`[validate:v4] rankingsPath=${path.resolve(BASE_DIR, manifest.rankings)}`);
+} else {
+  console.log("[validate:v4] rankingsPath=none");
+}
+
 if (!fs.existsSync(MODELS_JSON)) {
-  console.error("[validate:v4] MODELS_JSON does not exist:", MODELS_JSON);
-  console.error("[validate:v4] candidates:", CANDIDATE_MODELS_JSON.join(", "));
-  process.exit(1);
+  failHard(`models.json does not exist: ${MODELS_JSON}`);
 }
 // 仕様で問題になっていた「根拠リンク無しなのに出るペナルティ理由」
 const DROP_REASONS = new Set([
@@ -249,13 +275,7 @@ function walkPenaltyRules(obj, path) {
 }
 
 function main() {
-  let root;
-  try {
-    root = JSON.parse(fs.readFileSync(FILE, "utf-8"));
-  } catch (e) {
-    console.error(e);
-    process.exit(1);
-  }
+  const root = readJson(FILE);
 
   const models = extractModels(root).map(normalizeModel);
   if (!models.length) {
@@ -277,6 +297,22 @@ function main() {
   if (process.exitCode === 1) {
     console.error("❌ v4 validation failed.");
     process.exit(1);
+  }
+  console.log(`[validate:v4] modelsCount=${models.length}`);
+
+  if (typeof manifest.rankings === "string") {
+    const rankingsPath = path.resolve(BASE_DIR, manifest.rankings);
+    if (fs.existsSync(rankingsPath)) {
+      const rankingsRoot = readJson(rankingsPath);
+      const rankings = Array.isArray(rankingsRoot)
+        ? rankingsRoot
+        : Array.isArray(rankingsRoot?.rankings)
+          ? rankingsRoot.rankings
+          : [];
+      console.log(`[validate:v4] rankingsCount=${rankings.length}`);
+    } else {
+      console.log("[validate:v4] rankingsCount=0");
+    }
   }
   console.log(`✅ v4 validation OK: ${models.length} models checked.`);
 }
