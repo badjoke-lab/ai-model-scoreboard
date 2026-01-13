@@ -9,6 +9,13 @@ function readJson(p) {
 function writeJson(p, obj) {
   fs.writeFileSync(p, JSON.stringify(obj, null, 2) + "\n", "utf-8");
 }
+function writeJsonAtomic(p, obj) {
+  const dir = path.dirname(p);
+  const base = path.basename(p);
+  const tmp = path.join(dir, `.${base}.${process.pid}.tmp`);
+  fs.writeFileSync(tmp, JSON.stringify(obj, null, 2) + "\n", "utf-8");
+  fs.renameSync(tmp, p);
+}
 function isObject(x) {
   return !!x && typeof x === "object" && !Array.isArray(x);
 }
@@ -539,7 +546,7 @@ function normalizeModelsJson() {
 
   // modelKey 無い行を落とす（validator 的に意味ない）
   const filtered = rows.filter((r) => isObject(r) && nonEmptyStr(r.modelKey));
-  writeJson(p, filtered);
+  writeJsonAtomic(p, filtered);
 
   console.log("[v4-normalize] models.json -> array:", filtered.length, "rows");
   console.log("[v4-normalize] patched:", patched);
