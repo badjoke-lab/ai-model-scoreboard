@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "updatedAt": "2026-01-13T13:10:37.617Z",
+    "modelKey": "microsoft/phi-4-multimodal-instruct"
+  },
+  "evidenceItems": [
+    {
+      "type": "official_page",
+      "status": "ok",
+      "reasons": [
+        "ok",
+        "openrouter_model_page_only"
+      ],
+      "refs": [
+        "https://openrouter.ai/models/microsoft/phi-4-multimodal-instruct"
+      ],
+      "extracted": {
+        "url": "https://openrouter.ai/models/microsoft/phi-4-multimodal-instruct"
+      }
+    },
+    {
+      "type": "dev_activity",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link",
+        "repo_link_missing"
+      ],
+      "refs": [
+        "missing:github_repo"
+      ]
+    },
+    {
+      "type": "paper",
+      "status": "not_found",
+      "reasons": [
+        "no_known_paper_source",
+        "not_found"
+      ],
+      "refs": [
+        "arxiv_query:\"Microsoft: Phi 4 Multimodal Instruct\""
+      ]
+    },
+    {
+      "type": "audit",
+      "status": "missing_source_link",
+      "reasons": [
+        "missing_source_link",
+        "no_known_audit_source"
+      ],
+      "refs": [
+        "missing:audit_link"
+      ]
+    }
+  ]
+}
