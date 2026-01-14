@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-14T20:39:25.590Z",
-    "runId": "21009074189"
+    "updatedAt": "2026-01-14T21:37:47.347Z",
+    "runId": "21010771426"
   },
   "models": [
     {
@@ -1046,10 +1046,6 @@
       "path": "evidence/qwen/qwen3-32b-04-28.json"
     },
     {
-      "modelKey": "qwen/qwen3-4b-04-28",
-      "path": "evidence/qwen/qwen3-4b-04-28.json"
-    },
-    {
       "modelKey": "qwen/qwen3-8b-04-28",
       "path": "evidence/qwen/qwen3-8b-04-28.json"
     },
@@ -1188,10 +1184,6 @@
     {
       "modelKey": "undi95/remm-slerp-l2-13b",
       "path": "evidence/undi95/remm-slerp-l2-13b.json"
-    },
-    {
-      "modelKey": "venice/uncensored",
-      "path": "evidence/venice/uncensored.json"
     },
     {
       "modelKey": "x-ai/grok-3",
