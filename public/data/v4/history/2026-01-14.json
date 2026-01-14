@@ -547,10 +547,6 @@
     "score": 70.02397702923075,
     "layer": "full"
   },
-  "deepseek/deepseek-r1-distill-qwen-14b": {
-    "score": 69.99253859846154,
-    "layer": "full"
-  },
   "deepseek/deepseek-v3.2-20251201": {
     "score": 69.97383729846152,
     "layer": "full"
@@ -616,7 +612,7 @@
     "layer": "full"
   },
   "qwen/qwen3-8b-04-28": {
-    "score": 69.43689951076924,
+    "score": 69.43689913692307,
     "layer": "full"
   },
   "openai/gpt-4-turbo": {
@@ -1089,10 +1085,6 @@
   },
   "deepseek/deepseek-r1-distill-qwen-32b": {
     "score": 64.15231739846152,
-    "layer": "full"
-  },
-  "deepseek/deepseek-r1-0528-qwen3-8b": {
-    "score": 63.98855942923077,
     "layer": "full"
   },
   "thedrummer/rocinante-12b": {

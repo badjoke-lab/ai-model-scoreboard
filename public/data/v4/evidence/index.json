@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-14T19:33:07.667Z",
-    "runId": "21007219039"
+    "updatedAt": "2026-01-14T20:39:25.590Z",
+    "runId": "21009074189"
   },
   "models": [
     {
@@ -238,16 +238,8 @@
       "path": "evidence/deepseek/deepseek-r1-0528.json"
     },
     {
-      "modelKey": "deepseek/deepseek-r1-0528-qwen3-8b",
-      "path": "evidence/deepseek/deepseek-r1-0528-qwen3-8b.json"
-    },
-    {
       "modelKey": "deepseek/deepseek-r1-distill-llama-70b",
       "path": "evidence/deepseek/deepseek-r1-distill-llama-70b.json"
-    },
-    {
-      "modelKey": "deepseek/deepseek-r1-distill-qwen-14b",
-      "path": "evidence/deepseek/deepseek-r1-distill-qwen-14b.json"
     },
     {
       "modelKey": "deepseek/deepseek-r1-distill-qwen-32b",

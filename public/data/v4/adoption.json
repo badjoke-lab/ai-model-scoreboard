@@ -349,20 +349,8 @@
       "source": "openrouter"
     },
     {
-      "modelKey": "deepseek/deepseek-r1-0528-qwen3-8b",
-      "name": "DeepSeek: DeepSeek R1 0528 Qwen3 8B",
-      "provider": "deepseek",
-      "source": "openrouter"
-    },
-    {
       "modelKey": "deepseek/deepseek-r1-distill-llama-70b",
       "name": "DeepSeek: R1 Distill Llama 70B",
-      "provider": "deepseek",
-      "source": "openrouter"
-    },
-    {
-      "modelKey": "deepseek/deepseek-r1-distill-qwen-14b",
-      "name": "DeepSeek: R1 Distill Qwen 14B",
       "provider": "deepseek",
       "source": "openrouter"
     },

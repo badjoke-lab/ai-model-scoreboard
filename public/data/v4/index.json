@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-14T19:33:07.667Z",
+  "updatedAt": "2026-01-14T20:39:25.590Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -78,9 +78,7 @@
       "evidence/deepseek/deepseek-prover-v2.json",
       "evidence/deepseek/deepseek-r1.json",
       "evidence/deepseek/deepseek-r1-0528.json",
-      "evidence/deepseek/deepseek-r1-0528-qwen3-8b.json",
       "evidence/deepseek/deepseek-r1-distill-llama-70b.json",
-      "evidence/deepseek/deepseek-r1-distill-qwen-14b.json",
       "evidence/deepseek/deepseek-r1-distill-qwen-32b.json",
       "evidence/deepseek/deepseek-v3.1-terminus.json",
       "evidence/deepseek/deepseek-v3.2-20251201.json",
@@ -395,9 +393,7 @@
       "evidence/deepseek/deepseek-prover-v2.json",
       "evidence/deepseek/deepseek-r1.json",
       "evidence/deepseek/deepseek-r1-0528.json",
-      "evidence/deepseek/deepseek-r1-0528-qwen3-8b.json",
       "evidence/deepseek/deepseek-r1-distill-llama-70b.json",
-      "evidence/deepseek/deepseek-r1-distill-qwen-14b.json",
       "evidence/deepseek/deepseek-r1-distill-qwen-32b.json",
       "evidence/deepseek/deepseek-v3.1-terminus.json",
       "evidence/deepseek/deepseek-v3.2-20251201.json",
@@ -654,8 +650,8 @@
       "evidence/z-ai/glm-4.7-20251222.json"
     ]
   },
-  "modelsCount": 315,
-  "fullCount": 300,
+  "modelsCount": 313,
+  "fullCount": 298,
   "provisionalCount": 15,
   "notListedCount": 0
 }

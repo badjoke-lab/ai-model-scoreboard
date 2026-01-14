@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-14T19:33:07.667Z",
+    "generatedAt": "2026-01-14T20:39:25.590Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 315,
-      "adopted": 315,
+      "total": 313,
+      "adopted": 313,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 313,
+        "openrouter": 311,
         "seed": 2
       }
     },
@@ -1011,23 +1011,6 @@
       }
     },
     {
-      "modelKey": "deepseek/deepseek-r1-0528-qwen3-8b",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "DeepSeek: DeepSeek R1 0528 Qwen3 8B",
-        "slug": "deepseek/deepseek-r1-0528-qwen3-8b",
-        "provider": "deepseek"
-      },
-      "rawRef": {
-        "id": "deepseek/deepseek-r1-0528-qwen3-8b",
-        "canonical_slug": "deepseek/deepseek-r1-0528-qwen3-8b"
-      }
-    },
-    {
       "modelKey": "deepseek/deepseek-r1-distill-llama-70b",
       "source": "openrouter",
       "status": "adopted",
@@ -1042,23 +1025,6 @@
       "rawRef": {
         "id": "deepseek/deepseek-r1-distill-llama-70b",
         "canonical_slug": "deepseek/deepseek-r1-distill-llama-70b"
-      }
-    },
-    {
-      "modelKey": "deepseek/deepseek-r1-distill-qwen-14b",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "DeepSeek: R1 Distill Qwen 14B",
-        "slug": "deepseek/deepseek-r1-distill-qwen-14b",
-        "provider": "deepseek"
-      },
-      "rawRef": {
-        "id": "deepseek/deepseek-r1-distill-qwen-14b",
-        "canonical_slug": "deepseek/deepseek-r1-distill-qwen-14b"
       }
     },
     {
