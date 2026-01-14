@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-14T17:45:22.694Z",
-    "runId": "21004094964"
+    "updatedAt": "2026-01-14T18:52:29.649Z",
+    "runId": "21006036589"
   },
   "models": [
     {
@@ -92,10 +92,6 @@
     {
       "modelKey": "anthropic/claude-3-5-haiku",
       "path": "evidence/anthropic/claude-3-5-haiku.json"
-    },
-    {
-      "modelKey": "anthropic/claude-3-5-haiku-20241022",
-      "path": "evidence/anthropic/claude-3-5-haiku-20241022.json"
     },
     {
       "modelKey": "anthropic/claude-3-7-sonnet-20250219",

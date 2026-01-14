@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-14T17:45:22.694Z",
+    "generatedAt": "2026-01-14T18:52:29.649Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 315,
-      "adopted": 315,
+      "total": 314,
+      "adopted": 314,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 313,
+        "openrouter": 312,
         "seed": 2
       }
     },
@@ -396,23 +396,6 @@
       "rawRef": {
         "id": "anthropic/claude-3.5-haiku",
         "canonical_slug": "anthropic/claude-3-5-haiku"
-      }
-    },
-    {
-      "modelKey": "anthropic/claude-3-5-haiku-20241022",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "Anthropic: Claude 3.5 Haiku (2024-10-22)",
-        "slug": "anthropic/claude-3-5-haiku-20241022",
-        "provider": "anthropic"
-      },
-      "rawRef": {
-        "id": "anthropic/claude-3.5-haiku-20241022",
-        "canonical_slug": "anthropic/claude-3-5-haiku-20241022"
       }
     },
     {

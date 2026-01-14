@@ -407,10 +407,6 @@
     "score": 71.227,
     "layer": "full"
   },
-  "anthropic/claude-3-5-haiku-20241022": {
-    "score": 71.17752471384601,
-    "layer": "full"
-  },
   "deepseek/deepseek-chat-v3-0324": {
     "score": 71.13961662923074,
     "layer": "full"

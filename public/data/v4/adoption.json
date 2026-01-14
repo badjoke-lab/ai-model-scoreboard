@@ -133,12 +133,6 @@
       "source": "openrouter"
     },
     {
-      "modelKey": "anthropic/claude-3-5-haiku-20241022",
-      "name": "Anthropic: Claude 3.5 Haiku (2024-10-22)",
-      "provider": "anthropic",
-      "source": "openrouter"
-    },
-    {
       "modelKey": "anthropic/claude-3-7-sonnet-20250219",
       "name": "Anthropic: Claude 3.7 Sonnet (thinking)",
       "provider": "anthropic",

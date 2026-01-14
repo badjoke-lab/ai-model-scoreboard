@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-14T17:45:22.694Z",
+  "updatedAt": "2026-01-14T18:52:29.649Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -42,7 +42,6 @@
       "evidence/amazon/nova-pro-v1.json",
       "evidence/anthracite-org/magnum-v4-72b.json",
       "evidence/anthropic/claude-3-5-haiku.json",
-      "evidence/anthropic/claude-3-5-haiku-20241022.json",
       "evidence/anthropic/claude-3-7-sonnet-20250219.json",
       "evidence/anthropic/claude-3-haiku.json",
       "evidence/anthropic/claude-3.5-sonnet.json",
@@ -359,7 +358,6 @@
       "evidence/amazon/nova-pro-v1.json",
       "evidence/anthracite-org/magnum-v4-72b.json",
       "evidence/anthropic/claude-3-5-haiku.json",
-      "evidence/anthropic/claude-3-5-haiku-20241022.json",
       "evidence/anthropic/claude-3-7-sonnet-20250219.json",
       "evidence/anthropic/claude-3-haiku.json",
       "evidence/anthropic/claude-3.5-sonnet.json",
@@ -654,8 +652,8 @@
       "evidence/z-ai/glm-4.7-20251222.json"
     ]
   },
-  "modelsCount": 315,
-  "fullCount": 300,
+  "modelsCount": 314,
+  "fullCount": 299,
   "provisionalCount": 15,
   "notListedCount": 0
 }
