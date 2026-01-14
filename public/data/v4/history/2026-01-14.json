@@ -1227,6 +1227,10 @@
     "score": 61.11401779076921,
     "layer": "full"
   },
+  "openai/gpt-5.2-codex-20260114": {
+    "score": 61.079014329230326,
+    "layer": "full"
+  },
   "xiaomi/mimo-v2-flash-20251210": {
     "score": 61.05698000000001,
     "layer": "provisional"

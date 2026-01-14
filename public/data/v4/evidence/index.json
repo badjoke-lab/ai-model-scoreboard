@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-14T18:52:29.649Z",
-    "runId": "21006036589"
+    "updatedAt": "2026-01-14T19:33:07.667Z",
+    "runId": "21007219039"
   },
   "models": [
     {
@@ -872,6 +872,10 @@
     {
       "modelKey": "openai/gpt-5.2-chat-20251211",
       "path": "evidence/openai/gpt-5.2-chat-20251211.json"
+    },
+    {
+      "modelKey": "openai/gpt-5.2-codex-20260114",
+      "path": "evidence/openai/gpt-5.2-codex-20260114.json"
     },
     {
       "modelKey": "openai/gpt-5.2-pro-20251211",

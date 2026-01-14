@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-14T18:52:29.649Z",
+    "generatedAt": "2026-01-14T19:33:07.667Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 314,
-      "adopted": 314,
+      "total": 315,
+      "adopted": 315,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 312,
+        "openrouter": 313,
         "seed": 2
       }
     },
@@ -3710,6 +3710,23 @@
       "rawRef": {
         "id": "openai/gpt-5.2-chat",
         "canonical_slug": "openai/gpt-5.2-chat-20251211"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-5.2-codex-20260114",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT-5.2-Codex",
+        "slug": "openai/gpt-5.2-codex-20260114",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-5.2-codex",
+        "canonical_slug": "openai/gpt-5.2-codex-20260114"
       }
     },
     {

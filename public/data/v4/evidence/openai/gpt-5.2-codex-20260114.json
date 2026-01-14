@@ -1,7 +1,7 @@
 {
   "meta": {
     "updatedAt": "2026-01-14T19:33:07.667Z",
-    "modelKey": "deepseek/deepseek-r1-distill-llama-70b"
+    "modelKey": "openai/gpt-5.2-codex-20260114"
   },
   "evidenceItems": [
     {
@@ -13,11 +13,11 @@
         "provider_fallback"
       ],
       "refs": [
-        "https://openrouter.ai/models/deepseek/deepseek-r1-distill-llama-70b",
-        "https://www.deepseek.com"
+        "https://openai.com",
+        "https://openrouter.ai/models/openai/gpt-5.2-codex-20260114"
       ],
       "extracted": {
-        "url": "https://www.deepseek.com"
+        "url": "https://openai.com"
       }
     },
     {
@@ -39,7 +39,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"DeepSeek: R1 Distill Llama 70B\""
+        "arxiv_query:\"OpenAI: GPT-5.2-Codex\""
       ]
     },
     {
