@@ -1765,12 +1765,6 @@
       "source": "openrouter"
     },
     {
-      "modelKey": "thudm/glm-4.1v-9b-thinking",
-      "name": "THUDM: GLM 4.1V 9B Thinking",
-      "provider": "thudm",
-      "source": "openrouter"
-    },
-    {
       "modelKey": "tngtech/deepseek-r1t-chimera",
       "name": "TNG: DeepSeek R1T Chimera (free)",
       "provider": "tngtech",

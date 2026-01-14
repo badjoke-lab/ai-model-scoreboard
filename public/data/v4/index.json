@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-14T02:35:04.249Z",
+  "updatedAt": "2026-01-14T04:18:23.459Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -314,7 +314,6 @@
       "evidence/thedrummer/rocinante-12b.json",
       "evidence/thedrummer/skyfall-36b-v2.json",
       "evidence/thedrummer/unslopnemo-12b.json",
-      "evidence/thudm/glm-4.1v-9b-thinking.json",
       "evidence/tngtech/deepseek-r1t-chimera.json",
       "evidence/tngtech/deepseek-r1t2-chimera.json",
       "evidence/tngtech/tng-r1t-chimera.json",
@@ -632,7 +631,6 @@
       "evidence/thedrummer/rocinante-12b.json",
       "evidence/thedrummer/skyfall-36b-v2.json",
       "evidence/thedrummer/unslopnemo-12b.json",
-      "evidence/thudm/glm-4.1v-9b-thinking.json",
       "evidence/tngtech/deepseek-r1t-chimera.json",
       "evidence/tngtech/deepseek-r1t2-chimera.json",
       "evidence/tngtech/tng-r1t-chimera.json",
@@ -656,8 +654,8 @@
       "evidence/z-ai/glm-4.7-20251222.json"
     ]
   },
-  "modelsCount": 316,
-  "fullCount": 301,
+  "modelsCount": 315,
+  "fullCount": 300,
   "provisionalCount": 15,
   "notListedCount": 0
 }

@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-14T02:35:04.249Z",
-    "runId": "20980233942"
+    "updatedAt": "2026-01-14T04:18:23.459Z",
+    "runId": "20982172568"
   },
   "models": [
     {
@@ -1180,10 +1180,6 @@
     {
       "modelKey": "thedrummer/unslopnemo-12b",
       "path": "evidence/thedrummer/unslopnemo-12b.json"
-    },
-    {
-      "modelKey": "thudm/glm-4.1v-9b-thinking",
-      "path": "evidence/thudm/glm-4.1v-9b-thinking.json"
     },
     {
       "modelKey": "tngtech/deepseek-r1t-chimera",

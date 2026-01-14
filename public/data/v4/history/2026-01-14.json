@@ -1091,10 +1091,6 @@
     "score": 64.28635336769224,
     "layer": "full"
   },
-  "thudm/glm-4.1v-9b-thinking": {
-    "score": 64.23617951076923,
-    "layer": "full"
-  },
   "deepseek/deepseek-r1-distill-qwen-32b": {
     "score": 64.15231739846152,
     "layer": "full"

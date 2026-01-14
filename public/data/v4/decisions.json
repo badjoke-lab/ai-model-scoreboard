@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-14T02:35:04.249Z",
+    "generatedAt": "2026-01-14T04:18:23.459Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 316,
-      "adopted": 316,
+      "total": 315,
+      "adopted": 315,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 314,
+        "openrouter": 313,
         "seed": 2
       }
     },
@@ -5019,23 +5019,6 @@
       "rawRef": {
         "id": "thedrummer/unslopnemo-12b",
         "canonical_slug": "thedrummer/unslopnemo-12b"
-      }
-    },
-    {
-      "modelKey": "thudm/glm-4.1v-9b-thinking",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "THUDM: GLM 4.1V 9B Thinking",
-        "slug": "thudm/glm-4.1v-9b-thinking",
-        "provider": "thudm"
-      },
-      "rawRef": {
-        "id": "thudm/glm-4.1v-9b-thinking",
-        "canonical_slug": "thudm/glm-4.1v-9b-thinking"
       }
     },
     {
