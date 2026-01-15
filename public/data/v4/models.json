@@ -22366,24 +22366,24 @@
     "layer": "full"
   },
   "meta-llama/llama-3.2-3b-instruct": {
-    "name": "Meta: Llama 3.2 3B Instruct",
+    "name": "Meta: Llama 3.2 3B Instruct (free)",
     "vendor": "meta-llama",
     "released": "2024-09-25T00:00:00.000Z",
     "context": 131072,
     "type": "text->text",
     "pricing": {
-      "input": 2e-8,
-      "output": 2e-8,
+      "input": 0,
+      "output": 0,
       "currency": "USD"
     },
     "scores": {
-      "overall": 73.58507989846154,
+      "overall": 73.58508,
       "categories": {
         "performance": 77.45270000000002,
         "safety": 70,
         "adoption": 82.36,
         "openness": 41.66666666666667,
-        "cost": 99.99999898461537
+        "cost": 100
       },
       "items": {
         "S1": {
@@ -30595,24 +30595,24 @@
     "layer": "full"
   },
   "mistralai/mistral-small-3.1-24b-instruct-2503": {
-    "name": "Mistral: Mistral Small 3.1 24B",
+    "name": "Mistral: Mistral Small 3.1 24B (free)",
     "vendor": "mistralai",
     "released": "2025-03-17T19:15:37.000Z",
-    "context": 131072,
+    "context": 128000,
     "type": "text+image->text",
     "pricing": {
-      "input": 3e-8,
-      "output": 1.1e-7,
+      "input": 0,
+      "output": 0,
       "currency": "USD"
     },
     "scores": {
-      "overall": 70.40717961384615,
+      "overall": 70.40718000000001,
       "categories": {
         "performance": 76.81420000000001,
         "safety": 60,
         "adoption": 76.21000000000001,
         "openness": 41.66666666666667,
-        "cost": 99.99999613846148
+        "cost": 100
       },
       "items": {
         "S1": {
@@ -34815,24 +34815,24 @@
     "layer": "full"
   },
   "nousresearch/hermes-3-llama-3.1-405b": {
-    "name": "Nous: Hermes 3 405B Instruct",
+    "name": "Nous: Hermes 3 405B Instruct (free)",
     "vendor": "nousresearch",
     "released": "2024-08-16T00:00:00.000Z",
     "context": 131072,
     "type": "text->text",
     "pricing": {
-      "input": 0.000001,
-      "output": 0.000001,
+      "input": 0,
+      "output": 0,
       "currency": "USD"
     },
     "scores": {
-      "overall": 69.60227009846145,
+      "overall": 69.60228000000001,
       "categories": {
         "performance": 70.39070000000001,
         "safety": 60,
         "adoption": 79.64,
         "openness": 50,
-        "cost": 99.9999009846144
+        "cost": 100
       },
       "items": {
         "S1": {
@@ -54645,6 +54645,217 @@
     },
     "layer": "full"
   },
+  "qwen/qwen3-4b-04-28": {
+    "name": "Qwen: Qwen3 4B (free)",
+    "vendor": "qwen",
+    "released": "2025-04-30T16:38:24.000Z",
+    "context": 40960,
+    "type": "text->text",
+    "pricing": {
+      "input": 0,
+      "output": 0,
+      "currency": "USD"
+    },
+    "scores": {
+      "overall": 64.58936000000001,
+      "categories": {
+        "performance": 69.17590000000003,
+        "safety": 50,
+        "adoption": 79.46,
+        "openness": 33.33333333333333,
+        "cost": 100
+      },
+      "items": {
+        "S1": {
+          "score": 50,
+          "inputs": {
+            "safetySection": true,
+            "highRisk": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S2": {
+          "score": 0,
+          "inputs": {
+            "rlhf": false,
+            "dataDisclosure": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S3": {
+          "score": 50,
+          "inputs": {
+            "misusePolicy": false,
+            "harmMitigation": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S4": {
+          "score": 0,
+          "inputs": {
+            "redTeam": false,
+            "independentAudit": false
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "S5": {
+          "score": 0,
+          "inputs": {
+            "transparencyUpdate": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S6": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_minor_incidents"
+          ]
+        },
+        "S7": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_major_incidents"
+          ]
+        },
+        "S8": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_critical_incidents"
+          ]
+        },
+        "T1": {
+          "score": 0,
+          "inputs": {
+            "modelCard": false,
+            "overview": false,
+            "limitations": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T2": {
+          "score": 0,
+          "inputs": {
+            "dataCategories": false,
+            "dataFiltering": false,
+            "copyright": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T3": {
+          "score": 100,
+          "inputs": {
+            "architecture": true,
+            "parameterScale": true
+          },
+          "usedEvidence": [
+            {
+              "type": "paper",
+              "status": "not_found"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_paper_not_found"
+          ]
+        },
+        "T4": {
+          "score": 50,
+          "inputs": {
+            "safetyControls": false,
+            "riskLimits": true,
+            "externalReview": true,
+            "transparencyReport": false
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "Q1": {
+          "score": 87.23,
+          "inputs": {
+            "benchmark": 87.23
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q2": {
+          "score": 50.88,
+          "inputs": {
+            "benchmark": 50.88
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q3": {
+          "score": 63.37217,
+          "inputs": {
+            "math": 60.65,
+            "chat": 77.18,
+            "arena": 65.35,
+            "vendor": 55.04
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        }
+      }
+    },
+    "layer": "full"
+  },
   "qwen/qwen3-8b-04-28": {
     "name": "Qwen: Qwen3 8B",
     "vendor": "qwen",
@@ -55071,7 +55282,7 @@
     "name": "Qwen: Qwen3 Coder 480B A35B (free)",
     "vendor": "qwen",
     "released": "2025-07-23T00:29:06.000Z",
-    "context": 262144,
+    "context": 262000,
     "type": "text->text",
     "pricing": {
       "input": 0,
@@ -62022,6 +62233,217 @@
             "chat": 79.93,
             "arena": 58.82,
             "vendor": 76.95
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        }
+      }
+    },
+    "layer": "full"
+  },
+  "venice/uncensored": {
+    "name": "Venice: Uncensored (free)",
+    "vendor": "cognitivecomputations",
+    "released": "2025-07-09T21:02:46.000Z",
+    "context": 32768,
+    "type": "text->text",
+    "pricing": {
+      "input": 0,
+      "output": 0,
+      "currency": "USD"
+    },
+    "scores": {
+      "overall": 67.165,
+      "categories": {
+        "performance": 64.66250000000002,
+        "safety": 65,
+        "adoption": 72,
+        "openness": 50,
+        "cost": 100
+      },
+      "items": {
+        "S1": {
+          "score": 50,
+          "inputs": {
+            "safetySection": true,
+            "highRisk": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S2": {
+          "score": 50,
+          "inputs": {
+            "rlhf": false,
+            "dataDisclosure": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S3": {
+          "score": 50,
+          "inputs": {
+            "misusePolicy": true,
+            "harmMitigation": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S4": {
+          "score": 0,
+          "inputs": {
+            "redTeam": false,
+            "independentAudit": false
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "S5": {
+          "score": 100,
+          "inputs": {
+            "transparencyUpdate": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S6": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_minor_incidents"
+          ]
+        },
+        "S7": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_major_incidents"
+          ]
+        },
+        "S8": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_critical_incidents"
+          ]
+        },
+        "T1": {
+          "score": 33.33333333333333,
+          "inputs": {
+            "modelCard": false,
+            "overview": true,
+            "limitations": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T2": {
+          "score": 66.66666666666666,
+          "inputs": {
+            "dataCategories": false,
+            "dataFiltering": true,
+            "copyright": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T3": {
+          "score": 50,
+          "inputs": {
+            "architecture": false,
+            "parameterScale": true
+          },
+          "usedEvidence": [
+            {
+              "type": "paper",
+              "status": "not_found"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_paper_not_found"
+          ]
+        },
+        "T4": {
+          "score": 50,
+          "inputs": {
+            "safetyControls": true,
+            "riskLimits": false,
+            "externalReview": false,
+            "transparencyReport": true
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "Q1": {
+          "score": 60.18,
+          "inputs": {
+            "benchmark": 60.18
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q2": {
+          "score": 61.6,
+          "inputs": {
+            "benchmark": 61.6
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q3": {
+          "score": 73.64645000000002,
+          "inputs": {
+            "math": 68.18,
+            "chat": 85.06,
+            "arena": 84.61,
+            "vendor": 67.1
           },
           "usedEvidence": [],
           "penaltyReasons": []

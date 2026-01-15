@@ -184,7 +184,7 @@
     "layer": "full"
   },
   "meta-llama/llama-3.2-3b-instruct": {
-    "score": 73.58507989846154,
+    "score": 73.58508,
     "layer": "full"
   },
   "deepcogito/cogito-v2-preview-llama-405b": {
@@ -496,7 +496,7 @@
     "layer": "full"
   },
   "mistralai/mistral-small-3.1-24b-instruct-2503": {
-    "score": 70.40717961384615,
+    "score": 70.40718000000001,
     "layer": "full"
   },
   "z-ai/glm-4-32b-0414": {
@@ -584,7 +584,7 @@
     "layer": "full"
   },
   "nousresearch/hermes-3-llama-3.1-405b": {
-    "score": 69.60227009846145,
+    "score": 69.60228000000001,
     "layer": "full"
   },
   "meta-llama/llama-3.1-70b-instruct": {
@@ -831,6 +831,10 @@
     "score": 67.17416555999986,
     "layer": "full"
   },
+  "venice/uncensored": {
+    "score": 67.165,
+    "layer": "full"
+  },
   "meta-llama/llama-3.3-70b-instruct": {
     "score": 67.16264000000001,
     "layer": "full"
@@ -1041,6 +1045,10 @@
   },
   "mistralai/devstral-small-2507": {
     "score": 64.60025891384615,
+    "layer": "full"
+  },
+  "qwen/qwen3-4b-04-28": {
+    "score": 64.58936000000001,
     "layer": "full"
   },
   "z-ai/glm-4.5": {

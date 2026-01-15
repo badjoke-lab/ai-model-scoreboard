@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-15T14:45:21.712Z",
+  "updatedAt": "2026-01-15T15:46:36.542Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -279,6 +279,7 @@
       "evidence/qwen/qwen3-30b-a3b-instruct-2507.json",
       "evidence/qwen/qwen3-30b-a3b-thinking-2507.json",
       "evidence/qwen/qwen3-32b-04-28.json",
+      "evidence/qwen/qwen3-4b-04-28.json",
       "evidence/qwen/qwen3-8b-04-28.json",
       "evidence/qwen/qwen3-coder-30b-a3b-instruct.json",
       "evidence/qwen/qwen3-coder-480b-a35b-07-25.json",
@@ -314,6 +315,7 @@
       "evidence/tngtech/deepseek-r1t2-chimera.json",
       "evidence/tngtech/tng-r1t-chimera.json",
       "evidence/undi95/remm-slerp-l2-13b.json",
+      "evidence/venice/uncensored.json",
       "evidence/x-ai/grok-3.json",
       "evidence/x-ai/grok-3-beta.json",
       "evidence/x-ai/grok-3-mini.json",
@@ -591,6 +593,7 @@
       "evidence/qwen/qwen3-30b-a3b-instruct-2507.json",
       "evidence/qwen/qwen3-30b-a3b-thinking-2507.json",
       "evidence/qwen/qwen3-32b-04-28.json",
+      "evidence/qwen/qwen3-4b-04-28.json",
       "evidence/qwen/qwen3-8b-04-28.json",
       "evidence/qwen/qwen3-coder-30b-a3b-instruct.json",
       "evidence/qwen/qwen3-coder-480b-a35b-07-25.json",
@@ -626,6 +629,7 @@
       "evidence/tngtech/deepseek-r1t2-chimera.json",
       "evidence/tngtech/tng-r1t-chimera.json",
       "evidence/undi95/remm-slerp-l2-13b.json",
+      "evidence/venice/uncensored.json",
       "evidence/x-ai/grok-3.json",
       "evidence/x-ai/grok-3-beta.json",
       "evidence/x-ai/grok-3-mini.json",
@@ -644,8 +648,8 @@
       "evidence/z-ai/glm-4.7-20251222.json"
     ]
   },
-  "modelsCount": 310,
-  "fullCount": 295,
+  "modelsCount": 312,
+  "fullCount": 297,
   "provisionalCount": 15,
   "notListedCount": 0
 }

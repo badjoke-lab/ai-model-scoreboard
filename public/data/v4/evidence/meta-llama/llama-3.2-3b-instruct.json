@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-15T14:45:21.712Z",
+    "updatedAt": "2026-01-15T15:46:36.542Z",
     "modelKey": "meta-llama/llama-3.2-3b-instruct"
   },
   "evidenceItems": [
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Meta: Llama 3.2 3B Instruct\""
+        "arxiv_query:\"Meta: Llama 3.2 3B Instruct (free)\""
       ]
     },
     {

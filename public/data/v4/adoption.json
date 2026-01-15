@@ -638,7 +638,7 @@
     },
     {
       "modelKey": "meta-llama/llama-3.2-3b-instruct",
-      "name": "Meta: Llama 3.2 3B Instruct",
+      "name": "Meta: Llama 3.2 3B Instruct (free)",
       "provider": "meta-llama",
       "source": "openrouter"
     },
@@ -872,7 +872,7 @@
     },
     {
       "modelKey": "mistralai/mistral-small-3.1-24b-instruct-2503",
-      "name": "Mistral: Mistral Small 3.1 24B",
+      "name": "Mistral: Mistral Small 3.1 24B (free)",
       "provider": "mistralai",
       "source": "openrouter"
     },
@@ -992,7 +992,7 @@
     },
     {
       "modelKey": "nousresearch/hermes-3-llama-3.1-405b",
-      "name": "Nous: Hermes 3 405B Instruct",
+      "name": "Nous: Hermes 3 405B Instruct (free)",
       "provider": "nousresearch",
       "source": "openrouter"
     },
@@ -1555,6 +1555,12 @@
       "source": "openrouter"
     },
     {
+      "modelKey": "qwen/qwen3-4b-04-28",
+      "name": "Qwen: Qwen3 4B (free)",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
       "modelKey": "qwen/qwen3-8b-04-28",
       "name": "Qwen: Qwen3 8B",
       "provider": "qwen",
@@ -1762,6 +1768,12 @@
       "modelKey": "undi95/remm-slerp-l2-13b",
       "name": "ReMM SLERP 13B",
       "provider": "undi95",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "venice/uncensored",
+      "name": "Venice: Uncensored (free)",
+      "provider": "cognitivecomputations",
       "source": "openrouter"
     },
     {

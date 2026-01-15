@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-15T14:45:21.712Z",
+    "generatedAt": "2026-01-15T15:46:36.542Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 310,
-      "adopted": 310,
+      "total": 312,
+      "adopted": 312,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 308,
+        "openrouter": 310,
         "seed": 2
       }
     },
@@ -1834,12 +1834,12 @@
         "meets required fields"
       ],
       "normalized": {
-        "name": "Meta: Llama 3.2 3B Instruct",
+        "name": "Meta: Llama 3.2 3B Instruct (free)",
         "slug": "meta-llama/llama-3.2-3b-instruct",
         "provider": "meta-llama"
       },
       "rawRef": {
-        "id": "meta-llama/llama-3.2-3b-instruct",
+        "id": "meta-llama/llama-3.2-3b-instruct:free",
         "canonical_slug": "meta-llama/llama-3.2-3b-instruct"
       }
     },
@@ -2497,12 +2497,12 @@
         "meets required fields"
       ],
       "normalized": {
-        "name": "Mistral: Mistral Small 3.1 24B",
+        "name": "Mistral: Mistral Small 3.1 24B (free)",
         "slug": "mistralai/mistral-small-3.1-24b-instruct-2503",
         "provider": "mistralai"
       },
       "rawRef": {
-        "id": "mistralai/mistral-small-3.1-24b-instruct",
+        "id": "mistralai/mistral-small-3.1-24b-instruct:free",
         "canonical_slug": "mistralai/mistral-small-3.1-24b-instruct-2503"
       }
     },
@@ -2837,12 +2837,12 @@
         "meets required fields"
       ],
       "normalized": {
-        "name": "Nous: Hermes 3 405B Instruct",
+        "name": "Nous: Hermes 3 405B Instruct (free)",
         "slug": "nousresearch/hermes-3-llama-3.1-405b",
         "provider": "nousresearch"
       },
       "rawRef": {
-        "id": "nousresearch/hermes-3-llama-3.1-405b",
+        "id": "nousresearch/hermes-3-llama-3.1-405b:free",
         "canonical_slug": "nousresearch/hermes-3-llama-3.1-405b"
       }
     },
@@ -4427,6 +4427,23 @@
       }
     },
     {
+      "modelKey": "qwen/qwen3-4b-04-28",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 4B (free)",
+        "slug": "qwen/qwen3-4b-04-28",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-4b:free",
+        "canonical_slug": "qwen/qwen3-4b-04-28"
+      }
+    },
+    {
       "modelKey": "qwen/qwen3-8b-04-28",
       "source": "openrouter",
       "status": "adopted",
@@ -5019,6 +5036,23 @@
       "rawRef": {
         "id": "undi95/remm-slerp-l2-13b",
         "canonical_slug": "undi95/remm-slerp-l2-13b"
+      }
+    },
+    {
+      "modelKey": "venice/uncensored",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Venice: Uncensored (free)",
+        "slug": "venice/uncensored",
+        "provider": "cognitivecomputations"
+      },
+      "rawRef": {
+        "id": "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
+        "canonical_slug": "venice/uncensored"
       }
     },
     {

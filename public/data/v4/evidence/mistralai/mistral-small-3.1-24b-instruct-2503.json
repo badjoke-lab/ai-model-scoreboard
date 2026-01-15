@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-15T14:45:21.712Z",
+    "updatedAt": "2026-01-15T15:46:36.542Z",
     "modelKey": "mistralai/mistral-small-3.1-24b-instruct-2503"
   },
   "evidenceItems": [
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Mistral: Mistral Small 3.1 24B\""
+        "arxiv_query:\"Mistral: Mistral Small 3.1 24B (free)\""
       ]
     },
     {
