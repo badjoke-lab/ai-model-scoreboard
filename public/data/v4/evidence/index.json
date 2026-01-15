@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-15T21:36:28.283Z",
-    "runId": "21047177067"
+    "updatedAt": "2026-01-15T22:41:13.621Z",
+    "runId": "21048885911"
   },
   "models": [
     {
@@ -430,10 +430,6 @@
       "path": "evidence/meta-llama/llama-3.2-3b-instruct.json"
     },
     {
-      "modelKey": "meta-llama/llama-3.2-90b-vision-instruct",
-      "path": "evidence/meta-llama/llama-3.2-90b-vision-instruct.json"
-    },
-    {
       "modelKey": "meta-llama/llama-3.3-70b-instruct",
       "path": "evidence/meta-llama/llama-3.3-70b-instruct.json"
     },
@@ -460,14 +456,6 @@
     {
       "modelKey": "microsoft/phi-4",
       "path": "evidence/microsoft/phi-4.json"
-    },
-    {
-      "modelKey": "microsoft/phi-4-multimodal-instruct",
-      "path": "evidence/microsoft/phi-4-multimodal-instruct.json"
-    },
-    {
-      "modelKey": "microsoft/phi-4-reasoning-plus-04-30",
-      "path": "evidence/microsoft/phi-4-reasoning-plus-04-30.json"
     },
     {
       "modelKey": "microsoft/wizardlm-2-8x22b",
@@ -500,10 +488,6 @@
     {
       "modelKey": "mistralai/devstral-medium-2507",
       "path": "evidence/mistralai/devstral-medium-2507.json"
-    },
-    {
-      "modelKey": "mistralai/devstral-small-2505",
-      "path": "evidence/mistralai/devstral-small-2505.json"
     },
     {
       "modelKey": "mistralai/devstral-small-2507",

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-15T21:36:28.283Z",
+    "generatedAt": "2026-01-15T22:41:13.621Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 301,
-      "adopted": 301,
+      "total": 297,
+      "adopted": 297,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 299,
+        "openrouter": 295,
         "seed": 2
       }
     },
@@ -1827,23 +1827,6 @@
       }
     },
     {
-      "modelKey": "meta-llama/llama-3.2-90b-vision-instruct",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "Meta: Llama 3.2 90B Vision Instruct",
-        "slug": "meta-llama/llama-3.2-90b-vision-instruct",
-        "provider": "meta-llama"
-      },
-      "rawRef": {
-        "id": "meta-llama/llama-3.2-90b-vision-instruct",
-        "canonical_slug": "meta-llama/llama-3.2-90b-vision-instruct"
-      }
-    },
-    {
       "modelKey": "meta-llama/llama-3.3-70b-instruct",
       "source": "openrouter",
       "status": "adopted",
@@ -1960,40 +1943,6 @@
       "rawRef": {
         "id": "microsoft/phi-4",
         "canonical_slug": "microsoft/phi-4"
-      }
-    },
-    {
-      "modelKey": "microsoft/phi-4-multimodal-instruct",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "Microsoft: Phi 4 Multimodal Instruct",
-        "slug": "microsoft/phi-4-multimodal-instruct",
-        "provider": "microsoft"
-      },
-      "rawRef": {
-        "id": "microsoft/phi-4-multimodal-instruct",
-        "canonical_slug": "microsoft/phi-4-multimodal-instruct"
-      }
-    },
-    {
-      "modelKey": "microsoft/phi-4-reasoning-plus-04-30",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "Microsoft: Phi 4 Reasoning Plus",
-        "slug": "microsoft/phi-4-reasoning-plus-04-30",
-        "provider": "microsoft"
-      },
-      "rawRef": {
-        "id": "microsoft/phi-4-reasoning-plus",
-        "canonical_slug": "microsoft/phi-4-reasoning-plus-04-30"
       }
     },
     {
@@ -2133,23 +2082,6 @@
       }
     },
     {
-      "modelKey": "mistralai/devstral-small-2505",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "Mistral: Devstral Small 2505",
-        "slug": "mistralai/devstral-small-2505",
-        "provider": "mistralai"
-      },
-      "rawRef": {
-        "id": "mistralai/devstral-small-2505",
-        "canonical_slug": "mistralai/devstral-small-2505"
-      }
-    },
-    {
       "modelKey": "mistralai/devstral-small-2507",
       "source": "openrouter",
       "status": "adopted",
@@ -2259,12 +2191,12 @@
         "meets required fields"
       ],
       "normalized": {
-        "name": "Mistral: Mistral 7B Instruct (free)",
+        "name": "Mistral: Mistral 7B Instruct",
         "slug": "mistralai/mistral-7b-instruct",
         "provider": "mistralai"
       },
       "rawRef": {
-        "id": "mistralai/mistral-7b-instruct:free",
+        "id": "mistralai/mistral-7b-instruct",
         "canonical_slug": "mistralai/mistral-7b-instruct"
       }
     },

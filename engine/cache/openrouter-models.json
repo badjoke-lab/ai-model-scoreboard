@@ -4183,7 +4183,6 @@
       "frequency_penalty",
       "include_reasoning",
       "max_tokens",
-      "min_p",
       "presence_penalty",
       "reasoning",
       "repetition_penalty",
@@ -4388,7 +4387,9 @@
       "request": "0",
       "image": "0",
       "web_search": "0",
-      "internal_reasoning": "0"
+      "internal_reasoning": "0",
+      "input_cache_read": "0.00000001",
+      "input_cache_write": "0.000001"
     },
     "top_provider": {
       "context_length": 1048576,
@@ -6709,7 +6710,6 @@
       "frequency_penalty",
       "include_reasoning",
       "max_tokens",
-      "min_p",
       "presence_penalty",
       "reasoning",
       "repetition_penalty",
@@ -7445,7 +7445,7 @@
     "name": "Mistral: Devstral Small 1.1",
     "created": 1752160751,
     "description": "Devstral Small 1.1 is a 24B parameter open-weight language model for software engineering agents, developed by Mistral AI in collaboration with All Hands AI. Finetuned from Mistral Small 3.1 and released under the Apache 2.0 license, it features a 128k token context window and supports both Mistral-style function calling and XML output formats.\n\nDesigned for agentic coding workflows, Devstral Small 1.1 is optimized for tasks such as codebase exploration, multi-file edits, and integration into autonomous development agents like OpenHands and Cline. It achieves 53.6% on SWE-Bench Verified, surpassing all other open models on this benchmark, while remaining lightweight enough to run on a single 4090 GPU or Apple silicon machine. The model uses a Tekken tokenizer with a 131k vocabulary and is deployable via vLLM, Transformers, Ollama, LM Studio, and other OpenAI-compatible runtimes.\n",
-    "context_length": 128000,
+    "context_length": 131072,
     "architecture": {
       "modality": "text->text",
       "input_modalities": [
@@ -7458,15 +7458,11 @@
       "instruct_type": null
     },
     "pricing": {
-      "prompt": "0.00000007",
-      "completion": "0.00000028",
-      "request": "0",
-      "image": "0",
-      "web_search": "0",
-      "internal_reasoning": "0"
+      "prompt": "0.0000001",
+      "completion": "0.0000003"
     },
     "top_provider": {
-      "context_length": 128000,
+      "context_length": 131072,
       "max_completion_tokens": null,
       "is_moderated": false
     },
@@ -7474,9 +7470,7 @@
     "supported_parameters": [
       "frequency_penalty",
       "max_tokens",
-      "min_p",
       "presence_penalty",
-      "repetition_penalty",
       "response_format",
       "seed",
       "stop",
@@ -7484,7 +7478,6 @@
       "temperature",
       "tool_choice",
       "tools",
-      "top_k",
       "top_p"
     ],
     "default_parameters": {
@@ -8708,56 +8701,6 @@
     }
   },
   {
-    "id": "mistralai/devstral-small-2505",
-    "canonical_slug": "mistralai/devstral-small-2505",
-    "hugging_face_id": "mistralai/Devstral-Small-2505",
-    "name": "Mistral: Devstral Small 2505",
-    "created": 1747837379,
-    "description": "Devstral-Small-2505 is a 24B parameter agentic LLM fine-tuned from Mistral-Small-3.1, jointly developed by Mistral AI and All Hands AI for advanced software engineering tasks. It is optimized for codebase exploration, multi-file editing, and integration into coding agents, achieving state-of-the-art results on SWE-Bench Verified (46.8%).\n\nDevstral supports a 128k context window and uses a custom Tekken tokenizer. It is text-only, with the vision encoder removed, and is suitable for local deployment on high-end consumer hardware (e.g., RTX 4090, 32GB RAM Macs). Devstral is best used in agentic workflows via the OpenHands scaffold and is compatible with inference frameworks like vLLM, Transformers, and Ollama. It is released under the Apache 2.0 license.",
-    "context_length": 128000,
-    "architecture": {
-      "modality": "text->text",
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "tokenizer": "Mistral",
-      "instruct_type": null
-    },
-    "pricing": {
-      "prompt": "0.00000006",
-      "completion": "0.00000012",
-      "request": "0",
-      "image": "0",
-      "web_search": "0",
-      "internal_reasoning": "0"
-    },
-    "top_provider": {
-      "context_length": 128000,
-      "max_completion_tokens": null,
-      "is_moderated": false
-    },
-    "per_request_limits": null,
-    "supported_parameters": [
-      "frequency_penalty",
-      "max_tokens",
-      "min_p",
-      "presence_penalty",
-      "repetition_penalty",
-      "response_format",
-      "seed",
-      "stop",
-      "temperature",
-      "top_k",
-      "top_p"
-    ],
-    "default_parameters": {
-      "temperature": 0.3
-    }
-  },
-  {
     "id": "google/gemma-3n-e4b-it:free",
     "canonical_slug": "google/gemma-3n-e4b-it",
     "hugging_face_id": "google/gemma-3n-E4B-it",
@@ -9233,56 +9176,6 @@
       "min_p",
       "presence_penalty",
       "repetition_penalty",
-      "stop",
-      "temperature",
-      "top_k",
-      "top_p"
-    ],
-    "default_parameters": {}
-  },
-  {
-    "id": "microsoft/phi-4-reasoning-plus",
-    "canonical_slug": "microsoft/phi-4-reasoning-plus-04-30",
-    "hugging_face_id": "microsoft/Phi-4-reasoning-plus",
-    "name": "Microsoft: Phi 4 Reasoning Plus",
-    "created": 1746130961,
-    "description": "Phi-4-reasoning-plus is an enhanced 14B parameter model from Microsoft, fine-tuned from Phi-4 with additional reinforcement learning to boost accuracy on math, science, and code reasoning tasks. It uses the same dense decoder-only transformer architecture as Phi-4, but generates longer, more comprehensive outputs structured into a step-by-step reasoning trace and final answer.\n\nWhile it offers improved benchmark scores over Phi-4-reasoning across tasks like AIME, OmniMath, and HumanEvalPlus, its responses are typically ~50% longer, resulting in higher latency. Designed for English-only applications, it is well-suited for structured reasoning workflows where output quality takes priority over response speed.",
-    "context_length": 32768,
-    "architecture": {
-      "modality": "text->text",
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "tokenizer": "Other",
-      "instruct_type": null
-    },
-    "pricing": {
-      "prompt": "0.00000007",
-      "completion": "0.00000035",
-      "request": "0",
-      "image": "0",
-      "web_search": "0",
-      "internal_reasoning": "0"
-    },
-    "top_provider": {
-      "context_length": 32768,
-      "max_completion_tokens": null,
-      "is_moderated": false
-    },
-    "per_request_limits": null,
-    "supported_parameters": [
-      "frequency_penalty",
-      "include_reasoning",
-      "max_tokens",
-      "min_p",
-      "presence_penalty",
-      "reasoning",
-      "repetition_penalty",
-      "response_format",
-      "seed",
       "stop",
       "temperature",
       "top_k",
@@ -11254,55 +11147,6 @@
     "default_parameters": {}
   },
   {
-    "id": "microsoft/phi-4-multimodal-instruct",
-    "canonical_slug": "microsoft/phi-4-multimodal-instruct",
-    "hugging_face_id": "microsoft/Phi-4-multimodal-instruct",
-    "name": "Microsoft: Phi 4 Multimodal Instruct",
-    "created": 1741396284,
-    "description": "Phi-4 Multimodal Instruct is a versatile 5.6B parameter foundation model that combines advanced reasoning and instruction-following capabilities across both text and visual inputs, providing accurate text outputs. The unified architecture enables efficient, low-latency inference, suitable for edge and mobile deployments. Phi-4 Multimodal Instruct supports text inputs in multiple languages including Arabic, Chinese, English, French, German, Japanese, Spanish, and more, with visual input optimized primarily for English. It delivers impressive performance on multimodal tasks involving mathematical, scientific, and document reasoning, providing developers and enterprises a powerful yet compact model for sophisticated interactive applications. For more information, see the [Phi-4 Multimodal blog post](https://azure.microsoft.com/en-us/blog/empowering-innovation-the-next-generation-of-the-phi-family/).\n",
-    "context_length": 131072,
-    "architecture": {
-      "modality": "text+image->text",
-      "input_modalities": [
-        "text",
-        "image"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "tokenizer": "Other",
-      "instruct_type": null
-    },
-    "pricing": {
-      "prompt": "0.00000005",
-      "completion": "0.0000001",
-      "request": "0",
-      "image": "0.00017685",
-      "web_search": "0",
-      "internal_reasoning": "0"
-    },
-    "top_provider": {
-      "context_length": 131072,
-      "max_completion_tokens": null,
-      "is_moderated": false
-    },
-    "per_request_limits": null,
-    "supported_parameters": [
-      "frequency_penalty",
-      "max_tokens",
-      "min_p",
-      "presence_penalty",
-      "repetition_penalty",
-      "response_format",
-      "seed",
-      "stop",
-      "temperature",
-      "top_k",
-      "top_p"
-    ],
-    "default_parameters": {}
-  },
-  {
     "id": "perplexity/sonar-reasoning-pro",
     "canonical_slug": "perplexity/sonar-reasoning-pro",
     "hugging_face_id": "",
@@ -12130,7 +11974,7 @@
     "name": "DeepSeek: R1 Distill Qwen 32B",
     "created": 1738194830,
     "description": "DeepSeek R1 Distill Qwen 32B is a distilled large language model based on [Qwen 2.5 32B](https://huggingface.co/Qwen/Qwen2.5-32B), using outputs from [DeepSeek R1](/deepseek/deepseek-r1). It outperforms OpenAI's o1-mini across various benchmarks, achieving new state-of-the-art results for dense models.\\n\\nOther benchmark results include:\\n\\n- AIME 2024 pass@1: 72.6\\n- MATH-500 pass@1: 94.3\\n- CodeForces Rating: 1691\\n\\nThe model leverages fine-tuning from DeepSeek R1's outputs, enabling competitive performance comparable to larger frontier models.",
-    "context_length": 131072,
+    "context_length": 32768,
     "architecture": {
       "modality": "text->text",
       "input_modalities": [
@@ -12143,15 +11987,15 @@
       "instruct_type": "deepseek-r1"
     },
     "pricing": {
-      "prompt": "0.00000027",
-      "completion": "0.00000027",
+      "prompt": "0.00000029",
+      "completion": "0.00000029",
       "request": "0",
       "image": "0",
       "web_search": "0",
       "internal_reasoning": "0"
     },
     "top_provider": {
-      "context_length": 131072,
+      "context_length": 32768,
       "max_completion_tokens": null,
       "is_moderated": false
     },
@@ -12160,7 +12004,6 @@
       "frequency_penalty",
       "include_reasoning",
       "max_tokens",
-      "min_p",
       "presence_penalty",
       "reasoning",
       "repetition_penalty",
@@ -12280,7 +12123,7 @@
     "name": "DeepSeek: R1",
     "created": 1737381095,
     "description": "DeepSeek R1 is here: Performance on par with [OpenAI o1](/openai/o1), but open-sourced and with fully open reasoning tokens. It's 671B parameters in size, with 37B active in an inference pass.\n\nFully open-source model & [technical report](https://api-docs.deepseek.com/news/news250120).\n\nMIT licensed: Distill & commercialize freely!",
-    "context_length": 163840,
+    "context_length": 64000,
     "architecture": {
       "modality": "text->text",
       "input_modalities": [
@@ -12294,15 +12137,15 @@
     },
     "pricing": {
       "prompt": "0.0000007",
-      "completion": "0.0000024",
+      "completion": "0.0000025",
       "request": "0",
       "image": "0",
       "web_search": "0",
       "internal_reasoning": "0"
     },
     "top_provider": {
-      "context_length": 163840,
-      "max_completion_tokens": 163840,
+      "context_length": 64000,
+      "max_completion_tokens": 16000,
       "is_moderated": false
     },
     "per_request_limits": null,
@@ -12310,11 +12153,9 @@
       "frequency_penalty",
       "include_reasoning",
       "max_tokens",
-      "min_p",
       "presence_penalty",
       "reasoning",
       "repetition_penalty",
-      "response_format",
       "seed",
       "stop",
       "temperature",
@@ -13884,55 +13725,6 @@
     "default_parameters": {}
   },
   {
-    "id": "meta-llama/llama-3.2-90b-vision-instruct",
-    "canonical_slug": "meta-llama/llama-3.2-90b-vision-instruct",
-    "hugging_face_id": "meta-llama/Llama-3.2-90B-Vision-Instruct",
-    "name": "Meta: Llama 3.2 90B Vision Instruct",
-    "created": 1727222400,
-    "description": "The Llama 90B Vision model is a top-tier, 90-billion-parameter multimodal model designed for the most challenging visual reasoning and language tasks. It offers unparalleled accuracy in image captioning, visual question answering, and advanced image-text comprehension. Pre-trained on vast multimodal datasets and fine-tuned with human feedback, the Llama 90B Vision is engineered to handle the most demanding image-based AI tasks.\n\nThis model is perfect for industries requiring cutting-edge multimodal AI capabilities, particularly those dealing with complex, real-time visual and textual analysis.\n\nClick here for the [original model card](https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/MODEL_CARD_VISION.md).\n\nUsage of this model is subject to [Meta's Acceptable Use Policy](https://www.llama.com/llama3/use-policy/).",
-    "context_length": 32768,
-    "architecture": {
-      "modality": "text+image->text",
-      "input_modalities": [
-        "text",
-        "image"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "tokenizer": "Llama3",
-      "instruct_type": "llama3"
-    },
-    "pricing": {
-      "prompt": "0.00000035",
-      "completion": "0.0000004",
-      "request": "0",
-      "image": "0.0005058",
-      "web_search": "0",
-      "internal_reasoning": "0"
-    },
-    "top_provider": {
-      "context_length": 32768,
-      "max_completion_tokens": 16384,
-      "is_moderated": false
-    },
-    "per_request_limits": null,
-    "supported_parameters": [
-      "frequency_penalty",
-      "max_tokens",
-      "min_p",
-      "presence_penalty",
-      "repetition_penalty",
-      "response_format",
-      "seed",
-      "stop",
-      "temperature",
-      "top_k",
-      "top_p"
-    ],
-    "default_parameters": {}
-  },
-  {
     "id": "meta-llama/llama-3.2-11b-vision-instruct",
     "canonical_slug": "meta-llama/llama-3.2-11b-vision-instruct",
     "hugging_face_id": "meta-llama/Llama-3.2-11B-Vision-Instruct",
@@ -14942,14 +14734,13 @@
     },
     "top_provider": {
       "context_length": 131072,
-      "max_completion_tokens": 16384,
+      "max_completion_tokens": 131072,
       "is_moderated": false
     },
     "per_request_limits": null,
     "supported_parameters": [
       "frequency_penalty",
       "max_tokens",
-      "min_p",
       "presence_penalty",
       "repetition_penalty",
       "response_format",
@@ -15254,58 +15045,6 @@
     "default_parameters": {}
   },
   {
-    "id": "mistralai/mistral-7b-instruct:free",
-    "canonical_slug": "mistralai/mistral-7b-instruct",
-    "hugging_face_id": "mistralai/Mistral-7B-Instruct-v0.3",
-    "name": "Mistral: Mistral 7B Instruct (free)",
-    "created": 1716768000,
-    "description": "A high-performing, industry-standard 7.3B parameter model, with optimizations for speed and context length.\n\n*Mistral 7B Instruct has multiple version variants, and this is intended to be the latest version.*",
-    "context_length": 32768,
-    "architecture": {
-      "modality": "text->text",
-      "input_modalities": [
-        "text"
-      ],
-      "output_modalities": [
-        "text"
-      ],
-      "tokenizer": "Mistral",
-      "instruct_type": "mistral"
-    },
-    "pricing": {
-      "prompt": "0",
-      "completion": "0",
-      "request": "0",
-      "image": "0",
-      "web_search": "0",
-      "internal_reasoning": "0"
-    },
-    "top_provider": {
-      "context_length": 32768,
-      "max_completion_tokens": 16384,
-      "is_moderated": false
-    },
-    "per_request_limits": null,
-    "supported_parameters": [
-      "frequency_penalty",
-      "max_tokens",
-      "min_p",
-      "presence_penalty",
-      "repetition_penalty",
-      "response_format",
-      "seed",
-      "stop",
-      "temperature",
-      "tool_choice",
-      "tools",
-      "top_k",
-      "top_p"
-    ],
-    "default_parameters": {
-      "temperature": 0.3
-    }
-  },
-  {
     "id": "mistralai/mistral-7b-instruct",
     "canonical_slug": "mistralai/mistral-7b-instruct",
     "hugging_face_id": "mistralai/Mistral-7B-Instruct-v0.3",
@@ -15325,8 +15064,8 @@
       "instruct_type": "mistral"
     },
     "pricing": {
-      "prompt": "0.000000028",
-      "completion": "0.000000054",
+      "prompt": "0.0000002",
+      "completion": "0.0000002",
       "request": "0",
       "image": "0",
       "web_search": "0",
@@ -15334,7 +15073,7 @@
     },
     "top_provider": {
       "context_length": 32768,
-      "max_completion_tokens": 16384,
+      "max_completion_tokens": 4096,
       "is_moderated": false
     },
     "per_request_limits": null,
@@ -15345,12 +15084,8 @@
       "min_p",
       "presence_penalty",
       "repetition_penalty",
-      "response_format",
-      "seed",
       "stop",
       "temperature",
-      "tool_choice",
-      "tools",
       "top_k",
       "top_p"
     ],
@@ -15625,7 +15360,7 @@
       "instruct_type": "llama3"
     },
     "pricing": {
-      "prompt": "0.0000003",
+      "prompt": "0.0000004",
       "completion": "0.0000004",
       "request": "0",
       "image": "0",
@@ -15634,7 +15369,7 @@
     },
     "top_provider": {
       "context_length": 8192,
-      "max_completion_tokens": 16384,
+      "max_completion_tokens": null,
       "is_moderated": false
     },
     "per_request_limits": null,
@@ -15650,8 +15385,6 @@
       "stop",
       "structured_outputs",
       "temperature",
-      "tool_choice",
-      "tools",
       "top_k",
       "top_p"
     ],

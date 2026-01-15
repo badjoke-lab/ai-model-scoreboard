@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-15T21:36:28.283Z",
+  "updatedAt": "2026-01-15T22:41:13.621Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -126,7 +126,6 @@
       "evidence/meta-llama/llama-3.2-11b-vision-instruct.json",
       "evidence/meta-llama/llama-3.2-1b-instruct.json",
       "evidence/meta-llama/llama-3.2-3b-instruct.json",
-      "evidence/meta-llama/llama-3.2-90b-vision-instruct.json",
       "evidence/meta-llama/llama-3.3-70b-instruct.json",
       "evidence/meta-llama/llama-4-maverick-17b-128e-instruct.json",
       "evidence/meta-llama/llama-4-scout-17b-16e-instruct.json",
@@ -134,8 +133,6 @@
       "evidence/meta-llama/llama-guard-3-8b.json",
       "evidence/meta-llama/llama-guard-4-12b.json",
       "evidence/microsoft/phi-4.json",
-      "evidence/microsoft/phi-4-multimodal-instruct.json",
-      "evidence/microsoft/phi-4-reasoning-plus-04-30.json",
       "evidence/microsoft/wizardlm-2-8x22b.json",
       "evidence/minimax/minimax-01.json",
       "evidence/minimax/minimax-m1.json",
@@ -144,7 +141,6 @@
       "evidence/mistralai/codestral-2508.json",
       "evidence/mistralai/devstral-2512.json",
       "evidence/mistralai/devstral-medium-2507.json",
-      "evidence/mistralai/devstral-small-2505.json",
       "evidence/mistralai/devstral-small-2507.json",
       "evidence/mistralai/ministral-14b-2512.json",
       "evidence/mistralai/ministral-3b.json",
@@ -429,7 +425,6 @@
       "evidence/meta-llama/llama-3.2-11b-vision-instruct.json",
       "evidence/meta-llama/llama-3.2-1b-instruct.json",
       "evidence/meta-llama/llama-3.2-3b-instruct.json",
-      "evidence/meta-llama/llama-3.2-90b-vision-instruct.json",
       "evidence/meta-llama/llama-3.3-70b-instruct.json",
       "evidence/meta-llama/llama-4-maverick-17b-128e-instruct.json",
       "evidence/meta-llama/llama-4-scout-17b-16e-instruct.json",
@@ -437,8 +432,6 @@
       "evidence/meta-llama/llama-guard-3-8b.json",
       "evidence/meta-llama/llama-guard-4-12b.json",
       "evidence/microsoft/phi-4.json",
-      "evidence/microsoft/phi-4-multimodal-instruct.json",
-      "evidence/microsoft/phi-4-reasoning-plus-04-30.json",
       "evidence/microsoft/wizardlm-2-8x22b.json",
       "evidence/minimax/minimax-01.json",
       "evidence/minimax/minimax-m1.json",
@@ -447,7 +440,6 @@
       "evidence/mistralai/codestral-2508.json",
       "evidence/mistralai/devstral-2512.json",
       "evidence/mistralai/devstral-medium-2507.json",
-      "evidence/mistralai/devstral-small-2505.json",
       "evidence/mistralai/devstral-small-2507.json",
       "evidence/mistralai/ministral-14b-2512.json",
       "evidence/mistralai/ministral-3b.json",
@@ -626,8 +618,8 @@
       "evidence/z-ai/glm-4.7-20251222.json"
     ]
   },
-  "modelsCount": 301,
-  "fullCount": 286,
+  "modelsCount": 297,
+  "fullCount": 282,
   "provisionalCount": 15,
   "notListedCount": 0
 }

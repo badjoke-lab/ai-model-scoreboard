@@ -637,12 +637,6 @@
       "source": "openrouter"
     },
     {
-      "modelKey": "meta-llama/llama-3.2-90b-vision-instruct",
-      "name": "Meta: Llama 3.2 90B Vision Instruct",
-      "provider": "meta-llama",
-      "source": "openrouter"
-    },
-    {
       "modelKey": "meta-llama/llama-3.3-70b-instruct",
       "name": "Meta: Llama 3.3 70B Instruct (free)",
       "provider": "meta-llama",
@@ -681,18 +675,6 @@
     {
       "modelKey": "microsoft/phi-4",
       "name": "Microsoft: Phi 4",
-      "provider": "microsoft",
-      "source": "openrouter"
-    },
-    {
-      "modelKey": "microsoft/phi-4-multimodal-instruct",
-      "name": "Microsoft: Phi 4 Multimodal Instruct",
-      "provider": "microsoft",
-      "source": "openrouter"
-    },
-    {
-      "modelKey": "microsoft/phi-4-reasoning-plus-04-30",
-      "name": "Microsoft: Phi 4 Reasoning Plus",
       "provider": "microsoft",
       "source": "openrouter"
     },
@@ -745,12 +727,6 @@
       "source": "openrouter"
     },
     {
-      "modelKey": "mistralai/devstral-small-2505",
-      "name": "Mistral: Devstral Small 2505",
-      "provider": "mistralai",
-      "source": "openrouter"
-    },
-    {
       "modelKey": "mistralai/devstral-small-2507",
       "name": "Mistral: Devstral Small 1.1",
       "provider": "mistralai",
@@ -788,7 +764,7 @@
     },
     {
       "modelKey": "mistralai/mistral-7b-instruct",
-      "name": "Mistral: Mistral 7B Instruct (free)",
+      "name": "Mistral: Mistral 7B Instruct",
       "provider": "mistralai",
       "source": "openrouter"
     },

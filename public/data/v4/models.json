@@ -11608,21 +11608,21 @@
     "name": "DeepSeek: R1",
     "vendor": "deepseek",
     "released": "2025-01-20T13:51:35.000Z",
-    "context": 163840,
+    "context": 64000,
     "type": "text->text",
     "pricing": {
       "input": 7e-7,
-      "output": 0.0000024,
+      "output": 0.0000025,
       "currency": "USD"
     },
     "scores": {
-      "overall": 74.95812917538453,
+      "overall": 74.95812894461528,
       "categories": {
         "performance": 82.07660000000001,
         "safety": 65,
         "adoption": 85.85,
         "openness": 41.66666666666667,
-        "cost": 99.99989175384508
+        "cost": 99.99988944615275
       },
       "items": {
         "S1": {
@@ -12241,21 +12241,21 @@
     "name": "DeepSeek: R1 Distill Qwen 32B",
     "vendor": "deepseek",
     "released": "2025-01-29T23:53:50.000Z",
-    "context": 131072,
+    "context": 32768,
     "type": "text->text",
     "pricing": {
-      "input": 2.7e-7,
-      "output": 2.7e-7,
+      "input": 2.9e-7,
+      "output": 2.9e-7,
       "currency": "USD"
     },
     "scores": {
-      "overall": 64.15231739846152,
+      "overall": 64.15231719846152,
       "categories": {
         "performance": 62.94830000000001,
         "safety": 50,
         "adoption": 84.82,
         "openness": 41.66666666666667,
-        "cost": 99.99997398461514
+        "cost": 99.9999719846151
       },
       "items": {
         "S1": {
@@ -20473,18 +20473,18 @@
     "context": 8192,
     "type": "text->text",
     "pricing": {
-      "input": 3e-7,
+      "input": 4e-7,
       "output": 4e-7,
       "currency": "USD"
     },
     "scores": {
-      "overall": 72.11073686769228,
+      "overall": 72.1107360984615,
       "categories": {
         "performance": 65.57310000000001,
         "safety": 75,
         "adoption": 89.21000000000001,
         "openness": 50,
-        "cost": 99.99996867692276
+        "cost": 99.999960984615
       },
       "items": {
         "S1": {
@@ -22365,217 +22365,6 @@
     },
     "layer": "full"
   },
-  "meta-llama/llama-3.2-90b-vision-instruct": {
-    "name": "Meta: Llama 3.2 90B Vision Instruct",
-    "vendor": "meta-llama",
-    "released": "2024-09-25T00:00:00.000Z",
-    "context": 32768,
-    "type": "text+image->text",
-    "pricing": {
-      "input": 3.5e-7,
-      "output": 4e-7,
-      "currency": "USD"
-    },
-    "scores": {
-      "overall": 65.18481648307689,
-      "categories": {
-        "performance": 81.38330000000002,
-        "safety": 50,
-        "adoption": 59.21,
-        "openness": 25,
-        "cost": 99.99996483076889
-      },
-      "items": {
-        "S1": {
-          "score": 0,
-          "inputs": {
-            "safetySection": false,
-            "highRisk": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S2": {
-          "score": 100,
-          "inputs": {
-            "rlhf": true,
-            "dataDisclosure": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S3": {
-          "score": 0,
-          "inputs": {
-            "misusePolicy": false,
-            "harmMitigation": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S4": {
-          "score": 0,
-          "inputs": {
-            "redTeam": false,
-            "independentAudit": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "S5": {
-          "score": 0,
-          "inputs": {
-            "transparencyUpdate": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S6": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_minor_incidents"
-          ]
-        },
-        "S7": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_major_incidents"
-          ]
-        },
-        "S8": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_critical_incidents"
-          ]
-        },
-        "T1": {
-          "score": 33.33333333333333,
-          "inputs": {
-            "modelCard": true,
-            "overview": false,
-            "limitations": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T2": {
-          "score": 33.33333333333333,
-          "inputs": {
-            "dataCategories": true,
-            "dataFiltering": false,
-            "copyright": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T3": {
-          "score": 0,
-          "inputs": {
-            "architecture": false,
-            "parameterScale": false
-          },
-          "usedEvidence": [
-            {
-              "type": "paper",
-              "status": "not_found"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_paper_not_found"
-          ]
-        },
-        "T4": {
-          "score": 25,
-          "inputs": {
-            "safetyControls": true,
-            "riskLimits": false,
-            "externalReview": false,
-            "transparencyReport": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "Q1": {
-          "score": 89.19,
-          "inputs": {
-            "benchmark": 89.19
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q2": {
-          "score": 70.28,
-          "inputs": {
-            "benchmark": 70.28
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q3": {
-          "score": 82.11758999999999,
-          "inputs": {
-            "math": 86.07,
-            "chat": 58.91,
-            "arena": 80.6,
-            "vendor": 76.86
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        }
-      }
-    },
-    "layer": "full"
-  },
   "meta-llama/llama-3.3-70b-instruct": {
     "name": "Meta: Llama 3.3 70B Instruct (free)",
     "vendor": "meta-llama",
@@ -24045,428 +23834,6 @@
             "chat": 56.84,
             "arena": 61.84,
             "vendor": 79.2
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        }
-      }
-    },
-    "layer": "full"
-  },
-  "microsoft/phi-4-multimodal-instruct": {
-    "name": "Microsoft: Phi 4 Multimodal Instruct",
-    "vendor": "microsoft",
-    "released": "2025-03-08T01:11:24.000Z",
-    "context": 131072,
-    "type": "text+image->text",
-    "pricing": {
-      "input": 5e-8,
-      "output": 1e-7,
-      "currency": "USD"
-    },
-    "scores": {
-      "overall": 63.53787948307693,
-      "categories": {
-        "performance": 64.46970000000002,
-        "safety": 55,
-        "adoption": 70,
-        "openness": 41.66666666666667,
-        "cost": 99.99999483076918
-      },
-      "items": {
-        "S1": {
-          "score": 50,
-          "inputs": {
-            "safetySection": true,
-            "highRisk": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S2": {
-          "score": 50,
-          "inputs": {
-            "rlhf": true,
-            "dataDisclosure": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S3": {
-          "score": 50,
-          "inputs": {
-            "misusePolicy": false,
-            "harmMitigation": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S4": {
-          "score": 0,
-          "inputs": {
-            "redTeam": false,
-            "independentAudit": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "S5": {
-          "score": 0,
-          "inputs": {
-            "transparencyUpdate": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S6": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_minor_incidents"
-          ]
-        },
-        "S7": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_major_incidents"
-          ]
-        },
-        "S8": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_critical_incidents"
-          ]
-        },
-        "T1": {
-          "score": 33.33333333333333,
-          "inputs": {
-            "modelCard": false,
-            "overview": false,
-            "limitations": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T2": {
-          "score": 66.66666666666666,
-          "inputs": {
-            "dataCategories": true,
-            "dataFiltering": false,
-            "copyright": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T3": {
-          "score": 50,
-          "inputs": {
-            "architecture": true,
-            "parameterScale": false
-          },
-          "usedEvidence": [
-            {
-              "type": "paper",
-              "status": "not_found"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_paper_not_found"
-          ]
-        },
-        "T4": {
-          "score": 25,
-          "inputs": {
-            "safetyControls": false,
-            "riskLimits": true,
-            "externalReview": false,
-            "transparencyReport": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "Q1": {
-          "score": 78.94,
-          "inputs": {
-            "benchmark": 78.94
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q2": {
-          "score": 50.68,
-          "inputs": {
-            "benchmark": 50.68
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q3": {
-          "score": 58.964510000000004,
-          "inputs": {
-            "math": 58.85,
-            "chat": 75.29,
-            "arena": 52.3,
-            "vendor": 54.81
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        }
-      }
-    },
-    "layer": "full"
-  },
-  "microsoft/phi-4-reasoning-plus-04-30": {
-    "name": "Microsoft: Phi 4 Reasoning Plus",
-    "vendor": "microsoft",
-    "released": "2025-05-01T20:22:41.000Z",
-    "context": 32768,
-    "type": "text->text",
-    "pricing": {
-      "input": 7e-8,
-      "output": 3.5e-7,
-      "currency": "USD"
-    },
-    "scores": {
-      "overall": 72.8605987523077,
-      "categories": {
-        "performance": 75.35400000000001,
-        "safety": 75,
-        "adoption": 76.46,
-        "openness": 41.66666666666667,
-        "cost": 99.9999875230768
-      },
-      "items": {
-        "S1": {
-          "score": 0,
-          "inputs": {
-            "safetySection": false,
-            "highRisk": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S2": {
-          "score": 50,
-          "inputs": {
-            "rlhf": false,
-            "dataDisclosure": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S3": {
-          "score": 0,
-          "inputs": {
-            "misusePolicy": false,
-            "harmMitigation": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S4": {
-          "score": 100,
-          "inputs": {
-            "redTeam": true,
-            "independentAudit": true
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "S5": {
-          "score": 100,
-          "inputs": {
-            "transparencyUpdate": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S6": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_minor_incidents"
-          ]
-        },
-        "S7": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_major_incidents"
-          ]
-        },
-        "S8": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_critical_incidents"
-          ]
-        },
-        "T1": {
-          "score": 0,
-          "inputs": {
-            "modelCard": false,
-            "overview": false,
-            "limitations": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T2": {
-          "score": 33.33333333333333,
-          "inputs": {
-            "dataCategories": false,
-            "dataFiltering": false,
-            "copyright": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T3": {
-          "score": 50,
-          "inputs": {
-            "architecture": false,
-            "parameterScale": true
-          },
-          "usedEvidence": [
-            {
-              "type": "paper",
-              "status": "not_found"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_paper_not_found"
-          ]
-        },
-        "T4": {
-          "score": 75,
-          "inputs": {
-            "safetyControls": true,
-            "riskLimits": false,
-            "externalReview": true,
-            "transparencyReport": true
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "Q1": {
-          "score": 86.82,
-          "inputs": {
-            "benchmark": 86.82
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q2": {
-          "score": 65.04,
-          "inputs": {
-            "benchmark": 65.04
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q3": {
-          "score": 70.3537,
-          "inputs": {
-            "math": 67.75,
-            "chat": 84.74,
-            "arena": 71.74,
-            "vendor": 70.97
           },
           "usedEvidence": [],
           "penaltyReasons": []
@@ -26163,236 +25530,25 @@
     },
     "layer": "full"
   },
-  "mistralai/devstral-small-2505": {
-    "name": "Mistral: Devstral Small 2505",
-    "vendor": "mistralai",
-    "released": "2025-05-21T14:22:59.000Z",
-    "context": 128000,
-    "type": "text->text",
-    "pricing": {
-      "input": 6e-8,
-      "output": 1.2e-7,
-      "currency": "USD"
-    },
-    "scores": {
-      "overall": 65.77153935999999,
-      "categories": {
-        "performance": 68.85010000000001,
-        "safety": 65,
-        "adoption": 68.21000000000001,
-        "openness": 33.33333333333333,
-        "cost": 99.99999359999994
-      },
-      "items": {
-        "S1": {
-          "score": 50,
-          "inputs": {
-            "safetySection": true,
-            "highRisk": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S2": {
-          "score": 0,
-          "inputs": {
-            "rlhf": false,
-            "dataDisclosure": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S3": {
-          "score": 100,
-          "inputs": {
-            "misusePolicy": true,
-            "harmMitigation": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S4": {
-          "score": 50,
-          "inputs": {
-            "redTeam": true,
-            "independentAudit": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "S5": {
-          "score": 0,
-          "inputs": {
-            "transparencyUpdate": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S6": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_minor_incidents"
-          ]
-        },
-        "S7": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_major_incidents"
-          ]
-        },
-        "S8": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_critical_incidents"
-          ]
-        },
-        "T1": {
-          "score": 33.33333333333333,
-          "inputs": {
-            "modelCard": false,
-            "overview": false,
-            "limitations": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T2": {
-          "score": 0,
-          "inputs": {
-            "dataCategories": false,
-            "dataFiltering": false,
-            "copyright": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T3": {
-          "score": 50,
-          "inputs": {
-            "architecture": false,
-            "parameterScale": true
-          },
-          "usedEvidence": [
-            {
-              "type": "paper",
-              "status": "not_found"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_paper_not_found"
-          ]
-        },
-        "T4": {
-          "score": 50,
-          "inputs": {
-            "safetyControls": false,
-            "riskLimits": true,
-            "externalReview": true,
-            "transparencyReport": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "Q1": {
-          "score": 70.21,
-          "inputs": {
-            "benchmark": 70.21
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q2": {
-          "score": 68.44,
-          "inputs": {
-            "benchmark": 68.44
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q3": {
-          "score": 67.44703000000001,
-          "inputs": {
-            "math": 67.45,
-            "chat": 84.29,
-            "arena": 60.22,
-            "vendor": 74.79
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        }
-      }
-    },
-    "layer": "full"
-  },
   "mistralai/devstral-small-2507": {
     "name": "Mistral: Devstral Small 1.1",
     "vendor": "mistralai",
     "released": "2025-07-10T15:19:11.000Z",
-    "context": 128000,
+    "context": 131072,
     "type": "text->text",
     "pricing": {
-      "input": 7e-8,
-      "output": 2.8e-7,
+      "input": 1e-7,
+      "output": 3e-7,
       "currency": "USD"
     },
     "scores": {
-      "overall": 64.60025891384615,
+      "overall": 64.60025863692307,
       "categories": {
         "performance": 65.06690000000002,
         "safety": 65,
         "adoption": 45.489999999999995,
         "openness": 58.333333333333336,
-        "cost": 99.99998913846142
+        "cost": 99.99998636923063
       },
       "items": {
         "S1": {
@@ -27641,24 +26797,24 @@
     "layer": "full"
   },
   "mistralai/mistral-7b-instruct": {
-    "name": "Mistral: Mistral 7B Instruct (free)",
+    "name": "Mistral: Mistral 7B Instruct",
     "vendor": "mistralai",
     "released": "2024-05-27T00:00:00.000Z",
     "context": 32768,
     "type": "text->text",
     "pricing": {
-      "input": 0,
-      "output": 0,
+      "input": 2e-7,
+      "output": 2e-7,
       "currency": "USD"
     },
     "scores": {
-      "overall": 73.70808000000001,
+      "overall": 73.70807809846153,
       "categories": {
         "performance": 69.20270000000001,
         "safety": 90,
         "adoption": 70.17999999999999,
         "openness": 50,
-        "cost": 100
+        "cost": 99.9999809846152
       },
       "items": {
         "S1": {
