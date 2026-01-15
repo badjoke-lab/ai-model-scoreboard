@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-15T17:51:25.385Z",
+    "generatedAt": "2026-01-15T18:56:35.057Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 312,
-      "adopted": 312,
+      "total": 311,
+      "adopted": 311,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 310,
+        "openrouter": 309,
         "seed": 2
       }
     },
@@ -1229,23 +1229,6 @@
       "rawRef": {
         "id": "google/gemini-2.5-flash-image",
         "canonical_slug": "google/gemini-2.5-flash-image"
-      }
-    },
-    {
-      "modelKey": "google/gemini-2.5-flash-image-preview",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "Google: Gemini 2.5 Flash Image Preview (Nano Banana)",
-        "slug": "google/gemini-2.5-flash-image-preview",
-        "provider": "google"
-      },
-      "rawRef": {
-        "id": "google/gemini-2.5-flash-image-preview",
-        "canonical_slug": "google/gemini-2.5-flash-image-preview"
       }
     },
     {
