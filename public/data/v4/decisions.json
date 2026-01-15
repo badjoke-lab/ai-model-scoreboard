@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-14T23:31:08.120Z",
+    "generatedAt": "2026-01-15T02:28:51.968Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 311,
-      "adopted": 311,
+      "total": 310,
+      "adopted": 310,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 309,
+        "openrouter": 308,
         "seed": 2
       }
     },
@@ -1280,23 +1280,6 @@
       "rawRef": {
         "id": "google/gemini-2.5-flash-lite-preview-09-2025",
         "canonical_slug": "google/gemini-2.5-flash-lite-preview-09-2025"
-      }
-    },
-    {
-      "modelKey": "google/gemini-2.5-flash-preview-09-2025",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "Google: Gemini 2.5 Flash Preview 09-2025",
-        "slug": "google/gemini-2.5-flash-preview-09-2025",
-        "provider": "google"
-      },
-      "rawRef": {
-        "id": "google/gemini-2.5-flash-preview-09-2025",
-        "canonical_slug": "google/gemini-2.5-flash-preview-09-2025"
       }
     },
     {

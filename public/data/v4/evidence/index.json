@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-14T23:31:08.120Z",
-    "runId": "21013674648"
+    "updatedAt": "2026-01-15T02:28:51.968Z",
+    "runId": "21017512107"
   },
   "models": [
     {
@@ -300,10 +300,6 @@
     {
       "modelKey": "google/gemini-2.5-flash-lite-preview-09-2025",
       "path": "evidence/google/gemini-2.5-flash-lite-preview-09-2025.json"
-    },
-    {
-      "modelKey": "google/gemini-2.5-flash-preview-09-2025",
-      "path": "evidence/google/gemini-2.5-flash-preview-09-2025.json"
     },
     {
       "modelKey": "google/gemini-2.5-pro",

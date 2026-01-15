@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-14T23:31:08.120Z",
+  "updatedAt": "2026-01-15T02:28:51.968Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -94,7 +94,6 @@
       "evidence/google/gemini-2.5-flash-image-preview.json",
       "evidence/google/gemini-2.5-flash-lite.json",
       "evidence/google/gemini-2.5-flash-lite-preview-09-2025.json",
-      "evidence/google/gemini-2.5-flash-preview-09-2025.json",
       "evidence/google/gemini-2.5-pro.json",
       "evidence/google/gemini-2.5-pro-preview-03-25.json",
       "evidence/google/gemini-2.5-pro-preview-06-05.json",
@@ -407,7 +406,6 @@
       "evidence/google/gemini-2.5-flash-image-preview.json",
       "evidence/google/gemini-2.5-flash-lite.json",
       "evidence/google/gemini-2.5-flash-lite-preview-09-2025.json",
-      "evidence/google/gemini-2.5-flash-preview-09-2025.json",
       "evidence/google/gemini-2.5-pro.json",
       "evidence/google/gemini-2.5-pro-preview-03-25.json",
       "evidence/google/gemini-2.5-pro-preview-06-05.json",
@@ -646,8 +644,8 @@
       "evidence/z-ai/glm-4.7-20251222.json"
     ]
   },
-  "modelsCount": 311,
-  "fullCount": 296,
+  "modelsCount": 310,
+  "fullCount": 295,
   "provisionalCount": 15,
   "notListedCount": 0
 }

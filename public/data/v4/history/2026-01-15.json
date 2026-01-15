@@ -495,10 +495,6 @@
     "score": 70.44331925230769,
     "layer": "full"
   },
-  "google/gemini-2.5-flash-preview-09-2025": {
-    "score": 70.4336720215384,
-    "layer": "full"
-  },
   "mistralai/mistral-small-3.1-24b-instruct-2503": {
     "score": 70.40717961384615,
     "layer": "full"
