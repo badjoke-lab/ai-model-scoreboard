@@ -50854,18 +50854,18 @@
     "context": 40960,
     "type": "text->text",
     "pricing": {
-      "input": 1.8e-7,
-      "output": 5.4e-7,
+      "input": 2e-7,
+      "output": 6e-7,
       "currency": "USD"
     },
     "scores": {
-      "overall": 67.39199746769229,
+      "overall": 67.3919971753846,
       "categories": {
         "performance": 56.740000000000016,
         "safety": 85,
         "adoption": 59.64,
         "openness": 58.333333333333336,
-        "cost": 99.99997467692282
+        "cost": 99.99997175384587
       },
       "items": {
         "S1": {

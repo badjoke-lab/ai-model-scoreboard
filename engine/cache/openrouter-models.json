@@ -9582,8 +9582,8 @@
       "instruct_type": "qwen3"
     },
     "pricing": {
-      "prompt": "0.00000018",
-      "completion": "0.00000054",
+      "prompt": "0.0000002",
+      "completion": "0.0000006",
       "request": "0",
       "image": "0",
       "web_search": "0",
@@ -9591,7 +9591,7 @@
     },
     "top_provider": {
       "context_length": 40960,
-      "max_completion_tokens": 40960,
+      "max_completion_tokens": null,
       "is_moderated": false
     },
     "per_request_limits": null,
@@ -11581,12 +11581,9 @@
     "supported_parameters": [
       "frequency_penalty",
       "max_tokens",
-      "min_p",
       "presence_penalty",
       "repetition_penalty",
-      "response_format",
       "seed",
-      "stop",
       "temperature",
       "top_k",
       "top_p"
