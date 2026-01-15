@@ -51,10 +51,6 @@
     "score": 75.73819609846151,
     "layer": "full"
   },
-  "qwen/qwen3-max": {
-    "score": 75.44037702153824,
-    "layer": "full"
-  },
   "inception/mercury": {
     "score": 75.09483586769227,
     "layer": "full"
@@ -101,10 +97,6 @@
   },
   "stepfun-ai/step3": {
     "score": 74.610652436923,
-    "layer": "full"
-  },
-  "qwen/qwen3-coder-flash": {
-    "score": 74.60137432923072,
     "layer": "full"
   },
   "google/gemini-3-pro-image-preview-20251120": {
@@ -459,10 +451,6 @@
     "score": 70.61799398307687,
     "layer": "full"
   },
-  "qwen/qwen-vl-max-2025-01-25": {
-    "score": 70.61384655999987,
-    "layer": "full"
-  },
   "qwen/qwen3-30b-a3b-thinking-2507": {
     "score": 70.58943892153846,
     "layer": "full"
@@ -489,6 +477,10 @@
   },
   "allenai/olmo-2-0325-32b-instruct": {
     "score": 70.44331925230769,
+    "layer": "full"
+  },
+  "google/gemini-2.5-flash-preview-09-2025": {
+    "score": 70.4336720215384,
     "layer": "full"
   },
   "mistralai/mistral-small-3.1-24b-instruct-2503": {
@@ -535,10 +527,6 @@
     "score": 70.0357598523077,
     "layer": "full"
   },
-  "qwen/qwen-vl-plus": {
-    "score": 70.02397702923075,
-    "layer": "full"
-  },
   "deepseek/deepseek-v3.2-20251201": {
     "score": 69.97383729846152,
     "layer": "full"
@@ -553,10 +541,6 @@
   },
   "google/gemini-2.5-pro-preview-06-05": {
     "score": 69.91456740615354,
-    "layer": "full"
-  },
-  "qwen/qwen3-vl-8b-thinking": {
-    "score": 69.79367386769226,
     "layer": "full"
   },
   "anthropic/claude-4.1-opus-20250805": {
@@ -747,10 +731,6 @@
     "score": 68.05824000000001,
     "layer": "full"
   },
-  "qwen/qwen-turbo-2024-11-01": {
-    "score": 68.0257592523077,
-    "layer": "full"
-  },
   "tencent/hunyuan-a13b-instruct": {
     "score": 67.99305770615383,
     "layer": "full"
@@ -883,16 +863,8 @@
     "score": 66.58886740615354,
     "layer": "full"
   },
-  "qwen/qwen-plus-2025-07-28": {
-    "score": 66.58815425230763,
-    "layer": "full"
-  },
   "nvidia/llama-3.3-nemotron-super-49b-v1.5": {
     "score": 66.57387840615384,
-    "layer": "full"
-  },
-  "qwen/qwen3-coder-plus": {
-    "score": 66.54754086769213,
     "layer": "full"
   },
   "mistralai/mistral-tiny": {
@@ -1027,10 +999,6 @@
     "score": 64.74350759846143,
     "layer": "full"
   },
-  "qwen/qwen-plus-2025-01-25": {
-    "score": 64.73991425230763,
-    "layer": "full"
-  },
   "openrouter/auto": {
     "score": 64.72802,
     "layer": "full"
@@ -1052,7 +1020,7 @@
     "layer": "full"
   },
   "qwen/qwen3-next-80b-a3b-instruct-2509": {
-    "score": 64.53303686769229,
+    "score": 64.53304,
     "layer": "full"
   },
   "deepseek/deepseek-v3.1-terminus": {
@@ -1169,14 +1137,6 @@
   },
   "qwen/qwen3-14b-04-28": {
     "score": 61.93867920615385,
-    "layer": "full"
-  },
-  "qwen/qwen-max-2025-01-25": {
-    "score": 61.860673021538204,
-    "layer": "full"
-  },
-  "deepseek/deepseek-prover-v2": {
-    "score": 61.76171122153838,
     "layer": "full"
   },
   "prime-intellect/intellect-3-20251126": {

@@ -202,7 +202,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-vl-30b-a3b-thinking",
@@ -407,7 +407,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "z-ai/glm-4.5-air",
@@ -612,7 +612,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "allenai/molmo-2-8b-20260109",
@@ -817,7 +817,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meituan/longcat-flash-chat",
@@ -1022,7 +1022,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "perplexity/sonar",
@@ -1227,7 +1227,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "x-ai/grok-4-07-09",
@@ -1432,7 +1432,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4o",
@@ -1637,7 +1637,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-3.5-turbo-16k",
@@ -1842,7 +1842,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemma-3n-e4b-it",
@@ -2047,7 +2047,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "alfredpros/codellama-7b-instruct-solidity",
@@ -2252,7 +2252,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "deepseek/deepseek-r1-distill-llama-70b",
@@ -2457,7 +2457,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "thedrummer/unslopnemo-12b",
@@ -2662,212 +2662,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
-  },
-  {
-    "model": "qwen/qwen3-max",
-    "vendor": "qwen",
-    "layer": "full",
-    "score": 75.44037702153824,
-    "scores": {
-      "overall": 75.44037702153824,
-      "categories": {
-        "performance": 78.64850000000001,
-        "safety": 60,
-        "adoption": 71.53999999999999,
-        "openness": 75,
-        "cost": 99.99977021538236
-      },
-      "items": {
-        "S1": {
-          "score": 0,
-          "inputs": {
-            "safetySection": false,
-            "highRisk": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S2": {
-          "score": 100,
-          "inputs": {
-            "rlhf": true,
-            "dataDisclosure": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S3": {
-          "score": 0,
-          "inputs": {
-            "misusePolicy": false,
-            "harmMitigation": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S4": {
-          "score": 0,
-          "inputs": {
-            "redTeam": false,
-            "independentAudit": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "S5": {
-          "score": 100,
-          "inputs": {
-            "transparencyUpdate": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S6": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_minor_incidents"
-          ]
-        },
-        "S7": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_major_incidents"
-          ]
-        },
-        "S8": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_critical_incidents"
-          ]
-        },
-        "T1": {
-          "score": 100,
-          "inputs": {
-            "modelCard": true,
-            "overview": true,
-            "limitations": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T2": {
-          "score": 66.66666666666666,
-          "inputs": {
-            "dataCategories": true,
-            "dataFiltering": true,
-            "copyright": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T3": {
-          "score": 50,
-          "inputs": {
-            "architecture": true,
-            "parameterScale": false
-          },
-          "usedEvidence": [
-            {
-              "type": "paper",
-              "status": "not_found"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_paper_not_found"
-          ]
-        },
-        "T4": {
-          "score": 75,
-          "inputs": {
-            "safetyControls": true,
-            "riskLimits": true,
-            "externalReview": false,
-            "transparencyReport": true
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "Q1": {
-          "score": 79.49,
-          "inputs": {
-            "benchmark": 79.49
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q2": {
-          "score": 85.48,
-          "inputs": {
-            "benchmark": 85.48
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q3": {
-          "score": 70.72915,
-          "inputs": {
-            "math": 74.11,
-            "chat": 91.27,
-            "arena": 52.12,
-            "vendor": 48.96
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        }
-      }
-    },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "inception/mercury",
@@ -3072,7 +2867,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwq-32b",
@@ -3277,7 +3072,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/ministral-3b",
@@ -3482,7 +3277,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4o-search-preview-2025-03-11",
@@ -3687,7 +3482,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "deepseek/deepseek-r1",
@@ -3892,7 +3687,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemini-2.5-pro",
@@ -4097,7 +3892,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "moonshotai/kimi-k2-0905",
@@ -4302,7 +4097,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4o-mini-2024-07-18",
@@ -4507,7 +4302,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "arcee-ai/coder-large",
@@ -4712,7 +4507,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-next-80b-a3b-thinking-2509",
@@ -4917,7 +4712,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mancer/weaver",
@@ -5122,7 +4917,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "stepfun-ai/step3",
@@ -5327,212 +5122,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
-  },
-  {
-    "model": "qwen/qwen3-coder-flash",
-    "vendor": "qwen",
-    "layer": "full",
-    "score": 74.60137432923072,
-    "scores": {
-      "overall": 74.60137432923072,
-      "categories": {
-        "performance": 75.79970000000002,
-        "safety": 65,
-        "adoption": 75.21000000000001,
-        "openness": 66.66666666666666,
-        "cost": 99.99994329230712
-      },
-      "items": {
-        "S1": {
-          "score": 50,
-          "inputs": {
-            "safetySection": true,
-            "highRisk": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S2": {
-          "score": 0,
-          "inputs": {
-            "rlhf": false,
-            "dataDisclosure": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S3": {
-          "score": 100,
-          "inputs": {
-            "misusePolicy": true,
-            "harmMitigation": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S4": {
-          "score": 50,
-          "inputs": {
-            "redTeam": false,
-            "independentAudit": true
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "S5": {
-          "score": 0,
-          "inputs": {
-            "transparencyUpdate": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S6": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_minor_incidents"
-          ]
-        },
-        "S7": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_major_incidents"
-          ]
-        },
-        "S8": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_critical_incidents"
-          ]
-        },
-        "T1": {
-          "score": 100,
-          "inputs": {
-            "modelCard": true,
-            "overview": true,
-            "limitations": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T2": {
-          "score": 100,
-          "inputs": {
-            "dataCategories": true,
-            "dataFiltering": true,
-            "copyright": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T3": {
-          "score": 100,
-          "inputs": {
-            "architecture": true,
-            "parameterScale": true
-          },
-          "usedEvidence": [
-            {
-              "type": "paper",
-              "status": "not_found"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_paper_not_found"
-          ]
-        },
-        "T4": {
-          "score": 0,
-          "inputs": {
-            "safetyControls": false,
-            "riskLimits": false,
-            "externalReview": false,
-            "transparencyReport": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "Q1": {
-          "score": 64.69,
-          "inputs": {
-            "benchmark": 64.69
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q2": {
-          "score": 84.96,
-          "inputs": {
-            "benchmark": 84.96
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q3": {
-          "score": 81.40431000000001,
-          "inputs": {
-            "math": 76.65,
-            "chat": 93.92,
-            "arena": 89.83,
-            "vendor": 48.38
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        }
-      }
-    },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemini-3-pro-image-preview-20251120",
@@ -5737,7 +5327,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-vl-235b-a22b-thinking",
@@ -5942,7 +5532,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "relace/relace-search-20251208",
@@ -6147,7 +5737,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-3.5-turbo",
@@ -6352,7 +5942,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemini-3-flash-preview-20251217",
@@ -6557,7 +6147,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "anthropic/claude-3-haiku",
@@ -6762,7 +6352,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "morph/morph-v3-large",
@@ -6967,7 +6557,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-guard-2-8b",
@@ -7172,7 +6762,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/o3-deep-research-2025-06-26",
@@ -7377,7 +6967,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "amazon/nova-pro-v1",
@@ -7582,7 +7172,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "kwaipilot/kat-coder-pro-v1",
@@ -7787,7 +7377,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "deepseek/deepseek-v3.2-speciale-20251201",
@@ -7992,7 +7582,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "microsoft/phi-4",
@@ -8197,7 +7787,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemma-3-27b-it",
@@ -8402,7 +7992,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-7b-instruct",
@@ -8607,7 +8197,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-vl-235b-a22b-instruct",
@@ -8812,7 +8402,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemma-3-4b-it",
@@ -9017,7 +8607,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "aion-labs/aion-1.0-mini",
@@ -9222,7 +8812,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-3.2-3b-instruct",
@@ -9427,7 +9017,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "deepcogito/cogito-v2-preview-llama-405b",
@@ -9632,7 +9222,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-30b-a3b-04-28",
@@ -9837,7 +9427,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "allenai/olmo-3-7b-think-20251121",
@@ -10042,7 +9632,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/ministral-14b-2512",
@@ -10247,7 +9837,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/o3-mini-2025-01-31",
@@ -10452,7 +10042,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "alpindale/goliath-120b",
@@ -10657,7 +10247,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "anthropic/claude-3-7-sonnet-20250219",
@@ -10862,7 +10452,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/voxtral-small-24b-2507",
@@ -11067,7 +10657,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4o-audio-preview",
@@ -11272,7 +10862,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "x-ai/grok-4-fast",
@@ -11477,7 +11067,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-235b-a22b-thinking-2507",
@@ -11682,7 +11272,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "microsoft/phi-4-reasoning-plus-04-30",
@@ -11887,7 +11477,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen-2.5-coder-32b-instruct",
@@ -12092,7 +11682,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "z-ai/glm-4.6-20251208",
@@ -12297,7 +11887,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "amazon/nova-lite-v1",
@@ -12502,7 +12092,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "morph/morph-v3-fast",
@@ -12707,7 +12297,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "anthracite-org/magnum-v4-72b",
@@ -12912,7 +12502,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-medium-3",
@@ -13117,7 +12707,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "nex-agi/deepseek-v3.1-nex-n1",
@@ -13322,7 +12912,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "essentialai/rnj-1-instruct",
@@ -13527,7 +13117,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4.1-nano-2025-04-14",
@@ -13732,7 +13322,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "cohere/command-a-03-2025",
@@ -13937,7 +13527,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-3.1-8b-instruct",
@@ -14142,7 +13732,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "deepseek/deepseek-chat-v3",
@@ -14347,7 +13937,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4.1-2025-04-14",
@@ -14552,7 +14142,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "bytedance-seed/seed-1.6-flash-20250625",
@@ -14757,7 +14347,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "minimax/minimax-m1",
@@ -14962,7 +14552,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "baidu/ernie-4.5-300b-a47b",
@@ -15167,7 +14757,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5.2-pro-20251211",
@@ -15372,7 +14962,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-3-70b-instruct",
@@ -15577,7 +15167,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "inception/mercury-coder-small-beta",
@@ -15782,7 +15372,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "arcee-ai/spotlight",
@@ -15987,7 +15577,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/chatgpt-4o-latest",
@@ -16192,7 +15782,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "perplexity/sonar-deep-research",
@@ -16397,7 +15987,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-3.5-turbo-instruct",
@@ -16602,7 +16192,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "tngtech/deepseek-r1t-chimera",
@@ -16807,7 +16397,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "thedrummer/skyfall-36b-v2",
@@ -17012,7 +16602,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "amazon/nova-micro-v1",
@@ -17217,7 +16807,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mixtral-8x7b-instruct",
@@ -17422,7 +17012,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
@@ -17627,7 +17217,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4",
@@ -17832,7 +17422,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-235b-a22b-07-25",
@@ -18037,7 +17627,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5-mini-2025-08-07",
@@ -18242,7 +17832,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "x-ai/grok-code-fast-1",
@@ -18447,7 +18037,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "opengvlab/internvl3-78b",
@@ -18652,7 +18242,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "nousresearch/hermes-4-405b",
@@ -18857,7 +18447,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "ai21/jamba-large-1.7",
@@ -19062,7 +18652,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-large-2512",
@@ -19267,7 +18857,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/o4-mini-deep-research-2025-06-26",
@@ -19472,7 +19062,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5-image",
@@ -19677,7 +19267,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "inflection/inflection-3-productivity",
@@ -19882,7 +19472,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "anthropic/claude-3.5-sonnet",
@@ -20087,7 +19677,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4-1106-preview",
@@ -20292,7 +19882,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4o-2024-11-20",
@@ -20497,7 +20087,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "nvidia/nemotron-nano-12b-v2-vl",
@@ -20702,7 +20292,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "deepseek/deepseek-chat-v3-0324",
@@ -20907,7 +20497,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/codestral-2508",
@@ -21112,7 +20702,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/o4-mini-2025-04-16",
@@ -21317,7 +20907,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-4-scout-17b-16e-instruct",
@@ -21522,7 +21112,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mixtral-8x22b-instruct",
@@ -21727,7 +21317,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "cohere/command-r-08-2024",
@@ -21932,7 +21522,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-30b-a3b-instruct-2507",
@@ -22137,7 +21727,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-3.5-turbo-0613",
@@ -22342,7 +21932,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "ibm-granite/granite-4.0-h-micro",
@@ -22547,7 +22137,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "bytedance-seed/seed-1.6-20250625",
@@ -22752,7 +22342,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5.1-chat-20251113",
@@ -22957,7 +22547,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4-0314",
@@ -23162,7 +22752,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "amazon/nova-2-lite-v1",
@@ -23367,7 +22957,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "baidu/ernie-4.5-vl-424b-a47b",
@@ -23572,212 +23162,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
-  },
-  {
-    "model": "qwen/qwen-vl-max-2025-01-25",
-    "vendor": "qwen",
-    "layer": "full",
-    "score": 70.61384655999987,
-    "scores": {
-      "overall": 70.61384655999987,
-      "categories": {
-        "performance": 73.51340000000002,
-        "safety": 70,
-        "adoption": 56.39,
-        "openness": 58.333333333333336,
-        "cost": 99.99986559999867
-      },
-      "items": {
-        "S1": {
-          "score": 50,
-          "inputs": {
-            "safetySection": false,
-            "highRisk": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S2": {
-          "score": 50,
-          "inputs": {
-            "rlhf": false,
-            "dataDisclosure": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S3": {
-          "score": 0,
-          "inputs": {
-            "misusePolicy": false,
-            "harmMitigation": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S4": {
-          "score": 50,
-          "inputs": {
-            "redTeam": false,
-            "independentAudit": true
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "S5": {
-          "score": 100,
-          "inputs": {
-            "transparencyUpdate": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S6": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_minor_incidents"
-          ]
-        },
-        "S7": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_major_incidents"
-          ]
-        },
-        "S8": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_critical_incidents"
-          ]
-        },
-        "T1": {
-          "score": 66.66666666666666,
-          "inputs": {
-            "modelCard": true,
-            "overview": true,
-            "limitations": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T2": {
-          "score": 33.33333333333333,
-          "inputs": {
-            "dataCategories": false,
-            "dataFiltering": true,
-            "copyright": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T3": {
-          "score": 50,
-          "inputs": {
-            "architecture": false,
-            "parameterScale": true
-          },
-          "usedEvidence": [
-            {
-              "type": "paper",
-              "status": "not_found"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_paper_not_found"
-          ]
-        },
-        "T4": {
-          "score": 75,
-          "inputs": {
-            "safetyControls": true,
-            "riskLimits": false,
-            "externalReview": true,
-            "transparencyReport": true
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "Q1": {
-          "score": 90.11,
-          "inputs": {
-            "benchmark": 90.11
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q2": {
-          "score": 69.08,
-          "inputs": {
-            "benchmark": 69.08
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q3": {
-          "score": 55.74422,
-          "inputs": {
-            "math": 48.44,
-            "chat": 64.4,
-            "arena": 73.22,
-            "vendor": 75.51
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        }
-      }
-    },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-30b-a3b-thinking-2507",
@@ -23982,7 +23367,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/o4-mini-high-2025-04-16",
@@ -24187,7 +23572,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-7b-instruct-v0.2",
@@ -24392,7 +23777,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "undi95/remm-slerp-l2-13b",
@@ -24597,7 +23982,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemini-2.0-flash-exp",
@@ -24802,7 +24187,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "perplexity/sonar-pro",
@@ -25007,7 +24392,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "allenai/olmo-2-0325-32b-instruct",
@@ -25212,7 +24597,212 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
+  },
+  {
+    "model": "google/gemini-2.5-flash-preview-09-2025",
+    "vendor": "google",
+    "layer": "full",
+    "score": 70.4336720215384,
+    "scores": {
+      "overall": 70.4336720215384,
+      "categories": {
+        "performance": 72.31420000000001,
+        "safety": 75,
+        "adoption": 76.72,
+        "openness": 33.33333333333333,
+        "cost": 99.99992021538382
+      },
+      "items": {
+        "S1": {
+          "score": 100,
+          "inputs": {
+            "safetySection": true,
+            "highRisk": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S2": {
+          "score": 100,
+          "inputs": {
+            "rlhf": true,
+            "dataDisclosure": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S3": {
+          "score": 50,
+          "inputs": {
+            "misusePolicy": true,
+            "harmMitigation": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S4": {
+          "score": 50,
+          "inputs": {
+            "redTeam": false,
+            "independentAudit": true
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "S5": {
+          "score": 0,
+          "inputs": {
+            "transparencyUpdate": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S6": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_minor_incidents"
+          ]
+        },
+        "S7": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_major_incidents"
+          ]
+        },
+        "S8": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_critical_incidents"
+          ]
+        },
+        "T1": {
+          "score": 33.33333333333333,
+          "inputs": {
+            "modelCard": true,
+            "overview": false,
+            "limitations": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T2": {
+          "score": 0,
+          "inputs": {
+            "dataCategories": false,
+            "dataFiltering": false,
+            "copyright": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T3": {
+          "score": 50,
+          "inputs": {
+            "architecture": false,
+            "parameterScale": true
+          },
+          "usedEvidence": [
+            {
+              "type": "paper",
+              "status": "not_found"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_paper_not_found"
+          ]
+        },
+        "T4": {
+          "score": 50,
+          "inputs": {
+            "safetyControls": true,
+            "riskLimits": false,
+            "externalReview": true,
+            "transparencyReport": false
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "Q1": {
+          "score": 73.87,
+          "inputs": {
+            "benchmark": 73.87
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q2": {
+          "score": 68.56,
+          "inputs": {
+            "benchmark": 68.56
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q3": {
+          "score": 73.97366,
+          "inputs": {
+            "math": 71.96,
+            "chat": 89.15,
+            "arena": 73.31,
+            "vendor": 74.93
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        }
+      }
+    },
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-small-3.1-24b-instruct-2503",
@@ -25417,7 +25007,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "z-ai/glm-4-32b-0414",
@@ -25622,7 +25212,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-3.2-1b-instruct",
@@ -25827,7 +25417,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "ai21/jamba-mini-1.7",
@@ -26032,7 +25622,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "arcee-ai/trinity-mini-20251201",
@@ -26237,7 +25827,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "alibaba/tongyi-deepresearch-30b-a3b",
@@ -26442,7 +26032,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "allenai/olmo-3-32b-think-20251121",
@@ -26647,7 +26237,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "minimax/minimax-m2.1",
@@ -26852,7 +26442,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "tngtech/deepseek-r1t2-chimera",
@@ -27057,7 +26647,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "anthropic/claude-4.5-haiku-20251001",
@@ -27262,7 +26852,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-nemo",
@@ -27467,212 +27057,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
-  },
-  {
-    "model": "qwen/qwen-vl-plus",
-    "vendor": "qwen",
-    "layer": "full",
-    "score": 70.02397702923075,
-    "scores": {
-      "overall": 70.02397702923075,
-      "categories": {
-        "performance": 77.10620000000002,
-        "safety": 55,
-        "adoption": 71.21000000000001,
-        "openness": 50,
-        "cost": 99.99997029230741
-      },
-      "items": {
-        "S1": {
-          "score": 0,
-          "inputs": {
-            "safetySection": false,
-            "highRisk": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S2": {
-          "score": 0,
-          "inputs": {
-            "rlhf": false,
-            "dataDisclosure": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S3": {
-          "score": 50,
-          "inputs": {
-            "misusePolicy": false,
-            "harmMitigation": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S4": {
-          "score": 0,
-          "inputs": {
-            "redTeam": false,
-            "independentAudit": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "S5": {
-          "score": 100,
-          "inputs": {
-            "transparencyUpdate": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S6": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_minor_incidents"
-          ]
-        },
-        "S7": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_major_incidents"
-          ]
-        },
-        "S8": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_critical_incidents"
-          ]
-        },
-        "T1": {
-          "score": 66.66666666666666,
-          "inputs": {
-            "modelCard": true,
-            "overview": true,
-            "limitations": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T2": {
-          "score": 66.66666666666666,
-          "inputs": {
-            "dataCategories": true,
-            "dataFiltering": true,
-            "copyright": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T3": {
-          "score": 50,
-          "inputs": {
-            "architecture": true,
-            "parameterScale": false
-          },
-          "usedEvidence": [
-            {
-              "type": "paper",
-              "status": "not_found"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_paper_not_found"
-          ]
-        },
-        "T4": {
-          "score": 25,
-          "inputs": {
-            "safetyControls": false,
-            "riskLimits": false,
-            "externalReview": false,
-            "transparencyReport": true
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "Q1": {
-          "score": 86.56,
-          "inputs": {
-            "benchmark": 86.56
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q2": {
-          "score": 84.44,
-          "inputs": {
-            "benchmark": 84.44
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q3": {
-          "score": 57.06936,
-          "inputs": {
-            "math": 47.37,
-            "chat": 63.28,
-            "arena": 82.54,
-            "vendor": 47.79
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        }
-      }
-    },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "deepseek/deepseek-v3.2-20251201",
@@ -27877,7 +27262,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-small-3.2-24b-instruct-2506",
@@ -28082,7 +27467,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-large",
@@ -28287,7 +27672,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemini-2.5-pro-preview-06-05",
@@ -28492,212 +27877,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
-  },
-  {
-    "model": "qwen/qwen3-vl-8b-thinking",
-    "vendor": "qwen",
-    "layer": "full",
-    "score": 69.79367386769226,
-    "scores": {
-      "overall": 69.79367386769226,
-      "categories": {
-        "performance": 65.40670000000001,
-        "safety": 60,
-        "adoption": 77.53999999999999,
-        "openness": 66.66666666666666,
-        "cost": 99.99993867692247
-      },
-      "items": {
-        "S1": {
-          "score": 50,
-          "inputs": {
-            "safetySection": true,
-            "highRisk": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S2": {
-          "score": 100,
-          "inputs": {
-            "rlhf": true,
-            "dataDisclosure": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S3": {
-          "score": 50,
-          "inputs": {
-            "misusePolicy": true,
-            "harmMitigation": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S4": {
-          "score": 0,
-          "inputs": {
-            "redTeam": false,
-            "independentAudit": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "S5": {
-          "score": 0,
-          "inputs": {
-            "transparencyUpdate": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S6": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_minor_incidents"
-          ]
-        },
-        "S7": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_major_incidents"
-          ]
-        },
-        "S8": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_critical_incidents"
-          ]
-        },
-        "T1": {
-          "score": 66.66666666666666,
-          "inputs": {
-            "modelCard": true,
-            "overview": true,
-            "limitations": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T2": {
-          "score": 100,
-          "inputs": {
-            "dataCategories": true,
-            "dataFiltering": true,
-            "copyright": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T3": {
-          "score": 50,
-          "inputs": {
-            "architecture": true,
-            "parameterScale": false
-          },
-          "usedEvidence": [
-            {
-              "type": "paper",
-              "status": "not_found"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_paper_not_found"
-          ]
-        },
-        "T4": {
-          "score": 50,
-          "inputs": {
-            "safetyControls": true,
-            "riskLimits": false,
-            "externalReview": false,
-            "transparencyReport": true
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "Q1": {
-          "score": 64.77,
-          "inputs": {
-            "benchmark": 64.77
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q2": {
-          "score": 53.96,
-          "inputs": {
-            "benchmark": 53.96
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q3": {
-          "score": 77.71800999999999,
-          "inputs": {
-            "math": 79.27,
-            "chat": 51.67,
-            "arena": 84.38,
-            "vendor": 58.5
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        }
-      }
-    },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "anthropic/claude-4.1-opus-20250805",
@@ -28902,7 +28082,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "anthropic/claude-4.5-opus-20251124",
@@ -29107,7 +28287,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "eleutherai/llemma_7b",
@@ -29312,7 +28492,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-coder-480b-a35b-07-25",
@@ -29517,7 +28697,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4o-mini",
@@ -29722,7 +28902,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "nousresearch/hermes-3-llama-3.1-405b",
@@ -29927,7 +29107,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-3.1-70b-instruct",
@@ -30132,7 +29312,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemini-2.5-flash-lite",
@@ -30337,7 +29517,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-coder-30b-a3b-instruct",
@@ -30542,7 +29722,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "deepseek/deepseek-v3.2-exp",
@@ -30747,7 +29927,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4o-2024-05-13",
@@ -30952,7 +30132,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-8b-04-28",
@@ -31157,7 +30337,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4-turbo",
@@ -31362,7 +30542,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "cohere/command-r-plus-08-2024",
@@ -31567,7 +30747,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "moonshotai/kimi-dev-72b",
@@ -31772,7 +30952,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "baidu/ernie-4.5-21b-a3b-thinking",
@@ -31977,7 +31157,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/o3-pro-2025-06-10",
@@ -32182,7 +31362,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/pixtral-large-2411",
@@ -32387,7 +31567,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5-nano-2025-08-07",
@@ -32592,7 +31772,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5-image-mini",
@@ -32797,7 +31977,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemini-2.0-flash-001",
@@ -33002,7 +32182,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "allenai/olmo-3.1-32b-instruct-20251215",
@@ -33207,7 +32387,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-small-creative-20251216",
@@ -33412,7 +32592,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-large-2407",
@@ -33617,7 +32797,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "liquid/lfm2-8b-a1b",
@@ -33822,7 +33002,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemini-3-pro-preview-20251117",
@@ -34027,7 +33207,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
@@ -34232,7 +33412,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5.1-20251113",
@@ -34437,7 +33617,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "deepcogito/cogito-v2-preview-llama-70b",
@@ -34642,7 +33822,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "x-ai/grok-4.1-fast",
@@ -34847,7 +34027,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "relace/relace-apply-3",
@@ -35052,7 +34232,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemma-2-27b-it",
@@ -35257,7 +34437,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-oss-safeguard-20b",
@@ -35462,7 +34642,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "deepcogito/cogito-v2-preview-llama-109b-moe",
@@ -35667,7 +34847,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-vl-8b-instruct",
@@ -35872,7 +35052,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-small-24b-instruct-2501",
@@ -36077,7 +35257,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "nousresearch/hermes-2-pro-llama-3-8b",
@@ -36282,7 +35462,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-vl-32b-instruct",
@@ -36487,7 +35667,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/ministral-8b-2512",
@@ -36692,7 +35872,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "nousresearch/deephermes-3-mistral-24b-preview",
@@ -36897,7 +36077,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-3.1-405b",
@@ -37102,7 +36282,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-32b-04-28",
@@ -37307,7 +36487,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "anthropic/claude-4.5-sonnet-20250929",
@@ -37512,7 +36692,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-7b-instruct-v0.1",
@@ -37717,7 +36897,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "minimax/minimax-m2",
@@ -37922,7 +37102,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4.1-mini",
@@ -38127,7 +37307,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemma-3n-e2b-it",
@@ -38332,212 +37512,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
-  },
-  {
-    "model": "qwen/qwen-turbo-2024-11-01",
-    "vendor": "qwen",
-    "layer": "full",
-    "score": 68.0257592523077,
-    "scores": {
-      "overall": 68.0257592523077,
-      "categories": {
-        "performance": 72.4394,
-        "safety": 55,
-        "adoption": 87,
-        "openness": 33.33333333333333,
-        "cost": 99.99999252307684
-      },
-      "items": {
-        "S1": {
-          "score": 100,
-          "inputs": {
-            "safetySection": true,
-            "highRisk": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S2": {
-          "score": 0,
-          "inputs": {
-            "rlhf": false,
-            "dataDisclosure": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S3": {
-          "score": 50,
-          "inputs": {
-            "misusePolicy": false,
-            "harmMitigation": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S4": {
-          "score": 0,
-          "inputs": {
-            "redTeam": false,
-            "independentAudit": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "S5": {
-          "score": 0,
-          "inputs": {
-            "transparencyUpdate": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S6": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_minor_incidents"
-          ]
-        },
-        "S7": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_major_incidents"
-          ]
-        },
-        "S8": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_critical_incidents"
-          ]
-        },
-        "T1": {
-          "score": 66.66666666666666,
-          "inputs": {
-            "modelCard": true,
-            "overview": true,
-            "limitations": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T2": {
-          "score": 0,
-          "inputs": {
-            "dataCategories": false,
-            "dataFiltering": false,
-            "copyright": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T3": {
-          "score": 50,
-          "inputs": {
-            "architecture": false,
-            "parameterScale": true
-          },
-          "usedEvidence": [
-            {
-              "type": "paper",
-              "status": "not_found"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_paper_not_found"
-          ]
-        },
-        "T4": {
-          "score": 25,
-          "inputs": {
-            "safetyControls": false,
-            "riskLimits": false,
-            "externalReview": true,
-            "transparencyReport": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "Q1": {
-          "score": 84.86,
-          "inputs": {
-            "benchmark": 84.86
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q2": {
-          "score": 72.76,
-          "inputs": {
-            "benchmark": 72.76
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q3": {
-          "score": 55.47392000000001,
-          "inputs": {
-            "math": 47.15,
-            "chat": 63.05,
-            "arena": 76.37,
-            "vendor": 79.65
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        }
-      }
-    },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "tencent/hunyuan-a13b-instruct",
@@ -38742,7 +37717,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "sao10k/l3-euryale-70b",
@@ -38947,7 +37922,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5.2-chat-20251211",
@@ -39152,7 +38127,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "tngtech/tng-r1t-chimera",
@@ -39357,7 +38332,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "anthropic/claude-4-sonnet-20250522",
@@ -39562,7 +38537,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "baidu/ernie-4.5-vl-28b-a3b",
@@ -39767,7 +38742,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen-2.5-72b-instruct",
@@ -39972,7 +38947,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "z-ai/glm-4.6",
@@ -40177,7 +39152,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-oss-120b",
@@ -40382,7 +39357,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemini-2.5-flash-lite-preview-09-2025",
@@ -40587,7 +39562,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "sao10k/l3.1-70b-hanami-x1",
@@ -40792,7 +39767,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "inflection/inflection-3-pi",
@@ -40997,7 +39972,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-235b-a22b-04-28",
@@ -41202,7 +40177,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-3.2-11b-vision-instruct",
@@ -41407,7 +40382,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemini-2.5-flash",
@@ -41612,7 +40587,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/codex-mini",
@@ -41817,7 +40792,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen2.5-coder-7b-instruct",
@@ -42022,7 +40997,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "liquid/lfm-2.2-6b",
@@ -42227,7 +41202,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "arcee-ai/maestro-reasoning",
@@ -42432,7 +41407,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "venice/uncensored",
@@ -42637,7 +41612,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-3.3-70b-instruct",
@@ -42842,7 +41817,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "baidu/ernie-4.5-21b-a3b",
@@ -43047,7 +42022,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-guard-3-8b",
@@ -43252,7 +42227,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-medium-3.1",
@@ -43457,7 +42432,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-oss-20b",
@@ -43662,7 +42637,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "allenai/olmo-3-7b-instruct-20251121",
@@ -43867,7 +42842,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/o3-mini-high-2025-01-31",
@@ -44072,7 +43047,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/pixtral-12b",
@@ -44277,7 +43252,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5.1-codex-max-20251204",
@@ -44482,7 +43457,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "nvidia/nemotron-3-nano-30b-a3b",
@@ -44687,7 +43662,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/devstral-2512",
@@ -44892,7 +43867,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5.2-20251211",
@@ -45097,7 +44072,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemini-2.5-pro-preview-03-25",
@@ -45302,212 +44277,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
-  },
-  {
-    "model": "qwen/qwen-plus-2025-07-28",
-    "vendor": "qwen",
-    "layer": "full",
-    "score": 66.58815425230763,
-    "scores": {
-      "overall": 66.58815425230763,
-      "categories": {
-        "performance": 60.57540000000001,
-        "safety": 65,
-        "adoption": 70.72,
-        "openness": 58.333333333333336,
-        "cost": 99.99994252307634
-      },
-      "items": {
-        "S1": {
-          "score": 50,
-          "inputs": {
-            "safetySection": true,
-            "highRisk": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S2": {
-          "score": 50,
-          "inputs": {
-            "rlhf": false,
-            "dataDisclosure": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S3": {
-          "score": 50,
-          "inputs": {
-            "misusePolicy": true,
-            "harmMitigation": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S4": {
-          "score": 50,
-          "inputs": {
-            "redTeam": false,
-            "independentAudit": true
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "S5": {
-          "score": 0,
-          "inputs": {
-            "transparencyUpdate": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S6": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_minor_incidents"
-          ]
-        },
-        "S7": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_major_incidents"
-          ]
-        },
-        "S8": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_critical_incidents"
-          ]
-        },
-        "T1": {
-          "score": 66.66666666666666,
-          "inputs": {
-            "modelCard": false,
-            "overview": true,
-            "limitations": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T2": {
-          "score": 33.33333333333333,
-          "inputs": {
-            "dataCategories": false,
-            "dataFiltering": true,
-            "copyright": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T3": {
-          "score": 100,
-          "inputs": {
-            "architecture": true,
-            "parameterScale": true
-          },
-          "usedEvidence": [
-            {
-              "type": "paper",
-              "status": "not_found"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_paper_not_found"
-          ]
-        },
-        "T4": {
-          "score": 50,
-          "inputs": {
-            "safetyControls": true,
-            "riskLimits": true,
-            "externalReview": false,
-            "transparencyReport": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "Q1": {
-          "score": 61.25,
-          "inputs": {
-            "benchmark": 61.25
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q2": {
-          "score": 52.64,
-          "inputs": {
-            "benchmark": 52.64
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q3": {
-          "score": 67.62262,
-          "inputs": {
-            "math": 68.74,
-            "chat": 85.64,
-            "arena": 56.66,
-            "vendor": 57.02
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        }
-      }
-    },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
@@ -45712,212 +44482,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
-  },
-  {
-    "model": "qwen/qwen3-coder-plus",
-    "vendor": "qwen",
-    "layer": "full",
-    "score": 66.54754086769213,
-    "scores": {
-      "overall": 66.54754086769213,
-      "categories": {
-        "performance": 72.36890000000001,
-        "safety": 60,
-        "adoption": 79,
-        "openness": 25,
-        "cost": 99.99980867692119
-      },
-      "items": {
-        "S1": {
-          "score": 50,
-          "inputs": {
-            "safetySection": true,
-            "highRisk": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S2": {
-          "score": 100,
-          "inputs": {
-            "rlhf": true,
-            "dataDisclosure": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S3": {
-          "score": 50,
-          "inputs": {
-            "misusePolicy": true,
-            "harmMitigation": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S4": {
-          "score": 0,
-          "inputs": {
-            "redTeam": false,
-            "independentAudit": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "S5": {
-          "score": 0,
-          "inputs": {
-            "transparencyUpdate": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S6": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_minor_incidents"
-          ]
-        },
-        "S7": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_major_incidents"
-          ]
-        },
-        "S8": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_critical_incidents"
-          ]
-        },
-        "T1": {
-          "score": 0,
-          "inputs": {
-            "modelCard": false,
-            "overview": false,
-            "limitations": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T2": {
-          "score": 33.33333333333333,
-          "inputs": {
-            "dataCategories": false,
-            "dataFiltering": false,
-            "copyright": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T3": {
-          "score": 50,
-          "inputs": {
-            "architecture": false,
-            "parameterScale": true
-          },
-          "usedEvidence": [
-            {
-              "type": "paper",
-              "status": "not_found"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_paper_not_found"
-          ]
-        },
-        "T4": {
-          "score": 25,
-          "inputs": {
-            "safetyControls": true,
-            "riskLimits": false,
-            "externalReview": false,
-            "transparencyReport": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "Q1": {
-          "score": 73.83,
-          "inputs": {
-            "benchmark": 73.83
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q2": {
-          "score": 69.76,
-          "inputs": {
-            "benchmark": 69.76
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q3": {
-          "score": 72.99357,
-          "inputs": {
-            "math": 69.42,
-            "chat": 86.36,
-            "arena": 77.63,
-            "vendor": 76.28
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        }
-      }
-    },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-tiny",
@@ -46122,7 +44687,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen-2.5-7b-instruct",
@@ -46327,7 +44892,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "amazon/nova-premier-v1",
@@ -46532,7 +45097,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "thedrummer/cydonia-24b-v4.1",
@@ -46737,7 +45302,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4o-2024-08-06",
@@ -46942,7 +45507,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "x-ai/grok-3-mini-beta",
@@ -47147,7 +45712,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-vl-30b-a3b-instruct",
@@ -47352,7 +45917,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/devstral-small-2505",
@@ -47557,7 +46122,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen-2-vl-7b-instruct",
@@ -47762,7 +46327,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4o-mini-search-preview-2025-03-11",
@@ -47967,7 +46532,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "z-ai/glm-4.5v",
@@ -48172,7 +46737,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "deepseek/deepseek-r1-0528",
@@ -48377,7 +46942,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemini-2.0-flash-lite-001",
@@ -48582,7 +47147,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/o1-2024-12-17",
@@ -48787,7 +47352,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5-pro-2025-10-06",
@@ -48992,7 +47557,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "anthropic/claude-3-5-haiku",
@@ -49197,7 +47762,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "gryphe/mythomax-l2-13b",
@@ -49402,7 +47967,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "nvidia/nemotron-nano-9b-v2",
@@ -49607,7 +48172,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "z-ai/glm-4.7-20251222",
@@ -49812,7 +48377,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen2.5-vl-32b-instruct",
@@ -50017,7 +48582,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-3.2-90b-vision-instruct",
@@ -50222,7 +48787,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "perplexity/sonar-reasoning-pro",
@@ -50427,7 +48992,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "perplexity/sonar-pro-search",
@@ -50632,7 +49197,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemini-2.5-flash-image",
@@ -50837,7 +49402,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "bytedance/ui-tars-1.5-7b",
@@ -51042,7 +49607,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5-chat-2025-08-07",
@@ -51247,7 +49812,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "raifle/sorcererlm-8x22b",
@@ -51452,7 +50017,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "anthropic/claude-4-opus-20250522",
@@ -51657,7 +50222,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-3.1-405b-instruct",
@@ -51862,7 +50427,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5-2025-08-07",
@@ -52067,7 +50632,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4-turbo-preview",
@@ -52272,7 +50837,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-guard-4-12b",
@@ -52477,7 +51042,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "deepcogito/cogito-v2.1-671b-20251118",
@@ -52682,212 +51247,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
-  },
-  {
-    "model": "qwen/qwen-plus-2025-01-25",
-    "vendor": "qwen",
-    "layer": "full",
-    "score": 64.73991425230763,
-    "scores": {
-      "overall": 64.73991425230763,
-      "categories": {
-        "performance": 67.44730000000001,
-        "safety": 55,
-        "adoption": 86.74,
-        "openness": 25,
-        "cost": 99.99994252307634
-      },
-      "items": {
-        "S1": {
-          "score": 50,
-          "inputs": {
-            "safetySection": true,
-            "highRisk": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S2": {
-          "score": 50,
-          "inputs": {
-            "rlhf": true,
-            "dataDisclosure": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S3": {
-          "score": 50,
-          "inputs": {
-            "misusePolicy": true,
-            "harmMitigation": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S4": {
-          "score": 0,
-          "inputs": {
-            "redTeam": false,
-            "independentAudit": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "S5": {
-          "score": 0,
-          "inputs": {
-            "transparencyUpdate": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S6": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_minor_incidents"
-          ]
-        },
-        "S7": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_major_incidents"
-          ]
-        },
-        "S8": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_critical_incidents"
-          ]
-        },
-        "T1": {
-          "score": 33.33333333333333,
-          "inputs": {
-            "modelCard": true,
-            "overview": false,
-            "limitations": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T2": {
-          "score": 0,
-          "inputs": {
-            "dataCategories": false,
-            "dataFiltering": false,
-            "copyright": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T3": {
-          "score": 50,
-          "inputs": {
-            "architecture": false,
-            "parameterScale": true
-          },
-          "usedEvidence": [
-            {
-              "type": "paper",
-              "status": "not_found"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_paper_not_found"
-          ]
-        },
-        "T4": {
-          "score": 25,
-          "inputs": {
-            "safetyControls": false,
-            "riskLimits": false,
-            "externalReview": true,
-            "transparencyReport": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "Q1": {
-          "score": 68.14,
-          "inputs": {
-            "benchmark": 68.14
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q2": {
-          "score": 59.32,
-          "inputs": {
-            "benchmark": 59.32
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q3": {
-          "score": 74.62499,
-          "inputs": {
-            "math": 72.05,
-            "chat": 89.24,
-            "arena": 75.83,
-            "vendor": 64.53
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        }
-      }
-    },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openrouter/auto",
@@ -53092,7 +51452,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-7b-instruct-v0.3",
@@ -53297,7 +51657,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/devstral-small-2507",
@@ -53502,7 +51862,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-4b-04-28",
@@ -53707,7 +52067,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "z-ai/glm-4.5",
@@ -53912,21 +52272,21 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-next-80b-a3b-instruct-2509",
     "vendor": "qwen",
     "layer": "full",
-    "score": 64.53303686769229,
+    "score": 64.53304,
     "scores": {
-      "overall": 64.53303686769229,
+      "overall": 64.53304,
       "categories": {
         "performance": 65.00510000000003,
         "safety": 55,
         "adoption": 58.53999999999999,
         "openness": 58.333333333333336,
-        "cost": 99.99996867692276
+        "cost": 100
       },
       "items": {
         "S1": {
@@ -54117,7 +52477,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "deepseek/deepseek-v3.1-terminus",
@@ -54322,7 +52682,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "minimax/minimax-01",
@@ -54527,7 +52887,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "switchpoint/router",
@@ -54732,7 +53092,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "sao10k/l3.1-euryale-70b",
@@ -54937,7 +53297,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "sao10k/l3.3-euryale-70b-v2.3",
@@ -55142,7 +53502,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "deepseek/deepseek-r1-distill-qwen-32b",
@@ -55347,7 +53707,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "thedrummer/rocinante-12b",
@@ -55552,7 +53912,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "x-ai/grok-3-mini",
@@ -55757,7 +54117,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5.1-codex-mini-20251113",
@@ -55962,7 +54322,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/o1-pro",
@@ -56167,7 +54527,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "moonshotai/kimi-k2",
@@ -56372,7 +54732,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/ministral-3b-2512",
@@ -56577,7 +54937,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "microsoft/phi-4-multimodal-instruct",
@@ -56782,7 +55142,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/o3-2025-04-16",
@@ -56987,7 +55347,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemma-2-9b-it",
@@ -57192,7 +55552,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen2.5-vl-72b-instruct",
@@ -57397,7 +55757,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "aion-labs/aion-rp-llama-3.1-8b",
@@ -57602,7 +55962,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "cohere/command-r7b-12-2024",
@@ -57807,7 +56167,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/devstral-medium-2507",
@@ -58012,7 +56372,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "x-ai/grok-3",
@@ -58217,7 +56577,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "nvidia/llama-3.1-nemotron-70b-instruct",
@@ -58422,7 +56782,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/ministral-8b",
@@ -58627,7 +56987,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "microsoft/wizardlm-2-8x22b",
@@ -58832,7 +57192,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "x-ai/grok-3-beta",
@@ -59037,7 +57397,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "neversleep/llama-3.1-lumimaid-8b",
@@ -59242,7 +57602,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openrouter/bodybuilder",
@@ -59447,7 +57807,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5.1-codex-20251113",
@@ -59652,7 +58012,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "arcee-ai/virtuoso-large",
@@ -59857,7 +58217,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "qwen/qwen3-14b-04-28",
@@ -60062,417 +58422,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
-  },
-  {
-    "model": "qwen/qwen-max-2025-01-25",
-    "vendor": "qwen",
-    "layer": "full",
-    "score": 61.860673021538204,
-    "scores": {
-      "overall": 61.860673021538204,
-      "categories": {
-        "performance": 54.160500000000006,
-        "safety": 60,
-        "adoption": 71.31,
-        "openness": 50,
-        "cost": 99.99973021538196
-      },
-      "items": {
-        "S1": {
-          "score": 50,
-          "inputs": {
-            "safetySection": true,
-            "highRisk": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S2": {
-          "score": 50,
-          "inputs": {
-            "rlhf": false,
-            "dataDisclosure": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S3": {
-          "score": 0,
-          "inputs": {
-            "misusePolicy": false,
-            "harmMitigation": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S4": {
-          "score": 50,
-          "inputs": {
-            "redTeam": false,
-            "independentAudit": true
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "S5": {
-          "score": 0,
-          "inputs": {
-            "transparencyUpdate": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S6": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_minor_incidents"
-          ]
-        },
-        "S7": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_major_incidents"
-          ]
-        },
-        "S8": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_critical_incidents"
-          ]
-        },
-        "T1": {
-          "score": 66.66666666666666,
-          "inputs": {
-            "modelCard": true,
-            "overview": false,
-            "limitations": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T2": {
-          "score": 33.33333333333333,
-          "inputs": {
-            "dataCategories": false,
-            "dataFiltering": false,
-            "copyright": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T3": {
-          "score": 50,
-          "inputs": {
-            "architecture": true,
-            "parameterScale": false
-          },
-          "usedEvidence": [
-            {
-              "type": "paper",
-              "status": "not_found"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_paper_not_found"
-          ]
-        },
-        "T4": {
-          "score": 50,
-          "inputs": {
-            "safetyControls": true,
-            "riskLimits": true,
-            "externalReview": false,
-            "transparencyReport": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "Q1": {
-          "score": 55,
-          "inputs": {
-            "benchmark": 55
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q2": {
-          "score": 52.36,
-          "inputs": {
-            "benchmark": 52.36
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q3": {
-          "score": 54.801750000000006,
-          "inputs": {
-            "math": 50.85,
-            "chat": 66.92,
-            "arena": 61.07,
-            "vendor": 56.7
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        }
-      }
-    },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
-  },
-  {
-    "model": "deepseek/deepseek-prover-v2",
-    "vendor": "deepseek",
-    "layer": "full",
-    "score": 61.76171122153838,
-    "scores": {
-      "overall": 61.76171122153838,
-      "categories": {
-        "performance": 63.22180000000001,
-        "safety": 65,
-        "adoption": 64.82,
-        "openness": 25,
-        "cost": 99.99991221538374
-      },
-      "items": {
-        "S1": {
-          "score": 0,
-          "inputs": {
-            "safetySection": false,
-            "highRisk": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S2": {
-          "score": 50,
-          "inputs": {
-            "rlhf": true,
-            "dataDisclosure": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S3": {
-          "score": 100,
-          "inputs": {
-            "misusePolicy": true,
-            "harmMitigation": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S4": {
-          "score": 50,
-          "inputs": {
-            "redTeam": false,
-            "independentAudit": true
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "S5": {
-          "score": 0,
-          "inputs": {
-            "transparencyUpdate": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "S6": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_minor_incidents"
-          ]
-        },
-        "S7": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_major_incidents"
-          ]
-        },
-        "S8": {
-          "score": 100,
-          "inputs": {},
-          "usedEvidence": [],
-          "penaltyReasons": [
-            "missing_critical_incidents"
-          ]
-        },
-        "T1": {
-          "score": 33.33333333333333,
-          "inputs": {
-            "modelCard": false,
-            "overview": false,
-            "limitations": true
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T2": {
-          "score": 33.33333333333333,
-          "inputs": {
-            "dataCategories": true,
-            "dataFiltering": false,
-            "copyright": false
-          },
-          "usedEvidence": [
-            {
-              "type": "official_page",
-              "status": "ok"
-            }
-          ],
-          "penaltyReasons": []
-        },
-        "T3": {
-          "score": 0,
-          "inputs": {
-            "architecture": false,
-            "parameterScale": false
-          },
-          "usedEvidence": [
-            {
-              "type": "paper",
-              "status": "not_found"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_paper_not_found"
-          ]
-        },
-        "T4": {
-          "score": 25,
-          "inputs": {
-            "safetyControls": false,
-            "riskLimits": true,
-            "externalReview": false,
-            "transparencyReport": false
-          },
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "penaltyReasons": [
-            "evidence_audit_missing_source_link"
-          ]
-        },
-        "Q1": {
-          "score": 64.18,
-          "inputs": {
-            "benchmark": 64.18
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q2": {
-          "score": 61.72,
-          "inputs": {
-            "benchmark": 61.72
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        },
-        "Q3": {
-          "score": 63.44384,
-          "inputs": {
-            "math": 63.23,
-            "chat": 79.88,
-            "arena": 57.02,
-            "vendor": 67.23
-          },
-          "usedEvidence": [],
-          "penaltyReasons": []
-        }
-      }
-    },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "prime-intellect/intellect-3-20251126",
@@ -60677,7 +58627,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-saba-2502",
@@ -60882,7 +58832,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "mistralai/mistral-large-2411",
@@ -61087,7 +59037,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "aion-labs/aion-1.0",
@@ -61292,7 +59242,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "meta-llama/llama-3-8b-instruct",
@@ -61497,7 +59447,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "deepseek/deepseek-chat-v3.1",
@@ -61702,7 +59652,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "sao10k/l3-lunaris-8b",
@@ -61907,7 +59857,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "allenai/olmo-3.1-32b-think-20251215",
@@ -62112,7 +60062,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-5.2-codex-20260114",
@@ -62317,7 +60267,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "xiaomi/mimo-v2-flash-20251210",
@@ -62522,7 +60472,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "openai/gpt-4.1-mini-2025-04-14",
@@ -62727,7 +60677,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "neversleep/noromaid-20b",
@@ -62932,7 +60882,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "nousresearch/hermes-4-70b",
@@ -63137,7 +61087,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "moonshotai/kimi-k2-thinking-20251106",
@@ -63342,7 +61292,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "nousresearch/hermes-3-llama-3.1-70b",
@@ -63547,7 +61497,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   },
   {
     "model": "google/gemma-3-12b-it",
@@ -63752,6 +61702,6 @@
         }
       }
     },
-    "updatedAt": "2026-01-15T19:40:04.840Z"
+    "updatedAt": "2026-01-15T20:43:03.093Z"
   }
 ]
