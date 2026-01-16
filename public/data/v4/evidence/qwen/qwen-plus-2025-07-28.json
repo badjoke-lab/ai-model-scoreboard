@@ -1,7 +1,7 @@
 {
   "meta": {
     "updatedAt": "2026-01-16T13:51:24.141Z",
-    "modelKey": "deepcogito/cogito-v2-preview-llama-109b-moe"
+    "modelKey": "qwen/qwen-plus-2025-07-28"
   },
   "evidenceItems": [
     {
@@ -9,13 +9,15 @@
       "status": "ok",
       "reasons": [
         "ok",
-        "openrouter_model_page_only"
+        "openrouter_model_page",
+        "provider_fallback"
       ],
       "refs": [
-        "https://openrouter.ai/models/deepcogito/cogito-v2-preview-llama-109b-moe"
+        "https://openrouter.ai/models/qwen/qwen-plus-2025-07-28",
+        "https://qwenlm.ai"
       ],
       "extracted": {
-        "url": "https://openrouter.ai/models/deepcogito/cogito-v2-preview-llama-109b-moe"
+        "url": "https://qwenlm.ai"
       }
     },
     {
@@ -37,7 +39,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Cogito V2 Preview Llama 109B\""
+        "arxiv_query:\"Qwen: Qwen Plus 0728\""
       ]
     },
     {

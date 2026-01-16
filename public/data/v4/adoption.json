@@ -1417,6 +1417,12 @@
       "source": "openrouter"
     },
     {
+      "modelKey": "qwen/qwen-plus-2025-07-28",
+      "name": "Qwen: Qwen Plus 0728",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
       "modelKey": "qwen/qwen2.5-coder-7b-instruct",
       "name": "Qwen: Qwen2.5 Coder 7B Instruct",
       "provider": "qwen",
@@ -1507,6 +1513,12 @@
       "source": "openrouter"
     },
     {
+      "modelKey": "qwen/qwen3-coder-flash",
+      "name": "Qwen: Qwen3 Coder Flash",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
       "modelKey": "qwen/qwen3-next-80b-a3b-instruct-2509",
       "name": "Qwen: Qwen3 Next 80B A3B Instruct (free)",
       "provider": "qwen",
@@ -1551,6 +1563,12 @@
     {
       "modelKey": "qwen/qwen3-vl-8b-instruct",
       "name": "Qwen: Qwen3 VL 8B Instruct",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-8b-thinking",
+      "name": "Qwen: Qwen3 VL 8B Thinking",
       "provider": "qwen",
       "source": "openrouter"
     },

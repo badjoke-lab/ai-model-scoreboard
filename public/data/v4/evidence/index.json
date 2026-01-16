@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-16T13:07:46.787Z",
-    "runId": "21067637846"
+    "updatedAt": "2026-01-16T13:51:24.141Z",
+    "runId": "21068824577"
   },
   "models": [
     {
@@ -950,6 +950,10 @@
       "path": "evidence/qwen/qwen-2.5-coder-32b-instruct.json"
     },
     {
+      "modelKey": "qwen/qwen-plus-2025-07-28",
+      "path": "evidence/qwen/qwen-plus-2025-07-28.json"
+    },
+    {
       "modelKey": "qwen/qwen2.5-coder-7b-instruct",
       "path": "evidence/qwen/qwen2.5-coder-7b-instruct.json"
     },
@@ -1010,6 +1014,10 @@
       "path": "evidence/qwen/qwen3-coder-480b-a35b-07-25.json"
     },
     {
+      "modelKey": "qwen/qwen3-coder-flash",
+      "path": "evidence/qwen/qwen3-coder-flash.json"
+    },
+    {
       "modelKey": "qwen/qwen3-next-80b-a3b-instruct-2509",
       "path": "evidence/qwen/qwen3-next-80b-a3b-instruct-2509.json"
     },
@@ -1040,6 +1048,10 @@
     {
       "modelKey": "qwen/qwen3-vl-8b-instruct",
       "path": "evidence/qwen/qwen3-vl-8b-instruct.json"
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-8b-thinking",
+      "path": "evidence/qwen/qwen3-vl-8b-thinking.json"
     },
     {
       "modelKey": "qwen/qwq-32b",

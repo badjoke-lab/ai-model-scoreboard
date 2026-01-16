@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-16T13:07:46.787Z",
+    "generatedAt": "2026-01-16T13:51:24.141Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 296,
-      "adopted": 296,
+      "total": 299,
+      "adopted": 299,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 294,
+        "openrouter": 297,
         "seed": 2
       }
     },
@@ -4036,6 +4036,23 @@
       }
     },
     {
+      "modelKey": "qwen/qwen-plus-2025-07-28",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen Plus 0728",
+        "slug": "qwen/qwen-plus-2025-07-28",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-plus-2025-07-28",
+        "canonical_slug": "qwen/qwen-plus-2025-07-28"
+      }
+    },
+    {
       "modelKey": "qwen/qwen2.5-coder-7b-instruct",
       "source": "openrouter",
       "status": "adopted",
@@ -4291,6 +4308,23 @@
       }
     },
     {
+      "modelKey": "qwen/qwen3-coder-flash",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 Coder Flash",
+        "slug": "qwen/qwen3-coder-flash",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-coder-flash",
+        "canonical_slug": "qwen/qwen3-coder-flash"
+      }
+    },
+    {
       "modelKey": "qwen/qwen3-next-80b-a3b-instruct-2509",
       "source": "openrouter",
       "status": "adopted",
@@ -4424,6 +4458,23 @@
       "rawRef": {
         "id": "qwen/qwen3-vl-8b-instruct",
         "canonical_slug": "qwen/qwen3-vl-8b-instruct"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-vl-8b-thinking",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 VL 8B Thinking",
+        "slug": "qwen/qwen3-vl-8b-thinking",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-vl-8b-thinking",
+        "canonical_slug": "qwen/qwen3-vl-8b-thinking"
       }
     },
     {

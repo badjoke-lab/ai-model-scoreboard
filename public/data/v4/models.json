@@ -49792,6 +49792,217 @@
     },
     "layer": "full"
   },
+  "qwen/qwen-plus-2025-07-28": {
+    "name": "Qwen: Qwen Plus 0728",
+    "vendor": "qwen",
+    "released": "2025-09-08T16:06:39.000Z",
+    "context": 1000000,
+    "type": "text->text",
+    "pricing": {
+      "input": 4e-7,
+      "output": 0.0000012,
+      "currency": "USD"
+    },
+    "scores": {
+      "overall": 66.58815425230763,
+      "categories": {
+        "performance": 60.57540000000001,
+        "safety": 65,
+        "adoption": 70.72,
+        "openness": 58.333333333333336,
+        "cost": 99.99994252307634
+      },
+      "items": {
+        "S1": {
+          "score": 50,
+          "inputs": {
+            "safetySection": true,
+            "highRisk": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S2": {
+          "score": 50,
+          "inputs": {
+            "rlhf": false,
+            "dataDisclosure": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S3": {
+          "score": 50,
+          "inputs": {
+            "misusePolicy": true,
+            "harmMitigation": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S4": {
+          "score": 50,
+          "inputs": {
+            "redTeam": false,
+            "independentAudit": true
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "S5": {
+          "score": 0,
+          "inputs": {
+            "transparencyUpdate": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S6": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_minor_incidents"
+          ]
+        },
+        "S7": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_major_incidents"
+          ]
+        },
+        "S8": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_critical_incidents"
+          ]
+        },
+        "T1": {
+          "score": 66.66666666666666,
+          "inputs": {
+            "modelCard": false,
+            "overview": true,
+            "limitations": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T2": {
+          "score": 33.33333333333333,
+          "inputs": {
+            "dataCategories": false,
+            "dataFiltering": true,
+            "copyright": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T3": {
+          "score": 100,
+          "inputs": {
+            "architecture": true,
+            "parameterScale": true
+          },
+          "usedEvidence": [
+            {
+              "type": "paper",
+              "status": "not_found"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_paper_not_found"
+          ]
+        },
+        "T4": {
+          "score": 50,
+          "inputs": {
+            "safetyControls": true,
+            "riskLimits": true,
+            "externalReview": false,
+            "transparencyReport": false
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "Q1": {
+          "score": 61.25,
+          "inputs": {
+            "benchmark": 61.25
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q2": {
+          "score": 52.64,
+          "inputs": {
+            "benchmark": 52.64
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q3": {
+          "score": 67.62262,
+          "inputs": {
+            "math": 68.74,
+            "chat": 85.64,
+            "arena": 56.66,
+            "vendor": 57.02
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        }
+      }
+    },
+    "layer": "full"
+  },
   "qwen/qwen2.5-coder-7b-instruct": {
     "name": "Qwen: Qwen2.5 Coder 7B Instruct",
     "vendor": "qwen",
@@ -52957,6 +53168,217 @@
     },
     "layer": "full"
   },
+  "qwen/qwen3-coder-flash": {
+    "name": "Qwen: Qwen3 Coder Flash",
+    "vendor": "qwen",
+    "released": "2025-09-17T13:25:36.000Z",
+    "context": 128000,
+    "type": "text->text",
+    "pricing": {
+      "input": 3e-7,
+      "output": 0.0000015,
+      "currency": "USD"
+    },
+    "scores": {
+      "overall": 74.60137432923072,
+      "categories": {
+        "performance": 75.79970000000002,
+        "safety": 65,
+        "adoption": 75.21000000000001,
+        "openness": 66.66666666666666,
+        "cost": 99.99994329230712
+      },
+      "items": {
+        "S1": {
+          "score": 50,
+          "inputs": {
+            "safetySection": true,
+            "highRisk": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S2": {
+          "score": 0,
+          "inputs": {
+            "rlhf": false,
+            "dataDisclosure": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S3": {
+          "score": 100,
+          "inputs": {
+            "misusePolicy": true,
+            "harmMitigation": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S4": {
+          "score": 50,
+          "inputs": {
+            "redTeam": false,
+            "independentAudit": true
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "S5": {
+          "score": 0,
+          "inputs": {
+            "transparencyUpdate": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S6": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_minor_incidents"
+          ]
+        },
+        "S7": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_major_incidents"
+          ]
+        },
+        "S8": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_critical_incidents"
+          ]
+        },
+        "T1": {
+          "score": 100,
+          "inputs": {
+            "modelCard": true,
+            "overview": true,
+            "limitations": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T2": {
+          "score": 100,
+          "inputs": {
+            "dataCategories": true,
+            "dataFiltering": true,
+            "copyright": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T3": {
+          "score": 100,
+          "inputs": {
+            "architecture": true,
+            "parameterScale": true
+          },
+          "usedEvidence": [
+            {
+              "type": "paper",
+              "status": "not_found"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_paper_not_found"
+          ]
+        },
+        "T4": {
+          "score": 0,
+          "inputs": {
+            "safetyControls": false,
+            "riskLimits": false,
+            "externalReview": false,
+            "transparencyReport": false
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "Q1": {
+          "score": 64.69,
+          "inputs": {
+            "benchmark": 64.69
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q2": {
+          "score": 84.96,
+          "inputs": {
+            "benchmark": 84.96
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q3": {
+          "score": 81.40431000000001,
+          "inputs": {
+            "math": 76.65,
+            "chat": 93.92,
+            "arena": 89.83,
+            "vendor": 48.38
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        }
+      }
+    },
+    "layer": "full"
+  },
   "qwen/qwen3-next-80b-a3b-instruct-2509": {
     "name": "Qwen: Qwen3 Next 80B A3B Instruct (free)",
     "vendor": "qwen",
@@ -54637,6 +55059,217 @@
             "chat": 75.56,
             "arena": 57.97,
             "vendor": 50.31
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        }
+      }
+    },
+    "layer": "full"
+  },
+  "qwen/qwen3-vl-8b-thinking": {
+    "name": "Qwen: Qwen3 VL 8B Thinking",
+    "vendor": "qwen",
+    "released": "2025-10-14T17:42:26.000Z",
+    "context": 256000,
+    "type": "text+image->text",
+    "pricing": {
+      "input": 1.8e-7,
+      "output": 0.0000021,
+      "currency": "USD"
+    },
+    "scores": {
+      "overall": 69.79367386769226,
+      "categories": {
+        "performance": 65.40670000000001,
+        "safety": 60,
+        "adoption": 77.53999999999999,
+        "openness": 66.66666666666666,
+        "cost": 99.99993867692247
+      },
+      "items": {
+        "S1": {
+          "score": 50,
+          "inputs": {
+            "safetySection": true,
+            "highRisk": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S2": {
+          "score": 100,
+          "inputs": {
+            "rlhf": true,
+            "dataDisclosure": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S3": {
+          "score": 50,
+          "inputs": {
+            "misusePolicy": true,
+            "harmMitigation": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S4": {
+          "score": 0,
+          "inputs": {
+            "redTeam": false,
+            "independentAudit": false
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "S5": {
+          "score": 0,
+          "inputs": {
+            "transparencyUpdate": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S6": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_minor_incidents"
+          ]
+        },
+        "S7": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_major_incidents"
+          ]
+        },
+        "S8": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_critical_incidents"
+          ]
+        },
+        "T1": {
+          "score": 66.66666666666666,
+          "inputs": {
+            "modelCard": true,
+            "overview": true,
+            "limitations": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T2": {
+          "score": 100,
+          "inputs": {
+            "dataCategories": true,
+            "dataFiltering": true,
+            "copyright": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T3": {
+          "score": 50,
+          "inputs": {
+            "architecture": true,
+            "parameterScale": false
+          },
+          "usedEvidence": [
+            {
+              "type": "paper",
+              "status": "not_found"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_paper_not_found"
+          ]
+        },
+        "T4": {
+          "score": 50,
+          "inputs": {
+            "safetyControls": true,
+            "riskLimits": false,
+            "externalReview": false,
+            "transparencyReport": true
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "Q1": {
+          "score": 64.77,
+          "inputs": {
+            "benchmark": 64.77
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q2": {
+          "score": 53.96,
+          "inputs": {
+            "benchmark": 53.96
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q3": {
+          "score": 77.71800999999999,
+          "inputs": {
+            "math": 79.27,
+            "chat": 51.67,
+            "arena": 84.38,
+            "vendor": 58.5
           },
           "usedEvidence": [],
           "penaltyReasons": []

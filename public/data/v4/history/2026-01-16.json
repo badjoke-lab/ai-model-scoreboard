@@ -99,6 +99,10 @@
     "score": 74.610652436923,
     "layer": "full"
   },
+  "qwen/qwen3-coder-flash": {
+    "score": 74.60137432923072,
+    "layer": "full"
+  },
   "google/gemini-3-pro-image-preview-20251120": {
     "score": 74.57223702153804,
     "layer": "full"
@@ -539,6 +543,10 @@
     "score": 69.91456740615354,
     "layer": "full"
   },
+  "qwen/qwen3-vl-8b-thinking": {
+    "score": 69.79367386769226,
+    "layer": "full"
+  },
   "anthropic/claude-4.1-opus-20250805": {
     "score": 69.77909163692024,
     "layer": "full"
@@ -853,6 +861,10 @@
   },
   "google/gemini-2.5-pro-preview-03-25": {
     "score": 66.58886740615354,
+    "layer": "full"
+  },
+  "qwen/qwen-plus-2025-07-28": {
+    "score": 66.58815425230763,
     "layer": "full"
   },
   "nvidia/llama-3.3-nemotron-super-49b-v1.5": {

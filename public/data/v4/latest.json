@@ -1,12 +1,12 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-16T13:07:46.787Z",
-    "modelsCount": 296,
-    "fullCount": 281,
+    "updatedAt": "2026-01-16T13:51:24.141Z",
+    "modelsCount": 299,
+    "fullCount": 284,
     "provisionalCount": 15,
     "notListedCount": 0,
-    "evidenceCount": 296
+    "evidenceCount": 299
   },
   "rankings": [
     {
@@ -212,7 +212,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-vl-30b-a3b-thinking",
@@ -417,7 +417,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "z-ai/glm-4.5-air",
@@ -622,7 +622,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "allenai/molmo-2-8b-20260109",
@@ -827,7 +827,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meituan/longcat-flash-chat",
@@ -1032,7 +1032,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "perplexity/sonar",
@@ -1237,7 +1237,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "x-ai/grok-4-07-09",
@@ -1442,7 +1442,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4o",
@@ -1647,7 +1647,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-3.5-turbo-16k",
@@ -1852,7 +1852,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemma-3n-e4b-it",
@@ -2057,7 +2057,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "alfredpros/codellama-7b-instruct-solidity",
@@ -2262,7 +2262,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "deepseek/deepseek-r1-distill-llama-70b",
@@ -2467,7 +2467,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "thedrummer/unslopnemo-12b",
@@ -2672,7 +2672,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "inception/mercury",
@@ -2877,7 +2877,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwq-32b",
@@ -3082,7 +3082,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/ministral-3b",
@@ -3287,7 +3287,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4o-search-preview-2025-03-11",
@@ -3492,7 +3492,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "deepseek/deepseek-r1",
@@ -3697,7 +3697,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemini-2.5-pro",
@@ -3902,7 +3902,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "moonshotai/kimi-k2-0905",
@@ -4107,7 +4107,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4o-mini-2024-07-18",
@@ -4312,7 +4312,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "arcee-ai/coder-large",
@@ -4517,7 +4517,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-next-80b-a3b-thinking-2509",
@@ -4722,7 +4722,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mancer/weaver",
@@ -4927,7 +4927,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "stepfun-ai/step3",
@@ -5132,7 +5132,212 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
+    },
+    {
+      "model": "qwen/qwen3-coder-flash",
+      "vendor": "qwen",
+      "layer": "full",
+      "score": 74.60137432923072,
+      "scores": {
+        "overall": 74.60137432923072,
+        "categories": {
+          "performance": 75.79970000000002,
+          "safety": 65,
+          "adoption": 75.21000000000001,
+          "openness": 66.66666666666666,
+          "cost": 99.99994329230712
+        },
+        "items": {
+          "S1": {
+            "score": 50,
+            "inputs": {
+              "safetySection": true,
+              "highRisk": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S2": {
+            "score": 0,
+            "inputs": {
+              "rlhf": false,
+              "dataDisclosure": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S3": {
+            "score": 100,
+            "inputs": {
+              "misusePolicy": true,
+              "harmMitigation": true
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S4": {
+            "score": 50,
+            "inputs": {
+              "redTeam": false,
+              "independentAudit": true
+            },
+            "usedEvidence": [
+              {
+                "type": "audit",
+                "status": "missing_source_link"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_audit_missing_source_link"
+            ]
+          },
+          "S5": {
+            "score": 0,
+            "inputs": {
+              "transparencyUpdate": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S6": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_minor_incidents"
+            ]
+          },
+          "S7": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_major_incidents"
+            ]
+          },
+          "S8": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_critical_incidents"
+            ]
+          },
+          "T1": {
+            "score": 100,
+            "inputs": {
+              "modelCard": true,
+              "overview": true,
+              "limitations": true
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "T2": {
+            "score": 100,
+            "inputs": {
+              "dataCategories": true,
+              "dataFiltering": true,
+              "copyright": true
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "T3": {
+            "score": 100,
+            "inputs": {
+              "architecture": true,
+              "parameterScale": true
+            },
+            "usedEvidence": [
+              {
+                "type": "paper",
+                "status": "not_found"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_paper_not_found"
+            ]
+          },
+          "T4": {
+            "score": 0,
+            "inputs": {
+              "safetyControls": false,
+              "riskLimits": false,
+              "externalReview": false,
+              "transparencyReport": false
+            },
+            "usedEvidence": [
+              {
+                "type": "audit",
+                "status": "missing_source_link"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_audit_missing_source_link"
+            ]
+          },
+          "Q1": {
+            "score": 64.69,
+            "inputs": {
+              "benchmark": 64.69
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          },
+          "Q2": {
+            "score": 84.96,
+            "inputs": {
+              "benchmark": 84.96
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          },
+          "Q3": {
+            "score": 81.40431000000001,
+            "inputs": {
+              "math": 76.65,
+              "chat": 93.92,
+              "arena": 89.83,
+              "vendor": 48.38
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          }
+        }
+      },
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemini-3-pro-image-preview-20251120",
@@ -5337,7 +5542,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-vl-235b-a22b-thinking",
@@ -5542,7 +5747,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "relace/relace-search-20251208",
@@ -5747,7 +5952,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-3.5-turbo",
@@ -5952,7 +6157,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemini-3-flash-preview-20251217",
@@ -6157,7 +6362,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "anthropic/claude-3-haiku",
@@ -6362,7 +6567,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "morph/morph-v3-large",
@@ -6567,7 +6772,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meta-llama/llama-guard-2-8b",
@@ -6772,7 +6977,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/o3-deep-research-2025-06-26",
@@ -6977,7 +7182,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "amazon/nova-pro-v1",
@@ -7182,7 +7387,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "kwaipilot/kat-coder-pro-v1",
@@ -7387,7 +7592,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "deepseek/deepseek-v3.2-speciale-20251201",
@@ -7592,7 +7797,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "microsoft/phi-4",
@@ -7797,7 +8002,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemma-3-27b-it",
@@ -8002,7 +8207,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-7b-instruct",
@@ -8207,7 +8412,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-vl-235b-a22b-instruct",
@@ -8412,7 +8617,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemma-3-4b-it",
@@ -8617,7 +8822,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "aion-labs/aion-1.0-mini",
@@ -8822,7 +9027,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meta-llama/llama-3.2-3b-instruct",
@@ -9027,7 +9232,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "deepcogito/cogito-v2-preview-llama-405b",
@@ -9232,7 +9437,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-30b-a3b-04-28",
@@ -9437,7 +9642,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "allenai/olmo-3-7b-think-20251121",
@@ -9642,7 +9847,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/ministral-14b-2512",
@@ -9847,7 +10052,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/o3-mini-2025-01-31",
@@ -10052,7 +10257,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "alpindale/goliath-120b",
@@ -10257,7 +10462,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "anthropic/claude-3-7-sonnet-20250219",
@@ -10462,7 +10667,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/voxtral-small-24b-2507",
@@ -10667,7 +10872,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4o-audio-preview",
@@ -10872,7 +11077,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "x-ai/grok-4-fast",
@@ -11077,7 +11282,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-235b-a22b-thinking-2507",
@@ -11282,7 +11487,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen-2.5-coder-32b-instruct",
@@ -11487,7 +11692,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "z-ai/glm-4.6-20251208",
@@ -11692,7 +11897,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "amazon/nova-lite-v1",
@@ -11897,7 +12102,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "morph/morph-v3-fast",
@@ -12102,7 +12307,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "anthracite-org/magnum-v4-72b",
@@ -12307,7 +12512,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-medium-3",
@@ -12512,7 +12717,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "nex-agi/deepseek-v3.1-nex-n1",
@@ -12717,7 +12922,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "essentialai/rnj-1-instruct",
@@ -12922,7 +13127,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4.1-nano-2025-04-14",
@@ -13127,7 +13332,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "cohere/command-a-03-2025",
@@ -13332,7 +13537,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meta-llama/llama-3.1-8b-instruct",
@@ -13537,7 +13742,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "deepseek/deepseek-chat-v3",
@@ -13742,7 +13947,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4.1-2025-04-14",
@@ -13947,7 +14152,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "bytedance-seed/seed-1.6-flash-20250625",
@@ -14152,7 +14357,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "minimax/minimax-m1",
@@ -14357,7 +14562,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "baidu/ernie-4.5-300b-a47b",
@@ -14562,7 +14767,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5.2-pro-20251211",
@@ -14767,7 +14972,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meta-llama/llama-3-70b-instruct",
@@ -14972,7 +15177,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "inception/mercury-coder-small-beta",
@@ -15177,7 +15382,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "arcee-ai/spotlight",
@@ -15382,7 +15587,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/chatgpt-4o-latest",
@@ -15587,7 +15792,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "perplexity/sonar-deep-research",
@@ -15792,7 +15997,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-3.5-turbo-instruct",
@@ -15997,7 +16202,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "tngtech/deepseek-r1t-chimera",
@@ -16202,7 +16407,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "thedrummer/skyfall-36b-v2",
@@ -16407,7 +16612,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "amazon/nova-micro-v1",
@@ -16612,7 +16817,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mixtral-8x7b-instruct",
@@ -16817,7 +17022,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
@@ -17022,7 +17227,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4",
@@ -17227,7 +17432,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-235b-a22b-07-25",
@@ -17432,7 +17637,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5-mini-2025-08-07",
@@ -17637,7 +17842,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "x-ai/grok-code-fast-1",
@@ -17842,7 +18047,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "opengvlab/internvl3-78b",
@@ -18047,7 +18252,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "nousresearch/hermes-4-405b",
@@ -18252,7 +18457,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "ai21/jamba-large-1.7",
@@ -18457,7 +18662,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-large-2512",
@@ -18662,7 +18867,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/o4-mini-deep-research-2025-06-26",
@@ -18867,7 +19072,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5-image",
@@ -19072,7 +19277,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "inflection/inflection-3-productivity",
@@ -19277,7 +19482,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "anthropic/claude-3.5-sonnet",
@@ -19482,7 +19687,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4-1106-preview",
@@ -19687,7 +19892,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4o-2024-11-20",
@@ -19892,7 +20097,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "nvidia/nemotron-nano-12b-v2-vl",
@@ -20097,7 +20302,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "deepseek/deepseek-chat-v3-0324",
@@ -20302,7 +20507,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/codestral-2508",
@@ -20507,7 +20712,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/o4-mini-2025-04-16",
@@ -20712,7 +20917,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meta-llama/llama-4-scout-17b-16e-instruct",
@@ -20917,7 +21122,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mixtral-8x22b-instruct",
@@ -21122,7 +21327,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "cohere/command-r-08-2024",
@@ -21327,7 +21532,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-30b-a3b-instruct-2507",
@@ -21532,7 +21737,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-3.5-turbo-0613",
@@ -21737,7 +21942,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "ibm-granite/granite-4.0-h-micro",
@@ -21942,7 +22147,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "bytedance-seed/seed-1.6-20250625",
@@ -22147,7 +22352,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5.1-chat-20251113",
@@ -22352,7 +22557,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4-0314",
@@ -22557,7 +22762,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "amazon/nova-2-lite-v1",
@@ -22762,7 +22967,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "baidu/ernie-4.5-vl-424b-a47b",
@@ -22967,7 +23172,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-30b-a3b-thinking-2507",
@@ -23172,7 +23377,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/o4-mini-high-2025-04-16",
@@ -23377,7 +23582,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-7b-instruct-v0.2",
@@ -23582,7 +23787,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "undi95/remm-slerp-l2-13b",
@@ -23787,7 +23992,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemini-2.0-flash-exp",
@@ -23992,7 +24197,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "perplexity/sonar-pro",
@@ -24197,7 +24402,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "allenai/olmo-2-0325-32b-instruct",
@@ -24402,7 +24607,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemini-2.5-flash-preview-09-2025",
@@ -24607,7 +24812,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-small-3.1-24b-instruct-2503",
@@ -24812,7 +25017,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "z-ai/glm-4-32b-0414",
@@ -25017,7 +25222,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meta-llama/llama-3.2-1b-instruct",
@@ -25222,7 +25427,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "ai21/jamba-mini-1.7",
@@ -25427,7 +25632,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "arcee-ai/trinity-mini-20251201",
@@ -25632,7 +25837,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "alibaba/tongyi-deepresearch-30b-a3b",
@@ -25837,7 +26042,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "allenai/olmo-3-32b-think-20251121",
@@ -26042,7 +26247,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "minimax/minimax-m2.1",
@@ -26247,7 +26452,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "tngtech/deepseek-r1t2-chimera",
@@ -26452,7 +26657,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "anthropic/claude-4.5-haiku-20251001",
@@ -26657,7 +26862,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-nemo",
@@ -26862,7 +27067,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "deepseek/deepseek-v3.2-20251201",
@@ -27067,7 +27272,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-small-3.2-24b-instruct-2506",
@@ -27272,7 +27477,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-large",
@@ -27477,7 +27682,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemini-2.5-pro-preview-06-05",
@@ -27682,7 +27887,212 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
+    },
+    {
+      "model": "qwen/qwen3-vl-8b-thinking",
+      "vendor": "qwen",
+      "layer": "full",
+      "score": 69.79367386769226,
+      "scores": {
+        "overall": 69.79367386769226,
+        "categories": {
+          "performance": 65.40670000000001,
+          "safety": 60,
+          "adoption": 77.53999999999999,
+          "openness": 66.66666666666666,
+          "cost": 99.99993867692247
+        },
+        "items": {
+          "S1": {
+            "score": 50,
+            "inputs": {
+              "safetySection": true,
+              "highRisk": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S2": {
+            "score": 100,
+            "inputs": {
+              "rlhf": true,
+              "dataDisclosure": true
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S3": {
+            "score": 50,
+            "inputs": {
+              "misusePolicy": true,
+              "harmMitigation": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S4": {
+            "score": 0,
+            "inputs": {
+              "redTeam": false,
+              "independentAudit": false
+            },
+            "usedEvidence": [
+              {
+                "type": "audit",
+                "status": "missing_source_link"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_audit_missing_source_link"
+            ]
+          },
+          "S5": {
+            "score": 0,
+            "inputs": {
+              "transparencyUpdate": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S6": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_minor_incidents"
+            ]
+          },
+          "S7": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_major_incidents"
+            ]
+          },
+          "S8": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_critical_incidents"
+            ]
+          },
+          "T1": {
+            "score": 66.66666666666666,
+            "inputs": {
+              "modelCard": true,
+              "overview": true,
+              "limitations": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "T2": {
+            "score": 100,
+            "inputs": {
+              "dataCategories": true,
+              "dataFiltering": true,
+              "copyright": true
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "T3": {
+            "score": 50,
+            "inputs": {
+              "architecture": true,
+              "parameterScale": false
+            },
+            "usedEvidence": [
+              {
+                "type": "paper",
+                "status": "not_found"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_paper_not_found"
+            ]
+          },
+          "T4": {
+            "score": 50,
+            "inputs": {
+              "safetyControls": true,
+              "riskLimits": false,
+              "externalReview": false,
+              "transparencyReport": true
+            },
+            "usedEvidence": [
+              {
+                "type": "audit",
+                "status": "missing_source_link"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_audit_missing_source_link"
+            ]
+          },
+          "Q1": {
+            "score": 64.77,
+            "inputs": {
+              "benchmark": 64.77
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          },
+          "Q2": {
+            "score": 53.96,
+            "inputs": {
+              "benchmark": 53.96
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          },
+          "Q3": {
+            "score": 77.71800999999999,
+            "inputs": {
+              "math": 79.27,
+              "chat": 51.67,
+              "arena": 84.38,
+              "vendor": 58.5
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          }
+        }
+      },
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "anthropic/claude-4.1-opus-20250805",
@@ -27887,7 +28297,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "anthropic/claude-4.5-opus-20251124",
@@ -28092,7 +28502,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "eleutherai/llemma_7b",
@@ -28297,7 +28707,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-coder-480b-a35b-07-25",
@@ -28502,7 +28912,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4o-mini",
@@ -28707,7 +29117,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "nousresearch/hermes-3-llama-3.1-405b",
@@ -28912,7 +29322,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meta-llama/llama-3.1-70b-instruct",
@@ -29117,7 +29527,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemini-2.5-flash-lite",
@@ -29322,7 +29732,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-coder-30b-a3b-instruct",
@@ -29527,7 +29937,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "deepseek/deepseek-v3.2-exp",
@@ -29732,7 +30142,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4o-2024-05-13",
@@ -29937,7 +30347,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-8b-04-28",
@@ -30142,7 +30552,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4-turbo",
@@ -30347,7 +30757,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "cohere/command-r-plus-08-2024",
@@ -30552,7 +30962,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "moonshotai/kimi-dev-72b",
@@ -30757,7 +31167,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "baidu/ernie-4.5-21b-a3b-thinking",
@@ -30962,7 +31372,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/o3-pro-2025-06-10",
@@ -31167,7 +31577,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/pixtral-large-2411",
@@ -31372,7 +31782,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5-nano-2025-08-07",
@@ -31577,7 +31987,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5-image-mini",
@@ -31782,7 +32192,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemini-2.0-flash-001",
@@ -31987,7 +32397,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "allenai/olmo-3.1-32b-instruct-20251215",
@@ -32192,7 +32602,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-small-creative-20251216",
@@ -32397,7 +32807,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-large-2407",
@@ -32602,7 +33012,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "liquid/lfm2-8b-a1b",
@@ -32807,7 +33217,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemini-3-pro-preview-20251117",
@@ -33012,7 +33422,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
@@ -33217,7 +33627,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5.1-20251113",
@@ -33422,7 +33832,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "deepcogito/cogito-v2-preview-llama-70b",
@@ -33627,7 +34037,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "x-ai/grok-4.1-fast",
@@ -33832,7 +34242,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "relace/relace-apply-3",
@@ -34037,7 +34447,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemma-2-27b-it",
@@ -34242,7 +34652,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-oss-safeguard-20b",
@@ -34447,7 +34857,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "deepcogito/cogito-v2-preview-llama-109b-moe",
@@ -34652,7 +35062,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-vl-8b-instruct",
@@ -34857,7 +35267,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-small-24b-instruct-2501",
@@ -35062,7 +35472,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "nousresearch/hermes-2-pro-llama-3-8b",
@@ -35267,7 +35677,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-vl-32b-instruct",
@@ -35472,7 +35882,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/ministral-8b-2512",
@@ -35677,7 +36087,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "nousresearch/deephermes-3-mistral-24b-preview",
@@ -35882,7 +36292,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meta-llama/llama-3.1-405b",
@@ -36087,7 +36497,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-32b-04-28",
@@ -36292,7 +36702,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "anthropic/claude-4.5-sonnet-20250929",
@@ -36497,7 +36907,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-7b-instruct-v0.1",
@@ -36702,7 +37112,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "minimax/minimax-m2",
@@ -36907,7 +37317,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4.1-mini",
@@ -37112,7 +37522,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemma-3n-e2b-it",
@@ -37317,7 +37727,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "tencent/hunyuan-a13b-instruct",
@@ -37522,7 +37932,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "sao10k/l3-euryale-70b",
@@ -37727,7 +38137,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5.2-chat-20251211",
@@ -37932,7 +38342,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "tngtech/tng-r1t-chimera",
@@ -38137,7 +38547,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "anthropic/claude-4-sonnet-20250522",
@@ -38342,7 +38752,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "baidu/ernie-4.5-vl-28b-a3b",
@@ -38547,7 +38957,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen-2.5-72b-instruct",
@@ -38752,7 +39162,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "z-ai/glm-4.6",
@@ -38957,7 +39367,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-oss-120b",
@@ -39162,7 +39572,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemini-2.5-flash-lite-preview-09-2025",
@@ -39367,7 +39777,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "sao10k/l3.1-70b-hanami-x1",
@@ -39572,7 +39982,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "inflection/inflection-3-pi",
@@ -39777,7 +40187,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-235b-a22b-04-28",
@@ -39982,7 +40392,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meta-llama/llama-3.2-11b-vision-instruct",
@@ -40187,7 +40597,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemini-2.5-flash",
@@ -40392,7 +40802,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen2.5-coder-7b-instruct",
@@ -40597,7 +41007,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "liquid/lfm-2.2-6b",
@@ -40802,7 +41212,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "arcee-ai/maestro-reasoning",
@@ -41007,7 +41417,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "venice/uncensored",
@@ -41212,7 +41622,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meta-llama/llama-3.3-70b-instruct",
@@ -41417,7 +41827,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "baidu/ernie-4.5-21b-a3b",
@@ -41622,7 +42032,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meta-llama/llama-guard-3-8b",
@@ -41827,7 +42237,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-medium-3.1",
@@ -42032,7 +42442,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-oss-20b",
@@ -42237,7 +42647,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "allenai/olmo-3-7b-instruct-20251121",
@@ -42442,7 +42852,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/o3-mini-high-2025-01-31",
@@ -42647,7 +43057,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/pixtral-12b",
@@ -42852,7 +43262,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5.1-codex-max-20251204",
@@ -43057,7 +43467,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "nvidia/nemotron-3-nano-30b-a3b",
@@ -43262,7 +43672,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/devstral-2512",
@@ -43467,7 +43877,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5.2-20251211",
@@ -43672,7 +44082,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemini-2.5-pro-preview-03-25",
@@ -43877,7 +44287,212 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
+    },
+    {
+      "model": "qwen/qwen-plus-2025-07-28",
+      "vendor": "qwen",
+      "layer": "full",
+      "score": 66.58815425230763,
+      "scores": {
+        "overall": 66.58815425230763,
+        "categories": {
+          "performance": 60.57540000000001,
+          "safety": 65,
+          "adoption": 70.72,
+          "openness": 58.333333333333336,
+          "cost": 99.99994252307634
+        },
+        "items": {
+          "S1": {
+            "score": 50,
+            "inputs": {
+              "safetySection": true,
+              "highRisk": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S2": {
+            "score": 50,
+            "inputs": {
+              "rlhf": false,
+              "dataDisclosure": true
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S3": {
+            "score": 50,
+            "inputs": {
+              "misusePolicy": true,
+              "harmMitigation": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S4": {
+            "score": 50,
+            "inputs": {
+              "redTeam": false,
+              "independentAudit": true
+            },
+            "usedEvidence": [
+              {
+                "type": "audit",
+                "status": "missing_source_link"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_audit_missing_source_link"
+            ]
+          },
+          "S5": {
+            "score": 0,
+            "inputs": {
+              "transparencyUpdate": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S6": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_minor_incidents"
+            ]
+          },
+          "S7": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_major_incidents"
+            ]
+          },
+          "S8": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_critical_incidents"
+            ]
+          },
+          "T1": {
+            "score": 66.66666666666666,
+            "inputs": {
+              "modelCard": false,
+              "overview": true,
+              "limitations": true
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "T2": {
+            "score": 33.33333333333333,
+            "inputs": {
+              "dataCategories": false,
+              "dataFiltering": true,
+              "copyright": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "T3": {
+            "score": 100,
+            "inputs": {
+              "architecture": true,
+              "parameterScale": true
+            },
+            "usedEvidence": [
+              {
+                "type": "paper",
+                "status": "not_found"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_paper_not_found"
+            ]
+          },
+          "T4": {
+            "score": 50,
+            "inputs": {
+              "safetyControls": true,
+              "riskLimits": true,
+              "externalReview": false,
+              "transparencyReport": false
+            },
+            "usedEvidence": [
+              {
+                "type": "audit",
+                "status": "missing_source_link"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_audit_missing_source_link"
+            ]
+          },
+          "Q1": {
+            "score": 61.25,
+            "inputs": {
+              "benchmark": 61.25
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          },
+          "Q2": {
+            "score": 52.64,
+            "inputs": {
+              "benchmark": 52.64
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          },
+          "Q3": {
+            "score": 67.62262,
+            "inputs": {
+              "math": 68.74,
+              "chat": 85.64,
+              "arena": 56.66,
+              "vendor": 57.02
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          }
+        }
+      },
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
@@ -44082,7 +44697,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-tiny",
@@ -44287,7 +44902,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen-2.5-7b-instruct",
@@ -44492,7 +45107,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "amazon/nova-premier-v1",
@@ -44697,7 +45312,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "thedrummer/cydonia-24b-v4.1",
@@ -44902,7 +45517,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4o-2024-08-06",
@@ -45107,7 +45722,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "x-ai/grok-3-mini-beta",
@@ -45312,7 +45927,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-vl-30b-a3b-instruct",
@@ -45517,7 +46132,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen-2-vl-7b-instruct",
@@ -45722,7 +46337,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4o-mini-search-preview-2025-03-11",
@@ -45927,7 +46542,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "z-ai/glm-4.5v",
@@ -46132,7 +46747,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "deepseek/deepseek-r1-0528",
@@ -46337,7 +46952,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemini-2.0-flash-lite-001",
@@ -46542,7 +47157,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/o1-2024-12-17",
@@ -46747,7 +47362,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5-pro-2025-10-06",
@@ -46952,7 +47567,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "anthropic/claude-3-5-haiku",
@@ -47157,7 +47772,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "gryphe/mythomax-l2-13b",
@@ -47362,7 +47977,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "nvidia/nemotron-nano-9b-v2",
@@ -47567,7 +48182,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "z-ai/glm-4.7-20251222",
@@ -47772,7 +48387,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen2.5-vl-32b-instruct",
@@ -47977,7 +48592,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "perplexity/sonar-reasoning-pro",
@@ -48182,7 +48797,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "perplexity/sonar-pro-search",
@@ -48387,7 +49002,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemini-2.5-flash-image",
@@ -48592,7 +49207,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "bytedance/ui-tars-1.5-7b",
@@ -48797,7 +49412,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5-chat-2025-08-07",
@@ -49002,7 +49617,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "raifle/sorcererlm-8x22b",
@@ -49207,7 +49822,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "anthropic/claude-4-opus-20250522",
@@ -49412,7 +50027,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meta-llama/llama-3.1-405b-instruct",
@@ -49617,7 +50232,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5-2025-08-07",
@@ -49822,7 +50437,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4-turbo-preview",
@@ -50027,7 +50642,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meta-llama/llama-guard-4-12b",
@@ -50232,7 +50847,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "deepcogito/cogito-v2.1-671b-20251118",
@@ -50437,7 +51052,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openrouter/auto",
@@ -50642,7 +51257,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-7b-instruct-v0.3",
@@ -50847,7 +51462,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/devstral-small-2507",
@@ -51052,7 +51667,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-4b-04-28",
@@ -51257,7 +51872,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "z-ai/glm-4.5",
@@ -51462,7 +52077,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-next-80b-a3b-instruct-2509",
@@ -51667,7 +52282,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "deepseek/deepseek-v3.1-terminus",
@@ -51872,7 +52487,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "minimax/minimax-01",
@@ -52077,7 +52692,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "switchpoint/router",
@@ -52282,7 +52897,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "sao10k/l3.1-euryale-70b",
@@ -52487,7 +53102,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "sao10k/l3.3-euryale-70b-v2.3",
@@ -52692,7 +53307,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "deepseek/deepseek-r1-distill-qwen-32b",
@@ -52897,7 +53512,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "thedrummer/rocinante-12b",
@@ -53102,7 +53717,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "x-ai/grok-3-mini",
@@ -53307,7 +53922,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5.1-codex-mini-20251113",
@@ -53512,7 +54127,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/o1-pro",
@@ -53717,7 +54332,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "moonshotai/kimi-k2",
@@ -53922,7 +54537,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/ministral-3b-2512",
@@ -54127,7 +54742,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/o3-2025-04-16",
@@ -54332,7 +54947,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemma-2-9b-it",
@@ -54537,7 +55152,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen2.5-vl-72b-instruct",
@@ -54742,7 +55357,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "aion-labs/aion-rp-llama-3.1-8b",
@@ -54947,7 +55562,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "cohere/command-r7b-12-2024",
@@ -55152,7 +55767,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/devstral-medium-2507",
@@ -55357,7 +55972,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "x-ai/grok-3",
@@ -55562,7 +56177,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "nvidia/llama-3.1-nemotron-70b-instruct",
@@ -55767,7 +56382,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/ministral-8b",
@@ -55972,7 +56587,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "microsoft/wizardlm-2-8x22b",
@@ -56177,7 +56792,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "x-ai/grok-3-beta",
@@ -56382,7 +56997,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "neversleep/llama-3.1-lumimaid-8b",
@@ -56587,7 +57202,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openrouter/bodybuilder",
@@ -56792,7 +57407,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5.1-codex-20251113",
@@ -56997,7 +57612,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "arcee-ai/virtuoso-large",
@@ -57202,7 +57817,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "qwen/qwen3-14b-04-28",
@@ -57407,7 +58022,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "prime-intellect/intellect-3-20251126",
@@ -57612,7 +58227,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-saba-2502",
@@ -57817,7 +58432,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "mistralai/mistral-large-2411",
@@ -58022,7 +58637,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "aion-labs/aion-1.0",
@@ -58227,7 +58842,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "meta-llama/llama-3-8b-instruct",
@@ -58432,7 +59047,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "deepseek/deepseek-chat-v3.1",
@@ -58637,7 +59252,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "sao10k/l3-lunaris-8b",
@@ -58842,7 +59457,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "allenai/olmo-3.1-32b-think-20251215",
@@ -59047,7 +59662,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-5.2-codex-20260114",
@@ -59252,7 +59867,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "xiaomi/mimo-v2-flash-20251210",
@@ -59457,7 +60072,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "openai/gpt-4.1-mini-2025-04-14",
@@ -59662,7 +60277,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "neversleep/noromaid-20b",
@@ -59867,7 +60482,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "nousresearch/hermes-4-70b",
@@ -60072,7 +60687,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "moonshotai/kimi-k2-thinking-20251106",
@@ -60277,7 +60892,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "nousresearch/hermes-3-llama-3.1-70b",
@@ -60482,7 +61097,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     },
     {
       "model": "google/gemma-3-12b-it",
@@ -60687,7 +61302,7 @@
           }
         }
       },
-      "updatedAt": "2026-01-16T13:07:46.787Z"
+      "updatedAt": "2026-01-16T13:51:24.141Z"
     }
   ],
   "models": {
@@ -110484,6 +111099,217 @@
       },
       "layer": "full"
     },
+    "qwen/qwen-plus-2025-07-28": {
+      "name": "Qwen: Qwen Plus 0728",
+      "vendor": "qwen",
+      "released": "2025-09-08T16:06:39.000Z",
+      "context": 1000000,
+      "type": "text->text",
+      "pricing": {
+        "input": 4e-7,
+        "output": 0.0000012,
+        "currency": "USD"
+      },
+      "scores": {
+        "overall": 66.58815425230763,
+        "categories": {
+          "performance": 60.57540000000001,
+          "safety": 65,
+          "adoption": 70.72,
+          "openness": 58.333333333333336,
+          "cost": 99.99994252307634
+        },
+        "items": {
+          "S1": {
+            "score": 50,
+            "inputs": {
+              "safetySection": true,
+              "highRisk": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S2": {
+            "score": 50,
+            "inputs": {
+              "rlhf": false,
+              "dataDisclosure": true
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S3": {
+            "score": 50,
+            "inputs": {
+              "misusePolicy": true,
+              "harmMitigation": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S4": {
+            "score": 50,
+            "inputs": {
+              "redTeam": false,
+              "independentAudit": true
+            },
+            "usedEvidence": [
+              {
+                "type": "audit",
+                "status": "missing_source_link"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_audit_missing_source_link"
+            ]
+          },
+          "S5": {
+            "score": 0,
+            "inputs": {
+              "transparencyUpdate": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S6": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_minor_incidents"
+            ]
+          },
+          "S7": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_major_incidents"
+            ]
+          },
+          "S8": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_critical_incidents"
+            ]
+          },
+          "T1": {
+            "score": 66.66666666666666,
+            "inputs": {
+              "modelCard": false,
+              "overview": true,
+              "limitations": true
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "T2": {
+            "score": 33.33333333333333,
+            "inputs": {
+              "dataCategories": false,
+              "dataFiltering": true,
+              "copyright": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "T3": {
+            "score": 100,
+            "inputs": {
+              "architecture": true,
+              "parameterScale": true
+            },
+            "usedEvidence": [
+              {
+                "type": "paper",
+                "status": "not_found"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_paper_not_found"
+            ]
+          },
+          "T4": {
+            "score": 50,
+            "inputs": {
+              "safetyControls": true,
+              "riskLimits": true,
+              "externalReview": false,
+              "transparencyReport": false
+            },
+            "usedEvidence": [
+              {
+                "type": "audit",
+                "status": "missing_source_link"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_audit_missing_source_link"
+            ]
+          },
+          "Q1": {
+            "score": 61.25,
+            "inputs": {
+              "benchmark": 61.25
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          },
+          "Q2": {
+            "score": 52.64,
+            "inputs": {
+              "benchmark": 52.64
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          },
+          "Q3": {
+            "score": 67.62262,
+            "inputs": {
+              "math": 68.74,
+              "chat": 85.64,
+              "arena": 56.66,
+              "vendor": 57.02
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          }
+        }
+      },
+      "layer": "full"
+    },
     "qwen/qwen2.5-coder-7b-instruct": {
       "name": "Qwen: Qwen2.5 Coder 7B Instruct",
       "vendor": "qwen",
@@ -113649,6 +114475,217 @@
       },
       "layer": "full"
     },
+    "qwen/qwen3-coder-flash": {
+      "name": "Qwen: Qwen3 Coder Flash",
+      "vendor": "qwen",
+      "released": "2025-09-17T13:25:36.000Z",
+      "context": 128000,
+      "type": "text->text",
+      "pricing": {
+        "input": 3e-7,
+        "output": 0.0000015,
+        "currency": "USD"
+      },
+      "scores": {
+        "overall": 74.60137432923072,
+        "categories": {
+          "performance": 75.79970000000002,
+          "safety": 65,
+          "adoption": 75.21000000000001,
+          "openness": 66.66666666666666,
+          "cost": 99.99994329230712
+        },
+        "items": {
+          "S1": {
+            "score": 50,
+            "inputs": {
+              "safetySection": true,
+              "highRisk": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S2": {
+            "score": 0,
+            "inputs": {
+              "rlhf": false,
+              "dataDisclosure": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S3": {
+            "score": 100,
+            "inputs": {
+              "misusePolicy": true,
+              "harmMitigation": true
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S4": {
+            "score": 50,
+            "inputs": {
+              "redTeam": false,
+              "independentAudit": true
+            },
+            "usedEvidence": [
+              {
+                "type": "audit",
+                "status": "missing_source_link"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_audit_missing_source_link"
+            ]
+          },
+          "S5": {
+            "score": 0,
+            "inputs": {
+              "transparencyUpdate": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S6": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_minor_incidents"
+            ]
+          },
+          "S7": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_major_incidents"
+            ]
+          },
+          "S8": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_critical_incidents"
+            ]
+          },
+          "T1": {
+            "score": 100,
+            "inputs": {
+              "modelCard": true,
+              "overview": true,
+              "limitations": true
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "T2": {
+            "score": 100,
+            "inputs": {
+              "dataCategories": true,
+              "dataFiltering": true,
+              "copyright": true
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "T3": {
+            "score": 100,
+            "inputs": {
+              "architecture": true,
+              "parameterScale": true
+            },
+            "usedEvidence": [
+              {
+                "type": "paper",
+                "status": "not_found"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_paper_not_found"
+            ]
+          },
+          "T4": {
+            "score": 0,
+            "inputs": {
+              "safetyControls": false,
+              "riskLimits": false,
+              "externalReview": false,
+              "transparencyReport": false
+            },
+            "usedEvidence": [
+              {
+                "type": "audit",
+                "status": "missing_source_link"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_audit_missing_source_link"
+            ]
+          },
+          "Q1": {
+            "score": 64.69,
+            "inputs": {
+              "benchmark": 64.69
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          },
+          "Q2": {
+            "score": 84.96,
+            "inputs": {
+              "benchmark": 84.96
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          },
+          "Q3": {
+            "score": 81.40431000000001,
+            "inputs": {
+              "math": 76.65,
+              "chat": 93.92,
+              "arena": 89.83,
+              "vendor": 48.38
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          }
+        }
+      },
+      "layer": "full"
+    },
     "qwen/qwen3-next-80b-a3b-instruct-2509": {
       "name": "Qwen: Qwen3 Next 80B A3B Instruct (free)",
       "vendor": "qwen",
@@ -115329,6 +116366,217 @@
               "chat": 75.56,
               "arena": 57.97,
               "vendor": 50.31
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          }
+        }
+      },
+      "layer": "full"
+    },
+    "qwen/qwen3-vl-8b-thinking": {
+      "name": "Qwen: Qwen3 VL 8B Thinking",
+      "vendor": "qwen",
+      "released": "2025-10-14T17:42:26.000Z",
+      "context": 256000,
+      "type": "text+image->text",
+      "pricing": {
+        "input": 1.8e-7,
+        "output": 0.0000021,
+        "currency": "USD"
+      },
+      "scores": {
+        "overall": 69.79367386769226,
+        "categories": {
+          "performance": 65.40670000000001,
+          "safety": 60,
+          "adoption": 77.53999999999999,
+          "openness": 66.66666666666666,
+          "cost": 99.99993867692247
+        },
+        "items": {
+          "S1": {
+            "score": 50,
+            "inputs": {
+              "safetySection": true,
+              "highRisk": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S2": {
+            "score": 100,
+            "inputs": {
+              "rlhf": true,
+              "dataDisclosure": true
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S3": {
+            "score": 50,
+            "inputs": {
+              "misusePolicy": true,
+              "harmMitigation": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S4": {
+            "score": 0,
+            "inputs": {
+              "redTeam": false,
+              "independentAudit": false
+            },
+            "usedEvidence": [
+              {
+                "type": "audit",
+                "status": "missing_source_link"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_audit_missing_source_link"
+            ]
+          },
+          "S5": {
+            "score": 0,
+            "inputs": {
+              "transparencyUpdate": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "S6": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_minor_incidents"
+            ]
+          },
+          "S7": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_major_incidents"
+            ]
+          },
+          "S8": {
+            "score": 100,
+            "inputs": {},
+            "usedEvidence": [],
+            "penaltyReasons": [
+              "missing_critical_incidents"
+            ]
+          },
+          "T1": {
+            "score": 66.66666666666666,
+            "inputs": {
+              "modelCard": true,
+              "overview": true,
+              "limitations": false
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "T2": {
+            "score": 100,
+            "inputs": {
+              "dataCategories": true,
+              "dataFiltering": true,
+              "copyright": true
+            },
+            "usedEvidence": [
+              {
+                "type": "official_page",
+                "status": "ok"
+              }
+            ],
+            "penaltyReasons": []
+          },
+          "T3": {
+            "score": 50,
+            "inputs": {
+              "architecture": true,
+              "parameterScale": false
+            },
+            "usedEvidence": [
+              {
+                "type": "paper",
+                "status": "not_found"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_paper_not_found"
+            ]
+          },
+          "T4": {
+            "score": 50,
+            "inputs": {
+              "safetyControls": true,
+              "riskLimits": false,
+              "externalReview": false,
+              "transparencyReport": true
+            },
+            "usedEvidence": [
+              {
+                "type": "audit",
+                "status": "missing_source_link"
+              }
+            ],
+            "penaltyReasons": [
+              "evidence_audit_missing_source_link"
+            ]
+          },
+          "Q1": {
+            "score": 64.77,
+            "inputs": {
+              "benchmark": 64.77
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          },
+          "Q2": {
+            "score": 53.96,
+            "inputs": {
+              "benchmark": 53.96
+            },
+            "usedEvidence": [],
+            "penaltyReasons": []
+          },
+          "Q3": {
+            "score": 77.71800999999999,
+            "inputs": {
+              "math": 79.27,
+              "chat": 51.67,
+              "arena": 84.38,
+              "vendor": 58.5
             },
             "usedEvidence": [],
             "penaltyReasons": []
@@ -124565,6 +125813,12 @@
         "source": "openrouter"
       },
       {
+        "modelKey": "qwen/qwen-plus-2025-07-28",
+        "name": "Qwen: Qwen Plus 0728",
+        "provider": "qwen",
+        "source": "openrouter"
+      },
+      {
         "modelKey": "qwen/qwen2.5-coder-7b-instruct",
         "name": "Qwen: Qwen2.5 Coder 7B Instruct",
         "provider": "qwen",
@@ -124655,6 +125909,12 @@
         "source": "openrouter"
       },
       {
+        "modelKey": "qwen/qwen3-coder-flash",
+        "name": "Qwen: Qwen3 Coder Flash",
+        "provider": "qwen",
+        "source": "openrouter"
+      },
+      {
         "modelKey": "qwen/qwen3-next-80b-a3b-instruct-2509",
         "name": "Qwen: Qwen3 Next 80B A3B Instruct (free)",
         "provider": "qwen",
@@ -124699,6 +125959,12 @@
       {
         "modelKey": "qwen/qwen3-vl-8b-instruct",
         "name": "Qwen: Qwen3 VL 8B Instruct",
+        "provider": "qwen",
+        "source": "openrouter"
+      },
+      {
+        "modelKey": "qwen/qwen3-vl-8b-thinking",
+        "name": "Qwen: Qwen3 VL 8B Thinking",
         "provider": "qwen",
         "source": "openrouter"
       },
@@ -124929,7 +126195,7 @@
   },
   "decisions": {
     "meta": {
-      "generatedAt": "2026-01-16T13:07:46.787Z",
+      "generatedAt": "2026-01-16T13:51:24.141Z",
       "requiredFields": [
         "modelKey",
         "name",
@@ -124938,12 +126204,12 @@
       "allowlistCount": 0,
       "denylistCount": 0,
       "totals": {
-        "total": 296,
-        "adopted": 296,
+        "total": 299,
+        "adopted": 299,
         "provisional": 0,
         "denied": 0,
         "sources": {
-          "openrouter": 294,
+          "openrouter": 297,
           "seed": 2
         }
       },
@@ -128965,6 +130231,23 @@
         }
       },
       {
+        "modelKey": "qwen/qwen-plus-2025-07-28",
+        "source": "openrouter",
+        "status": "adopted",
+        "reasons": [
+          "meets required fields"
+        ],
+        "normalized": {
+          "name": "Qwen: Qwen Plus 0728",
+          "slug": "qwen/qwen-plus-2025-07-28",
+          "provider": "qwen"
+        },
+        "rawRef": {
+          "id": "qwen/qwen-plus-2025-07-28",
+          "canonical_slug": "qwen/qwen-plus-2025-07-28"
+        }
+      },
+      {
         "modelKey": "qwen/qwen2.5-coder-7b-instruct",
         "source": "openrouter",
         "status": "adopted",
@@ -129220,6 +130503,23 @@
         }
       },
       {
+        "modelKey": "qwen/qwen3-coder-flash",
+        "source": "openrouter",
+        "status": "adopted",
+        "reasons": [
+          "meets required fields"
+        ],
+        "normalized": {
+          "name": "Qwen: Qwen3 Coder Flash",
+          "slug": "qwen/qwen3-coder-flash",
+          "provider": "qwen"
+        },
+        "rawRef": {
+          "id": "qwen/qwen3-coder-flash",
+          "canonical_slug": "qwen/qwen3-coder-flash"
+        }
+      },
+      {
         "modelKey": "qwen/qwen3-next-80b-a3b-instruct-2509",
         "source": "openrouter",
         "status": "adopted",
@@ -129353,6 +130653,23 @@
         "rawRef": {
           "id": "qwen/qwen3-vl-8b-instruct",
           "canonical_slug": "qwen/qwen3-vl-8b-instruct"
+        }
+      },
+      {
+        "modelKey": "qwen/qwen3-vl-8b-thinking",
+        "source": "openrouter",
+        "status": "adopted",
+        "reasons": [
+          "meets required fields"
+        ],
+        "normalized": {
+          "name": "Qwen: Qwen3 VL 8B Thinking",
+          "slug": "qwen/qwen3-vl-8b-thinking",
+          "provider": "qwen"
+        },
+        "rawRef": {
+          "id": "qwen/qwen3-vl-8b-thinking",
+          "canonical_slug": "qwen/qwen3-vl-8b-thinking"
         }
       },
       {
@@ -129989,8 +131306,8 @@
   "evidenceIndex": {
     "meta": {
       "version": "v4",
-      "updatedAt": "2026-01-16T13:07:46.787Z",
-      "runId": "21067637846"
+      "updatedAt": "2026-01-16T13:51:24.141Z",
+      "runId": "21068824577"
     },
     "models": [
       {
@@ -130938,6 +132255,10 @@
         "path": "evidence/qwen/qwen-2.5-coder-32b-instruct.json"
       },
       {
+        "modelKey": "qwen/qwen-plus-2025-07-28",
+        "path": "evidence/qwen/qwen-plus-2025-07-28.json"
+      },
+      {
         "modelKey": "qwen/qwen2.5-coder-7b-instruct",
         "path": "evidence/qwen/qwen2.5-coder-7b-instruct.json"
       },
@@ -130998,6 +132319,10 @@
         "path": "evidence/qwen/qwen3-coder-480b-a35b-07-25.json"
       },
       {
+        "modelKey": "qwen/qwen3-coder-flash",
+        "path": "evidence/qwen/qwen3-coder-flash.json"
+      },
+      {
         "modelKey": "qwen/qwen3-next-80b-a3b-instruct-2509",
         "path": "evidence/qwen/qwen3-next-80b-a3b-instruct-2509.json"
       },
@@ -131028,6 +132353,10 @@
       {
         "modelKey": "qwen/qwen3-vl-8b-instruct",
         "path": "evidence/qwen/qwen3-vl-8b-instruct.json"
+      },
+      {
+        "modelKey": "qwen/qwen3-vl-8b-thinking",
+        "path": "evidence/qwen/qwen3-vl-8b-thinking.json"
       },
       {
         "modelKey": "qwen/qwq-32b",
@@ -131182,7 +132511,7 @@
   "evidenceFiles": {
     "ai21/jamba-large-1.7": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "ai21/jamba-large-1.7"
       },
       "evidenceItems": [
@@ -131237,7 +132566,7 @@
     },
     "ai21/jamba-mini-1.7": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "ai21/jamba-mini-1.7"
       },
       "evidenceItems": [
@@ -131292,7 +132621,7 @@
     },
     "aion-labs/aion-1.0": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "aion-labs/aion-1.0"
       },
       "evidenceItems": [
@@ -131347,7 +132676,7 @@
     },
     "aion-labs/aion-1.0-mini": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "aion-labs/aion-1.0-mini"
       },
       "evidenceItems": [
@@ -131402,7 +132731,7 @@
     },
     "aion-labs/aion-rp-llama-3.1-8b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "aion-labs/aion-rp-llama-3.1-8b"
       },
       "evidenceItems": [
@@ -131457,7 +132786,7 @@
     },
     "alfredpros/codellama-7b-instruct-solidity": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "alfredpros/codellama-7b-instruct-solidity"
       },
       "evidenceItems": [
@@ -131512,7 +132841,7 @@
     },
     "alibaba/tongyi-deepresearch-30b-a3b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "alibaba/tongyi-deepresearch-30b-a3b"
       },
       "evidenceItems": [
@@ -131567,7 +132896,7 @@
     },
     "allenai/molmo-2-8b-20260109": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "allenai/molmo-2-8b-20260109"
       },
       "evidenceItems": [
@@ -131622,7 +132951,7 @@
     },
     "allenai/olmo-2-0325-32b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "allenai/olmo-2-0325-32b-instruct"
       },
       "evidenceItems": [
@@ -131677,7 +133006,7 @@
     },
     "allenai/olmo-3-32b-think-20251121": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "allenai/olmo-3-32b-think-20251121"
       },
       "evidenceItems": [
@@ -131732,7 +133061,7 @@
     },
     "allenai/olmo-3-7b-instruct-20251121": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "allenai/olmo-3-7b-instruct-20251121"
       },
       "evidenceItems": [
@@ -131787,7 +133116,7 @@
     },
     "allenai/olmo-3-7b-think-20251121": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "allenai/olmo-3-7b-think-20251121"
       },
       "evidenceItems": [
@@ -131842,7 +133171,7 @@
     },
     "allenai/olmo-3.1-32b-instruct-20251215": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "allenai/olmo-3.1-32b-instruct-20251215"
       },
       "evidenceItems": [
@@ -131897,7 +133226,7 @@
     },
     "allenai/olmo-3.1-32b-think-20251215": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "allenai/olmo-3.1-32b-think-20251215"
       },
       "evidenceItems": [
@@ -131952,7 +133281,7 @@
     },
     "alpindale/goliath-120b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "alpindale/goliath-120b"
       },
       "evidenceItems": [
@@ -132007,7 +133336,7 @@
     },
     "amazon/nova-2-lite-v1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "amazon/nova-2-lite-v1"
       },
       "evidenceItems": [
@@ -132062,7 +133391,7 @@
     },
     "amazon/nova-lite-v1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "amazon/nova-lite-v1"
       },
       "evidenceItems": [
@@ -132117,7 +133446,7 @@
     },
     "amazon/nova-micro-v1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "amazon/nova-micro-v1"
       },
       "evidenceItems": [
@@ -132172,7 +133501,7 @@
     },
     "amazon/nova-premier-v1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "amazon/nova-premier-v1"
       },
       "evidenceItems": [
@@ -132227,7 +133556,7 @@
     },
     "amazon/nova-pro-v1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "amazon/nova-pro-v1"
       },
       "evidenceItems": [
@@ -132282,7 +133611,7 @@
     },
     "anthracite-org/magnum-v4-72b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "anthracite-org/magnum-v4-72b"
       },
       "evidenceItems": [
@@ -132337,7 +133666,7 @@
     },
     "anthropic/claude-3-5-haiku": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "anthropic/claude-3-5-haiku"
       },
       "evidenceItems": [
@@ -132394,7 +133723,7 @@
     },
     "anthropic/claude-3-7-sonnet-20250219": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "anthropic/claude-3-7-sonnet-20250219"
       },
       "evidenceItems": [
@@ -132451,7 +133780,7 @@
     },
     "anthropic/claude-3-haiku": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "anthropic/claude-3-haiku"
       },
       "evidenceItems": [
@@ -132508,7 +133837,7 @@
     },
     "anthropic/claude-3.5-sonnet": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "anthropic/claude-3.5-sonnet"
       },
       "evidenceItems": [
@@ -132565,7 +133894,7 @@
     },
     "anthropic/claude-4-opus-20250522": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "anthropic/claude-4-opus-20250522"
       },
       "evidenceItems": [
@@ -132622,7 +133951,7 @@
     },
     "anthropic/claude-4-sonnet-20250522": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "anthropic/claude-4-sonnet-20250522"
       },
       "evidenceItems": [
@@ -132679,7 +134008,7 @@
     },
     "anthropic/claude-4.1-opus-20250805": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "anthropic/claude-4.1-opus-20250805"
       },
       "evidenceItems": [
@@ -132736,7 +134065,7 @@
     },
     "anthropic/claude-4.5-haiku-20251001": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "anthropic/claude-4.5-haiku-20251001"
       },
       "evidenceItems": [
@@ -132793,7 +134122,7 @@
     },
     "anthropic/claude-4.5-opus-20251124": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "anthropic/claude-4.5-opus-20251124"
       },
       "evidenceItems": [
@@ -132850,7 +134179,7 @@
     },
     "anthropic/claude-4.5-sonnet-20250929": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "anthropic/claude-4.5-sonnet-20250929"
       },
       "evidenceItems": [
@@ -132907,7 +134236,7 @@
     },
     "arcee-ai/coder-large": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "arcee-ai/coder-large"
       },
       "evidenceItems": [
@@ -132962,7 +134291,7 @@
     },
     "arcee-ai/maestro-reasoning": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "arcee-ai/maestro-reasoning"
       },
       "evidenceItems": [
@@ -133017,7 +134346,7 @@
     },
     "arcee-ai/spotlight": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "arcee-ai/spotlight"
       },
       "evidenceItems": [
@@ -133072,7 +134401,7 @@
     },
     "arcee-ai/trinity-mini-20251201": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "arcee-ai/trinity-mini-20251201"
       },
       "evidenceItems": [
@@ -133127,7 +134456,7 @@
     },
     "arcee-ai/virtuoso-large": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "arcee-ai/virtuoso-large"
       },
       "evidenceItems": [
@@ -133182,7 +134511,7 @@
     },
     "baidu/ernie-4.5-21b-a3b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "baidu/ernie-4.5-21b-a3b"
       },
       "evidenceItems": [
@@ -133237,7 +134566,7 @@
     },
     "baidu/ernie-4.5-21b-a3b-thinking": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "baidu/ernie-4.5-21b-a3b-thinking"
       },
       "evidenceItems": [
@@ -133292,7 +134621,7 @@
     },
     "baidu/ernie-4.5-300b-a47b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "baidu/ernie-4.5-300b-a47b"
       },
       "evidenceItems": [
@@ -133347,7 +134676,7 @@
     },
     "baidu/ernie-4.5-vl-28b-a3b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "baidu/ernie-4.5-vl-28b-a3b"
       },
       "evidenceItems": [
@@ -133402,7 +134731,7 @@
     },
     "baidu/ernie-4.5-vl-424b-a47b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "baidu/ernie-4.5-vl-424b-a47b"
       },
       "evidenceItems": [
@@ -133457,7 +134786,7 @@
     },
     "bytedance-seed/seed-1.6-20250625": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "bytedance-seed/seed-1.6-20250625"
       },
       "evidenceItems": [
@@ -133512,7 +134841,7 @@
     },
     "bytedance-seed/seed-1.6-flash-20250625": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "bytedance-seed/seed-1.6-flash-20250625"
       },
       "evidenceItems": [
@@ -133567,7 +134896,7 @@
     },
     "bytedance/ui-tars-1.5-7b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "bytedance/ui-tars-1.5-7b"
       },
       "evidenceItems": [
@@ -133622,7 +134951,7 @@
     },
     "cohere/command-a-03-2025": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "cohere/command-a-03-2025"
       },
       "evidenceItems": [
@@ -133679,7 +135008,7 @@
     },
     "cohere/command-r-08-2024": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "cohere/command-r-08-2024"
       },
       "evidenceItems": [
@@ -133736,7 +135065,7 @@
     },
     "cohere/command-r-plus-08-2024": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "cohere/command-r-plus-08-2024"
       },
       "evidenceItems": [
@@ -133793,7 +135122,7 @@
     },
     "cohere/command-r7b-12-2024": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "cohere/command-r7b-12-2024"
       },
       "evidenceItems": [
@@ -133850,7 +135179,7 @@
     },
     "deepcogito/cogito-v2-preview-llama-109b-moe": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "deepcogito/cogito-v2-preview-llama-109b-moe"
       },
       "evidenceItems": [
@@ -133905,7 +135234,7 @@
     },
     "deepcogito/cogito-v2-preview-llama-405b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "deepcogito/cogito-v2-preview-llama-405b"
       },
       "evidenceItems": [
@@ -133960,7 +135289,7 @@
     },
     "deepcogito/cogito-v2-preview-llama-70b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "deepcogito/cogito-v2-preview-llama-70b"
       },
       "evidenceItems": [
@@ -134015,7 +135344,7 @@
     },
     "deepcogito/cogito-v2.1-671b-20251118": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "deepcogito/cogito-v2.1-671b-20251118"
       },
       "evidenceItems": [
@@ -134070,7 +135399,7 @@
     },
     "deepseek/deepseek-chat-v3": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "deepseek/deepseek-chat-v3"
       },
       "evidenceItems": [
@@ -134127,7 +135456,7 @@
     },
     "deepseek/deepseek-chat-v3-0324": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "deepseek/deepseek-chat-v3-0324"
       },
       "evidenceItems": [
@@ -134184,7 +135513,7 @@
     },
     "deepseek/deepseek-chat-v3.1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "deepseek/deepseek-chat-v3.1"
       },
       "evidenceItems": [
@@ -134241,7 +135570,7 @@
     },
     "deepseek/deepseek-r1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "deepseek/deepseek-r1"
       },
       "evidenceItems": [
@@ -134298,7 +135627,7 @@
     },
     "deepseek/deepseek-r1-0528": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "deepseek/deepseek-r1-0528"
       },
       "evidenceItems": [
@@ -134355,7 +135684,7 @@
     },
     "deepseek/deepseek-r1-distill-llama-70b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "deepseek/deepseek-r1-distill-llama-70b"
       },
       "evidenceItems": [
@@ -134412,7 +135741,7 @@
     },
     "deepseek/deepseek-r1-distill-qwen-32b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "deepseek/deepseek-r1-distill-qwen-32b"
       },
       "evidenceItems": [
@@ -134469,7 +135798,7 @@
     },
     "deepseek/deepseek-v3.1-terminus": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "deepseek/deepseek-v3.1-terminus"
       },
       "evidenceItems": [
@@ -134526,7 +135855,7 @@
     },
     "deepseek/deepseek-v3.2-20251201": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "deepseek/deepseek-v3.2-20251201"
       },
       "evidenceItems": [
@@ -134583,7 +135912,7 @@
     },
     "deepseek/deepseek-v3.2-exp": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "deepseek/deepseek-v3.2-exp"
       },
       "evidenceItems": [
@@ -134640,7 +135969,7 @@
     },
     "deepseek/deepseek-v3.2-speciale-20251201": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "deepseek/deepseek-v3.2-speciale-20251201"
       },
       "evidenceItems": [
@@ -134697,7 +136026,7 @@
     },
     "eleutherai/llemma_7b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "eleutherai/llemma_7b"
       },
       "evidenceItems": [
@@ -134752,7 +136081,7 @@
     },
     "essentialai/rnj-1-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "essentialai/rnj-1-instruct"
       },
       "evidenceItems": [
@@ -134807,7 +136136,7 @@
     },
     "google/gemini-2.0-flash-001": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemini-2.0-flash-001"
       },
       "evidenceItems": [
@@ -134864,7 +136193,7 @@
     },
     "google/gemini-2.0-flash-exp": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemini-2.0-flash-exp"
       },
       "evidenceItems": [
@@ -134921,7 +136250,7 @@
     },
     "google/gemini-2.0-flash-lite-001": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemini-2.0-flash-lite-001"
       },
       "evidenceItems": [
@@ -134978,7 +136307,7 @@
     },
     "google/gemini-2.5-flash": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemini-2.5-flash"
       },
       "evidenceItems": [
@@ -135035,7 +136364,7 @@
     },
     "google/gemini-2.5-flash-image": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemini-2.5-flash-image"
       },
       "evidenceItems": [
@@ -135092,7 +136421,7 @@
     },
     "google/gemini-2.5-flash-lite": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemini-2.5-flash-lite"
       },
       "evidenceItems": [
@@ -135149,7 +136478,7 @@
     },
     "google/gemini-2.5-flash-lite-preview-09-2025": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemini-2.5-flash-lite-preview-09-2025"
       },
       "evidenceItems": [
@@ -135206,7 +136535,7 @@
     },
     "google/gemini-2.5-flash-preview-09-2025": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemini-2.5-flash-preview-09-2025"
       },
       "evidenceItems": [
@@ -135263,7 +136592,7 @@
     },
     "google/gemini-2.5-pro": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemini-2.5-pro"
       },
       "evidenceItems": [
@@ -135320,7 +136649,7 @@
     },
     "google/gemini-2.5-pro-preview-03-25": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemini-2.5-pro-preview-03-25"
       },
       "evidenceItems": [
@@ -135377,7 +136706,7 @@
     },
     "google/gemini-2.5-pro-preview-06-05": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemini-2.5-pro-preview-06-05"
       },
       "evidenceItems": [
@@ -135434,7 +136763,7 @@
     },
     "google/gemini-3-flash-preview-20251217": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemini-3-flash-preview-20251217"
       },
       "evidenceItems": [
@@ -135491,7 +136820,7 @@
     },
     "google/gemini-3-pro-image-preview-20251120": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemini-3-pro-image-preview-20251120"
       },
       "evidenceItems": [
@@ -135548,7 +136877,7 @@
     },
     "google/gemini-3-pro-preview-20251117": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemini-3-pro-preview-20251117"
       },
       "evidenceItems": [
@@ -135605,7 +136934,7 @@
     },
     "google/gemma-2-27b-it": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemma-2-27b-it"
       },
       "evidenceItems": [
@@ -135662,7 +136991,7 @@
     },
     "google/gemma-2-9b-it": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemma-2-9b-it"
       },
       "evidenceItems": [
@@ -135719,7 +137048,7 @@
     },
     "google/gemma-3-12b-it": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemma-3-12b-it"
       },
       "evidenceItems": [
@@ -135776,7 +137105,7 @@
     },
     "google/gemma-3-27b-it": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemma-3-27b-it"
       },
       "evidenceItems": [
@@ -135833,7 +137162,7 @@
     },
     "google/gemma-3-4b-it": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemma-3-4b-it"
       },
       "evidenceItems": [
@@ -135890,7 +137219,7 @@
     },
     "google/gemma-3n-e2b-it": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemma-3n-e2b-it"
       },
       "evidenceItems": [
@@ -135947,7 +137276,7 @@
     },
     "google/gemma-3n-e4b-it": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "google/gemma-3n-e4b-it"
       },
       "evidenceItems": [
@@ -136004,7 +137333,7 @@
     },
     "gryphe/mythomax-l2-13b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "gryphe/mythomax-l2-13b"
       },
       "evidenceItems": [
@@ -136059,7 +137388,7 @@
     },
     "ibm-granite/granite-4.0-h-micro": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "ibm-granite/granite-4.0-h-micro"
       },
       "evidenceItems": [
@@ -136114,7 +137443,7 @@
     },
     "inception/mercury": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "inception/mercury"
       },
       "evidenceItems": [
@@ -136169,7 +137498,7 @@
     },
     "inception/mercury-coder-small-beta": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "inception/mercury-coder-small-beta"
       },
       "evidenceItems": [
@@ -136224,7 +137553,7 @@
     },
     "inflection/inflection-3-pi": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "inflection/inflection-3-pi"
       },
       "evidenceItems": [
@@ -136279,7 +137608,7 @@
     },
     "inflection/inflection-3-productivity": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "inflection/inflection-3-productivity"
       },
       "evidenceItems": [
@@ -136334,7 +137663,7 @@
     },
     "kwaipilot/kat-coder-pro-v1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "kwaipilot/kat-coder-pro-v1"
       },
       "evidenceItems": [
@@ -136389,7 +137718,7 @@
     },
     "liquid/lfm-2.2-6b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "liquid/lfm-2.2-6b"
       },
       "evidenceItems": [
@@ -136444,7 +137773,7 @@
     },
     "liquid/lfm2-8b-a1b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "liquid/lfm2-8b-a1b"
       },
       "evidenceItems": [
@@ -136499,7 +137828,7 @@
     },
     "mancer/weaver": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mancer/weaver"
       },
       "evidenceItems": [
@@ -136554,7 +137883,7 @@
     },
     "meituan/longcat-flash-chat": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meituan/longcat-flash-chat"
       },
       "evidenceItems": [
@@ -136609,7 +137938,7 @@
     },
     "meta-llama/llama-3-70b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meta-llama/llama-3-70b-instruct"
       },
       "evidenceItems": [
@@ -136664,7 +137993,7 @@
     },
     "meta-llama/llama-3-8b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meta-llama/llama-3-8b-instruct"
       },
       "evidenceItems": [
@@ -136719,7 +138048,7 @@
     },
     "meta-llama/llama-3.1-405b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meta-llama/llama-3.1-405b"
       },
       "evidenceItems": [
@@ -136774,7 +138103,7 @@
     },
     "meta-llama/llama-3.1-405b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meta-llama/llama-3.1-405b-instruct"
       },
       "evidenceItems": [
@@ -136829,7 +138158,7 @@
     },
     "meta-llama/llama-3.1-70b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meta-llama/llama-3.1-70b-instruct"
       },
       "evidenceItems": [
@@ -136884,7 +138213,7 @@
     },
     "meta-llama/llama-3.1-8b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meta-llama/llama-3.1-8b-instruct"
       },
       "evidenceItems": [
@@ -136939,7 +138268,7 @@
     },
     "meta-llama/llama-3.2-11b-vision-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meta-llama/llama-3.2-11b-vision-instruct"
       },
       "evidenceItems": [
@@ -136994,7 +138323,7 @@
     },
     "meta-llama/llama-3.2-1b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meta-llama/llama-3.2-1b-instruct"
       },
       "evidenceItems": [
@@ -137049,7 +138378,7 @@
     },
     "meta-llama/llama-3.2-3b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meta-llama/llama-3.2-3b-instruct"
       },
       "evidenceItems": [
@@ -137104,7 +138433,7 @@
     },
     "meta-llama/llama-3.3-70b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meta-llama/llama-3.3-70b-instruct"
       },
       "evidenceItems": [
@@ -137159,7 +138488,7 @@
     },
     "meta-llama/llama-4-maverick-17b-128e-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meta-llama/llama-4-maverick-17b-128e-instruct"
       },
       "evidenceItems": [
@@ -137214,7 +138543,7 @@
     },
     "meta-llama/llama-4-scout-17b-16e-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meta-llama/llama-4-scout-17b-16e-instruct"
       },
       "evidenceItems": [
@@ -137269,7 +138598,7 @@
     },
     "meta-llama/llama-guard-2-8b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meta-llama/llama-guard-2-8b"
       },
       "evidenceItems": [
@@ -137324,7 +138653,7 @@
     },
     "meta-llama/llama-guard-3-8b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meta-llama/llama-guard-3-8b"
       },
       "evidenceItems": [
@@ -137379,7 +138708,7 @@
     },
     "meta-llama/llama-guard-4-12b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "meta-llama/llama-guard-4-12b"
       },
       "evidenceItems": [
@@ -137434,7 +138763,7 @@
     },
     "microsoft/phi-4": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "microsoft/phi-4"
       },
       "evidenceItems": [
@@ -137489,7 +138818,7 @@
     },
     "microsoft/wizardlm-2-8x22b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "microsoft/wizardlm-2-8x22b"
       },
       "evidenceItems": [
@@ -137544,7 +138873,7 @@
     },
     "minimax/minimax-01": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "minimax/minimax-01"
       },
       "evidenceItems": [
@@ -137599,7 +138928,7 @@
     },
     "minimax/minimax-m1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "minimax/minimax-m1"
       },
       "evidenceItems": [
@@ -137654,7 +138983,7 @@
     },
     "minimax/minimax-m2": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "minimax/minimax-m2"
       },
       "evidenceItems": [
@@ -137709,7 +139038,7 @@
     },
     "minimax/minimax-m2.1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "minimax/minimax-m2.1"
       },
       "evidenceItems": [
@@ -137764,7 +139093,7 @@
     },
     "mistralai/codestral-2508": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/codestral-2508"
       },
       "evidenceItems": [
@@ -137819,7 +139148,7 @@
     },
     "mistralai/devstral-2512": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/devstral-2512"
       },
       "evidenceItems": [
@@ -137874,7 +139203,7 @@
     },
     "mistralai/devstral-medium-2507": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/devstral-medium-2507"
       },
       "evidenceItems": [
@@ -137929,7 +139258,7 @@
     },
     "mistralai/devstral-small-2507": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/devstral-small-2507"
       },
       "evidenceItems": [
@@ -137984,7 +139313,7 @@
     },
     "mistralai/ministral-14b-2512": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/ministral-14b-2512"
       },
       "evidenceItems": [
@@ -138039,7 +139368,7 @@
     },
     "mistralai/ministral-3b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/ministral-3b"
       },
       "evidenceItems": [
@@ -138094,7 +139423,7 @@
     },
     "mistralai/ministral-3b-2512": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/ministral-3b-2512"
       },
       "evidenceItems": [
@@ -138149,7 +139478,7 @@
     },
     "mistralai/ministral-8b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/ministral-8b"
       },
       "evidenceItems": [
@@ -138204,7 +139533,7 @@
     },
     "mistralai/ministral-8b-2512": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/ministral-8b-2512"
       },
       "evidenceItems": [
@@ -138259,7 +139588,7 @@
     },
     "mistralai/mistral-7b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-7b-instruct"
       },
       "evidenceItems": [
@@ -138314,7 +139643,7 @@
     },
     "mistralai/mistral-7b-instruct-v0.1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-7b-instruct-v0.1"
       },
       "evidenceItems": [
@@ -138369,7 +139698,7 @@
     },
     "mistralai/mistral-7b-instruct-v0.2": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-7b-instruct-v0.2"
       },
       "evidenceItems": [
@@ -138424,7 +139753,7 @@
     },
     "mistralai/mistral-7b-instruct-v0.3": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-7b-instruct-v0.3"
       },
       "evidenceItems": [
@@ -138479,7 +139808,7 @@
     },
     "mistralai/mistral-large": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-large"
       },
       "evidenceItems": [
@@ -138534,7 +139863,7 @@
     },
     "mistralai/mistral-large-2407": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-large-2407"
       },
       "evidenceItems": [
@@ -138589,7 +139918,7 @@
     },
     "mistralai/mistral-large-2411": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-large-2411"
       },
       "evidenceItems": [
@@ -138644,7 +139973,7 @@
     },
     "mistralai/mistral-large-2512": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-large-2512"
       },
       "evidenceItems": [
@@ -138699,7 +140028,7 @@
     },
     "mistralai/mistral-medium-3": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-medium-3"
       },
       "evidenceItems": [
@@ -138754,7 +140083,7 @@
     },
     "mistralai/mistral-medium-3.1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-medium-3.1"
       },
       "evidenceItems": [
@@ -138809,7 +140138,7 @@
     },
     "mistralai/mistral-nemo": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-nemo"
       },
       "evidenceItems": [
@@ -138864,7 +140193,7 @@
     },
     "mistralai/mistral-saba-2502": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-saba-2502"
       },
       "evidenceItems": [
@@ -138919,7 +140248,7 @@
     },
     "mistralai/mistral-small-24b-instruct-2501": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-small-24b-instruct-2501"
       },
       "evidenceItems": [
@@ -138974,7 +140303,7 @@
     },
     "mistralai/mistral-small-3.1-24b-instruct-2503": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-small-3.1-24b-instruct-2503"
       },
       "evidenceItems": [
@@ -139029,7 +140358,7 @@
     },
     "mistralai/mistral-small-3.2-24b-instruct-2506": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-small-3.2-24b-instruct-2506"
       },
       "evidenceItems": [
@@ -139084,7 +140413,7 @@
     },
     "mistralai/mistral-small-creative-20251216": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-small-creative-20251216"
       },
       "evidenceItems": [
@@ -139139,7 +140468,7 @@
     },
     "mistralai/mistral-tiny": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mistral-tiny"
       },
       "evidenceItems": [
@@ -139194,7 +140523,7 @@
     },
     "mistralai/mixtral-8x22b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mixtral-8x22b-instruct"
       },
       "evidenceItems": [
@@ -139249,7 +140578,7 @@
     },
     "mistralai/mixtral-8x7b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/mixtral-8x7b-instruct"
       },
       "evidenceItems": [
@@ -139304,7 +140633,7 @@
     },
     "mistralai/pixtral-12b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/pixtral-12b"
       },
       "evidenceItems": [
@@ -139359,7 +140688,7 @@
     },
     "mistralai/pixtral-large-2411": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/pixtral-large-2411"
       },
       "evidenceItems": [
@@ -139414,7 +140743,7 @@
     },
     "mistralai/voxtral-small-24b-2507": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "mistralai/voxtral-small-24b-2507"
       },
       "evidenceItems": [
@@ -139469,7 +140798,7 @@
     },
     "moonshotai/kimi-dev-72b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "moonshotai/kimi-dev-72b"
       },
       "evidenceItems": [
@@ -139524,7 +140853,7 @@
     },
     "moonshotai/kimi-k2": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "moonshotai/kimi-k2"
       },
       "evidenceItems": [
@@ -139579,7 +140908,7 @@
     },
     "moonshotai/kimi-k2-0905": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "moonshotai/kimi-k2-0905"
       },
       "evidenceItems": [
@@ -139634,7 +140963,7 @@
     },
     "moonshotai/kimi-k2-thinking-20251106": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "moonshotai/kimi-k2-thinking-20251106"
       },
       "evidenceItems": [
@@ -139689,7 +141018,7 @@
     },
     "morph/morph-v3-fast": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "morph/morph-v3-fast"
       },
       "evidenceItems": [
@@ -139744,7 +141073,7 @@
     },
     "morph/morph-v3-large": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "morph/morph-v3-large"
       },
       "evidenceItems": [
@@ -139799,7 +141128,7 @@
     },
     "neversleep/llama-3.1-lumimaid-8b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "neversleep/llama-3.1-lumimaid-8b"
       },
       "evidenceItems": [
@@ -139854,7 +141183,7 @@
     },
     "neversleep/noromaid-20b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "neversleep/noromaid-20b"
       },
       "evidenceItems": [
@@ -139909,7 +141238,7 @@
     },
     "nex-agi/deepseek-v3.1-nex-n1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "nex-agi/deepseek-v3.1-nex-n1"
       },
       "evidenceItems": [
@@ -139964,7 +141293,7 @@
     },
     "nousresearch/deephermes-3-mistral-24b-preview": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "nousresearch/deephermes-3-mistral-24b-preview"
       },
       "evidenceItems": [
@@ -140019,7 +141348,7 @@
     },
     "nousresearch/hermes-2-pro-llama-3-8b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "nousresearch/hermes-2-pro-llama-3-8b"
       },
       "evidenceItems": [
@@ -140074,7 +141403,7 @@
     },
     "nousresearch/hermes-3-llama-3.1-405b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "nousresearch/hermes-3-llama-3.1-405b"
       },
       "evidenceItems": [
@@ -140129,7 +141458,7 @@
     },
     "nousresearch/hermes-3-llama-3.1-70b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "nousresearch/hermes-3-llama-3.1-70b"
       },
       "evidenceItems": [
@@ -140184,7 +141513,7 @@
     },
     "nousresearch/hermes-4-405b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "nousresearch/hermes-4-405b"
       },
       "evidenceItems": [
@@ -140239,7 +141568,7 @@
     },
     "nousresearch/hermes-4-70b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "nousresearch/hermes-4-70b"
       },
       "evidenceItems": [
@@ -140294,7 +141623,7 @@
     },
     "nvidia/llama-3.1-nemotron-70b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "nvidia/llama-3.1-nemotron-70b-instruct"
       },
       "evidenceItems": [
@@ -140349,7 +141678,7 @@
     },
     "nvidia/llama-3.1-nemotron-ultra-253b-v1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "nvidia/llama-3.1-nemotron-ultra-253b-v1"
       },
       "evidenceItems": [
@@ -140404,7 +141733,7 @@
     },
     "nvidia/llama-3.3-nemotron-super-49b-v1.5": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "nvidia/llama-3.3-nemotron-super-49b-v1.5"
       },
       "evidenceItems": [
@@ -140459,7 +141788,7 @@
     },
     "nvidia/nemotron-3-nano-30b-a3b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "nvidia/nemotron-3-nano-30b-a3b"
       },
       "evidenceItems": [
@@ -140514,7 +141843,7 @@
     },
     "nvidia/nemotron-nano-12b-v2-vl": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "nvidia/nemotron-nano-12b-v2-vl"
       },
       "evidenceItems": [
@@ -140569,7 +141898,7 @@
     },
     "nvidia/nemotron-nano-9b-v2": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "nvidia/nemotron-nano-9b-v2"
       },
       "evidenceItems": [
@@ -140624,7 +141953,7 @@
     },
     "openai/chatgpt-4o-latest": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/chatgpt-4o-latest"
       },
       "evidenceItems": [
@@ -140681,7 +142010,7 @@
     },
     "openai/gpt-3.5-turbo": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-3.5-turbo"
       },
       "evidenceItems": [
@@ -140738,7 +142067,7 @@
     },
     "openai/gpt-3.5-turbo-0613": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-3.5-turbo-0613"
       },
       "evidenceItems": [
@@ -140795,7 +142124,7 @@
     },
     "openai/gpt-3.5-turbo-16k": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-3.5-turbo-16k"
       },
       "evidenceItems": [
@@ -140852,7 +142181,7 @@
     },
     "openai/gpt-3.5-turbo-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-3.5-turbo-instruct"
       },
       "evidenceItems": [
@@ -140909,7 +142238,7 @@
     },
     "openai/gpt-4": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4"
       },
       "evidenceItems": [
@@ -140966,7 +142295,7 @@
     },
     "openai/gpt-4-0314": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4-0314"
       },
       "evidenceItems": [
@@ -141023,7 +142352,7 @@
     },
     "openai/gpt-4-1106-preview": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4-1106-preview"
       },
       "evidenceItems": [
@@ -141080,7 +142409,7 @@
     },
     "openai/gpt-4-turbo": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4-turbo"
       },
       "evidenceItems": [
@@ -141137,7 +142466,7 @@
     },
     "openai/gpt-4-turbo-preview": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4-turbo-preview"
       },
       "evidenceItems": [
@@ -141194,7 +142523,7 @@
     },
     "openai/gpt-4.1-2025-04-14": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4.1-2025-04-14"
       },
       "evidenceItems": [
@@ -141251,7 +142580,7 @@
     },
     "openai/gpt-4.1-mini": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4.1-mini"
       },
       "evidenceItems": [
@@ -141308,7 +142637,7 @@
     },
     "openai/gpt-4.1-mini-2025-04-14": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4.1-mini-2025-04-14"
       },
       "evidenceItems": [
@@ -141365,7 +142694,7 @@
     },
     "openai/gpt-4.1-nano-2025-04-14": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4.1-nano-2025-04-14"
       },
       "evidenceItems": [
@@ -141422,7 +142751,7 @@
     },
     "openai/gpt-4o": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4o"
       },
       "evidenceItems": [
@@ -141479,7 +142808,7 @@
     },
     "openai/gpt-4o-2024-05-13": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4o-2024-05-13"
       },
       "evidenceItems": [
@@ -141536,7 +142865,7 @@
     },
     "openai/gpt-4o-2024-08-06": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4o-2024-08-06"
       },
       "evidenceItems": [
@@ -141593,7 +142922,7 @@
     },
     "openai/gpt-4o-2024-11-20": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4o-2024-11-20"
       },
       "evidenceItems": [
@@ -141650,7 +142979,7 @@
     },
     "openai/gpt-4o-audio-preview": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4o-audio-preview"
       },
       "evidenceItems": [
@@ -141707,7 +143036,7 @@
     },
     "openai/gpt-4o-mini": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4o-mini"
       },
       "evidenceItems": [
@@ -141764,7 +143093,7 @@
     },
     "openai/gpt-4o-mini-2024-07-18": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4o-mini-2024-07-18"
       },
       "evidenceItems": [
@@ -141821,7 +143150,7 @@
     },
     "openai/gpt-4o-mini-search-preview-2025-03-11": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4o-mini-search-preview-2025-03-11"
       },
       "evidenceItems": [
@@ -141878,7 +143207,7 @@
     },
     "openai/gpt-4o-search-preview-2025-03-11": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-4o-search-preview-2025-03-11"
       },
       "evidenceItems": [
@@ -141935,7 +143264,7 @@
     },
     "openai/gpt-5-2025-08-07": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5-2025-08-07"
       },
       "evidenceItems": [
@@ -141992,7 +143321,7 @@
     },
     "openai/gpt-5-chat-2025-08-07": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5-chat-2025-08-07"
       },
       "evidenceItems": [
@@ -142049,7 +143378,7 @@
     },
     "openai/gpt-5-codex": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5-codex"
       },
       "evidenceItems": [
@@ -142106,7 +143435,7 @@
     },
     "openai/gpt-5-image": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5-image"
       },
       "evidenceItems": [
@@ -142163,7 +143492,7 @@
     },
     "openai/gpt-5-image-mini": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5-image-mini"
       },
       "evidenceItems": [
@@ -142220,7 +143549,7 @@
     },
     "openai/gpt-5-mini-2025-08-07": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5-mini-2025-08-07"
       },
       "evidenceItems": [
@@ -142277,7 +143606,7 @@
     },
     "openai/gpt-5-nano-2025-08-07": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5-nano-2025-08-07"
       },
       "evidenceItems": [
@@ -142334,7 +143663,7 @@
     },
     "openai/gpt-5-pro-2025-10-06": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5-pro-2025-10-06"
       },
       "evidenceItems": [
@@ -142391,7 +143720,7 @@
     },
     "openai/gpt-5.1-20251113": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5.1-20251113"
       },
       "evidenceItems": [
@@ -142448,7 +143777,7 @@
     },
     "openai/gpt-5.1-chat-20251113": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5.1-chat-20251113"
       },
       "evidenceItems": [
@@ -142505,7 +143834,7 @@
     },
     "openai/gpt-5.1-codex-20251113": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5.1-codex-20251113"
       },
       "evidenceItems": [
@@ -142562,7 +143891,7 @@
     },
     "openai/gpt-5.1-codex-max-20251204": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5.1-codex-max-20251204"
       },
       "evidenceItems": [
@@ -142619,7 +143948,7 @@
     },
     "openai/gpt-5.1-codex-mini-20251113": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5.1-codex-mini-20251113"
       },
       "evidenceItems": [
@@ -142676,7 +144005,7 @@
     },
     "openai/gpt-5.2-20251211": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5.2-20251211"
       },
       "evidenceItems": [
@@ -142733,7 +144062,7 @@
     },
     "openai/gpt-5.2-chat-20251211": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5.2-chat-20251211"
       },
       "evidenceItems": [
@@ -142790,7 +144119,7 @@
     },
     "openai/gpt-5.2-codex-20260114": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5.2-codex-20260114"
       },
       "evidenceItems": [
@@ -142847,7 +144176,7 @@
     },
     "openai/gpt-5.2-pro-20251211": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-5.2-pro-20251211"
       },
       "evidenceItems": [
@@ -142904,7 +144233,7 @@
     },
     "openai/gpt-oss-120b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-oss-120b"
       },
       "evidenceItems": [
@@ -142961,7 +144290,7 @@
     },
     "openai/gpt-oss-20b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-oss-20b"
       },
       "evidenceItems": [
@@ -143018,7 +144347,7 @@
     },
     "openai/gpt-oss-safeguard-20b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/gpt-oss-safeguard-20b"
       },
       "evidenceItems": [
@@ -143075,7 +144404,7 @@
     },
     "openai/o1-2024-12-17": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/o1-2024-12-17"
       },
       "evidenceItems": [
@@ -143132,7 +144461,7 @@
     },
     "openai/o1-pro": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/o1-pro"
       },
       "evidenceItems": [
@@ -143189,7 +144518,7 @@
     },
     "openai/o3-2025-04-16": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/o3-2025-04-16"
       },
       "evidenceItems": [
@@ -143246,7 +144575,7 @@
     },
     "openai/o3-deep-research-2025-06-26": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/o3-deep-research-2025-06-26"
       },
       "evidenceItems": [
@@ -143303,7 +144632,7 @@
     },
     "openai/o3-mini-2025-01-31": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/o3-mini-2025-01-31"
       },
       "evidenceItems": [
@@ -143360,7 +144689,7 @@
     },
     "openai/o3-mini-high-2025-01-31": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/o3-mini-high-2025-01-31"
       },
       "evidenceItems": [
@@ -143417,7 +144746,7 @@
     },
     "openai/o3-pro-2025-06-10": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/o3-pro-2025-06-10"
       },
       "evidenceItems": [
@@ -143474,7 +144803,7 @@
     },
     "openai/o4-mini-2025-04-16": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/o4-mini-2025-04-16"
       },
       "evidenceItems": [
@@ -143531,7 +144860,7 @@
     },
     "openai/o4-mini-deep-research-2025-06-26": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/o4-mini-deep-research-2025-06-26"
       },
       "evidenceItems": [
@@ -143588,7 +144917,7 @@
     },
     "openai/o4-mini-high-2025-04-16": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openai/o4-mini-high-2025-04-16"
       },
       "evidenceItems": [
@@ -143645,7 +144974,7 @@
     },
     "opengvlab/internvl3-78b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "opengvlab/internvl3-78b"
       },
       "evidenceItems": [
@@ -143700,7 +145029,7 @@
     },
     "openrouter/auto": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openrouter/auto"
       },
       "evidenceItems": [
@@ -143755,7 +145084,7 @@
     },
     "openrouter/bodybuilder": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "openrouter/bodybuilder"
       },
       "evidenceItems": [
@@ -143810,7 +145139,7 @@
     },
     "perplexity/sonar": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "perplexity/sonar"
       },
       "evidenceItems": [
@@ -143865,7 +145194,7 @@
     },
     "perplexity/sonar-deep-research": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "perplexity/sonar-deep-research"
       },
       "evidenceItems": [
@@ -143920,7 +145249,7 @@
     },
     "perplexity/sonar-pro": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "perplexity/sonar-pro"
       },
       "evidenceItems": [
@@ -143975,7 +145304,7 @@
     },
     "perplexity/sonar-pro-search": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "perplexity/sonar-pro-search"
       },
       "evidenceItems": [
@@ -144030,7 +145359,7 @@
     },
     "perplexity/sonar-reasoning-pro": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "perplexity/sonar-reasoning-pro"
       },
       "evidenceItems": [
@@ -144085,7 +145414,7 @@
     },
     "prime-intellect/intellect-3-20251126": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "prime-intellect/intellect-3-20251126"
       },
       "evidenceItems": [
@@ -144140,7 +145469,7 @@
     },
     "qwen/qwen-2-vl-7b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen-2-vl-7b-instruct"
       },
       "evidenceItems": [
@@ -144197,7 +145526,7 @@
     },
     "qwen/qwen-2.5-72b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen-2.5-72b-instruct"
       },
       "evidenceItems": [
@@ -144254,7 +145583,7 @@
     },
     "qwen/qwen-2.5-7b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen-2.5-7b-instruct"
       },
       "evidenceItems": [
@@ -144311,7 +145640,7 @@
     },
     "qwen/qwen-2.5-coder-32b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen-2.5-coder-32b-instruct"
       },
       "evidenceItems": [
@@ -144366,9 +145695,66 @@
         }
       ]
     },
+    "qwen/qwen-plus-2025-07-28": {
+      "meta": {
+        "updatedAt": "2026-01-16T13:51:24.141Z",
+        "modelKey": "qwen/qwen-plus-2025-07-28"
+      },
+      "evidenceItems": [
+        {
+          "type": "official_page",
+          "status": "ok",
+          "reasons": [
+            "ok",
+            "openrouter_model_page",
+            "provider_fallback"
+          ],
+          "refs": [
+            "https://openrouter.ai/models/qwen/qwen-plus-2025-07-28",
+            "https://qwenlm.ai"
+          ],
+          "extracted": {
+            "url": "https://qwenlm.ai"
+          }
+        },
+        {
+          "type": "dev_activity",
+          "status": "missing_source_link",
+          "reasons": [
+            "missing_source_link",
+            "repo_link_missing"
+          ],
+          "refs": [
+            "missing:github_repo"
+          ]
+        },
+        {
+          "type": "paper",
+          "status": "not_found",
+          "reasons": [
+            "no_known_paper_source",
+            "not_found"
+          ],
+          "refs": [
+            "arxiv_query:\"Qwen: Qwen Plus 0728\""
+          ]
+        },
+        {
+          "type": "audit",
+          "status": "missing_source_link",
+          "reasons": [
+            "missing_source_link",
+            "no_known_audit_source"
+          ],
+          "refs": [
+            "missing:audit_link"
+          ]
+        }
+      ]
+    },
     "qwen/qwen2.5-coder-7b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen2.5-coder-7b-instruct"
       },
       "evidenceItems": [
@@ -144425,7 +145811,7 @@
     },
     "qwen/qwen2.5-vl-32b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen2.5-vl-32b-instruct"
       },
       "evidenceItems": [
@@ -144482,7 +145868,7 @@
     },
     "qwen/qwen2.5-vl-72b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen2.5-vl-72b-instruct"
       },
       "evidenceItems": [
@@ -144539,7 +145925,7 @@
     },
     "qwen/qwen3-14b-04-28": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-14b-04-28"
       },
       "evidenceItems": [
@@ -144596,7 +145982,7 @@
     },
     "qwen/qwen3-235b-a22b-04-28": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-235b-a22b-04-28"
       },
       "evidenceItems": [
@@ -144653,7 +146039,7 @@
     },
     "qwen/qwen3-235b-a22b-07-25": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-235b-a22b-07-25"
       },
       "evidenceItems": [
@@ -144710,7 +146096,7 @@
     },
     "qwen/qwen3-235b-a22b-thinking-2507": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-235b-a22b-thinking-2507"
       },
       "evidenceItems": [
@@ -144767,7 +146153,7 @@
     },
     "qwen/qwen3-30b-a3b-04-28": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-30b-a3b-04-28"
       },
       "evidenceItems": [
@@ -144824,7 +146210,7 @@
     },
     "qwen/qwen3-30b-a3b-instruct-2507": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-30b-a3b-instruct-2507"
       },
       "evidenceItems": [
@@ -144881,7 +146267,7 @@
     },
     "qwen/qwen3-30b-a3b-thinking-2507": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-30b-a3b-thinking-2507"
       },
       "evidenceItems": [
@@ -144938,7 +146324,7 @@
     },
     "qwen/qwen3-32b-04-28": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-32b-04-28"
       },
       "evidenceItems": [
@@ -144995,7 +146381,7 @@
     },
     "qwen/qwen3-4b-04-28": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-4b-04-28"
       },
       "evidenceItems": [
@@ -145052,7 +146438,7 @@
     },
     "qwen/qwen3-8b-04-28": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-8b-04-28"
       },
       "evidenceItems": [
@@ -145109,7 +146495,7 @@
     },
     "qwen/qwen3-coder-30b-a3b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-coder-30b-a3b-instruct"
       },
       "evidenceItems": [
@@ -145166,7 +146552,7 @@
     },
     "qwen/qwen3-coder-480b-a35b-07-25": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-coder-480b-a35b-07-25"
       },
       "evidenceItems": [
@@ -145221,9 +146607,66 @@
         }
       ]
     },
+    "qwen/qwen3-coder-flash": {
+      "meta": {
+        "updatedAt": "2026-01-16T13:51:24.141Z",
+        "modelKey": "qwen/qwen3-coder-flash"
+      },
+      "evidenceItems": [
+        {
+          "type": "official_page",
+          "status": "ok",
+          "reasons": [
+            "ok",
+            "openrouter_model_page",
+            "provider_fallback"
+          ],
+          "refs": [
+            "https://openrouter.ai/models/qwen/qwen3-coder-flash",
+            "https://qwenlm.ai"
+          ],
+          "extracted": {
+            "url": "https://qwenlm.ai"
+          }
+        },
+        {
+          "type": "dev_activity",
+          "status": "missing_source_link",
+          "reasons": [
+            "missing_source_link",
+            "repo_link_missing"
+          ],
+          "refs": [
+            "missing:github_repo"
+          ]
+        },
+        {
+          "type": "paper",
+          "status": "not_found",
+          "reasons": [
+            "no_known_paper_source",
+            "not_found"
+          ],
+          "refs": [
+            "arxiv_query:\"Qwen: Qwen3 Coder Flash\""
+          ]
+        },
+        {
+          "type": "audit",
+          "status": "missing_source_link",
+          "reasons": [
+            "missing_source_link",
+            "no_known_audit_source"
+          ],
+          "refs": [
+            "missing:audit_link"
+          ]
+        }
+      ]
+    },
     "qwen/qwen3-next-80b-a3b-instruct-2509": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-next-80b-a3b-instruct-2509"
       },
       "evidenceItems": [
@@ -145280,7 +146723,7 @@
     },
     "qwen/qwen3-next-80b-a3b-thinking-2509": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-next-80b-a3b-thinking-2509"
       },
       "evidenceItems": [
@@ -145337,7 +146780,7 @@
     },
     "qwen/qwen3-vl-235b-a22b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-vl-235b-a22b-instruct"
       },
       "evidenceItems": [
@@ -145394,7 +146837,7 @@
     },
     "qwen/qwen3-vl-235b-a22b-thinking": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-vl-235b-a22b-thinking"
       },
       "evidenceItems": [
@@ -145451,7 +146894,7 @@
     },
     "qwen/qwen3-vl-30b-a3b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-vl-30b-a3b-instruct"
       },
       "evidenceItems": [
@@ -145508,7 +146951,7 @@
     },
     "qwen/qwen3-vl-30b-a3b-thinking": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-vl-30b-a3b-thinking"
       },
       "evidenceItems": [
@@ -145565,7 +147008,7 @@
     },
     "qwen/qwen3-vl-32b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-vl-32b-instruct"
       },
       "evidenceItems": [
@@ -145622,7 +147065,7 @@
     },
     "qwen/qwen3-vl-8b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwen3-vl-8b-instruct"
       },
       "evidenceItems": [
@@ -145677,9 +147120,66 @@
         }
       ]
     },
+    "qwen/qwen3-vl-8b-thinking": {
+      "meta": {
+        "updatedAt": "2026-01-16T13:51:24.141Z",
+        "modelKey": "qwen/qwen3-vl-8b-thinking"
+      },
+      "evidenceItems": [
+        {
+          "type": "official_page",
+          "status": "ok",
+          "reasons": [
+            "ok",
+            "openrouter_model_page",
+            "provider_fallback"
+          ],
+          "refs": [
+            "https://openrouter.ai/models/qwen/qwen3-vl-8b-thinking",
+            "https://qwenlm.ai"
+          ],
+          "extracted": {
+            "url": "https://qwenlm.ai"
+          }
+        },
+        {
+          "type": "dev_activity",
+          "status": "missing_source_link",
+          "reasons": [
+            "missing_source_link",
+            "repo_link_missing"
+          ],
+          "refs": [
+            "missing:github_repo"
+          ]
+        },
+        {
+          "type": "paper",
+          "status": "not_found",
+          "reasons": [
+            "no_known_paper_source",
+            "not_found"
+          ],
+          "refs": [
+            "arxiv_query:\"Qwen: Qwen3 VL 8B Thinking\""
+          ]
+        },
+        {
+          "type": "audit",
+          "status": "missing_source_link",
+          "reasons": [
+            "missing_source_link",
+            "no_known_audit_source"
+          ],
+          "refs": [
+            "missing:audit_link"
+          ]
+        }
+      ]
+    },
     "qwen/qwq-32b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "qwen/qwq-32b"
       },
       "evidenceItems": [
@@ -145736,7 +147236,7 @@
     },
     "raifle/sorcererlm-8x22b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "raifle/sorcererlm-8x22b"
       },
       "evidenceItems": [
@@ -145791,7 +147291,7 @@
     },
     "relace/relace-apply-3": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "relace/relace-apply-3"
       },
       "evidenceItems": [
@@ -145846,7 +147346,7 @@
     },
     "relace/relace-search-20251208": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "relace/relace-search-20251208"
       },
       "evidenceItems": [
@@ -145901,7 +147401,7 @@
     },
     "sao10k/l3-euryale-70b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "sao10k/l3-euryale-70b"
       },
       "evidenceItems": [
@@ -145956,7 +147456,7 @@
     },
     "sao10k/l3-lunaris-8b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "sao10k/l3-lunaris-8b"
       },
       "evidenceItems": [
@@ -146011,7 +147511,7 @@
     },
     "sao10k/l3.1-70b-hanami-x1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "sao10k/l3.1-70b-hanami-x1"
       },
       "evidenceItems": [
@@ -146066,7 +147566,7 @@
     },
     "sao10k/l3.1-euryale-70b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "sao10k/l3.1-euryale-70b"
       },
       "evidenceItems": [
@@ -146121,7 +147621,7 @@
     },
     "sao10k/l3.3-euryale-70b-v2.3": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "sao10k/l3.3-euryale-70b-v2.3"
       },
       "evidenceItems": [
@@ -146176,7 +147676,7 @@
     },
     "stepfun-ai/step3": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "stepfun-ai/step3"
       },
       "evidenceItems": [
@@ -146231,7 +147731,7 @@
     },
     "switchpoint/router": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "switchpoint/router"
       },
       "evidenceItems": [
@@ -146286,7 +147786,7 @@
     },
     "tencent/hunyuan-a13b-instruct": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "tencent/hunyuan-a13b-instruct"
       },
       "evidenceItems": [
@@ -146341,7 +147841,7 @@
     },
     "thedrummer/cydonia-24b-v4.1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "thedrummer/cydonia-24b-v4.1"
       },
       "evidenceItems": [
@@ -146396,7 +147896,7 @@
     },
     "thedrummer/rocinante-12b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "thedrummer/rocinante-12b"
       },
       "evidenceItems": [
@@ -146451,7 +147951,7 @@
     },
     "thedrummer/skyfall-36b-v2": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "thedrummer/skyfall-36b-v2"
       },
       "evidenceItems": [
@@ -146506,7 +148006,7 @@
     },
     "thedrummer/unslopnemo-12b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "thedrummer/unslopnemo-12b"
       },
       "evidenceItems": [
@@ -146561,7 +148061,7 @@
     },
     "tngtech/deepseek-r1t-chimera": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "tngtech/deepseek-r1t-chimera"
       },
       "evidenceItems": [
@@ -146616,7 +148116,7 @@
     },
     "tngtech/deepseek-r1t2-chimera": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "tngtech/deepseek-r1t2-chimera"
       },
       "evidenceItems": [
@@ -146671,7 +148171,7 @@
     },
     "tngtech/tng-r1t-chimera": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "tngtech/tng-r1t-chimera"
       },
       "evidenceItems": [
@@ -146726,7 +148226,7 @@
     },
     "undi95/remm-slerp-l2-13b": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "undi95/remm-slerp-l2-13b"
       },
       "evidenceItems": [
@@ -146781,7 +148281,7 @@
     },
     "venice/uncensored": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "venice/uncensored"
       },
       "evidenceItems": [
@@ -146836,7 +148336,7 @@
     },
     "x-ai/grok-3": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "x-ai/grok-3"
       },
       "evidenceItems": [
@@ -146891,7 +148391,7 @@
     },
     "x-ai/grok-3-beta": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "x-ai/grok-3-beta"
       },
       "evidenceItems": [
@@ -146946,7 +148446,7 @@
     },
     "x-ai/grok-3-mini": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "x-ai/grok-3-mini"
       },
       "evidenceItems": [
@@ -147001,7 +148501,7 @@
     },
     "x-ai/grok-3-mini-beta": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "x-ai/grok-3-mini-beta"
       },
       "evidenceItems": [
@@ -147056,7 +148556,7 @@
     },
     "x-ai/grok-4-07-09": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "x-ai/grok-4-07-09"
       },
       "evidenceItems": [
@@ -147111,7 +148611,7 @@
     },
     "x-ai/grok-4-fast": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "x-ai/grok-4-fast"
       },
       "evidenceItems": [
@@ -147166,7 +148666,7 @@
     },
     "x-ai/grok-4.1-fast": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "x-ai/grok-4.1-fast"
       },
       "evidenceItems": [
@@ -147221,7 +148721,7 @@
     },
     "x-ai/grok-code-fast-1": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "x-ai/grok-code-fast-1"
       },
       "evidenceItems": [
@@ -147276,7 +148776,7 @@
     },
     "xiaomi/mimo-v2-flash-20251210": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "xiaomi/mimo-v2-flash-20251210"
       },
       "evidenceItems": [
@@ -147331,7 +148831,7 @@
     },
     "z-ai/glm-4-32b-0414": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "z-ai/glm-4-32b-0414"
       },
       "evidenceItems": [
@@ -147386,7 +148886,7 @@
     },
     "z-ai/glm-4.5": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "z-ai/glm-4.5"
       },
       "evidenceItems": [
@@ -147441,7 +148941,7 @@
     },
     "z-ai/glm-4.5-air": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "z-ai/glm-4.5-air"
       },
       "evidenceItems": [
@@ -147496,7 +148996,7 @@
     },
     "z-ai/glm-4.5v": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "z-ai/glm-4.5v"
       },
       "evidenceItems": [
@@ -147551,7 +149051,7 @@
     },
     "z-ai/glm-4.6": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "z-ai/glm-4.6"
       },
       "evidenceItems": [
@@ -147606,7 +149106,7 @@
     },
     "z-ai/glm-4.6-20251208": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "z-ai/glm-4.6-20251208"
       },
       "evidenceItems": [
@@ -147661,7 +149161,7 @@
     },
     "z-ai/glm-4.7-20251222": {
       "meta": {
-        "updatedAt": "2026-01-16T13:07:46.787Z",
+        "updatedAt": "2026-01-16T13:51:24.141Z",
         "modelKey": "z-ai/glm-4.7-20251222"
       },
       "evidenceItems": [
