@@ -1417,8 +1417,38 @@
       "source": "openrouter"
     },
     {
+      "modelKey": "qwen/qwen-max-2025-01-25",
+      "name": "Qwen: Qwen-Max",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen-plus-2025-01-25",
+      "name": "Qwen: Qwen-Plus",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
       "modelKey": "qwen/qwen-plus-2025-07-28",
       "name": "Qwen: Qwen Plus 0728",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen-turbo-2024-11-01",
+      "name": "Qwen: Qwen-Turbo",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen-vl-max-2025-01-25",
+      "name": "Qwen: Qwen VL Max",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen-vl-plus",
+      "name": "Qwen: Qwen VL Plus",
       "provider": "qwen",
       "source": "openrouter"
     },
@@ -1515,6 +1545,18 @@
     {
       "modelKey": "qwen/qwen3-coder-flash",
       "name": "Qwen: Qwen3 Coder Flash",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-coder-plus",
+      "name": "Qwen: Qwen3 Coder Plus",
+      "provider": "qwen",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "qwen/qwen3-max",
+      "name": "Qwen: Qwen3 Max",
       "provider": "qwen",
       "source": "openrouter"
     },

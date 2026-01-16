@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-16T13:51:24.141Z",
+    "generatedAt": "2026-01-16T14:44:13.498Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 299,
-      "adopted": 299,
+      "total": 306,
+      "adopted": 306,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 297,
+        "openrouter": 304,
         "seed": 2
       }
     },
@@ -4036,6 +4036,40 @@
       }
     },
     {
+      "modelKey": "qwen/qwen-max-2025-01-25",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen-Max",
+        "slug": "qwen/qwen-max-2025-01-25",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-max",
+        "canonical_slug": "qwen/qwen-max-2025-01-25"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen-plus-2025-01-25",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen-Plus",
+        "slug": "qwen/qwen-plus-2025-01-25",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-plus",
+        "canonical_slug": "qwen/qwen-plus-2025-01-25"
+      }
+    },
+    {
       "modelKey": "qwen/qwen-plus-2025-07-28",
       "source": "openrouter",
       "status": "adopted",
@@ -4050,6 +4084,57 @@
       "rawRef": {
         "id": "qwen/qwen-plus-2025-07-28",
         "canonical_slug": "qwen/qwen-plus-2025-07-28"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen-turbo-2024-11-01",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen-Turbo",
+        "slug": "qwen/qwen-turbo-2024-11-01",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-turbo",
+        "canonical_slug": "qwen/qwen-turbo-2024-11-01"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen-vl-max-2025-01-25",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen VL Max",
+        "slug": "qwen/qwen-vl-max-2025-01-25",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-vl-max",
+        "canonical_slug": "qwen/qwen-vl-max-2025-01-25"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen-vl-plus",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen VL Plus",
+        "slug": "qwen/qwen-vl-plus",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen-vl-plus",
+        "canonical_slug": "qwen/qwen-vl-plus"
       }
     },
     {
@@ -4322,6 +4407,40 @@
       "rawRef": {
         "id": "qwen/qwen3-coder-flash",
         "canonical_slug": "qwen/qwen3-coder-flash"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-coder-plus",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 Coder Plus",
+        "slug": "qwen/qwen3-coder-plus",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-coder-plus",
+        "canonical_slug": "qwen/qwen3-coder-plus"
+      }
+    },
+    {
+      "modelKey": "qwen/qwen3-max",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Qwen: Qwen3 Max",
+        "slug": "qwen/qwen3-max",
+        "provider": "qwen"
+      },
+      "rawRef": {
+        "id": "qwen/qwen3-max",
+        "canonical_slug": "qwen/qwen3-max"
       }
     },
     {

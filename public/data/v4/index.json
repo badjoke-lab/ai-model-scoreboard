@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-16T13:51:24.141Z",
+  "updatedAt": "2026-01-16T14:44:13.498Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -256,7 +256,12 @@
       "evidence/qwen/qwen-2.5-72b-instruct.json",
       "evidence/qwen/qwen-2.5-7b-instruct.json",
       "evidence/qwen/qwen-2.5-coder-32b-instruct.json",
+      "evidence/qwen/qwen-max-2025-01-25.json",
+      "evidence/qwen/qwen-plus-2025-01-25.json",
       "evidence/qwen/qwen-plus-2025-07-28.json",
+      "evidence/qwen/qwen-turbo-2024-11-01.json",
+      "evidence/qwen/qwen-vl-max-2025-01-25.json",
+      "evidence/qwen/qwen-vl-plus.json",
       "evidence/qwen/qwen2.5-coder-7b-instruct.json",
       "evidence/qwen/qwen2.5-vl-32b-instruct.json",
       "evidence/qwen/qwen2.5-vl-72b-instruct.json",
@@ -273,6 +278,8 @@
       "evidence/qwen/qwen3-coder-30b-a3b-instruct.json",
       "evidence/qwen/qwen3-coder-480b-a35b-07-25.json",
       "evidence/qwen/qwen3-coder-flash.json",
+      "evidence/qwen/qwen3-coder-plus.json",
+      "evidence/qwen/qwen3-max.json",
       "evidence/qwen/qwen3-next-80b-a3b-instruct-2509.json",
       "evidence/qwen/qwen3-next-80b-a3b-thinking-2509.json",
       "evidence/qwen/qwen3-vl-235b-a22b-instruct.json",
@@ -557,7 +564,12 @@
       "evidence/qwen/qwen-2.5-72b-instruct.json",
       "evidence/qwen/qwen-2.5-7b-instruct.json",
       "evidence/qwen/qwen-2.5-coder-32b-instruct.json",
+      "evidence/qwen/qwen-max-2025-01-25.json",
+      "evidence/qwen/qwen-plus-2025-01-25.json",
       "evidence/qwen/qwen-plus-2025-07-28.json",
+      "evidence/qwen/qwen-turbo-2024-11-01.json",
+      "evidence/qwen/qwen-vl-max-2025-01-25.json",
+      "evidence/qwen/qwen-vl-plus.json",
       "evidence/qwen/qwen2.5-coder-7b-instruct.json",
       "evidence/qwen/qwen2.5-vl-32b-instruct.json",
       "evidence/qwen/qwen2.5-vl-72b-instruct.json",
@@ -574,6 +586,8 @@
       "evidence/qwen/qwen3-coder-30b-a3b-instruct.json",
       "evidence/qwen/qwen3-coder-480b-a35b-07-25.json",
       "evidence/qwen/qwen3-coder-flash.json",
+      "evidence/qwen/qwen3-coder-plus.json",
+      "evidence/qwen/qwen3-max.json",
       "evidence/qwen/qwen3-next-80b-a3b-instruct-2509.json",
       "evidence/qwen/qwen3-next-80b-a3b-thinking-2509.json",
       "evidence/qwen/qwen3-vl-235b-a22b-instruct.json",
@@ -622,8 +636,8 @@
       "evidence/z-ai/glm-4.7-20251222.json"
     ]
   },
-  "modelsCount": 299,
-  "fullCount": 284,
+  "modelsCount": 306,
+  "fullCount": 291,
   "provisionalCount": 15,
   "notListedCount": 0
 }

@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-16T13:51:24.141Z",
-    "runId": "21068824577"
+    "updatedAt": "2026-01-16T14:44:13.498Z",
+    "runId": "21070336051"
   },
   "models": [
     {
@@ -950,8 +950,28 @@
       "path": "evidence/qwen/qwen-2.5-coder-32b-instruct.json"
     },
     {
+      "modelKey": "qwen/qwen-max-2025-01-25",
+      "path": "evidence/qwen/qwen-max-2025-01-25.json"
+    },
+    {
+      "modelKey": "qwen/qwen-plus-2025-01-25",
+      "path": "evidence/qwen/qwen-plus-2025-01-25.json"
+    },
+    {
       "modelKey": "qwen/qwen-plus-2025-07-28",
       "path": "evidence/qwen/qwen-plus-2025-07-28.json"
+    },
+    {
+      "modelKey": "qwen/qwen-turbo-2024-11-01",
+      "path": "evidence/qwen/qwen-turbo-2024-11-01.json"
+    },
+    {
+      "modelKey": "qwen/qwen-vl-max-2025-01-25",
+      "path": "evidence/qwen/qwen-vl-max-2025-01-25.json"
+    },
+    {
+      "modelKey": "qwen/qwen-vl-plus",
+      "path": "evidence/qwen/qwen-vl-plus.json"
     },
     {
       "modelKey": "qwen/qwen2.5-coder-7b-instruct",
@@ -1016,6 +1036,14 @@
     {
       "modelKey": "qwen/qwen3-coder-flash",
       "path": "evidence/qwen/qwen3-coder-flash.json"
+    },
+    {
+      "modelKey": "qwen/qwen3-coder-plus",
+      "path": "evidence/qwen/qwen3-coder-plus.json"
+    },
+    {
+      "modelKey": "qwen/qwen3-max",
+      "path": "evidence/qwen/qwen3-max.json"
     },
     {
       "modelKey": "qwen/qwen3-next-80b-a3b-instruct-2509",

@@ -51,6 +51,10 @@
     "score": 75.73819609846151,
     "layer": "full"
   },
+  "qwen/qwen3-max": {
+    "score": 75.44037702153824,
+    "layer": "full"
+  },
   "inception/mercury": {
     "score": 75.09483586769227,
     "layer": "full"
@@ -451,6 +455,10 @@
     "score": 70.61799398307687,
     "layer": "full"
   },
+  "qwen/qwen-vl-max-2025-01-25": {
+    "score": 70.61384655999987,
+    "layer": "full"
+  },
   "qwen/qwen3-30b-a3b-thinking-2507": {
     "score": 70.58943892153846,
     "layer": "full"
@@ -525,6 +533,10 @@
   },
   "mistralai/mistral-nemo": {
     "score": 70.0357598523077,
+    "layer": "full"
+  },
+  "qwen/qwen-vl-plus": {
+    "score": 70.02397702923075,
     "layer": "full"
   },
   "deepseek/deepseek-v3.2-20251201": {
@@ -735,6 +747,10 @@
     "score": 68.05824000000001,
     "layer": "full"
   },
+  "qwen/qwen-turbo-2024-11-01": {
+    "score": 68.0257592523077,
+    "layer": "full"
+  },
   "tencent/hunyuan-a13b-instruct": {
     "score": 67.99305770615383,
     "layer": "full"
@@ -871,6 +887,10 @@
     "score": 66.57387840615384,
     "layer": "full"
   },
+  "qwen/qwen3-coder-plus": {
+    "score": 66.54754086769213,
+    "layer": "full"
+  },
   "mistralai/mistral-tiny": {
     "score": 66.54009759846151,
     "layer": "full"
@@ -993,6 +1013,10 @@
   },
   "deepcogito/cogito-v2.1-671b-20251118": {
     "score": 64.74350759846143,
+    "layer": "full"
+  },
+  "qwen/qwen-plus-2025-01-25": {
+    "score": 64.73991425230763,
     "layer": "full"
   },
   "openrouter/auto": {
@@ -1129,6 +1153,10 @@
   },
   "qwen/qwen3-14b-04-28": {
     "score": 61.93867920615385,
+    "layer": "full"
+  },
+  "qwen/qwen-max-2025-01-25": {
+    "score": 61.860673021538204,
     "layer": "full"
   },
   "prime-intellect/intellect-3-20251126": {
