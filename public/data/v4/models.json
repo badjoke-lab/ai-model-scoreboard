@@ -55493,21 +55493,21 @@
     "name": "Qwen: Qwen3 VL 235B A22B Thinking",
     "vendor": "qwen",
     "released": "2025-09-23T23:04:50.000Z",
-    "context": 262144,
+    "context": 131072,
     "type": "text+image->text",
     "pricing": {
-      "input": 4.5e-7,
-      "output": 0.0000035,
+      "input": 9.8e-7,
+      "output": 0.00000395,
       "currency": "USD"
     },
     "scores": {
-      "overall": 74.5439085599999,
+      "overall": 74.54390344461524,
       "categories": {
         "performance": 77.3598,
         "safety": 75,
         "adoption": 74,
         "openness": 50,
-        "cost": 99.99988559999888
+        "cost": 99.99983444615222
       },
       "items": {
         "S1": {
