@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-15T23:35:39.999Z",
+  "updatedAt": "2026-01-16T02:30:41.037Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -191,7 +191,6 @@
       "evidence/nvidia/nemotron-nano-12b-v2-vl.json",
       "evidence/nvidia/nemotron-nano-9b-v2.json",
       "evidence/openai/chatgpt-4o-latest.json",
-      "evidence/openai/codex-mini.json",
       "evidence/openai/gpt-3.5-turbo.json",
       "evidence/openai/gpt-3.5-turbo-0613.json",
       "evidence/openai/gpt-3.5-turbo-16k.json",
@@ -490,7 +489,6 @@
       "evidence/nvidia/nemotron-nano-12b-v2-vl.json",
       "evidence/nvidia/nemotron-nano-9b-v2.json",
       "evidence/openai/chatgpt-4o-latest.json",
-      "evidence/openai/codex-mini.json",
       "evidence/openai/gpt-3.5-turbo.json",
       "evidence/openai/gpt-3.5-turbo-0613.json",
       "evidence/openai/gpt-3.5-turbo-16k.json",
@@ -618,8 +616,8 @@
       "evidence/z-ai/glm-4.7-20251222.json"
     ]
   },
-  "modelsCount": 297,
-  "fullCount": 282,
+  "modelsCount": 296,
+  "fullCount": 281,
   "provisionalCount": 15,
   "notListedCount": 0
 }

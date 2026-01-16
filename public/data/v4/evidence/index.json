@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-15T23:35:39.999Z",
-    "runId": "21050120262"
+    "updatedAt": "2026-01-16T02:30:41.037Z",
+    "runId": "21053545775"
   },
   "models": [
     {
@@ -688,10 +688,6 @@
     {
       "modelKey": "openai/chatgpt-4o-latest",
       "path": "evidence/openai/chatgpt-4o-latest.json"
-    },
-    {
-      "modelKey": "openai/codex-mini",
-      "path": "evidence/openai/codex-mini.json"
     },
     {
       "modelKey": "openai/gpt-3.5-turbo",

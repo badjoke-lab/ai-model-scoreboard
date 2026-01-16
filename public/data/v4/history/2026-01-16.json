@@ -787,10 +787,6 @@
     "score": 67.30605202153839,
     "layer": "full"
   },
-  "openai/codex-mini": {
-    "score": 67.22671471384591,
-    "layer": "full"
-  },
   "qwen/qwen2.5-coder-7b-instruct": {
     "score": 67.21481966,
     "layer": "full"

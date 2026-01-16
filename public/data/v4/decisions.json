@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-15T23:35:39.999Z",
+    "generatedAt": "2026-01-16T02:30:41.037Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 297,
-      "adopted": 297,
+      "total": 296,
+      "adopted": 296,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 295,
+        "openrouter": 294,
         "seed": 2
       }
     },
@@ -2929,23 +2929,6 @@
       "rawRef": {
         "id": "openai/chatgpt-4o-latest",
         "canonical_slug": "openai/chatgpt-4o-latest"
-      }
-    },
-    {
-      "modelKey": "openai/codex-mini",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "OpenAI: Codex Mini",
-        "slug": "openai/codex-mini",
-        "provider": "openai"
-      },
-      "rawRef": {
-        "id": "openai/codex-mini",
-        "canonical_slug": "openai/codex-mini"
       }
     },
     {

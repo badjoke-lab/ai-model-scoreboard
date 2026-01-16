@@ -1027,12 +1027,6 @@
       "source": "openrouter"
     },
     {
-      "modelKey": "openai/codex-mini",
-      "name": "OpenAI: Codex Mini",
-      "provider": "openai",
-      "source": "openrouter"
-    },
-    {
       "modelKey": "openai/gpt-3.5-turbo",
       "name": "OpenAI: GPT-3.5 Turbo",
       "provider": "openai",
