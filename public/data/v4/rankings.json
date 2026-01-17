@@ -200,14 +200,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 81.46420000000002,
-      "safety": 75,
-      "adoption": 74.57,
-      "openness": 75,
-      "cost": 99.99967406153525
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-vl-30b-a3b-thinking",
@@ -410,14 +405,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.29890000000002,
-      "safety": 80,
-      "adoption": 75,
-      "openness": 66.66666666666666,
-      "cost": 99.99996252307655
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "z-ai/glm-4.5-air",
@@ -620,14 +610,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.02030000000002,
-      "safety": 90,
-      "adoption": 85.64,
-      "openness": 58.333333333333336,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "allenai/molmo-2-8b-20260109",
@@ -830,14 +815,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 78.71180000000001,
-      "safety": 75,
-      "adoption": 81.82,
-      "openness": 58.333333333333336,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meituan/longcat-flash-chat",
@@ -1040,14 +1020,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.81870000000002,
-      "safety": 85,
-      "adoption": 83.67,
-      "openness": 66.66666666666666,
-      "cost": 99.99996713846122
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "perplexity/sonar",
@@ -1250,14 +1225,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 81.78670000000001,
-      "safety": 70,
-      "adoption": 88.36,
-      "openness": 50,
-      "cost": 99.9999009846144
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "x-ai/grok-4-07-09",
@@ -1460,14 +1430,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 79.84310000000002,
-      "safety": 80,
-      "adoption": 78.53999999999999,
-      "openness": 50,
-      "cost": 99.99942406153279
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4o",
@@ -1670,14 +1635,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 79.5206,
-      "safety": 85,
-      "adoption": 78.64,
-      "openness": 41.66666666666667,
-      "cost": 99.99957790768815
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-3.5-turbo-16k",
@@ -1880,14 +1840,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 78.73950000000002,
-      "safety": 85,
-      "adoption": 71.85,
-      "openness": 50,
-      "cost": 99.99967790768913
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemma-3n-e4b-it",
@@ -2090,14 +2045,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 74.47200000000002,
-      "safety": 70,
-      "adoption": 85.72,
-      "openness": 66.66666666666666,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "alfredpros/codellama-7b-instruct-solidity",
@@ -2300,14 +2250,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.74940000000002,
-      "safety": 80,
-      "adoption": 88.53999999999999,
-      "openness": 41.66666666666667,
-      "cost": 99.99991175384527
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "deepseek/deepseek-r1-distill-llama-70b",
@@ -2510,14 +2455,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 79.9809,
-      "safety": 75,
-      "adoption": 76.39,
-      "openness": 50,
-      "cost": 99.99999613846148
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "thedrummer/unslopnemo-12b",
@@ -2720,14 +2660,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 79.09550000000002,
-      "safety": 70,
-      "adoption": 84,
-      "openness": 50,
-      "cost": 99.999960984615
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-max",
@@ -2930,14 +2865,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 78.64850000000001,
-      "safety": 60,
-      "adoption": 71.53999999999999,
-      "openness": 75,
-      "cost": 99.99977021538236
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "inception/mercury",
@@ -3140,14 +3070,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.54460000000002,
-      "safety": 80,
-      "adoption": 92.17999999999999,
-      "openness": 41.66666666666667,
-      "cost": 99.99995867692266
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwq-32b",
@@ -3350,14 +3275,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 67.73090000000002,
-      "safety": 80,
-      "adoption": 79.53999999999999,
-      "openness": 66.66666666666666,
-      "cost": 99.99998021538443
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/ministral-3b",
@@ -3560,14 +3480,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 81.46330000000002,
-      "safety": 75,
-      "adoption": 57.849999999999994,
-      "openness": 58.333333333333336,
-      "cost": 99.99999698461535
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4o-search-preview-2025-03-11",
@@ -3770,14 +3685,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 85.16370000000002,
-      "safety": 75,
-      "adoption": 72.82,
-      "openness": 33.33333333333333,
-      "cost": 99.99957790768815
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "deepseek/deepseek-r1",
@@ -3980,14 +3890,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 82.07660000000001,
-      "safety": 65,
-      "adoption": 85.85,
-      "openness": 41.66666666666667,
-      "cost": 99.99988944615275
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemini-2.5-pro",
@@ -4190,14 +4095,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 77.25590000000001,
-      "safety": 65,
-      "adoption": 65.21000000000001,
-      "openness": 75,
-      "cost": 99.99967406153525
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "moonshotai/kimi-k2-0905",
@@ -4400,14 +4300,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.80890000000001,
-      "safety": 80,
-      "adoption": 78.64,
-      "openness": 58.333333333333336,
-      "cost": 99.99992713846082
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4o-mini-2024-07-18",
@@ -4610,14 +4505,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 77.43980000000002,
-      "safety": 70,
-      "adoption": 82.39,
-      "openness": 50,
-      "cost": 99.99997559999976
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "arcee-ai/coder-large",
@@ -4820,14 +4710,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 77.07440000000003,
-      "safety": 75,
-      "adoption": 84.53999999999999,
-      "openness": 41.66666666666667,
-      "cost": 99.99994406153792
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-next-80b-a3b-thinking-2509",
@@ -5030,14 +4915,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 79.34930000000003,
-      "safety": 75,
-      "adoption": 86.21000000000001,
-      "openness": 33.33333333333333,
-      "cost": 99.99996175384577
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mancer/weaver",
@@ -5240,14 +5120,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 82.8636,
-      "safety": 65,
-      "adoption": 65.03,
-      "openness": 58.333333333333336,
-      "cost": 99.99992021538382
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "stepfun-ai/step3",
@@ -5450,14 +5325,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.45790000000001,
-      "safety": 85,
-      "adoption": 79.85,
-      "openness": 41.66666666666667,
-      "cost": 99.99992436923002
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-coder-flash",
@@ -5660,14 +5530,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.79970000000002,
-      "safety": 65,
-      "adoption": 75.21000000000001,
-      "openness": 66.66666666666666,
-      "cost": 99.99994329230712
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemini-3-pro-image-preview-20251120",
@@ -5870,14 +5735,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.90320000000003,
-      "safety": 60,
-      "adoption": 64.74,
-      "openness": 83.33333333333334,
-      "cost": 99.99957021538039
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-vl-235b-a22b-thinking",
@@ -6080,14 +5940,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 77.3598,
-      "safety": 75,
-      "adoption": 74,
-      "openness": 50,
-      "cost": 99.99983444615222
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "relace/relace-search-20251208",
@@ -6290,14 +6145,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.62650000000002,
-      "safety": 70,
-      "adoption": 80.64,
-      "openness": 58.333333333333336,
-      "cost": 99.9998548307678
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-3.5-turbo",
@@ -6500,14 +6350,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 82.08160000000002,
-      "safety": 50,
-      "adoption": 76,
-      "openness": 66.66666666666666,
-      "cost": 99.9999279076916
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemini-3-flash-preview-20251217",
@@ -6710,14 +6555,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 83.02560000000001,
-      "safety": 60,
-      "adoption": 68.46,
-      "openness": 58.333333333333336,
-      "cost": 99.99989329230664
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "anthropic/claude-3-haiku",
@@ -6920,14 +6760,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.04760000000002,
-      "safety": 70,
-      "adoption": 92.72,
-      "openness": 41.66666666666667,
-      "cost": 99.99995290769185
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "morph/morph-v3-large",
@@ -7130,14 +6965,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 77.94270000000002,
-      "safety": 70,
-      "adoption": 84.9,
-      "openness": 41.66666666666667,
-      "cost": 99.9998879076912
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meta-llama/llama-guard-2-8b",
@@ -7340,14 +7170,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 78.16760000000002,
-      "safety": 75,
-      "adoption": 68.82,
-      "openness": 50,
-      "cost": 99.9999809846152
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/o3-deep-research-2025-06-26",
@@ -7550,14 +7375,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.47030000000001,
-      "safety": 80,
-      "adoption": 65.82,
-      "openness": 58.333333333333336,
-      "cost": 99.99830867690642
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "amazon/nova-pro-v1",
@@ -7760,14 +7580,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.29380000000002,
-      "safety": 65,
-      "adoption": 80.53999999999999,
-      "openness": 66.66666666666666,
-      "cost": 99.99986559999867
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "kwaipilot/kat-coder-pro-v1",
@@ -7970,14 +7785,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 71.7687,
-      "safety": 75,
-      "adoption": 93.46000000000001,
-      "openness": 41.66666666666667,
-      "cost": 99.99996595384582
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "deepseek/deepseek-v3.2-speciale-20251201",
@@ -8180,14 +7990,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.39130000000002,
-      "safety": 65,
-      "adoption": 85.21000000000001,
-      "openness": 66.66666666666666,
-      "cost": 99.99997075384586
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "microsoft/phi-4",
@@ -8390,14 +8195,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.87200000000001,
-      "safety": 65,
-      "adoption": 84,
-      "openness": 58.333333333333336,
-      "cost": 99.99999313846146
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemma-3-27b-it",
@@ -8600,14 +8400,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 78.04860000000002,
-      "safety": 60,
-      "adoption": 78.82,
-      "openness": 58.333333333333336,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-7b-instruct",
@@ -8810,14 +8605,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.20270000000001,
-      "safety": 90,
-      "adoption": 70.17999999999999,
-      "openness": 50,
-      "cost": 99.9999809846152
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-vl-235b-a22b-instruct",
@@ -9020,14 +8810,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.04390000000002,
-      "safety": 75,
-      "adoption": 79.18,
-      "openness": 58.333333333333336,
-      "cost": 99.9999579076919
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemma-3-4b-it",
@@ -9230,14 +9015,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 77.9235,
-      "safety": 60,
-      "adoption": 86.36,
-      "openness": 50,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "aion-labs/aion-1.0-mini",
@@ -9440,14 +9220,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 79.88250000000002,
-      "safety": 55,
-      "adoption": 79.46,
-      "openness": 58.333333333333336,
-      "cost": 99.99991483076838
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meta-llama/llama-3.2-3b-instruct",
@@ -9650,14 +9425,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 77.45270000000002,
-      "safety": 70,
-      "adoption": 82.36,
-      "openness": 41.66666666666667,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "deepcogito/cogito-v2-preview-llama-405b",
@@ -9860,14 +9630,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.34860000000002,
-      "safety": 75,
-      "adoption": 78.57,
-      "openness": 41.66666666666667,
-      "cost": 99.99965098461193
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-30b-a3b-04-28",
@@ -10070,14 +9835,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 71.28180000000002,
-      "safety": 70,
-      "adoption": 81.57,
-      "openness": 58.333333333333336,
-      "cost": 99.9999912923076
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "allenai/olmo-3-7b-think-20251121",
@@ -10280,14 +10040,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 74.02900000000001,
-      "safety": 85,
-      "adoption": 70.46,
-      "openness": 41.66666666666667,
-      "cost": 99.9999871384614
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/ministral-14b-2512",
@@ -10490,14 +10245,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.2792,
-      "safety": 80,
-      "adoption": 73.64,
-      "openness": 41.66666666666667,
-      "cost": 99.9999809846152
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/o3-mini-2025-01-31",
@@ -10700,14 +10450,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 74.36250000000001,
-      "safety": 80,
-      "adoption": 58.57000000000001,
-      "openness": 58.333333333333336,
-      "cost": 99.9998148307674
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "alpindale/goliath-120b",
@@ -10910,14 +10655,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.15070000000001,
-      "safety": 75,
-      "adoption": 75.49000000000001,
-      "openness": 58.333333333333336,
-      "cost": 99.99935483076288
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "anthropic/claude-3-7-sonnet-20250219",
@@ -11120,14 +10860,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 77.15870000000002,
-      "safety": 70,
-      "adoption": 79.36,
-      "openness": 41.66666666666667,
-      "cost": 99.99942406153279
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/voxtral-small-24b-2507",
@@ -11330,14 +11065,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 78.9681,
-      "safety": 45,
-      "adoption": 99.46000000000001,
-      "openness": 50,
-      "cost": 99.99998636923063
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4o-audio-preview",
@@ -11540,14 +11270,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 67.96850000000002,
-      "safety": 85,
-      "adoption": 74.82,
-      "openness": 50,
-      "cost": 99.99957790768815
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "x-ai/grok-4-fast",
@@ -11750,14 +11475,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.36420000000003,
-      "safety": 70,
-      "adoption": 88.57,
-      "openness": 41.66666666666667,
-      "cost": 99.9999740615382
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-235b-a22b-thinking-2507",
@@ -11960,14 +11680,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 61.621100000000006,
-      "safety": 65,
-      "adoption": 84.75,
-      "openness": 83.33333333333334,
-      "cost": 99.99997867692286
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen-2.5-coder-32b-instruct",
@@ -12170,14 +11885,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.32420000000002,
-      "safety": 95,
-      "adoption": 65.82,
-      "openness": 41.66666666666667,
-      "cost": 99.99999613846148
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "z-ai/glm-4.6-20251208",
@@ -12380,14 +12090,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 71.23400000000002,
-      "safety": 60,
-      "adoption": 74,
-      "openness": 75,
-      "cost": 99.9999571384611
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "amazon/nova-lite-v1",
@@ -12590,14 +12295,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.59320000000001,
-      "safety": 90,
-      "adoption": 60.21,
-      "openness": 50,
-      "cost": 99.99999083076914
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "morph/morph-v3-fast",
@@ -12800,14 +12500,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.37420000000002,
-      "safety": 70,
-      "adoption": 73.46,
-      "openness": 66.66666666666666,
-      "cost": 99.99991175384527
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "anthracite-org/magnum-v4-72b",
@@ -13010,14 +12705,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 74.33010000000002,
-      "safety": 75,
-      "adoption": 86.39,
-      "openness": 33.33333333333333,
-      "cost": 99.99965483076582
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-medium-3",
@@ -13220,14 +12910,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.89930000000001,
-      "safety": 60,
-      "adoption": 73.1,
-      "openness": 58.333333333333336,
-      "cost": 99.99992406153771
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "nex-agi/deepseek-v3.1-nex-n1",
@@ -13430,14 +13115,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 77.21480000000001,
-      "safety": 65,
-      "adoption": 90.49,
-      "openness": 33.33333333333333,
-      "cost": 99.9999571384611
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "essentialai/rnj-1-instruct",
@@ -13640,14 +13320,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.15940000000002,
-      "safety": 65,
-      "adoption": 76.36,
-      "openness": 50,
-      "cost": 99.99998598461525
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4.1-nano-2025-04-14",
@@ -13850,14 +13525,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.86670000000002,
-      "safety": 75,
-      "adoption": 77.57,
-      "openness": 33.33333333333333,
-      "cost": 99.9999840615383
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "cohere/command-a-03-2025",
@@ -14060,14 +13730,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.2762,
-      "safety": 65,
-      "adoption": 86.75,
-      "openness": 41.66666666666667,
-      "cost": 99.99957790768815
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meta-llama/llama-3.1-8b-instruct",
@@ -14270,14 +13935,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 79.69900000000003,
-      "safety": 55,
-      "adoption": 88.21000000000001,
-      "openness": 41.66666666666667,
-      "cost": 99.99999829230767
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "deepseek/deepseek-chat-v3",
@@ -14480,14 +14140,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 81.30330000000002,
-      "safety": 65,
-      "adoption": 87.1,
-      "openness": 25,
-      "cost": 99.99995021538413
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4.1-2025-04-14",
@@ -14690,14 +14345,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.90590000000002,
-      "safety": 80,
-      "adoption": 78.49,
-      "openness": 33.33333333333333,
-      "cost": 99.99966252307361
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "bytedance-seed/seed-1.6-flash-20250625",
@@ -14900,14 +14550,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 66.56810000000002,
-      "safety": 75,
-      "adoption": 87.53999999999999,
-      "openness": 50,
-      "cost": 99.99998829230756
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "minimax/minimax-m1",
@@ -15110,14 +14755,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 63.567600000000006,
-      "safety": 85,
-      "adoption": 65.17999999999999,
-      "openness": 66.66666666666666,
-      "cost": 99.99991944615306
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "baidu/ernie-4.5-300b-a47b",
@@ -15320,14 +14960,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 66.13640000000001,
-      "safety": 65,
-      "adoption": 76.46,
-      "openness": 75,
-      "cost": 99.999954061538
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5.2-pro-20251211",
@@ -15530,14 +15165,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.49220000000001,
-      "safety": 65,
-      "adoption": 89.9,
-      "openness": 41.66666666666667,
-      "cost": 99.994508676869
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meta-llama/llama-3-70b-instruct",
@@ -15740,14 +15370,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 65.57310000000001,
-      "safety": 75,
-      "adoption": 89.21000000000001,
-      "openness": 50,
-      "cost": 99.999960984615
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "inception/mercury-coder-small-beta",
@@ -15950,14 +15575,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 78.9137,
-      "safety": 60,
-      "adoption": 73.21000000000001,
-      "openness": 50,
-      "cost": 99.99995867692266
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "arcee-ai/spotlight",
@@ -16160,14 +15780,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.56620000000001,
-      "safety": 55,
-      "adoption": 77,
-      "openness": 66.66666666666666,
-      "cost": 99.99998298461522
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/chatgpt-4o-latest",
@@ -16370,14 +15985,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 79.56560000000002,
-      "safety": 75,
-      "adoption": 59.31,
-      "openness": 41.66666666666667,
-      "cost": 99.99927021537742
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "perplexity/sonar-deep-research",
@@ -16580,14 +16190,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 81.95840000000003,
-      "safety": 65,
-      "adoption": 82.46,
-      "openness": 25,
-      "cost": 99.99966252307361
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-3.5-turbo-instruct",
@@ -16790,14 +16395,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.91930000000002,
-      "safety": 75,
-      "adoption": 65.21000000000001,
-      "openness": 50,
-      "cost": 99.99983944615227
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "tngtech/deepseek-r1t-chimera",
@@ -17000,14 +16600,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.39170000000001,
-      "safety": 70,
-      "adoption": 81.53999999999999,
-      "openness": 41.66666666666667,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "thedrummer/skyfall-36b-v2",
@@ -17210,14 +16805,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 74.18890000000002,
-      "safety": 75,
-      "adoption": 72.72,
-      "openness": 41.66666666666667,
-      "cost": 99.99994021538402
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "amazon/nova-micro-v1",
@@ -17420,14 +17010,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 74.81780000000002,
-      "safety": 75,
-      "adoption": 62.67,
-      "openness": 50,
-      "cost": 99.99999506153841
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mixtral-8x7b-instruct",
@@ -17630,14 +17215,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 65.25930000000001,
-      "safety": 80,
-      "adoption": 72.03,
-      "openness": 58.333333333333336,
-      "cost": 99.99994698461487
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
@@ -17840,14 +17420,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 62.92830000000001,
-      "safety": 75,
-      "adoption": 84.64,
-      "openness": 58.333333333333336,
-      "cost": 99.99997559999976
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4",
@@ -18050,14 +17625,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 65.04530000000001,
-      "safety": 85,
-      "adoption": 73.72,
-      "openness": 50,
-      "cost": 99.99630867688673
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-235b-a22b-07-25",
@@ -18260,14 +17830,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 81.16270000000002,
-      "safety": 50,
-      "adoption": 76.9,
-      "openness": 50,
-      "cost": 99.99998483846139
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5-mini-2025-08-07",
@@ -18470,14 +18035,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.13230000000001,
-      "safety": 65,
-      "adoption": 69.72,
-      "openness": 58.333333333333336,
-      "cost": 99.99993559999936
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "x-ai/grok-code-fast-1",
@@ -18680,14 +18240,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 68.56480000000002,
-      "safety": 70,
-      "adoption": 83.46,
-      "openness": 50,
-      "cost": 99.9999509846149
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "opengvlab/internvl3-78b",
@@ -18890,14 +18445,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.27300000000001,
-      "safety": 60,
-      "adoption": 78.64,
-      "openness": 50,
-      "cost": 99.99998429230753
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "nousresearch/hermes-4-405b",
@@ -19100,14 +18650,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 68.67930000000001,
-      "safety": 85,
-      "adoption": 62.72,
-      "openness": 50,
-      "cost": 99.9998548307678
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "ai21/jamba-large-1.7",
@@ -19310,14 +18855,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.28710000000002,
-      "safety": 70,
-      "adoption": 70.36,
-      "openness": 50,
-      "cost": 99.99966252307361
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-large-2512",
@@ -19520,14 +19060,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 83.25770000000001,
-      "safety": 65,
-      "adoption": 83.53999999999999,
-      "openness": 16.666666666666664,
-      "cost": 99.9999279076916
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/o4-mini-deep-research-2025-06-26",
@@ -19730,14 +19265,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 74.50710000000001,
-      "safety": 65,
-      "adoption": 81.72,
-      "openness": 41.66666666666667,
-      "cost": 99.99966252307361
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5-image",
@@ -19940,14 +19470,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.90800000000002,
-      "safety": 75,
-      "adoption": 69.49,
-      "openness": 50,
-      "cost": 99.99900098460554
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "inflection/inflection-3-productivity",
@@ -20150,14 +19675,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.62490000000001,
-      "safety": 75,
-      "adoption": 81.21000000000001,
-      "openness": 41.66666666666667,
-      "cost": 99.99957790768815
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "anthropic/claude-3.5-sonnet",
@@ -20360,14 +19880,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.51320000000001,
-      "safety": 70,
-      "adoption": 69.49000000000001,
-      "openness": 41.66666666666667,
-      "cost": 99.99884713845017
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4-1106-preview",
@@ -20570,14 +20085,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.17100000000002,
-      "safety": 55,
-      "adoption": 76.39,
-      "openness": 58.333333333333336,
-      "cost": 99.99853944613946
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4o-2024-11-20",
@@ -20780,14 +20290,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 71.12670000000001,
-      "safety": 80,
-      "adoption": 62,
-      "openness": 50,
-      "cost": 99.99957790768815
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "nvidia/nemotron-nano-12b-v2-vl",
@@ -20990,14 +20495,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.99000000000002,
-      "safety": 70,
-      "adoption": 53.53999999999999,
-      "openness": 66.66666666666666,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "deepseek/deepseek-chat-v3-0324",
@@ -21200,14 +20700,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.85780000000001,
-      "safety": 70,
-      "adoption": 70.31,
-      "openness": 41.66666666666667,
-      "cost": 99.99996629230735
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/codestral-2508",
@@ -21410,14 +20905,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.85100000000001,
-      "safety": 55,
-      "adoption": 81.53999999999999,
-      "openness": 50,
-      "cost": 99.9999571384611
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/o4-mini-2025-04-16",
@@ -21620,14 +21110,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 68.25290000000003,
-      "safety": 75,
-      "adoption": 74.53999999999999,
-      "openness": 50,
-      "cost": 99.9998148307674
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meta-llama/llama-4-scout-17b-16e-instruct",
@@ -21830,14 +21315,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.21380000000002,
-      "safety": 65,
-      "adoption": 66.03,
-      "openness": 58.333333333333336,
-      "cost": 99.99998790769217
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mixtral-8x22b-instruct",
@@ -22040,14 +21520,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 71.56490000000001,
-      "safety": 75,
-      "adoption": 73.18,
-      "openness": 41.66666666666667,
-      "cost": 99.9997086769202
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "cohere/command-r-08-2024",
@@ -22250,14 +21725,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 66.48070000000001,
-      "safety": 80,
-      "adoption": 80,
-      "openness": 41.66666666666667,
-      "cost": 99.99997559999976
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-30b-a3b-instruct-2507",
@@ -22460,14 +21930,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.7449,
-      "safety": 65,
-      "adoption": 66.39,
-      "openness": 58.333333333333336,
-      "cost": 99.9999872153845
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-3.5-turbo-0613",
@@ -22670,14 +22135,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.69560000000001,
-      "safety": 80,
-      "adoption": 51.75,
-      "openness": 58.333333333333336,
-      "cost": 99.99987790769109
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "ibm-granite/granite-4.0-h-micro",
@@ -22880,14 +22340,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 63.80580000000001,
-      "safety": 75,
-      "adoption": 76.64,
-      "openness": 58.333333333333336,
-      "cost": 99.99999713846151
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "bytedance-seed/seed-1.6-20250625",
@@ -23090,14 +22545,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 74.85360000000001,
-      "safety": 50,
-      "adoption": 63.75,
-      "openness": 75,
-      "cost": 99.99993559999936
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5.1-chat-20251113",
@@ -23300,14 +22750,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 80.73540000000001,
-      "safety": 45,
-      "adoption": 71,
-      "openness": 58.333333333333336,
-      "cost": 99.99967406153525
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4-0314",
@@ -23510,14 +22955,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.86510000000003,
-      "safety": 70,
-      "adoption": 75.39,
-      "openness": 33.33333333333333,
-      "cost": 99.99630867688673
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "amazon/nova-2-lite-v1",
@@ -23720,14 +23160,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 78.81510000000003,
-      "safety": 55,
-      "adoption": 87.36,
-      "openness": 33.33333333333333,
-      "cost": 99.99992021538382
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "baidu/ernie-4.5-vl-424b-a47b",
@@ -23930,14 +23365,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.96000000000001,
-      "safety": 60,
-      "adoption": 68.56,
-      "openness": 58.333333333333336,
-      "cost": 99.99993983076862
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen-vl-max-2025-01-25",
@@ -24140,14 +23570,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.51340000000002,
-      "safety": 70,
-      "adoption": 56.39,
-      "openness": 58.333333333333336,
-      "cost": 99.99986559999867
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-30b-a3b-thinking-2507",
@@ -24350,14 +23775,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.28110000000001,
-      "safety": 60,
-      "adoption": 81.17999999999999,
-      "openness": 50,
-      "cost": 99.99998921538452
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/o4-mini-high-2025-04-16",
@@ -24560,14 +23980,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.98720000000002,
-      "safety": 80,
-      "adoption": 77.36,
-      "openness": 25,
-      "cost": 99.9998148307674
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-7b-instruct-v0.2",
@@ -24770,14 +24185,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 65.15090000000002,
-      "safety": 75,
-      "adoption": 79.82,
-      "openness": 50,
-      "cost": 99.9999809846152
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "undi95/remm-slerp-l2-13b",
@@ -24980,14 +24390,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.67530000000002,
-      "safety": 80,
-      "adoption": 61.72,
-      "openness": 33.33333333333333,
-      "cost": 99.99995136923027
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemini-2.0-flash-exp",
@@ -25190,14 +24595,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 78.28150000000002,
-      "safety": 50,
-      "adoption": 78,
-      "openness": 50,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "perplexity/sonar-pro",
@@ -25400,14 +24800,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.43650000000002,
-      "safety": 60,
-      "adoption": 79.64,
-      "openness": 58.333333333333336,
-      "cost": 99.99942406153279
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "allenai/olmo-2-0325-32b-instruct",
@@ -25610,14 +25005,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.31080000000001,
-      "safety": 80,
-      "adoption": 53.459999999999994,
-      "openness": 50,
-      "cost": 99.99999252307684
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemini-2.5-flash-preview-09-2025",
@@ -25820,14 +25210,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.31420000000001,
-      "safety": 75,
-      "adoption": 76.72,
-      "openness": 33.33333333333333,
-      "cost": 99.99992021538382
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-small-3.1-24b-instruct-2503",
@@ -26030,14 +25415,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.81420000000001,
-      "safety": 60,
-      "adoption": 76.21000000000001,
-      "openness": 41.66666666666667,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "z-ai/glm-4-32b-0414",
@@ -26240,14 +25620,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 81.65210000000002,
-      "safety": 55,
-      "adoption": 69.85,
-      "openness": 41.66666666666667,
-      "cost": 99.99999098461528
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meta-llama/llama-3.2-1b-instruct",
@@ -26450,14 +25825,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.43610000000001,
-      "safety": 65,
-      "adoption": 70.17999999999999,
-      "openness": 41.66666666666667,
-      "cost": 99.99999429230762
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "ai21/jamba-mini-1.7",
@@ -26660,14 +26030,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 62.45440000000001,
-      "safety": 75,
-      "adoption": 77.46,
-      "openness": 58.333333333333336,
-      "cost": 99.99997636923052
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "arcee-ai/trinity-mini-20251201",
@@ -26870,14 +26235,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.61810000000001,
-      "safety": 70,
-      "adoption": 65.57,
-      "openness": 41.66666666666667,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "alibaba/tongyi-deepresearch-30b-a3b",
@@ -27080,14 +26440,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.07130000000001,
-      "safety": 55,
-      "adoption": 75.85,
-      "openness": 50,
-      "cost": 99.99998483076908
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "allenai/olmo-3-32b-think-20251121",
@@ -27290,14 +26645,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.62450000000001,
-      "safety": 55,
-      "adoption": 81.49,
-      "openness": 58.333333333333336,
-      "cost": 99.9999779076921
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "minimax/minimax-m2.1",
@@ -27500,14 +26850,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.68510000000002,
-      "safety": 70,
-      "adoption": 71.53999999999999,
-      "openness": 50,
-      "cost": 99.99995436923031
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "tngtech/deepseek-r1t2-chimera",
@@ -27710,14 +27055,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 78.24890000000002,
-      "safety": 60,
-      "adoption": 61.64,
-      "openness": 50,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "anthropic/claude-4.5-haiku-20251001",
@@ -27920,14 +27260,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 64.01540000000001,
-      "safety": 75,
-      "adoption": 79.57,
-      "openness": 50,
-      "cost": 99.99980867692119
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-nemo",
@@ -28130,14 +27465,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 71.20440000000002,
-      "safety": 60,
-      "adoption": 80.36,
-      "openness": 50,
-      "cost": 99.99999852307691
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen-vl-plus",
@@ -28340,14 +27670,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 77.10620000000002,
-      "safety": 55,
-      "adoption": 71.21000000000001,
-      "openness": 50,
-      "cost": 99.99997029230741
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "deepseek/deepseek-v3.2-20251201",
@@ -28550,14 +27875,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.22210000000003,
-      "safety": 60,
-      "adoption": 82.9,
-      "openness": 41.66666666666667,
-      "cost": 99.99997298461513
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-small-3.2-24b-instruct-2506",
@@ -28760,14 +28080,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 79.1657,
-      "safety": 50,
-      "adoption": 88.53999999999999,
-      "openness": 33.33333333333333,
-      "cost": 99.99999221538452
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-large",
@@ -28970,14 +28285,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.05610000000001,
-      "safety": 60,
-      "adoption": 66.31,
-      "openness": 58.333333333333336,
-      "cost": 99.9997086769202
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemini-2.5-pro-preview-06-05",
@@ -29180,14 +28490,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 74.59400000000001,
-      "safety": 60,
-      "adoption": 62.17999999999999,
-      "openness": 58.333333333333336,
-      "cost": 99.99967406153525
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-vl-8b-thinking",
@@ -29390,14 +28695,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 65.40670000000001,
-      "safety": 60,
-      "adoption": 77.53999999999999,
-      "openness": 66.66666666666666,
-      "cost": 99.99993867692247
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "anthropic/claude-4.1-opus-20250805",
@@ -29600,14 +28900,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 64.51470000000002,
-      "safety": 90,
-      "adoption": 81.49,
-      "openness": 25,
-      "cost": 99.99711636920237
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "anthropic/claude-4.5-opus-20251124",
@@ -29810,14 +29105,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 77.93410000000002,
-      "safety": 55,
-      "adoption": 92.1,
-      "openness": 25,
-      "cost": 99.9990394461444
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "eleutherai/llemma_7b",
@@ -30020,14 +29310,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.99860000000002,
-      "safety": 50,
-      "adoption": 70.57000000000001,
-      "openness": 58.333333333333336,
-      "cost": 99.99991175384527
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-coder-480b-a35b-07-25",
@@ -30230,14 +29515,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 67.21620000000001,
-      "safety": 70,
-      "adoption": 58.849999999999994,
-      "openness": 66.66666666666666,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4o-mini",
@@ -30440,14 +29720,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.24490000000003,
-      "safety": 60,
-      "adoption": 72.17999999999999,
-      "openness": 58.333333333333336,
-      "cost": 99.99997559999976
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "nousresearch/hermes-3-llama-3.1-405b",
@@ -30650,14 +29925,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.39070000000001,
-      "safety": 60,
-      "adoption": 79.64,
-      "openness": 50,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meta-llama/llama-3.1-70b-instruct",
@@ -30860,14 +30130,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 64.25950000000002,
-      "safety": 75,
-      "adoption": 67.39,
-      "openness": 58.333333333333336,
-      "cost": 99.999960984615
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemini-2.5-flash-lite",
@@ -31070,14 +30335,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.62120000000002,
-      "safety": 65,
-      "adoption": 97.17999999999999,
-      "openness": 16.666666666666664,
-      "cost": 99.9999840615383
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-coder-30b-a3b-instruct",
@@ -31280,14 +30540,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.42720000000001,
-      "safety": 70,
-      "adoption": 66.03,
-      "openness": 41.66666666666667,
-      "cost": 99.99998936923066
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "deepseek/deepseek-v3.2-exp",
@@ -31490,14 +30745,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.46520000000001,
-      "safety": 65,
-      "adoption": 64.21000000000001,
-      "openness": 50,
-      "cost": 99.99997744615362
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4o-2024-05-13",
@@ -31700,14 +30950,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 65.73110000000001,
-      "safety": 75,
-      "adoption": 71.49,
-      "openness": 50,
-      "cost": 99.99927021537742
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-8b-04-28",
@@ -31910,14 +31155,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.936,
-      "safety": 65,
-      "adoption": 81.75,
-      "openness": 33.33333333333333,
-      "cost": 99.99999136923068
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4-turbo",
@@ -32120,14 +31360,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 79.78210000000001,
-      "safety": 50,
-      "adoption": 74.53999999999999,
-      "openness": 41.66666666666667,
-      "cost": 99.99853944613946
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "cohere/command-r-plus-08-2024",
@@ -32330,14 +31565,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.427,
-      "safety": 60,
-      "adoption": 78.36,
-      "openness": 33.33333333333333,
-      "cost": 99.99957790768815
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "moonshotai/kimi-dev-72b",
@@ -32540,14 +31770,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.21300000000001,
-      "safety": 70,
-      "adoption": 59.21,
-      "openness": 58.333333333333336,
-      "cost": 99.99995213846107
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "baidu/ernie-4.5-21b-a3b-thinking",
@@ -32750,14 +31975,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.15160000000002,
-      "safety": 70,
-      "adoption": 68,
-      "openness": 41.66666666666667,
-      "cost": 99.99998913846142
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/o3-pro-2025-06-10",
@@ -32960,14 +32180,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 66.2852,
-      "safety": 75,
-      "adoption": 60.17999999999999,
-      "openness": 58.333333333333336,
-      "cost": 99.99661636919745
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/pixtral-large-2411",
@@ -33170,14 +32385,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.41350000000001,
-      "safety": 65,
-      "adoption": 54.75,
-      "openness": 50,
-      "cost": 99.9997086769202
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5-nano-2025-08-07",
@@ -33380,14 +32590,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.84960000000002,
-      "safety": 60,
-      "adoption": 70.46,
-      "openness": 58.333333333333336,
-      "cost": 99.99998790769217
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5-image-mini",
@@ -33590,14 +32795,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 68.74990000000001,
-      "safety": 65,
-      "adoption": 75,
-      "openness": 50,
-      "cost": 99.99976252307458
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemini-2.0-flash-001",
@@ -33800,14 +33000,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 67.52680000000001,
-      "safety": 80,
-      "adoption": 66.49,
-      "openness": 41.66666666666667,
-      "cost": 99.9999840615383
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "allenai/olmo-3.1-32b-instruct-20251215",
@@ -34010,14 +33205,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 66.59750000000001,
-      "safety": 65,
-      "adoption": 72.21000000000001,
-      "openness": 58.333333333333336,
-      "cost": 99.99997175384587
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-small-creative-20251216",
@@ -34220,14 +33410,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.71730000000001,
-      "safety": 55,
-      "adoption": 49.67,
-      "openness": 75,
-      "cost": 99.99998636923063
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-large-2407",
@@ -34430,14 +33615,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 66.72280000000002,
-      "safety": 65,
-      "adoption": 79.82,
-      "openness": 50,
-      "cost": 99.9997086769202
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "liquid/lfm2-8b-a1b",
@@ -34640,14 +33820,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 74.23010000000002,
-      "safety": 70,
-      "adoption": 61.39,
-      "openness": 41.66666666666667,
-      "cost": 99.99999975384614
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemini-3-pro-preview-20251117",
@@ -34850,14 +34025,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 77.36680000000003,
-      "safety": 60,
-      "adoption": 74.67,
-      "openness": 33.33333333333333,
-      "cost": 99.99957021538039
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
@@ -35060,14 +34230,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.35520000000001,
-      "safety": 70,
-      "adoption": 82.57,
-      "openness": 33.33333333333333,
-      "cost": 99.99991329230684
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5.1-20251113",
@@ -35270,14 +34435,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 79.28020000000001,
-      "safety": 55,
-      "adoption": 75.85,
-      "openness": 33.33333333333333,
-      "cost": 99.99967406153525
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "deepcogito/cogito-v2-preview-llama-70b",
@@ -35480,14 +34640,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 68.33810000000001,
-      "safety": 65,
-      "adoption": 74.64,
-      "openness": 50,
-      "cost": 99.99991298461451
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "x-ai/grok-4.1-fast",
@@ -35690,14 +34845,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.61860000000001,
-      "safety": 80,
-      "adoption": 67.67,
-      "openness": 33.33333333333333,
-      "cost": 99.9999740615382
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "relace/relace-apply-3",
@@ -35900,14 +35050,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.90640000000002,
-      "safety": 55,
-      "adoption": 83.67,
-      "openness": 33.33333333333333,
-      "cost": 99.99990675384522
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemma-2-27b-it",
@@ -36110,14 +35255,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.08470000000001,
-      "safety": 70,
-      "adoption": 65.17999999999999,
-      "openness": 50,
-      "cost": 99.99993598461475
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-oss-safeguard-20b",
@@ -36320,14 +35460,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.6718,
-      "safety": 65,
-      "adoption": 67.57,
-      "openness": 50,
-      "cost": 99.99998829230756
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "deepcogito/cogito-v2-preview-llama-109b-moe",
@@ -36530,14 +35665,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 74.42150000000002,
-      "safety": 60,
-      "adoption": 80.72,
-      "openness": 33.33333333333333,
-      "cost": 99.99997352307666
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-vl-8b-instruct",
@@ -36740,14 +35870,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 74.55670000000002,
-      "safety": 60,
-      "adoption": 71.72,
-      "openness": 41.66666666666667,
-      "cost": 99.99998329230752
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-small-24b-instruct-2501",
@@ -36950,14 +36075,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 78.95860000000002,
-      "safety": 60,
-      "adoption": 59.67,
-      "openness": 41.66666666666667,
-      "cost": 99.99999613846148
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "nousresearch/hermes-2-pro-llama-3-8b",
@@ -37160,14 +36280,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 67.67970000000003,
-      "safety": 60,
-      "adoption": 72.82,
-      "openness": 58.333333333333336,
-      "cost": 99.99999721538458
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-vl-32b-instruct",
@@ -37370,14 +36485,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.39750000000001,
-      "safety": 60,
-      "adoption": 73.85,
-      "openness": 50,
-      "cost": 99.9999279076916
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/ministral-8b-2512",
@@ -37580,14 +36690,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.55130000000001,
-      "safety": 50,
-      "adoption": 61.75,
-      "openness": 58.333333333333336,
-      "cost": 99.99998598461525
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "nousresearch/deephermes-3-mistral-24b-preview",
@@ -37790,14 +36895,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 84.32600000000004,
-      "safety": 50,
-      "adoption": 73.31,
-      "openness": 25,
-      "cost": 99.99999713846151
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meta-llama/llama-3.1-405b",
@@ -38000,14 +37100,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.29390000000002,
-      "safety": 60,
-      "adoption": 63.459999999999994,
-      "openness": 50,
-      "cost": 99.99960098461146
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-32b-04-28",
@@ -38210,14 +37305,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.1896,
-      "safety": 60,
-      "adoption": 64.03,
-      "openness": 41.66666666666667,
-      "cost": 99.99998929230759
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "anthropic/claude-4.5-sonnet-20250929",
@@ -38420,14 +37510,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.65870000000001,
-      "safety": 50,
-      "adoption": 87.03,
-      "openness": 33.33333333333333,
-      "cost": 99.99942406153279
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-7b-instruct-v0.1",
@@ -38630,14 +37715,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 61.04740000000001,
-      "safety": 75,
-      "adoption": 66.31,
-      "openness": 58.333333333333336,
-      "cost": 99.99998813846142
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "minimax/minimax-m2",
@@ -38840,14 +37920,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.28290000000001,
-      "safety": 65,
-      "adoption": 80.53999999999999,
-      "openness": 16.666666666666664,
-      "cost": 99.99996252307655
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4.1-mini",
@@ -39050,14 +38125,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.83250000000001,
-      "safety": 60,
-      "adoption": 83.21000000000001,
-      "openness": 41.66666666666667,
-      "cost": 90.00000088615384
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemma-3n-e2b-it",
@@ -39260,14 +38330,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.63560000000001,
-      "safety": 65,
-      "adoption": 73.36,
-      "openness": 33.33333333333333,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen-turbo-2024-11-01",
@@ -39470,14 +38535,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.4394,
-      "safety": 55,
-      "adoption": 87,
-      "openness": 33.33333333333333,
-      "cost": 99.99999252307684
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "tencent/hunyuan-a13b-instruct",
@@ -39680,14 +38740,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.91390000000001,
-      "safety": 60,
-      "adoption": 86.85,
-      "openness": 33.33333333333333,
-      "cost": 99.99997706153823
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "sao10k/l3-euryale-70b",
@@ -39890,14 +38945,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 68.57480000000001,
-      "safety": 60,
-      "adoption": 73.75,
-      "openness": 50,
-      "cost": 99.99985298461394
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5.2-chat-20251211",
@@ -40100,14 +39150,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 79.38560000000001,
-      "safety": 55,
-      "adoption": 76.57,
-      "openness": 25,
-      "cost": 99.9995432923032
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "tngtech/tng-r1t-chimera",
@@ -40310,14 +39355,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 62.185800000000015,
-      "safety": 70,
-      "adoption": 68.72,
-      "openness": 58.333333333333336,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "anthropic/claude-4-sonnet-20250522",
@@ -40520,14 +39560,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 67.91680000000001,
-      "safety": 75,
-      "adoption": 71.64,
-      "openness": 33.33333333333333,
-      "cost": 99.99942406153279
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "baidu/ernie-4.5-vl-28b-a3b",
@@ -40730,14 +39765,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 71.84590000000001,
-      "safety": 60,
-      "adoption": 71.75,
-      "openness": 41.66666666666667,
-      "cost": 99.99997729230748
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen-2.5-72b-instruct",
@@ -40940,14 +39970,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.87750000000001,
-      "safety": 60,
-      "adoption": 68.85,
-      "openness": 41.66666666666667,
-      "cost": 99.99998275384597
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "z-ai/glm-4.6",
@@ -41150,14 +40175,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 68.22780000000002,
-      "safety": 55,
-      "adoption": 78.64,
-      "openness": 50,
-      "cost": 99.99993944615323
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-oss-120b",
@@ -41360,14 +40380,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.77020000000002,
-      "safety": 60,
-      "adoption": 68.49,
-      "openness": 33.33333333333333,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemini-2.5-flash-lite-preview-09-2025",
@@ -41570,14 +40585,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.59890000000003,
-      "safety": 40,
-      "adoption": 67.57,
-      "openness": 58.333333333333336,
-      "cost": 99.9999840615383
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "sao10k/l3.1-70b-hanami-x1",
@@ -41780,14 +40790,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.23000000000002,
-      "safety": 55,
-      "adoption": 75.36,
-      "openness": 41.66666666666667,
-      "cost": 99.99970098461243
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "inflection/inflection-3-pi",
@@ -41990,14 +40995,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 66.23870000000002,
-      "safety": 65,
-      "adoption": 69.64,
-      "openness": 50,
-      "cost": 99.99957790768815
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-235b-a22b-04-28",
@@ -42200,14 +41200,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 56.740000000000016,
-      "safety": 85,
-      "adoption": 59.64,
-      "openness": 58.333333333333336,
-      "cost": 99.99997175384587
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meta-llama/llama-3.2-11b-vision-instruct",
@@ -42410,14 +41405,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 67.94110000000002,
-      "safety": 65,
-      "adoption": 64.21000000000001,
-      "openness": 50,
-      "cost": 99.99999608461535
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemini-2.5-flash",
@@ -42620,14 +41610,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 71.87890000000002,
-      "safety": 60,
-      "adoption": 77.03,
-      "openness": 33.33333333333333,
-      "cost": 99.99992021538382
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen2.5-coder-7b-instruct",
@@ -42830,14 +41815,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 63.67080000000001,
-      "safety": 70,
-      "adoption": 68.31,
-      "openness": 50,
-      "cost": 99.99999659999996
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "liquid/lfm-2.2-6b",
@@ -43040,14 +42020,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 68.07110000000002,
-      "safety": 70,
-      "adoption": 64.82,
-      "openness": 41.66666666666667,
-      "cost": 99.99999975384614
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "arcee-ai/maestro-reasoning",
@@ -43250,14 +42225,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.62670000000001,
-      "safety": 50,
-      "adoption": 84.49,
-      "openness": 41.66666666666667,
-      "cost": 99.99985559999857
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "venice/uncensored",
@@ -43460,14 +42430,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 64.66250000000002,
-      "safety": 65,
-      "adoption": 72,
-      "openness": 50,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meta-llama/llama-3.3-70b-instruct",
@@ -43670,14 +42635,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 68.66660000000002,
-      "safety": 65,
-      "adoption": 69.64,
-      "openness": 41.66666666666667,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "baidu/ernie-4.5-21b-a3b",
@@ -43880,14 +42840,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 71.07870000000003,
-      "safety": 75,
-      "adoption": 66.17999999999999,
-      "openness": 25,
-      "cost": 99.99998913846142
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meta-llama/llama-guard-3-8b",
@@ -44090,14 +43045,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.81180000000002,
-      "safety": 55,
-      "adoption": 62.849999999999994,
-      "openness": 50,
-      "cost": 99.99999806153843
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-medium-3.1",
@@ -44300,14 +43250,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 68.87540000000001,
-      "safety": 65,
-      "adoption": 68.03,
-      "openness": 41.66666666666667,
-      "cost": 99.99992406153771
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-oss-20b",
@@ -44510,14 +43455,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.97140000000003,
-      "safety": 65,
-      "adoption": 70.39,
-      "openness": 33.33333333333333,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "allenai/olmo-3-7b-instruct-20251121",
@@ -44720,14 +43660,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.11820000000002,
-      "safety": 65,
-      "adoption": 64.03,
-      "openness": 41.66666666666667,
-      "cost": 99.99998867692297
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/o3-mini-high-2025-01-31",
@@ -44930,14 +43865,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.48060000000001,
-      "safety": 70,
-      "adoption": 64.64,
-      "openness": 33.33333333333333,
-      "cost": 99.9998148307674
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/pixtral-12b",
@@ -45140,14 +44070,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 66.60440000000003,
-      "safety": 80,
-      "adoption": 69.53999999999999,
-      "openness": 25,
-      "cost": 99.99999098461528
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5.1-codex-max-20251204",
@@ -45350,14 +44275,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 74.61890000000001,
-      "safety": 60,
-      "adoption": 74.64,
-      "openness": 25,
-      "cost": 99.99967406153525
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "nvidia/nemotron-3-nano-30b-a3b",
@@ -45560,14 +44480,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 59.56470000000001,
-      "safety": 80,
-      "adoption": 79.74,
-      "openness": 33.33333333333333,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/devstral-2512",
@@ -45770,14 +44685,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 61.94670000000001,
-      "safety": 85,
-      "adoption": 66.67,
-      "openness": 33.33333333333333,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5.2-20251211",
@@ -45980,14 +44890,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 65.31000000000002,
-      "safety": 75,
-      "adoption": 78.49,
-      "openness": 25,
-      "cost": 99.9995432923032
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemini-2.5-pro-preview-03-25",
@@ -46190,14 +45095,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 67.50850000000003,
-      "safety": 70,
-      "adoption": 70.57,
-      "openness": 33.33333333333333,
-      "cost": 99.99967406153525
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen-plus-2025-07-28",
@@ -46400,14 +45300,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 60.57540000000001,
-      "safety": 65,
-      "adoption": 70.72,
-      "openness": 58.333333333333336,
-      "cost": 99.99994252307634
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
@@ -46610,14 +45505,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 67.14720000000001,
-      "safety": 70,
-      "adoption": 63.1,
-      "openness": 41.66666666666667,
-      "cost": 99.9999840615383
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-coder-plus",
@@ -46820,14 +45710,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.36890000000001,
-      "safety": 60,
-      "adoption": 79,
-      "openness": 25,
-      "cost": 99.99980867692119
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-tiny",
@@ -47030,14 +45915,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 59.271499999999996,
-      "safety": 80,
-      "adoption": 62.21,
-      "openness": 50,
-      "cost": 99.99997598461515
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen-2.5-7b-instruct",
@@ -47240,14 +46120,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 68.56540000000003,
-      "safety": 65,
-      "adoption": 65,
-      "openness": 41.66666666666667,
-      "cost": 99.99999559999995
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "amazon/nova-premier-v1",
@@ -47450,14 +46325,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.90830000000003,
-      "safety": 55,
-      "adoption": 89.36,
-      "openness": 8.333333333333332,
-      "cost": 99.99952021537989
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "thedrummer/cydonia-24b-v4.1",
@@ -47660,14 +46530,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 71.24320000000002,
-      "safety": 55,
-      "adoption": 78.31,
-      "openness": 33.33333333333333,
-      "cost": 99.99996636923044
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4o-2024-08-06",
@@ -47870,14 +46735,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 62.64700000000001,
-      "safety": 70,
-      "adoption": 71.85,
-      "openness": 41.66666666666667,
-      "cost": 99.99957790768815
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "x-ai/grok-3-mini-beta",
@@ -48080,14 +46940,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.10510000000001,
-      "safety": 60,
-      "adoption": 64.03,
-      "openness": 33.33333333333333,
-      "cost": 99.99996636923044
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-vl-30b-a3b-instruct",
@@ -48290,14 +47145,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 76.53890000000001,
-      "safety": 50,
-      "adoption": 68.17999999999999,
-      "openness": 33.33333333333333,
-      "cost": 99.99997559999976
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen-2-vl-7b-instruct",
@@ -48500,14 +47350,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.96540000000002,
-      "safety": 55,
-      "adoption": 53.81999999999999,
-      "openness": 50,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4o-mini-search-preview-2025-03-11",
@@ -48710,14 +47555,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 67.30720000000001,
-      "safety": 60,
-      "adoption": 78.67,
-      "openness": 33.33333333333333,
-      "cost": 99.99997559999976
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "z-ai/glm-4.5v",
@@ -48920,14 +47760,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 64.46930000000002,
-      "safety": 65,
-      "adoption": 62.9,
-      "openness": 50,
-      "cost": 99.99991329230684
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "deepseek/deepseek-r1-0528",
@@ -49130,14 +47965,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.90220000000001,
-      "safety": 70,
-      "adoption": 58.21000000000001,
-      "openness": 25,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemini-2.0-flash-lite-001",
@@ -49340,14 +48170,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 66.24930000000002,
-      "safety": 75,
-      "adoption": 77.36,
-      "openness": 16.666666666666664,
-      "cost": 99.99998829230756
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/o1-2024-12-17",
@@ -49550,14 +48375,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 63.72850000000001,
-      "safety": 55,
-      "adoption": 85.72,
-      "openness": 41.66666666666667,
-      "cost": 99.99746252305194
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5-pro-2025-10-06",
@@ -49760,14 +48580,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 56.42220000000001,
-      "safety": 80,
-      "adoption": 55,
-      "openness": 58.333333333333336,
-      "cost": 99.99607790765369
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "anthropic/claude-3-5-haiku",
@@ -49970,14 +48785,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 67.71350000000002,
-      "safety": 65,
-      "adoption": 69.64,
-      "openness": 33.33333333333333,
-      "cost": 99.99984713846003
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "gryphe/mythomax-l2-13b",
@@ -50180,14 +48990,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 64.22330000000002,
-      "safety": 65,
-      "adoption": 78.67,
-      "openness": 33.33333333333333,
-      "cost": 99.99999498461533
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "nvidia/nemotron-nano-9b-v2",
@@ -50390,14 +49195,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.61970000000002,
-      "safety": 50,
-      "adoption": 84.36,
-      "openness": 25,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "z-ai/glm-4.7-20251222",
@@ -50600,14 +49400,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 73.50610000000002,
-      "safety": 65,
-      "adoption": 77.03,
-      "openness": 8.333333333333332,
-      "cost": 99.99993559999936
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen2.5-vl-32b-instruct",
@@ -50810,14 +49605,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 71.24710000000002,
-      "safety": 55,
-      "adoption": 63.03,
-      "openness": 41.66666666666667,
-      "cost": 99.99999206153838
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "perplexity/sonar-reasoning-pro",
@@ -51020,14 +49810,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 65.80350000000001,
-      "safety": 60,
-      "adoption": 62.39,
-      "openness": 50,
-      "cost": 99.99966252307361
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "perplexity/sonar-pro-search",
@@ -51230,14 +50015,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.56470000000002,
-      "safety": 55,
-      "adoption": 89.57,
-      "openness": 16.666666666666664,
-      "cost": 99.99942406153279
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemini-2.5-flash-image",
@@ -51440,14 +50220,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 63.35380000000001,
-      "safety": 65,
-      "adoption": 78.72,
-      "openness": 33.33333333333333,
-      "cost": 99.99992021538382
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "bytedance/ui-tars-1.5-7b",
@@ -51650,14 +50425,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 64.80050000000001,
-      "safety": 60,
-      "adoption": 64.31,
-      "openness": 50,
-      "cost": 99.99998867692297
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5-chat-2025-08-07",
@@ -51860,14 +50630,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 65.07490000000003,
-      "safety": 60,
-      "adoption": 55.03,
-      "openness": 58.333333333333336,
-      "cost": 99.99967406153525
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "raifle/sorcererlm-8x22b",
@@ -52070,14 +50835,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.14550000000001,
-      "safety": 60,
-      "adoption": 69.46,
-      "openness": 25,
-      "cost": 99.99955098461096
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "anthropic/claude-4-opus-20250522",
@@ -52280,14 +51040,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 62.52640000000001,
-      "safety": 60,
-      "adoption": 69.82000000000001,
-      "openness": 50,
-      "cost": 99.99711636920237
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meta-llama/llama-3.1-405b-instruct",
@@ -52490,14 +51245,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 67.14090000000002,
-      "safety": 60,
-      "adoption": 82.36,
-      "openness": 25,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5-2025-08-07",
@@ -52700,14 +51450,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 60.82780000000001,
-      "safety": 60,
-      "adoption": 65.57,
-      "openness": 58.333333333333336,
-      "cost": 99.99967406153525
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4-turbo-preview",
@@ -52910,14 +51655,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 62.14630000000001,
-      "safety": 75,
-      "adoption": 75,
-      "openness": 25,
-      "cost": 99.99853944613946
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meta-llama/llama-guard-4-12b",
@@ -53120,14 +51860,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 68.75400000000002,
-      "safety": 55,
-      "adoption": 75.64,
-      "openness": 33.33333333333333,
-      "cost": 99.99998298461522
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "deepcogito/cogito-v2.1-671b-20251118",
@@ -53330,14 +52065,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 75.54130000000002,
-      "safety": 55,
-      "adoption": 65.17999999999999,
-      "openness": 25,
-      "cost": 99.99987598461418
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen-plus-2025-01-25",
@@ -53540,14 +52270,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 67.44730000000001,
-      "safety": 55,
-      "adoption": 86.74,
-      "openness": 25,
-      "cost": 99.99994252307634
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openrouter/auto",
@@ -53750,14 +52475,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 82.23130000000002,
-      "safety": 60,
-      "adoption": 65.57,
-      "openness": 66.66666666666666,
-      "cost": 0
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-7b-instruct-v0.3",
@@ -53960,14 +52680,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 57.266200000000005,
-      "safety": 85,
-      "adoption": 57.03,
-      "openness": 41.66666666666667,
-      "cost": 99.9999809846152
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/devstral-small-2507",
@@ -54170,14 +52885,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 65.06690000000002,
-      "safety": 65,
-      "adoption": 45.489999999999995,
-      "openness": 58.333333333333336,
-      "cost": 99.99998636923063
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-4b-04-28",
@@ -54380,14 +53090,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.17590000000003,
-      "safety": 50,
-      "adoption": 79.46,
-      "openness": 33.33333333333333,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "z-ai/glm-4.5",
@@ -54590,14 +53295,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 64.08050000000001,
-      "safety": 70,
-      "adoption": 74.57,
-      "openness": 25,
-      "cost": 99.99993829230709
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-next-80b-a3b-instruct-2509",
@@ -54800,14 +53500,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 65.00510000000003,
-      "safety": 55,
-      "adoption": 58.53999999999999,
-      "openness": 58.333333333333336,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "deepseek/deepseek-v3.1-terminus",
@@ -55010,14 +53705,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 68.19130000000001,
-      "safety": 70,
-      "adoption": 71.67,
-      "openness": 16.666666666666664,
-      "cost": 99.99996659999968
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "minimax/minimax-01",
@@ -55220,14 +53910,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.78330000000003,
-      "safety": 55,
-      "adoption": 53.64,
-      "openness": 41.66666666666667,
-      "cost": 99.9999602153842
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "switchpoint/router",
@@ -55430,14 +54115,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 66.48140000000001,
-      "safety": 55,
-      "adoption": 78.64,
-      "openness": 33.33333333333333,
-      "cost": 99.99985713846013
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "sao10k/l3.1-euryale-70b",
@@ -55640,14 +54320,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 61.58860000000001,
-      "safety": 75,
-      "adoption": 56.31,
-      "openness": 41.66666666666667,
-      "cost": 99.99993367692241
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "sao10k/l3.3-euryale-70b-v2.3",
@@ -55850,14 +54525,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 72.33090000000001,
-      "safety": 45,
-      "adoption": 67.36,
-      "openness": 41.66666666666667,
-      "cost": 99.99993367692241
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "deepseek/deepseek-r1-distill-qwen-32b",
@@ -56060,14 +54730,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 62.94830000000001,
-      "safety": 50,
-      "adoption": 84.82,
-      "openness": 41.66666666666667,
-      "cost": 99.9999719846151
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "thedrummer/rocinante-12b",
@@ -56270,14 +54935,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 56.232,
-      "safety": 80,
-      "adoption": 77.82,
-      "openness": 25,
-      "cost": 99.99997798461516
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "x-ai/grok-3-mini",
@@ -56480,14 +55140,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 70.4701,
-      "safety": 60,
-      "adoption": 74.57,
-      "openness": 16.666666666666664,
-      "cost": 99.99996636923044
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5.1-codex-mini-20251113",
@@ -56690,14 +55345,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 71.78710000000001,
-      "safety": 55,
-      "adoption": 60.849999999999994,
-      "openness": 33.33333333333333,
-      "cost": 99.99993559999936
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/o1-pro",
@@ -56900,14 +55550,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 64.29670000000002,
-      "safety": 60,
-      "adoption": 74.03,
-      "openness": 33.33333333333333,
-      "cost": 99.97461636898083
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "moonshotai/kimi-k2",
@@ -57110,14 +55755,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 66.19930000000001,
-      "safety": 60,
-      "adoption": 68.31,
-      "openness": 33.33333333333333,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/ministral-3b-2512",
@@ -57320,14 +55960,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 64.40850000000002,
-      "safety": 75,
-      "adoption": 60.17999999999999,
-      "openness": 25,
-      "cost": 99.99999098461528
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/o3-2025-04-16",
@@ -57530,14 +56165,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 64.00970000000002,
-      "safety": 70,
-      "adoption": 58.57000000000001,
-      "openness": 33.33333333333333,
-      "cost": 99.99966252307361
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemma-2-9b-it",
@@ -57740,14 +56370,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.7249,
-      "safety": 60,
-      "adoption": 64.57000000000001,
-      "openness": 25,
-      "cost": 99.99999659999996
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen2.5-vl-72b-instruct",
@@ -57950,14 +56575,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 71.50220000000002,
-      "safety": 55,
-      "adoption": 49.17999999999999,
-      "openness": 41.66666666666667,
-      "cost": 99.99997559999976
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "aion-labs/aion-rp-llama-3.1-8b",
@@ -58160,14 +56780,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 61.24460000000001,
-      "safety": 55,
-      "adoption": 67.39,
-      "openness": 50,
-      "cost": 99.99990252307596
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "cohere/command-r7b-12-2024",
@@ -58370,14 +56985,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 58.71440000000002,
-      "safety": 70,
-      "adoption": 61.67,
-      "openness": 41.66666666666667,
-      "cost": 99.99999463846149
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/devstral-medium-2507",
@@ -58580,14 +57190,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 65.41310000000001,
-      "safety": 60,
-      "adoption": 73.74,
-      "openness": 25,
-      "cost": 99.99992406153771
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "x-ai/grok-3",
@@ -58790,14 +57395,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 60.633500000000005,
-      "safety": 65,
-      "adoption": 53.459999999999994,
-      "openness": 50,
-      "cost": 99.99942406153279
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "nvidia/llama-3.1-nemotron-70b-instruct",
@@ -59000,14 +57600,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 62.3278,
-      "safety": 65,
-      "adoption": 73.53999999999999,
-      "openness": 25,
-      "cost": 99.99988098461421
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/ministral-8b",
@@ -59210,14 +57805,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 69.93220000000002,
-      "safety": 65,
-      "adoption": 61.489999999999995,
-      "openness": 16.666666666666664,
-      "cost": 99.99999098461528
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "microsoft/wizardlm-2-8x22b",
@@ -59420,14 +58010,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 64.16990000000001,
-      "safety": 65,
-      "adoption": 50.36,
-      "openness": 41.66666666666667,
-      "cost": 99.99995298461492
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "x-ai/grok-3-beta",
@@ -59630,14 +58215,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 65.17290000000001,
-      "safety": 50,
-      "adoption": 83.64,
-      "openness": 25,
-      "cost": 99.99942406153279
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "neversleep/llama-3.1-lumimaid-8b",
@@ -59840,14 +58420,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 63.08280000000002,
-      "safety": 65,
-      "adoption": 76.82,
-      "openness": 16.666666666666664,
-      "cost": 99.99998021538443
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openrouter/bodybuilder",
@@ -60050,14 +58625,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 83.74560000000001,
-      "safety": 50,
-      "adoption": 82.85,
-      "openness": 41.66666666666667,
-      "cost": 0
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5.1-codex-20251113",
@@ -60260,14 +58830,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 68.07190000000001,
-      "safety": 65,
-      "adoption": 70.46,
-      "openness": 8.333333333333332,
-      "cost": 99.99967406153525
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "arcee-ai/virtuoso-large",
@@ -60470,14 +59035,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 63.308000000000014,
-      "safety": 55,
-      "adoption": 62.57,
-      "openness": 41.66666666666667,
-      "cost": 99.99991559999917
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen3-14b-04-28",
@@ -60680,14 +59240,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 64.73170000000002,
-      "safety": 65,
-      "adoption": 53.64,
-      "openness": 33.33333333333333,
-      "cost": 99.99999206153838
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "qwen/qwen-max-2025-01-25",
@@ -60890,14 +59445,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 54.160500000000006,
-      "safety": 60,
-      "adoption": 71.31,
-      "openness": 50,
-      "cost": 99.99973021538196
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "prime-intellect/intellect-3-20251126",
@@ -61100,14 +59650,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 62.87180000000001,
-      "safety": 80,
-      "adoption": 61.75,
-      "openness": 8.333333333333332,
-      "cost": 99.9999602153842
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-saba-2502",
@@ -61310,14 +59855,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 57.668900000000015,
-      "safety": 65,
-      "adoption": 70.53999999999999,
-      "openness": 33.33333333333333,
-      "cost": 99.99997175384587
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "mistralai/mistral-large-2411",
@@ -61520,14 +60060,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 55.69110000000001,
-      "safety": 50,
-      "adoption": 78.72,
-      "openness": 50,
-      "cost": 99.9997086769202
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "aion-labs/aion-1.0",
@@ -61730,14 +60265,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 63.77410000000001,
-      "safety": 45,
-      "adoption": 72.03,
-      "openness": 41.66666666666667,
-      "cost": 99.99950867691824
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "meta-llama/llama-3-8b-instruct",
@@ -61940,14 +60470,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 57.71600000000001,
-      "safety": 55,
-      "adoption": 65,
-      "openness": 50,
-      "cost": 99.99999729230767
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "deepseek/deepseek-chat-v3.1",
@@ -62150,14 +60675,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 57.88560000000001,
-      "safety": 60,
-      "adoption": 57.72,
-      "openness": 50,
-      "cost": 99.99997213846127
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "sao10k/l3-lunaris-8b",
@@ -62360,14 +60880,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 56.880700000000004,
-      "safety": 65,
-      "adoption": 61.489999999999995,
-      "openness": 41.66666666666667,
-      "cost": 99.9999967538461
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "allenai/olmo-3.1-32b-think-20251215",
@@ -62570,14 +61085,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 62.293800000000005,
-      "safety": 60,
-      "adoption": 61.31,
-      "openness": 33.33333333333333,
-      "cost": 99.9999779076921
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-5.2-codex-20260114",
@@ -62780,14 +61290,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 68.18640000000002,
-      "safety": 50,
-      "adoption": 67.03,
-      "openness": 25,
-      "cost": 99.9995432923032
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "xiaomi/mimo-v2-flash-20251210",
@@ -62990,14 +61495,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 65.57370000000002,
-      "safety": 60,
-      "adoption": 68.85,
-      "openness": 16.666666666666664,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "openai/gpt-4.1-mini-2025-04-14",
@@ -63200,14 +61700,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 62.16390000000001,
-      "safety": 60,
-      "adoption": 69.36,
-      "openness": 25,
-      "cost": 99.99993329230703
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "neversleep/noromaid-20b",
@@ -63410,14 +61905,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 56.80870000000001,
-      "safety": 55,
-      "adoption": 64.49,
-      "openness": 41.66666666666667,
-      "cost": 99.99988367692193
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "nousresearch/hermes-4-70b",
@@ -63620,14 +62110,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 61.194300000000005,
-      "safety": 50,
-      "adoption": 67.39,
-      "openness": 33.33333333333333,
-      "cost": 99.99998375384598
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "moonshotai/kimi-k2-thinking-20251106",
@@ -63830,14 +62315,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 57.72640000000002,
-      "safety": 45,
-      "adoption": 60.21,
-      "openness": 50,
-      "cost": 99.99992983076854
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "nousresearch/hermes-3-llama-3.1-70b",
@@ -64040,14 +62520,9 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 65.32840000000002,
-      "safety": 55,
-      "adoption": 59.21,
-      "openness": 16.666666666666664,
-      "cost": 99.99997098461509
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   },
   {
     "model": "google/gemma-3-12b-it",
@@ -64250,13 +62725,8 @@
           "usedEvidence": [],
           "penaltyReasons": []
         }
-      },
-      "performance": 57.28910000000001,
-      "safety": 60,
-      "adoption": 62.03,
-      "openness": 25,
-      "cost": 100
+      }
     },
-    "updatedAt": "2026-01-17T14:35:48.447Z"
+    "updatedAt": "2026-01-17T15:34:03.716Z"
   }
 ]
