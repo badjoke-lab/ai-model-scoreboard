@@ -6,7 +6,7 @@ function readText(p){ return fs.readFileSync(p, "utf-8"); }
 function readJson(p){
   if(!exists(p)) throw new Error(`missing file: ${p}`);
   const s = readText(p);
-  try { return JSON.parse(s); } catch { throw new Error(`invalid json: ${p}`); }
+  try { return JSON.parse(s); } catch (err) { throw new Error(`invalid json: ${p}\n${err.message}`); }
 }
 function isObject(x){ return x && typeof x === "object" && !Array.isArray(x); }
 function fail(msg){

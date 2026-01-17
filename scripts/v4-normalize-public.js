@@ -9,6 +9,13 @@ function readJson(p) {
 function writeJson(p, obj) {
   fs.writeFileSync(p, JSON.stringify(obj, null, 2) + "\n", "utf-8");
 }
+function writeJsonAtomic(p, obj) {
+  const dir = path.dirname(p);
+  const base = path.basename(p);
+  const tmp = path.join(dir, `.${base}.${process.pid}.tmp`);
+  fs.writeFileSync(tmp, JSON.stringify(obj, null, 2) + "\n", "utf-8");
+  fs.renameSync(tmp, p);
+}
 function isObject(x) {
   return !!x && typeof x === "object" && !Array.isArray(x);
 }
@@ -29,6 +36,47 @@ function toNumber(v) {
     const n = Number(v);
     if (Number.isFinite(n)) return n;
   }
+  return null;
+}
+function hasAnyLink(ue) {
+  if (!Array.isArray(ue)) return false;
+  return ue.some((e) => {
+    if (!isObject(e)) return false;
+    const candidates = [
+      e.url,
+      e.href,
+      e.link,
+      e.sourceUrl,
+      e.sourceURL,
+      e.sourceLink,
+      e.source?.url,
+      e.source?.link,
+    ];
+    return candidates.some((v) => nonEmptyStr(v));
+  });
+}
+function mapEvidenceTypeFromReason(reason) {
+  if (!nonEmptyStr(reason)) return null;
+  const r = reason.trim().toLowerCase();
+  if (r.startsWith("evidence_audit_") || /missing[:_]?audit_link/.test(r)) return "audit";
+  if (r.startsWith("evidence_paper_") || /missing[:_]?paper_link/.test(r)) return "paper";
+  if (r.startsWith("evidence_dev_") || /missing[:_]?dev(_activity)?_link/.test(r)) return "dev_activity";
+  if (r.startsWith("evidence_official_") || /missing[:_]?official(_page)?_link/.test(r)) return "official_page";
+  if (r.includes("audit")) return "audit";
+  if (r.includes("paper")) return "paper";
+  if (r.includes("dev")) return "dev_activity";
+  if (r.includes("official")) return "official_page";
+  return null;
+}
+function buildEvidenceLink(modelKey, evidenceRef, evidenceType) {
+  const resolvedType = nonEmptyStr(evidenceType) && evidenceType !== "unknown" ? evidenceType : null;
+  if (resolvedType && nonEmptyStr(modelKey)) {
+    return `/models/${encodeURIComponent(modelKey)}#evidence-${resolvedType}`;
+  }
+  if (nonEmptyStr(evidenceRef)) {
+    return resolvedType ? `${evidenceRef}#${resolvedType}` : evidenceRef;
+  }
+  if (nonEmptyStr(modelKey)) return `/models/${encodeURIComponent(modelKey)}`;
   return null;
 }
 
@@ -287,6 +335,49 @@ function normalizeModelsJson() {
     if (trimmed.startsWith("data/")) return "/" + trimmed;
     return "/data/v4/" + trimmed.replace(/^\.?\/*/, "");
   };
+  const normalizePenaltyReasons = (item) => {
+    const reasons = [];
+    if (nonEmptyStr(item?.penaltyReason)) reasons.push(item.penaltyReason.trim());
+    if (Array.isArray(item?.penaltyReasons)) {
+      for (const entry of item.penaltyReasons) {
+        if (nonEmptyStr(entry)) reasons.push(entry.trim());
+      }
+    }
+    return reasons;
+  };
+  const inferEvidenceType = (item, reasons) => {
+    if (Array.isArray(item?.usedEvidence)) {
+      for (const entry of item.usedEvidence) {
+        if (isObject(entry) && nonEmptyStr(entry.type)) return entry.type.trim();
+      }
+    }
+    for (const reason of reasons) {
+      const mapped = mapEvidenceTypeFromReason(reason);
+      if (mapped) return mapped;
+    }
+    return "unknown";
+  };
+  const ensurePenaltyEvidenceLinks = (items, modelKey, evidenceRef) => {
+    if (!isObject(items)) return;
+    for (const item of Object.values(items)) {
+      if (!isObject(item)) continue;
+      const reasons = normalizePenaltyReasons(item);
+      if (!reasons.length) continue;
+      if (!Array.isArray(item.usedEvidence)) item.usedEvidence = [];
+      const resolvedType = inferEvidenceType(item, reasons);
+      let target = item.usedEvidence.find((entry) => isObject(entry) && nonEmptyStr(entry.type));
+      if (!isObject(target)) target = item.usedEvidence.find((entry) => isObject(entry));
+      if (!isObject(target)) {
+        target = {};
+        item.usedEvidence.push(target);
+      }
+      if (!nonEmptyStr(target.type)) target.type = resolvedType;
+      if (!hasAnyLink(item.usedEvidence)) {
+        const link = buildEvidenceLink(modelKey, evidenceRef, resolvedType);
+        if (nonEmptyStr(link)) target.link = link;
+      }
+    }
+  };
 
   for (const r of rows) {
     if (!isObject(r)) continue;
@@ -447,11 +538,15 @@ function normalizeModelsJson() {
         patched.evidenceRef++;
       }
     }
+
+    ensurePenaltyEvidenceLinks(r.scoreBreakdown?.items, r.modelKey, r.evidenceRef);
+    ensurePenaltyEvidenceLinks(r.scoreBreakdown?.scores?.items, r.modelKey, r.evidenceRef);
+    ensurePenaltyEvidenceLinks(r.scores?.items, r.modelKey, r.evidenceRef);
   }
 
   // modelKey 無い行を落とす（validator 的に意味ない）
   const filtered = rows.filter((r) => isObject(r) && nonEmptyStr(r.modelKey));
-  writeJson(p, filtered);
+  writeJsonAtomic(p, filtered);
 
   console.log("[v4-normalize] models.json -> array:", filtered.length, "rows");
   console.log("[v4-normalize] patched:", patched);

@@ -206,7 +206,7 @@ function validateEvidenceRef(model, idxLabel) {
     }
     if (/^https?:\/\//.test(ref)) return;
     const cleaned = ref.replace(/^\/+/, "");
-    const rel = cleaned.startsWith("data/") ? cleaned.replace(/^data\//, "") : cleaned;
+    const rel = cleaned.startsWith("public/") ? cleaned.replace(/^public\//, "") : cleaned;
     const localPath = path.resolve(process.cwd(), "public", rel);
     if (!fs.existsSync(localPath)) {
       fail(`${idxLabel}: evidenceRef not found on disk (${ref})`);

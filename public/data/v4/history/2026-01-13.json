@@ -1,0 +1,1226 @@
+{
+  "openai/gpt-5-codex": {
+    "score": 80.02114740615355,
+    "layer": "full"
+  },
+  "qwen/qwen3-vl-30b-a3b-thinking": {
+    "score": 77.76955625230767,
+    "layer": "full"
+  },
+  "z-ai/glm-4.5-air": {
+    "score": 77.60412000000001,
+    "layer": "full"
+  },
+  "allenai/molmo-2-8b-20260109": {
+    "score": 77.50772,
+    "layer": "full"
+  },
+  "meituan/longcat-flash-chat": {
+    "score": 77.47797671384612,
+    "layer": "full"
+  },
+  "perplexity/sonar": {
+    "score": 77.46867009846144,
+    "layer": "full"
+  },
+  "x-ai/grok-4-07-09": {
+    "score": 77.21818240615329,
+    "layer": "full"
+  },
+  "openai/gpt-4o": {
+    "score": 76.85419779076882,
+    "layer": "full"
+  },
+  "openai/gpt-3.5-turbo-16k": {
+    "score": 76.77326779076893,
+    "layer": "full"
+  },
+  "google/gemma-3n-e4b-it": {
+    "score": 76.6468,
+    "layer": "full"
+  },
+  "alfredpros/codellama-7b-instruct-solidity": {
+    "score": 76.23075117538454,
+    "layer": "full"
+  },
+  "deepseek/deepseek-r1-distill-llama-70b": {
+    "score": 75.95085961384615,
+    "layer": "full"
+  },
+  "thedrummer/unslopnemo-12b": {
+    "score": 75.73819609846151,
+    "layer": "full"
+  },
+  "qwen/qwen3-max": {
+    "score": 75.44037702153824,
+    "layer": "full"
+  },
+  "inception/mercury": {
+    "score": 75.09483586769227,
+    "layer": "full"
+  },
+  "qwen/qwq-32b": {
+    "score": 75.02335802153846,
+    "layer": "full"
+  },
+  "mistralai/ministral-3b": {
+    "score": 75.01281969846154,
+    "layer": "full"
+  },
+  "openai/gpt-4o-search-preview-2025-03-11": {
+    "score": 74.98843779076883,
+    "layer": "full"
+  },
+  "deepseek/deepseek-r1": {
+    "score": 74.95812894461528,
+    "layer": "full"
+  },
+  "google/gemini-2.5-pro": {
+    "score": 74.93382740615354,
+    "layer": "full"
+  },
+  "moonshotai/kimi-k2-0905": {
+    "score": 74.86955271384609,
+    "layer": "full"
+  },
+  "openai/gpt-4o-mini-2024-07-18": {
+    "score": 74.83441755999999,
+    "layer": "full"
+  },
+  "arcee-ai/coder-large": {
+    "score": 74.7607544061538,
+    "layer": "full"
+  },
+  "qwen/qwen3-next-80b-a3b-thinking-2509": {
+    "score": 74.67121617538459,
+    "layer": "full"
+  },
+  "mancer/weaver": {
+    "score": 74.64993202153838,
+    "layer": "full"
+  },
+  "stepfun-ai/step3": {
+    "score": 74.610652436923,
+    "layer": "full"
+  },
+  "qwen/qwen3-coder-flash": {
+    "score": 74.60137432923072,
+    "layer": "full"
+  },
+  "google/gemini-3-pro-image-preview-20251120": {
+    "score": 74.57223702153804,
+    "layer": "full"
+  },
+  "qwen/qwen3-vl-235b-a22b-thinking": {
+    "score": 74.54390344461524,
+    "layer": "full"
+  },
+  "relace/relace-search-20251208": {
+    "score": 74.2965854830768,
+    "layer": "full"
+  },
+  "openai/gpt-3.5-turbo": {
+    "score": 74.23263279076916,
+    "layer": "full"
+  },
+  "google/gemini-3-flash-preview-20251217": {
+    "score": 74.22922932923066,
+    "layer": "full"
+  },
+  "anthropic/claude-3-haiku": {
+    "score": 74.1770352907692,
+    "layer": "full"
+  },
+  "morph/morph-v3-large": {
+    "score": 74.16206879076913,
+    "layer": "full"
+  },
+  "meta-llama/llama-guard-2-8b": {
+    "score": 74.09003809846153,
+    "layer": "full"
+  },
+  "openai/o3-deep-research-2025-06-26": {
+    "score": 74.01095086769065,
+    "layer": "full"
+  },
+  "amazon/nova-pro-v1": {
+    "score": 73.99850655999987,
+    "layer": "full"
+  },
+  "kwaipilot/kat-coder-pro-v1": {
+    "score": 73.97647659538458,
+    "layer": "full"
+  },
+  "deepseek/deepseek-v3.2-speciale-20251201": {
+    "score": 73.9380170753846,
+    "layer": "full"
+  },
+  "microsoft/phi-4": {
+    "score": 73.89879931384615,
+    "layer": "full"
+  },
+  "google/gemma-3-27b-it": {
+    "score": 73.79244,
+    "layer": "full"
+  },
+  "mistralai/mistral-7b-instruct": {
+    "score": 73.70807809846153,
+    "layer": "full"
+  },
+  "qwen/qwen3-vl-235b-a22b-instruct": {
+    "score": 73.6445557907692,
+    "layer": "full"
+  },
+  "google/gemma-3-4b-it": {
+    "score": 73.6234,
+    "layer": "full"
+  },
+  "aion-labs/aion-1.0-mini": {
+    "score": 73.62199148307684,
+    "layer": "full"
+  },
+  "meta-llama/llama-3.2-3b-instruct": {
+    "score": 73.58508,
+    "layer": "full"
+  },
+  "deepcogito/cogito-v2-preview-llama-405b": {
+    "score": 73.5749050984612,
+    "layer": "full"
+  },
+  "qwen/qwen3-30b-a3b-04-28": {
+    "score": 73.49821912923076,
+    "layer": "full"
+  },
+  "allenai/olmo-3-7b-think-20251121": {
+    "score": 73.43059871384615,
+    "layer": "full"
+  },
+  "mistralai/ministral-14b-2512": {
+    "score": 73.40767809846153,
+    "layer": "full"
+  },
+  "openai/o3-mini-2025-01-31": {
+    "score": 73.28048148307674,
+    "layer": "full"
+  },
+  "alpindale/goliath-120b": {
+    "score": 73.1337154830763,
+    "layer": "full"
+  },
+  "anthropic/claude-3-7-sonnet-20250219": {
+    "score": 73.01742240615329,
+    "layer": "full"
+  },
+  "mistralai/voxtral-small-24b-2507": {
+    "score": 73.00623863692307,
+    "layer": "full"
+  },
+  "openai/gpt-4o-audio-preview": {
+    "score": 72.91035779076883,
+    "layer": "full"
+  },
+  "x-ai/grok-4-fast": {
+    "score": 72.88117740615384,
+    "layer": "full"
+  },
+  "qwen/qwen3-235b-a22b-thinking-2507": {
+    "score": 72.86093786769229,
+    "layer": "full"
+  },
+  "qwen/qwen-2.5-coder-32b-instruct": {
+    "score": 72.85267961384616,
+    "layer": "full"
+  },
+  "z-ai/glm-4.6-20251208": {
+    "score": 72.84359571384613,
+    "layer": "full"
+  },
+  "amazon/nova-lite-v1": {
+    "score": 72.76877908307692,
+    "layer": "full"
+  },
+  "morph/morph-v3-fast": {
+    "score": 72.76867117538454,
+    "layer": "full"
+  },
+  "anthracite-org/magnum-v4-72b": {
+    "score": 72.69050548307659,
+    "layer": "full"
+  },
+  "mistralai/mistral-medium-3": {
+    "score": 72.47471240615377,
+    "layer": "full"
+  },
+  "nex-agi/deepseek-v3.1-nex-n1": {
+    "score": 72.45941571384611,
+    "layer": "full"
+  },
+  "essentialai/rnj-1-instruct": {
+    "score": 72.41775859846153,
+    "layer": "full"
+  },
+  "openai/gpt-4.1-nano-2025-04-14": {
+    "score": 72.38217840615384,
+    "layer": "full"
+  },
+  "cohere/command-a-03-2025": {
+    "score": 72.37293779076882,
+    "layer": "full"
+  },
+  "meta-llama/llama-3.1-8b-instruct": {
+    "score": 72.36109982923077,
+    "layer": "full"
+  },
+  "deepseek/deepseek-chat-v3": {
+    "score": 72.33631502153843,
+    "layer": "full"
+  },
+  "openai/gpt-4.1-2025-04-14": {
+    "score": 72.33582625230737,
+    "layer": "full"
+  },
+  "bytedance-seed/seed-1.6-flash-20250625": {
+    "score": 72.25823882923076,
+    "layer": "full"
+  },
+  "minimax/minimax-m1": {
+    "score": 72.20403194461531,
+    "layer": "full"
+  },
+  "baidu/ernie-4.5-300b-a47b": {
+    "score": 72.17355540615381,
+    "layer": "full"
+  },
+  "openai/gpt-5.2-pro-20251211": {
+    "score": 72.13133086768691,
+    "layer": "full"
+  },
+  "meta-llama/llama-3-70b-instruct": {
+    "score": 72.1107360984615,
+    "layer": "full"
+  },
+  "inception/mercury-coder-small-beta": {
+    "score": 72.04697586769227,
+    "layer": "full"
+  },
+  "arcee-ai/spotlight": {
+    "score": 71.97647829846153,
+    "layer": "full"
+  },
+  "openai/chatgpt-4o-latest": {
+    "score": 71.97266702153776,
+    "layer": "full"
+  },
+  "perplexity/sonar-deep-research": {
+    "score": 71.90232625230738,
+    "layer": "full"
+  },
+  "openai/gpt-3.5-turbo-instruct": {
+    "score": 71.84920394461524,
+    "layer": "full"
+  },
+  "tngtech/deepseek-r1t-chimera": {
+    "score": 71.83768,
+    "layer": "full"
+  },
+  "thedrummer/skyfall-36b-v2": {
+    "score": 71.8335540215384,
+    "layer": "full"
+  },
+  "amazon/nova-micro-v1": {
+    "score": 71.82761950615385,
+    "layer": "full"
+  },
+  "mistralai/mixtral-8x7b-instruct": {
+    "score": 71.65821469846149,
+    "layer": "full"
+  },
+  "meta-llama/llama-4-maverick-17b-128e-instruct": {
+    "score": 71.61731755999998,
+    "layer": "full"
+  },
+  "openai/gpt-4": {
+    "score": 71.57575086768868,
+    "layer": "full"
+  },
+  "qwen/qwen3-235b-a22b-07-25": {
+    "score": 71.50007848384615,
+    "layer": "full"
+  },
+  "openai/gpt-5-mini-2025-08-07": {
+    "score": 71.46091355999994,
+    "layer": "full"
+  },
+  "x-ai/grok-code-fast-1": {
+    "score": 71.4449150984615,
+    "layer": "full"
+  },
+  "opengvlab/internvl3-78b": {
+    "score": 71.40519842923075,
+    "layer": "full"
+  },
+  "nousresearch/hermes-4-405b": {
+    "score": 71.37970548307679,
+    "layer": "full"
+  },
+  "ai21/jamba-large-1.7": {
+    "score": 71.36880625230738,
+    "layer": "full"
+  },
+  "mistralai/mistral-large-2512": {
+    "score": 71.33407279076917,
+    "layer": "provisional"
+  },
+  "openai/o4-mini-deep-research-2025-06-26": {
+    "score": 71.31080625230736,
+    "layer": "full"
+  },
+  "openai/gpt-5-image": {
+    "score": 71.28660009846055,
+    "layer": "full"
+  },
+  "inflection/inflection-3-productivity": {
+    "score": 71.28141779076883,
+    "layer": "full"
+  },
+  "anthropic/claude-3.5-sonnet": {
+    "score": 71.27866471384503,
+    "layer": "full"
+  },
+  "openai/gpt-4-1106-preview": {
+    "score": 71.27675394461396,
+    "layer": "full"
+  },
+  "openai/gpt-4o-2024-11-20": {
+    "score": 71.25063779076882,
+    "layer": "full"
+  },
+  "nvidia/nemotron-nano-12b-v2-vl": {
+    "score": 71.227,
+    "layer": "full"
+  },
+  "deepseek/deepseek-chat-v3-0324": {
+    "score": 71.13961662923074,
+    "layer": "full"
+  },
+  "mistralai/codestral-2508": {
+    "score": 71.0713957138461,
+    "layer": "full"
+  },
+  "openai/o4-mini-2025-04-16": {
+    "score": 70.98214148307675,
+    "layer": "full"
+  },
+  "meta-llama/llama-4-scout-17b-16e-instruct": {
+    "score": 70.94001879076922,
+    "layer": "full"
+  },
+  "mistralai/mixtral-8x22b-instruct": {
+    "score": 70.85293086769204,
+    "layer": "full"
+  },
+  "cohere/command-r-08-2024": {
+    "score": 70.84227755999999,
+    "layer": "full"
+  },
+  "qwen/qwen3-30b-a3b-instruct-2507": {
+    "score": 70.80645872153845,
+    "layer": "full"
+  },
+  "openai/gpt-3.5-turbo-0613": {
+    "score": 70.79072779076913,
+    "layer": "full"
+  },
+  "ibm-granite/granite-4.0-h-micro": {
+    "score": 70.76831971384615,
+    "layer": "full"
+  },
+  "bytedance-seed/seed-1.6-20250625": {
+    "score": 70.75393355999995,
+    "layer": "full"
+  },
+  "openai/gpt-5.1-chat-20251113": {
+    "score": 70.69412740615353,
+    "layer": "full"
+  },
+  "openai/gpt-4-0314": {
+    "score": 70.65417086768869,
+    "layer": "full"
+  },
+  "amazon/nova-2-lite-v1": {
+    "score": 70.6300320215384,
+    "layer": "full"
+  },
+  "baidu/ernie-4.5-vl-424b-a47b": {
+    "score": 70.61799398307687,
+    "layer": "full"
+  },
+  "qwen/qwen-vl-max-2025-01-25": {
+    "score": 70.61384655999987,
+    "layer": "full"
+  },
+  "qwen/qwen3-30b-a3b-thinking-2507": {
+    "score": 70.58943892153846,
+    "layer": "full"
+  },
+  "openai/o4-mini-high-2025-04-16": {
+    "score": 70.54886148307675,
+    "layer": "full"
+  },
+  "mistralai/mistral-7b-instruct-v0.2": {
+    "score": 70.53335809846153,
+    "layer": "full"
+  },
+  "undi95/remm-slerp-l2-13b": {
+    "score": 70.52811513692303,
+    "layer": "full"
+  },
+  "google/gemini-2.0-flash-exp": {
+    "score": 70.5126,
+    "layer": "full"
+  },
+  "perplexity/sonar-pro": {
+    "score": 70.47054240615329,
+    "layer": "full"
+  },
+  "allenai/olmo-2-0325-32b-instruct": {
+    "score": 70.44331925230769,
+    "layer": "full"
+  },
+  "google/gemini-2.5-flash-preview-09-2025": {
+    "score": 70.4336720215384,
+    "layer": "full"
+  },
+  "mistralai/mistral-small-3.1-24b-instruct-2503": {
+    "score": 70.40718000000001,
+    "layer": "full"
+  },
+  "z-ai/glm-4-32b-0414": {
+    "score": 70.38833909846153,
+    "layer": "full"
+  },
+  "meta-llama/llama-3.2-1b-instruct": {
+    "score": 70.35143942923077,
+    "layer": "full"
+  },
+  "ai21/jamba-mini-1.7": {
+    "score": 70.35075763692306,
+    "layer": "full"
+  },
+  "arcee-ai/trinity-mini-20251201": {
+    "score": 70.33274,
+    "layer": "full"
+  },
+  "alibaba/tongyi-deepresearch-30b-a3b": {
+    "score": 70.30601848307691,
+    "layer": "full"
+  },
+  "allenai/olmo-3-32b-think-20251121": {
+    "score": 70.22329779076922,
+    "layer": "full"
+  },
+  "minimax/minimax-m2.1": {
+    "score": 70.10503543692303,
+    "layer": "full"
+  },
+  "tngtech/deepseek-r1t2-chimera": {
+    "score": 70.04556000000002,
+    "layer": "full"
+  },
+  "anthropic/claude-4.5-haiku-20251001": {
+    "score": 70.04164086769212,
+    "layer": "full"
+  },
+  "mistralai/mistral-nemo": {
+    "score": 70.0357598523077,
+    "layer": "full"
+  },
+  "qwen/qwen-vl-plus": {
+    "score": 70.02397702923075,
+    "layer": "full"
+  },
+  "deepseek/deepseek-v3.2-20251201": {
+    "score": 69.97383729846152,
+    "layer": "full"
+  },
+  "mistralai/mistral-small-3.2-24b-instruct-2506": {
+    "score": 69.94727922153845,
+    "layer": "full"
+  },
+  "mistralai/mistral-large": {
+    "score": 69.91891086769203,
+    "layer": "full"
+  },
+  "google/gemini-2.5-pro-preview-06-05": {
+    "score": 69.91456740615354,
+    "layer": "full"
+  },
+  "qwen/qwen3-vl-8b-thinking": {
+    "score": 69.79367386769226,
+    "layer": "full"
+  },
+  "anthropic/claude-4.1-opus-20250805": {
+    "score": 69.77909163692024,
+    "layer": "full"
+  },
+  "anthropic/claude-4.5-opus-20251124": {
+    "score": 69.73854394461445,
+    "layer": "full"
+  },
+  "eleutherai/llemma_7b": {
+    "score": 69.73493117538455,
+    "layer": "full"
+  },
+  "qwen/qwen3-coder-480b-a35b-07-25": {
+    "score": 69.71398,
+    "layer": "full"
+  },
+  "openai/gpt-4o-mini": {
+    "score": 69.67495756,
+    "layer": "full"
+  },
+  "nousresearch/hermes-3-llama-3.1-405b": {
+    "score": 69.60228000000001,
+    "layer": "full"
+  },
+  "meta-llama/llama-3.1-70b-instruct": {
+    "score": 69.5622960984615,
+    "layer": "full"
+  },
+  "google/gemini-2.5-flash-lite": {
+    "score": 69.52547840615384,
+    "layer": "provisional"
+  },
+  "qwen/qwen3-coder-30b-a3b-instruct": {
+    "score": 69.52537893692308,
+    "layer": "full"
+  },
+  "deepseek/deepseek-v3.2-exp": {
+    "score": 69.51757774461538,
+    "layer": "full"
+  },
+  "openai/gpt-4o-2024-05-13": {
+    "score": 69.51586702153776,
+    "layer": "full"
+  },
+  "qwen/qwen3-8b-04-28": {
+    "score": 69.43689913692307,
+    "layer": "full"
+  },
+  "openai/gpt-4-turbo": {
+    "score": 69.34369394461395,
+    "layer": "full"
+  },
+  "cohere/command-r-plus-08-2024": {
+    "score": 69.32475779076881,
+    "layer": "full"
+  },
+  "moonshotai/kimi-dev-72b": {
+    "score": 69.31669521384612,
+    "layer": "full"
+  },
+  "baidu/ernie-4.5-21b-a3b-thinking": {
+    "score": 69.31063891384615,
+    "layer": "full"
+  },
+  "openai/o3-pro-2025-06-10": {
+    "score": 69.29074163691976,
+    "layer": "full"
+  },
+  "mistralai/pixtral-large-2411": {
+    "score": 69.27787086769203,
+    "layer": "full"
+  },
+  "openai/gpt-5-nano-2025-08-07": {
+    "score": 69.25883879076923,
+    "layer": "full"
+  },
+  "openai/gpt-5-image-mini": {
+    "score": 69.24993625230746,
+    "layer": "full"
+  },
+  "google/gemini-2.0-flash-001": {
+    "score": 69.23421840615384,
+    "layer": "full"
+  },
+  "allenai/olmo-3.1-32b-instruct-20251215": {
+    "score": 69.2204971753846,
+    "layer": "full"
+  },
+  "mistralai/mistral-small-creative-20251216": {
+    "score": 69.18741863692307,
+    "layer": "full"
+  },
+  "mistralai/mistral-large-2407": {
+    "score": 69.16209086769203,
+    "layer": "full"
+  },
+  "liquid/lfm2-8b-a1b": {
+    "score": 69.15053997538462,
+    "layer": "full"
+  },
+  "google/gemini-3-pro-preview-20251117": {
+    "score": 69.14717702153806,
+    "layer": "full"
+  },
+  "nvidia/llama-3.1-nemotron-ultra-253b-v1": {
+    "score": 69.12757132923069,
+    "layer": "full"
+  },
+  "openai/gpt-5.1-20251113": {
+    "score": 69.08954740615353,
+    "layer": "full"
+  },
+  "deepcogito/cogito-v2-preview-llama-70b": {
+    "score": 69.03123129846145,
+    "layer": "full"
+  },
+  "x-ai/grok-4.1-fast": {
+    "score": 68.99793740615382,
+    "layer": "full"
+  },
+  "relace/relace-apply-3": {
+    "score": 68.91305067538454,
+    "layer": "full"
+  },
+  "google/gemma-2-27b-it": {
+    "score": 68.91087359846148,
+    "layer": "full"
+  },
+  "openai/gpt-oss-safeguard-20b": {
+    "score": 68.90421882923076,
+    "layer": "full"
+  },
+  "deepcogito/cogito-v2-preview-llama-109b-moe": {
+    "score": 68.87659735230767,
+    "layer": "full"
+  },
+  "qwen/qwen3-vl-8b-instruct": {
+    "score": 68.83067832923075,
+    "layer": "full"
+  },
+  "mistralai/mistral-small-24b-instruct-2501": {
+    "score": 68.78393961384616,
+    "layer": "full"
+  },
+  "nousresearch/hermes-2-pro-llama-3-8b": {
+    "score": 68.74487972153847,
+    "layer": "full"
+  },
+  "qwen/qwen3-vl-32b-instruct": {
+    "score": 68.73649279076916,
+    "layer": "full"
+  },
+  "mistralai/ministral-8b-2512": {
+    "score": 68.63301859846153,
+    "layer": "full"
+  },
+  "nousresearch/deephermes-3-mistral-24b-preview": {
+    "score": 68.47689971384617,
+    "layer": "full"
+  },
+  "meta-llama/llama-3.1-405b": {
+    "score": 68.33652009846116,
+    "layer": "full"
+  },
+  "qwen/qwen3-32b-04-28": {
+    "score": 68.33033892923076,
+    "layer": "full"
+  },
+  "anthropic/claude-4.5-sonnet-20250929": {
+    "score": 68.31792240615329,
+    "layer": "full"
+  },
+  "mistralai/mistral-7b-instruct-v0.1": {
+    "score": 68.11545881384615,
+    "layer": "full"
+  },
+  "minimax/minimax-m2": {
+    "score": 68.09415625230766,
+    "layer": "provisional"
+  },
+  "openai/gpt-4.1-mini": {
+    "score": 68.06450008861539,
+    "layer": "full"
+  },
+  "google/gemma-3n-e2b-it": {
+    "score": 68.05824000000001,
+    "layer": "full"
+  },
+  "qwen/qwen-turbo-2024-11-01": {
+    "score": 68.0257592523077,
+    "layer": "full"
+  },
+  "tencent/hunyuan-a13b-instruct": {
+    "score": 67.99305770615383,
+    "layer": "full"
+  },
+  "sao10k/l3-euryale-70b": {
+    "score": 67.9924052984614,
+    "layer": "full"
+  },
+  "openai/gpt-5.2-chat-20251211": {
+    "score": 67.98969432923033,
+    "layer": "full"
+  },
+  "tngtech/tng-r1t-chimera": {
+    "score": 67.93232,
+    "layer": "full"
+  },
+  "anthropic/claude-4-sonnet-20250522": {
+    "score": 67.91266240615329,
+    "layer": "full"
+  },
+  "baidu/ernie-4.5-vl-28b-a3b": {
+    "score": 67.75085772923075,
+    "layer": "full"
+  },
+  "qwen/qwen-2.5-72b-instruct": {
+    "score": 67.72849827538461,
+    "layer": "full"
+  },
+  "z-ai/glm-4.6": {
+    "score": 67.58711394461533,
+    "layer": "full"
+  },
+  "openai/gpt-oss-120b": {
+    "score": 67.58158,
+    "layer": "full"
+  },
+  "google/gemini-2.5-flash-lite-preview-09-2025": {
+    "score": 67.52505840615385,
+    "layer": "full"
+  },
+  "sao10k/l3.1-70b-hanami-x1": {
+    "score": 67.44597009846126,
+    "layer": "full"
+  },
+  "inflection/inflection-3-pi": {
+    "score": 67.44143779076883,
+    "layer": "full"
+  },
+  "qwen/qwen3-235b-a22b-04-28": {
+    "score": 67.3919971753846,
+    "layer": "full"
+  },
+  "meta-llama/llama-3.2-11b-vision-instruct": {
+    "score": 67.30793960846155,
+    "layer": "full"
+  },
+  "google/gemini-2.5-flash": {
+    "score": 67.30605202153839,
+    "layer": "full"
+  },
+  "qwen/qwen2.5-coder-7b-instruct": {
+    "score": 67.21481966,
+    "layer": "full"
+  },
+  "liquid/lfm-2.2-6b": {
+    "score": 67.20143997538462,
+    "layer": "full"
+  },
+  "arcee-ai/maestro-reasoning": {
+    "score": 67.17416555999986,
+    "layer": "full"
+  },
+  "venice/uncensored": {
+    "score": 67.165,
+    "layer": "full"
+  },
+  "meta-llama/llama-3.3-70b-instruct": {
+    "score": 67.16264000000001,
+    "layer": "full"
+  },
+  "baidu/ernie-4.5-21b-a3b": {
+    "score": 67.10847891384614,
+    "layer": "full"
+  },
+  "meta-llama/llama-guard-3-8b": {
+    "score": 67.05221980615386,
+    "layer": "full"
+  },
+  "mistralai/mistral-medium-3.1": {
+    "score": 67.00465240615378,
+    "layer": "full"
+  },
+  "openai/gpt-oss-20b": {
+    "score": 66.94706000000002,
+    "layer": "full"
+  },
+  "allenai/olmo-3-7b-instruct-20251121": {
+    "score": 66.90177886769231,
+    "layer": "full"
+  },
+  "openai/o3-mini-high-2025-01-31": {
+    "score": 66.88822148307675,
+    "layer": "full"
+  },
+  "mistralai/pixtral-12b": {
+    "score": 66.82275909846155,
+    "layer": "full"
+  },
+  "openai/gpt-5.1-codex-max-20251204": {
+    "score": 66.79352740615353,
+    "layer": "full"
+  },
+  "nvidia/nemotron-3-nano-30b-a3b": {
+    "score": 66.78688,
+    "layer": "full"
+  },
+  "mistralai/devstral-2512": {
+    "score": 66.77918000000001,
+    "layer": "full"
+  },
+  "openai/gpt-5.2-20251211": {
+    "score": 66.64745432923033,
+    "layer": "full"
+  },
+  "google/gemini-2.5-pro-preview-03-25": {
+    "score": 66.58886740615354,
+    "layer": "full"
+  },
+  "qwen/qwen-plus-2025-07-28": {
+    "score": 66.58815425230763,
+    "layer": "full"
+  },
+  "nvidia/llama-3.3-nemotron-super-49b-v1.5": {
+    "score": 66.57387840615384,
+    "layer": "full"
+  },
+  "qwen/qwen3-coder-plus": {
+    "score": 66.54754086769213,
+    "layer": "full"
+  },
+  "mistralai/mistral-tiny": {
+    "score": 66.54009759846151,
+    "layer": "full"
+  },
+  "qwen/qwen-2.5-7b-instruct": {
+    "score": 66.42615956,
+    "layer": "full"
+  },
+  "amazon/nova-premier-v1": {
+    "score": 66.417272021538,
+    "layer": "provisional"
+  },
+  "thedrummer/cydonia-24b-v4.1": {
+    "score": 66.24377663692304,
+    "layer": "full"
+  },
+  "openai/gpt-4o-2024-08-06": {
+    "score": 66.08625779076881,
+    "layer": "full"
+  },
+  "x-ai/grok-3-mini-beta": {
+    "score": 65.84653663692305,
+    "layer": "full"
+  },
+  "qwen/qwen3-vl-30b-a3b-instruct": {
+    "score": 65.84255755999997,
+    "layer": "full"
+  },
+  "qwen/qwen-2-vl-7b-instruct": {
+    "score": 65.75916000000001,
+    "layer": "full"
+  },
+  "openai/gpt-4o-mini-search-preview-2025-03-11": {
+    "score": 65.72337755999999,
+    "layer": "full"
+  },
+  "z-ai/glm-4.5v": {
+    "score": 65.72271132923069,
+    "layer": "full"
+  },
+  "deepseek/deepseek-r1-0528": {
+    "score": 65.64238,
+    "layer": "full"
+  },
+  "google/gemini-2.0-flash-lite-001": {
+    "score": 65.60371882923077,
+    "layer": "provisional"
+  },
+  "openai/o1-2024-12-17": {
+    "score": 65.59914625230519,
+    "layer": "full"
+  },
+  "openai/gpt-5-pro-2025-10-06": {
+    "score": 65.56848779076537,
+    "layer": "full"
+  },
+  "anthropic/claude-3-5-haiku": {
+    "score": 65.53138471384601,
+    "layer": "full"
+  },
+  "gryphe/mythomax-l2-13b": {
+    "score": 65.48981949846154,
+    "layer": "full"
+  },
+  "nvidia/nemotron-nano-9b-v2": {
+    "score": 65.45188,
+    "layer": "full"
+  },
+  "z-ai/glm-4.7-20251222": {
+    "score": 65.20693355999995,
+    "layer": "provisional"
+  },
+  "qwen/qwen2.5-vl-32b-instruct": {
+    "score": 65.20333920615386,
+    "layer": "full"
+  },
+  "perplexity/sonar-reasoning-pro": {
+    "score": 65.17986625230738,
+    "layer": "full"
+  },
+  "perplexity/sonar-pro-search": {
+    "score": 65.16132240615329,
+    "layer": "provisional"
+  },
+  "google/gemini-2.5-flash-image": {
+    "score": 65.14951202153838,
+    "layer": "full"
+  },
+  "bytedance/ui-tars-1.5-7b": {
+    "score": 65.06669886769231,
+    "layer": "full"
+  },
+  "openai/gpt-5-chat-2025-08-07": {
+    "score": 65.03442740615354,
+    "layer": "full"
+  },
+  "raifle/sorcererlm-8x22b": {
+    "score": 65.02715509846111,
+    "layer": "full"
+  },
+  "anthropic/claude-4-opus-20250522": {
+    "score": 64.98327163692025,
+    "layer": "full"
+  },
+  "meta-llama/llama-3.1-405b-instruct": {
+    "score": 64.96036000000001,
+    "layer": "full"
+  },
+  "openai/gpt-5-2025-08-07": {
+    "score": 64.91658740615352,
+    "layer": "full"
+  },
+  "openai/gpt-4-turbo-preview": {
+    "score": 64.85837394461396,
+    "layer": "full"
+  },
+  "meta-llama/llama-guard-4-12b": {
+    "score": 64.84759829846153,
+    "layer": "full"
+  },
+  "deepcogito/cogito-v2.1-671b-20251118": {
+    "score": 64.74350759846143,
+    "layer": "full"
+  },
+  "qwen/qwen-plus-2025-01-25": {
+    "score": 64.73991425230763,
+    "layer": "full"
+  },
+  "openrouter/auto": {
+    "score": 64.72802,
+    "layer": "full"
+  },
+  "mistralai/mistral-7b-instruct-v0.3": {
+    "score": 64.71097809846152,
+    "layer": "full"
+  },
+  "mistralai/devstral-small-2507": {
+    "score": 64.60025863692307,
+    "layer": "full"
+  },
+  "qwen/qwen3-4b-04-28": {
+    "score": 64.58936000000001,
+    "layer": "full"
+  },
+  "z-ai/glm-4.5": {
+    "score": 64.56769382923072,
+    "layer": "full"
+  },
+  "qwen/qwen3-next-80b-a3b-instruct-2509": {
+    "score": 64.53304,
+    "layer": "full"
+  },
+  "deepseek/deepseek-v3.1-terminus": {
+    "score": 64.52701665999997,
+    "layer": "provisional"
+  },
+  "minimax/minimax-01": {
+    "score": 64.40931602153844,
+    "layer": "full"
+  },
+  "switchpoint/router": {
+    "score": 64.38854571384601,
+    "layer": "full"
+  },
+  "sao10k/l3.1-euryale-70b": {
+    "score": 64.33193336769224,
+    "layer": "full"
+  },
+  "sao10k/l3.3-euryale-70b-v2.3": {
+    "score": 64.28635336769224,
+    "layer": "full"
+  },
+  "deepseek/deepseek-r1-distill-qwen-32b": {
+    "score": 64.15231719846152,
+    "layer": "full"
+  },
+  "thedrummer/rocinante-12b": {
+    "score": 63.91579779846152,
+    "layer": "full"
+  },
+  "x-ai/grok-3-mini": {
+    "score": 63.87353663692304,
+    "layer": "provisional"
+  },
+  "openai/gpt-5.1-codex-mini-20251113": {
+    "score": 63.84233355999994,
+    "layer": "full"
+  },
+  "openai/o1-pro": {
+    "score": 63.82064163689809,
+    "layer": "full"
+  },
+  "moonshotai/kimi-k2": {
+    "score": 63.72622,
+    "layer": "full"
+  },
+  "mistralai/ministral-3b-2512": {
+    "score": 63.540399098461535,
+    "layer": "full"
+  },
+  "openai/o3-2025-04-16": {
+    "score": 63.38934625230737,
+    "layer": "full"
+  },
+  "google/gemma-2-9b-it": {
+    "score": 63.32545966000001,
+    "layer": "full"
+  },
+  "qwen/qwen2.5-vl-72b-instruct": {
+    "score": 63.227877559999975,
+    "layer": "full"
+  },
+  "aion-labs/aion-rp-llama-3.1-8b": {
+    "score": 63.10633025230761,
+    "layer": "full"
+  },
+  "cohere/command-r7b-12-2024": {
+    "score": 62.98625946384617,
+    "layer": "full"
+  },
+  "mistralai/devstral-medium-2507": {
+    "score": 62.976232406153784,
+    "layer": "full"
+  },
+  "x-ai/grok-3": {
+    "score": 62.77234240615328,
+    "layer": "full"
+  },
+  "nvidia/llama-3.1-nemotron-70b-instruct": {
+    "score": 62.71210809846143,
+    "layer": "full"
+  },
+  "mistralai/ministral-8b": {
+    "score": 62.69637909846154,
+    "layer": "provisional"
+  },
+  "microsoft/wizardlm-2-8x22b": {
+    "score": 62.4719552984615,
+    "layer": "full"
+  },
+  "x-ai/grok-3-beta": {
+    "score": 62.36510240615329,
+    "layer": "full"
+  },
+  "neversleep/llama-3.1-lumimaid-8b": {
+    "score": 62.256118021538455,
+    "layer": "provisional"
+  },
+  "openrouter/bodybuilder": {
+    "score": 62.175740000000005,
+    "layer": "full"
+  },
+  "openai/gpt-5.1-codex-20251113": {
+    "score": 62.047727406153534,
+    "layer": "provisional"
+  },
+  "arcee-ai/virtuoso-large": {
+    "score": 61.95869155999993,
+    "layer": "full"
+  },
+  "qwen/qwen3-14b-04-28": {
+    "score": 61.93867920615385,
+    "layer": "full"
+  },
+  "qwen/qwen-max-2025-01-25": {
+    "score": 61.860673021538204,
+    "layer": "full"
+  },
+  "prime-intellect/intellect-3-20251126": {
+    "score": 61.66121602153842,
+    "layer": "provisional"
+  },
+  "mistralai/mistral-saba-2502": {
+    "score": 61.64855717538459,
+    "layer": "full"
+  },
+  "mistralai/mistral-large-2411": {
+    "score": 61.58441086769203,
+    "layer": "full"
+  },
+  "aion-labs/aion-1.0": {
+    "score": 61.564090867691824,
+    "layer": "full"
+  },
+  "meta-llama/llama-3-8b-instruct": {
+    "score": 61.33639972923077,
+    "layer": "full"
+  },
+  "deepseek/deepseek-chat-v3.1": {
+    "score": 61.31223721384613,
+    "layer": "full"
+  },
+  "sao10k/l3-lunaris-8b": {
+    "score": 61.225779675384615,
+    "layer": "full"
+  },
+  "allenai/olmo-3.1-32b-think-20251215": {
+    "score": 61.11401779076921,
+    "layer": "full"
+  },
+  "openai/gpt-5.2-codex-20260114": {
+    "score": 61.079014329230326,
+    "layer": "full"
+  },
+  "xiaomi/mimo-v2-flash-20251210": {
+    "score": 61.05698000000001,
+    "layer": "provisional"
+  },
+  "openai/gpt-4.1-mini-2025-04-14": {
+    "score": 61.0195533292307,
+    "layer": "full"
+  },
+  "neversleep/noromaid-20b": {
+    "score": 59.646968367692196,
+    "layer": "full"
+  },
+  "nousresearch/hermes-4-70b": {
+    "score": 59.586218375384604,
+    "layer": "full"
+  },
+  "moonshotai/kimi-k2-thinking-20251106": {
+    "score": 58.62205298307687,
+    "layer": "full"
+  },
+  "nousresearch/hermes-3-llama-3.1-70b": {
+    "score": 58.51285709846151,
+    "layer": "provisional"
+  },
+  "google/gemma-3-12b-it": {
+    "score": 57.97014000000001,
+    "layer": "full"
+  }
+}
