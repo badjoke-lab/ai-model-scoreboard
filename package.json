@@ -15,7 +15,8 @@
     "v4:verify": "npm run v4:normalize-public && npm run v4:validate-output && npm run check:v4",
     "validate:v4": "node scripts/validate-v4-models.js",
     "v4:normalize-public": "node scripts/v4-normalize-public.js",
-    "v4:diff-modelset": "node scripts/v4-diff-modelset.js"
+    "v4:diff-modelset": "node scripts/v4-diff-modelset.js",
+    "spec:v4": "node scripts/spec-assert-v4.js"
   },
   "dependencies": {
     "next": "14.2.3",

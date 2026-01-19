@@ -165,11 +165,43 @@ function parseRankings(data: unknown): { data: V4RankingEntry[]; errors: string[
 
 function parseModels(data: unknown): { data: Record<string, V4ModelMetadata>; errors: string[] } {
   const errors: string[] = [];
-  if (!isObject(data)) {
-    return { data: {}, errors: ["models.json: expected object"] };
+  const normalized: Record<string, V4ModelMetadata> = {};
+  if (Array.isArray(data)) {
+    data.forEach((value, index) => {
+      if (!isObject(value)) {
+        errors.push(`models.json: entry[${index}] invalid`);
+        return;
+      }
+      const modelKey =
+        typeof value.modelKey === "string"
+          ? value.modelKey
+          : typeof value.key === "string"
+            ? value.key
+            : typeof value.slug === "string"
+              ? value.slug
+              : typeof value.id === "string"
+                ? value.id
+                : typeof (value as { identity?: { modelKey?: string } }).identity?.modelKey ===
+                    "string"
+                  ? (value as { identity?: { modelKey?: string } }).identity?.modelKey
+                  : null;
+      if (!modelKey) {
+        errors.push(`models.json: entry[${index}] missing model key`);
+        return;
+      }
+      const source = isObject(value.model) ? value.model : value;
+      normalized[modelKey] = {
+        name: typeof source.name === "string" ? source.name : modelKey,
+        vendor: typeof source.vendor === "string" ? source.vendor : "",
+      };
+    });
+    return { data: normalized, errors };
   }
 
-  const normalized: Record<string, V4ModelMetadata> = {};
+  if (!isObject(data)) {
+    return { data: {}, errors: ["models.json: expected object or array"] };
+  }
+
   for (const [key, value] of Object.entries(data)) {
     if (!isObject(value)) {
       errors.push(`models.json: invalid entry for ${key}`);
