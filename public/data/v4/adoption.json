@@ -1261,6 +1261,18 @@
       "source": "openrouter"
     },
     {
+      "modelKey": "openai/gpt-audio",
+      "name": "OpenAI: GPT Audio",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "openai/gpt-audio-mini",
+      "name": "OpenAI: GPT Audio Mini",
+      "provider": "openai",
+      "source": "openrouter"
+    },
+    {
       "modelKey": "openai/gpt-oss-120b",
       "name": "OpenAI: gpt-oss-120b (free)",
       "provider": "openai",

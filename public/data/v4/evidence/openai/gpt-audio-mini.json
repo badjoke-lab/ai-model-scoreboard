@@ -1,7 +1,7 @@
 {
   "meta": {
     "updatedAt": "2026-01-19T23:35:13.927Z",
-    "modelKey": "mistralai/mistral-7b-instruct-v0.3"
+    "modelKey": "openai/gpt-audio-mini"
   },
   "evidenceItems": [
     {
@@ -9,13 +9,15 @@
       "status": "ok",
       "reasons": [
         "ok",
-        "openrouter_model_page_only"
+        "openrouter_model_page",
+        "provider_fallback"
       ],
       "refs": [
-        "https://openrouter.ai/models/mistralai/mistral-7b-instruct-v0.3"
+        "https://openai.com",
+        "https://openrouter.ai/models/openai/gpt-audio-mini"
       ],
       "extracted": {
-        "url": "https://openrouter.ai/models/mistralai/mistral-7b-instruct-v0.3"
+        "url": "https://openai.com"
       }
     },
     {
@@ -37,7 +39,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Mistral: Mistral 7B Instruct v0.3\""
+        "arxiv_query:\"OpenAI: GPT Audio Mini\""
       ]
     },
     {

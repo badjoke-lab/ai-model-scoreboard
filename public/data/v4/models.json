@@ -44306,6 +44306,428 @@
     },
     "layer": "full"
   },
+  "openai/gpt-audio": {
+    "name": "OpenAI: GPT Audio",
+    "vendor": "openai",
+    "released": "2026-01-19T22:42:49.000Z",
+    "context": 128000,
+    "type": "text+audio->text+audio",
+    "pricing": {
+      "input": 0.0000025,
+      "output": 0.00001,
+      "currency": "USD"
+    },
+    "scores": {
+      "overall": 67.63761779076883,
+      "categories": {
+        "performance": 70.64040000000001,
+        "safety": 70,
+        "adoption": 69.21000000000001,
+        "openness": 33.33333333333333,
+        "cost": 99.99957790768815
+      },
+      "items": {
+        "S1": {
+          "score": 50,
+          "inputs": {
+            "safetySection": false,
+            "highRisk": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S2": {
+          "score": 50,
+          "inputs": {
+            "rlhf": false,
+            "dataDisclosure": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S3": {
+          "score": 0,
+          "inputs": {
+            "misusePolicy": false,
+            "harmMitigation": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S4": {
+          "score": 50,
+          "inputs": {
+            "redTeam": false,
+            "independentAudit": true
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "S5": {
+          "score": 100,
+          "inputs": {
+            "transparencyUpdate": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S6": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_minor_incidents"
+          ]
+        },
+        "S7": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_major_incidents"
+          ]
+        },
+        "S8": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_critical_incidents"
+          ]
+        },
+        "T1": {
+          "score": 33.33333333333333,
+          "inputs": {
+            "modelCard": false,
+            "overview": false,
+            "limitations": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T2": {
+          "score": 0,
+          "inputs": {
+            "dataCategories": false,
+            "dataFiltering": false,
+            "copyright": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T3": {
+          "score": 0,
+          "inputs": {
+            "architecture": false,
+            "parameterScale": false
+          },
+          "usedEvidence": [
+            {
+              "type": "paper",
+              "status": "not_found"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_paper_not_found"
+          ]
+        },
+        "T4": {
+          "score": 75,
+          "inputs": {
+            "safetyControls": true,
+            "riskLimits": true,
+            "externalReview": false,
+            "transparencyReport": true
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "Q1": {
+          "score": 85.67,
+          "inputs": {
+            "benchmark": 85.67
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q2": {
+          "score": 56.08,
+          "inputs": {
+            "benchmark": 56.08
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q3": {
+          "score": 65.15622,
+          "inputs": {
+            "math": 64.65,
+            "chat": 81.36,
+            "arena": 59.68,
+            "vendor": 60.89
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        }
+      }
+    },
+    "layer": "full"
+  },
+  "openai/gpt-audio-mini": {
+    "name": "OpenAI: GPT Audio Mini",
+    "vendor": "openai",
+    "released": "2026-01-19T21:50:19.000Z",
+    "context": 128000,
+    "type": "text+audio->text+audio",
+    "pricing": {
+      "input": 6e-7,
+      "output": 0.0000024,
+      "currency": "USD"
+    },
+    "scores": {
+      "overall": 71.2338899446153,
+      "categories": {
+        "performance": 74.70850000000002,
+        "safety": 70,
+        "adoption": 65.67,
+        "openness": 50,
+        "cost": 99.99989944615285
+      },
+      "items": {
+        "S1": {
+          "score": 50,
+          "inputs": {
+            "safetySection": true,
+            "highRisk": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S2": {
+          "score": 50,
+          "inputs": {
+            "rlhf": true,
+            "dataDisclosure": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S3": {
+          "score": 100,
+          "inputs": {
+            "misusePolicy": true,
+            "harmMitigation": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S4": {
+          "score": 50,
+          "inputs": {
+            "redTeam": false,
+            "independentAudit": true
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "S5": {
+          "score": 0,
+          "inputs": {
+            "transparencyUpdate": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S6": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_minor_incidents"
+          ]
+        },
+        "S7": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_major_incidents"
+          ]
+        },
+        "S8": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_critical_incidents"
+          ]
+        },
+        "T1": {
+          "score": 66.66666666666666,
+          "inputs": {
+            "modelCard": true,
+            "overview": false,
+            "limitations": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T2": {
+          "score": 66.66666666666666,
+          "inputs": {
+            "dataCategories": true,
+            "dataFiltering": false,
+            "copyright": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T3": {
+          "score": 100,
+          "inputs": {
+            "architecture": true,
+            "parameterScale": true
+          },
+          "usedEvidence": [
+            {
+              "type": "paper",
+              "status": "not_found"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_paper_not_found"
+          ]
+        },
+        "T4": {
+          "score": 0,
+          "inputs": {
+            "safetyControls": false,
+            "riskLimits": false,
+            "externalReview": false,
+            "transparencyReport": false
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "Q1": {
+          "score": 61.99,
+          "inputs": {
+            "benchmark": 61.99
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q2": {
+          "score": 82.32,
+          "inputs": {
+            "benchmark": 82.32
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q3": {
+          "score": 84.07765,
+          "inputs": {
+            "math": 86.32,
+            "chat": 59.05,
+            "arena": 88.3,
+            "vendor": 45.41
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        }
+      }
+    },
+    "layer": "full"
+  },
   "openai/gpt-oss-120b": {
     "name": "OpenAI: gpt-oss-120b (free)",
     "vendor": "openai",

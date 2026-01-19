@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-19T22:40:59.679Z",
+    "generatedAt": "2026-01-19T23:35:13.927Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 307,
-      "adopted": 307,
+      "total": 309,
+      "adopted": 309,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 305,
+        "openrouter": 307,
         "seed": 2
       }
     },
@@ -3591,6 +3591,40 @@
       "rawRef": {
         "id": "openai/gpt-5.2-pro",
         "canonical_slug": "openai/gpt-5.2-pro-20251211"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-audio",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT Audio",
+        "slug": "openai/gpt-audio",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-audio",
+        "canonical_slug": "openai/gpt-audio"
+      }
+    },
+    {
+      "modelKey": "openai/gpt-audio-mini",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "OpenAI: GPT Audio Mini",
+        "slug": "openai/gpt-audio-mini",
+        "provider": "openai"
+      },
+      "rawRef": {
+        "id": "openai/gpt-audio-mini",
+        "canonical_slug": "openai/gpt-audio-mini"
       }
     },
     {

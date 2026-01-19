@@ -395,6 +395,10 @@
     "score": 71.25063779076882,
     "layer": "full"
   },
+  "openai/gpt-audio-mini": {
+    "score": 71.2338899446153,
+    "layer": "full"
+  },
   "nvidia/nemotron-nano-12b-v2-vl": {
     "score": 71.227,
     "layer": "full"
@@ -777,6 +781,10 @@
   },
   "qwen/qwen-2.5-72b-instruct": {
     "score": 67.72849827538461,
+    "layer": "full"
+  },
+  "openai/gpt-audio": {
+    "score": 67.63761779076883,
     "layer": "full"
   },
   "z-ai/glm-4.6": {

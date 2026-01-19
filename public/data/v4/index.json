@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-19T22:40:59.679Z",
+  "updatedAt": "2026-01-19T23:35:13.927Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -230,6 +230,8 @@
       "evidence/openai/gpt-5.2-chat-20251211.json",
       "evidence/openai/gpt-5.2-codex-20260114.json",
       "evidence/openai/gpt-5.2-pro-20251211.json",
+      "evidence/openai/gpt-audio.json",
+      "evidence/openai/gpt-audio-mini.json",
       "evidence/openai/gpt-oss-120b.json",
       "evidence/openai/gpt-oss-20b.json",
       "evidence/openai/gpt-oss-safeguard-20b.json",
@@ -539,6 +541,8 @@
       "evidence/openai/gpt-5.2-chat-20251211.json",
       "evidence/openai/gpt-5.2-codex-20260114.json",
       "evidence/openai/gpt-5.2-pro-20251211.json",
+      "evidence/openai/gpt-audio.json",
+      "evidence/openai/gpt-audio-mini.json",
       "evidence/openai/gpt-oss-120b.json",
       "evidence/openai/gpt-oss-20b.json",
       "evidence/openai/gpt-oss-safeguard-20b.json",
@@ -638,8 +642,8 @@
       "evidence/z-ai/glm-4.7-flash-20260119.json"
     ]
   },
-  "modelsCount": 307,
-  "fullCount": 292,
+  "modelsCount": 309,
+  "fullCount": 294,
   "provisionalCount": 15,
   "notListedCount": 0
 }

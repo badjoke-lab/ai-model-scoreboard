@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-19T22:40:59.679Z",
-    "runId": "21153341877"
+    "updatedAt": "2026-01-19T23:35:13.927Z",
+    "runId": "21154339380"
   },
   "models": [
     {
@@ -844,6 +844,14 @@
     {
       "modelKey": "openai/gpt-5.2-pro-20251211",
       "path": "evidence/openai/gpt-5.2-pro-20251211.json"
+    },
+    {
+      "modelKey": "openai/gpt-audio",
+      "path": "evidence/openai/gpt-audio.json"
+    },
+    {
+      "modelKey": "openai/gpt-audio-mini",
+      "path": "evidence/openai/gpt-audio-mini.json"
     },
     {
       "modelKey": "openai/gpt-oss-120b",
