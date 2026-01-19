@@ -1481,7 +1481,7 @@
     "vendor": "allenai",
     "released": "2026-01-09T22:11:12.000Z",
     "context": 36864,
-    "type": "text+image->text",
+    "type": "text+image+video->text",
     "pricing": {
       "input": 0,
       "output": 0,
@@ -3169,7 +3169,7 @@
     "vendor": "amazon",
     "released": "2025-12-02T17:31:12.000Z",
     "context": 1000000,
-    "type": "text+image->text",
+    "type": "text+image+file+video->text",
     "pricing": {
       "input": 3e-7,
       "output": 0.0000025,
@@ -4646,7 +4646,7 @@
     "vendor": "anthropic",
     "released": "2025-02-24T18:35:10.000Z",
     "context": 200000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.000003,
       "output": 0.000015,
@@ -5068,7 +5068,7 @@
     "vendor": "anthropic",
     "released": "2024-10-22T00:00:00.000Z",
     "context": 200000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.000006,
       "output": 0.00003,
@@ -5279,7 +5279,7 @@
     "vendor": "anthropic",
     "released": "2025-05-22T16:27:25.000Z",
     "context": 200000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.000015,
       "output": 0.000075,
@@ -5490,7 +5490,7 @@
     "vendor": "anthropic",
     "released": "2025-05-22T16:12:51.000Z",
     "context": 1000000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.000003,
       "output": 0.000015,
@@ -5701,7 +5701,7 @@
     "vendor": "anthropic",
     "released": "2025-08-05T16:33:11.000Z",
     "context": 200000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.000015,
       "output": 0.000075,
@@ -6123,7 +6123,7 @@
     "vendor": "anthropic",
     "released": "2025-11-24T18:56:20.000Z",
     "context": 200000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.000005,
       "output": 0.000025,
@@ -6334,7 +6334,7 @@
     "vendor": "anthropic",
     "released": "2025-09-29T16:01:16.000Z",
     "context": 1000000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.000003,
       "output": 0.000015,
@@ -8655,7 +8655,7 @@
     "vendor": "bytedance-seed",
     "released": "2025-12-23T15:49:57.000Z",
     "context": 262144,
-    "type": "text+image->text",
+    "type": "text+image+video->text",
     "pricing": {
       "input": 2.5e-7,
       "output": 0.000002,
@@ -8866,7 +8866,7 @@
     "vendor": "bytedance-seed",
     "released": "2025-12-23T15:50:11.000Z",
     "context": 262144,
-    "type": "text+image->text",
+    "type": "text+image+video->text",
     "pricing": {
       "input": 7.5e-8,
       "output": 3e-7,
@@ -13719,7 +13719,7 @@
     "vendor": "google",
     "released": "2025-02-05T15:30:13.000Z",
     "context": 1048576,
-    "type": "text+image->text",
+    "type": "text+image+file+audio+video->text",
     "pricing": {
       "input": 1e-7,
       "output": 4e-7,
@@ -14141,7 +14141,7 @@
     "vendor": "google",
     "released": "2025-02-25T17:56:52.000Z",
     "context": 1048576,
-    "type": "text+image->text",
+    "type": "text+image+file+audio+video->text",
     "pricing": {
       "input": 7.5e-8,
       "output": 3e-7,
@@ -14352,7 +14352,7 @@
     "vendor": "google",
     "released": "2025-06-17T15:01:28.000Z",
     "context": 1048576,
-    "type": "text+image->text",
+    "type": "text+image+file+audio+video->text",
     "pricing": {
       "input": 3e-7,
       "output": 0.0000025,
@@ -14774,7 +14774,7 @@
     "vendor": "google",
     "released": "2025-07-22T16:04:36.000Z",
     "context": 1048576,
-    "type": "text+image->text",
+    "type": "text+image+file+audio+video->text",
     "pricing": {
       "input": 1e-7,
       "output": 4e-7,
@@ -14985,7 +14985,7 @@
     "vendor": "google",
     "released": "2025-09-25T17:01:26.000Z",
     "context": 1048576,
-    "type": "text+image->text",
+    "type": "text+image+file+audio+video->text",
     "pricing": {
       "input": 1e-7,
       "output": 4e-7,
@@ -15196,7 +15196,7 @@
     "vendor": "google",
     "released": "2025-09-25T17:09:38.000Z",
     "context": 1048576,
-    "type": "text+image->text",
+    "type": "text+image+file+audio+video->text",
     "pricing": {
       "input": 3e-7,
       "output": 0.0000025,
@@ -15407,7 +15407,7 @@
     "vendor": "google",
     "released": "2025-06-17T14:12:24.000Z",
     "context": 1048576,
-    "type": "text+image->text",
+    "type": "text+image+file+audio+video->text",
     "pricing": {
       "input": 0.00000125,
       "output": 0.00001,
@@ -15618,7 +15618,7 @@
     "vendor": "google",
     "released": "2025-05-07T00:41:53.000Z",
     "context": 1048576,
-    "type": "text+image->text",
+    "type": "text+image+file+audio+video->text",
     "pricing": {
       "input": 0.00000125,
       "output": 0.00001,
@@ -15829,7 +15829,7 @@
     "vendor": "google",
     "released": "2025-06-05T15:27:37.000Z",
     "context": 1048576,
-    "type": "text+image->text",
+    "type": "text+image+file+audio->text",
     "pricing": {
       "input": 0.00000125,
       "output": 0.00001,
@@ -16040,7 +16040,7 @@
     "vendor": "google",
     "released": "2025-12-17T15:57:58.000Z",
     "context": 1048576,
-    "type": "text+image->text",
+    "type": "text+image+file+audio+video->text",
     "pricing": {
       "input": 5e-7,
       "output": 0.000003,
@@ -16462,7 +16462,7 @@
     "vendor": "google",
     "released": "2025-11-18T14:04:28.000Z",
     "context": 1048576,
-    "type": "text+image->text",
+    "type": "text+image+file+audio+video->text",
     "pricing": {
       "input": 0.000002,
       "output": 0.000012,
@@ -31232,7 +31232,7 @@
     "vendor": "mistralai",
     "released": "2025-10-30T14:39:04.000Z",
     "context": 32000,
-    "type": "text->text",
+    "type": "text+audio->text",
     "pricing": {
       "input": 1e-7,
       "output": 3e-7,
@@ -35452,7 +35452,7 @@
     "vendor": "nvidia",
     "released": "2025-10-28T18:19:25.000Z",
     "context": 128000,
-    "type": "text+image->text",
+    "type": "text+image+video->text",
     "pricing": {
       "input": 0,
       "output": 0,
@@ -37984,7 +37984,7 @@
     "vendor": "openai",
     "released": "2025-04-14T17:23:05.000Z",
     "context": 1047576,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.000002,
       "output": 0.000008,
@@ -38403,7 +38403,7 @@
     "vendor": "openai",
     "released": "2025-04-14T17:23:01.000Z",
     "context": 1047576,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 4e-7,
       "output": 0.0000016,
@@ -38614,7 +38614,7 @@
     "vendor": "openai",
     "released": "2025-04-14T17:22:49.000Z",
     "context": 1047576,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 1e-7,
       "output": 4e-7,
@@ -38825,7 +38825,7 @@
     "vendor": "openai",
     "released": "2024-05-13T00:00:00.000Z",
     "context": 128000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.0000025,
       "output": 0.00001,
@@ -39036,7 +39036,7 @@
     "vendor": "openai",
     "released": "2024-05-13T00:00:00.000Z",
     "context": 128000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.000005,
       "output": 0.000015,
@@ -39247,7 +39247,7 @@
     "vendor": "openai",
     "released": "2024-08-06T00:00:00.000Z",
     "context": 128000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.0000025,
       "output": 0.00001,
@@ -39458,7 +39458,7 @@
     "vendor": "openai",
     "released": "2024-11-20T18:33:14.000Z",
     "context": 128000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.0000025,
       "output": 0.00001,
@@ -39669,7 +39669,7 @@
     "vendor": "openai",
     "released": "2025-08-15T04:44:21.000Z",
     "context": 128000,
-    "type": "text->text",
+    "type": "text+audio->text+audio",
     "pricing": {
       "input": 0.0000025,
       "output": 0.00001,
@@ -39880,7 +39880,7 @@
     "vendor": "openai",
     "released": "2024-07-18T00:00:00.000Z",
     "context": 128000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 1.5e-7,
       "output": 6e-7,
@@ -40091,7 +40091,7 @@
     "vendor": "openai",
     "released": "2024-07-18T00:00:00.000Z",
     "context": 128000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 1.5e-7,
       "output": 6e-7,
@@ -40724,7 +40724,7 @@
     "vendor": "openai",
     "released": "2025-08-07T17:23:33.000Z",
     "context": 400000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.00000125,
       "output": 0.00001,
@@ -40935,7 +40935,7 @@
     "vendor": "openai",
     "released": "2025-08-07T17:30:37.000Z",
     "context": 128000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.00000125,
       "output": 0.00001,
@@ -41357,7 +41357,7 @@
     "vendor": "openai",
     "released": "2025-10-14T13:19:46.000Z",
     "context": 400000,
-    "type": "text+image->text+image",
+    "type": "text+image+file->text+image",
     "pricing": {
       "input": 0.00001,
       "output": 0.00001,
@@ -41568,7 +41568,7 @@
     "vendor": "openai",
     "released": "2025-10-16T14:23:03.000Z",
     "context": 400000,
-    "type": "text+image->text+image",
+    "type": "text+image+file->text+image",
     "pricing": {
       "input": 0.0000025,
       "output": 0.000002,
@@ -41779,7 +41779,7 @@
     "vendor": "openai",
     "released": "2025-08-07T17:23:27.000Z",
     "context": 400000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 2.5e-7,
       "output": 0.000002,
@@ -41990,7 +41990,7 @@
     "vendor": "openai",
     "released": "2025-08-07T17:23:22.000Z",
     "context": 400000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 5e-8,
       "output": 4e-7,
@@ -42201,7 +42201,7 @@
     "vendor": "openai",
     "released": "2025-10-06T18:51:03.000Z",
     "context": 400000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.000015,
       "output": 0.00012,
@@ -42412,7 +42412,7 @@
     "vendor": "openai",
     "released": "2025-11-13T18:58:25.000Z",
     "context": 400000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.00000125,
       "output": 0.00001,
@@ -42623,7 +42623,7 @@
     "vendor": "openai",
     "released": "2025-11-13T18:58:22.000Z",
     "context": 128000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.00000125,
       "output": 0.00001,
@@ -43467,7 +43467,7 @@
     "vendor": "openai",
     "released": "2025-12-10T18:02:55.000Z",
     "context": 400000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.00000175,
       "output": 0.000014,
@@ -43678,7 +43678,7 @@
     "vendor": "openai",
     "released": "2025-12-10T18:03:03.000Z",
     "context": 128000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.00000175,
       "output": 0.000014,
@@ -44100,7 +44100,7 @@
     "vendor": "openai",
     "released": "2025-12-10T18:03:00.000Z",
     "context": 400000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.000021,
       "output": 0.000168,
@@ -44944,7 +44944,7 @@
     "vendor": "openai",
     "released": "2024-12-17T18:26:39.000Z",
     "context": 200000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.000015,
       "output": 0.00006,
@@ -45155,7 +45155,7 @@
     "vendor": "openai",
     "released": "2025-03-19T22:26:51.000Z",
     "context": 200000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.00015,
       "output": 0.0006,
@@ -45366,7 +45366,7 @@
     "vendor": "openai",
     "released": "2025-04-16T17:10:57.000Z",
     "context": 200000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.000002,
       "output": 0.000008,
@@ -45577,7 +45577,7 @@
     "vendor": "openai",
     "released": "2025-10-10T20:54:21.000Z",
     "context": 200000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.00001,
       "output": 0.00004,
@@ -45788,7 +45788,7 @@
     "vendor": "openai",
     "released": "2025-01-31T19:28:41.000Z",
     "context": 200000,
-    "type": "text->text",
+    "type": "text+file->text",
     "pricing": {
       "input": 0.0000011,
       "output": 0.0000044,
@@ -45999,7 +45999,7 @@
     "vendor": "openai",
     "released": "2025-02-12T15:03:31.000Z",
     "context": 200000,
-    "type": "text->text",
+    "type": "text+file->text",
     "pricing": {
       "input": 0.0000011,
       "output": 0.0000044,
@@ -46210,7 +46210,7 @@
     "vendor": "openai",
     "released": "2025-06-10T23:32:32.000Z",
     "context": 200000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.00002,
       "output": 0.00008,
@@ -46421,7 +46421,7 @@
     "vendor": "openai",
     "released": "2025-04-16T16:29:02.000Z",
     "context": 200000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.0000011,
       "output": 0.0000044,
@@ -46632,7 +46632,7 @@
     "vendor": "openai",
     "released": "2025-10-10T20:54:02.000Z",
     "context": 200000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.000002,
       "output": 0.000008,
@@ -46843,7 +46843,7 @@
     "vendor": "openai",
     "released": "2025-04-16T17:23:32.000Z",
     "context": 200000,
-    "type": "text+image->text",
+    "type": "text+image+file->text",
     "pricing": {
       "input": 0.0000011,
       "output": 0.0000044,
@@ -64145,7 +64145,7 @@
     "vendor": "z-ai",
     "released": "2025-12-08T15:24:22.000Z",
     "context": 131072,
-    "type": "text+image->text",
+    "type": "text+image+video->text",
     "pricing": {
       "input": 3e-7,
       "output": 9e-7,
