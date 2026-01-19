@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-19T15:44:53.695Z",
+  "updatedAt": "2026-01-19T16:50:06.308Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -325,7 +325,8 @@
       "evidence/z-ai/glm-4.5v.json",
       "evidence/z-ai/glm-4.6.json",
       "evidence/z-ai/glm-4.6-20251208.json",
-      "evidence/z-ai/glm-4.7-20251222.json"
+      "evidence/z-ai/glm-4.7-20251222.json",
+      "evidence/z-ai/glm-4.7-flash-20260119.json"
     ],
     "evidencePaths": [
       "evidence/ai21/jamba-large-1.7.json",
@@ -633,11 +634,12 @@
       "evidence/z-ai/glm-4.5v.json",
       "evidence/z-ai/glm-4.6.json",
       "evidence/z-ai/glm-4.6-20251208.json",
-      "evidence/z-ai/glm-4.7-20251222.json"
+      "evidence/z-ai/glm-4.7-20251222.json",
+      "evidence/z-ai/glm-4.7-flash-20260119.json"
     ]
   },
-  "modelsCount": 306,
-  "fullCount": 291,
+  "modelsCount": 307,
+  "fullCount": 292,
   "provisionalCount": 15,
   "notListedCount": 0
 }

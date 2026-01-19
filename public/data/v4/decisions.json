@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-19T15:44:53.695Z",
+    "generatedAt": "2026-01-19T16:50:06.308Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 306,
-      "adopted": 306,
+      "total": 307,
+      "adopted": 307,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 304,
+        "openrouter": 305,
         "seed": 2
       }
     },
@@ -5223,6 +5223,23 @@
       "rawRef": {
         "id": "z-ai/glm-4.7",
         "canonical_slug": "z-ai/glm-4.7-20251222"
+      }
+    },
+    {
+      "modelKey": "z-ai/glm-4.7-flash-20260119",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Z.AI: GLM 4.7 Flash",
+        "slug": "z-ai/glm-4.7-flash-20260119",
+        "provider": "z-ai"
+      },
+      "rawRef": {
+        "id": "z-ai/glm-4.7-flash",
+        "canonical_slug": "z-ai/glm-4.7-flash-20260119"
       }
     }
   ]

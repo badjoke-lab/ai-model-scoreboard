@@ -1835,6 +1835,12 @@
       "name": "Z.AI: GLM 4.7",
       "provider": "z-ai",
       "source": "openrouter"
+    },
+    {
+      "modelKey": "z-ai/glm-4.7-flash-20260119",
+      "name": "Z.AI: GLM 4.7 Flash",
+      "provider": "z-ai",
+      "source": "openrouter"
     }
   ],
   "provisional": []

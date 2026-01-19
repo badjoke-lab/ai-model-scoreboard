@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-19T15:44:53.695Z",
-    "runId": "21143498647"
+    "updatedAt": "2026-01-19T16:50:06.308Z",
+    "runId": "21145405365"
   },
   "models": [
     {
@@ -1228,6 +1228,10 @@
     {
       "modelKey": "z-ai/glm-4.7-20251222",
       "path": "evidence/z-ai/glm-4.7-20251222.json"
+    },
+    {
+      "modelKey": "z-ai/glm-4.7-flash-20260119",
+      "path": "evidence/z-ai/glm-4.7-flash-20260119.json"
     }
   ]
 }

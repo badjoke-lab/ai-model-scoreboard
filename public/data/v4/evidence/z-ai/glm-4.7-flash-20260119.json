@@ -1,7 +1,7 @@
 {
   "meta": {
     "updatedAt": "2026-01-19T16:50:06.308Z",
-    "modelKey": "meituan/longcat-flash-chat"
+    "modelKey": "z-ai/glm-4.7-flash-20260119"
   },
   "evidenceItems": [
     {
@@ -12,10 +12,10 @@
         "openrouter_model_page_only"
       ],
       "refs": [
-        "https://openrouter.ai/models/meituan/longcat-flash-chat"
+        "https://openrouter.ai/models/z-ai/glm-4.7-flash-20260119"
       ],
       "extracted": {
-        "url": "https://openrouter.ai/models/meituan/longcat-flash-chat"
+        "url": "https://openrouter.ai/models/z-ai/glm-4.7-flash-20260119"
       }
     },
     {
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Meituan: LongCat Flash Chat\""
+        "arxiv_query:\"Z.AI: GLM 4.7 Flash\""
       ]
     },
     {

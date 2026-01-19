@@ -1011,6 +1011,10 @@
     "score": 64.84759829846153,
     "layer": "full"
   },
+  "z-ai/glm-4.7-flash-20260119": {
+    "score": 64.75059863692307,
+    "layer": "full"
+  },
   "deepcogito/cogito-v2.1-671b-20251118": {
     "score": 64.74350759846143,
     "layer": "full"
