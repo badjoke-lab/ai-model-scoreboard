@@ -23,20 +23,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.replace(/\/+$/, "")}/v4`, lastModified: now },
   ];
 
-  // ここで絶対に throw しない（壊れてても base だけ返す）
+  // Never throw here; fall back to base even if data is malformed.
   const modelsPath = path.join(process.cwd(), "public", "data", "v4", "models.json");
   const models = safeReadJson(modelsPath);
 
-  if (!models || typeof models !== "object" || Array.isArray(models)) {
+  if (!models || typeof models !== "object") {
     return base;
   }
 
   const seen = new Set<string>();
   const keys: string[] = [];
 
-  for (const v of Object.values(models)) {
+  const entries = Array.isArray(models) ? models : Object.values(models);
+  for (const v of entries) {
     if (!v || typeof v !== "object" || Array.isArray(v)) continue;
-    const mk = String((v as any).modelKey || (v as any)?.identity?.modelKey || "").trim();
+    const mk = String(
+      (v as any).modelKey ||
+        (v as any).key ||
+        (v as any).slug ||
+        (v as any)?.identity?.modelKey ||
+        ""
+    ).trim();
     if (!mk) continue;
     if (seen.has(mk)) continue;
     seen.add(mk);
