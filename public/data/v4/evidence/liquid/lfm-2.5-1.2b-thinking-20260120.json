@@ -1,7 +1,7 @@
 {
   "meta": {
     "updatedAt": "2026-01-20T17:48:21.853Z",
-    "modelKey": "venice/uncensored"
+    "modelKey": "liquid/lfm-2.5-1.2b-thinking-20260120"
   },
   "evidenceItems": [
     {
@@ -12,10 +12,10 @@
         "openrouter_model_page_only"
       ],
       "refs": [
-        "https://openrouter.ai/models/venice/uncensored"
+        "https://openrouter.ai/models/liquid/lfm-2.5-1.2b-thinking-20260120"
       ],
       "extracted": {
-        "url": "https://openrouter.ai/models/venice/uncensored"
+        "url": "https://openrouter.ai/models/liquid/lfm-2.5-1.2b-thinking-20260120"
       }
     },
     {
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Venice: Uncensored (free)\""
+        "arxiv_query:\"LiquidAI: LFM2.5-1.2B-Thinking (free)\""
       ]
     },
     {

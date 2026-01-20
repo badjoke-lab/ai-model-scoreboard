@@ -560,13 +560,25 @@
     },
     {
       "modelKey": "liquid/lfm-2.2-6b",
-      "name": "LiquidAI/LFM2-2.6B",
+      "name": "LiquidAI: LFM2-2.6B",
+      "provider": "liquid",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "liquid/lfm-2.5-1.2b-instruct-20260120",
+      "name": "LiquidAI: LFM2.5-1.2B-Instruct (free)",
+      "provider": "liquid",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "liquid/lfm-2.5-1.2b-thinking-20260120",
+      "name": "LiquidAI: LFM2.5-1.2B-Thinking (free)",
       "provider": "liquid",
       "source": "openrouter"
     },
     {
       "modelKey": "liquid/lfm2-8b-a1b",
-      "name": "LiquidAI/LFM2-8B-A1B",
+      "name": "LiquidAI: LFM2-8B-A1B",
       "provider": "liquid",
       "source": "openrouter"
     },

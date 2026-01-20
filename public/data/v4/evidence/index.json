@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-20T16:53:00.508Z",
-    "runId": "21179965345"
+    "updatedAt": "2026-01-20T17:48:21.853Z",
+    "runId": "21181668363"
   },
   "models": [
     {
@@ -380,6 +380,14 @@
     {
       "modelKey": "liquid/lfm-2.2-6b",
       "path": "evidence/liquid/lfm-2.2-6b.json"
+    },
+    {
+      "modelKey": "liquid/lfm-2.5-1.2b-instruct-20260120",
+      "path": "evidence/liquid/lfm-2.5-1.2b-instruct-20260120.json"
+    },
+    {
+      "modelKey": "liquid/lfm-2.5-1.2b-thinking-20260120",
+      "path": "evidence/liquid/lfm-2.5-1.2b-thinking-20260120.json"
     },
     {
       "modelKey": "liquid/lfm2-8b-a1b",

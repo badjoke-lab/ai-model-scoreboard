@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-20T16:53:00.508Z",
+  "updatedAt": "2026-01-20T17:48:21.853Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -114,6 +114,8 @@
       "evidence/inflection/inflection-3-productivity.json",
       "evidence/kwaipilot/kat-coder-pro-v1.json",
       "evidence/liquid/lfm-2.2-6b.json",
+      "evidence/liquid/lfm-2.5-1.2b-instruct-20260120.json",
+      "evidence/liquid/lfm-2.5-1.2b-thinking-20260120.json",
       "evidence/liquid/lfm2-8b-a1b.json",
       "evidence/mancer/weaver.json",
       "evidence/meituan/longcat-flash-chat.json",
@@ -425,6 +427,8 @@
       "evidence/inflection/inflection-3-productivity.json",
       "evidence/kwaipilot/kat-coder-pro-v1.json",
       "evidence/liquid/lfm-2.2-6b.json",
+      "evidence/liquid/lfm-2.5-1.2b-instruct-20260120.json",
+      "evidence/liquid/lfm-2.5-1.2b-thinking-20260120.json",
       "evidence/liquid/lfm2-8b-a1b.json",
       "evidence/mancer/weaver.json",
       "evidence/meituan/longcat-flash-chat.json",
@@ -642,8 +646,8 @@
       "evidence/z-ai/glm-4.7-flash-20260119.json"
     ]
   },
-  "modelsCount": 309,
-  "fullCount": 294,
-  "provisionalCount": 15,
+  "modelsCount": 311,
+  "fullCount": 295,
+  "provisionalCount": 16,
   "notListedCount": 0
 }

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-20T16:53:00.508Z",
+    "generatedAt": "2026-01-20T17:48:21.853Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 309,
-      "adopted": 309,
+      "total": 311,
+      "adopted": 311,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 307,
+        "openrouter": 309,
         "seed": 2
       }
     },
@@ -1613,13 +1613,47 @@
         "meets required fields"
       ],
       "normalized": {
-        "name": "LiquidAI/LFM2-2.6B",
+        "name": "LiquidAI: LFM2-2.6B",
         "slug": "liquid/lfm-2.2-6b",
         "provider": "liquid"
       },
       "rawRef": {
         "id": "liquid/lfm-2.2-6b",
         "canonical_slug": "liquid/lfm-2.2-6b"
+      }
+    },
+    {
+      "modelKey": "liquid/lfm-2.5-1.2b-instruct-20260120",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "LiquidAI: LFM2.5-1.2B-Instruct (free)",
+        "slug": "liquid/lfm-2.5-1.2b-instruct-20260120",
+        "provider": "liquid"
+      },
+      "rawRef": {
+        "id": "liquid/lfm-2.5-1.2b-instruct:free",
+        "canonical_slug": "liquid/lfm-2.5-1.2b-instruct-20260120"
+      }
+    },
+    {
+      "modelKey": "liquid/lfm-2.5-1.2b-thinking-20260120",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "LiquidAI: LFM2.5-1.2B-Thinking (free)",
+        "slug": "liquid/lfm-2.5-1.2b-thinking-20260120",
+        "provider": "liquid"
+      },
+      "rawRef": {
+        "id": "liquid/lfm-2.5-1.2b-thinking:free",
+        "canonical_slug": "liquid/lfm-2.5-1.2b-thinking-20260120"
       }
     },
     {
@@ -1630,7 +1664,7 @@
         "meets required fields"
       ],
       "normalized": {
-        "name": "LiquidAI/LFM2-8B-A1B",
+        "name": "LiquidAI: LFM2-8B-A1B",
         "slug": "liquid/lfm2-8b-a1b",
         "provider": "liquid"
       },

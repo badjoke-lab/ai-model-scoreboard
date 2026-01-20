@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-20T16:53:00.508Z",
+    "updatedAt": "2026-01-20T17:48:21.853Z",
     "modelKey": "liquid/lfm-2.2-6b"
   },
   "evidenceItems": [
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"LiquidAI/LFM2-2.6B\""
+        "arxiv_query:\"LiquidAI: LFM2-2.6B\""
       ]
     },
     {

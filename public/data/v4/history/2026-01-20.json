@@ -951,6 +951,10 @@
     "score": 65.59914625230519,
     "layer": "full"
   },
+  "liquid/lfm-2.5-1.2b-thinking-20260120": {
+    "score": 65.59626,
+    "layer": "full"
+  },
   "openai/gpt-5-pro-2025-10-06": {
     "score": 65.56848779076537,
     "layer": "full"
@@ -1057,6 +1061,10 @@
   },
   "deepseek/deepseek-v3.1-terminus": {
     "score": 64.52701665999997,
+    "layer": "provisional"
+  },
+  "liquid/lfm-2.5-1.2b-instruct-20260120": {
+    "score": 64.42822000000001,
     "layer": "provisional"
   },
   "minimax/minimax-01": {

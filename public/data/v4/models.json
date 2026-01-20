@@ -19623,7 +19623,7 @@
     "layer": "full"
   },
   "liquid/lfm-2.2-6b": {
-    "name": "LiquidAI/LFM2-2.6B",
+    "name": "LiquidAI: LFM2-2.6B",
     "vendor": "liquid",
     "released": "2025-10-20T14:34:49.000Z",
     "context": 32768,
@@ -19833,8 +19833,430 @@
     },
     "layer": "full"
   },
+  "liquid/lfm-2.5-1.2b-instruct-20260120": {
+    "name": "LiquidAI: LFM2.5-1.2B-Instruct (free)",
+    "vendor": "liquid",
+    "released": "2026-01-20T16:45:21.000Z",
+    "context": 32768,
+    "type": "text->text",
+    "pricing": {
+      "input": 0,
+      "output": 0,
+      "currency": "USD"
+    },
+    "scores": {
+      "overall": 64.42822000000001,
+      "categories": {
+        "performance": 70.85680000000002,
+        "safety": 65,
+        "adoption": 70.57,
+        "openness": 16.666666666666664,
+        "cost": 100
+      },
+      "items": {
+        "S1": {
+          "score": 0,
+          "inputs": {
+            "safetySection": false,
+            "highRisk": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S2": {
+          "score": 0,
+          "inputs": {
+            "rlhf": false,
+            "dataDisclosure": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S3": {
+          "score": 50,
+          "inputs": {
+            "misusePolicy": false,
+            "harmMitigation": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S4": {
+          "score": 100,
+          "inputs": {
+            "redTeam": true,
+            "independentAudit": true
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "S5": {
+          "score": 0,
+          "inputs": {
+            "transparencyUpdate": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S6": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_minor_incidents"
+          ]
+        },
+        "S7": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_major_incidents"
+          ]
+        },
+        "S8": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_critical_incidents"
+          ]
+        },
+        "T1": {
+          "score": 0,
+          "inputs": {
+            "modelCard": false,
+            "overview": false,
+            "limitations": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T2": {
+          "score": 0,
+          "inputs": {
+            "dataCategories": false,
+            "dataFiltering": false,
+            "copyright": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T3": {
+          "score": 50,
+          "inputs": {
+            "architecture": false,
+            "parameterScale": true
+          },
+          "usedEvidence": [
+            {
+              "type": "paper",
+              "status": "not_found"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_paper_not_found"
+          ]
+        },
+        "T4": {
+          "score": 25,
+          "inputs": {
+            "safetyControls": false,
+            "riskLimits": false,
+            "externalReview": true,
+            "transparencyReport": false
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "Q1": {
+          "score": 89.26,
+          "inputs": {
+            "benchmark": 89.26
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q2": {
+          "score": 56.12,
+          "inputs": {
+            "benchmark": 56.12
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q3": {
+          "score": 60.98574000000001,
+          "inputs": {
+            "math": 54.03,
+            "chat": 70.39,
+            "arena": 77.13,
+            "vendor": 60.93
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        }
+      }
+    },
+    "layer": "provisional"
+  },
+  "liquid/lfm-2.5-1.2b-thinking-20260120": {
+    "name": "LiquidAI: LFM2.5-1.2B-Thinking (free)",
+    "vendor": "liquid",
+    "released": "2026-01-20T16:45:27.000Z",
+    "context": 32768,
+    "type": "text->text",
+    "pricing": {
+      "input": 0,
+      "output": 0,
+      "currency": "USD"
+    },
+    "scores": {
+      "overall": 65.59626,
+      "categories": {
+        "performance": 64.41190000000002,
+        "safety": 65,
+        "adoption": 62.21,
+        "openness": 50,
+        "cost": 100
+      },
+      "items": {
+        "S1": {
+          "score": 50,
+          "inputs": {
+            "safetySection": true,
+            "highRisk": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S2": {
+          "score": 50,
+          "inputs": {
+            "rlhf": false,
+            "dataDisclosure": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S3": {
+          "score": 50,
+          "inputs": {
+            "misusePolicy": true,
+            "harmMitigation": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S4": {
+          "score": 0,
+          "inputs": {
+            "redTeam": false,
+            "independentAudit": false
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "S5": {
+          "score": 100,
+          "inputs": {
+            "transparencyUpdate": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S6": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_minor_incidents"
+          ]
+        },
+        "S7": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_major_incidents"
+          ]
+        },
+        "S8": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_critical_incidents"
+          ]
+        },
+        "T1": {
+          "score": 66.66666666666666,
+          "inputs": {
+            "modelCard": false,
+            "overview": true,
+            "limitations": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T2": {
+          "score": 33.33333333333333,
+          "inputs": {
+            "dataCategories": false,
+            "dataFiltering": true,
+            "copyright": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T3": {
+          "score": 50,
+          "inputs": {
+            "architecture": true,
+            "parameterScale": false
+          },
+          "usedEvidence": [
+            {
+              "type": "paper",
+              "status": "not_found"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_paper_not_found"
+          ]
+        },
+        "T4": {
+          "score": 50,
+          "inputs": {
+            "safetyControls": true,
+            "riskLimits": false,
+            "externalReview": false,
+            "transparencyReport": true
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "Q1": {
+          "score": 67.4,
+          "inputs": {
+            "benchmark": 67.4
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q2": {
+          "score": 51.56,
+          "inputs": {
+            "benchmark": 51.56
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q3": {
+          "score": 73.21527,
+          "inputs": {
+            "math": 66.84,
+            "chat": 83.8,
+            "arena": 87.17,
+            "vendor": 55.8
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        }
+      }
+    },
+    "layer": "full"
+  },
   "liquid/lfm2-8b-a1b": {
-    "name": "LiquidAI/LFM2-8B-A1B",
+    "name": "LiquidAI: LFM2-8B-A1B",
     "vendor": "liquid",
     "released": "2025-10-20T14:36:24.000Z",
     "context": 32768,
