@@ -38,47 +38,6 @@ function toNumber(v) {
   }
   return null;
 }
-function hasAnyLink(ue) {
-  if (!Array.isArray(ue)) return false;
-  return ue.some((e) => {
-    if (!isObject(e)) return false;
-    const candidates = [
-      e.url,
-      e.href,
-      e.link,
-      e.sourceUrl,
-      e.sourceURL,
-      e.sourceLink,
-      e.source?.url,
-      e.source?.link,
-    ];
-    return candidates.some((v) => nonEmptyStr(v));
-  });
-}
-function mapEvidenceTypeFromReason(reason) {
-  if (!nonEmptyStr(reason)) return null;
-  const r = reason.trim().toLowerCase();
-  if (r.startsWith("evidence_audit_") || /missing[:_]?audit_link/.test(r)) return "audit";
-  if (r.startsWith("evidence_paper_") || /missing[:_]?paper_link/.test(r)) return "paper";
-  if (r.startsWith("evidence_dev_") || /missing[:_]?dev(_activity)?_link/.test(r)) return "dev_activity";
-  if (r.startsWith("evidence_official_") || /missing[:_]?official(_page)?_link/.test(r)) return "official_page";
-  if (r.includes("audit")) return "audit";
-  if (r.includes("paper")) return "paper";
-  if (r.includes("dev")) return "dev_activity";
-  if (r.includes("official")) return "official_page";
-  return null;
-}
-function buildEvidenceLink(modelKey, evidenceRef, evidenceType) {
-  const resolvedType = nonEmptyStr(evidenceType) && evidenceType !== "unknown" ? evidenceType : null;
-  if (resolvedType && nonEmptyStr(modelKey)) {
-    return `/models/${encodeURIComponent(modelKey)}#evidence-${resolvedType}`;
-  }
-  if (nonEmptyStr(evidenceRef)) {
-    return resolvedType ? `${evidenceRef}#${resolvedType}` : evidenceRef;
-  }
-  if (nonEmptyStr(modelKey)) return `/models/${encodeURIComponent(modelKey)}`;
-  return null;
-}
 
 function normalizeIndexJson() {
   const p = "public/data/v4/index.json";
@@ -291,25 +250,38 @@ function normalizeModelsJson() {
     openness: "C5",
   };
 
-  const extractItemScores = (items) => {
-    if (!isObject(items)) return {};
-    const out = {};
-    for (const [key, value] of Object.entries(items)) {
-      const score =
-        typeof value === "number"
-          ? value
-          : isObject(value)
-            ? toNumber(value.score ?? value.value ?? value.points ?? value.total)
-            : null;
-      if (typeof score === "number") out[key] = score;
+  const forEachItem = (items, cb) => {
+    if (Array.isArray(items)) {
+      items.forEach((item, index) => cb(item, index));
+      return;
     }
+    if (isObject(items)) {
+      Object.values(items).forEach((item, index) => cb(item, index));
+    }
+  };
+
+  const extractItemScores = (items) => {
+    const out = {};
+    forEachItem(items, (item, index) => {
+      if (item == null) return;
+      if (typeof item === "number") {
+        out[String(index)] = item;
+        return;
+      }
+      if (!isObject(item)) return;
+      const key =
+        pickFirstStr(item, ["id", "label", "key", "name"]) ||
+        (typeof index === "number" ? String(index) : null);
+      if (!key) return;
+      const score = toNumber(item.score ?? item.value ?? item.points ?? item.total);
+      if (typeof score === "number") out[key] = score;
+    });
     return out;
   };
 
   const collectReasonsFromItems = (items, reasons) => {
-    if (!isObject(items)) return;
-    for (const item of Object.values(items)) {
-      if (!isObject(item)) continue;
+    forEachItem(items, (item) => {
+      if (!isObject(item)) return;
       const lists = [
         item.penaltyReasons,
         item.reasons,
@@ -323,7 +295,7 @@ function normalizeModelsJson() {
           if (isObject(entry) && nonEmptyStr(entry.code)) reasons.add(entry.code.trim());
         }
       }
-    }
+    });
   };
 
   const normalizeEvidenceRef = (modelKey) => {
@@ -345,38 +317,81 @@ function normalizeModelsJson() {
     }
     return reasons;
   };
-  const inferEvidenceType = (item, reasons) => {
-    if (Array.isArray(item?.usedEvidence)) {
-      for (const entry of item.usedEvidence) {
-        if (isObject(entry) && nonEmptyStr(entry.type)) return entry.type.trim();
-      }
-    }
-    for (const reason of reasons) {
-      const mapped = mapEvidenceTypeFromReason(reason);
-      if (mapped) return mapped;
-    }
-    return "unknown";
+
+  const isValidScoreItem = (item) => {
+    if (!isObject(item)) return false;
+    const keys = ["id", "label", "score", "penaltyReason", "penaltyReasons", "usedEvidence"];
+    return keys.some((key) => Object.prototype.hasOwnProperty.call(item, key));
   };
-  const ensurePenaltyEvidenceLinks = (items, modelKey, evidenceRef) => {
-    if (!isObject(items)) return;
-    for (const item of Object.values(items)) {
-      if (!isObject(item)) continue;
-      const reasons = normalizePenaltyReasons(item);
-      if (!reasons.length) continue;
-      if (!Array.isArray(item.usedEvidence)) item.usedEvidence = [];
-      const resolvedType = inferEvidenceType(item, reasons);
-      let target = item.usedEvidence.find((entry) => isObject(entry) && nonEmptyStr(entry.type));
-      if (!isObject(target)) target = item.usedEvidence.find((entry) => isObject(entry));
-      if (!isObject(target)) {
-        target = {};
-        item.usedEvidence.push(target);
-      }
-      if (!nonEmptyStr(target.type)) target.type = resolvedType;
-      if (!hasAnyLink(item.usedEvidence)) {
-        const link = buildEvidenceLink(modelKey, evidenceRef, resolvedType);
-        if (nonEmptyStr(link)) target.link = link;
-      }
+
+  const normalizeUsedEvidence = (item, modelKey, itemIndex) => {
+    if (!isObject(item)) return;
+    const ue = item.usedEvidence;
+    if (ue == null) {
+      item.usedEvidence = [];
+      return;
     }
+    if (Array.isArray(ue)) return;
+    if (isObject(ue)) {
+      item.usedEvidence = [ue];
+      return;
+    }
+    console.warn(
+      "[v4-normalize] invalid usedEvidence type -> []",
+      modelKey || "<unknown>",
+      "item",
+      itemIndex,
+      "type",
+      typeof ue
+    );
+    item.usedEvidence = [];
+  };
+
+  const hasEvidenceLink = (usedEvidence) => {
+    if (!Array.isArray(usedEvidence)) return false;
+    return usedEvidence.some((entry) => isObject(entry) && !!entry.link);
+  };
+
+  const normalizeScoreBreakdownItems = (row) => {
+    if (!isObject(row)) return;
+    if (!isObject(row.scoreBreakdown)) row.scoreBreakdown = { items: [] };
+
+    const itemsRaw = row.scoreBreakdown.items;
+    let items = [];
+
+    if (itemsRaw == null) {
+      items = [];
+    } else if (Array.isArray(itemsRaw)) {
+      items = itemsRaw;
+    } else if (isObject(itemsRaw)) {
+      if (isValidScoreItem(itemsRaw)) {
+        items = [itemsRaw];
+      } else {
+        console.warn("[v4-normalize] scoreBreakdown.items object invalid -> []", row.modelKey);
+        items = [];
+      }
+    } else {
+      console.warn(
+        "[v4-normalize] scoreBreakdown.items unexpected type -> []",
+        row.modelKey,
+        "type",
+        typeof itemsRaw
+      );
+      items = [];
+    }
+
+    row.scoreBreakdown.items = items;
+
+    items.forEach((item, index) => {
+      if (!isObject(item)) return;
+      normalizeUsedEvidence(item, row.modelKey, index);
+      const reasons = normalizePenaltyReasons(item);
+      const isPenalty = item.isPenalty === true || reasons.length > 0;
+      if (!isPenalty) return;
+      if (item.usedEvidence.length === 0 || !hasEvidenceLink(item.usedEvidence)) {
+        item.__specMissingEvidenceLink = true;
+      }
+    });
   };
 
   for (const r of rows) {
@@ -460,6 +475,8 @@ function normalizeModelsJson() {
       }
     }
 
+    normalizeScoreBreakdownItems(r);
+
     if (typeof r.overallScore !== "number") {
       const overall =
         toNumber(r.scoreBreakdown?.overall) ??
@@ -503,7 +520,7 @@ function normalizeModelsJson() {
 
     if (!isObject(r.itemScores) || Object.keys(r.itemScores).length === 0) {
       const items =
-        (isObject(r.scoreBreakdown?.items) && r.scoreBreakdown.items) ||
+        ((Array.isArray(r.scoreBreakdown?.items) || isObject(r.scoreBreakdown?.items)) && r.scoreBreakdown.items) ||
         (isObject(r.scoreBreakdown?.scores?.items) && r.scoreBreakdown.scores.items) ||
         (isObject(r.scores?.items) && r.scores.items) ||
         {};
@@ -538,14 +555,22 @@ function normalizeModelsJson() {
         patched.evidenceRef++;
       }
     }
-
-    ensurePenaltyEvidenceLinks(r.scoreBreakdown?.items, r.modelKey, r.evidenceRef);
-    ensurePenaltyEvidenceLinks(r.scoreBreakdown?.scores?.items, r.modelKey, r.evidenceRef);
-    ensurePenaltyEvidenceLinks(r.scores?.items, r.modelKey, r.evidenceRef);
   }
 
   // modelKey 無い行を落とす（validator 的に意味ない）
   const filtered = rows.filter((r) => isObject(r) && nonEmptyStr(r.modelKey));
+  if (filtered.length !== rows.length) {
+    const removed = rows
+      .filter((r) => !(isObject(r) && nonEmptyStr(r.modelKey)))
+      .map((r) => keyOf(r) || "<unknown>")
+      .slice(0, 10);
+    console.warn("[v4-normalize] model count changed", {
+      beforeCount: rows.length,
+      afterCount: filtered.length,
+      removedModelKeysSample: removed,
+      reason: "invalid_model_record",
+    });
+  }
   writeJsonAtomic(p, filtered);
 
   console.log("[v4-normalize] models.json -> array:", filtered.length, "rows");
