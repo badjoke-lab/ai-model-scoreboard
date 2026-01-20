@@ -33555,18 +33555,18 @@
     "context": 8192,
     "type": "text->text",
     "pricing": {
-      "input": 2.5e-8,
-      "output": 8e-8,
+      "input": 1.4e-7,
+      "output": 1.4e-7,
       "currency": "USD"
     },
     "scores": {
-      "overall": 68.74487972153847,
+      "overall": 68.74487869846153,
       "categories": {
         "performance": 67.67970000000003,
         "safety": 60,
         "adoption": 72.82,
         "openness": 58.333333333333336,
-        "cost": 99.99999721538458
+        "cost": 99.99998698461525
       },
       "items": {
         "S1": {
