@@ -39,11 +39,16 @@ type V4RawScores = {
 export type V4ScoreItemEvidence = {
   type?: string;
   status?: string;
+  link?: string;
 };
 
 export type V4ScoreItem = {
+  label?: string;
   score?: number;
+  reason?: string;
   penaltyReasons?: string[];
+  penaltyReason?: string;
+  __specMissingEvidenceLink?: boolean;
   usedEvidence?: V4ScoreItemEvidence[];
 };
 
@@ -463,11 +468,28 @@ function normalizeReasonCodes(raw: unknown): string[] | undefined {
 
 function normalizeScoreItem(raw: unknown): V4ScoreItem | null {
   if (!isObject(raw)) return null;
+  const label =
+    typeof raw.label === "string"
+      ? raw.label
+      : typeof raw.name === "string"
+        ? raw.name
+        : undefined;
   const score =
     typeof raw.score === "number" && Number.isFinite(raw.score) ? raw.score : undefined;
+  const reason = typeof raw.reason === "string" ? raw.reason.trim() : undefined;
   const penaltyReasons = normalizeReasonCodes(
     raw.penaltyReasons ?? raw.penalty_reasons ?? raw.reasons ?? raw.reasonCodes
   );
+  const penaltyReason =
+    typeof raw.penaltyReason === "string"
+      ? raw.penaltyReason
+      : typeof raw.penalty_reason === "string"
+        ? raw.penalty_reason
+        : undefined;
+  const __specMissingEvidenceLink =
+    typeof raw.__specMissingEvidenceLink === "boolean"
+      ? raw.__specMissingEvidenceLink
+      : undefined;
   const usedEvidenceRaw = Array.isArray(raw.usedEvidence) ? raw.usedEvidence : [];
   const usedEvidence = usedEvidenceRaw
     .map((entry) =>
@@ -475,16 +497,37 @@ function normalizeScoreItem(raw: unknown): V4ScoreItem | null {
         ? {
             type: typeof entry.type === "string" ? entry.type : undefined,
             status: typeof entry.status === "string" ? entry.status : undefined,
+            link:
+              typeof entry.link === "string"
+                ? entry.link
+                : typeof entry.url === "string"
+                  ? entry.url
+                  : typeof entry.href === "string"
+                    ? entry.href
+                    : undefined,
           }
         : null
     )
     .filter(Boolean) as V4ScoreItemEvidence[];
 
-  if (score === undefined && !penaltyReasons?.length && !usedEvidence.length) return null;
+  if (
+    score === undefined &&
+    !reason &&
+    !penaltyReasons?.length &&
+    !penaltyReason &&
+    !usedEvidence.length &&
+    !__specMissingEvidenceLink
+  ) {
+    return null;
+  }
 
   return {
+    label,
     score,
+    reason,
     penaltyReasons,
+    penaltyReason,
+    __specMissingEvidenceLink,
     usedEvidence: usedEvidence.length ? usedEvidence : undefined,
   };
 }
@@ -786,6 +829,7 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
   notListedEntry: { slug: string; reason?: string; source?: string } | null;
   index: V4IndexData;
   diagnostics: V4SnapshotDiagnostics;
+  evidenceRaw: unknown | null;
 }> {
   const { index, rankings, models, notListed, evidenceIndexByKey } =
     await loadV4SnapshotData();
@@ -798,6 +842,7 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
   const decisionsData = decisionsResult.data;
   const evidencePath = resolveEvidencePath(modelId, evidenceIndexByKey, files);
   const evidenceResult = await readJsonFileSafe<unknown>(evidencePath);
+  const evidenceRaw = evidenceResult.data ?? null;
   const evidenceItems = evidenceResult.data
     ? normalizeEvidenceItems(evidenceResult.data)
     : [];
@@ -884,6 +929,7 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
       notListedEntry: null,
       index,
       diagnostics,
+      evidenceRaw,
     };
   }
 
@@ -893,6 +939,7 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
     notListedEntry: notListedEntry ?? null,
     index,
     diagnostics,
+    evidenceRaw,
   };
 }
 
