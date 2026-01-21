@@ -170,6 +170,7 @@ export type V4ModelDetail = {
   layer: V4RankingEntry["layer"];
   status: "adopted" | "provisional" | "denied";
   decisionReason?: string | null;
+  decisionReasons?: string[] | null;
   decisionSource?: string | null;
   score: number;
   scores: V4ScoreBreakdown;
@@ -895,6 +896,14 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
           decisionEntry.decision_reason ??
           null)
       : null;
+    const decisionReasons = Array.isArray(decisionReason)
+      ? decisionReason.filter((entry) => typeof entry === "string")
+      : typeof decisionReason === "string" && decisionReason.trim()
+        ? decisionReason
+            .split(",")
+            .map((reason) => reason.trim())
+            .filter(Boolean)
+        : null;
     const decisionSource = isObject(decisionEntry)
       ? (decisionEntry.source ?? decisionEntry.decision_source ?? null)
       : null;
@@ -915,6 +924,7 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
             : Array.isArray(decisionReason)
               ? decisionReason.filter((entry) => typeof entry === "string").join(", ")
               : null,
+        decisionReasons,
         decisionSource: typeof decisionSource === "string" ? decisionSource : null,
         score: ranking.score,
         scores: ranking.scores.categories,

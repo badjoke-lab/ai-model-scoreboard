@@ -1,3 +1,5 @@
+import { formatReasonSentence } from "@/lib/v4/deriveReasons";
+
 export type EvidenceKey = "official_page" | "dev_activity" | "paper" | "audit";
 
 export type EvidenceBlock = {
@@ -10,17 +12,9 @@ export type EvidenceBlock = {
 };
 
 const REASON_TOKEN_MAP: Record<string, string> = {
-  not_found: "No verifiable source found, so this item is penalized.",
-  missing_source_link: "A source was referenced but no valid link was provided.",
-  outdated: "Evidence exists but appears outdated, so this item is penalized.",
-  unknown: "Evidence status is unclear, so this item is penalized.",
   ok: "Evidence is verified and current.",
   found: "Evidence is available and verified.",
   verified: "Evidence is verified and current.",
-  repo_link_missing: "No repository link was provided for development activity.",
-  openrouter_model_page_only: "Only a model registry page was found, with no primary source.",
-  no_known_paper_source: "No known paper source was found for this model.",
-  no_known_audit_source: "No known audit source was found for this model.",
 };
 
 const POSITIVE_STATUSES = new Set(["ok", "found", "verified", "available", "present"]);
@@ -82,8 +76,7 @@ export function mapReasonToken(token: string): string {
   }
   const mapped = REASON_TOKEN_MAP[normalized];
   if (mapped) return mapped;
-  const humanized = normalized.replace(/[_-]+/g, " ");
-  return `Evidence reason: ${humanized}.`;
+  return formatReasonSentence(normalized);
 }
 
 export function toEnglishReason(item: {
