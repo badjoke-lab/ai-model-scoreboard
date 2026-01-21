@@ -871,7 +871,7 @@
       "top_p": 0.95,
       "frequency_penalty": null
     },
-    "expiration_date": null
+    "expiration_date": "2026-01-26"
   },
   {
     "id": "xiaomi/mimo-v2-flash",
