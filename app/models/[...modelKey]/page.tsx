@@ -1,10 +1,21 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
-import BreakdownTable, { type BreakdownItem } from "@/components/score/BreakdownTable";
-import EvidenceTiles from "@/components/evidence/EvidenceTiles";
-import EvidenceAudit from "@/components/evidence/EvidenceAudit";
-import SpecTable from "@/components/model/SpecTable";
+import AbsoluteMetrics, {
+  formatEvidenceStatus,
+  formatMetricOrMissing,
+  type AbsoluteMetricRow,
+} from "@/components/model/AbsoluteMetrics";
+import EvidenceCards from "@/components/model/EvidenceCards";
+import FullBreakdownTable, {
+  extractInputs,
+  type FullBreakdownItem,
+} from "@/components/model/FullBreakdownTable";
+import ModelHeader from "@/components/model/ModelHeader";
+import ModelStatus from "@/components/model/ModelStatus";
+import ReferencesList from "@/components/model/ReferencesList";
+import ScoreSummary from "@/components/model/ScoreSummary";
+import { formatReasonList } from "@/lib/v4/deriveReasons";
 import {
   buildEvidenceBlocks,
   dedupeUrls,
@@ -18,52 +29,268 @@ import {
   type V4ScoreItem,
 } from "@/lib/v4-snapshot";
 
-function formatScore(value: number): string {
-  return value.toFixed(1);
-}
-
-function formatDate(value: string | undefined): string {
-  if (!value) return "—";
+function formatUpdatedDate(value?: string): string | null {
+  if (!value) return null;
   const date = new Date(value);
-  return Number.isNaN(date.getTime())
-    ? "—"
-    : date.toLocaleString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-      });
+  if (Number.isNaN(date.getTime())) return null;
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "2-digit",
+  });
 }
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null;
 }
 
-function extractAbsoluteMetrics(modelRow: Record<string, unknown> | null): Record<string, unknown> | null {
-  if (!modelRow) return null;
+function extractAbsoluteMetrics(modelRow: Record<string, unknown> | null): Record<string, unknown> {
+  if (!modelRow) return {};
   const direct = modelRow.absoluteMetrics;
   if (isObject(direct)) return direct;
   const identity = modelRow.identity;
   if (isObject(identity) && isObject(identity.absoluteMetrics)) {
     return identity.absoluteMetrics;
   }
-  return null;
+  return {};
 }
 
-function buildBreakdownItems(scoreItems?: Record<string, V4ScoreItem>): BreakdownItem[] {
+function pickMetric(
+  metrics: Record<string, unknown>,
+  keys: string[],
+  fallback?: unknown
+): unknown {
+  for (const key of keys) {
+    const value = metrics[key];
+    if (value !== null && value !== undefined && value !== "") {
+      return value;
+    }
+  }
+  return fallback;
+}
+
+function formatPricing(pricing?: { input?: number; output?: number; currency?: string }): string {
+  if (!pricing) return "Missing";
+  const currency = pricing.currency ?? "USD";
+  const input = typeof pricing.input === "number" ? pricing.input : null;
+  const output = typeof pricing.output === "number" ? pricing.output : null;
+  if (input === null && output === null) return "Missing";
+  const inputLabel = input !== null ? `${input.toFixed(2)}` : "—";
+  const outputLabel = output !== null ? `${output.toFixed(2)}` : "—";
+  return `in: ${currency} ${inputLabel}   out: ${currency} ${outputLabel}`;
+}
+
+function formatSupportFlag(value: unknown): string {
+  if (typeof value === "boolean") return value ? "yes" : "no";
+  if (typeof value === "string" && value.trim()) return value.trim();
+  return "Missing";
+}
+
+function buildBreakdownItems(scoreItems?: Record<string, V4ScoreItem>): FullBreakdownItem[] {
   if (!scoreItems) return [];
   return Object.entries(scoreItems)
     .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
-    .map(([key, item]) => ({
-      key,
-      label: item.label ? item.label : formatKeyLabel(key),
-      impact: item.score,
-      reason: toEnglishReason(item),
-      usedEvidence: item.usedEvidence,
-      specMissingEvidence: item.__specMissingEvidenceLink ?? false,
-    }));
+    .map(([key, item]) => {
+      const rawItem = item as Record<string, unknown>;
+      return {
+        key,
+        label: item.label ? item.label : formatKeyLabel(key),
+        score: typeof item.score === "number" ? item.score : null,
+        inputs: extractInputs(rawItem),
+        reason: toEnglishReason(item),
+        usedEvidence: Array.isArray(item.usedEvidence) ? item.usedEvidence : [],
+        specMissingEvidence: item.__specMissingEvidenceLink ?? false,
+      };
+    });
+}
+
+function deriveTopDrivers(
+  breakdownItems: FullBreakdownItem[],
+  evidenceBlocks: ReturnType<typeof buildEvidenceBlocks>
+): string[] {
+  const defaultReason = "No reason provided; score derived from available signals.";
+  const reasons = breakdownItems
+    .map((item) => item.reason)
+    .filter((reason) => reason && reason !== defaultReason);
+  const evidenceReasons = Object.values(evidenceBlocks).flatMap((block) =>
+    formatReasonList(block.reasons)
+  );
+  const combined = [...reasons, ...evidenceReasons];
+  const deduped: string[] = [];
+  const seen = new Set<string>();
+  for (const reason of combined) {
+    const normalized = reason.trim();
+    if (!normalized || seen.has(normalized)) continue;
+    seen.add(normalized);
+    deduped.push(normalized);
+    if (deduped.length >= 5) break;
+  }
+  while (deduped.length < 3) {
+    deduped.push(
+      "Missing or blocked evidence triggers fixed penalties under the v4 scoring policy."
+    );
+  }
+  return deduped.slice(0, 5);
+}
+
+function buildAbsoluteMetricRows(
+  detail: {
+    context?: number;
+    pricing?: { input?: number; output?: number; currency?: string };
+    type?: string;
+    released?: string;
+  },
+  metrics: Record<string, unknown>,
+  evidenceStatus?: string
+): AbsoluteMetricRow[] {
+  const contextLength = formatMetricOrMissing(
+    pickMetric(metrics, [
+      "context_length",
+      "context_window",
+      "max_context_length",
+      "contextLength",
+    ], detail.context),
+    "Missing context length => affects score: performance signals reduced."
+  );
+  const maxOutputTokens = formatMetricOrMissing(
+    pickMetric(metrics, ["max_output_tokens", "max_output", "maxOutputTokens"]),
+    "Missing max output tokens => affects score: performance signals reduced."
+  );
+  const pricing = formatMetricOrMissing(
+    pickMetric(metrics, ["pricing", "price"], detail.pricing),
+    "Missing pricing => affects score: cost signals reduced.",
+    (value) => formatPricing(value as { input?: number; output?: number; currency?: string })
+  );
+  const modalities = formatMetricOrMissing(
+    pickMetric(metrics, ["modalities", "modality"], detail.type),
+    "Missing modalities => affects score: modality coverage signals reduced."
+  );
+  const toolSupport = formatSupportFlag(
+    pickMetric(metrics, ["tool_support", "tools", "tooling", "supports_tools"])
+  );
+  const jsonSupport = formatSupportFlag(
+    pickMetric(metrics, ["json_support", "json_mode", "supports_json"])
+  );
+  const toolJsonValue = toolSupport === "Missing" && jsonSupport === "Missing"
+    ? "Missing"
+    : `tools: ${toolSupport}  json: ${jsonSupport}`;
+  const toolJsonNote =
+    toolJsonValue === "Missing"
+      ? "Missing tool/JSON support => affects score: tooling capability signals reduced."
+      : null;
+
+  const trainingCutoffValue = pickMetric(metrics, ["training_cutoff", "training_data_cutoff"]);
+  const trainingCutoff = formatMetricOrMissing(
+    trainingCutoffValue,
+    `Missing training cutoff => affects score: openness signals reduced. ${formatEvidenceStatus(
+      evidenceStatus
+    )}.`
+  );
+  const releaseDate = formatMetricOrMissing(
+    pickMetric(metrics, ["release_date"], detail.released),
+    `Missing release date => affects score: openness signals reduced. ${formatEvidenceStatus(
+      evidenceStatus
+    )}.`
+  );
+
+  return [
+    {
+      label: "Context length",
+      value: contextLength.value,
+      note: contextLength.note,
+    },
+    {
+      label: "Max output tokens",
+      value: maxOutputTokens.value,
+      note: maxOutputTokens.note,
+    },
+    {
+      label: "Pricing (per 1M tokens)",
+      value: pricing.value,
+      note: pricing.note,
+    },
+    {
+      label: "Modalities",
+      value: modalities.value,
+      note: modalities.note,
+    },
+    {
+      label: "Tool / JSON support",
+      value: toolJsonValue,
+      note: toolJsonNote,
+    },
+    {
+      label: "Training cutoff (evidence)",
+      value: trainingCutoff.value === "Missing"
+        ? "Missing"
+        : `${trainingCutoff.value} (${formatEvidenceStatus(evidenceStatus)})`,
+      note: trainingCutoff.note,
+    },
+    {
+      label: "Release date (evidence)",
+      value: releaseDate.value === "Missing"
+        ? "Missing"
+        : `${releaseDate.value} (${formatEvidenceStatus(evidenceStatus)})`,
+      note: releaseDate.note,
+    },
+  ];
+}
+
+function buildReferenceSections(
+  evidenceBlocks: ReturnType<typeof buildEvidenceBlocks>,
+  breakdownItems: FullBreakdownItem[]
+) {
+  const sections = {
+    "official_page": [] as string[],
+    "repo/dev": [] as string[],
+    paper: [] as string[],
+    audit: [] as string[],
+    other: [] as string[],
+  };
+
+  const addUrl = (section: keyof typeof sections, url: string) => {
+    if (!isHttpUrl(url)) return;
+    sections[section].push(url);
+  };
+
+  for (const block of Object.values(evidenceBlocks)) {
+    const target =
+      block.key === "official_page"
+        ? "official_page"
+        : block.key === "dev_activity"
+          ? "repo/dev"
+          : block.key === "paper"
+            ? "paper"
+            : block.key === "audit"
+              ? "audit"
+              : "other";
+    block.refs.forEach((ref) => addUrl(target, ref));
+  }
+
+  for (const item of breakdownItems) {
+    for (const evidence of item.usedEvidence) {
+      if (!evidence.link) continue;
+      const type = evidence.type?.toLowerCase() ?? "";
+      if (type.includes("paper")) {
+        addUrl("paper", evidence.link);
+      } else if (type.includes("audit")) {
+        addUrl("audit", evidence.link);
+      } else if (type.includes("repo") || type.includes("dev")) {
+        addUrl("repo/dev", evidence.link);
+      } else if (type.includes("official")) {
+        addUrl("official_page", evidence.link);
+      } else {
+        addUrl("other", evidence.link);
+      }
+    }
+  }
+
+  return [
+    { label: "official_page", urls: dedupeUrls(sections["official_page"]) },
+    { label: "repo/dev", urls: dedupeUrls(sections["repo/dev"]) },
+    { label: "paper", urls: dedupeUrls(sections.paper) },
+    { label: "audit", urls: dedupeUrls(sections.audit) },
+    { label: "other", urls: dedupeUrls(sections.other) },
+  ];
 }
 
 export default async function ModelDetailPage({
@@ -93,8 +320,7 @@ export default async function ModelDetailPage({
             </p>
             <h1 className="text-3xl font-semibold text-slate-50">Multiple matches</h1>
             <p className="text-sm text-slate-400">
-              &quot;{slug}&quot; matches multiple models. Choose the exact model key
-              below.
+              &quot;{slug}&quot; matches multiple models. Choose the exact model key below.
             </p>
           </header>
           <ul className="space-y-3 rounded-2xl border border-slate-800 bg-surface/70 p-4 text-sm text-slate-200 shadow-lg">
@@ -135,8 +361,8 @@ export default async function ModelDetailPage({
             This model is currently not listed in the v4 scoreboard.
           </p>
           <p className="text-sm text-slate-400">
-            The model is known to the AMS pipeline but is intentionally excluded from
-            the published leaderboard snapshot.
+            The model is known to the AMS pipeline but is intentionally excluded from the
+            published leaderboard snapshot.
           </p>
           {notListedEntry?.reason ? (
             <p className="text-sm text-slate-400">Decision reason: {notListedEntry.reason}</p>
@@ -171,167 +397,70 @@ export default async function ModelDetailPage({
   }
 
   const modelRow = (models[modelKey] ?? null) as Record<string, unknown> | null;
-  const lastUpdated = formatDate(index.meta?.updatedAt);
   const absoluteMetrics = extractAbsoluteMetrics(modelRow);
+  const updatedAt = formatUpdatedDate(index.meta?.updatedAt) ?? null;
+  const evidenceBlocks = buildEvidenceBlocks(evidenceRaw);
+  const evidenceErrorMessage = detail.evidenceError
+    ? `Evidence file issue: ${detail.evidenceError}. Expected path: ${evidencePath}`
+    : evidenceRaw
+      ? null
+      : `Evidence file missing or unreadable. Expected path: ${evidencePath}`;
+
   const modelScoreItems =
     isObject(modelRow?.scores) && isObject(modelRow.scores.items)
       ? (modelRow.scores.items as Record<string, V4ScoreItem>)
       : undefined;
-  const hasScoreItems = Boolean(
-    (detail.scoreItems && Object.keys(detail.scoreItems).length) ||
-      (modelScoreItems && Object.keys(modelScoreItems).length)
-  );
   const breakdownItems = buildBreakdownItems(detail.scoreItems ?? modelScoreItems);
-  const evidenceBlocks = buildEvidenceBlocks(evidenceRaw);
-  const evidenceMissing = !evidenceRaw;
-  const missingMessage = evidenceMissing
-    ? "Evidence file missing or unreadable."
-    : undefined;
+  const topDrivers = deriveTopDrivers(breakdownItems, evidenceBlocks);
 
-  const usedEvidenceLinks = breakdownItems
-    .flatMap((item) => item.usedEvidence ?? [])
-    .map((evidence) => evidence.link)
-    .filter((link): link is string => typeof link === "string" && link.trim())
-    .filter((link) => isHttpUrl(link));
-  const evidenceRefs = Object.values(evidenceBlocks)
-    .flatMap((block) => block.refs)
-    .filter((ref) => isHttpUrl(ref));
-  const referenceUrls = dedupeUrls([...usedEvidenceLinks, ...evidenceRefs]);
+  const absoluteRows = buildAbsoluteMetricRows(
+    detail,
+    absoluteMetrics,
+    evidenceBlocks.official_page?.status
+  );
+
+  const decisionReasons = detail.decisionReasons?.length
+    ? detail.decisionReasons
+    : detail.decisionReason
+      ? detail.decisionReason.split(",").map((reason) => reason.trim()).filter(Boolean)
+      : [];
+
+  const referenceSections = buildReferenceSections(evidenceBlocks, breakdownItems);
+
+  const sourceLabel =
+    typeof modelRow?.source === "string" && modelRow?.source.trim()
+      ? modelRow.source
+      : detail.layer;
 
   return (
-    <div className="space-y-10">
-      <header className="space-y-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">
-          AI Model Scoreboard · v4
-        </p>
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <div className="space-y-3">
-            <h1 className="text-3xl font-semibold leading-tight text-slate-50 sm:text-4xl">
-              {detail.name}
-            </h1>
-            <div className="flex flex-wrap gap-2 text-xs text-slate-400">
-              {detail.vendor ? (
-                <span className="rounded-full border border-slate-800 px-3 py-1 text-slate-300">
-                  Provider: {detail.vendor}
-                </span>
-              ) : null}
-              {detail.type ? (
-                <span className="rounded-full border border-slate-800 px-3 py-1 text-slate-300">
-                  Modality: {detail.type}
-                </span>
-              ) : null}
-              {detail.context ? (
-                <span className="rounded-full border border-slate-800 px-3 py-1 text-slate-300">
-                  Context length: {detail.context.toLocaleString()}
-                </span>
-              ) : null}
-            </div>
-            <p className="text-sm text-slate-400">Last updated: {lastUpdated}</p>
-          </div>
-          <div className="self-start rounded-2xl border border-slate-800 bg-background/70 px-5 py-4 text-right text-sm text-slate-300 shadow-xl">
-            <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">Overall score</p>
-            <p className="text-4xl font-semibold text-slate-50">{formatScore(detail.score)}</p>
-          </div>
-        </div>
-      </header>
-
-      <section className="space-y-3">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Evidence summary</h2>
-          <p className="text-xs text-slate-400">
-            Official sources, development activity, papers, and audits.
-          </p>
-        </div>
-        <EvidenceTiles
-          blocks={Object.values(evidenceBlocks)}
-          missingMessage={missingMessage}
-        />
-      </section>
-
-      <section className="space-y-3">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Specs</h2>
-          <p className="text-xs text-slate-400">Absolute metrics for this model.</p>
-        </div>
-        <SpecTable metrics={absoluteMetrics} />
-      </section>
-
-      <section className="space-y-3">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Breakdown (Why this score)</h2>
-          <p className="text-xs text-slate-400">
-            Each item shows the impact, reason, and supporting evidence.
-          </p>
-        </div>
-        <BreakdownTable items={breakdownItems} />
-      </section>
-
-      <EvidenceAudit
+    <div className="space-y-8">
+      <ModelHeader
         modelKey={modelKey}
-        evidenceRaw={evidenceRaw}
-        evidencePath={evidencePath}
-        breakdownItems={breakdownItems}
-        hasScoreItems={hasScoreItems}
+        title={`${detail.vendor} ${detail.name}`}
+        provider={detail.vendor}
+        source={sourceLabel}
+        overallScore={detail.score}
+        updatedAt={updatedAt}
       />
 
-      <section className="space-y-3">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">References</h2>
-          <p className="text-xs text-slate-400">Deduped links from evidence sources.</p>
-        </div>
-        {referenceUrls.length ? (
-          <ul className="space-y-2 text-sm text-slate-300">
-            {referenceUrls.map((url) => (
-              <li key={url}>
-                <Link
-                  href={url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-semibold text-accent hover:text-accent/80"
-                >
-                  {url}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <div className="rounded-2xl border border-slate-800 bg-surface/70 px-4 py-3 text-sm text-slate-400">
-            No references were found for this model.
-          </div>
-        )}
-      </section>
+      <ModelStatus status={detail.status} reasons={decisionReasons} source={detail.decisionSource} />
 
-      <section className="space-y-3">
-        <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="text-lg font-semibold text-slate-100">Raw inputs</h2>
-          <p className="text-xs text-slate-400">Model row and evidence payload snapshots.</p>
-        </div>
-        <details className="rounded-2xl border border-slate-800 bg-surface/70 p-4 text-sm text-slate-300">
-          <summary className="cursor-pointer font-semibold text-slate-100">Show raw JSON</summary>
-          <div className="mt-4 space-y-4">
-            <div>
-              <p className="text-xs uppercase tracking-wide text-slate-500">Model row</p>
-              <pre className="mt-2 max-h-72 overflow-auto whitespace-pre-wrap rounded-xl border border-slate-800 bg-slate-950/40 p-3 text-[0.65rem] text-slate-200">
-                {JSON.stringify(modelRow ?? { error: "Model row missing" }, null, 2)}
-              </pre>
-            </div>
-            <div>
-              <p className="text-xs uppercase tracking-wide text-slate-500">Evidence JSON</p>
-              <pre className="mt-2 max-h-72 overflow-auto whitespace-pre-wrap rounded-xl border border-slate-800 bg-slate-950/40 p-3 text-[0.65rem] text-slate-200">
-                {JSON.stringify(
-                  evidenceRaw ?? { error: "Evidence file missing or unreadable." },
-                  null,
-                  2
-                )}
-              </pre>
-            </div>
-          </div>
-        </details>
-      </section>
+      <AbsoluteMetrics rows={absoluteRows} />
 
-      <Link href="/v4" className="text-sm font-semibold text-accent underline">
-        ← Back to leaderboard
-      </Link>
+      <ScoreSummary
+        overallScore={detail.score}
+        categoryScores={detail.scores}
+        topDrivers={topDrivers}
+      />
+
+      <EvidenceCards blocks={evidenceBlocks} errorMessage={evidenceErrorMessage} />
+
+      <FullBreakdownTable
+        items={breakdownItems}
+        emptyMessage="Score breakdown data is missing; category-level scoring applied with fixed penalties."
+      />
+
+      <ReferencesList sections={referenceSections} />
     </div>
   );
 }

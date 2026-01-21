@@ -207,7 +207,7 @@ export default function EvidenceAudit({
   const usedEvidenceRows = extractUsedEvidenceRows(breakdownItems);
   const usedEvidenceLinks = usedEvidenceRows
     .map((row) => row.link)
-    .filter((link): link is string => typeof link === "string" && link.trim());
+    .filter((link): link is string => typeof link === "string" && link.trim().length > 0);
   const evidenceFileUrls = evidenceFileRows.map((row) => row.url);
   const totalUniqueUrls = Array.from(
     new Set(
