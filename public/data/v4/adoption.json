@@ -1765,6 +1765,12 @@
       "source": "openrouter"
     },
     {
+      "modelKey": "writer/palmyra-x5-20250428",
+      "name": "Writer: Palmyra X5",
+      "provider": "writer",
+      "source": "openrouter"
+    },
+    {
       "modelKey": "x-ai/grok-3",
       "name": "xAI: Grok 3",
       "provider": "x-ai",

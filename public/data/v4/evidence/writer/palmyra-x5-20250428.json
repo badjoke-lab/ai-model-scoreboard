@@ -1,7 +1,7 @@
 {
   "meta": {
     "updatedAt": "2026-01-21T19:01:39.563Z",
-    "modelKey": "qwen/qwen3-235b-a22b-07-25"
+    "modelKey": "writer/palmyra-x5-20250428"
   },
   "evidenceItems": [
     {
@@ -9,15 +9,13 @@
       "status": "ok",
       "reasons": [
         "ok",
-        "openrouter_model_page",
-        "provider_fallback"
+        "openrouter_model_page_only"
       ],
       "refs": [
-        "https://openrouter.ai/models/qwen/qwen3-235b-a22b-07-25",
-        "https://qwenlm.ai"
+        "https://openrouter.ai/models/writer/palmyra-x5-20250428"
       ],
       "extracted": {
-        "url": "https://qwenlm.ai"
+        "url": "https://openrouter.ai/models/writer/palmyra-x5-20250428"
       }
     },
     {
@@ -39,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Qwen: Qwen3 235B A22B Instruct 2507\""
+        "arxiv_query:\"Writer: Palmyra X5\""
       ]
     },
     {

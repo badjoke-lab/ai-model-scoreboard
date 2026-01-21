@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-21T17:18:54.438Z",
-    "runId": "21218948797"
+    "updatedAt": "2026-01-21T19:01:39.563Z",
+    "runId": "21222090812"
   },
   "models": [
     {
@@ -1180,6 +1180,10 @@
     {
       "modelKey": "venice/uncensored",
       "path": "evidence/venice/uncensored.json"
+    },
+    {
+      "modelKey": "writer/palmyra-x5-20250428",
+      "path": "evidence/writer/palmyra-x5-20250428.json"
     },
     {
       "modelKey": "x-ai/grok-3",

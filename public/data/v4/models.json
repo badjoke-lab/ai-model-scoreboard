@@ -62030,6 +62030,217 @@
     },
     "layer": "full"
   },
+  "writer/palmyra-x5-20250428": {
+    "name": "Writer: Palmyra X5",
+    "vendor": "writer",
+    "released": "2026-01-21T13:57:03.000Z",
+    "context": 1040000,
+    "type": "text->text",
+    "pricing": {
+      "input": 6e-7,
+      "output": 0.000006,
+      "currency": "USD"
+    },
+    "scores": {
+      "overall": 70.0056016369229,
+      "categories": {
+        "performance": 67.44530000000002,
+        "safety": 80,
+        "adoption": 71.85,
+        "openness": 41.66666666666667,
+        "cost": 99.99981636922895
+      },
+      "items": {
+        "S1": {
+          "score": 50,
+          "inputs": {
+            "safetySection": true,
+            "highRisk": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S2": {
+          "score": 50,
+          "inputs": {
+            "rlhf": true,
+            "dataDisclosure": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S3": {
+          "score": 100,
+          "inputs": {
+            "misusePolicy": true,
+            "harmMitigation": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S4": {
+          "score": 50,
+          "inputs": {
+            "redTeam": true,
+            "independentAudit": false
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "S5": {
+          "score": 100,
+          "inputs": {
+            "transparencyUpdate": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S6": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_minor_incidents"
+          ]
+        },
+        "S7": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_major_incidents"
+          ]
+        },
+        "S8": {
+          "score": 100,
+          "inputs": {},
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "missing_critical_incidents"
+          ]
+        },
+        "T1": {
+          "score": 33.33333333333333,
+          "inputs": {
+            "modelCard": false,
+            "overview": true,
+            "limitations": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T2": {
+          "score": 100,
+          "inputs": {
+            "dataCategories": true,
+            "dataFiltering": true,
+            "copyright": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T3": {
+          "score": 0,
+          "inputs": {
+            "architecture": false,
+            "parameterScale": false
+          },
+          "usedEvidence": [
+            {
+              "type": "paper",
+              "status": "not_found"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_paper_not_found"
+          ]
+        },
+        "T4": {
+          "score": 25,
+          "inputs": {
+            "safetyControls": false,
+            "riskLimits": false,
+            "externalReview": false,
+            "transparencyReport": true
+          },
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link"
+            }
+          ],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link"
+          ]
+        },
+        "Q1": {
+          "score": 70.76,
+          "inputs": {
+            "benchmark": 70.76
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q2": {
+          "score": 63.24,
+          "inputs": {
+            "benchmark": 63.24
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        },
+        "Q3": {
+          "score": 67.18289,
+          "inputs": {
+            "math": 62.42,
+            "chat": 79.03,
+            "arena": 75.92,
+            "vendor": 68.94
+          },
+          "usedEvidence": [],
+          "penaltyReasons": []
+        }
+      }
+    },
+    "layer": "full"
+  },
   "x-ai/grok-3": {
     "name": "xAI: Grok 3",
     "vendor": "x-ai",

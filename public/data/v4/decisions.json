@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-21T17:18:54.438Z",
+    "generatedAt": "2026-01-21T19:01:39.563Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 311,
-      "adopted": 311,
+      "total": 312,
+      "adopted": 312,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 309,
+        "openrouter": 310,
         "seed": 2
       }
     },
@@ -5019,6 +5019,23 @@
       "rawRef": {
         "id": "cognitivecomputations/dolphin-mistral-24b-venice-edition:free",
         "canonical_slug": "venice/uncensored"
+      }
+    },
+    {
+      "modelKey": "writer/palmyra-x5-20250428",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Writer: Palmyra X5",
+        "slug": "writer/palmyra-x5-20250428",
+        "provider": "writer"
+      },
+      "rawRef": {
+        "id": "writer/palmyra-x5",
+        "canonical_slug": "writer/palmyra-x5-20250428"
       }
     },
     {

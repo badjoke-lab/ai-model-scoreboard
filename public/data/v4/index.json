@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-21T17:18:54.438Z",
+  "updatedAt": "2026-01-21T19:01:39.563Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -314,6 +314,7 @@
       "evidence/tngtech/tng-r1t-chimera.json",
       "evidence/undi95/remm-slerp-l2-13b.json",
       "evidence/venice/uncensored.json",
+      "evidence/writer/palmyra-x5-20250428.json",
       "evidence/x-ai/grok-3.json",
       "evidence/x-ai/grok-3-beta.json",
       "evidence/x-ai/grok-3-mini.json",
@@ -627,6 +628,7 @@
       "evidence/tngtech/tng-r1t-chimera.json",
       "evidence/undi95/remm-slerp-l2-13b.json",
       "evidence/venice/uncensored.json",
+      "evidence/writer/palmyra-x5-20250428.json",
       "evidence/x-ai/grok-3.json",
       "evidence/x-ai/grok-3-beta.json",
       "evidence/x-ai/grok-3-mini.json",
@@ -646,8 +648,8 @@
       "evidence/z-ai/glm-4.7-flash-20260119.json"
     ]
   },
-  "modelsCount": 311,
-  "fullCount": 295,
+  "modelsCount": 312,
+  "fullCount": 296,
   "provisionalCount": 16,
   "notListedCount": 0
 }
