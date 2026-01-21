@@ -830,6 +830,7 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
   index: V4IndexData;
   diagnostics: V4SnapshotDiagnostics;
   evidenceRaw: unknown | null;
+  evidencePath: string;
 }> {
   const { index, rankings, models, notListed, evidenceIndexByKey } =
     await loadV4SnapshotData();
@@ -930,6 +931,7 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
       index,
       diagnostics,
       evidenceRaw,
+      evidencePath,
     };
   }
 
@@ -940,6 +942,7 @@ export async function loadV4ModelDetail(modelId: string): Promise<{
     index,
     diagnostics,
     evidenceRaw,
+    evidencePath,
   };
 }
 
