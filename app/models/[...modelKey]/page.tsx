@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 
 import BreakdownTable, { type BreakdownItem } from "@/components/score/BreakdownTable";
 import EvidenceTiles from "@/components/evidence/EvidenceTiles";
+import EvidenceAudit from "@/components/evidence/EvidenceAudit";
 import SpecTable from "@/components/model/SpecTable";
 import {
   buildEvidenceBlocks,
@@ -117,7 +118,7 @@ export default async function ModelDetailPage({
     }
   }
 
-  const { detail, isNotListed, notListedEntry, index, evidenceRaw } =
+  const { detail, isNotListed, notListedEntry, index, evidenceRaw, evidencePath } =
     await loadV4ModelDetail(modelKey);
 
   if (!detail && isNotListed) {
@@ -176,6 +177,10 @@ export default async function ModelDetailPage({
     isObject(modelRow?.scores) && isObject(modelRow.scores.items)
       ? (modelRow.scores.items as Record<string, V4ScoreItem>)
       : undefined;
+  const hasScoreItems = Boolean(
+    (detail.scoreItems && Object.keys(detail.scoreItems).length) ||
+      (modelScoreItems && Object.keys(modelScoreItems).length)
+  );
   const breakdownItems = buildBreakdownItems(detail.scoreItems ?? modelScoreItems);
   const evidenceBlocks = buildEvidenceBlocks(evidenceRaw);
   const evidenceMissing = !evidenceRaw;
@@ -260,6 +265,14 @@ export default async function ModelDetailPage({
         </div>
         <BreakdownTable items={breakdownItems} />
       </section>
+
+      <EvidenceAudit
+        modelKey={modelKey}
+        evidenceRaw={evidenceRaw}
+        evidencePath={evidencePath}
+        breakdownItems={breakdownItems}
+        hasScoreItems={hasScoreItems}
+      />
 
       <section className="space-y-3">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
