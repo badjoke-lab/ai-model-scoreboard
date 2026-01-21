@@ -2275,10 +2275,7 @@
     "pricing": {
       "prompt": "0.000005",
       "completion": "0.000025",
-      "request": "0",
-      "image": "0",
       "web_search": "0.01",
-      "internal_reasoning": "0",
       "input_cache_read": "0.0000005",
       "input_cache_write": "0.00000625"
     },
@@ -3733,10 +3730,7 @@
     "pricing": {
       "prompt": "0.000001",
       "completion": "0.000005",
-      "request": "0",
-      "image": "0",
       "web_search": "0.01",
-      "internal_reasoning": "0",
       "input_cache_read": "0.0000001",
       "input_cache_write": "0.00000125"
     },
@@ -4517,10 +4511,7 @@
     "pricing": {
       "prompt": "0.000003",
       "completion": "0.000015",
-      "request": "0",
-      "image": "0.0048",
       "web_search": "0.01",
-      "internal_reasoning": "0",
       "input_cache_read": "0.0000003",
       "input_cache_write": "0.00000375"
     },
@@ -16690,10 +16681,6 @@
     "pricing": {
       "prompt": "0.00000025",
       "completion": "0.00000125",
-      "request": "0",
-      "image": "0.0004",
-      "web_search": "0",
-      "internal_reasoning": "0",
       "input_cache_read": "0.00000003",
       "input_cache_write": "0.0000003"
     },
