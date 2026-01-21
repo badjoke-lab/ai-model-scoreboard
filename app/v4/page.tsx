@@ -172,6 +172,7 @@ export default async function V4Page() {
   const rankings = snapshot.rankings ?? null;
   const models = snapshot.models ?? null;
   const lastUpdatedLabel = formatUpdatedLabel(meta?.updatedAt);
+  const snapshotReady = Boolean(meta && rankings && models);
 
   const validation = meta && rankings && models ? validateSnapshot(meta, rankings, models) : null;
   const warn = validation ? [...validation.warn] : [];
@@ -197,55 +198,8 @@ export default async function V4Page() {
     snapshot.diagnostics.files.enrichmentDecisions.error,
   ].filter(Boolean);
 
-  if (!meta || !rankings || !models) {
-    return (
-      <main className="mx-auto max-w-6xl px-4 py-10 space-y-4">
-        <h1 className="text-3xl font-semibold text-slate-50">Leaderboard</h1>
-        <p className="text-xs text-slate-400">Last updated: {lastUpdatedLabel}</p>
-        <AlertBox
-          variant="error"
-          title="Snapshot load error"
-          items={fatal.length ? fatal : ["Missing required v4 snapshot files."]}
-        />
-      </main>
-    );
-  }
-
-  // If broken, do not render leaderboard.
-  if (fatal.length) {
-    return (
-      <main className="mx-auto max-w-6xl px-4 py-10 space-y-6">
-        <header className="space-y-2">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-slate-500">
-            AIMS · v4
-          </p>
-          <h1 className="text-3xl font-semibold text-slate-50 md:text-4xl">
-            Leaderboard
-          </h1>
-          <p className="text-xs text-slate-400">Last updated: {lastUpdatedLabel}</p>
-          <p className="text-sm text-slate-400">
-            Snapshot validation failed, so the leaderboard is temporarily hidden.
-            Please check the snapshot generation/copy/commit pipeline.
-          </p>
-        </header>
-
-        <AlertBox variant="error" title="Validation errors" items={fatal} />
-        <AlertBox variant="warn" title="Warnings" items={warn} />
-
-        <div className="text-sm text-slate-400 space-y-2">
-          <div>Snapshot: {meta.version}</div>
-          <div>Updated: {lastUpdatedLabel}</div>
-          <div className="pt-2">
-            <Link
-              href="/methodology"
-              className="text-xs font-medium text-accent hover:text-accent/80"
-            >
-              Read methodology →
-            </Link>
-          </div>
-        </div>
-      </main>
-    );
+  if (!snapshotReady) {
+    fatal.unshift("Missing required v4 snapshot files.");
   }
 
   return (
@@ -257,6 +211,7 @@ export default async function V4Page() {
         </p>
 
         <div className="space-y-3">
+          <AlertBox variant="error" title="Snapshot errors" items={fatal} />
           <AlertBox variant="warn" title="Snapshot warnings" items={warn} />
         </div>
 
@@ -273,21 +228,21 @@ export default async function V4Page() {
           </div>
           <div className="flex flex-col items-start gap-2 md:items-end">
             <div className="text-xs text-slate-400">
-              <div>Snapshot: {meta.version}</div>
+              <div>Snapshot: {meta?.version ?? "unavailable"}</div>
               <div>Updated: {lastUpdatedLabel}</div>
             </div>
             <div className="flex flex-wrap gap-2 text-[0.7rem] text-slate-300">
               <span className="rounded-full border border-slate-700 px-2 py-0.5">
-                Models: {meta.modelsCount}
+                Models: {meta?.modelsCount ?? "—"}
               </span>
               <span className="rounded-full border border-slate-700 px-2 py-0.5">
-                Full: {meta.fullCount}
+                Full: {meta?.fullCount ?? "—"}
               </span>
               <span className="rounded-full border border-slate-700 px-2 py-0.5">
-                Provisional: {meta.provisionalCount}
+                Provisional: {meta?.provisionalCount ?? "—"}
               </span>
               <span className="rounded-full border border-slate-700 px-2 py-0.5">
-                Not listed: {meta.notListedCount}
+                Not listed: {meta?.notListedCount ?? "—"}
               </span>
             </div>
             <Link
@@ -307,8 +262,9 @@ export default async function V4Page() {
           </div>
         ) : null}
         <LeaderboardClient
-          rankings={rankings}
-          models={models}
+          rankings={rankings ?? []}
+          models={models ?? {}}
+          meta={meta}
           evidenceSummaries={snapshot.evidenceSummaries ?? {}}
         />
       </div>
