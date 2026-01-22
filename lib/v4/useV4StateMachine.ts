@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import type { V4ModelMetadata, V4RankingEntry, V4SnapshotMeta } from "@/lib/v4-snapshot";
+import type { V4SnapshotApiResponse, V4SnapshotData } from "@/lib/v4/types";
+
+export type { V4SnapshotData } from "@/lib/v4/types";
 
 export type V4Mode = "FIRST_VIEW" | "FETCHING" | "READY" | "NO_RESULTS" | "ERROR";
 
@@ -10,16 +12,11 @@ export type V4Filters = {
   status: "all" | "adopted" | "provisional" | "denied";
 };
 
-export type V4SnapshotData = {
-  meta: V4SnapshotMeta;
-  rankings: V4RankingEntry[];
-  models: Record<string, V4ModelMetadata>;
-};
-
 export type V4ErrorInfo = {
   message: string;
   endpoint: string;
   timestamp: string;
+  expectedPath?: string;
   detail?: string;
 };
 
@@ -133,18 +130,39 @@ export function useV4StateMachine<T>({
       if (!response.ok) {
         throw new Error(`Request failed (${response.status})`);
       }
-      const payload = (await response.json()) as V4SnapshotData;
+      const payload = (await response.json()) as V4SnapshotApiResponse;
+      if (!payload || typeof payload.ok !== "boolean") {
+        throw new Error("Snapshot response is missing required fields.");
+      }
+      if (!payload.ok) {
+        const detail =
+          payload.error?.debug !== undefined
+            ? JSON.stringify(payload.error?.debug)
+            : undefined;
+        setError({
+          message: payload.error?.message ?? "Snapshot unavailable.",
+          endpoint,
+          timestamp: new Date().toISOString(),
+          expectedPath: payload.error?.expectedPath,
+          detail,
+        });
+        setIsFetching(false);
+        setMode("ERROR");
+        return;
+      }
+
+      const snapshot = payload.snapshot;
       if (
-        !payload ||
-        !payload.meta ||
-        !Array.isArray(payload.rankings) ||
-        !payload.models ||
-        typeof payload.models !== "object"
+        !snapshot ||
+        !snapshot.meta ||
+        !Array.isArray(snapshot.rankings) ||
+        !snapshot.models ||
+        typeof snapshot.models !== "object"
       ) {
         throw new Error("Snapshot response is missing required fields.");
       }
-      setData(payload);
-      const nextResults = getResults(payload, filters);
+      setData(snapshot);
+      const nextResults = getResults(snapshot, filters);
       setResults(nextResults);
       setIsFetching(false);
       setMode(resolveMode(nextResults, false));
