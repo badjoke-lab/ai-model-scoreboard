@@ -1273,17 +1273,17 @@
     "type": "text->text",
     "pricing": {
       "input": 9e-8,
-      "output": 4e-7,
+      "output": 4.5e-7,
       "currency": "USD"
     },
     "scores": {
-      "overall": 70.30601848307691,
+      "overall": 70.3060183676923,
       "categories": {
         "performance": 76.07130000000001,
         "safety": 55,
         "adoption": 75.85,
         "openness": 50,
-        "cost": 99.99998483076908
+        "cost": 99.99998367692291
       },
       "items": {
         "S1": {
