@@ -43,6 +43,10 @@ export default function V4ErrorState({
             <div>Error: {error.message}</div>
             <div>Endpoint: {error.endpoint}</div>
             <div>Timestamp: {error.timestamp}</div>
+            {error.expectedPath ? (
+              <div>Expected path: {error.expectedPath}</div>
+            ) : null}
+            {error.detail ? <div>Details: {error.detail}</div> : null}
           </div>
         </details>
       ) : null}
