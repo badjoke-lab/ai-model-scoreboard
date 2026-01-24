@@ -13932,18 +13932,18 @@
     "context": 1048576,
     "type": "text+image->text",
     "pricing": {
-      "input": 1e-7,
-      "output": 4e-7,
+      "input": 0,
+      "output": 0,
       "currency": "USD"
     },
     "scores": {
-      "overall": 70.51259840615384,
+      "overall": 70.5126,
       "categories": {
         "performance": 78.28150000000002,
         "safety": 50,
         "adoption": 78,
         "openness": 50,
-        "cost": 99.9999840615383
+        "cost": 100
       },
       "items": {
         "S1": {
