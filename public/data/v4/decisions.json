@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-24T14:37:51.295Z",
+    "generatedAt": "2026-01-24T15:34:40.587Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 312,
-      "adopted": 312,
+      "total": 313,
+      "adopted": 313,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 310,
+        "openrouter": 311,
         "seed": 2
       }
     },
@@ -2045,6 +2045,23 @@
       "rawRef": {
         "id": "minimax/minimax-m2",
         "canonical_slug": "minimax/minimax-m2"
+      }
+    },
+    {
+      "modelKey": "minimax/minimax-m2-her-20260123",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "MiniMax: MiniMax M2-her",
+        "slug": "minimax/minimax-m2-her-20260123",
+        "provider": "minimax"
+      },
+      "rawRef": {
+        "id": "minimax/minimax-m2-her",
+        "canonical_slug": "minimax/minimax-m2-her-20260123"
       }
     },
     {

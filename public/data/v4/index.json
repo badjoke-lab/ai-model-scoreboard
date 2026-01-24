@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-24T14:37:51.295Z",
+  "updatedAt": "2026-01-24T15:34:40.587Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -139,6 +139,7 @@
       "evidence/minimax/minimax-01.json",
       "evidence/minimax/minimax-m1.json",
       "evidence/minimax/minimax-m2.json",
+      "evidence/minimax/minimax-m2-her-20260123.json",
       "evidence/minimax/minimax-m2.1.json",
       "evidence/mistralai/codestral-2508.json",
       "evidence/mistralai/devstral-2512.json",
@@ -453,6 +454,7 @@
       "evidence/minimax/minimax-01.json",
       "evidence/minimax/minimax-m1.json",
       "evidence/minimax/minimax-m2.json",
+      "evidence/minimax/minimax-m2-her-20260123.json",
       "evidence/minimax/minimax-m2.1.json",
       "evidence/mistralai/codestral-2508.json",
       "evidence/mistralai/devstral-2512.json",
@@ -648,8 +650,8 @@
       "evidence/z-ai/glm-4.7-flash-20260119.json"
     ]
   },
-  "modelsCount": 312,
-  "fullCount": 296,
+  "modelsCount": 313,
+  "fullCount": 297,
   "provisionalCount": 16,
   "notListedCount": 0
 }

@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-24T14:37:51.295Z",
-    "runId": "21316692143"
+    "updatedAt": "2026-01-24T15:34:40.587Z",
+    "runId": "21317420933"
   },
   "models": [
     {
@@ -480,6 +480,10 @@
     {
       "modelKey": "minimax/minimax-m2",
       "path": "evidence/minimax/minimax-m2.json"
+    },
+    {
+      "modelKey": "minimax/minimax-m2-her-20260123",
+      "path": "evidence/minimax/minimax-m2-her-20260123.json"
     },
     {
       "modelKey": "minimax/minimax-m2.1",

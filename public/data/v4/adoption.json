@@ -715,6 +715,12 @@
       "source": "openrouter"
     },
     {
+      "modelKey": "minimax/minimax-m2-her-20260123",
+      "name": "MiniMax: MiniMax M2-her",
+      "provider": "minimax",
+      "source": "openrouter"
+    },
+    {
       "modelKey": "minimax/minimax-m2.1",
       "name": "MiniMax: MiniMax M2.1",
       "provider": "minimax",

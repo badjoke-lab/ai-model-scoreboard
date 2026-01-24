@@ -1,7 +1,7 @@
 {
   "meta": {
     "updatedAt": "2026-01-24T15:34:40.587Z",
-    "modelKey": "perplexity/sonar-pro"
+    "modelKey": "minimax/minimax-m2-her-20260123"
   },
   "evidenceItems": [
     {
@@ -12,10 +12,10 @@
         "openrouter_model_page_only"
       ],
       "refs": [
-        "https://openrouter.ai/models/perplexity/sonar-pro"
+        "https://openrouter.ai/models/minimax/minimax-m2-her-20260123"
       ],
       "extracted": {
-        "url": "https://openrouter.ai/models/perplexity/sonar-pro"
+        "url": "https://openrouter.ai/models/minimax/minimax-m2-her-20260123"
       }
     },
     {
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Perplexity: Sonar Pro\""
+        "arxiv_query:\"MiniMax: MiniMax M2-her\""
       ]
     },
     {

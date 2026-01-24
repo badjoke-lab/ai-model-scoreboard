@@ -375,6 +375,10 @@
     "score": 71.31080625230736,
     "layer": "full"
   },
+  "minimax/minimax-m2-her-20260123": {
+    "score": 71.29405502153843,
+    "layer": "full"
+  },
   "openai/gpt-5-image": {
     "score": 71.28660009846055,
     "layer": "full"
