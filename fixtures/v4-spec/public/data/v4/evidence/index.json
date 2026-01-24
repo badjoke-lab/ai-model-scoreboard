@@ -1,0 +1,5 @@
+{
+  "models": {
+    "fixture/model-alpha": "evidence/fixture-model-alpha.json"
+  }
+}

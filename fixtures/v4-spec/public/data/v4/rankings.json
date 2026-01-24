@@ -1,0 +1,13 @@
+[
+  {
+    "modelKey": "fixture/model-alpha",
+    "rank": 1,
+    "scores": {
+      "performance": 80,
+      "safety": 70,
+      "adoption": 60,
+      "openness": 50,
+      "cost": 40
+    }
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "modelKey": "fixture/model-alpha",
+    "overallScore": 77.5,
+    "categoryScores": {
+      "C1": 80,
+      "C2": 75,
+      "C3": 70,
+      "C4": 65,
+      "C5": 60,
+      "C6": 55,
+      "C7": 50
+    },
+    "scoreBreakdown": {
+      "items": [
+        {
+          "key": "S1",
+          "label": "Safety documentation",
+          "score": 100,
+          "inputsRaw": {
+            "safetySection": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok",
+              "link": "https://example.com/model-alpha"
+            }
+          ],
+          "why": "The model card includes a dedicated safety section with concrete mitigations."
+        },
+        {
+          "key": "S4",
+          "label": "Independent audit",
+          "score": 50,
+          "delta": -10,
+          "inputsRaw": [
+            "audit_report=false"
+          ],
+          "usedEvidence": [
+            {
+              "type": "audit",
+              "status": "missing_source_link",
+              "link": "/data/v4/evidence/fixture-model-alpha.json"
+            }
+          ],
+          "why": "An audit is claimed but the source link is missing, so a policy penalty is applied."
+        }
+      ]
+    }
+  }
+]
