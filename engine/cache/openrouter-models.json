@@ -1399,12 +1399,7 @@
     },
     "pricing": {
       "prompt": "0.000001",
-      "completion": "0.000003",
-      "request": "0",
-      "image": "0",
-      "web_search": "0",
-      "internal_reasoning": "0",
-      "input_cache_read": "0"
+      "completion": "0.000003"
     },
     "top_provider": {
       "context_length": 256000,
@@ -17038,8 +17033,8 @@
       "instruct_type": "airoboros"
     },
     "pricing": {
-      "prompt": "0.000006",
-      "completion": "0.000008",
+      "prompt": "0.00000375",
+      "completion": "0.0000075",
       "request": "0",
       "image": "0",
       "web_search": "0",

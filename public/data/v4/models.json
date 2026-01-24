@@ -2960,18 +2960,18 @@
     "context": 6144,
     "type": "text->text",
     "pricing": {
-      "input": 0.000006,
-      "output": 0.000008,
+      "input": 0.00000375,
+      "output": 0.0000075,
       "currency": "USD"
     },
     "scores": {
-      "overall": 73.1337154830763,
+      "overall": 73.13373394461495,
       "categories": {
         "performance": 70.15070000000001,
         "safety": 75,
         "adoption": 75.49000000000001,
         "openness": 58.333333333333336,
-        "cost": 99.99935483076288
+        "cost": 99.99953944614931
       },
       "items": {
         "S1": {
