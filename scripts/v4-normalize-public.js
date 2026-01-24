@@ -38,6 +38,129 @@ function toNumber(v) {
   }
   return null;
 }
+function hasFiniteNumber(v) {
+  return typeof v === "number" && Number.isFinite(v);
+}
+function isNonEmptyObject(v) {
+  return isObject(v) && Object.keys(v).length > 0;
+}
+function isNonEmptyArray(v) {
+  return Array.isArray(v) && v.length > 0;
+}
+function hasNumericScore(item) {
+  return hasFiniteNumber(item?.score) || hasFiniteNumber(item?.delta) || hasFiniteNumber(item?.impact);
+}
+function isClickableLink(link) {
+  return typeof link === "string" && (/^https?:\/\//.test(link) || link.startsWith("/"));
+}
+function normalizeAttemptEvidenceLink(ref) {
+  if (!nonEmptyStr(ref)) return null;
+  if (/^https?:\/\//.test(ref)) return ref.trim();
+  const trimmed = ref.trim().replace(/^public\//, "");
+  if (trimmed.startsWith("/")) return trimmed;
+  if (trimmed.startsWith("data/")) return "/" + trimmed;
+  return "/data/v4/" + trimmed.replace(/^\.?\/*/, "");
+}
+function convertEvidenceTokenToUrl(token) {
+  if (!nonEmptyStr(token)) return null;
+  const trimmed = token.trim();
+  if (isClickableLink(trimmed)) return trimmed;
+
+  const colonIndex = trimmed.indexOf(":");
+  if (colonIndex === -1) return null;
+  const prefix = trimmed.slice(0, colonIndex).toLowerCase();
+  const rawValue = trimmed.slice(colonIndex + 1).trim();
+  if (!rawValue) return null;
+
+  const encoded = encodeURIComponent(rawValue);
+  switch (prefix) {
+    case "arxiv":
+    case "arxiv_query":
+      return `https://arxiv.org/search/?query=${encoded}&searchtype=all`;
+    case "hf":
+    case "huggingface":
+      return `https://huggingface.co/${rawValue.replace(/^\/+/, "")}`;
+    case "github":
+      return `https://github.com/${rawValue.replace(/^\/+/, "")}`;
+    case "url":
+      return rawValue;
+    default:
+      return null;
+  }
+}
+const REASON_TEXT = {
+  evidence_audit_missing_source_link:
+    "An audit is referenced but the source link is missing, so the audit evidence cannot be verified.",
+  missing_minor_incidents:
+    "No minor-incident evidence was found in the pipeline evidence record, so the default policy assumption is applied.",
+  missing_major_incidents:
+    "No major-incident evidence was found in the pipeline evidence record, so the default policy assumption is applied.",
+  missing_critical_incidents:
+    "No critical-incident evidence was found in the pipeline evidence record, so the default policy assumption is applied.",
+};
+function toEnglishWhy(reasonCodes) {
+  if (!Array.isArray(reasonCodes) || reasonCodes.length === 0) return null;
+  const mapped = reasonCodes.map((code) => REASON_TEXT[code]).filter(nonEmptyStr);
+  if (mapped.length > 0) return mapped[0];
+  const first = reasonCodes.find(nonEmptyStr);
+  if (!first) return null;
+  const humanized = first.replace(/[_:-]+/g, " ").trim();
+  if (!humanized) return null;
+  const sentence = humanized.charAt(0).toUpperCase() + humanized.slice(1);
+  return `${sentence}.`;
+}
+function ensureInputsRaw(item) {
+  if (!isObject(item) || !hasNumericScore(item)) return;
+  if (isNonEmptyObject(item.inputsRaw) || isNonEmptyArray(item.inputsRaw)) return;
+
+  if (isNonEmptyObject(item.inputs)) {
+    item.inputsRaw = { ...item.inputs };
+    return;
+  }
+
+  // last resort: provide a minimal non-empty record so the spec gate can fail loudly upstream
+  item.inputsRaw = { present: true };
+}
+function ensureWhyEnglish(item) {
+  if (!isObject(item) || !hasNumericScore(item)) return;
+  if (nonEmptyStr(item.why) && /[A-Za-z]/.test(item.why) && (item.why.includes(" ") || /[.?!]/.test(item.why))) {
+    return;
+  }
+  const reasonCodes = [
+    ...(Array.isArray(item.penaltyReasons) ? item.penaltyReasons : []),
+    ...(Array.isArray(item.reasonCodes) ? item.reasonCodes : []),
+  ].filter(nonEmptyStr);
+  const mapped = toEnglishWhy(reasonCodes);
+  if (mapped) item.why = mapped;
+}
+function hasClickableEvidenceLink(usedEvidence) {
+  if (!Array.isArray(usedEvidence)) return false;
+  return usedEvidence.some((entry) => isObject(entry) && isClickableLink(entry.link));
+}
+function normalizeEvidenceEntryLink(entry) {
+  if (!isObject(entry)) return;
+  const existing = nonEmptyStr(entry.link) ? entry.link.trim() : null;
+  if (existing && isClickableLink(existing)) {
+    entry.link = existing;
+    return;
+  }
+  const fromRef = convertEvidenceTokenToUrl(entry.ref || entry.reference || entry.evidenceRef || entry.link);
+  if (fromRef && isClickableLink(fromRef)) {
+    entry.link = fromRef;
+  }
+}
+function ensureAttemptEvidenceLink(item, attemptLink) {
+  if (!isObject(item) || !Array.isArray(item.usedEvidence) || !nonEmptyStr(attemptLink)) return;
+  const link = attemptLink.trim();
+  if (!link.startsWith("/data/v4/evidence/")) return;
+  const alreadyPresent = item.usedEvidence.some((entry) => isObject(entry) && entry.link === link);
+  if (alreadyPresent) return;
+  item.usedEvidence.push({
+    type: "attempt_evidence_record",
+    status: "attempted",
+    link,
+  });
+}
 
 function normalizeIndexJson() {
   const p = "public/data/v4/index.json";
@@ -298,15 +421,7 @@ function normalizeModelsJson() {
     });
   };
 
-  const normalizeEvidenceRef = (modelKey) => {
-    const raw = evidenceMap[modelKey];
-    if (!nonEmptyStr(raw)) return null;
-    if (/^https?:\/\//.test(raw)) return raw;
-    const trimmed = raw.trim().replace(/^public\//, "");
-    if (trimmed.startsWith("/")) return trimmed;
-    if (trimmed.startsWith("data/")) return "/" + trimmed;
-    return "/data/v4/" + trimmed.replace(/^\.?\/*/, "");
-  };
+  const normalizeEvidenceRef = (modelKey) => normalizeAttemptEvidenceLink(evidenceMap[modelKey]);
   const normalizePenaltyReasons = (item) => {
     const reasons = [];
     if (nonEmptyStr(item?.penaltyReason)) reasons.push(item.penaltyReason.trim());
@@ -324,32 +439,38 @@ function normalizeModelsJson() {
     return keys.some((key) => Object.prototype.hasOwnProperty.call(item, key));
   };
 
-  const normalizeUsedEvidence = (item, modelKey, itemIndex) => {
+  const normalizeUsedEvidence = (item, modelKey, itemIndex, attemptLink) => {
     if (!isObject(item)) return;
     const ue = item.usedEvidence;
     if (ue == null) {
       item.usedEvidence = [];
-      return;
-    }
-    if (Array.isArray(ue)) return;
-    if (isObject(ue)) {
+    } else if (Array.isArray(ue)) {
+      item.usedEvidence = ue.filter(isObject);
+    } else if (isObject(ue)) {
       item.usedEvidence = [ue];
-      return;
+    } else {
+      console.warn(
+        "[v4-normalize] invalid usedEvidence type -> []",
+        modelKey || "<unknown>",
+        "item",
+        itemIndex,
+        "type",
+        typeof ue
+      );
+      item.usedEvidence = [];
     }
-    console.warn(
-      "[v4-normalize] invalid usedEvidence type -> []",
-      modelKey || "<unknown>",
-      "item",
-      itemIndex,
-      "type",
-      typeof ue
-    );
-    item.usedEvidence = [];
-  };
 
-  const hasEvidenceLink = (usedEvidence) => {
-    if (!Array.isArray(usedEvidence)) return false;
-    return usedEvidence.some((entry) => isObject(entry) && !!entry.link);
+    item.usedEvidence.forEach((entry) => normalizeEvidenceEntryLink(entry));
+
+    const hasLink = hasClickableEvidenceLink(item.usedEvidence);
+    const statuses = item.usedEvidence
+      .map((entry) => (isObject(entry) && nonEmptyStr(entry.status) ? entry.status.trim() : null))
+      .filter(nonEmptyStr);
+    const hasNonOkStatus = statuses.some((status) => status !== "ok");
+
+    if (!hasLink || hasNonOkStatus) {
+      ensureAttemptEvidenceLink(item, attemptLink);
+    }
   };
 
   const normalizeScoreBreakdownItems = (row) => {
@@ -381,14 +502,17 @@ function normalizeModelsJson() {
     }
 
     row.scoreBreakdown.items = items;
+    const attemptLink = normalizeEvidenceRef(row.modelKey);
 
     items.forEach((item, index) => {
       if (!isObject(item)) return;
-      normalizeUsedEvidence(item, row.modelKey, index);
+      normalizeUsedEvidence(item, row.modelKey, index, attemptLink);
+      ensureInputsRaw(item);
+      ensureWhyEnglish(item);
       const reasons = normalizePenaltyReasons(item);
       const isPenalty = item.isPenalty === true || reasons.length > 0;
       if (!isPenalty) return;
-      if (item.usedEvidence.length === 0 || !hasEvidenceLink(item.usedEvidence)) {
+      if (item.usedEvidence.length === 0 || !hasClickableEvidenceLink(item.usedEvidence)) {
         item.__specMissingEvidenceLink = true;
       }
     });

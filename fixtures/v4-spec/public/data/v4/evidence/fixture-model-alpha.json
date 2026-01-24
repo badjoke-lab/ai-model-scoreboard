@@ -1,0 +1,10 @@
+{
+  "modelKey": "fixture/model-alpha",
+  "evidenceItems": [
+    {
+      "type": "official_page",
+      "status": "ok",
+      "link": "https://example.com/model-alpha"
+    }
+  ]
+}
