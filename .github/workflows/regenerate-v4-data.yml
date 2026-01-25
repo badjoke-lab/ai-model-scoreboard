@@ -38,19 +38,28 @@ jobs:
       - name: Ensure only public/data/v4 changes
         id: verify_changes
         run: |
-          changed_files=$(git status --porcelain | awk '{print $2}')
-          if [ -z "$changed_files" ]; then
-            echo "No changes detected."
-            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          changed="$(git diff --name-only --diff-filter=ACMRT HEAD)"
+          echo "$changed" | sed '/^\s*$/d' > /tmp/changed.txt
+          echo "Changed files (post-generation):"
+          if [ -s /tmp/changed.txt ]; then
+            cat /tmp/changed.txt
+          else
+            echo "(none)"
+          fi
+          if [ -s /tmp/changed.txt ]; then
+            if grep -qv '^public/data/v4/' /tmp/changed.txt; then
+              echo "ERROR: Non-v4 files changed:"
+              grep -v '^public/data/v4/' /tmp/changed.txt
+              echo "Guard result: FAIL"
+              exit 1
+            fi
+            echo "Guard result: PASS (only public/data/v4/** changes)"
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
-          invalid_files=$(echo "$changed_files" | grep -v '^public/data/v4/')
-          if [ -n "$invalid_files" ]; then
-            echo "Unexpected files changed:"
-            echo "$invalid_files"
-            exit 1
-          fi
-          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          echo "No v4 data changes detected; skipping PR."
+          echo "Guard result: PASS (no changes)"
+          echo "has_changes=false" >> "$GITHUB_OUTPUT"
 
       - name: Commit and push data branch
         if: steps.verify_changes.outputs.has_changes == 'true'
