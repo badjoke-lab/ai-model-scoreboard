@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [opened, synchronize, labeled]
   workflow_run:
-    workflows: ["CI", "Validate v4 snapshot"]
+    workflows: ["CI"]
     types:
       - completed
 
@@ -24,10 +24,7 @@ jobs:
             const owner = context.repo.owner;
             const repo = context.repo.repo;
 
-            const requiredChecks = [
-              "CI / build",
-              "Validate v4 snapshot / validate",
-            ];
+            const requiredChecks = ["CI / spec-gate"];
 
             let prNumber;
             if (context.eventName === "pull_request") {

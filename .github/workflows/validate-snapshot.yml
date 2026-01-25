@@ -1,9 +1,11 @@
 name: Validate v4 snapshot
 
 on:
-  pull_request:
+  push:
+    branches: [ main ]
     paths:
       - "public/data/v4/**"
+  workflow_dispatch:
 
 jobs:
   validate:

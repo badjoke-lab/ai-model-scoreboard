@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  build:
+  spec-gate:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,8 +22,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate v4 snapshot data
-        run: npm run v4:verify
-
-      - name: Build
-        run: npm run build
+      - name: Run v4 spec gate
+        run: npm run spec:v4
