@@ -1,0 +1,78 @@
+name: Regenerate v4 public snapshot data
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate v4 public data
+        run: |
+          npm run v4:verify
+          npm run v4:normalize-public
+
+      - name: Run spec and build gates
+        run: |
+          npm run spec:v4
+          npm run build
+
+      - name: Ensure only public/data/v4 changes
+        id: verify_changes
+        run: |
+          changed_files=$(git status --porcelain | awk '{print $2}')
+          if [ -z "$changed_files" ]; then
+            echo "No changes detected."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          invalid_files=$(echo "$changed_files" | grep -v '^public/data/v4/')
+          if [ -n "$invalid_files" ]; then
+            echo "Unexpected files changed:"
+            echo "$invalid_files"
+            exit 1
+          fi
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push data branch
+        if: steps.verify_changes.outputs.has_changes == 'true'
+        run: |
+          git checkout -B task-08b-regenerate-v4-data
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/v4
+          git commit -m "Regenerate v4 public snapshot outputs (spec-compliant)"
+          git push --force origin task-08b-regenerate-v4-data
+
+      - name: Create pull request
+        if: steps.verify_changes.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh pr list --head task-08b-regenerate-v4-data --json number --jq 'length' | grep -q '^0$'; then
+            gh pr create \
+              --title "Regenerate v4 public snapshot outputs (spec-compliant)" \
+              --body $'## Summary\n- Regenerated public v4 snapshot artifacts via workflow.\n- spec:v4 and build passed in workflow logs.\n\n## Manual spot-check model keys\n- ai21/jamba-large-1.7\n- ai21/jamba-mini-1.7\n' \
+              --base main \
+              --head task-08b-regenerate-v4-data
+          else
+            echo "PR already exists for task-08b-regenerate-v4-data."
+          fi
