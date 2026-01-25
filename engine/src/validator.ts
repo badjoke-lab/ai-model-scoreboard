@@ -211,12 +211,21 @@ function validateScores(
       errors.push(`${label}.items.${key} must be an object.`);
       continue;
     }
-    if (typeof item.score !== "number") {
+    const status = typeof item.status === "string" ? item.status : "ok";
+    const missingEvidence = status === "missing_evidence";
+    const missingInputs = status === "missing_inputs";
+    const hasNumericScore = typeof item.score === "number";
+    if (hasNumericScore && (missingEvidence || missingInputs)) {
+      errors.push(
+        `${label}.items.${key}.score must be null when status is ${status}.`
+      );
+    }
+    if (!hasNumericScore && !(missingEvidence || missingInputs)) {
       errors.push(`${label}.items.${key}.score must be a number.`);
     }
     if (!isRecord(item.inputs)) {
       errors.push(`${label}.items.${key}.inputs must be an object.`);
-    } else if (hasMissingInputs(item.inputs)) {
+    } else if (hasMissingInputs(item.inputs) && !missingInputs) {
       if (!Array.isArray(item.penaltyReasons) || item.penaltyReasons.length === 0) {
         errors.push(
           `${label}.items.${key}.penaltyReasons must be non-empty when inputs missing.`
@@ -226,6 +235,16 @@ function validateScores(
     if (!Array.isArray(item.usedEvidence)) {
       errors.push(`${label}.items.${key}.usedEvidence must be an array.`);
     } else {
+      if (missingEvidence && item.usedEvidence.length > 0) {
+        errors.push(
+          `${label}.items.${key}.usedEvidence must be empty when status is missing_evidence.`
+        );
+      }
+      if (!missingEvidence && item.usedEvidence.length === 0) {
+        errors.push(
+          `${label}.items.${key}.usedEvidence must include at least one entry when status is ok.`
+        );
+      }
       item.usedEvidence.forEach((usage: any, idx: number) => {
         if (!isRecord(usage)) {
           errors.push(
@@ -248,6 +267,11 @@ function validateScores(
               `${label}.items.${key}.penaltyReasons must be non-empty when evidence status is not ok.`
             );
           }
+        }
+        if (usage.status === "ok" && typeof usage.link !== "string" && typeof usage.url !== "string") {
+          errors.push(
+            `${label}.items.${key}.usedEvidence[${idx}] must include a link/url when status is ok.`
+          );
         }
       });
     }
@@ -424,7 +448,9 @@ function requireNonEmptyString(
 }
 
 function hasMissingInputs(inputs: Record<string, any>): boolean {
-  return Object.values(inputs).some(
-    (value) => value === null || value === undefined
-  );
+  const entries = Object.entries(inputs).filter(([key, value]) => {
+    if (!key) return false;
+    return value !== null && value !== undefined;
+  });
+  return entries.length === 0;
 }

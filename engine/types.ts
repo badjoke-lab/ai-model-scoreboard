@@ -136,10 +136,21 @@ export type ScoreItemKey =
 export interface ScoreItemEvidenceUsage {
   type: EvidenceType;
   status: EvidenceStatus;
+  link?: string;
+  url?: string;
+  label?: string;
 }
 
+export type ScoreItemStatus = "ok" | "missing_evidence" | "missing_inputs";
+
 export interface ScoreItemDetail {
-  score: number;
+  label?: string;
+  score: number | null;
+  status?: ScoreItemStatus;
+  verified?: boolean;
+  why?: string;
+  policyImpact?: string;
+  __specMissingEvidenceLink?: boolean;
   inputs: Record<string, any>;
   usedEvidence: ScoreItemEvidenceUsage[];
   penaltyReasons: string[];

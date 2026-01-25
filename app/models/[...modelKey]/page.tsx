@@ -96,9 +96,10 @@ function buildBreakdownItems(scoreItems?: Record<string, V4ScoreItem>): FullBrea
         label: item.label ? item.label : formatKeyLabel(key),
         score: typeof item.score === "number" ? item.score : null,
         inputs: extractInputs(rawItem),
-        reason: toEnglishReason(item),
+        reason: typeof item.why === "string" && item.why.trim() ? item.why : toEnglishReason(item),
         usedEvidence: Array.isArray(item.usedEvidence) ? item.usedEvidence : [],
-        specMissingEvidence: item.__specMissingEvidenceLink ?? false,
+        specMissingEvidence:
+          item.status === "missing_evidence" || item.__specMissingEvidenceLink === true,
       };
     });
 }
