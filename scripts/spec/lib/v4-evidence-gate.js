@@ -172,7 +172,13 @@ const validateEvidenceGate = (modelsJson) => {
         return;
       }
 
-      if (!hasNumericScore(item)) {
+      const itemStatus =
+        typeof item.status === "string" ? item.status.trim().toLowerCase() : "";
+      const missingEvidence = itemStatus === "missing_evidence";
+      const missingInputs = itemStatus === "missing_inputs";
+      const hasScore = hasNumericScore(item);
+
+      if (!hasScore && !(missingEvidence || missingInputs)) {
         const itemKey = describeItemKey(item) || `items[${itemIndex}]`;
         errors.push({
           reasonCode: `spec_missing_item_score:${modelKey}:${itemKey}`,
@@ -181,7 +187,16 @@ const validateEvidenceGate = (modelsJson) => {
         return;
       }
 
-      scoredItemsCount += 1;
+      if (hasScore && (missingEvidence || missingInputs)) {
+        const itemKey = describeItemKey(item) || `items[${itemIndex}]`;
+        errors.push({
+          reasonCode: `spec_unverifiable_score:${modelKey}:${itemKey}`,
+          message: `${modelKey} :: ${itemKey} :: numeric score present while status=${itemStatus}`,
+        });
+        return;
+      }
+
+      if (hasScore) scoredItemsCount += 1;
       const itemKey = describeItemKey(item);
       const fallbackItemKey = `items[${itemIndex}]`;
       const itemLabel = itemKey || fallbackItemKey;
@@ -191,6 +206,19 @@ const validateEvidenceGate = (modelsJson) => {
           reasonCode: `spec_missing_item_label:${modelKey}:${fallbackItemKey}`,
           message: `${modelKey} :: ${fallbackItemKey} :: missing item id/label/key`,
         });
+      }
+
+      if (!nonEmptyStr(item.why)) {
+        errors.push(
+          buildError({
+            reasonCode: `spec_missing_why:${modelKey}:${itemLabel}`,
+            modelKey,
+            itemKey: itemLabel,
+            missing: "why",
+            path: `scoreBreakdown.items[${itemIndex}].why`,
+            item,
+          })
+        );
       }
 
       const normalizedInputs = normalizeInputs(item);
@@ -218,6 +246,22 @@ const validateEvidenceGate = (modelsJson) => {
             item,
           })
         );
+        return;
+      }
+
+      if (missingEvidence) {
+        if (item.usedEvidence.length > 0) {
+          errors.push(
+            buildError({
+              reasonCode: `spec_missing_evidence_link:${modelKey}:${itemLabel}`,
+              modelKey,
+              itemKey: itemLabel,
+              missing: "usedEvidence should be empty when status=missing_evidence",
+              path: `scoreBreakdown.items[${itemIndex}].usedEvidence`,
+              item,
+            })
+          );
+        }
         return;
       }
 

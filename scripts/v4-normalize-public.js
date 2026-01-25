@@ -88,13 +88,17 @@ function normalizeInputsObject(inputsLike) {
   return Object.keys(out).length > 0 ? out : null;
 }
 function ensureInputsObject(item) {
-  if (!isObject(item) || !hasNumericScore(item)) return false;
+  if (!isObject(item)) return false;
   const fromInputs = normalizeInputsObject(item.inputs);
   const fromInputsRawObject = normalizeInputsObject(item.inputsRaw);
   const fromInputsRawArray = normalizeInputsFromArray(item.inputsRaw);
   const normalized = fromInputs || fromInputsRawObject || fromInputsRawArray;
 
-  if (!normalized) return false;
+  if (!normalized) {
+    item.inputs = { note: "missing_inputs" };
+    item.inputsRaw = { note: "missing_inputs" };
+    return false;
+  }
   item.inputs = normalized;
   item.inputsRaw = { ...normalized };
   return true;
@@ -241,25 +245,52 @@ function dropNumericScore(item) {
   if ("impact" in item) item.impact = null;
 }
 function enforceVerifiableScoring(item, context) {
-  if (!isObject(item) || !hasNumericScore(item)) return;
+  if (!isObject(item)) return;
   const hasInputs = ensureInputsObject(item);
   const hasEvidence = hasClickableEvidenceLink(item.usedEvidence);
-  if (hasInputs && hasEvidence) return;
+  const missingInputs = !hasInputs;
+  const missingEvidence = !hasEvidence;
 
-  dropNumericScore(item);
-  item.reasonCode = "spec_missing_inputs_or_evidence";
-  item.reason =
-    "Score omitted because inputs/evidence link missing; spec requires verifiable scoring.";
-  if (!Array.isArray(item.usedEvidence)) item.usedEvidence = [];
-  console.warn(
-    "[v4-normalize] removed unverifiable score",
-    context.modelKey,
-    context.itemLabel,
-    {
-      missingInputs: !hasInputs,
-      missingEvidence: !hasEvidence,
+  if (missingEvidence) {
+    item.status = "missing_evidence";
+  } else if (missingInputs) {
+    item.status = "missing_inputs";
+  } else {
+    item.status = "ok";
+  }
+
+  item.verified = item.status === "ok";
+
+  if (missingEvidence) {
+    item.usedEvidence = [];
+  }
+
+  if (hasNumericScore(item) && (missingInputs || missingEvidence)) {
+    dropNumericScore(item);
+    item.reasonCode = "spec_missing_inputs_or_evidence";
+    item.reason =
+      "Score omitted because inputs/evidence link missing; spec requires verifiable scoring.";
+    item.policyImpact =
+      missingInputs
+        ? "Score suppressed until required inputs are provided."
+        : "Score suppressed until evidence links are provided.";
+    if (!Array.isArray(item.usedEvidence)) item.usedEvidence = [];
+    if (!nonEmptyStr(item.why)) {
+      item.why =
+        missingInputs
+          ? "Inputs are missing, so the score is withheld until inputs are recorded."
+          : "Evidence links are missing, so the score is withheld until sources are provided.";
     }
-  );
+    console.warn(
+      "[v4-normalize] removed unverifiable score",
+      context.modelKey,
+      context.itemLabel,
+      {
+        missingInputs,
+        missingEvidence,
+      }
+    );
+  }
 }
 
 function normalizeIndexJson() {
@@ -395,6 +426,47 @@ function normalizeModelsJson() {
     if (isObject(models)) return { ...models };
     return {};
   })();
+
+  const evidenceCache = new Map();
+  const loadEvidenceFile = (modelKey) => {
+    if (!nonEmptyStr(modelKey)) return null;
+    if (evidenceCache.has(modelKey)) return evidenceCache.get(modelKey);
+    const relPath = evidenceMap[modelKey];
+    if (!nonEmptyStr(relPath)) {
+      evidenceCache.set(modelKey, null);
+      return null;
+    }
+    const normalizedPath = relPath.replace(/^public\//, "");
+    const fullPath = path.join(process.cwd(), "public", normalizedPath);
+    if (!fs.existsSync(fullPath)) {
+      evidenceCache.set(modelKey, null);
+      return null;
+    }
+    try {
+      const parsed = readJson(fullPath);
+      evidenceCache.set(modelKey, parsed);
+      return parsed;
+    } catch (error) {
+      evidenceCache.set(modelKey, null);
+      return null;
+    }
+  };
+
+  const findEvidenceLink = (modelKey, type) => {
+    const evidence = loadEvidenceFile(modelKey);
+    if (!evidence || !Array.isArray(evidence.evidenceItems)) return null;
+    const match = evidence.evidenceItems.find(
+      (entry) => isObject(entry) && nonEmptyStr(entry.type) && entry.type === type
+    );
+    if (!match) return null;
+    const refs = Array.isArray(match.refs) ? match.refs : [];
+    const first = refs.find((ref) => nonEmptyStr(ref) && isClickableLink(ref));
+    if (first) return first.trim();
+    if (isObject(match.extracted) && nonEmptyStr(match.extracted.url) && isClickableLink(match.extracted.url)) {
+      return match.extracted.url.trim();
+    }
+    return null;
+  };
 
   const adoptionStatusByKey = (() => {
     const out = {};
@@ -561,6 +633,20 @@ function normalizeModelsJson() {
     }
 
     item.usedEvidence.forEach((entry) => normalizeEvidenceEntryLink(entry));
+    item.usedEvidence.forEach((entry) => {
+      if (!isObject(entry)) return;
+      const existing =
+        (nonEmptyStr(entry.url) && entry.url.trim()) ||
+        (nonEmptyStr(entry.link) && entry.link.trim());
+      if (existing && isClickableLink(existing)) return;
+      const type = nonEmptyStr(entry.type) ? entry.type.trim() : null;
+      if (!type) return;
+      const found = findEvidenceLink(modelKey, type);
+      if (found) {
+        entry.url = found;
+        entry.link = found;
+      }
+    });
 
     const hasLink = hasClickableEvidenceLink(item.usedEvidence);
     const statuses = item.usedEvidence
@@ -569,9 +655,7 @@ function normalizeModelsJson() {
     const hasNonOkStatus = statuses.some((status) => status !== "ok");
 
     if (!hasLink || hasNonOkStatus) {
-      const attemptLink = buildAttemptEvidenceLink(modelKey, evidenceMap, item, itemIndex);
-      ensureAttemptEvidenceLink(item, attemptLink);
-      item.usedEvidence.forEach((entry) => normalizeEvidenceEntryLink(entry));
+      item.usedEvidence = [];
     }
   };
 

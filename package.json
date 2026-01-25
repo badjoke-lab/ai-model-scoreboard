@@ -16,7 +16,7 @@
     "validate:v4": "node scripts/validate-v4-models.js",
     "v4:normalize-public": "node scripts/v4-normalize-public.js",
     "v4:diff-modelset": "node scripts/v4-diff-modelset.js",
-    "spec:v4": "node scripts/spec-assert-v4.js"
+    "spec:v4": "SPEC_V4_FIXTURES=1 node scripts/spec-assert-v4.js"
   },
   "dependencies": {
     "next": "14.2.3",

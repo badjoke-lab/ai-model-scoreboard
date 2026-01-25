@@ -40,15 +40,22 @@ export type V4ScoreItemEvidence = {
   type?: string;
   status?: string;
   link?: string;
+  url?: string;
+  label?: string;
 };
 
 export type V4ScoreItem = {
   label?: string;
-  score?: number;
+  score?: number | null;
+  status?: string;
+  verified?: boolean;
+  why?: string;
+  policyImpact?: string;
   reason?: string;
   penaltyReasons?: string[];
   penaltyReason?: string;
   __specMissingEvidenceLink?: boolean;
+  inputs?: Record<string, unknown>;
   usedEvidence?: V4ScoreItemEvidence[];
 };
 
