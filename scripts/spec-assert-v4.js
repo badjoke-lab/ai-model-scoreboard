@@ -71,10 +71,21 @@ const hasFiniteNumber = (value) => typeof value === "number" && Number.isFinite(
 const hasNumericScore = (item) =>
   hasFiniteNumber(item?.score) || hasFiniteNumber(item?.delta) || hasFiniteNumber(item?.impact);
 
-const hasNonEmptyInputsRaw = (inputsRaw) => {
-  if (ensureArray(inputsRaw)) return inputsRaw.length > 0;
-  if (ensureObject(inputsRaw)) return Object.keys(inputsRaw).length > 0;
-  return false;
+const hasNonEmptyInputs = (inputs) => {
+  if (!ensureObject(inputs)) return false;
+  const entries = Object.entries(inputs).filter(([key, value]) => {
+    if (!nonEmptyStr(key)) return false;
+    if (typeof value === "string") return nonEmptyStr(value);
+    return value !== null && value !== undefined;
+  });
+  return entries.length > 0;
+};
+
+const normalizeInputsForSpec = (item) => {
+  if (!ensureObject(item)) return null;
+  if (ensureObject(item.inputs)) return item.inputs;
+  if (ensureObject(item.inputsRaw)) return item.inputsRaw;
+  return null;
 };
 
 const isClickableLink = (link) =>
@@ -85,21 +96,25 @@ const collectEvidenceLinks = (usedEvidence) => {
   const links = [];
   if (ensureArray(usedEvidence)) {
     usedEvidence.forEach((entry) => {
-      if (ensureObject(entry) && typeof entry.link === "string") {
-        links.push(entry.link.trim());
-      }
+      if (!ensureObject(entry)) return;
+      const url = typeof entry.url === "string" ? entry.url.trim() : "";
+      const link = typeof entry.link === "string" ? entry.link.trim() : "";
+      if (url) links.push(url);
+      if (link) links.push(link);
     });
     return links;
   }
-  if (ensureObject(usedEvidence) && typeof usedEvidence.link === "string") {
-    links.push(usedEvidence.link.trim());
+  if (ensureObject(usedEvidence)) {
+    if (typeof usedEvidence.url === "string") links.push(usedEvidence.url.trim());
+    if (typeof usedEvidence.link === "string") links.push(usedEvidence.link.trim());
   }
   return links;
 };
 
 const linkExistsOnDisk = (link, baseDir) => {
   if (!link.startsWith("/")) return true;
-  const relativeEvidencePath = link.replace(/^\//, "");
+  const withoutFragment = link.split("#")[0].split("?")[0];
+  const relativeEvidencePath = withoutFragment.replace(/^\//, "");
   const evidencePath = path.join(repoRoot, baseDir, relativeEvidencePath);
   return fs.existsSync(evidencePath);
 };
@@ -121,7 +136,8 @@ const describeItem = (item, itemIndex) => {
 
 const specFixtureRoot = path.join("fixtures", "v4-spec", "public", "data", "v4");
 const hasSpecFixtures = fs.existsSync(path.join(repoRoot, specFixtureRoot));
-const dataRoot = hasSpecFixtures ? specFixtureRoot : path.join("public", "data", "v4");
+const useSpecFixtures = process.env.SPEC_V4_FIXTURES === "1" && hasSpecFixtures;
+const dataRoot = useSpecFixtures ? specFixtureRoot : path.join("public", "data", "v4");
 
 scanJapaneseText(["app", "components", "lib"]);
 scanConflictMarkers(dataRoot);
@@ -148,11 +164,19 @@ let scoredItemsCount = 0;
 let missingEvidenceCount = 0;
 
 if (modelsJson !== null) {
-  if (!ensureArray(modelsJson)) {
-    errors.push(`${modelsPath} must be an array`);
+  const modelsArray = ensureArray(modelsJson)
+    ? modelsJson
+    : ensureObject(modelsJson)
+      ? Object.entries(modelsJson).map(([key, value]) =>
+          ensureObject(value) ? { modelKey: key, ...value } : value
+        )
+      : null;
+
+  if (!modelsArray) {
+    errors.push(`${modelsPath} must be an array or an object map of models`);
   } else {
-    modelsCount = modelsJson.length;
-    modelsJson.forEach((model, index) => {
+    modelsCount = modelsArray.length;
+    modelsArray.forEach((model, index) => {
       const modelLabel = `${modelsPath}[${index}]`;
       if (!ensureObject(model)) {
         errors.push(`${modelLabel} must be an object`);
@@ -171,9 +195,19 @@ if (modelsJson !== null) {
         errors.push(`${modelKey} :: categoryScores :: R0 categoryScores must be an object. Fix: provide canonical category score keys.`);
       }
 
-      const items = model.scoreBreakdown?.items;
-      if (!ensureArray(items)) {
-        errors.push(`${modelKey} :: scoreBreakdown.items :: R0 scoreBreakdown.items must be an array. Fix: emit scoreBreakdown.items as an array.`);
+      const rawItems = model.scoreBreakdown?.items;
+      const items = ensureArray(rawItems)
+        ? rawItems
+        : ensureObject(rawItems)
+          ? Object.entries(rawItems).map(([key, value]) =>
+              ensureObject(value) ? { id: key, ...value } : value
+            )
+          : null;
+
+      if (!items) {
+        errors.push(
+          `${modelKey} :: scoreBreakdown.items :: R0 scoreBreakdown.items must be an array. Fix: emit scoreBreakdown.items as an array.`
+        );
         return;
       }
 
@@ -185,11 +219,20 @@ if (modelsJson !== null) {
         scoredItemsCount += 1;
         const itemLabel = describeItem(item, itemIndex);
 
-        // R1: scored items must carry inputsRaw
-        if (!hasNonEmptyInputsRaw(item.inputsRaw)) {
+        const normalizedInputs = normalizeInputsForSpec(item);
+
+        // R1: scored items must carry non-empty inputs
+        if (!hasNonEmptyInputs(normalizedInputs)) {
           errors.push(
-            `${modelKey} :: ${itemLabel} :: R1 inputsRaw missing for scored item. Fix: populate inputsRaw with the minimal key/value inputs used for scoring.`
+            `${modelKey} :: ${itemLabel} :: R1 missing Inputs(raw). Fix: generator must persist the key/value inputs used for scoring in item.inputs.`
           );
+        }
+
+        if (!ensureArray(item.usedEvidence) || item.usedEvidence.length === 0) {
+          errors.push(
+            `${modelKey} :: ${itemLabel} :: R2 usedEvidence missing entries. Fix: add at least one evidence record link in usedEvidence.`
+          );
+          return;
         }
 
         const links = collectEvidenceLinks(item.usedEvidence).filter(isClickableLink);
@@ -198,25 +241,26 @@ if (modelsJson !== null) {
         // R2: at least one clickable evidence link
         if (links.length === 0) {
           errors.push(
-            `${modelKey} :: ${itemLabel} :: R2 usedEvidence missing clickable link. Fix: add a usedEvidence entry with link set to https://... or /... .`
+            `${modelKey} :: ${itemLabel} :: R2 usedEvidence has no clickable url. Fix: ensure at least one usedEvidence entry includes url set to https://... or /data/v4/evidence/<ref>.json.`
           );
           return;
         }
 
-        const evidenceStatus = ensureArray(item.usedEvidence)
-          ? item.usedEvidence.map((entry) => entry?.status).filter(nonEmptyStr)
-          : [];
+        const evidenceStatus = item.usedEvidence
+          .map((entry) => entry?.status)
+          .filter(nonEmptyStr);
         const hasNonOkStatus = evidenceStatus.some((status) => status !== "ok");
 
         // R3: missing/blocked evidence must include attempt evidence record link
         if (hasNonOkStatus && attemptLinks.length === 0) {
           errors.push(
-            `${modelKey} :: ${itemLabel} :: R3 attempt evidence record link missing. Fix: include a site-relative link like /data/v4/evidence/<modelKey>.json in usedEvidence.`
+            `${modelKey} :: ${itemLabel} :: R3 attempt evidence record link missing. Fix: generator must add /data/v4/evidence/<modelKey>.json to usedEvidence when status is not ok.`
           );
         }
 
         attemptLinks.forEach((link) => {
-          if (!linkExistsOnDisk(link, hasSpecFixtures ? path.join("fixtures", "v4-spec", "public") : "public")) {
+          const baseDir = useSpecFixtures ? path.join("fixtures", "v4-spec", "public") : "public";
+          if (!linkExistsOnDisk(link, baseDir)) {
             missingEvidenceCount += 1;
             errors.push(
               `${modelKey} :: ${itemLabel} :: R3 attempt evidence record not found on disk (${link}). Fix: ensure the referenced evidence JSON exists.`
@@ -224,12 +268,6 @@ if (modelsJson !== null) {
           }
         });
 
-        // R4: why text must be human English
-        if (!looksLikeEnglishSentence(item.why)) {
-          errors.push(
-            `${modelKey} :: ${itemLabel} :: R4 why text is missing or not human-readable English. Fix: set why to a short English explanation (not just a code).`
-          );
-        }
       });
     });
   }

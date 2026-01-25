@@ -53,6 +53,52 @@ function hasNumericScore(item) {
 function isClickableLink(link) {
   return typeof link === "string" && (/^https?:\/\//.test(link) || link.startsWith("/"));
 }
+function normalizeInputsValue(value) {
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+    return trimmed.length > 0 ? trimmed : null;
+  }
+  if (value === null || value === undefined) return null;
+  return value;
+}
+function normalizeInputsFromArray(inputsArray) {
+  if (!Array.isArray(inputsArray)) return null;
+  const out = {};
+  for (const entry of inputsArray) {
+    if (Array.isArray(entry) && entry.length >= 2 && nonEmptyStr(entry[0])) {
+      const normalized = normalizeInputsValue(entry[1]);
+      if (normalized !== null) out[String(entry[0]).trim()] = normalized;
+      continue;
+    }
+    if (!isObject(entry) || !nonEmptyStr(entry.key)) continue;
+    const normalized = normalizeInputsValue(entry.value);
+    if (normalized !== null) out[entry.key.trim()] = normalized;
+  }
+  return Object.keys(out).length > 0 ? out : null;
+}
+function normalizeInputsObject(inputsLike) {
+  if (!isObject(inputsLike)) return null;
+  const out = {};
+  for (const [key, value] of Object.entries(inputsLike)) {
+    if (!nonEmptyStr(key)) continue;
+    const normalized = normalizeInputsValue(value);
+    if (normalized === null) continue;
+    out[key.trim()] = normalized;
+  }
+  return Object.keys(out).length > 0 ? out : null;
+}
+function ensureInputsObject(item) {
+  if (!isObject(item) || !hasNumericScore(item)) return false;
+  const fromInputs = normalizeInputsObject(item.inputs);
+  const fromInputsRawObject = normalizeInputsObject(item.inputsRaw);
+  const fromInputsRawArray = normalizeInputsFromArray(item.inputsRaw);
+  const normalized = fromInputs || fromInputsRawObject || fromInputsRawArray;
+
+  if (!normalized) return false;
+  item.inputs = normalized;
+  item.inputsRaw = { ...normalized };
+  return true;
+}
 function normalizeAttemptEvidenceLink(ref) {
   if (!nonEmptyStr(ref)) return null;
   if (/^https?:\/\//.test(ref)) return ref.trim();
@@ -60,6 +106,31 @@ function normalizeAttemptEvidenceLink(ref) {
   if (trimmed.startsWith("/")) return trimmed;
   if (trimmed.startsWith("data/")) return "/" + trimmed;
   return "/data/v4/" + trimmed.replace(/^\.?\/*/, "");
+}
+function evidencePathExists(link) {
+  if (!nonEmptyStr(link) || !link.startsWith("/")) return false;
+  const relative = link.replace(/^\//, "");
+  const fullPath = path.join(process.cwd(), "public", relative);
+  return fs.existsSync(fullPath);
+}
+function buildEvidenceRecordLink(modelKey, evidenceMap) {
+  if (!nonEmptyStr(modelKey)) return null;
+  const mapped = normalizeAttemptEvidenceLink(evidenceMap[modelKey]);
+  if (nonEmptyStr(mapped) && evidencePathExists(mapped)) {
+    return mapped;
+  }
+  const fallback = `/data/v4/evidence/${modelKey}.json`;
+  return evidencePathExists(fallback) ? fallback : null;
+}
+function buildEvidenceAnchor(item, itemIndex) {
+  if (nonEmptyStr(item?.id)) return `#${encodeURIComponent(item.id.trim())}`;
+  if (nonEmptyStr(item?.label)) return `#${encodeURIComponent(item.label.trim())}`;
+  return `#item-${itemIndex + 1}`;
+}
+function buildAttemptEvidenceLink(modelKey, evidenceMap, item, itemIndex) {
+  const recordLink = buildEvidenceRecordLink(modelKey, evidenceMap);
+  if (!recordLink) return null;
+  return `${recordLink}${buildEvidenceAnchor(item, itemIndex)}`;
 }
 function convertEvidenceTokenToUrl(token) {
   if (!nonEmptyStr(token)) return null;
@@ -109,18 +180,6 @@ function toEnglishWhy(reasonCodes) {
   const sentence = humanized.charAt(0).toUpperCase() + humanized.slice(1);
   return `${sentence}.`;
 }
-function ensureInputsRaw(item) {
-  if (!isObject(item) || !hasNumericScore(item)) return;
-  if (isNonEmptyObject(item.inputsRaw) || isNonEmptyArray(item.inputsRaw)) return;
-
-  if (isNonEmptyObject(item.inputs)) {
-    item.inputsRaw = { ...item.inputs };
-    return;
-  }
-
-  // last resort: provide a minimal non-empty record so the spec gate can fail loudly upstream
-  item.inputsRaw = { present: true };
-}
 function ensureWhyEnglish(item) {
   if (!isObject(item) || !hasNumericScore(item)) return;
   if (nonEmptyStr(item.why) && /[A-Za-z]/.test(item.why) && (item.why.includes(" ") || /[.?!]/.test(item.why))) {
@@ -135,17 +194,28 @@ function ensureWhyEnglish(item) {
 }
 function hasClickableEvidenceLink(usedEvidence) {
   if (!Array.isArray(usedEvidence)) return false;
-  return usedEvidence.some((entry) => isObject(entry) && isClickableLink(entry.link));
+  return usedEvidence.some((entry) => {
+    if (!isObject(entry)) return false;
+    const url = nonEmptyStr(entry.url) ? entry.url.trim() : null;
+    const link = nonEmptyStr(entry.link) ? entry.link.trim() : null;
+    return isClickableLink(url) || isClickableLink(link);
+  });
 }
 function normalizeEvidenceEntryLink(entry) {
   if (!isObject(entry)) return;
-  const existing = nonEmptyStr(entry.link) ? entry.link.trim() : null;
+  const existingUrl = nonEmptyStr(entry.url) ? entry.url.trim() : null;
+  const existingLink = nonEmptyStr(entry.link) ? entry.link.trim() : null;
+  const existing = existingUrl || existingLink;
   if (existing && isClickableLink(existing)) {
+    entry.url = existing;
     entry.link = existing;
     return;
   }
-  const fromRef = convertEvidenceTokenToUrl(entry.ref || entry.reference || entry.evidenceRef || entry.link);
+  const fromRef = convertEvidenceTokenToUrl(
+    entry.ref || entry.reference || entry.evidenceRef || entry.url || entry.link
+  );
   if (fromRef && isClickableLink(fromRef)) {
+    entry.url = fromRef;
     entry.link = fromRef;
   }
 }
@@ -153,13 +223,43 @@ function ensureAttemptEvidenceLink(item, attemptLink) {
   if (!isObject(item) || !Array.isArray(item.usedEvidence) || !nonEmptyStr(attemptLink)) return;
   const link = attemptLink.trim();
   if (!link.startsWith("/data/v4/evidence/")) return;
-  const alreadyPresent = item.usedEvidence.some((entry) => isObject(entry) && entry.link === link);
+  const alreadyPresent = item.usedEvidence.some(
+    (entry) => isObject(entry) && (entry.link === link || entry.url === link)
+  );
   if (alreadyPresent) return;
   item.usedEvidence.push({
     type: "attempt_evidence_record",
     status: "attempted",
+    url: link,
     link,
   });
+}
+function dropNumericScore(item) {
+  if (!isObject(item)) return;
+  if ("score" in item) item.score = null;
+  if ("delta" in item) item.delta = null;
+  if ("impact" in item) item.impact = null;
+}
+function enforceVerifiableScoring(item, context) {
+  if (!isObject(item) || !hasNumericScore(item)) return;
+  const hasInputs = ensureInputsObject(item);
+  const hasEvidence = hasClickableEvidenceLink(item.usedEvidence);
+  if (hasInputs && hasEvidence) return;
+
+  dropNumericScore(item);
+  item.reasonCode = "spec_missing_inputs_or_evidence";
+  item.reason =
+    "Score omitted because inputs/evidence link missing; spec requires verifiable scoring.";
+  if (!Array.isArray(item.usedEvidence)) item.usedEvidence = [];
+  console.warn(
+    "[v4-normalize] removed unverifiable score",
+    context.modelKey,
+    context.itemLabel,
+    {
+      missingInputs: !hasInputs,
+      missingEvidence: !hasEvidence,
+    }
+  );
 }
 
 function normalizeIndexJson() {
@@ -421,7 +521,7 @@ function normalizeModelsJson() {
     });
   };
 
-  const normalizeEvidenceRef = (modelKey) => normalizeAttemptEvidenceLink(evidenceMap[modelKey]);
+  const normalizeEvidenceRef = (modelKey) => buildEvidenceRecordLink(modelKey, evidenceMap);
   const normalizePenaltyReasons = (item) => {
     const reasons = [];
     if (nonEmptyStr(item?.penaltyReason)) reasons.push(item.penaltyReason.trim());
@@ -439,7 +539,7 @@ function normalizeModelsJson() {
     return keys.some((key) => Object.prototype.hasOwnProperty.call(item, key));
   };
 
-  const normalizeUsedEvidence = (item, modelKey, itemIndex, attemptLink) => {
+  const normalizeUsedEvidence = (item, modelKey, itemIndex) => {
     if (!isObject(item)) return;
     const ue = item.usedEvidence;
     if (ue == null) {
@@ -469,13 +569,21 @@ function normalizeModelsJson() {
     const hasNonOkStatus = statuses.some((status) => status !== "ok");
 
     if (!hasLink || hasNonOkStatus) {
+      const attemptLink = buildAttemptEvidenceLink(modelKey, evidenceMap, item, itemIndex);
       ensureAttemptEvidenceLink(item, attemptLink);
+      item.usedEvidence.forEach((entry) => normalizeEvidenceEntryLink(entry));
     }
   };
 
   const normalizeScoreBreakdownItems = (row) => {
     if (!isObject(row)) return;
     if (!isObject(row.scoreBreakdown)) row.scoreBreakdown = { items: [] };
+    const itemsMissingOrEmpty =
+      row.scoreBreakdown.items == null ||
+      (Array.isArray(row.scoreBreakdown.items) && row.scoreBreakdown.items.length === 0);
+    if (itemsMissingOrEmpty && isObject(row.scores) && isObject(row.scores.items)) {
+      row.scoreBreakdown.items = row.scores.items;
+    }
 
     const itemsRaw = row.scoreBreakdown.items;
     let items = [];
@@ -488,8 +596,21 @@ function normalizeModelsJson() {
       if (isValidScoreItem(itemsRaw)) {
         items = [itemsRaw];
       } else {
-        console.warn("[v4-normalize] scoreBreakdown.items object invalid -> []", row.modelKey);
-        items = [];
+        const mappedItems = Object.entries(itemsRaw)
+          .filter(([, value]) => isObject(value))
+          .map(([key, value]) => {
+            if (!isObject(value)) return value;
+            if (nonEmptyStr(value.id)) return value;
+            return { id: key, ...value };
+          })
+          .filter(isObject);
+        const hasScoreItems = mappedItems.some((entry) => isValidScoreItem(entry));
+        if (hasScoreItems) {
+          items = mappedItems;
+        } else {
+          console.warn("[v4-normalize] scoreBreakdown.items object invalid -> []", row.modelKey);
+          items = [];
+        }
       }
     } else {
       console.warn(
@@ -502,13 +623,12 @@ function normalizeModelsJson() {
     }
 
     row.scoreBreakdown.items = items;
-    const attemptLink = normalizeEvidenceRef(row.modelKey);
-
     items.forEach((item, index) => {
       if (!isObject(item)) return;
-      normalizeUsedEvidence(item, row.modelKey, index, attemptLink);
-      ensureInputsRaw(item);
+      normalizeUsedEvidence(item, row.modelKey, index);
       ensureWhyEnglish(item);
+      const itemLabel = pickFirstStr(item, ["id", "label", "key", "name"]) || `items[${index}]`;
+      enforceVerifiableScoring(item, { modelKey: row.modelKey, itemLabel });
       const reasons = normalizePenaltyReasons(item);
       const isPenalty = item.isPenalty === true || reasons.length > 0;
       if (!isPenalty) return;
