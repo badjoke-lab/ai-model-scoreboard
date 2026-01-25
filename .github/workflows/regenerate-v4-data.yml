@@ -1,3 +1,7 @@
+# Purpose: Regenerate v4 public snapshot data and open a data-only PR.
+# Manual run only: GitHub Actions -> this workflow -> Run workflow (no local steps).
+# Safety: Must NOT include code changes; guard fails on non-public/data/v4 paths.
+# Success looks like: branch/PR named task-08b-regenerate-v4-data with updated v4 artifacts.
 name: Regenerate v4 public snapshot data
 
 on:
