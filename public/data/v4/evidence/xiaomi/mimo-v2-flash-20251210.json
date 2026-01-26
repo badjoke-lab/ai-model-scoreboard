@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-26T14:49:53.407Z",
+    "updatedAt": "2026-01-26T15:47:17.318Z",
     "modelKey": "xiaomi/mimo-v2-flash-20251210"
   },
   "evidenceItems": [
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Xiaomi: MiMo-V2-Flash (free)\""
+        "arxiv_query:\"Xiaomi: MiMo-V2-Flash\""
       ]
     },
     {

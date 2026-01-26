@@ -110629,24 +110629,24 @@
     "layer": "full"
   },
   "xiaomi/mimo-v2-flash-20251210": {
-    "name": "Xiaomi: MiMo-V2-Flash (free)",
+    "name": "Xiaomi: MiMo-V2-Flash",
     "vendor": "xiaomi",
     "released": "2025-12-14T16:55:08.000Z",
     "context": 262144,
     "type": "text->text",
     "pricing": {
-      "input": 0,
-      "output": 0,
+      "input": 9e-8,
+      "output": 2.9e-7,
       "currency": "USD"
     },
     "scores": {
-      "overall": 61.05698000000001,
+      "overall": 61.05697873692307,
       "categories": {
         "performance": 65.57370000000002,
         "safety": 60,
         "adoption": 68.85,
         "openness": 16.666666666666664,
-        "cost": 100
+        "cost": 99.99998736923064
       },
       "items": {
         "S1": {
