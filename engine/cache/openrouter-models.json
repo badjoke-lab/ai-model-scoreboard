@@ -38,7 +38,9 @@
       "reasoning",
       "response_format",
       "stop",
-      "structured_outputs"
+      "structured_outputs",
+      "tool_choice",
+      "tools"
     ],
     "default_parameters": {
       "temperature": null,
