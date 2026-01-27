@@ -507,6 +507,10 @@
     "score": 70.38833909846153,
     "layer": "full"
   },
+  "moonshotai/kimi-k2.5-0127": {
+    "score": 70.3574885599999,
+    "layer": "full"
+  },
   "meta-llama/llama-3.2-1b-instruct": {
     "score": 70.35143942923077,
     "layer": "full"
@@ -921,6 +925,10 @@
   },
   "thedrummer/cydonia-24b-v4.1": {
     "score": 66.24377663692304,
+    "layer": "full"
+  },
+  "upstage/solar-pro-3": {
+    "score": 66.22944,
     "layer": "full"
   },
   "openai/gpt-4o-2024-08-06": {

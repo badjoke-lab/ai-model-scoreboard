@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-27T02:37:24.893Z",
-    "runId": "21382349647"
+    "updatedAt": "2026-01-27T04:17:31.890Z",
+    "runId": "21384332019"
   },
   "models": [
     {
@@ -630,6 +630,10 @@
       "path": "evidence/moonshotai/kimi-k2-thinking-20251106.json"
     },
     {
+      "modelKey": "moonshotai/kimi-k2.5-0127",
+      "path": "evidence/moonshotai/kimi-k2.5-0127.json"
+    },
+    {
       "modelKey": "morph/morph-v3-fast",
       "path": "evidence/morph/morph-v3-fast.json"
     },
@@ -1180,6 +1184,10 @@
     {
       "modelKey": "undi95/remm-slerp-l2-13b",
       "path": "evidence/undi95/remm-slerp-l2-13b.json"
+    },
+    {
+      "modelKey": "upstage/solar-pro-3",
+      "path": "evidence/upstage/solar-pro-3.json"
     },
     {
       "modelKey": "venice/uncensored",

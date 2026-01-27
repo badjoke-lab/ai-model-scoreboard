@@ -1,7 +1,7 @@
 {
   "meta": {
     "updatedAt": "2026-01-27T04:17:31.890Z",
-    "modelKey": "anthropic/claude-3-5-haiku"
+    "modelKey": "moonshotai/kimi-k2.5-0127"
   },
   "evidenceItems": [
     {
@@ -9,15 +9,13 @@
       "status": "ok",
       "reasons": [
         "ok",
-        "openrouter_model_page",
-        "provider_fallback"
+        "openrouter_model_page_only"
       ],
       "refs": [
-        "https://openrouter.ai/models/anthropic/claude-3-5-haiku",
-        "https://www.anthropic.com"
+        "https://openrouter.ai/models/moonshotai/kimi-k2.5-0127"
       ],
       "extracted": {
-        "url": "https://www.anthropic.com"
+        "url": "https://openrouter.ai/models/moonshotai/kimi-k2.5-0127"
       }
     },
     {
@@ -39,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Anthropic: Claude 3.5 Haiku\""
+        "arxiv_query:\"MoonshotAI: Kimi K2.5\""
       ]
     },
     {

@@ -937,6 +937,12 @@
       "source": "openrouter"
     },
     {
+      "modelKey": "moonshotai/kimi-k2.5-0127",
+      "name": "MoonshotAI: Kimi K2.5",
+      "provider": "moonshotai",
+      "source": "openrouter"
+    },
+    {
       "modelKey": "morph/morph-v3-fast",
       "name": "Morph: Morph V3 Fast",
       "provider": "morph",
@@ -1762,6 +1768,12 @@
       "modelKey": "undi95/remm-slerp-l2-13b",
       "name": "ReMM SLERP 13B",
       "provider": "undi95",
+      "source": "openrouter"
+    },
+    {
+      "modelKey": "upstage/solar-pro-3",
+      "name": "Upstage: Solar Pro 3 (free)",
+      "provider": "upstage",
       "source": "openrouter"
     },
     {

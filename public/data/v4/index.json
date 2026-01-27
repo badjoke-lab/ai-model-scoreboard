@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-27T02:37:24.893Z",
+  "updatedAt": "2026-01-27T04:17:31.890Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -176,6 +176,7 @@
       "evidence/moonshotai/kimi-k2.json",
       "evidence/moonshotai/kimi-k2-0905.json",
       "evidence/moonshotai/kimi-k2-thinking-20251106.json",
+      "evidence/moonshotai/kimi-k2.5-0127.json",
       "evidence/morph/morph-v3-fast.json",
       "evidence/morph/morph-v3-large.json",
       "evidence/neversleep/llama-3.1-lumimaid-8b.json",
@@ -314,6 +315,7 @@
       "evidence/tngtech/deepseek-r1t2-chimera.json",
       "evidence/tngtech/tng-r1t-chimera.json",
       "evidence/undi95/remm-slerp-l2-13b.json",
+      "evidence/upstage/solar-pro-3.json",
       "evidence/venice/uncensored.json",
       "evidence/writer/palmyra-x5-20250428.json",
       "evidence/x-ai/grok-3.json",
@@ -491,6 +493,7 @@
       "evidence/moonshotai/kimi-k2.json",
       "evidence/moonshotai/kimi-k2-0905.json",
       "evidence/moonshotai/kimi-k2-thinking-20251106.json",
+      "evidence/moonshotai/kimi-k2.5-0127.json",
       "evidence/morph/morph-v3-fast.json",
       "evidence/morph/morph-v3-large.json",
       "evidence/neversleep/llama-3.1-lumimaid-8b.json",
@@ -629,6 +632,7 @@
       "evidence/tngtech/deepseek-r1t2-chimera.json",
       "evidence/tngtech/tng-r1t-chimera.json",
       "evidence/undi95/remm-slerp-l2-13b.json",
+      "evidence/upstage/solar-pro-3.json",
       "evidence/venice/uncensored.json",
       "evidence/writer/palmyra-x5-20250428.json",
       "evidence/x-ai/grok-3.json",
@@ -650,8 +654,8 @@
       "evidence/z-ai/glm-4.7-flash-20260119.json"
     ]
   },
-  "modelsCount": 313,
-  "fullCount": 297,
+  "modelsCount": 315,
+  "fullCount": 299,
   "provisionalCount": 16,
   "notListedCount": 0
 }

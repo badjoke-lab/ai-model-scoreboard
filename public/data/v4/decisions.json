@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-27T02:37:24.893Z",
+    "generatedAt": "2026-01-27T04:17:31.890Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 313,
-      "adopted": 313,
+      "total": 315,
+      "adopted": 315,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 311,
+        "openrouter": 313,
         "seed": 2
       }
     },
@@ -2677,6 +2677,23 @@
       }
     },
     {
+      "modelKey": "moonshotai/kimi-k2.5-0127",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "MoonshotAI: Kimi K2.5",
+        "slug": "moonshotai/kimi-k2.5-0127",
+        "provider": "moonshotai"
+      },
+      "rawRef": {
+        "id": "moonshotai/kimi-k2.5",
+        "canonical_slug": "moonshotai/kimi-k2.5-0127"
+      }
+    },
+    {
       "modelKey": "morph/morph-v3-fast",
       "source": "openrouter",
       "status": "adopted",
@@ -5019,6 +5036,23 @@
       "rawRef": {
         "id": "undi95/remm-slerp-l2-13b",
         "canonical_slug": "undi95/remm-slerp-l2-13b"
+      }
+    },
+    {
+      "modelKey": "upstage/solar-pro-3",
+      "source": "openrouter",
+      "status": "adopted",
+      "reasons": [
+        "meets required fields"
+      ],
+      "normalized": {
+        "name": "Upstage: Solar Pro 3 (free)",
+        "slug": "upstage/solar-pro-3",
+        "provider": "upstage"
+      },
+      "rawRef": {
+        "id": "upstage/solar-pro-3:free",
+        "canonical_slug": "upstage/solar-pro-3"
       }
     },
     {
