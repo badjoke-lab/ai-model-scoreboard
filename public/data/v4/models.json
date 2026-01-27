@@ -36087,18 +36087,18 @@
     "context": 8192,
     "type": "text->text",
     "pricing": {
-      "input": 4e-7,
-      "output": 4e-7,
+      "input": 5.1e-7,
+      "output": 7.4e-7,
       "currency": "USD"
     },
     "scores": {
-      "overall": 72.1107360984615,
+      "overall": 72.11073446769225,
       "categories": {
         "performance": 65.57310000000001,
         "safety": 75,
         "adoption": 89.21000000000001,
         "openness": 50,
-        "cost": 99.999960984615
+        "cost": 99.99994467692254
       },
       "items": {
         "S1": {
