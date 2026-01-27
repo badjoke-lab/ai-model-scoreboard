@@ -54952,7 +54952,7 @@
     "vendor": "moonshotai",
     "released": "2026-01-27T04:11:16.000Z",
     "context": 262144,
-    "type": "text->text",
+    "type": "text+image->text",
     "pricing": {
       "input": 6e-7,
       "output": 0.000003,
