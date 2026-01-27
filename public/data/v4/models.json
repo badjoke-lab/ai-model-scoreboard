@@ -43694,24 +43694,24 @@
     "layer": "full"
   },
   "mistralai/devstral-2512": {
-    "name": "Mistral: Devstral 2 2512 (free)",
+    "name": "Mistral: Devstral 2 2512",
     "vendor": "mistralai",
     "released": "2025-12-09T13:03:39.000Z",
     "context": 262144,
     "type": "text->text",
     "pricing": {
-      "input": 0,
-      "output": 0,
+      "input": 5e-8,
+      "output": 2.2e-7,
       "currency": "USD"
     },
     "scores": {
-      "overall": 66.77918000000001,
+      "overall": 66.77917920615386,
       "categories": {
         "performance": 61.94670000000001,
         "safety": 85,
         "adoption": 66.67,
         "openness": 33.33333333333333,
-        "cost": 100
+        "cost": 99.99999206153838
       },
       "items": {
         "S1": {

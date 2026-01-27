@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-27T13:59:17.635Z",
+    "generatedAt": "2026-01-27T14:53:51.609Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -2106,12 +2106,12 @@
         "meets required fields"
       ],
       "normalized": {
-        "name": "Mistral: Devstral 2 2512 (free)",
+        "name": "Mistral: Devstral 2 2512",
         "slug": "mistralai/devstral-2512",
         "provider": "mistralai"
       },
       "rawRef": {
-        "id": "mistralai/devstral-2512:free",
+        "id": "mistralai/devstral-2512",
         "canonical_slug": "mistralai/devstral-2512"
       }
     },

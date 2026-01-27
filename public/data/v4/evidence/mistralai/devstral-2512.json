@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-01-27T13:59:17.635Z",
+    "updatedAt": "2026-01-27T14:53:51.609Z",
     "modelKey": "mistralai/devstral-2512"
   },
   "evidenceItems": [
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"Mistral: Devstral 2 2512 (free)\""
+        "arxiv_query:\"Mistral: Devstral 2 2512\""
       ]
     },
     {

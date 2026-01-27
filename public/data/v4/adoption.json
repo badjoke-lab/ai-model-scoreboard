@@ -734,7 +734,7 @@
     },
     {
       "modelKey": "mistralai/devstral-2512",
-      "name": "Mistral: Devstral 2 2512 (free)",
+      "name": "Mistral: Devstral 2 2512",
       "provider": "mistralai",
       "source": "openrouter"
     },
