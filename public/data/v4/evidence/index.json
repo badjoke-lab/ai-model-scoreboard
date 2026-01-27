@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-27T21:34:23.749Z",
-    "runId": "21415057457"
+    "updatedAt": "2026-01-27T22:41:09.398Z",
+    "runId": "21417053882"
   },
   "models": [
     {
@@ -140,6 +140,10 @@
     {
       "modelKey": "arcee-ai/spotlight",
       "path": "evidence/arcee-ai/spotlight.json"
+    },
+    {
+      "modelKey": "arcee-ai/trinity-large-preview",
+      "path": "evidence/arcee-ai/trinity-large-preview.json"
     },
     {
       "modelKey": "arcee-ai/trinity-mini-20251201",

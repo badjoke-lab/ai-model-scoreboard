@@ -11973,6 +11973,337 @@
     },
     "layer": "full"
   },
+  "arcee-ai/trinity-large-preview": {
+    "name": "Arcee AI: Trinity Large Preview (free)",
+    "vendor": "arcee-ai",
+    "released": "2026-01-27T22:24:30.000Z",
+    "context": 131000,
+    "type": "text->text",
+    "pricing": {
+      "input": 0,
+      "output": 0,
+      "currency": "USD"
+    },
+    "scores": {
+      "overall": 70.2836,
+      "categories": {
+        "performance": 71.07400000000001,
+        "safety": 60,
+        "adoption": 82.36,
+        "openness": 50,
+        "cost": 100
+      },
+      "items": {
+        "S1": {
+          "label": "Safety documentation",
+          "score": 100,
+          "status": "ok",
+          "verified": true,
+          "why": "Score verified from available inputs and evidence.",
+          "__specMissingEvidenceLink": false,
+          "inputs": {
+            "safetySection": true,
+            "highRisk": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok",
+              "link": "https://openrouter.ai/models/arcee-ai/trinity-large-preview",
+              "url": "https://openrouter.ai/models/arcee-ai/trinity-large-preview"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S2": {
+          "label": "Alignment disclosure",
+          "score": 50,
+          "status": "ok",
+          "verified": true,
+          "why": "Score verified from available inputs and evidence.",
+          "__specMissingEvidenceLink": false,
+          "inputs": {
+            "rlhf": true,
+            "dataDisclosure": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok",
+              "link": "https://openrouter.ai/models/arcee-ai/trinity-large-preview",
+              "url": "https://openrouter.ai/models/arcee-ai/trinity-large-preview"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S3": {
+          "label": "Misuse policy coverage",
+          "score": 50,
+          "status": "ok",
+          "verified": true,
+          "why": "Score verified from available inputs and evidence.",
+          "__specMissingEvidenceLink": false,
+          "inputs": {
+            "misusePolicy": false,
+            "harmMitigation": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok",
+              "link": "https://openrouter.ai/models/arcee-ai/trinity-large-preview",
+              "url": "https://openrouter.ai/models/arcee-ai/trinity-large-preview"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S4": {
+          "label": "External audit & red teaming",
+          "score": null,
+          "status": "missing_evidence",
+          "verified": false,
+          "why": "Evidence links are missing, so the score is withheld until sources are provided.",
+          "policyImpact": "Score suppressed until evidence links are provided.",
+          "__specMissingEvidenceLink": true,
+          "inputs": {
+            "redTeam": false,
+            "independentAudit": false
+          },
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link",
+            "missing_evidence"
+          ]
+        },
+        "S5": {
+          "label": "Transparency updates",
+          "score": 0,
+          "status": "ok",
+          "verified": true,
+          "why": "Score verified from available inputs and evidence.",
+          "__specMissingEvidenceLink": false,
+          "inputs": {
+            "transparencyUpdate": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok",
+              "link": "https://openrouter.ai/models/arcee-ai/trinity-large-preview",
+              "url": "https://openrouter.ai/models/arcee-ai/trinity-large-preview"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "S6": {
+          "label": "Minor incidents",
+          "score": 100,
+          "status": "ok",
+          "verified": true,
+          "why": "Minor-incident data is missing; default penalty applied.",
+          "__specMissingEvidenceLink": false,
+          "inputs": {},
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok",
+              "link": "https://openrouter.ai/models/arcee-ai/trinity-large-preview",
+              "url": "https://openrouter.ai/models/arcee-ai/trinity-large-preview"
+            }
+          ],
+          "penaltyReasons": [
+            "missing_minor_incidents"
+          ]
+        },
+        "S7": {
+          "label": "Major incidents",
+          "score": 100,
+          "status": "ok",
+          "verified": true,
+          "why": "Major-incident data is missing; default penalty applied.",
+          "__specMissingEvidenceLink": false,
+          "inputs": {},
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok",
+              "link": "https://openrouter.ai/models/arcee-ai/trinity-large-preview",
+              "url": "https://openrouter.ai/models/arcee-ai/trinity-large-preview"
+            }
+          ],
+          "penaltyReasons": [
+            "missing_major_incidents"
+          ]
+        },
+        "S8": {
+          "label": "Critical incidents",
+          "score": 100,
+          "status": "ok",
+          "verified": true,
+          "why": "Critical-incident data is missing; default penalty applied.",
+          "__specMissingEvidenceLink": false,
+          "inputs": {},
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok",
+              "link": "https://openrouter.ai/models/arcee-ai/trinity-large-preview",
+              "url": "https://openrouter.ai/models/arcee-ai/trinity-large-preview"
+            }
+          ],
+          "penaltyReasons": [
+            "missing_critical_incidents"
+          ]
+        },
+        "T1": {
+          "label": "Model documentation",
+          "score": 66.66666666666666,
+          "status": "ok",
+          "verified": true,
+          "why": "Score verified from available inputs and evidence.",
+          "__specMissingEvidenceLink": false,
+          "inputs": {
+            "modelCard": false,
+            "overview": true,
+            "limitations": true
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok",
+              "link": "https://openrouter.ai/models/arcee-ai/trinity-large-preview",
+              "url": "https://openrouter.ai/models/arcee-ai/trinity-large-preview"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T2": {
+          "label": "Training data disclosure",
+          "score": 66.66666666666666,
+          "status": "ok",
+          "verified": true,
+          "why": "Score verified from available inputs and evidence.",
+          "__specMissingEvidenceLink": false,
+          "inputs": {
+            "dataCategories": true,
+            "dataFiltering": true,
+            "copyright": false
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok",
+              "link": "https://openrouter.ai/models/arcee-ai/trinity-large-preview",
+              "url": "https://openrouter.ai/models/arcee-ai/trinity-large-preview"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "T3": {
+          "label": "Paper / technical report",
+          "score": null,
+          "status": "missing_evidence",
+          "verified": false,
+          "why": "Evidence links are missing, so the score is withheld until sources are provided.",
+          "policyImpact": "Score suppressed until evidence links are provided.",
+          "__specMissingEvidenceLink": true,
+          "inputs": {
+            "architecture": true,
+            "parameterScale": true
+          },
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "evidence_paper_not_found",
+            "missing_evidence"
+          ]
+        },
+        "T4": {
+          "label": "External review & transparency",
+          "score": null,
+          "status": "missing_evidence",
+          "verified": false,
+          "why": "Evidence links are missing, so the score is withheld until sources are provided.",
+          "policyImpact": "Score suppressed until evidence links are provided.",
+          "__specMissingEvidenceLink": true,
+          "inputs": {
+            "safetyControls": false,
+            "riskLimits": false,
+            "externalReview": false,
+            "transparencyReport": false
+          },
+          "usedEvidence": [],
+          "penaltyReasons": [
+            "evidence_audit_missing_source_link",
+            "missing_evidence"
+          ]
+        },
+        "Q1": {
+          "label": "General benchmarks",
+          "score": 81.42,
+          "status": "ok",
+          "verified": true,
+          "why": "Score verified from available inputs and evidence.",
+          "__specMissingEvidenceLink": false,
+          "inputs": {
+            "benchmark": 81.42
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok",
+              "link": "https://openrouter.ai/models/arcee-ai/trinity-large-preview",
+              "url": "https://openrouter.ai/models/arcee-ai/trinity-large-preview"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "Q2": {
+          "label": "Coding benchmarks",
+          "score": 53.32,
+          "status": "ok",
+          "verified": true,
+          "why": "Score verified from available inputs and evidence.",
+          "__specMissingEvidenceLink": false,
+          "inputs": {
+            "benchmark": 53.32
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok",
+              "link": "https://openrouter.ai/models/arcee-ai/trinity-large-preview",
+              "url": "https://openrouter.ai/models/arcee-ai/trinity-large-preview"
+            }
+          ],
+          "penaltyReasons": []
+        },
+        "Q3": {
+          "label": "Math & chat benchmarks",
+          "score": 74.9785,
+          "status": "ok",
+          "verified": true,
+          "why": "Score verified from available inputs and evidence.",
+          "__specMissingEvidenceLink": false,
+          "inputs": {
+            "math": 69.55,
+            "chat": 86.63,
+            "arena": 85.73,
+            "vendor": 57.78
+          },
+          "usedEvidence": [
+            {
+              "type": "official_page",
+              "status": "ok",
+              "link": "https://openrouter.ai/models/arcee-ai/trinity-large-preview",
+              "url": "https://openrouter.ai/models/arcee-ai/trinity-large-preview"
+            }
+          ],
+          "penaltyReasons": []
+        }
+      }
+    },
+    "layer": "full"
+  },
   "arcee-ai/trinity-mini-20251201": {
     "name": "Arcee AI: Trinity Mini (free)",
     "vendor": "arcee-ai",

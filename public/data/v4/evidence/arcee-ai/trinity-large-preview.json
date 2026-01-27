@@ -1,7 +1,7 @@
 {
   "meta": {
     "updatedAt": "2026-01-27T22:41:09.398Z",
-    "modelKey": "liquid/lfm-2.2-6b"
+    "modelKey": "arcee-ai/trinity-large-preview"
   },
   "evidenceItems": [
     {
@@ -12,10 +12,10 @@
         "openrouter_model_page_only"
       ],
       "refs": [
-        "https://openrouter.ai/models/liquid/lfm-2.2-6b"
+        "https://openrouter.ai/models/arcee-ai/trinity-large-preview"
       ],
       "extracted": {
-        "url": "https://openrouter.ai/models/liquid/lfm-2.2-6b"
+        "url": "https://openrouter.ai/models/arcee-ai/trinity-large-preview"
       }
     },
     {
@@ -37,7 +37,7 @@
         "not_found"
       ],
       "refs": [
-        "arxiv_query:\"LiquidAI: LFM2-2.6B\""
+        "arxiv_query:\"Arcee AI: Trinity Large Preview (free)\""
       ]
     },
     {

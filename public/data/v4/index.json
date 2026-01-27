@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-27T21:34:23.749Z",
+  "updatedAt": "2026-01-27T22:41:09.398Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -54,6 +54,7 @@
       "evidence/arcee-ai/coder-large.json",
       "evidence/arcee-ai/maestro-reasoning.json",
       "evidence/arcee-ai/spotlight.json",
+      "evidence/arcee-ai/trinity-large-preview.json",
       "evidence/arcee-ai/trinity-mini-20251201.json",
       "evidence/arcee-ai/virtuoso-large.json",
       "evidence/baidu/ernie-4.5-21b-a3b.json",
@@ -371,6 +372,7 @@
       "evidence/arcee-ai/coder-large.json",
       "evidence/arcee-ai/maestro-reasoning.json",
       "evidence/arcee-ai/spotlight.json",
+      "evidence/arcee-ai/trinity-large-preview.json",
       "evidence/arcee-ai/trinity-mini-20251201.json",
       "evidence/arcee-ai/virtuoso-large.json",
       "evidence/baidu/ernie-4.5-21b-a3b.json",
@@ -654,8 +656,8 @@
       "evidence/z-ai/glm-4.7-flash-20260119.json"
     ]
   },
-  "modelsCount": 315,
-  "fullCount": 299,
+  "modelsCount": 316,
+  "fullCount": 300,
   "provisionalCount": 16,
   "notListedCount": 0
 }

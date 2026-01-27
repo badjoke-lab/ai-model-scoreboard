@@ -205,6 +205,12 @@
       "source": "openrouter"
     },
     {
+      "modelKey": "arcee-ai/trinity-large-preview",
+      "name": "Arcee AI: Trinity Large Preview (free)",
+      "provider": "arcee-ai",
+      "source": "openrouter"
+    },
+    {
       "modelKey": "arcee-ai/trinity-mini-20251201",
       "name": "Arcee AI: Trinity Mini (free)",
       "provider": "arcee-ai",
