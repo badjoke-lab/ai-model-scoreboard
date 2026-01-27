@@ -19,6 +19,7 @@ import {
   EvidenceItem,
 } from "./types";
 import { clamp } from "./normalize";
+import evidencePolicy from "../lib/v4/evidence-policy.json";
 
 const CATEGORY_WEIGHTS: Record<ScoreCategoryKey, number> = {
   performance: 0.4,
@@ -89,6 +90,8 @@ interface EvidenceUsage {
   status: EvidenceStatus;
   urls: string[];
 }
+
+const EVIDENCE_POLICY = evidencePolicy as Record<ScoreItemKey, EvidenceType[]>;
 
 /**
  * The main scoring function.
@@ -190,24 +193,25 @@ function computePerformance(
 
   const performanceScore = weightedTotal(available, PERFORMANCE_WEIGHTS);
 
-  const officialUsage = buildEvidenceUsage(evidence, "official_page");
+  const q1Usage = buildEvidenceUsageForItem(evidence, "Q1");
   const q1 = buildScoreItem(
     general ?? 0,
     { benchmark: b.general },
-    [officialUsage],
+    [q1Usage],
     buildPenaltyReasons(
       buildMissingReasons(general === null ? ["missing_benchmark_general"] : []),
-      [officialUsage]
+      [q1Usage]
     ),
     { label: SCORE_ITEM_LABELS.Q1 }
   );
+  const q2Usage = buildEvidenceUsageForItem(evidence, "Q2");
   const q2 = buildScoreItem(
     coding ?? 0,
     { benchmark: b.coding },
-    [officialUsage],
+    [q2Usage],
     buildPenaltyReasons(
       buildMissingReasons(coding === null ? ["missing_benchmark_coding"] : []),
-      [officialUsage]
+      [q2Usage]
     ),
     { label: SCORE_ITEM_LABELS.Q2 }
   );
@@ -217,11 +221,12 @@ function computePerformance(
   if (math === null) q3Reasons.push("missing_benchmark_math");
   if (chat === null) q3Reasons.push("missing_benchmark_chat");
 
+  const q3Usage = buildEvidenceUsageForItem(evidence, "Q3");
   const q3 = buildScoreItem(
     combinedMathChat ?? 0,
     { math: b.math, chat: b.chat, arena: b.arena, vendor: b.vendor },
-    [officialUsage],
-    buildPenaltyReasons(buildMissingReasons(q3Reasons), [officialUsage]),
+    [q3Usage],
+    buildPenaltyReasons(buildMissingReasons(q3Reasons), [q3Usage]),
     { label: SCORE_ITEM_LABELS.Q3 }
   );
 
@@ -276,12 +281,12 @@ function computeSafety(
     { value: s1Inputs.safetySection, points: 5 },
     { value: s1Inputs.highRisk, points: 5 },
   ]);
-  const officialUsage = buildEvidenceUsage(evidence, "official_page");
+  const s1Usage = buildEvidenceUsageForItem(evidence, "S1");
   const s1 = buildScoreItem(
     normalizePoints(s1Points.total, 10),
     s1Inputs,
-    [officialUsage],
-    buildPenaltyReasons(s1Points.missing, [officialUsage]),
+    [s1Usage],
+    buildPenaltyReasons(s1Points.missing, [s1Usage]),
     { label: SCORE_ITEM_LABELS.S1 }
   );
 
@@ -293,11 +298,12 @@ function computeSafety(
     { value: s2Inputs.rlhf, points: 5 },
     { value: s2Inputs.dataDisclosure, points: 5 },
   ]);
+  const s2Usage = buildEvidenceUsageForItem(evidence, "S2");
   const s2 = buildScoreItem(
     normalizePoints(s2Points.total, 10),
     s2Inputs,
-    [officialUsage],
-    buildPenaltyReasons(s2Points.missing, [officialUsage]),
+    [s2Usage],
+    buildPenaltyReasons(s2Points.missing, [s2Usage]),
     { label: SCORE_ITEM_LABELS.S2 }
   );
 
@@ -309,11 +315,12 @@ function computeSafety(
     { value: s3Inputs.misusePolicy, points: 5 },
     { value: s3Inputs.harmMitigation, points: 5 },
   ]);
+  const s3Usage = buildEvidenceUsageForItem(evidence, "S3");
   const s3 = buildScoreItem(
     normalizePoints(s3Points.total, 10),
     s3Inputs,
-    [officialUsage],
-    buildPenaltyReasons(s3Points.missing, [officialUsage]),
+    [s3Usage],
+    buildPenaltyReasons(s3Points.missing, [s3Usage]),
     { label: SCORE_ITEM_LABELS.S3 }
   );
 
@@ -325,12 +332,12 @@ function computeSafety(
     { value: s4Inputs.redTeam, points: 10 },
     { value: s4Inputs.independentAudit, points: 10 },
   ]);
-  const auditUsage = buildEvidenceUsage(evidence, "audit");
+  const s4Usage = buildEvidenceUsageForItem(evidence, "S4");
   const s4 = buildScoreItem(
     normalizePoints(s4Points.total, 20),
     s4Inputs,
-    [auditUsage],
-    buildPenaltyReasons(s4Points.missing, [auditUsage]),
+    [s4Usage],
+    buildPenaltyReasons(s4Points.missing, [s4Usage]),
     { label: SCORE_ITEM_LABELS.S4 }
   );
 
@@ -338,11 +345,12 @@ function computeSafety(
     transparencyUpdate: readPostureFlag(posture, ["transparencyUpdate", "yearlyTransparencyUpdate"]),
   };
   const s5Points = posturePoints([{ value: s5Inputs.transparencyUpdate, points: 10 }]);
+  const s5Usage = buildEvidenceUsageForItem(evidence, "S5");
   const s5 = buildScoreItem(
     normalizePoints(s5Points.total, 10),
     s5Inputs,
-    [officialUsage],
-    buildPenaltyReasons(s5Points.missing, [officialUsage]),
+    [s5Usage],
+    buildPenaltyReasons(s5Points.missing, [s5Usage]),
     { label: SCORE_ITEM_LABELS.S5 }
   );
 
@@ -357,10 +365,11 @@ function computeSafety(
   const criticalCount = incidentInputs.critical ?? 0;
   const recoveryPoints = incidentInputs.recoveryPoints ?? 0;
 
+  const s6Usage = buildEvidenceUsageForItem(evidence, "S6");
   const s6 = buildScoreItem(
     clamp(100 - minorCount * 12.5),
     { minorCount: incidentInputs.minor },
-    [officialUsage],
+    [s6Usage],
     buildPenaltyReasons(
       buildMissingReasons(
         incidentInputs.minor === undefined
@@ -369,14 +378,15 @@ function computeSafety(
             ? ["minor_incidents_present"]
             : []
       ),
-      [officialUsage]
+      [s6Usage]
     ),
     { label: SCORE_ITEM_LABELS.S6 }
   );
+  const s7Usage = buildEvidenceUsageForItem(evidence, "S7");
   const s7 = buildScoreItem(
     clamp(100 - majorCount * 50),
     { majorCount: incidentInputs.major },
-    [officialUsage],
+    [s7Usage],
     buildPenaltyReasons(
       buildMissingReasons(
         incidentInputs.major === undefined
@@ -385,14 +395,15 @@ function computeSafety(
             ? ["major_incidents_present"]
             : []
       ),
-      [officialUsage]
+      [s7Usage]
     ),
     { label: SCORE_ITEM_LABELS.S7 }
   );
+  const s8Usage = buildEvidenceUsageForItem(evidence, "S8");
   const s8 = buildScoreItem(
     criticalCount > 0 ? 0 : 100,
     { criticalCount: incidentInputs.critical },
-    [officialUsage],
+    [s8Usage],
     buildPenaltyReasons(
       buildMissingReasons(
         incidentInputs.critical === undefined
@@ -401,7 +412,7 @@ function computeSafety(
             ? ["critical_incidents_present"]
             : []
       ),
-      [officialUsage]
+      [s8Usage]
     ),
     { label: SCORE_ITEM_LABELS.S8 }
   );
@@ -505,12 +516,12 @@ function computeOpenness(
     { value: t1Inputs.overview, points: 5 },
     { value: t1Inputs.limitations, points: 5 },
   ]);
-  const officialUsage = buildEvidenceUsage(evidence, "official_page");
+  const t1Usage = buildEvidenceUsageForItem(evidence, "T1");
   const t1 = buildScoreItem(
     normalizePoints(t1Points.total, 15),
     t1Inputs,
-    [officialUsage],
-    buildPenaltyReasons(t1Points.missing, [officialUsage]),
+    [t1Usage],
+    buildPenaltyReasons(t1Points.missing, [t1Usage]),
     { label: SCORE_ITEM_LABELS.T1 }
   );
 
@@ -524,11 +535,12 @@ function computeOpenness(
     { value: t2Inputs.dataFiltering, points: 5 },
     { value: t2Inputs.copyright, points: 5 },
   ]);
+  const t2Usage = buildEvidenceUsageForItem(evidence, "T2");
   const t2 = buildScoreItem(
     normalizePoints(t2Points.total, 15),
     t2Inputs,
-    [officialUsage],
-    buildPenaltyReasons(t2Points.missing, [officialUsage]),
+    [t2Usage],
+    buildPenaltyReasons(t2Points.missing, [t2Usage]),
     { label: SCORE_ITEM_LABELS.T2 }
   );
 
@@ -540,12 +552,12 @@ function computeOpenness(
     { value: t3Inputs.architecture, points: 5 },
     { value: t3Inputs.parameterScale, points: 5 },
   ]);
-  const paperUsage = buildEvidenceUsage(evidence, "paper");
+  const t3Usage = buildEvidenceUsageForItem(evidence, "T3");
   const t3 = buildScoreItem(
     normalizePoints(t3Points.total, 10),
     t3Inputs,
-    [paperUsage],
-    buildPenaltyReasons(t3Points.missing, [paperUsage]),
+    [t3Usage],
+    buildPenaltyReasons(t3Points.missing, [t3Usage]),
     { label: SCORE_ITEM_LABELS.T3 }
   );
 
@@ -561,12 +573,12 @@ function computeOpenness(
     { value: t4Inputs.externalReview, points: 5 },
     { value: t4Inputs.transparencyReport, points: 5 },
   ]);
-  const auditUsage = buildEvidenceUsage(evidence, "audit");
+  const t4Usage = buildEvidenceUsageForItem(evidence, "T4");
   const t4 = buildScoreItem(
     normalizePoints(t4Points.total, 20),
     t4Inputs,
-    [auditUsage],
-    buildPenaltyReasons(t4Points.missing, [auditUsage]),
+    [t4Usage],
+    buildPenaltyReasons(t4Points.missing, [t4Usage]),
     { label: SCORE_ITEM_LABELS.T4 }
   );
 
@@ -816,6 +828,21 @@ function buildEvidenceUsage(
   return { type, status, urls };
 }
 
+function buildEvidenceUsageForItem(
+  evidence: EvidenceModelFile | undefined,
+  itemKey: ScoreItemKey
+): EvidenceUsage {
+  const allowed = EVIDENCE_POLICY[itemKey];
+  if (!allowed || allowed.length === 0) {
+    throw new Error(`Missing evidence policy for score item ${itemKey}`);
+  }
+  const candidates = allowed.map((type) => buildEvidenceUsage(evidence, type));
+  const preferred = candidates.find(
+    (candidate) => candidate.status === "ok" && candidate.urls.length > 0
+  );
+  return preferred ?? candidates[0];
+}
+
 function extractEvidenceUrls(entry: EvidenceItem | undefined): string[] {
   const urls = new Set<string>();
   if (entry?.refs?.length) {
@@ -861,10 +888,10 @@ function isHttpUrl(value: string): boolean {
 
 function buildWhy(penaltyReasons: string[], status: ScoreItemStatus): string {
   if (status === "missing_inputs") {
-    return "Inputs are missing, so the score is withheld until inputs are recorded.";
+    return "Unverifiable: missing inputs; item not scored.";
   }
   if (status === "missing_evidence") {
-    return "Evidence links are missing, so the score is withheld until sources are provided.";
+    return "Unverifiable: missing evidence URL; item not scored.";
   }
   if (!penaltyReasons.length) {
     return "Score verified from available inputs and evidence.";

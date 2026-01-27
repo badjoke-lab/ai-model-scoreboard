@@ -23,6 +23,7 @@ import {
   isHttpUrl,
   toEnglishReason,
 } from "@/lib/v4/explainability";
+import evidencePolicy from "@/lib/v4/evidence-policy.json";
 import {
   loadV4ModelDetail,
   loadV4SnapshotWithDiagnostics,
@@ -91,12 +92,15 @@ function buildBreakdownItems(scoreItems?: Record<string, V4ScoreItem>): FullBrea
     .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
     .map(([key, item]) => {
       const rawItem = item as Record<string, unknown>;
+      const why = typeof item.why === "string" && item.why.trim() ? item.why.trim() : null;
       return {
         key,
         label: item.label ? item.label : formatKeyLabel(key),
         score: typeof item.score === "number" ? item.score : null,
+        status: typeof item.status === "string" ? item.status : undefined,
         inputs: extractInputs(rawItem),
-        reason: typeof item.why === "string" && item.why.trim() ? item.why : toEnglishReason(item),
+        reason: why ?? toEnglishReason(item),
+        why,
         usedEvidence: Array.isArray(item.usedEvidence) ? item.usedEvidence : [],
         specMissingEvidence:
           item.status === "missing_evidence" || item.__specMissingEvidenceLink === true,
@@ -294,6 +298,57 @@ function buildReferenceSections(
   ];
 }
 
+type EvidenceImpactKey = "official_page" | "dev_activity" | "paper" | "audit";
+
+function buildEvidenceImpactSummary(
+  breakdownItems: FullBreakdownItem[]
+): Record<EvidenceImpactKey, string> {
+  const impact: Record<EvidenceImpactKey, string> = {
+    official_page: "No scoring items rely on official-page evidence.",
+    dev_activity: "No scoring items rely on dev-activity evidence.",
+    paper: "No scoring items rely on paper evidence.",
+    audit: "No scoring items rely on audit evidence.",
+  };
+  const itemsByEvidence: Record<EvidenceImpactKey, FullBreakdownItem[]> = {
+    official_page: [],
+    dev_activity: [],
+    paper: [],
+    audit: [],
+  };
+
+  breakdownItems.forEach((item) => {
+    const allowed = evidencePolicy[item.key];
+    if (!Array.isArray(allowed)) return;
+    allowed.forEach((type) => {
+      if (type in itemsByEvidence) {
+        itemsByEvidence[type as EvidenceImpactKey].push(item);
+      }
+    });
+  });
+
+  (Object.keys(itemsByEvidence) as EvidenceImpactKey[]).forEach((key) => {
+    const items = itemsByEvidence[key];
+    if (!items.length) return;
+    const hasUnverifiable = items.some(
+      (item) => item.score === null && item.status === "missing_evidence"
+    );
+    if (hasUnverifiable) {
+      impact[key] = "Unverifiable => item not scored.";
+      return;
+    }
+    const hasMissingInputs = items.some(
+      (item) => item.score === null && item.status === "missing_inputs"
+    );
+    if (hasMissingInputs) {
+      impact[key] = "Inputs missing => item not scored.";
+      return;
+    }
+    impact[key] = "Evidence verified => scoring enabled (no penalty applied).";
+  });
+
+  return impact;
+}
+
 export default async function ModelDetailPage({
   params,
 }: {
@@ -427,6 +482,7 @@ export default async function ModelDetailPage({
       : [];
 
   const referenceSections = buildReferenceSections(evidenceBlocks, breakdownItems);
+  const evidenceImpact = buildEvidenceImpactSummary(breakdownItems);
 
   const sourceLabel =
     typeof modelRow?.source === "string" && modelRow?.source.trim()
@@ -454,7 +510,11 @@ export default async function ModelDetailPage({
         topDrivers={topDrivers}
       />
 
-      <EvidenceCards blocks={evidenceBlocks} errorMessage={evidenceErrorMessage} />
+      <EvidenceCards
+        blocks={evidenceBlocks}
+        errorMessage={evidenceErrorMessage}
+        impactByKey={evidenceImpact}
+      />
 
       <FullBreakdownTable
         items={breakdownItems}

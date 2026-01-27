@@ -14,6 +14,7 @@
     "scoreBreakdown": {
       "items": [
         {
+          "id": "S1",
           "key": "S1",
           "label": "Safety documentation",
           "score": 100,
@@ -30,20 +31,16 @@
           "why": "The model card includes a dedicated safety section with concrete mitigations."
         },
         {
+          "id": "S4",
           "key": "S4",
           "label": "Independent audit",
-          "score": 50,
-          "delta": -10,
+          "score": null,
+          "status": "missing_evidence",
           "inputsRaw": [
             "audit_report=false"
           ],
-          "usedEvidence": [
-            {
-              "type": "audit",
-              "status": "missing_source_link"
-            }
-          ],
-          "why": "An audit is claimed but the source link is missing, so a policy penalty is applied."
+          "usedEvidence": [],
+          "why": "Unverifiable: missing evidence URL; item not scored."
         }
       ]
     }

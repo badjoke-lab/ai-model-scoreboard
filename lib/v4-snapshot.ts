@@ -45,6 +45,7 @@ export type V4ScoreItemEvidence = {
 };
 
 export type V4ScoreItem = {
+  id?: string;
   label?: string;
   score?: number | null;
   status?: string;
@@ -476,6 +477,12 @@ function normalizeReasonCodes(raw: unknown): string[] | undefined {
 
 function normalizeScoreItem(raw: unknown): V4ScoreItem | null {
   if (!isObject(raw)) return null;
+  const id =
+    typeof raw.id === "string"
+      ? raw.id
+      : typeof raw.key === "string"
+        ? raw.key
+        : undefined;
   const label =
     typeof raw.label === "string"
       ? raw.label
@@ -485,6 +492,12 @@ function normalizeScoreItem(raw: unknown): V4ScoreItem | null {
   const score =
     typeof raw.score === "number" && Number.isFinite(raw.score) ? raw.score : undefined;
   const reason = typeof raw.reason === "string" ? raw.reason.trim() : undefined;
+  const why =
+    typeof raw.why === "string"
+      ? raw.why.trim()
+      : typeof raw.explanation === "string"
+        ? raw.explanation.trim()
+        : undefined;
   const penaltyReasons = normalizeReasonCodes(
     raw.penaltyReasons ?? raw.penalty_reasons ?? raw.reasons ?? raw.reasonCodes
   );
@@ -517,10 +530,12 @@ function normalizeScoreItem(raw: unknown): V4ScoreItem | null {
         : null
     )
     .filter(Boolean) as V4ScoreItemEvidence[];
+  const inputs = isObject(raw.inputs) ? raw.inputs : undefined;
 
   if (
     score === undefined &&
     !reason &&
+    !why &&
     !penaltyReasons?.length &&
     !penaltyReason &&
     !usedEvidence.length &&
@@ -530,12 +545,15 @@ function normalizeScoreItem(raw: unknown): V4ScoreItem | null {
   }
 
   return {
+    id,
     label,
     score,
     reason,
+    why,
     penaltyReasons,
     penaltyReason,
     __specMissingEvidenceLink,
+    inputs,
     usedEvidence: usedEvidence.length ? usedEvidence : undefined,
   };
 }

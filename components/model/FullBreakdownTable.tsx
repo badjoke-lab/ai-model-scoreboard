@@ -1,19 +1,23 @@
 import Link from "next/link";
 
 import { formatKeyLabel, formatMetricValue } from "@/lib/v4/explainability";
+import { checkVerifiableScore } from "@/lib/v4/verifiable-score";
 
 export type BreakdownEvidence = {
   type?: string;
   status?: string;
   link?: string;
+  url?: string;
 };
 
 export type FullBreakdownItem = {
   key: string;
   label: string;
   score: number | null;
+  status?: string;
   inputs: Array<[string, string]>;
   reason: string;
+  why: string | null;
   usedEvidence: BreakdownEvidence[];
   specMissingEvidence: boolean;
 };
@@ -56,7 +60,36 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
               items.map((item) => (
                 <tr key={item.key} className="align-top">
                   <td className="px-4 py-3 font-semibold text-slate-100">{item.label}</td>
-                  <td className="px-4 py-3">{formatScore(item.score)}</td>
+                  <td className="px-4 py-3">
+                    {(() => {
+                      const verification = checkVerifiableScore({
+                        score: item.score,
+                        inputs: item.inputs,
+                        why: item.why,
+                        usedEvidence: item.usedEvidence,
+                      });
+                      const showScore =
+                        typeof item.score === "number" &&
+                        Number.isFinite(item.score) &&
+                        verification.isVerifiable;
+                      const missingNote =
+                        typeof item.score === "number" && !verification.isVerifiable
+                          ? `Unverifiable score (spec violation): missing ${verification.missing.join(
+                              "/"
+                            )}.`
+                          : null;
+                      return (
+                        <div className="space-y-2">
+                          <span>{showScore ? formatScore(item.score) : "—"}</span>
+                          {missingNote ? (
+                            <p className="rounded-md border border-rose-500/60 bg-rose-500/10 px-2 py-1 text-xs text-rose-200">
+                              {missingNote}
+                            </p>
+                          ) : null}
+                        </div>
+                      );
+                    })()}
+                  </td>
                   <td className="px-4 py-3">
                     {item.inputs.length ? (
                       <ul className="space-y-1 text-xs text-slate-300">
@@ -134,11 +167,17 @@ export function extractInputs(raw: Record<string, unknown>): Array<[string, stri
     }
   }
   const ignoredKeys = new Set([
+    "id",
+    "key",
     "label",
     "score",
+    "status",
     "reason",
+    "why",
     "penaltyReason",
     "penaltyReasons",
+    "policyImpact",
+    "verified",
     "usedEvidence",
     "__specMissingEvidenceLink",
     "inputs",

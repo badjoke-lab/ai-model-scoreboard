@@ -10,6 +10,7 @@ import {
   ScoresOutput,
   ScoreItemKey,
 } from "../types";
+import evidencePolicy from "../../lib/v4/evidence-policy.json";
 
 const EVIDENCE_TYPES: EvidenceType[] = [
   "official_page",
@@ -46,6 +47,8 @@ const SCORE_ITEM_KEYS: ScoreItemKey[] = [
   "Q3",
 ];
 
+const EVIDENCE_POLICY = evidencePolicy as Record<ScoreItemKey, EvidenceType[]>;
+
 export function validatePublishPayload(payload: PublishPayload): void {
   const errors: string[] = [];
 
@@ -63,6 +66,10 @@ export function validatePublishPayload(payload: PublishPayload): void {
     );
     throw new Error(message);
   }
+}
+
+function getAllowedEvidenceTypes(itemKey: ScoreItemKey): EvidenceType[] {
+  return EVIDENCE_POLICY[itemKey] ?? [];
 }
 
 function validateEvidenceCoverage(
@@ -211,10 +218,17 @@ function validateScores(
       errors.push(`${label}.items.${key} must be an object.`);
       continue;
     }
+    const allowedTypes = getAllowedEvidenceTypes(key);
+    if (allowedTypes.length === 0) {
+      errors.push(`${label}.items.${key} missing evidence policy mapping.`);
+    }
     const status = typeof item.status === "string" ? item.status : "ok";
     const missingEvidence = status === "missing_evidence";
     const missingInputs = status === "missing_inputs";
     const hasNumericScore = typeof item.score === "number";
+    if (typeof item.why !== "string" || item.why.trim() === "") {
+      errors.push(`${label}.items.${key}.why must be a non-empty string.`);
+    }
     if (hasNumericScore && (missingEvidence || missingInputs)) {
       errors.push(
         `${label}.items.${key}.score must be null when status is ${status}.`
@@ -255,6 +269,13 @@ function validateScores(
         if (!EVIDENCE_TYPES.includes(usage.type)) {
           errors.push(
             `${label}.items.${key}.usedEvidence[${idx}].type invalid.`
+          );
+        }
+        if (allowedTypes.length > 0 && !allowedTypes.includes(usage.type)) {
+          errors.push(
+            `${label}.items.${key}.usedEvidence[${idx}].type must be one of ${allowedTypes.join(
+              ", "
+            )}.`
           );
         }
         if (!EVIDENCE_STATUSES.includes(usage.status)) {

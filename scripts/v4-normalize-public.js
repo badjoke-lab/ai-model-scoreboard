@@ -278,8 +278,8 @@ function enforceVerifiableScoring(item, context) {
     if (!nonEmptyStr(item.why)) {
       item.why =
         missingInputs
-          ? "Inputs are missing, so the score is withheld until inputs are recorded."
-          : "Evidence links are missing, so the score is withheld until sources are provided.";
+          ? "Unverifiable: missing inputs; item not scored."
+          : "Unverifiable: missing evidence URL; item not scored.";
     }
     console.warn(
       "[v4-normalize] removed unverifiable score",
@@ -709,6 +709,10 @@ function normalizeModelsJson() {
     row.scoreBreakdown.items = items;
     items.forEach((item, index) => {
       if (!isObject(item)) return;
+      if (!nonEmptyStr(item.id)) {
+        const fallbackId = pickFirstStr(item, ["key", "label", "name"]);
+        if (fallbackId) item.id = fallbackId;
+      }
       normalizeUsedEvidence(item, row.modelKey, index);
       ensureWhyEnglish(item);
       const itemLabel = pickFirstStr(item, ["id", "label", "key", "name"]) || `items[${index}]`;

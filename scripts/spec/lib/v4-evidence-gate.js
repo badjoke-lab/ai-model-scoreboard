@@ -1,3 +1,5 @@
+const evidencePolicy = require("../../../lib/v4/evidence-policy.json");
+
 const URL_FIELDS = [
   "link",
   "url",
@@ -20,8 +22,9 @@ const hasFiniteNumber = (value) => typeof value === "number" && Number.isFinite(
 const hasNumericScore = (item) =>
   hasFiniteNumber(item?.score) || hasFiniteNumber(item?.delta) || hasFiniteNumber(item?.impact);
 
-const isClickableUrl = (value) =>
-  typeof value === "string" && (/^https?:\/\//.test(value) || value.startsWith("/"));
+const isHttpUrl = (value) => typeof value === "string" && /^https?:\/\//.test(value.trim());
+
+const MAX_ERRORS = 25;
 
 const trimSnippet = (value, maxLength = 360) => {
   let snippet = "";
@@ -113,19 +116,34 @@ const buildError = ({
   missing,
   path,
   item,
+  expectedEvidenceTypes,
 }) => {
   const snippet = trimSnippet(item);
+  const expected =
+    expectedEvidenceTypes && expectedEvidenceTypes.length
+      ? ` :: expectedEvidenceTypes=${expectedEvidenceTypes.join(",")}`
+      : "";
   return {
     reasonCode,
     modelKey,
     itemKey,
-    message: `${reasonCode} :: ${modelKey} :: ${itemKey} :: missing ${missing} :: expected ${path} :: snippet ${snippet}`,
+    message: `${reasonCode} :: ${modelKey} :: ${itemKey} :: missing ${missing} :: expected ${path}${expected} :: snippet ${snippet}`,
   };
+};
+
+const getAllowedEvidenceTypes = (itemId) => {
+  const allowed = evidencePolicy[itemId];
+  return Array.isArray(allowed) ? allowed : [];
 };
 
 const validateEvidenceGate = (modelsJson) => {
   const errors = [];
   let scoredItemsCount = 0;
+  const pushError = (error) => {
+    if (errors.length < MAX_ERRORS) {
+      errors.push(error);
+    }
+  };
 
   const modelsArray = ensureArray(modelsJson)
     ? modelsJson
@@ -136,7 +154,7 @@ const validateEvidenceGate = (modelsJson) => {
       : null;
 
   if (!modelsArray) {
-    errors.push({
+    pushError({
       reasonCode: "spec_invalid_models_root",
       message: "models.json must be an array or an object map of models",
     });
@@ -145,7 +163,7 @@ const validateEvidenceGate = (modelsJson) => {
 
   modelsArray.forEach((model, modelIndex) => {
     if (!ensureObject(model)) {
-      errors.push({
+      pushError({
         reasonCode: "spec_invalid_model",
         message: `models.json[${modelIndex}] must be an object`,
       });
@@ -156,7 +174,7 @@ const validateEvidenceGate = (modelsJson) => {
     const items = model.scoreBreakdown?.items;
 
     if (!ensureArray(items)) {
-      errors.push({
+      pushError({
         reasonCode: "spec_items_not_array",
         message: `${modelKey} :: scoreBreakdown.items must be an array`,
       });
@@ -165,13 +183,14 @@ const validateEvidenceGate = (modelsJson) => {
 
     items.forEach((item, itemIndex) => {
       if (!ensureObject(item)) {
-        errors.push({
+        pushError({
           reasonCode: `spec_invalid_item:${modelKey}:items[${itemIndex}]`,
           message: `${modelKey} :: items[${itemIndex}] must be an object`,
         });
         return;
       }
 
+      const stableId = nonEmptyStr(item.id) ? item.id.trim() : null;
       const itemStatus =
         typeof item.status === "string" ? item.status.trim().toLowerCase() : "";
       const missingEvidence = itemStatus === "missing_evidence";
@@ -180,7 +199,7 @@ const validateEvidenceGate = (modelsJson) => {
 
       if (!hasScore && !(missingEvidence || missingInputs)) {
         const itemKey = describeItemKey(item) || `items[${itemIndex}]`;
-        errors.push({
+        pushError({
           reasonCode: `spec_missing_item_score:${modelKey}:${itemKey}`,
           message: `${modelKey} :: ${itemKey} :: missing numeric score/delta/impact`,
         });
@@ -189,7 +208,7 @@ const validateEvidenceGate = (modelsJson) => {
 
       if (hasScore && (missingEvidence || missingInputs)) {
         const itemKey = describeItemKey(item) || `items[${itemIndex}]`;
-        errors.push({
+        pushError({
           reasonCode: `spec_unverifiable_score:${modelKey}:${itemKey}`,
           message: `${modelKey} :: ${itemKey} :: numeric score present while status=${itemStatus}`,
         });
@@ -202,14 +221,28 @@ const validateEvidenceGate = (modelsJson) => {
       const itemLabel = itemKey || fallbackItemKey;
 
       if (!itemKey) {
-        errors.push({
+        pushError({
           reasonCode: `spec_missing_item_label:${modelKey}:${fallbackItemKey}`,
           message: `${modelKey} :: ${fallbackItemKey} :: missing item id/label/key`,
         });
       }
+      if (!stableId) {
+        pushError({
+          reasonCode: `spec_missing_item_id:${modelKey}:${itemLabel}`,
+          message: `${modelKey} :: ${itemLabel} :: missing stable item id`,
+        });
+      }
+
+      const allowedEvidenceTypes = stableId ? getAllowedEvidenceTypes(stableId) : [];
+      if (stableId && allowedEvidenceTypes.length === 0) {
+        pushError({
+          reasonCode: `spec_missing_evidence_policy:${modelKey}:${itemLabel}`,
+          message: `${modelKey} :: ${itemLabel} :: no evidence policy found for item id=${stableId}`,
+        });
+      }
 
       if (!nonEmptyStr(item.why)) {
-        errors.push(
+        pushError(
           buildError({
             reasonCode: `spec_missing_why:${modelKey}:${itemLabel}`,
             modelKey,
@@ -222,8 +255,9 @@ const validateEvidenceGate = (modelsJson) => {
       }
 
       const normalizedInputs = normalizeInputs(item);
-      if (!hasNonEmptyInputs(normalizedInputs)) {
-        errors.push(
+      const hasInputs = hasNonEmptyInputs(normalizedInputs);
+      if (hasScore && !hasInputs) {
+        pushError(
           buildError({
             reasonCode: `spec_missing_inputs:${modelKey}:${itemLabel}`,
             modelKey,
@@ -236,7 +270,7 @@ const validateEvidenceGate = (modelsJson) => {
       }
 
       if (!ensureArray(item.usedEvidence)) {
-        errors.push(
+        pushError(
           buildError({
             reasonCode: `spec_missing_evidence_link:${modelKey}:${itemLabel}`,
             modelKey,
@@ -244,14 +278,34 @@ const validateEvidenceGate = (modelsJson) => {
             missing: "usedEvidence array",
             path: `scoreBreakdown.items[${itemIndex}].usedEvidence`,
             item,
+            expectedEvidenceTypes: allowedEvidenceTypes,
           })
         );
         return;
       }
 
+      item.usedEvidence.forEach((entry) => {
+        if (!ensureObject(entry)) return;
+        const type = nonEmptyStr(entry.type) ? entry.type.trim() : null;
+        if (!type || allowedEvidenceTypes.length === 0) return;
+        if (!allowedEvidenceTypes.includes(type)) {
+          pushError(
+            buildError({
+              reasonCode: `spec_disallowed_evidence:${modelKey}:${itemLabel}`,
+              modelKey,
+              itemKey: itemLabel,
+              missing: `disallowed evidence type ${type}`,
+              path: `scoreBreakdown.items[${itemIndex}].usedEvidence[].type`,
+              item,
+              expectedEvidenceTypes: allowedEvidenceTypes,
+            })
+          );
+        }
+      });
+
       if (missingEvidence) {
         if (item.usedEvidence.length > 0) {
-          errors.push(
+          pushError(
             buildError({
               reasonCode: `spec_missing_evidence_link:${modelKey}:${itemLabel}`,
               modelKey,
@@ -259,15 +313,16 @@ const validateEvidenceGate = (modelsJson) => {
               missing: "usedEvidence should be empty when status=missing_evidence",
               path: `scoreBreakdown.items[${itemIndex}].usedEvidence`,
               item,
+              expectedEvidenceTypes: allowedEvidenceTypes,
             })
           );
         }
         return;
       }
 
-      const links = collectEvidenceLinks(item.usedEvidence).filter(isClickableUrl);
-      if (links.length === 0) {
-        errors.push(
+      const links = collectEvidenceLinks(item.usedEvidence).filter(isHttpUrl);
+      if (hasScore && links.length === 0) {
+        pushError(
           buildError({
             reasonCode: `spec_missing_evidence_link:${modelKey}:${itemLabel}`,
             modelKey,
@@ -275,6 +330,7 @@ const validateEvidenceGate = (modelsJson) => {
             missing: "clickable evidence URL",
             path: `scoreBreakdown.items[${itemIndex}].usedEvidence[].(url|link|href|sourceUrl|traceUrl|...)`,
             item,
+            expectedEvidenceTypes: allowedEvidenceTypes,
           })
         );
       }
