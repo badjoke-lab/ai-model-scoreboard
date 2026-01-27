@@ -42704,7 +42704,7 @@
     "name": "MiniMax: MiniMax M2-her",
     "vendor": "minimax",
     "released": "2026-01-23T14:07:19.000Z",
-    "context": 32768,
+    "context": 65536,
     "type": "text->text",
     "pricing": {
       "input": 3e-7,
