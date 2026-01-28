@@ -55285,18 +55285,18 @@
     "context": 262144,
     "type": "text+image->text",
     "pricing": {
-      "input": 6e-7,
-      "output": 0.000003,
+      "input": 5.7e-7,
+      "output": 0.00000285,
       "currency": "USD"
     },
     "scores": {
-      "overall": 70.3574885599999,
+      "overall": 70.35748913692298,
       "categories": {
         "performance": 75.95000000000002,
         "safety": 65,
         "adoption": 54.849999999999994,
         "openness": 58.333333333333336,
-        "cost": 99.99988559999888
+        "cost": 99.9998913692297
       },
       "items": {
         "S1": {
