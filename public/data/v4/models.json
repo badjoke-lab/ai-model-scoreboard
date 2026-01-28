@@ -55286,17 +55286,17 @@
     "type": "text+image->text",
     "pricing": {
       "input": 6e-7,
-      "output": 3e-7,
+      "output": 0.000003,
       "currency": "USD"
     },
     "scores": {
-      "overall": 70.35749479076918,
+      "overall": 70.3574885599999,
       "categories": {
         "performance": 75.95000000000002,
         "safety": 65,
         "adoption": 54.849999999999994,
         "openness": 58.333333333333336,
-        "cost": 99.99994790769179
+        "cost": 99.99988559999888
       },
       "items": {
         "S1": {
