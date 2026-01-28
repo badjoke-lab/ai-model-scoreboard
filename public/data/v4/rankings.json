@@ -394,7 +394,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-vl-30b-a3b-thinking",
@@ -791,7 +791,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "z-ai/glm-4.5-air",
@@ -1116,7 +1116,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "allenai/molmo-2-8b-20260109",
@@ -1441,7 +1441,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meituan/longcat-flash-chat",
@@ -1766,7 +1766,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "perplexity/sonar",
@@ -2091,7 +2091,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "x-ai/grok-4-07-09",
@@ -2416,7 +2416,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4o",
@@ -2813,7 +2813,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-3.5-turbo-16k",
@@ -3210,7 +3210,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemma-3n-e4b-it",
@@ -3607,7 +3607,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "alfredpros/codellama-7b-instruct-solidity",
@@ -3932,7 +3932,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "deepseek/deepseek-r1-distill-llama-70b",
@@ -4329,7 +4329,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "thedrummer/unslopnemo-12b",
@@ -4654,7 +4654,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-max",
@@ -5051,7 +5051,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "inception/mercury",
@@ -5376,7 +5376,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwq-32b",
@@ -5773,7 +5773,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/ministral-3b",
@@ -6098,7 +6098,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4o-search-preview-2025-03-11",
@@ -6495,7 +6495,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "deepseek/deepseek-r1",
@@ -6892,7 +6892,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemini-2.5-pro",
@@ -7289,7 +7289,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "moonshotai/kimi-k2-0905",
@@ -7614,7 +7614,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4o-mini-2024-07-18",
@@ -8011,7 +8011,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "arcee-ai/coder-large",
@@ -8336,7 +8336,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-next-80b-a3b-thinking-2509",
@@ -8733,7 +8733,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mancer/weaver",
@@ -9058,7 +9058,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "stepfun-ai/step3",
@@ -9383,7 +9383,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-coder-flash",
@@ -9780,7 +9780,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemini-3-pro-image-preview-20251120",
@@ -10177,7 +10177,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-vl-235b-a22b-thinking",
@@ -10574,7 +10574,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "relace/relace-search-20251208",
@@ -10899,7 +10899,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-3.5-turbo",
@@ -11296,7 +11296,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemini-3-flash-preview-20251217",
@@ -11693,7 +11693,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "anthropic/claude-3-haiku",
@@ -12090,7 +12090,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "morph/morph-v3-large",
@@ -12415,7 +12415,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meta-llama/llama-guard-2-8b",
@@ -12740,7 +12740,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/o3-deep-research-2025-06-26",
@@ -13137,7 +13137,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "amazon/nova-pro-v1",
@@ -13462,7 +13462,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "kwaipilot/kat-coder-pro-v1",
@@ -13787,7 +13787,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "deepseek/deepseek-v3.2-speciale-20251201",
@@ -14184,7 +14184,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "microsoft/phi-4",
@@ -14509,7 +14509,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemma-3-27b-it",
@@ -14906,7 +14906,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-7b-instruct",
@@ -15231,7 +15231,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-vl-235b-a22b-instruct",
@@ -15628,7 +15628,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemma-3-4b-it",
@@ -16025,7 +16025,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "aion-labs/aion-1.0-mini",
@@ -16350,7 +16350,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meta-llama/llama-3.2-3b-instruct",
@@ -16675,7 +16675,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "deepcogito/cogito-v2-preview-llama-405b",
@@ -17000,7 +17000,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-30b-a3b-04-28",
@@ -17397,7 +17397,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "allenai/olmo-3-7b-think-20251121",
@@ -17722,7 +17722,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/ministral-14b-2512",
@@ -18047,7 +18047,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/o3-mini-2025-01-31",
@@ -18444,7 +18444,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "alpindale/goliath-120b",
@@ -18769,7 +18769,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "anthropic/claude-3-7-sonnet-20250219",
@@ -19166,7 +19166,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/voxtral-small-24b-2507",
@@ -19491,7 +19491,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4o-audio-preview",
@@ -19888,7 +19888,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "x-ai/grok-4-fast",
@@ -20213,7 +20213,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-235b-a22b-thinking-2507",
@@ -20610,7 +20610,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen-2.5-coder-32b-instruct",
@@ -21007,7 +21007,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "z-ai/glm-4.6-20251208",
@@ -21332,7 +21332,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "amazon/nova-lite-v1",
@@ -21657,7 +21657,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "morph/morph-v3-fast",
@@ -21982,7 +21982,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "anthracite-org/magnum-v4-72b",
@@ -22307,7 +22307,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-medium-3",
@@ -22632,7 +22632,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "nex-agi/deepseek-v3.1-nex-n1",
@@ -22957,7 +22957,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "essentialai/rnj-1-instruct",
@@ -23282,7 +23282,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4.1-nano-2025-04-14",
@@ -23679,7 +23679,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "cohere/command-a-03-2025",
@@ -24076,7 +24076,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meta-llama/llama-3.1-8b-instruct",
@@ -24401,7 +24401,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "deepseek/deepseek-chat-v3",
@@ -24798,7 +24798,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4.1-2025-04-14",
@@ -25195,7 +25195,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "bytedance-seed/seed-1.6-flash-20250625",
@@ -25520,7 +25520,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "minimax/minimax-m1",
@@ -25845,7 +25845,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "baidu/ernie-4.5-300b-a47b",
@@ -26170,7 +26170,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5.2-pro-20251211",
@@ -26567,7 +26567,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meta-llama/llama-3-70b-instruct",
@@ -26892,7 +26892,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "inception/mercury-coder-small-beta",
@@ -27217,7 +27217,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "arcee-ai/spotlight",
@@ -27542,7 +27542,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/chatgpt-4o-latest",
@@ -27939,7 +27939,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "perplexity/sonar-deep-research",
@@ -28264,7 +28264,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-3.5-turbo-instruct",
@@ -28661,7 +28661,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "tngtech/deepseek-r1t-chimera",
@@ -28986,7 +28986,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "thedrummer/skyfall-36b-v2",
@@ -29311,7 +29311,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "amazon/nova-micro-v1",
@@ -29636,7 +29636,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mixtral-8x7b-instruct",
@@ -29961,7 +29961,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
@@ -30286,7 +30286,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4",
@@ -30683,7 +30683,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-235b-a22b-07-25",
@@ -31080,7 +31080,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5-mini-2025-08-07",
@@ -31477,7 +31477,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "x-ai/grok-code-fast-1",
@@ -31802,7 +31802,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "opengvlab/internvl3-78b",
@@ -32127,7 +32127,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "nousresearch/hermes-4-405b",
@@ -32452,7 +32452,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "ai21/jamba-large-1.7",
@@ -32777,7 +32777,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-large-2512",
@@ -33102,7 +33102,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/o4-mini-deep-research-2025-06-26",
@@ -33499,7 +33499,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "minimax/minimax-m2-her-20260123",
@@ -33824,7 +33824,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5-image",
@@ -34221,7 +34221,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "inflection/inflection-3-productivity",
@@ -34546,7 +34546,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "anthropic/claude-3.5-sonnet",
@@ -34943,7 +34943,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4-1106-preview",
@@ -35340,7 +35340,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4o-2024-11-20",
@@ -35737,7 +35737,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-audio-mini",
@@ -36134,7 +36134,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "nvidia/nemotron-nano-12b-v2-vl",
@@ -36459,7 +36459,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "deepseek/deepseek-chat-v3-0324",
@@ -36856,7 +36856,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/codestral-2508",
@@ -37181,7 +37181,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/o4-mini-2025-04-16",
@@ -37578,7 +37578,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meta-llama/llama-4-scout-17b-16e-instruct",
@@ -37903,7 +37903,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mixtral-8x22b-instruct",
@@ -38228,7 +38228,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "cohere/command-r-08-2024",
@@ -38625,7 +38625,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-30b-a3b-instruct-2507",
@@ -39022,7 +39022,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-3.5-turbo-0613",
@@ -39419,7 +39419,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "ibm-granite/granite-4.0-h-micro",
@@ -39744,7 +39744,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "bytedance-seed/seed-1.6-20250625",
@@ -40069,7 +40069,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5.1-chat-20251113",
@@ -40466,7 +40466,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4-0314",
@@ -40863,7 +40863,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "amazon/nova-2-lite-v1",
@@ -41188,7 +41188,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "baidu/ernie-4.5-vl-424b-a47b",
@@ -41513,7 +41513,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen-vl-max-2025-01-25",
@@ -41910,7 +41910,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-30b-a3b-thinking-2507",
@@ -42307,7 +42307,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/o4-mini-high-2025-04-16",
@@ -42704,7 +42704,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-7b-instruct-v0.2",
@@ -43029,7 +43029,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "undi95/remm-slerp-l2-13b",
@@ -43354,7 +43354,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemini-2.0-flash-exp",
@@ -43751,7 +43751,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "perplexity/sonar-pro",
@@ -44076,7 +44076,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "allenai/olmo-2-0325-32b-instruct",
@@ -44401,7 +44401,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemini-2.5-flash-preview-09-2025",
@@ -44798,7 +44798,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-small-3.1-24b-instruct-2503",
@@ -45123,7 +45123,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "z-ai/glm-4-32b-0414",
@@ -45448,7 +45448,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "moonshotai/kimi-k2.5-0127",
@@ -45773,7 +45773,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meta-llama/llama-3.2-1b-instruct",
@@ -46098,7 +46098,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "ai21/jamba-mini-1.7",
@@ -46423,7 +46423,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "arcee-ai/trinity-mini-20251201",
@@ -46748,7 +46748,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "alibaba/tongyi-deepresearch-30b-a3b",
@@ -47073,7 +47073,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "arcee-ai/trinity-large-preview",
@@ -47398,7 +47398,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "allenai/olmo-3-32b-think-20251121",
@@ -47723,7 +47723,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "minimax/minimax-m2.1",
@@ -48048,7 +48048,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "tngtech/deepseek-r1t2-chimera",
@@ -48373,7 +48373,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "anthropic/claude-4.5-haiku-20251001",
@@ -48770,7 +48770,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-nemo",
@@ -49095,7 +49095,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen-vl-plus",
@@ -49492,7 +49492,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "writer/palmyra-x5-20250428",
@@ -49817,7 +49817,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "deepseek/deepseek-v3.2-20251201",
@@ -50214,7 +50214,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-small-3.2-24b-instruct-2506",
@@ -50539,7 +50539,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-large",
@@ -50864,7 +50864,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemini-2.5-pro-preview-06-05",
@@ -51261,7 +51261,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-vl-8b-thinking",
@@ -51658,7 +51658,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "anthropic/claude-4.1-opus-20250805",
@@ -52055,7 +52055,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "anthropic/claude-4.5-opus-20251124",
@@ -52452,7 +52452,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "eleutherai/llemma_7b",
@@ -52777,7 +52777,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-coder-480b-a35b-07-25",
@@ -53174,7 +53174,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4o-mini",
@@ -53571,7 +53571,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "nousresearch/hermes-3-llama-3.1-405b",
@@ -53896,7 +53896,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meta-llama/llama-3.1-70b-instruct",
@@ -54221,7 +54221,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemini-2.5-flash-lite",
@@ -54618,7 +54618,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-coder-30b-a3b-instruct",
@@ -55015,7 +55015,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "deepseek/deepseek-v3.2-exp",
@@ -55412,7 +55412,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4o-2024-05-13",
@@ -55809,7 +55809,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-8b-04-28",
@@ -56206,7 +56206,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4-turbo",
@@ -56603,7 +56603,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "cohere/command-r-plus-08-2024",
@@ -57000,7 +57000,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "moonshotai/kimi-dev-72b",
@@ -57325,7 +57325,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "baidu/ernie-4.5-21b-a3b-thinking",
@@ -57650,7 +57650,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/o3-pro-2025-06-10",
@@ -58047,7 +58047,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/pixtral-large-2411",
@@ -58372,7 +58372,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5-nano-2025-08-07",
@@ -58769,7 +58769,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5-image-mini",
@@ -59166,7 +59166,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemini-2.0-flash-001",
@@ -59563,7 +59563,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "allenai/olmo-3.1-32b-instruct-20251215",
@@ -59888,7 +59888,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-small-creative-20251216",
@@ -60213,7 +60213,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-large-2407",
@@ -60538,7 +60538,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "liquid/lfm2-8b-a1b",
@@ -60863,7 +60863,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemini-3-pro-preview-20251117",
@@ -61260,7 +61260,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "nvidia/llama-3.1-nemotron-ultra-253b-v1",
@@ -61585,7 +61585,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5.1-20251113",
@@ -61982,7 +61982,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "deepcogito/cogito-v2-preview-llama-70b",
@@ -62307,7 +62307,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "x-ai/grok-4.1-fast",
@@ -62632,7 +62632,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "relace/relace-apply-3",
@@ -62957,7 +62957,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemma-2-27b-it",
@@ -63354,7 +63354,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-oss-safeguard-20b",
@@ -63751,7 +63751,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "deepcogito/cogito-v2-preview-llama-109b-moe",
@@ -64076,7 +64076,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-vl-8b-instruct",
@@ -64473,7 +64473,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-small-24b-instruct-2501",
@@ -64798,7 +64798,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "nousresearch/hermes-2-pro-llama-3-8b",
@@ -65123,7 +65123,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-vl-32b-instruct",
@@ -65520,7 +65520,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/ministral-8b-2512",
@@ -65845,7 +65845,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "nousresearch/deephermes-3-mistral-24b-preview",
@@ -66170,7 +66170,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meta-llama/llama-3.1-405b",
@@ -66495,7 +66495,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-32b-04-28",
@@ -66892,7 +66892,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "anthropic/claude-4.5-sonnet-20250929",
@@ -67289,7 +67289,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-7b-instruct-v0.1",
@@ -67614,7 +67614,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "minimax/minimax-m2",
@@ -67939,7 +67939,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4.1-mini",
@@ -68336,7 +68336,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemma-3n-e2b-it",
@@ -68733,7 +68733,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen-turbo-2024-11-01",
@@ -69130,7 +69130,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "tencent/hunyuan-a13b-instruct",
@@ -69455,7 +69455,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "sao10k/l3-euryale-70b",
@@ -69780,7 +69780,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5.2-chat-20251211",
@@ -70177,7 +70177,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "tngtech/tng-r1t-chimera",
@@ -70502,7 +70502,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "anthropic/claude-4-sonnet-20250522",
@@ -70899,7 +70899,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "baidu/ernie-4.5-vl-28b-a3b",
@@ -71224,7 +71224,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen-2.5-72b-instruct",
@@ -71621,7 +71621,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-audio",
@@ -72018,7 +72018,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "z-ai/glm-4.6",
@@ -72343,7 +72343,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-oss-120b",
@@ -72740,7 +72740,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemini-2.5-flash-lite-preview-09-2025",
@@ -73137,7 +73137,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "sao10k/l3.1-70b-hanami-x1",
@@ -73462,7 +73462,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "inflection/inflection-3-pi",
@@ -73787,7 +73787,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-235b-a22b-04-28",
@@ -74184,7 +74184,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meta-llama/llama-3.2-11b-vision-instruct",
@@ -74509,7 +74509,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemini-2.5-flash",
@@ -74906,7 +74906,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen2.5-coder-7b-instruct",
@@ -75303,7 +75303,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "liquid/lfm-2.2-6b",
@@ -75628,7 +75628,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "arcee-ai/maestro-reasoning",
@@ -75953,7 +75953,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "venice/uncensored",
@@ -76278,7 +76278,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meta-llama/llama-3.3-70b-instruct",
@@ -76603,7 +76603,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "baidu/ernie-4.5-21b-a3b",
@@ -76928,7 +76928,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meta-llama/llama-guard-3-8b",
@@ -77253,7 +77253,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-medium-3.1",
@@ -77578,7 +77578,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-oss-20b",
@@ -77975,7 +77975,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "allenai/olmo-3-7b-instruct-20251121",
@@ -78300,7 +78300,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/o3-mini-high-2025-01-31",
@@ -78697,7 +78697,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/pixtral-12b",
@@ -79022,7 +79022,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5.1-codex-max-20251204",
@@ -79419,7 +79419,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "nvidia/nemotron-3-nano-30b-a3b",
@@ -79744,7 +79744,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/devstral-2512",
@@ -80069,7 +80069,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5.2-20251211",
@@ -80466,7 +80466,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemini-2.5-pro-preview-03-25",
@@ -80863,7 +80863,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen-plus-2025-07-28",
@@ -81260,7 +81260,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "nvidia/llama-3.3-nemotron-super-49b-v1.5",
@@ -81585,7 +81585,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-coder-plus",
@@ -81982,7 +81982,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-tiny",
@@ -82307,7 +82307,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen-2.5-7b-instruct",
@@ -82704,7 +82704,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "amazon/nova-premier-v1",
@@ -83029,7 +83029,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "thedrummer/cydonia-24b-v4.1",
@@ -83354,7 +83354,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "upstage/solar-pro-3",
@@ -83679,7 +83679,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4o-2024-08-06",
@@ -84076,7 +84076,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "x-ai/grok-3-mini-beta",
@@ -84401,7 +84401,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-vl-30b-a3b-instruct",
@@ -84798,7 +84798,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen-2-vl-7b-instruct",
@@ -85195,7 +85195,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4o-mini-search-preview-2025-03-11",
@@ -85592,7 +85592,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "z-ai/glm-4.5v",
@@ -85917,7 +85917,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "deepseek/deepseek-r1-0528",
@@ -86314,7 +86314,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemini-2.0-flash-lite-001",
@@ -86711,7 +86711,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/o1-2024-12-17",
@@ -87108,7 +87108,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "liquid/lfm-2.5-1.2b-thinking-20260120",
@@ -87433,7 +87433,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5-pro-2025-10-06",
@@ -87830,7 +87830,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "anthropic/claude-3-5-haiku",
@@ -88227,7 +88227,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "gryphe/mythomax-l2-13b",
@@ -88552,7 +88552,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "nvidia/nemotron-nano-9b-v2",
@@ -88877,7 +88877,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "z-ai/glm-4.7-20251222",
@@ -89202,7 +89202,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen2.5-vl-32b-instruct",
@@ -89599,7 +89599,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "perplexity/sonar-reasoning-pro",
@@ -89924,7 +89924,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "perplexity/sonar-pro-search",
@@ -90249,7 +90249,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemini-2.5-flash-image",
@@ -90646,7 +90646,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "bytedance/ui-tars-1.5-7b",
@@ -90971,7 +90971,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5-chat-2025-08-07",
@@ -91368,7 +91368,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "raifle/sorcererlm-8x22b",
@@ -91693,7 +91693,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "anthropic/claude-4-opus-20250522",
@@ -92090,7 +92090,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meta-llama/llama-3.1-405b-instruct",
@@ -92415,7 +92415,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5-2025-08-07",
@@ -92812,7 +92812,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4-turbo-preview",
@@ -93209,7 +93209,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meta-llama/llama-guard-4-12b",
@@ -93534,7 +93534,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "z-ai/glm-4.7-flash-20260119",
@@ -93859,7 +93859,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "deepcogito/cogito-v2.1-671b-20251118",
@@ -94184,7 +94184,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen-plus-2025-01-25",
@@ -94581,7 +94581,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openrouter/auto",
@@ -94906,7 +94906,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-7b-instruct-v0.3",
@@ -95231,7 +95231,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/devstral-small-2507",
@@ -95556,7 +95556,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-4b-04-28",
@@ -95953,7 +95953,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "z-ai/glm-4.5",
@@ -96278,7 +96278,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-next-80b-a3b-instruct-2509",
@@ -96675,7 +96675,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "deepseek/deepseek-v3.1-terminus",
@@ -97072,7 +97072,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "liquid/lfm-2.5-1.2b-instruct-20260120",
@@ -97397,7 +97397,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "minimax/minimax-01",
@@ -97722,7 +97722,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "switchpoint/router",
@@ -98047,7 +98047,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "sao10k/l3.1-euryale-70b",
@@ -98372,7 +98372,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "sao10k/l3.3-euryale-70b-v2.3",
@@ -98697,7 +98697,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "deepseek/deepseek-r1-distill-qwen-32b",
@@ -99094,7 +99094,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "thedrummer/rocinante-12b",
@@ -99419,7 +99419,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "x-ai/grok-3-mini",
@@ -99744,7 +99744,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5.1-codex-mini-20251113",
@@ -100141,7 +100141,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/o1-pro",
@@ -100538,7 +100538,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "moonshotai/kimi-k2",
@@ -100863,7 +100863,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/ministral-3b-2512",
@@ -101188,7 +101188,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/o3-2025-04-16",
@@ -101585,7 +101585,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemma-2-9b-it",
@@ -101982,7 +101982,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen2.5-vl-72b-instruct",
@@ -102379,7 +102379,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "aion-labs/aion-rp-llama-3.1-8b",
@@ -102704,7 +102704,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "cohere/command-r7b-12-2024",
@@ -103101,7 +103101,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/devstral-medium-2507",
@@ -103426,7 +103426,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "x-ai/grok-3",
@@ -103751,7 +103751,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "nvidia/llama-3.1-nemotron-70b-instruct",
@@ -104076,7 +104076,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/ministral-8b",
@@ -104401,7 +104401,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "microsoft/wizardlm-2-8x22b",
@@ -104726,7 +104726,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "x-ai/grok-3-beta",
@@ -105051,7 +105051,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "neversleep/llama-3.1-lumimaid-8b",
@@ -105376,7 +105376,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openrouter/bodybuilder",
@@ -105701,7 +105701,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5.1-codex-20251113",
@@ -106098,7 +106098,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "arcee-ai/virtuoso-large",
@@ -106423,7 +106423,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen3-14b-04-28",
@@ -106820,7 +106820,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "qwen/qwen-max-2025-01-25",
@@ -107217,7 +107217,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "prime-intellect/intellect-3-20251126",
@@ -107542,7 +107542,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-saba-2502",
@@ -107867,7 +107867,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "mistralai/mistral-large-2411",
@@ -108192,7 +108192,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "aion-labs/aion-1.0",
@@ -108517,7 +108517,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "meta-llama/llama-3-8b-instruct",
@@ -108842,7 +108842,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "deepseek/deepseek-chat-v3.1",
@@ -109239,7 +109239,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "sao10k/l3-lunaris-8b",
@@ -109564,7 +109564,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "allenai/olmo-3.1-32b-think-20251215",
@@ -109889,7 +109889,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-5.2-codex-20260114",
@@ -110286,7 +110286,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "xiaomi/mimo-v2-flash-20251210",
@@ -110611,7 +110611,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "openai/gpt-4.1-mini-2025-04-14",
@@ -111008,7 +111008,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "neversleep/noromaid-20b",
@@ -111333,7 +111333,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "nousresearch/hermes-4-70b",
@@ -111658,7 +111658,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "moonshotai/kimi-k2-thinking-20251106",
@@ -111983,7 +111983,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "nousresearch/hermes-3-llama-3.1-70b",
@@ -112308,7 +112308,7 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   },
   {
     "model": "google/gemma-3-12b-it",
@@ -112705,6 +112705,6 @@
         }
       }
     },
-    "updatedAt": "2026-01-28T11:38:50.105Z"
+    "updatedAt": "2026-01-28T13:15:11.472Z"
   }
 ]
