@@ -54883,17 +54883,17 @@
     "type": "text+image->text",
     "pricing": {
       "input": 5e-7,
-      "output": 0.0000025,
+      "output": 0.0000028,
       "currency": "USD"
     },
     "scores": {
-      "overall": 70.35749048307684,
+      "overall": 70.35748979076914,
       "categories": {
         "performance": 75.95000000000002,
         "safety": 65,
         "adoption": 54.849999999999994,
         "openness": 58.333333333333336,
-        "cost": 99.99990483076829
+        "cost": 99.99989790769129
       },
       "items": {
         "S1": {
