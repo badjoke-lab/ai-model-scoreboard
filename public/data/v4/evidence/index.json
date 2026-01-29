@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v4",
-    "updatedAt": "2026-01-29T15:55:30.423Z",
-    "runId": "21485060590"
+    "updatedAt": "2026-01-29T17:01:27.226Z",
+    "runId": "21487300619"
   },
   "models": [
     {
@@ -272,10 +272,6 @@
     {
       "modelKey": "google/gemini-2.0-flash-001",
       "path": "evidence/google/gemini-2.0-flash-001.json"
-    },
-    {
-      "modelKey": "google/gemini-2.0-flash-exp",
-      "path": "evidence/google/gemini-2.0-flash-exp.json"
     },
     {
       "modelKey": "google/gemini-2.0-flash-lite-001",

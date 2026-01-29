@@ -483,10 +483,6 @@
     "score": 70.52811513692303,
     "layer": "full"
   },
-  "google/gemini-2.0-flash-exp": {
-    "score": 70.5126,
-    "layer": "full"
-  },
   "perplexity/sonar-pro": {
     "score": 70.47054240615329,
     "layer": "full"

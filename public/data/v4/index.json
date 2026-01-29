@@ -1,6 +1,6 @@
 {
   "version": "v4",
-  "updatedAt": "2026-01-29T15:55:30.423Z",
+  "updatedAt": "2026-01-29T17:01:27.226Z",
   "manifest": {
     "index": "index.json",
     "rankings": "rankings.json",
@@ -87,7 +87,6 @@
       "evidence/eleutherai/llemma_7b.json",
       "evidence/essentialai/rnj-1-instruct.json",
       "evidence/google/gemini-2.0-flash-001.json",
-      "evidence/google/gemini-2.0-flash-exp.json",
       "evidence/google/gemini-2.0-flash-lite-001.json",
       "evidence/google/gemini-2.5-flash.json",
       "evidence/google/gemini-2.5-flash-image.json",
@@ -405,7 +404,6 @@
       "evidence/eleutherai/llemma_7b.json",
       "evidence/essentialai/rnj-1-instruct.json",
       "evidence/google/gemini-2.0-flash-001.json",
-      "evidence/google/gemini-2.0-flash-exp.json",
       "evidence/google/gemini-2.0-flash-lite-001.json",
       "evidence/google/gemini-2.5-flash.json",
       "evidence/google/gemini-2.5-flash-image.json",
@@ -656,8 +654,8 @@
       "evidence/z-ai/glm-4.7-flash-20260119.json"
     ]
   },
-  "modelsCount": 316,
-  "fullCount": 300,
+  "modelsCount": 315,
+  "fullCount": 299,
   "provisionalCount": 16,
   "notListedCount": 0
 }

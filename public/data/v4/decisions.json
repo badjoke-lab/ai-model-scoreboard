@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-01-29T15:55:30.423Z",
+    "generatedAt": "2026-01-29T17:01:27.226Z",
     "requiredFields": [
       "modelKey",
       "name",
@@ -9,12 +9,12 @@
     "allowlistCount": 0,
     "denylistCount": 0,
     "totals": {
-      "total": 316,
-      "adopted": 316,
+      "total": 315,
+      "adopted": 315,
       "provisional": 0,
       "denied": 0,
       "sources": {
-        "openrouter": 314,
+        "openrouter": 313,
         "seed": 2
       }
     },
@@ -1161,23 +1161,6 @@
       "rawRef": {
         "id": "google/gemini-2.0-flash-001",
         "canonical_slug": "google/gemini-2.0-flash-001"
-      }
-    },
-    {
-      "modelKey": "google/gemini-2.0-flash-exp",
-      "source": "openrouter",
-      "status": "adopted",
-      "reasons": [
-        "meets required fields"
-      ],
-      "normalized": {
-        "name": "Google: Gemini 2.0 Flash Experimental (free)",
-        "slug": "google/gemini-2.0-flash-exp",
-        "provider": "google"
-      },
-      "rawRef": {
-        "id": "google/gemini-2.0-flash-exp:free",
-        "canonical_slug": "google/gemini-2.0-flash-exp"
       }
     },
     {
