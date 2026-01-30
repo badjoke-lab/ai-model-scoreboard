@@ -300,6 +300,8 @@ function buildReferenceSections(
 
 type EvidenceImpactKey = "official_page" | "dev_activity" | "paper" | "audit";
 
+const REQUIRED_EVIDENCE: Record<string, string[]> = evidencePolicy;
+
 function buildEvidenceImpactSummary(
   breakdownItems: FullBreakdownItem[]
 ): Record<EvidenceImpactKey, string> {
@@ -317,9 +319,8 @@ function buildEvidenceImpactSummary(
   };
 
   breakdownItems.forEach((item) => {
-    const allowed = evidencePolicy[item.key];
-    if (!Array.isArray(allowed)) return;
-    allowed.forEach((type) => {
+    const required = REQUIRED_EVIDENCE[item.key] ?? [];
+    required.forEach((type) => {
       if (type in itemsByEvidence) {
         itemsByEvidence[type as EvidenceImpactKey].push(item);
       }
@@ -483,6 +484,9 @@ export default async function ModelDetailPage({
 
   const referenceSections = buildReferenceSections(evidenceBlocks, breakdownItems);
   const evidenceImpact = buildEvidenceImpactSummary(breakdownItems);
+  const missingEvidenceRules = breakdownItems.filter(
+    (item) => (REQUIRED_EVIDENCE[item.key] ?? []).length === 0
+  );
 
   const sourceLabel =
     typeof modelRow?.source === "string" && modelRow?.source.trim()
@@ -515,6 +519,11 @@ export default async function ModelDetailPage({
         errorMessage={evidenceErrorMessage}
         impactByKey={evidenceImpact}
       />
+      {missingEvidenceRules.length ? (
+        <p className="text-xs text-amber-200">
+          No evidence rule configured for this item (spec config missing).
+        </p>
+      ) : null}
 
       <FullBreakdownTable
         items={breakdownItems}
