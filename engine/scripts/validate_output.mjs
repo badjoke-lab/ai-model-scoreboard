@@ -440,9 +440,13 @@ function validateScores(data, label) {
       errors.push(`${label}.items.${key} must be an object.`);
       continue;
     }
-    const allowedTypes = getAllowedEvidenceTypes(key);
+    const itemId = typeof item.id === "string" && item.id.trim() ? item.id.trim() : null;
+    const allowedTypes = getAllowedEvidenceTypes(itemId ?? key);
     if (allowedTypes.length === 0) {
       errors.push(`${label}.items.${key} missing evidence policy mapping.`);
+    }
+    if (!itemId) {
+      errors.push(`${label}.items.${key}.id must be a non-empty string.`);
     }
     const status = typeof item.status === "string" ? item.status : "ok";
     const missingEvidence = status === "missing_evidence";
@@ -464,6 +468,13 @@ function validateScores(data, label) {
         errors.push(
           `${label}.items.${key}.penaltyReasons must be non-empty when inputs missing.`
         );
+      }
+    }
+    if (hasNumericScore) {
+      if (!isRecord(item.inputs_raw)) {
+        errors.push(`${label}.items.${key}.inputs_raw must be an object when scored.`);
+      } else if (hasMissingInputs(item.inputs_raw)) {
+        errors.push(`${label}.items.${key}.inputs_raw must be non-empty when scored.`);
       }
     }
     if (!Array.isArray(item.usedEvidence)) {
@@ -509,6 +520,13 @@ function validateScores(data, label) {
           );
         }
       });
+    }
+    if (hasNumericScore) {
+      if (!Array.isArray(item.evidence_urls)) {
+        errors.push(`${label}.items.${key}.evidence_urls must be an array when scored.`);
+      } else if (item.evidence_urls.filter((entry) => typeof entry === \"string\" && entry.trim()).length === 0) {
+        errors.push(`${label}.items.${key}.evidence_urls must include at least one URL when scored.`);
+      }
     }
     if (!Array.isArray(item.penaltyReasons)) {
       errors.push(`${label}.items.${key}.penaltyReasons must be an array.`);
