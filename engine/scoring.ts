@@ -993,14 +993,14 @@ function buildItemWhy(
     const missingParts = [
       ...context.missingInputs.missingRequired,
       ...(context.missingInputs.missingAnyOf.length
-        ? [`one_of:${context.missingInputs.missingAnyOf.join(\"|\")}`]
+        ? [`one_of:${context.missingInputs.missingAnyOf.join("|")}`]
         : []),
     ];
-    const missingText = missingParts.length ? ` (${missingParts.join(\", \")})` : \"\";
+    const missingText = missingParts.length ? ` (${missingParts.join(", ")})` : "";
     return `Unverifiable: missing required inputs${missingText} for ${label}. ${summary}`;
   }
-  if (context.status === \"missing_evidence\") {
-    const evidenceLabel = evidenceTypes.length ? evidenceTypes.join(\"/\") : \"evidence\";
+  if (context.status === "missing_evidence") {
+    const evidenceLabel = evidenceTypes.length ? evidenceTypes.join("/") : "evidence";
     return `Unverifiable: missing ${evidenceLabel} URL for ${label}. ${summary}`;
   }
   return summary;

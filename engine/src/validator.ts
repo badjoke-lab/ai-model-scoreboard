@@ -307,7 +307,10 @@ function validateScores(
     if (hasNumericScore) {
       if (!Array.isArray(item.evidence_urls)) {
         errors.push(`${label}.items.${key}.evidence_urls must be an array when scored.`);
-      } else if (item.evidence_urls.filter((entry: any) => typeof entry === \"string\" && entry.trim()).length === 0) {
+      } else if (
+        item.evidence_urls.filter((entry: any) => typeof entry === "string" && entry.trim())
+          .length === 0
+      ) {
         errors.push(`${label}.items.${key}.evidence_urls must include at least one URL when scored.`);
       }
     }
