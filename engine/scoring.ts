@@ -19,7 +19,11 @@ import {
   EvidenceItem,
 } from "./types";
 import { clamp } from "./normalize";
-import evidencePolicy from "../lib/v4/evidence-policy.json";
+import {
+  EVIDENCE_POLICY_BY_KEY,
+  SCORE_ITEM_KEYS,
+  getScoreItemPolicy,
+} from "../lib/v4/score-item-policy";
 
 const CATEGORY_WEIGHTS: Record<ScoreCategoryKey, number> = {
   performance: 0.4,
@@ -36,41 +40,6 @@ const PERFORMANCE_WEIGHTS = {
   chat: 0.1,
 };
 
-const SCORE_ITEM_KEYS: ScoreItemKey[] = [
-  "S1",
-  "S2",
-  "S3",
-  "S4",
-  "S5",
-  "S6",
-  "S7",
-  "S8",
-  "T1",
-  "T2",
-  "T3",
-  "T4",
-  "Q1",
-  "Q2",
-  "Q3",
-];
-
-const SCORE_ITEM_LABELS: Record<ScoreItemKey, string> = {
-  S1: "Safety documentation",
-  S2: "Alignment disclosure",
-  S3: "Misuse policy coverage",
-  S4: "External audit & red teaming",
-  S5: "Transparency updates",
-  S6: "Minor incidents",
-  S7: "Major incidents",
-  S8: "Critical incidents",
-  T1: "Model documentation",
-  T2: "Training data disclosure",
-  T3: "Paper / technical report",
-  T4: "External review & transparency",
-  Q1: "General benchmarks",
-  Q2: "Coding benchmarks",
-  Q3: "Math & chat benchmarks",
-};
 
 interface CostEntry {
   rawCost?: number;
@@ -91,7 +60,7 @@ interface EvidenceUsage {
   urls: string[];
 }
 
-const EVIDENCE_POLICY = evidencePolicy as Record<ScoreItemKey, EvidenceType[]>;
+const EVIDENCE_POLICY = EVIDENCE_POLICY_BY_KEY as Record<ScoreItemKey, EvidenceType[]>;
 
 /**
  * The main scoring function.
@@ -144,7 +113,7 @@ export function scoreModels(
           {},
           [],
           ["missing_score_item"],
-          { label: SCORE_ITEM_LABELS[key] ?? key }
+          { itemKey: key }
         );
       }
     }
@@ -202,7 +171,7 @@ function computePerformance(
       buildMissingReasons(general === null ? ["missing_benchmark_general"] : []),
       [q1Usage]
     ),
-    { label: SCORE_ITEM_LABELS.Q1 }
+    { itemKey: "Q1" }
   );
   const q2Usage = buildEvidenceUsageForItem(evidence, "Q2");
   const q2 = buildScoreItem(
@@ -213,7 +182,7 @@ function computePerformance(
       buildMissingReasons(coding === null ? ["missing_benchmark_coding"] : []),
       [q2Usage]
     ),
-    { label: SCORE_ITEM_LABELS.Q2 }
+    { itemKey: "Q2" }
   );
 
   const combinedMathChat = combineMathChat(math, chat);
@@ -227,7 +196,7 @@ function computePerformance(
     { math: b.math, chat: b.chat, arena: b.arena, vendor: b.vendor },
     [q3Usage],
     buildPenaltyReasons(buildMissingReasons(q3Reasons), [q3Usage]),
-    { label: SCORE_ITEM_LABELS.Q3 }
+    { itemKey: "Q3" }
   );
 
   return {
@@ -287,7 +256,7 @@ function computeSafety(
     s1Inputs,
     [s1Usage],
     buildPenaltyReasons(s1Points.missing, [s1Usage]),
-    { label: SCORE_ITEM_LABELS.S1 }
+    { itemKey: "S1" }
   );
 
   const s2Inputs = {
@@ -304,7 +273,7 @@ function computeSafety(
     s2Inputs,
     [s2Usage],
     buildPenaltyReasons(s2Points.missing, [s2Usage]),
-    { label: SCORE_ITEM_LABELS.S2 }
+    { itemKey: "S2" }
   );
 
   const s3Inputs = {
@@ -321,7 +290,7 @@ function computeSafety(
     s3Inputs,
     [s3Usage],
     buildPenaltyReasons(s3Points.missing, [s3Usage]),
-    { label: SCORE_ITEM_LABELS.S3 }
+    { itemKey: "S3" }
   );
 
   const s4Inputs = {
@@ -338,7 +307,7 @@ function computeSafety(
     s4Inputs,
     [s4Usage],
     buildPenaltyReasons(s4Points.missing, [s4Usage]),
-    { label: SCORE_ITEM_LABELS.S4 }
+    { itemKey: "S4" }
   );
 
   const s5Inputs = {
@@ -351,7 +320,7 @@ function computeSafety(
     s5Inputs,
     [s5Usage],
     buildPenaltyReasons(s5Points.missing, [s5Usage]),
-    { label: SCORE_ITEM_LABELS.S5 }
+    { itemKey: "S5" }
   );
 
   const incidentInputs = {
@@ -380,7 +349,7 @@ function computeSafety(
       ),
       [s6Usage]
     ),
-    { label: SCORE_ITEM_LABELS.S6 }
+    { itemKey: "S6" }
   );
   const s7Usage = buildEvidenceUsageForItem(evidence, "S7");
   const s7 = buildScoreItem(
@@ -397,7 +366,7 @@ function computeSafety(
       ),
       [s7Usage]
     ),
-    { label: SCORE_ITEM_LABELS.S7 }
+    { itemKey: "S7" }
   );
   const s8Usage = buildEvidenceUsageForItem(evidence, "S8");
   const s8 = buildScoreItem(
@@ -414,7 +383,7 @@ function computeSafety(
       ),
       [s8Usage]
     ),
-    { label: SCORE_ITEM_LABELS.S8 }
+    { itemKey: "S8" }
   );
 
   const postureScore = s1Points.total + s2Points.total + s3Points.total + s4Points.total + s5Points.total;
@@ -522,7 +491,7 @@ function computeOpenness(
     t1Inputs,
     [t1Usage],
     buildPenaltyReasons(t1Points.missing, [t1Usage]),
-    { label: SCORE_ITEM_LABELS.T1 }
+    { itemKey: "T1" }
   );
 
   const t2Inputs = {
@@ -541,7 +510,7 @@ function computeOpenness(
     t2Inputs,
     [t2Usage],
     buildPenaltyReasons(t2Points.missing, [t2Usage]),
-    { label: SCORE_ITEM_LABELS.T2 }
+    { itemKey: "T2" }
   );
 
   const t3Inputs = {
@@ -558,7 +527,7 @@ function computeOpenness(
     t3Inputs,
     [t3Usage],
     buildPenaltyReasons(t3Points.missing, [t3Usage]),
-    { label: SCORE_ITEM_LABELS.T3 }
+    { itemKey: "T3" }
   );
 
   const t4Inputs = {
@@ -579,7 +548,7 @@ function computeOpenness(
     t4Inputs,
     [t4Usage],
     buildPenaltyReasons(t4Points.missing, [t4Usage]),
-    { label: SCORE_ITEM_LABELS.T4 }
+    { itemKey: "T4" }
   );
 
   const rawOpennessScore =
@@ -690,10 +659,12 @@ function buildScoreItem(
   inputs: Record<string, any>,
   evidenceUsage: EvidenceUsage[],
   penaltyReasons: string[],
-  options?: { label?: string }
+  options?: { itemKey?: ScoreItemKey }
 ): ScoreItemDetail {
   const normalizedInputs = normalizeInputs(inputs);
-  const missingInputs = normalizedInputs.__missingInputs === true;
+  const policy = options?.itemKey ? getScoreItemPolicy(options.itemKey) : undefined;
+  const missingInputCheck = checkMissingInputs(normalizedInputs.inputs, policy);
+  const missingInputs = normalizedInputs.__missingInputs === true || missingInputCheck.missing;
   if (missingInputs && !penaltyReasons.includes("missing_inputs")) {
     penaltyReasons.push("missing_inputs");
   }
@@ -711,6 +682,7 @@ function buildScoreItem(
   const verified = status === "ok";
 
   const usedEvidence = evidenceMissing ? [] : buildUsedEvidenceList(evidenceUsage);
+  const evidenceUrls = evidenceMissing ? [] : extractEvidenceUrlsFromUsage(usedEvidence);
   const computedScore = verified ? clamp(score) : null;
   const policyImpact = verified
     ? undefined
@@ -719,14 +691,22 @@ function buildScoreItem(
       : "Score suppressed until evidence links are provided.";
 
   return {
-    label: options?.label,
+    id: policy?.id,
+    label: policy?.label,
     score: computedScore,
     status,
     verified,
-    why: buildWhy(penaltyReasons, status),
+    why: buildItemWhy(options?.itemKey, normalizedInputs.inputs, {
+      status,
+      missingInputs: missingInputCheck,
+      evidenceMissing,
+      evidenceUsage,
+    }),
     policyImpact,
     __specMissingEvidenceLink: status === "missing_evidence",
     inputs: normalizedInputs.inputs,
+    inputs_raw: normalizedInputs.inputs,
+    evidence_urls: evidenceUrls,
     usedEvidence,
     penaltyReasons: uniqueList(penaltyReasons),
   };
@@ -805,6 +785,12 @@ function uniqueList(values: string[]): string[] {
   return Array.from(new Set(values));
 }
 
+function hasInputValue(value: any): boolean {
+  if (value === undefined || value === null) return false;
+  if (typeof value === "string") return value.trim().length > 0;
+  return true;
+}
+
 function normalizeInputs(inputs: Record<string, any>): {
   inputs: Record<string, any>;
   __missingInputs: boolean;
@@ -816,6 +802,26 @@ function normalizeInputs(inputs: Record<string, any>): {
     return { inputs: { note: "missing_inputs" }, __missingInputs: true };
   }
   return { inputs, __missingInputs: false };
+}
+
+function checkMissingInputs(
+  inputs: Record<string, any>,
+  policy?: ReturnType<typeof getScoreItemPolicy>
+): { missing: boolean; missingRequired: string[]; missingAnyOf: string[] } {
+  if (!policy) {
+    return { missing: false, missingRequired: [], missingAnyOf: [] };
+  }
+  const missingRequired = policy.requiredInputs.filter(
+    (key) => !hasInputValue(inputs[key])
+  );
+  const anyOf = policy.requiredInputsAnyOf ?? [];
+  const hasAnyOf = anyOf.length ? anyOf.some((key) => hasInputValue(inputs[key])) : true;
+  const missingAnyOf = anyOf.length && !hasAnyOf ? [...anyOf] : [];
+  return {
+    missing: missingRequired.length > 0 || missingAnyOf.length > 0,
+    missingRequired,
+    missingAnyOf,
+  };
 }
 
 function buildEvidenceUsage(
@@ -877,6 +883,17 @@ function buildUsedEvidenceList(usage: EvidenceUsage[]): ScoreItemEvidenceUsage[]
   return entries;
 }
 
+function extractEvidenceUrlsFromUsage(
+  usage: ScoreItemEvidenceUsage[]
+): string[] {
+  const urls = new Set<string>();
+  usage.forEach((entry) => {
+    if (entry.link && isHttpUrl(entry.link)) urls.add(entry.link);
+    if (entry.url && isHttpUrl(entry.url)) urls.add(entry.url);
+  });
+  return Array.from(urls);
+}
+
 function isHttpUrl(value: string): boolean {
   try {
     const parsed = new URL(value);
@@ -886,40 +903,105 @@ function isHttpUrl(value: string): boolean {
   }
 }
 
-function buildWhy(penaltyReasons: string[], status: ScoreItemStatus): string {
-  if (status === "missing_inputs") {
-    return "Unverifiable: missing inputs; item not scored.";
-  }
-  if (status === "missing_evidence") {
-    return "Unverifiable: missing evidence URL; item not scored.";
-  }
-  if (!penaltyReasons.length) {
-    return "Score verified from available inputs and evidence.";
-  }
-  const first = penaltyReasons.find((reason) => typeof reason === "string" && reason.trim());
-  if (!first) {
-    return "Score verified from available inputs and evidence.";
-  }
-  return formatReasonSentence(first);
+function formatInputValue(value: any): string {
+  if (value === undefined || value === null) return "missing";
+  if (typeof value === "boolean") return value ? "yes" : "no";
+  if (typeof value === "number" && Number.isFinite(value)) return value.toString();
+  if (typeof value === "string") return value.trim() || "missing";
+  return JSON.stringify(value);
 }
 
-function formatReasonSentence(reason: string): string {
-  const normalized = reason.trim();
-  if (!normalized) return "Score derived from available signals.";
-  const lower = normalized.toLowerCase();
-  const mapped: Record<string, string> = {
-    missing_inputs: "Inputs were missing; policy applies a default penalty.",
-    missing_evidence: "Evidence links were missing; policy applies a default penalty.",
-    missing_benchmark_general: "General benchmark data is missing; performance score reduced.",
-    missing_benchmark_coding: "Coding benchmark data is missing; performance score reduced.",
-    missing_benchmark_math: "Math benchmark data is missing; performance score reduced.",
-    missing_benchmark_chat: "Chat benchmark data is missing; performance score reduced.",
-    missing_minor_incidents: "Minor-incident data is missing; default penalty applied.",
-    missing_major_incidents: "Major-incident data is missing; default penalty applied.",
-    missing_critical_incidents: "Critical-incident data is missing; default penalty applied.",
-  };
-  if (mapped[lower]) return mapped[lower];
-  const humanized = normalized.replace(/[_:-]+/g, " ").trim();
-  if (!humanized) return "Score derived from available signals.";
-  return `${humanized.charAt(0).toUpperCase()}${humanized.slice(1)}.`;
+function buildInputSummary(itemKey: ScoreItemKey | undefined, inputs: Record<string, any>): string {
+  const key = itemKey ?? "item";
+  switch (key) {
+    case "Q1":
+      return `General benchmark score=${formatInputValue(inputs.benchmark)}.`;
+    case "Q2":
+      return `Coding benchmark score=${formatInputValue(inputs.benchmark)}.`;
+    case "Q3":
+      return `Math=${formatInputValue(inputs.math)}; chat=${formatInputValue(inputs.chat)}; arena=${formatInputValue(
+        inputs.arena
+      )}; vendor=${formatInputValue(inputs.vendor)}.`;
+    case "S1":
+      return `Safety documentation signals: safetySection=${formatInputValue(
+        inputs.safetySection
+      )}, highRisk=${formatInputValue(inputs.highRisk)}.`;
+    case "S2":
+      return `Alignment disclosure signals: rlhf=${formatInputValue(
+        inputs.rlhf
+      )}, dataDisclosure=${formatInputValue(inputs.dataDisclosure)}.`;
+    case "S3":
+      return `Misuse policy signals: misusePolicy=${formatInputValue(
+        inputs.misusePolicy
+      )}, harmMitigation=${formatInputValue(inputs.harmMitigation)}.`;
+    case "S4":
+      return `External audit signals: redTeam=${formatInputValue(
+        inputs.redTeam
+      )}, independentAudit=${formatInputValue(inputs.independentAudit)}.`;
+    case "S5":
+      return `Transparency update disclosed=${formatInputValue(inputs.transparencyUpdate)}.`;
+    case "S6":
+      return `Minor incident count=${formatInputValue(inputs.minorCount)}.`;
+    case "S7":
+      return `Major incident count=${formatInputValue(inputs.majorCount)}.`;
+    case "S8":
+      return `Critical incident count=${formatInputValue(inputs.criticalCount)}.`;
+    case "T1":
+      return `Model documentation signals: modelCard=${formatInputValue(
+        inputs.modelCard
+      )}, overview=${formatInputValue(inputs.overview)}, limitations=${formatInputValue(
+        inputs.limitations
+      )}.`;
+    case "T2":
+      return `Training data disclosure signals: dataCategories=${formatInputValue(
+        inputs.dataCategories
+      )}, dataFiltering=${formatInputValue(inputs.dataFiltering)}, copyright=${formatInputValue(
+        inputs.copyright
+      )}.`;
+    case "T3":
+      return `Paper/technical report signals: architecture=${formatInputValue(
+        inputs.architecture
+      )}, parameterScale=${formatInputValue(inputs.parameterScale)}.`;
+    case "T4":
+      return `External review signals: safetyControls=${formatInputValue(
+        inputs.safetyControls
+      )}, riskLimits=${formatInputValue(inputs.riskLimits)}, externalReview=${formatInputValue(
+        inputs.externalReview
+      )}, transparencyReport=${formatInputValue(inputs.transparencyReport)}.`;
+    default:
+      return `Inputs: ${Object.entries(inputs)
+        .map(([label, value]) => `${label}=${formatInputValue(value)}`)
+        .join(", ") || "missing"}.`;
+  }
+}
+
+function buildItemWhy(
+  itemKey: ScoreItemKey | undefined,
+  inputs: Record<string, any>,
+  context: {
+    status: ScoreItemStatus;
+    missingInputs: { missingRequired: string[]; missingAnyOf: string[] };
+    evidenceMissing: boolean;
+    evidenceUsage: EvidenceUsage[];
+  }
+): string {
+  const policy = itemKey ? getScoreItemPolicy(itemKey) : undefined;
+  const label = policy?.label ?? itemKey ?? "item";
+  const evidenceTypes = policy?.evidenceTypes ?? [];
+  const summary = buildInputSummary(itemKey, inputs);
+  if (context.status === "missing_inputs") {
+    const missingParts = [
+      ...context.missingInputs.missingRequired,
+      ...(context.missingInputs.missingAnyOf.length
+        ? [`one_of:${context.missingInputs.missingAnyOf.join(\"|\")}`]
+        : []),
+    ];
+    const missingText = missingParts.length ? ` (${missingParts.join(\", \")})` : \"\";
+    return `Unverifiable: missing required inputs${missingText} for ${label}. ${summary}`;
+  }
+  if (context.status === \"missing_evidence\") {
+    const evidenceLabel = evidenceTypes.length ? evidenceTypes.join(\"/\") : \"evidence\";
+    return `Unverifiable: missing ${evidenceLabel} URL for ${label}. ${summary}`;
+  }
+  return summary;
 }

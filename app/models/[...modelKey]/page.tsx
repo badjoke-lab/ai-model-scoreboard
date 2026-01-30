@@ -95,6 +95,7 @@ function buildBreakdownItems(scoreItems?: Record<string, V4ScoreItem>): FullBrea
       const why = typeof item.why === "string" && item.why.trim() ? item.why.trim() : null;
       return {
         key,
+        id: typeof item.id === "string" && item.id.trim() ? item.id.trim() : key,
         label: item.label ? item.label : formatKeyLabel(key),
         score: typeof item.score === "number" ? item.score : null,
         status: typeof item.status === "string" ? item.status : undefined,
@@ -319,7 +320,7 @@ function buildEvidenceImpactSummary(
   };
 
   breakdownItems.forEach((item) => {
-    const required = REQUIRED_EVIDENCE[item.key] ?? [];
+    const required = REQUIRED_EVIDENCE[item.id ?? item.key] ?? [];
     required.forEach((type) => {
       if (type in itemsByEvidence) {
         itemsByEvidence[type as EvidenceImpactKey].push(item);
@@ -485,7 +486,7 @@ export default async function ModelDetailPage({
   const referenceSections = buildReferenceSections(evidenceBlocks, breakdownItems);
   const evidenceImpact = buildEvidenceImpactSummary(breakdownItems);
   const missingEvidenceRules = breakdownItems.filter(
-    (item) => (REQUIRED_EVIDENCE[item.key] ?? []).length === 0
+    (item) => (REQUIRED_EVIDENCE[item.id ?? item.key] ?? []).length === 0
   );
 
   const sourceLabel =

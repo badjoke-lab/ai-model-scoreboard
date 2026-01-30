@@ -10,7 +10,7 @@ import {
   ScoresOutput,
   ScoreItemKey,
 } from "../types";
-import evidencePolicy from "../../lib/v4/evidence-policy.json";
+import { EVIDENCE_POLICY_BY_KEY } from "../../lib/v4/score-item-policy";
 
 const EVIDENCE_TYPES: EvidenceType[] = [
   "official_page",
@@ -47,7 +47,7 @@ const SCORE_ITEM_KEYS: ScoreItemKey[] = [
   "Q3",
 ];
 
-const EVIDENCE_POLICY = evidencePolicy as Record<ScoreItemKey, EvidenceType[]>;
+const EVIDENCE_POLICY = EVIDENCE_POLICY_BY_KEY as Record<ScoreItemKey, EvidenceType[]>;
 
 export function validatePublishPayload(payload: PublishPayload): void {
   const errors: string[] = [];
@@ -222,6 +222,9 @@ function validateScores(
     if (allowedTypes.length === 0) {
       errors.push(`${label}.items.${key} missing evidence policy mapping.`);
     }
+    if (typeof item.id !== "string" || item.id.trim() === "") {
+      errors.push(`${label}.items.${key}.id must be a non-empty string.`);
+    }
     const status = typeof item.status === "string" ? item.status : "ok";
     const missingEvidence = status === "missing_evidence";
     const missingInputs = status === "missing_inputs";
@@ -245,6 +248,11 @@ function validateScores(
           `${label}.items.${key}.penaltyReasons must be non-empty when inputs missing.`
         );
       }
+    }
+    if (hasNumericScore && !isRecord(item.inputs_raw)) {
+      errors.push(`${label}.items.${key}.inputs_raw must be an object when scored.`);
+    } else if (hasNumericScore && isRecord(item.inputs_raw) && hasMissingInputs(item.inputs_raw)) {
+      errors.push(`${label}.items.${key}.inputs_raw must be non-empty when scored.`);
     }
     if (!Array.isArray(item.usedEvidence)) {
       errors.push(`${label}.items.${key}.usedEvidence must be an array.`);
@@ -295,6 +303,13 @@ function validateScores(
           );
         }
       });
+    }
+    if (hasNumericScore) {
+      if (!Array.isArray(item.evidence_urls)) {
+        errors.push(`${label}.items.${key}.evidence_urls must be an array when scored.`);
+      } else if (item.evidence_urls.filter((entry: any) => typeof entry === \"string\" && entry.trim()).length === 0) {
+        errors.push(`${label}.items.${key}.evidence_urls must include at least one URL when scored.`);
+      }
     }
     if (!Array.isArray(item.penaltyReasons)) {
       errors.push(`${label}.items.${key}.penaltyReasons must be an array.`);

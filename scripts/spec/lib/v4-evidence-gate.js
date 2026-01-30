@@ -43,7 +43,8 @@ const describeItemKey = (item) => item?.id || item?.key || item?.label || item?.
 
 const normalizeInputs = (item) => {
   if (!ensureObject(item)) return null;
-  const rawInputs = item.inputs ?? item.inputsRaw ?? item.inputRaw ?? item.inputMap;
+  const rawInputs =
+    item.inputs_raw ?? item.inputs ?? item.inputsRaw ?? item.inputRaw ?? item.inputMap;
   if (ensureObject(rawInputs)) return rawInputs;
   if (!ensureArray(rawInputs)) return null;
 
@@ -269,6 +270,20 @@ const validateEvidenceGate = (modelsJson) => {
         );
       }
 
+      if (hasScore && !ensureArray(item.evidence_urls)) {
+        pushError(
+          buildError({
+            reasonCode: `spec_missing_evidence_urls:${modelKey}:${itemLabel}`,
+            modelKey,
+            itemKey: itemLabel,
+            missing: "evidence_urls",
+            path: `scoreBreakdown.items[${itemIndex}].evidence_urls`,
+            item,
+            expectedEvidenceTypes: allowedEvidenceTypes,
+          })
+        );
+      }
+
       if (!ensureArray(item.usedEvidence)) {
         pushError(
           buildError({
@@ -321,6 +336,9 @@ const validateEvidenceGate = (modelsJson) => {
       }
 
       const links = collectEvidenceLinks(item.usedEvidence).filter(isHttpUrl);
+      const evidenceUrls = ensureArray(item.evidence_urls)
+        ? item.evidence_urls.filter(isHttpUrl)
+        : [];
       if (hasScore && links.length === 0) {
         pushError(
           buildError({
@@ -329,6 +347,20 @@ const validateEvidenceGate = (modelsJson) => {
             itemKey: itemLabel,
             missing: "clickable evidence URL",
             path: `scoreBreakdown.items[${itemIndex}].usedEvidence[].(url|link|href|sourceUrl|traceUrl|...)`,
+            item,
+            expectedEvidenceTypes: allowedEvidenceTypes,
+          })
+        );
+      }
+
+      if (hasScore && evidenceUrls.length === 0) {
+        pushError(
+          buildError({
+            reasonCode: `spec_missing_evidence_urls:${modelKey}:${itemLabel}`,
+            modelKey,
+            itemKey: itemLabel,
+            missing: "evidence_urls",
+            path: `scoreBreakdown.items[${itemIndex}].evidence_urls`,
             item,
             expectedEvidenceTypes: allowedEvidenceTypes,
           })

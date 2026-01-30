@@ -57,6 +57,8 @@ export type V4ScoreItem = {
   penaltyReason?: string;
   __specMissingEvidenceLink?: boolean;
   inputs?: Record<string, unknown>;
+  inputs_raw?: Record<string, unknown>;
+  evidence_urls?: string[];
   usedEvidence?: V4ScoreItemEvidence[];
 };
 

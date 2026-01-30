@@ -144,6 +144,7 @@ export interface ScoreItemEvidenceUsage {
 export type ScoreItemStatus = "ok" | "missing_evidence" | "missing_inputs";
 
 export interface ScoreItemDetail {
+  id?: string;
   label?: string;
   score: number | null;
   status?: ScoreItemStatus;
@@ -152,6 +153,8 @@ export interface ScoreItemDetail {
   policyImpact?: string;
   __specMissingEvidenceLink?: boolean;
   inputs: Record<string, any>;
+  inputs_raw?: Record<string, any>;
+  evidence_urls?: string[];
   usedEvidence: ScoreItemEvidenceUsage[];
   penaltyReasons: string[];
 }

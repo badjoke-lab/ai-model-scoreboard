@@ -12,6 +12,7 @@ export type BreakdownEvidence = {
 
 export type FullBreakdownItem = {
   key: string;
+  id?: string;
   label: string;
   score: number | null;
   status?: string;
@@ -160,7 +161,7 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
 
 export function extractInputs(raw: Record<string, unknown>): Array<[string, string]> {
   const inputs: Array<[string, string]> = [];
-  const directInputs = raw.inputs;
+  const directInputs = raw.inputs_raw ?? raw.inputs;
   if (typeof directInputs === "object" && directInputs !== null) {
     for (const [key, value] of Object.entries(directInputs)) {
       inputs.push([key, formatMetricValue(value)]);
@@ -181,6 +182,8 @@ export function extractInputs(raw: Record<string, unknown>): Array<[string, stri
     "usedEvidence",
     "__specMissingEvidenceLink",
     "inputs",
+    "inputs_raw",
+    "evidence_urls",
   ]);
   for (const [key, value] of Object.entries(raw)) {
     if (ignoredKeys.has(key)) continue;
