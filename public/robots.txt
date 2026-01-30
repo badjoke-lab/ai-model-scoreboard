@@ -1,9 +1,4 @@
 User-agent: *
 Allow: /
 
-# クローラに価値が薄い/重い/重複しやすいものは抑制
-Disallow: /api/
-Disallow: /_next/
-Disallow: /*?*
-
 Sitemap: https://aims.badjoke-lab.com/sitemap.xml

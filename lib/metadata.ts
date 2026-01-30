@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 
 const SITE_NAME = "AI Model Scoreboard";
-const SITE_URL = "https://ai-model-scoreboard.vercel.app";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.SITE_URL ||
+  "https://aims.badjoke-lab.com";
 const DEFAULT_DESCRIPTION =
-  "Independent AI model rankings focused on transparent evidence, open metrics, and meaningful deltas.";
-const DEFAULT_IMAGE = "/og.png";
+  "Evidence-first scoring for AI models with transparent signals and sources.";
+const DEFAULT_IMAGE = `${SITE_URL}/brand/og.png`;
 
 interface BuildMetadataOptions {
   title: string;
@@ -28,10 +31,17 @@ export const baseMetadata: Metadata = {
   alternates: {
     canonical: SITE_URL,
   },
+  icons: {
+    icon: [
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+    ],
+    apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
-    title: `${SITE_NAME} | Transparent AI evaluations`,
-    description:
-      "Evidence-first AI model rankings with open metrics, transparent methods, and trustworthy benchmarks.",
+    title: SITE_NAME,
+    description: DEFAULT_DESCRIPTION,
     url: `${SITE_URL}/`,
     siteName: SITE_NAME,
     images: [
@@ -46,8 +56,7 @@ export const baseMetadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: SITE_NAME,
-    description:
-      "Evidence-first AI model rankings with open metrics, transparent methods, and trustworthy benchmarks.",
+    description: DEFAULT_DESCRIPTION,
     images: [DEFAULT_IMAGE],
   },
 };
