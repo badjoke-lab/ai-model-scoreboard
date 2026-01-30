@@ -31,8 +31,13 @@ jobs:
 
       - name: Generate v4 public data
         run: |
+          cd engine
+          npm ci
+          npm run snapshot
+          cd ..
+          mkdir -p public/data/v4
+          rsync -a --delete engine/output/v4/ public/data/v4/
           npm run v4:verify
-          npm run v4:normalize-public
 
       - name: Run spec gate
         run: npm run spec:v4

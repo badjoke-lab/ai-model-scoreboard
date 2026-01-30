@@ -22,5 +22,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run v4 verification
+        run: npm run v4:verify
+
       - name: Run v4 spec gate
         run: npm run spec:v4
+
+      - name: Run build
+        run: npm run build

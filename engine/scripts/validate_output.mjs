@@ -2,6 +2,10 @@ import { readFile, readdir as readDir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 
+const evidencePolicy = JSON.parse(
+  await readFile(path.resolve("lib", "v4", "evidence-policy.json"), "utf8")
+);
+
 const outputDir = path.resolve("output", "v4");
 const targets = {
   "index.json": validateIndex,
@@ -43,6 +47,11 @@ const EVIDENCE_STATUSES = [
   "invalid",
   "missing_source_link",
 ];
+
+function getAllowedEvidenceTypes(itemKey) {
+  const allowed = evidencePolicy[itemKey];
+  return Array.isArray(allowed) ? allowed : [];
+}
 
 const errors = [];
 let expectedEvidenceModels = [];
@@ -431,10 +440,17 @@ function validateScores(data, label) {
       errors.push(`${label}.items.${key} must be an object.`);
       continue;
     }
+    const allowedTypes = getAllowedEvidenceTypes(key);
+    if (allowedTypes.length === 0) {
+      errors.push(`${label}.items.${key} missing evidence policy mapping.`);
+    }
     const status = typeof item.status === "string" ? item.status : "ok";
     const missingEvidence = status === "missing_evidence";
     const missingInputs = status === "missing_inputs";
     const hasNumericScore = typeof item.score === "number";
+    if (!isNonEmptyString(item.why)) {
+      errors.push(`${label}.items.${key}.why must be a non-empty string.`);
+    }
     if (hasNumericScore && (missingEvidence || missingInputs)) {
       errors.push(`${label}.items.${key}.score must be null when status is ${status}.`);
     }
@@ -470,6 +486,13 @@ function validateScores(data, label) {
         }
         if (!EVIDENCE_TYPES.includes(usage.type)) {
           errors.push(`${label}.items.${key}.usedEvidence[${idx}].type invalid.`);
+        }
+        if (allowedTypes.length > 0 && !allowedTypes.includes(usage.type)) {
+          errors.push(
+            `${label}.items.${key}.usedEvidence[${idx}].type must be one of ${allowedTypes.join(
+              ", "
+            )}.`
+          );
         }
         if (!EVIDENCE_STATUSES.includes(usage.status)) {
           errors.push(`${label}.items.${key}.usedEvidence[${idx}].status invalid.`);

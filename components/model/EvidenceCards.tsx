@@ -6,6 +6,7 @@ import { formatReasonList } from "@/lib/v4/deriveReasons";
 type EvidenceCardsProps = {
   blocks: Record<string, EvidenceBlock>;
   errorMessage?: string | null;
+  impactByKey?: Record<string, string>;
 };
 
 const CARD_TITLES: Record<string, string> = {
@@ -29,7 +30,12 @@ function statusIcon(status?: string): string {
   return "⚠️";
 }
 
-function impactText(key: string, status?: string): string {
+function impactText(
+  key: string,
+  status?: string,
+  override?: string | null
+): string {
+  if (override) return override;
   const normalized = (status ?? "").toLowerCase();
   if (["ok", "found", "verified", "available"].includes(normalized)) {
     return "Evidence verified => no penalty applied for this signal.";
@@ -58,7 +64,7 @@ function renderExtracted(extracted: unknown): string | null {
   return String(extracted);
 }
 
-export default function EvidenceCards({ blocks, errorMessage }: EvidenceCardsProps) {
+export default function EvidenceCards({ blocks, errorMessage, impactByKey }: EvidenceCardsProps) {
   const orderedKeys = ["official_page", "dev_activity", "paper", "audit"];
   return (
     <section className="rounded-2xl border border-slate-800 bg-surface/70 p-6 shadow-lg">
@@ -137,7 +143,9 @@ export default function EvidenceCards({ blocks, errorMessage }: EvidenceCardsPro
                   <span className="uppercase text-[0.65rem] text-slate-400">
                     How this affected scoring
                   </span>
-                  <p className="mt-1">{impactText(key, block?.status)}</p>
+                  <p className="mt-1">
+                    {impactText(key, block?.status, impactByKey?.[key] ?? null)}
+                  </p>
                 </div>
               </div>
             </div>
