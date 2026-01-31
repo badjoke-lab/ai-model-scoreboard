@@ -21,6 +21,7 @@ import {
 import { clamp } from "./normalize";
 import {
   EVIDENCE_POLICY_BY_KEY,
+  OFFICIAL_PAGE_ALLOWED_ITEMS,
   SCORE_ITEM_KEYS,
   getScoreItemPolicy,
 } from "../lib/v4/score-item-policy";
@@ -77,11 +78,12 @@ export function scoreModels(
 
   return data.map((model) => {
     const evidence = evidenceByModel[model.id];
+    const officialPageUrls = getOfficialPageUrls(evidence);
 
-    const performance = computePerformance(model, evidence);
-    const safety = computeSafety(model, evidence);
+    const performance = computePerformance(model, evidence, officialPageUrls);
+    const safety = computeSafety(model, evidence, officialPageUrls);
     const adoption = computeAdoption(model);
-    const openness = computeOpenness(model, evidence);
+    const openness = computeOpenness(model, evidence, officialPageUrls);
     const cost = computeCost(model, costContext);
 
     const categories: ScoresOutput["categories"] = {
@@ -113,7 +115,7 @@ export function scoreModels(
           {},
           [],
           ["missing_score_item"],
-          { itemKey: key }
+          { itemKey: key, officialPageUrls }
         );
       }
     }
@@ -142,7 +144,8 @@ export function scoreModels(
 
 function computePerformance(
   model: NormalizedModelData,
-  evidence?: EvidenceModelFile
+  evidence?: EvidenceModelFile,
+  officialPageUrls?: Set<string>
 ): {
   score: number;
   items: Record<"Q1" | "Q2" | "Q3", ScoreItemDetail>;
@@ -171,7 +174,7 @@ function computePerformance(
       buildMissingReasons(general === null ? ["missing_benchmark_general"] : []),
       [q1Usage]
     ),
-    { itemKey: "Q1" }
+    { itemKey: "Q1", officialPageUrls }
   );
   const q2Usage = buildEvidenceUsageForItem(evidence, "Q2");
   const q2 = buildScoreItem(
@@ -182,7 +185,7 @@ function computePerformance(
       buildMissingReasons(coding === null ? ["missing_benchmark_coding"] : []),
       [q2Usage]
     ),
-    { itemKey: "Q2" }
+    { itemKey: "Q2", officialPageUrls }
   );
 
   const combinedMathChat = combineMathChat(math, chat);
@@ -196,7 +199,7 @@ function computePerformance(
     { math: b.math, chat: b.chat, arena: b.arena, vendor: b.vendor },
     [q3Usage],
     buildPenaltyReasons(buildMissingReasons(q3Reasons), [q3Usage]),
-    { itemKey: "Q3" }
+    { itemKey: "Q3", officialPageUrls }
   );
 
   return {
@@ -237,8 +240,15 @@ function combineMathChat(math: number | null, chat: number | null): number | nul
 
 function computeSafety(
   model: NormalizedModelData,
-  evidence?: EvidenceModelFile
-): { score: number; items: Record<"S1" | "S2" | "S3" | "S4" | "S5" | "S6" | "S7" | "S8", ScoreItemDetail> } {
+  evidence?: EvidenceModelFile,
+  officialPageUrls?: Set<string>
+): {
+  score: number;
+  items: Record<
+    "S1" | "S2" | "S3" | "S4" | "S5" | "S6" | "S7" | "S8",
+    ScoreItemDetail
+  >;
+} {
   const incidents = model.incidents || {};
   const posture = incidents.posture || {};
 
@@ -256,7 +266,7 @@ function computeSafety(
     s1Inputs,
     [s1Usage],
     buildPenaltyReasons(s1Points.missing, [s1Usage]),
-    { itemKey: "S1" }
+    { itemKey: "S1", officialPageUrls }
   );
 
   const s2Inputs = {
@@ -273,7 +283,7 @@ function computeSafety(
     s2Inputs,
     [s2Usage],
     buildPenaltyReasons(s2Points.missing, [s2Usage]),
-    { itemKey: "S2" }
+    { itemKey: "S2", officialPageUrls }
   );
 
   const s3Inputs = {
@@ -290,7 +300,7 @@ function computeSafety(
     s3Inputs,
     [s3Usage],
     buildPenaltyReasons(s3Points.missing, [s3Usage]),
-    { itemKey: "S3" }
+    { itemKey: "S3", officialPageUrls }
   );
 
   const s4Inputs = {
@@ -307,7 +317,7 @@ function computeSafety(
     s4Inputs,
     [s4Usage],
     buildPenaltyReasons(s4Points.missing, [s4Usage]),
-    { itemKey: "S4" }
+    { itemKey: "S4", officialPageUrls }
   );
 
   const s5Inputs = {
@@ -320,7 +330,7 @@ function computeSafety(
     s5Inputs,
     [s5Usage],
     buildPenaltyReasons(s5Points.missing, [s5Usage]),
-    { itemKey: "S5" }
+    { itemKey: "S5", officialPageUrls }
   );
 
   const incidentInputs = {
@@ -349,7 +359,7 @@ function computeSafety(
       ),
       [s6Usage]
     ),
-    { itemKey: "S6" }
+    { itemKey: "S6", officialPageUrls }
   );
   const s7Usage = buildEvidenceUsageForItem(evidence, "S7");
   const s7 = buildScoreItem(
@@ -366,7 +376,7 @@ function computeSafety(
       ),
       [s7Usage]
     ),
-    { itemKey: "S7" }
+    { itemKey: "S7", officialPageUrls }
   );
   const s8Usage = buildEvidenceUsageForItem(evidence, "S8");
   const s8 = buildScoreItem(
@@ -383,7 +393,7 @@ function computeSafety(
       ),
       [s8Usage]
     ),
-    { itemKey: "S8" }
+    { itemKey: "S8", officialPageUrls }
   );
 
   const postureScore = s1Points.total + s2Points.total + s3Points.total + s4Points.total + s5Points.total;
@@ -471,7 +481,8 @@ function freshnessToScore(updatedAt: Date): number {
 
 function computeOpenness(
   model: NormalizedModelData,
-  evidence?: EvidenceModelFile
+  evidence?: EvidenceModelFile,
+  officialPageUrls?: Set<string>
 ): { score: number; items: Record<"T1" | "T2" | "T3" | "T4", ScoreItemDetail> } {
   const posture = model.incidents?.posture || {};
 
@@ -491,7 +502,7 @@ function computeOpenness(
     t1Inputs,
     [t1Usage],
     buildPenaltyReasons(t1Points.missing, [t1Usage]),
-    { itemKey: "T1" }
+    { itemKey: "T1", officialPageUrls }
   );
 
   const t2Inputs = {
@@ -510,7 +521,7 @@ function computeOpenness(
     t2Inputs,
     [t2Usage],
     buildPenaltyReasons(t2Points.missing, [t2Usage]),
-    { itemKey: "T2" }
+    { itemKey: "T2", officialPageUrls }
   );
 
   const t3Inputs = {
@@ -527,7 +538,7 @@ function computeOpenness(
     t3Inputs,
     [t3Usage],
     buildPenaltyReasons(t3Points.missing, [t3Usage]),
-    { itemKey: "T3" }
+    { itemKey: "T3", officialPageUrls }
   );
 
   const t4Inputs = {
@@ -548,7 +559,7 @@ function computeOpenness(
     t4Inputs,
     [t4Usage],
     buildPenaltyReasons(t4Points.missing, [t4Usage]),
-    { itemKey: "T4" }
+    { itemKey: "T4", officialPageUrls }
   );
 
   const rawOpennessScore =
@@ -659,30 +670,52 @@ function buildScoreItem(
   inputs: Record<string, any>,
   evidenceUsage: EvidenceUsage[],
   penaltyReasons: string[],
-  options?: { itemKey?: ScoreItemKey }
+  options?: { itemKey?: ScoreItemKey; officialPageUrls?: Set<string> }
 ): ScoreItemDetail {
   const normalizedInputs = normalizeInputs(inputs);
   const policy = options?.itemKey ? getScoreItemPolicy(options.itemKey) : undefined;
   const missingInputCheck = checkMissingInputs(normalizedInputs.inputs, policy);
-  const missingInputs = normalizedInputs.__missingInputs === true || missingInputCheck.missing;
+  const missingInputs =
+    normalizedInputs.__missingInputs === true ||
+    missingInputCheck.missing ||
+    !hasMeaningfulInputs(normalizedInputs.inputs);
   if (missingInputs && !penaltyReasons.includes("missing_inputs")) {
     penaltyReasons.push("missing_inputs");
   }
 
-  const evidenceMissing = isEvidenceMissing(evidenceUsage);
+  let evidenceMissing = isEvidenceMissing(evidenceUsage);
   if (evidenceMissing && !penaltyReasons.includes("missing_evidence")) {
     penaltyReasons.push("missing_evidence");
   }
 
-  const status: ScoreItemStatus = evidenceMissing
+  let status: ScoreItemStatus = evidenceMissing
     ? "missing_evidence"
     : missingInputs
       ? "missing_inputs"
       : "ok";
-  const verified = status === "ok";
 
-  const usedEvidence = evidenceMissing ? [] : buildUsedEvidenceList(evidenceUsage);
-  const evidenceUrls = evidenceMissing ? [] : extractEvidenceUrlsFromUsage(usedEvidence);
+  let usedEvidence = evidenceMissing ? [] : buildUsedEvidenceList(evidenceUsage);
+  let evidenceUrls = evidenceMissing ? [] : extractEvidenceUrlsFromUsage(usedEvidence);
+  const officialPageOnly =
+    !evidenceMissing &&
+    options?.itemKey &&
+    !OFFICIAL_PAGE_ALLOWED_ITEMS.has(options.itemKey) &&
+    options?.officialPageUrls &&
+    options.officialPageUrls.size > 0 &&
+    evidenceUrls.length > 0 &&
+    evidenceUrls.every((url) => options.officialPageUrls?.has(url));
+
+  if (officialPageOnly) {
+    evidenceMissing = true;
+    if (!penaltyReasons.includes("missing_evidence")) {
+      penaltyReasons.push("missing_evidence");
+    }
+    usedEvidence = [];
+    evidenceUrls = [];
+    status = "missing_evidence";
+  }
+
+  const verified = status === "ok";
   const computedScore = verified ? clamp(score) : null;
   const policyImpact = verified
     ? undefined
@@ -791,6 +824,17 @@ function hasInputValue(value: any): boolean {
   return true;
 }
 
+function hasMeaningfulInputs(inputs: Record<string, any>): boolean {
+  return Object.entries(inputs).some(([key, value]) => {
+    if (!key || !key.trim()) return false;
+    if (key === "note" && value === "missing_inputs") return false;
+    if (value === null || value === undefined) return false;
+    if (typeof value === "string" && !value.trim()) return false;
+    if (Array.isArray(value) && value.length === 0) return false;
+    return true;
+  });
+}
+
 function normalizeInputs(inputs: Record<string, any>): {
   inputs: Record<string, any>;
   __missingInputs: boolean;
@@ -861,6 +905,12 @@ function extractEvidenceUrls(entry: EvidenceItem | undefined): string[] {
     urls.add(extractedUrl);
   }
   return Array.from(urls);
+}
+
+function getOfficialPageUrls(evidence: EvidenceModelFile | undefined): Set<string> {
+  if (!evidence?.evidenceItems) return new Set();
+  const entry = evidence.evidenceItems.find((item) => item.type === "official_page");
+  return new Set(extractEvidenceUrls(entry));
 }
 
 function isEvidenceMissing(usage: EvidenceUsage[]): boolean {
