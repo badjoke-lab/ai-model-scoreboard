@@ -225,6 +225,7 @@ export default async function V4Page() {
                 width={40}
                 height={40}
                 className="h-10 w-10 rounded-full object-contain"
+                unoptimized
               />
               <h1 className="text-3xl font-semibold text-slate-50 md:text-4xl">
                 AI Model Scoreboard

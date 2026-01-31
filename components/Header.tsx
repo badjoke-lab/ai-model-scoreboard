@@ -24,6 +24,7 @@ export default function Header() {
             width={32}
             height={32}
             className="h-8 w-8"
+            unoptimized
           />
           <div className="leading-tight">
             <div className="flex items-center gap-2 text-sm font-semibold text-slate-50">
