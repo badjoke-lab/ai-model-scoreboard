@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 import AbsoluteMetrics from "@/components/model/AbsoluteMetrics";
@@ -14,13 +15,60 @@ import ScoreSummary from "@/components/model/ScoreSummary";
 import { loadV4ModelDetail, loadV4SnapshotWithDiagnostics } from "@/lib/v4-snapshot";
 import type { V4ModelDetailResponse } from "@/types/v4";
 
-async function fetchModelDetail(modelKey: string): Promise<V4ModelDetailResponse | null> {
-  const response = await fetch(
-    `/api/v4/model/${encodeURIComponent(modelKey)}`,
-    { cache: "no-store" }
-  );
-  if (!response.ok) return null;
-  return (await response.json()) as V4ModelDetailResponse;
+type ModelDetailFetchError = {
+  status: number | null;
+  message: string;
+};
+
+async function fetchModelDetail(modelKey: string): Promise<{
+  data: V4ModelDetailResponse | null;
+  error: ModelDetailFetchError | null;
+}> {
+  try {
+    const h = headers();
+    const host = h.get("host") ?? "localhost:3000";
+    const proto = h.get("x-forwarded-proto") ?? "https";
+    const base = `${proto}://${host}`;
+    const response = await fetch(`${base}/api/v4/model/${encodeURIComponent(modelKey)}`, {
+      cache: "no-store",
+    });
+    if (!response.ok) {
+      let message = "Detail data unavailable.";
+      try {
+        const payload = (await response.json()) as {
+          error?: { message?: string } | null;
+        };
+        if (payload?.error?.message) {
+          message = payload.error.message;
+        }
+      } catch {
+        // ignore JSON parse errors
+      }
+      return {
+        data: null,
+        error: { status: response.status, message },
+      };
+    }
+    const payload = (await response.json()) as V4ModelDetailResponse & {
+      ok?: boolean;
+      error?: { message?: string };
+    };
+    if (payload && typeof payload === "object" && payload.ok === false) {
+      return {
+        data: null,
+        error: {
+          status: 500,
+          message: payload.error?.message ?? "Detail data unavailable.",
+        },
+      };
+    }
+    return { data: payload, error: null };
+  } catch {
+    return {
+      data: null,
+      error: { status: null, message: "Unable to load model detail data." },
+    };
+  }
 }
 
 export default async function ModelDetailPage({
@@ -74,7 +122,7 @@ export default async function ModelDetailPage({
     }
   }
 
-  const detailResponse = await fetchModelDetail(modelKey);
+  const { data: detailResponse, error: detailError } = await fetchModelDetail(modelKey);
   const detail = detailResponse?.header ?? null;
   const breakdownItems = detailResponse?.breakdown.items ?? [];
   const evidenceBlocks = detailResponse?.evidenceCards.blocks ?? {};
@@ -86,7 +134,7 @@ export default async function ModelDetailPage({
 
   const { isNotListed, notListedEntry } = await loadV4ModelDetail(modelKey);
 
-  if (!detail && isNotListed) {
+  if (!detailError && !detail && isNotListed) {
     return (
       <div className="space-y-6">
         <header className="space-y-2">
@@ -119,7 +167,7 @@ export default async function ModelDetailPage({
     );
   }
 
-  if (!detailResponse || !detail) {
+  if (!detailError && (!detailResponse || !detail)) {
     return (
       <div className="space-y-4 text-center">
         <h1 className="text-2xl font-semibold text-slate-50">Model not found in v4 snapshot</h1>
@@ -131,6 +179,45 @@ export default async function ModelDetailPage({
             ← Back to leaderboard
           </Link>
         </div>
+      </div>
+    );
+  }
+
+  if (detailError) {
+    const modelMeta = models[modelKey];
+    const statusLabel = modelMeta?.layer ?? null;
+    return (
+      <div className="space-y-8">
+        <ModelHeader
+          modelKey={modelKey}
+          title={modelMeta?.name ?? modelKey}
+          provider={modelMeta?.vendor ?? null}
+          source={null}
+          overallScore={modelMeta?.scores?.overall ?? null}
+          updatedAt={null}
+        />
+
+        <ModelStatus status={statusLabel} reasons={[]} source={null} />
+
+        <AbsoluteMetrics rows={absoluteRows} />
+
+        <ScoreSummary
+          overallScore={modelMeta?.scores?.overall ?? null}
+          categoryScores={modelMeta?.scores?.categories ?? {}}
+          topDrivers={[]}
+        />
+
+        <EvidenceCards blocks={evidenceBlocks} errorMessage={evidenceErrorMessage} impactByKey={{}} />
+
+        <section className="rounded-2xl border border-rose-500/50 bg-rose-500/10 p-6 shadow-lg">
+          <h2 className="text-lg font-semibold text-rose-100">Detail data unavailable</h2>
+          <p className="mt-2 text-sm text-rose-100">
+            HTTP status: {detailError.status ?? "unknown"}
+          </p>
+          <p className="mt-1 text-sm text-rose-200">{detailError.message}</p>
+        </section>
+
+        <ReferencesList sections={referenceSections} />
       </div>
     );
   }
