@@ -137,6 +137,15 @@ export const SCORE_ITEM_POLICY: Record<ScoreItemKey, ScoreItemPolicy> = {
 
 export const SCORE_ITEM_KEYS = Object.keys(SCORE_ITEM_POLICY) as ScoreItemKey[];
 
+export const OFFICIAL_PAGE_ALLOWED_ITEMS = new Set<ScoreItemKey>([
+  "S1",
+  "S2",
+  "S3",
+  "S5",
+  "T1",
+  "T2",
+]);
+
 export const EVIDENCE_POLICY_BY_ID: Record<string, EvidenceType[]> =
   Object.fromEntries(
     Object.values(SCORE_ITEM_POLICY).map((policy) => [policy.id, policy.evidenceTypes])

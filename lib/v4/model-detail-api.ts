@@ -13,6 +13,10 @@ import {
 } from "@/lib/v4/explainability";
 import evidencePolicy from "@/lib/v4/evidence-policy.json";
 import {
+  OFFICIAL_PAGE_ALLOWED_ITEMS,
+  type ScoreItemKey,
+} from "@/lib/v4/score-item-policy";
+import {
   loadV4ModelDetail,
   loadV4SnapshotWithDiagnostics,
   type V4ScoreItem,
@@ -326,7 +330,24 @@ function hasMeaningfulInputs(inputsRaw: Record<string, unknown> | null): boolean
   });
 }
 
-function buildBreakdownItems(scoreItems?: Record<string, V4ScoreItem>): V4ModelDetailBreakdownItem[] {
+function getOfficialPageUrlSet(
+  evidenceBlocks: Record<string, { refs?: string[] }> | null | undefined
+): Set<string> {
+  const urls = new Set<string>();
+  if (!evidenceBlocks) return urls;
+  const refs = evidenceBlocks.official_page?.refs ?? [];
+  refs.forEach((entry) => {
+    if (typeof entry === "string" && isHttpUrl(entry)) {
+      urls.add(entry.trim());
+    }
+  });
+  return urls;
+}
+
+function buildBreakdownItems(
+  scoreItems?: Record<string, V4ScoreItem>,
+  officialPageUrls: Set<string> = new Set()
+): V4ModelDetailBreakdownItem[] {
   if (!scoreItems) return [];
   return Object.entries(scoreItems)
     .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
@@ -343,16 +364,24 @@ function buildBreakdownItems(scoreItems?: Record<string, V4ScoreItem>): V4ModelD
           ? item.why.trim()
           : toEnglishReason(item);
       const hasInputs = hasMeaningfulInputs(inputsRaw);
-      const hasEvidence = evidenceUrls.length > 0;
+      const officialPageOnly =
+        evidenceUrls.length > 0 && evidenceUrls.every((url) => officialPageUrls.has(url));
+      const officialPageAllowed = OFFICIAL_PAGE_ALLOWED_ITEMS.has(key as ScoreItemKey);
+      const effectiveEvidenceUrls =
+        officialPageOnly && !officialPageAllowed ? [] : evidenceUrls;
+      const hasEvidence =
+        effectiveEvidenceUrls.length > 0 && !(officialPageOnly && !officialPageAllowed);
       const hasWhy = typeof baseWhy === "string" && baseWhy.trim().length > 0;
       const missing: string[] = [];
       if (!hasInputs) missing.push("inputs");
-      if (!hasEvidence) missing.push("evidence");
+      if (!hasEvidence) {
+        missing.push(officialPageOnly && !officialPageAllowed ? "evidence (official-page only)" : "evidence");
+      }
       if (!hasWhy) missing.push("why");
       const numericScore = typeof item.score === "number" ? item.score : null;
       const shouldWithhold = numericScore !== null && missing.length > 0;
       const withheldWhy = shouldWithhold
-        ? `Score withheld: missing ${missing.join("/")}.`
+        ? `Missing item evidence: score withheld (missing ${missing.join(", ")}).`
         : baseWhy;
       const status = shouldWithhold
         ? "WITHHELD"
@@ -368,13 +397,63 @@ function buildBreakdownItems(scoreItems?: Record<string, V4ScoreItem>): V4ModelD
         score: shouldWithhold ? null : numericScore,
         status,
         inputsRaw,
-        evidenceUrls,
+        evidenceUrls: effectiveEvidenceUrls,
         why: withheldWhy,
         usedEvidence: Array.isArray(item.usedEvidence) ? item.usedEvidence : [],
         specMissingEvidence: rawItem.__specMissingEvidenceLink === true,
         missingEvidenceRule,
       };
     });
+}
+
+function enforceBreakdownItemIntegrity(
+  item: V4ModelDetailBreakdownItem,
+  officialPageUrls: Set<string>
+): V4ModelDetailBreakdownItem {
+  const numericScore = typeof item.score === "number" ? item.score : null;
+  if (numericScore === null) {
+    return item;
+  }
+  const hasInputs = hasMeaningfulInputs(
+    item.inputsRaw && typeof item.inputsRaw === "object" ? item.inputsRaw : null
+  );
+  const evidenceUrls = Array.isArray(item.evidenceUrls)
+    ? item.evidenceUrls.filter((url) => typeof url === "string" && isHttpUrl(url))
+    : [];
+  const officialPageOnly =
+    evidenceUrls.length > 0 && evidenceUrls.every((url) => officialPageUrls.has(url));
+  const officialPageAllowed = OFFICIAL_PAGE_ALLOWED_ITEMS.has(item.key as ScoreItemKey);
+  const hasEvidence = evidenceUrls.length > 0 && !(officialPageOnly && !officialPageAllowed);
+  const hasWhy = typeof item.why === "string" && item.why.trim().length > 0;
+  const missing: string[] = [];
+  if (!hasInputs) missing.push("inputs");
+  if (!hasEvidence) {
+    missing.push(officialPageOnly && !officialPageAllowed ? "evidence (official-page only)" : "evidence");
+  }
+  if (!hasWhy) missing.push("why");
+  if (!missing.length) return item;
+  return {
+    ...item,
+    score: null,
+    status: "WITHHELD",
+    evidenceUrls: hasEvidence ? evidenceUrls : [],
+    usedEvidence: hasEvidence ? item.usedEvidence : [],
+    why: `Missing item evidence: score withheld (missing ${missing.join(", ")}).`,
+  };
+}
+
+export function enforceModelDetailEvidenceIntegrity(
+  payload: V4ModelDetailResponse
+): V4ModelDetailResponse {
+  const officialPageUrls = getOfficialPageUrlSet(payload.evidenceCards?.blocks);
+  const items = payload.breakdown?.items ?? [];
+  return {
+    ...payload,
+    breakdown: {
+      ...payload.breakdown,
+      items: items.map((item) => enforceBreakdownItemIntegrity(item, officialPageUrls)),
+    },
+  };
 }
 
 function deriveTopDrivers(
@@ -419,6 +498,7 @@ export async function getModelDetailPayload(
   const absoluteMetrics = extractAbsoluteMetrics(modelRow);
   const updatedAt = formatUpdatedDate(index.meta?.updatedAt) ?? null;
   const evidenceBlocks = buildEvidenceBlocks(evidenceRaw);
+  const officialPageUrls = getOfficialPageUrlSet(evidenceBlocks);
   const evidenceErrorMessage = detail.evidenceError
     ? `Evidence file issue: ${detail.evidenceError}. Expected path: ${evidencePath}`
     : evidenceRaw
@@ -429,7 +509,10 @@ export async function getModelDetailPayload(
     isObject(modelRow?.scores) && isObject(modelRow.scores.items)
       ? (modelRow.scores.items as Record<string, V4ScoreItem>)
       : undefined;
-  const breakdownItems = buildBreakdownItems(detail.scoreItems ?? modelScoreItems);
+  const breakdownItems = buildBreakdownItems(
+    detail.scoreItems ?? modelScoreItems,
+    officialPageUrls
+  );
   const topDrivers = deriveTopDrivers(breakdownItems, evidenceBlocks);
 
   const absoluteRows = buildAbsoluteMetricRows(

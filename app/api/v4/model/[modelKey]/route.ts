@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
 
-import { getModelDetailPayload } from "@/lib/v4/model-detail-api";
+import {
+  enforceModelDetailEvidenceIntegrity,
+  getModelDetailPayload,
+} from "@/lib/v4/model-detail-api";
 
 type RouteParams = {
   params: {
@@ -27,5 +30,7 @@ export async function GET(_request: Request, { params }: RouteParams) {
     );
   }
 
-  return NextResponse.json(payload);
+  const validatedPayload = enforceModelDetailEvidenceIntegrity(payload);
+
+  return NextResponse.json(validatedPayload);
 }

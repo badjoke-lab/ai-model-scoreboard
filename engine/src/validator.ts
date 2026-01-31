@@ -10,7 +10,10 @@ import {
   ScoresOutput,
   ScoreItemKey,
 } from "../types";
-import { EVIDENCE_POLICY_BY_KEY } from "../../lib/v4/score-item-policy";
+import {
+  EVIDENCE_POLICY_BY_KEY,
+  OFFICIAL_PAGE_ALLOWED_ITEMS,
+} from "../../lib/v4/score-item-policy";
 
 const EVIDENCE_TYPES: EvidenceType[] = [
   "official_page",
@@ -251,7 +254,11 @@ function validateScores(
     }
     if (hasNumericScore && !isRecord(item.inputs_raw)) {
       errors.push(`${label}.items.${key}.inputs_raw must be an object when scored.`);
-    } else if (hasNumericScore && isRecord(item.inputs_raw) && hasMissingInputs(item.inputs_raw)) {
+    } else if (
+      hasNumericScore &&
+      isRecord(item.inputs_raw) &&
+      !hasMeaningfulInputs(item.inputs_raw)
+    ) {
       errors.push(`${label}.items.${key}.inputs_raw must be non-empty when scored.`);
     }
     if (!Array.isArray(item.usedEvidence)) {
@@ -303,6 +310,18 @@ function validateScores(
           );
         }
       });
+      if (
+        hasNumericScore &&
+        !OFFICIAL_PAGE_ALLOWED_ITEMS.has(key) &&
+        item.usedEvidence.length > 0 &&
+        item.usedEvidence.every(
+          (usage: any) => isRecord(usage) && usage.type === "official_page"
+        )
+      ) {
+        errors.push(
+          `${label}.items.${key}.usedEvidence must not use official_page as sole evidence.`
+        );
+      }
     }
     if (hasNumericScore) {
       if (!Array.isArray(item.evidence_urls)) {
@@ -487,9 +506,16 @@ function requireNonEmptyString(
 }
 
 function hasMissingInputs(inputs: Record<string, any>): boolean {
-  const entries = Object.entries(inputs).filter(([key, value]) => {
-    if (!key) return false;
-    return value !== null && value !== undefined;
+  return !hasMeaningfulInputs(inputs);
+}
+
+function hasMeaningfulInputs(inputs: Record<string, any>): boolean {
+  return Object.entries(inputs).some(([key, value]) => {
+    if (!key || !key.trim()) return false;
+    if (key === "note" && value === "missing_inputs") return false;
+    if (value === null || value === undefined) return false;
+    if (typeof value === "string" && !value.trim()) return false;
+    if (Array.isArray(value) && value.length === 0) return false;
+    return true;
   });
-  return entries.length === 0;
 }
