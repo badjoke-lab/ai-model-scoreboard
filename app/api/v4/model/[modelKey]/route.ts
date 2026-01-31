@@ -7,17 +7,20 @@ import {
 
 type RouteParams = {
   params: {
-    modelKey: string[];
+    modelKey: string | string[];
   };
 };
 
 export async function GET(_request: Request, { params }: RouteParams) {
-  const segments = (params.modelKey ?? []).map((segment) => decodeURIComponent(segment));
+  const rawModelKey = params.modelKey;
+  const segments = (Array.isArray(rawModelKey) ? rawModelKey : [rawModelKey]).map(
+    (segment) => decodeURIComponent(segment)
+  );
   const modelKey = segments.join("/");
 
   if (!modelKey) {
     return NextResponse.json(
-      { status: "error", error: "Missing modelKey." },
+      { ok: false, error: { code: "missing_model_key", message: "Missing modelKey." } },
       { status: 400 }
     );
   }
@@ -25,12 +28,23 @@ export async function GET(_request: Request, { params }: RouteParams) {
   const payload = await getModelDetailPayload(modelKey);
   if (!payload) {
     return NextResponse.json(
-      { status: "error", error: `Model not found: ${modelKey}` },
+      {
+        ok: false,
+        error: { code: "model_not_found", message: `Model not found: ${modelKey}` },
+      },
       { status: 404 }
     );
   }
 
-  const validatedPayload = enforceModelDetailEvidenceIntegrity(payload);
-
-  return NextResponse.json(validatedPayload);
+  try {
+    const validatedPayload = enforceModelDetailEvidenceIntegrity(payload);
+    return NextResponse.json(validatedPayload);
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : "Failed to validate model detail payload.";
+    return NextResponse.json(
+      { ok: false, error: { code: "validation_error", message } },
+      { status: 500 }
+    );
+  }
 }
