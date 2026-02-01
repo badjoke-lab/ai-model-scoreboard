@@ -52,10 +52,11 @@ export default function BreakdownTable({ items }: { items: BreakdownItem[] }) {
         <tbody>
           {items.map((item) => {
             const evidenceEntries = item.usedEvidence ?? [];
+            const scoreOk = typeof (item as any).score === "number" && Number.isFinite((item as any).score);
             const evidenceLinks = evidenceEntries.filter(
               (evidence) => typeof evidence.link === "string" && evidence.link.trim()
             );
-            const showWarning = item.specMissingEvidence || evidenceLinks.length === 0;
+            const showWarning = scoreOk && (scoreOk && (item.specMissingEvidence || evidenceLinks.length === 0));
 
             return (
               <tr key={item.key} className="border-t border-slate-800">
@@ -72,7 +73,9 @@ export default function BreakdownTable({ items }: { items: BreakdownItem[] }) {
                   {item.reason}
                 </td>
                 <td className="px-4 py-3 align-top text-xs text-slate-300">
-                  {evidenceEntries.length ? (
+                  {!scoreOk ? (
+                    <p className="text-xs text-slate-500">Withheld: missing item evidence.</p>
+                  ) : evidenceEntries.length ? (
                     <ul className="space-y-1">
                       {evidenceEntries.map((evidence, index) => (
                         <li key={`${item.key}-evidence-${index}`}>

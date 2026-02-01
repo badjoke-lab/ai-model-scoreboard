@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { headers } from "next/headers";
-import { redirect } from "next/navigation";
+import {redirect, notFound} from "next/navigation";
 
 import AbsoluteMetrics from "@/components/model/AbsoluteMetrics";
 import EvidenceCards from "@/components/model/EvidenceCards";
@@ -222,7 +222,11 @@ export default async function ModelDetailPage({
     );
   }
 
-  const header = detailResponse.header;
+  if (!detailResponse) {
+    notFound();
+  }
+
+const header = detailResponse.header;
   const decisionReasons = header.decisionReasons ?? [];
   const missingEvidenceRules = breakdownItems.filter((item) => item.missingEvidenceRule);
   const breakdownItemsForTable: FullBreakdownItem[] = breakdownItems.map((item) => {
