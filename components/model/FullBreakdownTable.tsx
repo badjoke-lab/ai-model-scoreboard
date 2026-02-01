@@ -133,9 +133,15 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                         <p className="text-xs text-slate-400">Evidence not provided.</p>
                       )}
                       {item.specMissingEvidence ? (
-                        <p className="rounded-md border border-rose-500/60 bg-rose-500/10 px-2 py-1 text-xs text-rose-200">
-                          Missing evidence link (spec violation).
-                        </p>
+                        typeof item.score === "number" && Number.isFinite(item.score) ? (
+                          <p className="rounded-md border border-rose-500/60 bg-rose-500/10 px-2 py-1 text-xs text-rose-200">
+                            Missing evidence link (spec violation).
+                          </p>
+                        ) : (
+                          <p className="rounded-md border border-amber-500/60 bg-amber-500/10 px-2 py-1 text-xs text-amber-200">
+                            Score withheld: required evidence link is missing (expected until evidence is provided).
+                          </p>
+                        )
                       ) : null}
                     </div>
                   </td>
