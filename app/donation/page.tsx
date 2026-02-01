@@ -1,4 +1,5 @@
 import { buildPageMetadata } from "@/lib/metadata";
+import WalletAddresses from "@/components/donation/WalletAddresses";
 
 export const metadata = buildPageMetadata({
   title: "Donation",
@@ -16,14 +17,14 @@ export default function DonationPage() {
           Direct contributions keep the AIMS scoreboard open, updated, and evidence-first.
         </p>
       </header>
-      <section className="space-y-3 text-sm text-slate-300 sm:text-base">
+      <section className="space-y-4 text-sm text-slate-300 sm:text-base">
         <p>
-          We use donations to fund data collection, maintenance, and reporting. Thank you for
-          supporting transparent AI evaluations.
+          Donations fund data collection, maintenance, and reporting. Thank you for supporting transparent,
+          evidence-first evaluations.
         </p>
-        <p>
-          A public donation link will appear here. If you need to coordinate a larger grant,
-          please contact the project team.
+        <WalletAddresses />
+        <p className="text-xs text-slate-500">
+          Tip: On desktop you can select an address and copy it directly. On mobile use the Copy button.
         </p>
       </section>
     </div>
