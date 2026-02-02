@@ -35,7 +35,7 @@ function formatScore(value: number | null): string {
 
 function formatEvidenceLabel(item: BreakdownEvidence): string {
   const typeLabel = item.type ? formatKeyLabel(item.type) : "Evidence";
-  if (item.link) return `${typeLabel}:`;
+  if (item.link || item.url) return `${typeLabel}:`;
   if (item.status) return `${typeLabel} (${item.status})`;
   return typeLabel;
 }
@@ -115,14 +115,14 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                             <span className="font-semibold text-slate-200">
                               Evidence:
                             </span>{" "}
-                            {evidence.link ? (
+                            {(evidence.link ?? evidence.url) ? (
                               <Link
-                                href={evidence.link}
+                                href={(evidence.link ?? evidence.url) as string}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="font-semibold text-accent hover:text-accent/80"
                               >
-                                {formatEvidenceLabel(evidence)} {evidence.link}
+                                {formatEvidenceLabel(evidence)} {evidence.link ?? evidence.url}
                               </Link>
                             ) : (
                               <span>{formatEvidenceLabel(evidence)} No link provided.</span>
