@@ -472,12 +472,60 @@ function normalizeEvidenceItems(rawEvidence: unknown): EvidenceItem[] {
       if (!type) continue;
       if (!REQUIRED_EVIDENCE_TYPES.includes(type as V4EvidenceKey)) continue;
       const typed = type as V4EvidenceKey;
-      if (!map.has(typed)) {
-        map.set(typed, normalizeEvidenceItem(typed, entry));
+      const normalized = normalizeEvidenceItem(typed, entry);
+      const current = map.get(typed);
+      if (!current) {
+        map.set(typed, normalized);
+        continue;
+      }
+      if (current.status !== "ok" && normalized.status === "ok") {
+        map.set(typed, normalized);
       }
     }
   }
   return REQUIRED_EVIDENCE_TYPES.map((type) => map.get(type) ?? buildMissingEvidenceItem(type));
+}
+
+function normalizeEvidenceSlots(incoming: EvidenceItem[] | null | undefined): EvidenceItem[] {
+  const byType = new Map<V4EvidenceKey, EvidenceItem>();
+  const evidenceItems = Array.isArray(incoming) ? incoming : [];
+  for (const evidence of evidenceItems) {
+    if (!evidence || typeof evidence !== "object") continue;
+    const type = evidence.type;
+    if (!REQUIRED_EVIDENCE_TYPES.includes(type)) continue;
+    const existing = byType.get(type);
+    if (!existing) {
+      byType.set(type, evidence);
+      continue;
+    }
+    if (existing.status !== "ok" && evidence.status === "ok") {
+      byType.set(type, evidence);
+    }
+  }
+
+  if (!byType.has("audit")) {
+    byType.set("audit", {
+      type: "audit",
+      status: "not_found",
+      label: "Independent third-party security audit",
+      reasons: ["missing_evidence_type:audit"],
+      refs: [],
+    });
+  }
+
+  const audit = byType.get("audit");
+  if (audit) {
+    const reasons = Array.isArray(audit.reasons) && audit.reasons.length > 0
+      ? audit.reasons
+      : ["missing_reasons"];
+    byType.set("audit", {
+      ...audit,
+      status: audit.status ? audit.status : "not_found",
+      reasons,
+    });
+  }
+
+  return REQUIRED_EVIDENCE_TYPES.map((type) => byType.get(type) ?? buildMissingEvidenceItem(type));
 }
 
 function asAbsValue(value: unknown, field: string): AbsVal {
@@ -1096,6 +1144,7 @@ export async function getModelDetailPayload(
       ? modelRow.source
       : detail.layer;
   const adoption = buildAdoptionBlock(findDecisionEntry(decisionsData, modelKey));
+  const normalizedEvidenceSlots = normalizeEvidenceSlots(mergedEvidence);
 
   return {
     status: "ok",
@@ -1113,7 +1162,7 @@ export async function getModelDetailPayload(
     },
     absolute,
     adoption,
-    evidence: mergedEvidence,
+    evidence: normalizedEvidenceSlots,
     evidenceCards: {
       blocks: evidenceBlocks,
       errorMessage: evidenceErrorMessage,
