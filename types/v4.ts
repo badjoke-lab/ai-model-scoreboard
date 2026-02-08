@@ -69,6 +69,30 @@ export type AdoptionBlock = {
 
 export type AbsVal = string | number | boolean | string[] | Missing;
 
+export type MissingInfo = {
+  value: null;
+  status:
+    | "not_found"
+    | "blocked"
+    | "rate_limited"
+    | "invalid"
+    | "missing_source_link"
+    | "ambiguous"
+    | "missing";
+  reasons: string[];
+  refs?: string[];
+};
+
+export type RawValue = string | number | boolean | MissingInfo | null | undefined;
+
+export type RawInputsBySource = {
+  openrouter: Record<string, RawValue>;
+  huggingface: Record<string, RawValue>;
+  github: Record<string, RawValue>;
+  arxiv: Record<string, RawValue>;
+  ops: Record<string, RawValue>;
+};
+
 export type AbsoluteBlock = {
   modelKey: AbsVal;
   displayName: AbsVal;
@@ -156,5 +180,6 @@ export type V4ModelDetailResponse = {
   breakdown: {
     items: V4ModelDetailBreakdownItem[];
   };
+  rawInputsBySource: RawInputsBySource;
   references: Array<{ label: string; urls: string[] }>;
 };
