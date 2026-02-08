@@ -60,6 +60,13 @@ export type Missing = {
   refs: string[];
 };
 
+export type AdoptionBlock = {
+  status: "adopted" | "provisional" | "denied";
+  reasons: string[];
+  source: "decisions" | "seed" | "openrouter";
+  refs: string[];
+};
+
 export type AbsVal = string | number | boolean | string[] | Missing;
 
 export type AbsoluteBlock = {
@@ -137,6 +144,7 @@ export type V4ModelDetailResponse = {
     decisionSource: string | null;
   };
   absolute: AbsoluteBlock;
+  adoption: AdoptionBlock | Missing;
   evidence: EvidenceItem[];
   evidenceCards: {
     blocks: Record<string, V4ModelDetailEvidenceBlock>;
