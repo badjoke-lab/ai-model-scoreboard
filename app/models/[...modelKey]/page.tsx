@@ -11,6 +11,7 @@ import FullBreakdownTable, {
 } from "@/components/model/FullBreakdownTable";
 import ModelHeader from "@/components/model/ModelHeader";
 import ModelStatus from "@/components/model/ModelStatus";
+import RawInputsPanel from "@/components/model/RawInputsPanel";
 import ReferencesList from "@/components/model/ReferencesList";
 import ScoreSummary from "@/components/model/ScoreSummary";
 import { loadV4ModelDetail, loadV4SnapshotWithDiagnostics } from "@/lib/v4-snapshot";
@@ -263,6 +264,7 @@ export default async function ModelDetailPage({
   const header = detailResponse.header;
   const decisionReasons = header.decisionReasons ?? [];
   const missingEvidenceRules = breakdownItems.filter((item) => item.missingEvidenceRule);
+  const rawInputsBySource = detailResponse.rawInputsBySource;
   const breakdownItemsForTable: FullBreakdownItem[] = breakdownItems.map((item) => {
     const inputs = extractInputs({ inputs_raw: item.inputsRaw });
     return {
@@ -317,6 +319,8 @@ export default async function ModelDetailPage({
           No evidence rule configured for this item (spec config missing).
         </p>
       ) : null}
+
+      <RawInputsPanel rawInputsBySource={rawInputsBySource} />
 
       <FullBreakdownTable
         items={breakdownItemsForTable}

@@ -25,6 +25,8 @@ import type {
   AdoptionBlock,
   EvidenceItem,
   Missing,
+  RawInputsBySource,
+  RawValue,
   V4EvidenceKey,
   V4EvidenceStatus,
   V4ModelDetailBreakdownItem,
@@ -124,6 +126,25 @@ function asNumber(value: unknown): number | null {
 function asBoolean(value: unknown): boolean | null {
   if (typeof value !== "boolean") return null;
   return value;
+}
+
+function isRawScalar(value: unknown): value is string | number | boolean {
+  return (
+    typeof value === "string" ||
+    (typeof value === "number" && Number.isFinite(value)) ||
+    typeof value === "boolean"
+  );
+}
+
+function addRawValue(
+  target: Record<string, RawValue>,
+  key: string,
+  value: unknown
+): void {
+  if (value === null || value === undefined) return;
+  if (isRawScalar(value)) {
+    target[key] = value;
+  }
 }
 
 function asStringArray(value: unknown): string[] | null {
@@ -637,6 +658,63 @@ function hasMeaningfulInputs(inputsRaw: Record<string, unknown> | null): boolean
   });
 }
 
+function buildRawInputsBySource(
+  detail: {
+    context?: number;
+    pricing?: { input?: number; output?: number; currency?: string };
+    type?: string;
+    released?: string;
+    enrichment?: { github?: { status?: string; status_code?: string } | null } | null;
+  },
+  absoluteMetrics: Record<string, unknown>
+): RawInputsBySource {
+  const openrouter: Record<string, RawValue> = {};
+  const github: Record<string, RawValue> = {};
+  const ops: Record<string, RawValue> = {};
+
+  addRawValue(openrouter, "context_length", asNumber(detail.context));
+  addRawValue(openrouter, "pricing_input_per_1m", asNumber(detail.pricing?.input));
+  addRawValue(openrouter, "pricing_output_per_1m", asNumber(detail.pricing?.output));
+  addRawValue(openrouter, "pricing_currency", asString(detail.pricing?.currency));
+  addRawValue(openrouter, "modality", asString(detail.type));
+  addRawValue(openrouter, "release_date", asString(detail.released));
+
+  const githubSignal = detail.enrichment?.github ?? null;
+  if (githubSignal) {
+    addRawValue(github, "status", asString(githubSignal.status));
+    addRawValue(github, "status_code", asString(githubSignal.status_code));
+  }
+
+  addRawValue(
+    ops,
+    "ttft_ms",
+    pickMetric(absoluteMetrics, ["ttft_ms", "ttft", "time_to_first_token_ms"])
+  );
+  addRawValue(
+    ops,
+    "tps",
+    pickMetric(absoluteMetrics, ["tps", "tokens_per_second", "throughput"])
+  );
+  addRawValue(
+    ops,
+    "uptime",
+    pickMetric(absoluteMetrics, ["uptime", "availability", "reliability"])
+  );
+  addRawValue(
+    ops,
+    "success_rate",
+    pickMetric(absoluteMetrics, ["success_rate", "success", "successRate"])
+  );
+
+  return {
+    openrouter,
+    huggingface: {},
+    github,
+    arxiv: {},
+    ops,
+  };
+}
+
 function getOfficialPageUrlSet(
   evidenceBlocks: Record<string, { refs?: string[] }> | null | undefined
 ): Set<string> {
@@ -863,6 +941,7 @@ export async function getModelDetailPayload(
   const evidenceImpact = buildEvidenceImpactSummary(breakdownItems);
   const referenceSections = buildReferenceSections(evidenceBlocks, breakdownItems);
   const normalizedEvidence = normalizeEvidenceItems(evidenceRaw);
+  const rawInputsBySource = buildRawInputsBySource(detail, absoluteMetrics);
 
   const sourceLabel =
     typeof modelRow?.source === "string" && modelRow?.source.trim()
@@ -896,6 +975,7 @@ export async function getModelDetailPayload(
     breakdown: {
       items: breakdownItems,
     },
+    rawInputsBySource,
     references: referenceSections,
   };
 }
