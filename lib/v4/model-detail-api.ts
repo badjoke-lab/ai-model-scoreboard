@@ -20,6 +20,11 @@ import {
   loadV4SnapshotWithDiagnostics,
   type V4ScoreItem,
 } from "@/lib/v4-snapshot";
+import {
+  loadModelOverride,
+  type EvidenceOverride,
+  type ModelOverride,
+} from "@/lib/v4/overrides";
 import type {
   AbsVal,
   AbsoluteBlock,
@@ -180,6 +185,13 @@ function normalizeEvidenceReasons(value: unknown): string[] {
   return [];
 }
 
+function normalizeOverrideReasons(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .filter((entry) => typeof entry === "string" && entry.trim())
+    .map((entry) => entry.trim());
+}
+
 function normalizeEvidenceRefs(value: unknown): string[] {
   if (!Array.isArray(value)) return [];
   return value
@@ -308,6 +320,36 @@ function normalizeAdoptionRefs(entry: Record<string, unknown>): string[] {
     }
   }
   return dedupeUrls(refs.filter((ref) => isHttpUrl(ref)));
+}
+
+function normalizeOverrideEvidenceEntry(entry: EvidenceOverride): EvidenceItem | null {
+  const type = typeof entry.type === "string" ? entry.type.trim() : "";
+  if (!REQUIRED_EVIDENCE_TYPES.includes(type as V4EvidenceKey)) return null;
+  const refs = [
+    typeof entry.url === "string" ? entry.url.trim() : "",
+    ...(Array.isArray(entry.refs) ? entry.refs : []),
+  ]
+    .filter((ref) => typeof ref === "string" && ref.trim())
+    .map((ref) => ref.trim());
+  return {
+    type: type as V4EvidenceKey,
+    status: normalizeEvidenceStatus(entry.status ?? "ok"),
+    reasons: normalizeOverrideReasons(entry.reasons),
+    refs: dedupeUrls(refs),
+    extracted: entry.extracted,
+    label:
+      typeof entry.label === "string" && entry.label.trim()
+        ? entry.label.trim()
+        : formatKeyLabel(type),
+  };
+}
+
+function mergeRawInputs(
+  base: Record<string, RawValue>,
+  overrideInput?: Record<string, unknown>
+): Record<string, RawValue> {
+  if (!overrideInput) return base;
+  return { ...base, ...(overrideInput as Record<string, RawValue>) };
 }
 
 function findDecisionEntry(
@@ -981,6 +1023,73 @@ export async function getModelDetailPayload(
   const normalizedEvidence = normalizeEvidenceItems(evidenceRaw);
   const rawInputsBySource = buildRawInputsBySource(detail, absoluteMetrics);
   const links = collectLinks({ evidence: normalizedEvidence, breakdown: { items: breakdownItems } });
+  let mergedEvidence = normalizedEvidence;
+  let mergedRawInputsBySource = rawInputsBySource;
+  let mergedLinks = links;
+  let override: ModelOverride | null = null;
+
+  try {
+    override = await loadModelOverride(modelKey);
+  } catch {
+    override = null;
+  }
+
+  if (override) {
+    try {
+      if (Array.isArray(override.evidence)) {
+        const evidenceMap = new Map<V4EvidenceKey, EvidenceItem>();
+        mergedEvidence.forEach((item) => evidenceMap.set(item.type, item));
+        for (const entry of override.evidence) {
+          if (!entry || typeof entry !== "object") continue;
+          const normalized = normalizeOverrideEvidenceEntry(entry as EvidenceOverride);
+          if (!normalized) continue;
+          evidenceMap.set(normalized.type, normalized);
+        }
+        mergedEvidence = Array.from(evidenceMap.values());
+      }
+
+      if (override.rawInputsBySource) {
+        mergedRawInputsBySource = {
+          ...mergedRawInputsBySource,
+          openrouter: mergeRawInputs(
+            mergedRawInputsBySource.openrouter,
+            override.rawInputsBySource.openrouter
+          ),
+          huggingface: mergeRawInputs(
+            mergedRawInputsBySource.huggingface,
+            override.rawInputsBySource.huggingface
+          ),
+          github: mergeRawInputs(
+            mergedRawInputsBySource.github,
+            override.rawInputsBySource.github
+          ),
+          arxiv: mergeRawInputs(
+            mergedRawInputsBySource.arxiv,
+            override.rawInputsBySource.arxiv
+          ),
+          ops: mergeRawInputs(mergedRawInputsBySource.ops, override.rawInputsBySource.ops),
+        };
+      }
+
+      if (Array.isArray(override.links)) {
+        const merged = new Set<string>();
+        const addLink = (value: string) => {
+          const trimmed = value.trim();
+          if (!trimmed) return;
+          merged.add(trimmed);
+        };
+        mergedLinks.forEach((link) => {
+          if (typeof link === "string") addLink(link);
+        });
+        override.links.forEach((link) => {
+          if (typeof link === "string") addLink(link);
+        });
+        mergedLinks = Array.from(merged);
+      }
+    } catch {
+      // ignore override errors
+    }
+  }
 
   const sourceLabel =
     typeof modelRow?.source === "string" && modelRow?.source.trim()
@@ -1004,7 +1113,7 @@ export async function getModelDetailPayload(
     },
     absolute,
     adoption,
-    evidence: normalizedEvidence,
+    evidence: mergedEvidence,
     evidenceCards: {
       blocks: evidenceBlocks,
       errorMessage: evidenceErrorMessage,
@@ -1014,8 +1123,8 @@ export async function getModelDetailPayload(
     breakdown: {
       items: breakdownItems,
     },
-    rawInputsBySource,
-    links,
+    rawInputsBySource: mergedRawInputsBySource,
+    links: mergedLinks,
     references: referenceSections,
   };
 }
