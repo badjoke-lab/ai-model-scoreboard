@@ -11,6 +11,7 @@ import {
   toEnglishReason,
 } from "@/lib/v4/explainability";
 import evidencePolicy from "@/lib/v4/evidence-policy.json";
+import { normalizeReasons, normalizeStatus } from "@/lib/v4/status";
 import {
   OFFICIAL_PAGE_ALLOWED_ITEMS,
   type ScoreItemKey,
@@ -34,7 +35,6 @@ import type {
   RawInputsBySource,
   RawValue,
   V4EvidenceKey,
-  V4EvidenceStatus,
   V4ModelDetailBreakdownItem,
   V4ModelDetailResponse,
 } from "@/types/v4";
@@ -58,17 +58,6 @@ const ADOPTION_SOURCES = new Set<AdoptionBlock["source"]>([
   "openrouter",
   "seed",
 ]);
-const EVIDENCE_STATUSES = new Set<V4EvidenceStatus>([
-  "ok",
-  "not_found",
-  "blocked",
-  "rate_limited",
-  "invalid",
-  "ambiguous",
-  "missing_source_link",
-  "missing",
-]);
-
 function formatUpdatedDate(value?: string): string | null {
   if (!value) return null;
   const date = new Date(value);
@@ -162,27 +151,6 @@ function asStringArray(value: unknown): string[] | null {
   }
   const single = asString(value);
   return single ? [single] : null;
-}
-
-function normalizeEvidenceStatus(value: unknown): V4EvidenceStatus {
-  const raw = typeof value === "string" ? value.trim() : "";
-  const normalized = raw.toLowerCase();
-  if (EVIDENCE_STATUSES.has(normalized as V4EvidenceStatus)) {
-    return normalized as V4EvidenceStatus;
-  }
-  return "invalid";
-}
-
-function normalizeEvidenceReasons(value: unknown): string[] {
-  if (Array.isArray(value)) {
-    return value
-      .filter((entry) => typeof entry === "string" && entry.trim())
-      .map((entry) => entry.trim());
-  }
-  if (typeof value === "string" && value.trim()) {
-    return [value.trim()];
-  }
-  return [];
 }
 
 function normalizeOverrideReasons(value: unknown): string[] {
@@ -333,8 +301,8 @@ function normalizeOverrideEvidenceEntry(entry: EvidenceOverride): EvidenceItem |
     .map((ref) => ref.trim());
   return {
     type: type as V4EvidenceKey,
-    status: normalizeEvidenceStatus(entry.status ?? "ok"),
-    reasons: normalizeOverrideReasons(entry.reasons),
+    status: normalizeStatus(entry.status ?? "ok", "evidence"),
+    reasons: normalizeReasons(normalizeOverrideReasons(entry.reasons)),
     refs: dedupeUrls(refs),
     extracted: entry.extracted,
     label:
@@ -416,8 +384,8 @@ function buildAdoptionBlock(
 function buildMissingEvidenceItem(type: V4EvidenceKey): EvidenceItem {
   return {
     type,
-    status: "not_found",
-    reasons: [`missing_evidence_type:${type}`],
+    status: normalizeStatus("not_found", "evidence"),
+    reasons: normalizeReasons([`missing_evidence_type:${type}`]),
     refs: [],
     label: formatKeyLabel(type),
   };
@@ -439,10 +407,8 @@ function normalizeEvidenceItem(type: V4EvidenceKey, source: unknown): EvidenceIt
   }
   return {
     type,
-    status: normalizeEvidenceStatus(
-      source.status ?? source.state ?? source.status_code ?? "missing"
-    ),
-    reasons: normalizeEvidenceReasons(
+    status: normalizeStatus(source.status ?? source.state ?? source.status_code ?? "missing", "evidence"),
+    reasons: normalizeReasons(
       source.reasons ?? source.reasonCodes ?? source.reason_codes ?? source.reason
     ),
     refs: dedupeUrls(refs),
@@ -494,12 +460,17 @@ function normalizeEvidenceSlots(incoming: EvidenceItem[] | null | undefined): Ev
     const type = evidence.type;
     if (!REQUIRED_EVIDENCE_TYPES.includes(type)) continue;
     const existing = byType.get(type);
+    const normalizedEvidence = {
+      ...evidence,
+      status: normalizeStatus(evidence.status, "evidence"),
+      reasons: normalizeReasons(evidence.reasons),
+    };
     if (!existing) {
-      byType.set(type, evidence);
+      byType.set(type, normalizedEvidence);
       continue;
     }
-    if (existing.status !== "ok" && evidence.status === "ok") {
-      byType.set(type, evidence);
+    if (existing.status !== "ok" && normalizedEvidence.status === "ok") {
+      byType.set(type, normalizedEvidence);
     }
   }
 
@@ -515,12 +486,10 @@ function normalizeEvidenceSlots(incoming: EvidenceItem[] | null | undefined): Ev
 
   const audit = byType.get("audit");
   if (audit) {
-    const reasons = Array.isArray(audit.reasons) && audit.reasons.length > 0
-      ? audit.reasons
-      : ["missing_reasons"];
+    const reasons = normalizeReasons(audit.reasons);
     byType.set("audit", {
       ...audit,
-      status: audit.status ? audit.status : "not_found",
+      status: normalizeStatus(audit.status ?? "not_found", "evidence"),
       reasons,
     });
   }

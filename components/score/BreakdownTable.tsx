@@ -1,7 +1,8 @@
 import Link from "next/link";
 
-import { formatStatusLabel, formatMetricValue } from "@/lib/v4/explainability";
+import { formatMetricValue } from "@/lib/v4/explainability";
 import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
+import { normalizeStatus } from "@/lib/v4/status";
 
 export type BreakdownEvidence = {
   type?: string;
@@ -104,11 +105,11 @@ export default function BreakdownTable({ items }: { items: BreakdownItem[] }) {
                                 Missing evidence link (spec violation).
                               </p>
                             ) : null}
-                            {evidence.status ? (
-                              <span className="ml-2 text-[0.65rem] uppercase tracking-wide text-slate-500">
-                                {formatStatusLabel(evidence.status)}
+                            <span className="ml-2 text-[0.65rem] text-slate-500">
+                              <span className="font-mono">
+                                {normalizeStatus(evidence.status, "breakdown")}
                               </span>
-                            ) : null}
+                            </span>
                           </li>
                         );
                       })}

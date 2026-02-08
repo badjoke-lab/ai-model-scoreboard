@@ -3,6 +3,7 @@ import Link from "next/link";
 import { formatKeyLabel, formatMetricValue } from "@/lib/v4/explainability";
 import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
 import { getItemDefaultEn, getItemFormulaEn } from "@/lib/v4/formulas";
+import { normalizeReasons, normalizeStatus } from "@/lib/v4/status";
 import { checkVerifiableScore } from "@/lib/v4/verifiable-score";
 import type { Missing } from "@/types/v4";
 
@@ -43,7 +44,7 @@ function formatScore(value: number | null): string {
 
 function formatEvidenceLabel(item: BreakdownEvidence): string {
   const typeLabel = item.type ? formatKeyLabel(item.type) : "Evidence";
-  const statusLabel = item.status ? ` (${item.status})` : "";
+  const statusLabel = ` (${normalizeStatus(item.status, "breakdown")})`;
   return `${typeLabel}${statusLabel}:`;
 }
 
@@ -139,14 +140,22 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                         <div>Missing</div>
                         {isMissingValue(item.inputMissing) ? (
                           <div className="space-y-1">
-                            <div>status: {item.inputMissing.status}</div>
-                            {item.inputMissing.reasons.length ? (
-                              <ul className="list-disc space-y-1 pl-4">
-                                {item.inputMissing.reasons.slice(0, 3).map((reason) => (
-                                  <li key={reason}>{reason}</li>
-                                ))}
-                              </ul>
-                            ) : null}
+                            <div>
+                              status:{" "}
+                              <span className="font-mono">
+                                {normalizeStatus(item.inputMissing.status, "breakdown")}
+                              </span>
+                            </div>
+                            {(() => {
+                              const reasons = normalizeReasons(item.inputMissing.reasons);
+                              return reasons.length ? (
+                                <ul className="list-disc space-y-1 pl-4">
+                                  {reasons.slice(0, 3).map((reason) => (
+                                    <li key={reason}>{reason}</li>
+                                  ))}
+                                </ul>
+                              ) : null;
+                            })()}
                             {item.inputMissing.refs.length ? (
                               <ul className="space-y-1">
                                 {item.inputMissing.refs.slice(0, 3).map((ref) => (
@@ -165,7 +174,9 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                             ) : null}
                           </div>
                         ) : (
-                          <div>status: missing</div>
+                          <div>
+                            status: <span className="font-mono">missing</span>
+                          </div>
                         )}
                       </div>
                     )}

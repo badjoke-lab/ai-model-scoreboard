@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
-import { formatStatusLabel, formatKeyLabel } from "@/lib/v4/explainability";
-import { formatReasonList } from "@/lib/v4/deriveReasons";
+import { formatKeyLabel } from "@/lib/v4/explainability";
+import { normalizeReasons, normalizeStatus } from "@/lib/v4/status";
 import type { EvidenceItem, V4EvidenceKey } from "@/types/v4";
 
 type EvidenceCardsProps = {
@@ -18,32 +18,27 @@ const CARD_TITLES: Record<V4EvidenceKey, string> = {
   audit: "Audit",
 };
 
-function formatStatusText(status?: string): string {
-  if (!status) return "unavailable";
-  const normalized = formatStatusLabel(status);
-  return normalized.toLowerCase() === "unknown" ? "unavailable" : normalized;
-}
-
-function statusIcon(status?: string): string {
-  const normalized = (status ?? "").toLowerCase();
-  if (["ok", "found", "verified", "available"].includes(normalized)) return "✅";
-  if (normalized.includes("block")) return "⛔";
-  if (normalized.includes("not_found") || normalized.includes("missing")) return "⚠️";
+function statusIcon(status: string): string {
+  if (status === "ok") return "✅";
+  if (status === "blocked") return "⛔";
+  if (status === "rate_limited") return "⏳";
+  if (status === "ambiguous" || status === "invalid") return "⚠️";
+  if (status === "not_found" || status === "missing" || status === "missing_source_link") {
+    return "⚠️";
+  }
   return "⚠️";
 }
 
 function impactText(
   key: string,
-  status?: string,
+  status: string,
   override?: string | null
 ): string {
   if (override) return override;
-  const normalized = (status ?? "").toLowerCase();
-  if (["ok", "found", "verified", "available"].includes(normalized)) {
+  if (status === "ok") {
     return "Evidence verified => no penalty applied for this signal.";
   }
-  const label = formatStatusText(status);
-  const base = `${label} =>`;
+  const base = `${status} =>`;
   switch (key) {
     case "dev_activity":
       return `${base} dev-activity score capped / penalty applied.`;
@@ -73,7 +68,7 @@ function normalizeEvidenceItems(items: EvidenceItem[]): EvidenceItem[] {
     (key) =>
       map.get(key) ?? {
         type: key,
-        status: "not_found",
+        status: normalizeStatus("not_found", "evidence"),
         reasons: [`missing_evidence_type:${key}`],
         refs: [],
         label: formatKeyLabel(key),
@@ -98,15 +93,11 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
       <div className="mt-4 grid gap-4 md:grid-cols-2">
         {orderedEvidence.map((item) => {
           const key = item.type;
-          const displayStatus = item.status ? formatStatusText(item.status) : "missing_status";
-          const displayReasons =
-            Array.isArray(item.reasons) && item.reasons.length > 0
-              ? formatReasonList(item.reasons)
-              : ["missing_reasons"];
-          const reasons = displayReasons.slice(0, 5);
+          const status = normalizeStatus(item.status, "evidence");
+          const reasons = normalizeReasons(item.reasons).slice(0, 5);
           const extracted = formatExtracted(item.extracted);
           const url = pickEvidenceUrl(item);
-          const isNotFound = (item.status ?? "").toLowerCase() === "not_found";
+          const isNotFound = status === "not_found";
           return (
             <div
               key={item.type}
@@ -120,7 +111,7 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
                   <p className="text-xs text-slate-400">type: {item.type}</p>
                 </div>
                 <span className={`text-base ${isNotFound ? "font-mono" : ""}`}>
-                  {statusIcon(item.status)} {displayStatus}
+                  {statusIcon(status)} <span className="font-mono">{status}</span>
                 </span>
               </div>
               <div className="mt-3 space-y-2 text-xs text-slate-300">
@@ -157,7 +148,7 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
                     How this affected scoring
                   </span>
                   <p className="mt-1">
-                    {impactText(key, item.status, impactByKey?.[key] ?? null)}
+                    {impactText(key, status, impactByKey?.[key] ?? null)}
                   </p>
                 </div>
                 <details className="rounded-lg border border-slate-800 bg-slate-950/40 p-2 text-[0.7rem] text-slate-200">

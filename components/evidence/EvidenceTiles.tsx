@@ -2,12 +2,11 @@ import Link from "next/link";
 
 import {
   type EvidenceBlock,
-  formatStatusLabel,
   isHttpUrl,
-  mapReasonToken,
   summarizeEvidenceBlock,
   truncateJson,
 } from "@/lib/v4/explainability";
+import { normalizeReasons, normalizeStatus } from "@/lib/v4/status";
 
 const TILE_TITLES: Record<EvidenceBlock["key"], string> = {
   official_page: "Official page",
@@ -37,7 +36,8 @@ export default function EvidenceTiles({
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
       {blocks.map((block) => {
-        const statusLabel = formatStatusLabel(block.status);
+        const status = normalizeStatus(block.status, "evidence");
+        const reasons = normalizeReasons(block.reasons);
         const summary = missingMessage ?? summarizeEvidenceBlock(block);
         const extractedPreview =
           block.extracted !== undefined ? truncateJson(block.extracted) : null;
@@ -50,8 +50,8 @@ export default function EvidenceTiles({
               <h3 className="text-sm font-semibold text-slate-100">
                 {TILE_TITLES[block.key]}
               </h3>
-              <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[0.65rem] uppercase tracking-wide text-slate-300">
-                {statusLabel}
+              <span className="rounded-full border border-slate-700 px-2 py-0.5 text-[0.65rem] text-slate-300">
+                <span className="font-mono">{status}</span>
               </span>
             </div>
             <p className="mt-2 text-xs text-slate-300">{summary}</p>
@@ -64,14 +64,14 @@ export default function EvidenceTiles({
                 Details
               </summary>
               <div className="mt-2 space-y-3">
-                {block.reasons.length ? (
+                {reasons.length ? (
                   <div>
                     <p className="text-[0.65rem] uppercase tracking-wide text-slate-500">
                       Reasons
                     </p>
                     <ul className="mt-1 space-y-1 text-xs text-slate-300">
-                      {block.reasons.map((reason) => (
-                        <li key={reason}>{mapReasonToken(reason)}</li>
+                      {reasons.map((reason) => (
+                        <li key={reason}>{reason}</li>
                       ))}
                     </ul>
                   </div>
