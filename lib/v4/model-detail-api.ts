@@ -2,6 +2,7 @@ import { promises as fs } from "fs";
 import path from "path";
 
 import { formatReasonList } from "@/lib/v4/deriveReasons";
+import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
 import {
   buildEvidenceBlocks,
   dedupeUrls,
@@ -198,6 +199,43 @@ function normalizeEvidenceRefs(value: unknown): string[] {
       return "";
     })
     .filter(Boolean);
+}
+
+function collectLinks(detailLike: {
+  evidence?: EvidenceItem[];
+  breakdown?: { items?: V4ModelDetailBreakdownItem[] };
+}): string[] {
+  const out: string[] = [];
+  const seen = new Set<string>();
+  const pushNormalized = (value: string | null | undefined) => {
+    const normalized = String(value).trim();
+    if (!normalized) return;
+    if (!seen.has(normalized)) {
+      seen.add(normalized);
+      out.push(normalized);
+    }
+  };
+
+  const evidenceArray = Array.isArray(detailLike.evidence) ? detailLike.evidence : [];
+  for (const evidence of evidenceArray) {
+    const url = pickEvidenceUrl(evidence);
+    if (url) pushNormalized(url);
+  }
+
+  const breakdownItems = Array.isArray(detailLike.breakdown?.items)
+    ? detailLike.breakdown?.items
+    : [];
+  for (const item of breakdownItems) {
+    const evidenceValue = item.usedEvidence ?? (item as { evidence?: unknown }).evidence;
+    if (!evidenceValue) continue;
+    const evidenceArray = Array.isArray(evidenceValue) ? evidenceValue : [evidenceValue];
+    for (const evidence of evidenceArray) {
+      const url = pickEvidenceUrl(evidence);
+      if (url) pushNormalized(url);
+    }
+  }
+
+  return out;
 }
 
 async function readDecisionsFile(): Promise<unknown | null> {
@@ -942,6 +980,7 @@ export async function getModelDetailPayload(
   const referenceSections = buildReferenceSections(evidenceBlocks, breakdownItems);
   const normalizedEvidence = normalizeEvidenceItems(evidenceRaw);
   const rawInputsBySource = buildRawInputsBySource(detail, absoluteMetrics);
+  const links = collectLinks({ evidence: normalizedEvidence, breakdown: { items: breakdownItems } });
 
   const sourceLabel =
     typeof modelRow?.source === "string" && modelRow?.source.trim()
@@ -976,6 +1015,7 @@ export async function getModelDetailPayload(
       items: breakdownItems,
     },
     rawInputsBySource,
+    links,
     references: referenceSections,
   };
 }

@@ -181,5 +181,6 @@ export type V4ModelDetailResponse = {
     items: V4ModelDetailBreakdownItem[];
   };
   rawInputsBySource: RawInputsBySource;
+  links: string[];
   references: Array<{ label: string; urls: string[] }>;
 };
