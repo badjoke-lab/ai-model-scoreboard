@@ -1,0 +1,47 @@
+{
+  "modelKey": "meta-llama%2Fllama-3.1-8b-instruct",
+  "evidence": [
+    {
+      "type": "official_page",
+      "status": "ok",
+      "label": "Hugging Face model card",
+      "url": "https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "refs": ["https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct"],
+      "reasons": ["manual_override"]
+    },
+    {
+      "type": "dev_activity",
+      "status": "ok",
+      "label": "meta-llama/llama-models (GitHub)",
+      "url": "https://github.com/meta-llama/llama-models",
+      "refs": ["https://github.com/meta-llama/llama-models"],
+      "reasons": ["manual_override"]
+    },
+    {
+      "type": "paper",
+      "status": "ok",
+      "label": "The Llama 3 Herd of Models (arXiv)",
+      "url": "https://arxiv.org/abs/2407.21783",
+      "refs": ["https://arxiv.org/abs/2407.21783"],
+      "reasons": ["manual_override"]
+    },
+    {
+      "type": "audit",
+      "status": "not_found",
+      "label": "Independent third-party security audit",
+      "reasons": ["manual_override:not_found_no_verifiable_third_party_audit_link"]
+    }
+  ],
+  "rawInputsBySource": {
+    "huggingface": {
+      "model_card_url": "https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "license": "llama3.1",
+      "override_note": "manual_override_sample"
+    }
+  },
+  "links": [
+    "https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct",
+    "https://github.com/meta-llama/llama-models",
+    "https://arxiv.org/abs/2407.21783"
+  ]
+}
