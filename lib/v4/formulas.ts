@@ -1,4 +1,4 @@
-export const ITEM_FORMULA: Record<string, string> = {
+export const ITEM_FORMULAS_EN: Record<string, string> = {
   "performance.benchmark": "score = clamp((value - 0) / (100 - 0), 0, 1) * 100",
   "safety.incident_rate": "score = (1 - clamp((value - 0) / (10 - 0), 0, 1)) * 100",
   "adoption.usage_index": "score = clamp((value - 0) / (100 - 0), 0, 1) * 100",
@@ -6,7 +6,7 @@ export const ITEM_FORMULA: Record<string, string> = {
   "cost.efficiency": "score = clamp((value - 0) / (100 - 0), 0, 1) * 100",
 };
 
-export const ITEM_DEFAULT_RULE: Record<string, string> = {
+export const DEFAULTS_EN: Record<string, string> = {
   "performance.benchmark":
     "missing -> full: deterministic fallback (fixture/hash); non-full: value=null, score=0",
   "safety.incident_rate":
@@ -19,9 +19,9 @@ export const ITEM_DEFAULT_RULE: Record<string, string> = {
     "missing -> full: deterministic fallback (fixture/hash); non-full: value=null, score=0",
 };
 
-export function getFormula(id: string): string {
-  return ITEM_FORMULA[id] ?? "";
+export function getItemFormulaEn(itemId: string): string {
+  return ITEM_FORMULAS_EN[itemId] ?? "";
 }
-export function getDefaultRule(id: string): string {
-  return ITEM_DEFAULT_RULE[id] ?? "";
+export function getItemDefaultEn(itemId: string): string {
+  return DEFAULTS_EN[itemId] ?? "";
 }

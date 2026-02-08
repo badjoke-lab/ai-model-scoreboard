@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { formatKeyLabel, formatMetricValue } from "@/lib/v4/explainability";
 import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
-import { getDefaultRule, getFormula } from "@/lib/v4/formulas";
+import { getItemDefaultEn, getItemFormulaEn } from "@/lib/v4/formulas";
 import { checkVerifiableScore } from "@/lib/v4/verifiable-score";
 import type { Missing } from "@/types/v4";
 
@@ -58,9 +58,19 @@ function isMissingValue(value: Missing | null | undefined): value is Missing {
   );
 }
 
-function truncateText(value: string, maxLength: number): string {
-  if (value.length <= maxLength) return value;
-  return `${value.slice(0, maxLength - 1)}…`;
+function getFormulaText(itemId: string): string {
+  return getItemFormulaEn(itemId) || "—";
+}
+
+function getDefaultText(itemId: string): string {
+  return getItemDefaultEn(itemId) || "—";
+}
+
+function normalizeWhy1Line(input: unknown): { short: string; full: string } {
+  const raw = input === null || input === undefined ? "" : String(input);
+  const full = raw.replace(/\r\n|\n|\r/g, " ").replace(/\s+/g, " ").trim();
+  const short = full.length > 120 ? `${full.slice(0, 120)}…` : full;
+  return { short, full };
 }
 
 export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdownTableProps) {
@@ -77,9 +87,7 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
               <th className="px-4 py-3 text-left">Score</th>
               <th className="px-4 py-3 text-left">Input</th>
               <th className="px-4 py-3 text-left">Evidence</th>
-              <th className="px-4 py-3 text-left">Formula</th>
-              <th className="px-4 py-3 text-left">Default rule</th>
-              <th className="px-4 py-3 text-left">Why</th>
+              <th className="px-4 py-3 text-left">Explanation</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-800">
@@ -201,23 +209,44 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                       ) : null}
                     </div>
                   </td>
-                  <td className="px-4 py-3 text-xs text-slate-300">
-                    {getFormula(item.id ?? item.key) || "Formula not specified."}
-                  </td>
-                  <td className="px-4 py-3 text-xs text-slate-300">
-                    {getDefaultRule(item.id ?? item.key) || "No default rule provided."}
-                  </td>
-                  <td className="px-4 py-3 text-xs text-slate-300">
+                  <td className="px-4 py-3 text-slate-300">
                     {(() => {
-                      const rawWhy =
-                        typeof item.why === "string" && item.why.trim()
-                          ? item.why.trim()
-                          : "No explanation provided.";
-                      const truncatedWhy = truncateText(rawWhy, 120);
+                      const itemId = item.id ?? "";
+                      const formulaText = getFormulaText(itemId);
+                      const defaultText = getDefaultText(itemId);
+                      const whyText = normalizeWhy1Line(item.why);
+                      const renderValue = (value: string) =>
+                        value === "—" ? (
+                          <span className="font-mono opacity-60">{value}</span>
+                        ) : (
+                          <span>{value}</span>
+                        );
+                      const whyValue =
+                        whyText.short || whyText.full
+                          ? whyText.short
+                          : "—";
                       return (
-                        <span title={rawWhy}>
-                          {truncatedWhy}
-                        </span>
+                        <div className="space-y-3">
+                          <div>
+                            <div className="text-xs font-mono opacity-70">Formula</div>
+                            <div className="text-sm break-words">{renderValue(formulaText)}</div>
+                          </div>
+                          <div>
+                            <div className="text-xs font-mono opacity-70">Default</div>
+                            <div className="text-sm break-words">{renderValue(defaultText)}</div>
+                          </div>
+                          <div>
+                            <div className="text-xs font-mono opacity-70">Why</div>
+                            <div className="text-sm break-words">
+                              <span
+                                className="block overflow-hidden text-ellipsis whitespace-nowrap"
+                                title={whyText.full || undefined}
+                              >
+                                {renderValue(whyValue)}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
                       );
                     })()}
                   </td>
@@ -225,7 +254,7 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
               ))
             ) : (
               <tr>
-                <td colSpan={7} className="px-4 py-6 text-sm text-slate-400">
+                <td colSpan={5} className="px-4 py-6 text-sm text-slate-400">
                   {emptyMessage}
                 </td>
               </tr>
