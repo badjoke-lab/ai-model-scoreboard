@@ -122,6 +122,7 @@ export type V4ModelDetailBreakdownItem = {
   score: number | null;
   status?: string;
   inputsRaw: Record<string, unknown> | null;
+  inputMissing?: Missing | null;
   evidenceUrls: string[];
   why: string;
   usedEvidence: V4ModelDetailEvidence[];

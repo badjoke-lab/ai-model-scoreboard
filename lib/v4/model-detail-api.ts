@@ -666,11 +666,17 @@ function buildBreakdownItems(
           ? item.inputs
           : null;
       const evidenceUrls = normalizeEvidenceUrls(item);
+      const rawWhy =
+        typeof item.why === "string" && item.why.trim() ? item.why.trim() : null;
+      const derivedWhy = rawWhy ?? toEnglishReason(item);
       const baseWhy =
-        typeof item.why === "string" && item.why.trim()
-          ? item.why.trim()
-          : toEnglishReason(item);
+        typeof derivedWhy === "string" && derivedWhy.trim()
+          ? derivedWhy.trim()
+          : "No explanation provided.";
       const hasInputs = hasMeaningfulInputs(inputsRaw);
+      const inputMissing = hasInputs
+        ? null
+        : missing("missing", ["missing_field:inputs_raw"]);
       const officialPageOnly =
         evidenceUrls.length > 0 && evidenceUrls.every((url) => officialPageUrls.has(url));
       const officialPageAllowed = OFFICIAL_PAGE_ALLOWED_ITEMS.has(key as ScoreItemKey);
@@ -679,16 +685,18 @@ function buildBreakdownItems(
       const hasEvidence =
         effectiveEvidenceUrls.length > 0 && !(officialPageOnly && !officialPageAllowed);
       const hasWhy = typeof baseWhy === "string" && baseWhy.trim().length > 0;
-      const missing: string[] = [];
-      if (!hasInputs) missing.push("inputs");
+      const missingFields: string[] = [];
+      if (!hasInputs) missingFields.push("inputs");
       if (!hasEvidence) {
-        missing.push(officialPageOnly && !officialPageAllowed ? "evidence (official-page only)" : "evidence");
+        missingFields.push(
+          officialPageOnly && !officialPageAllowed ? "evidence (official-page only)" : "evidence"
+        );
       }
-      if (!hasWhy) missing.push("why");
+      if (!hasWhy) missingFields.push("why");
       const numericScore = typeof item.score === "number" ? item.score : null;
-      const shouldWithhold = numericScore !== null && missing.length > 0;
+      const shouldWithhold = numericScore !== null && missingFields.length > 0;
       const withheldWhy = shouldWithhold
-        ? `Missing item evidence: score withheld (missing ${missing.join(", ")}).`
+        ? `Missing item evidence: score withheld (missing ${missingFields.join(", ")}).`
         : baseWhy;
       const status = shouldWithhold
         ? "WITHHELD"
@@ -697,6 +705,23 @@ function buildBreakdownItems(
           : "ok";
       const missingEvidenceRule = (REQUIRED_EVIDENCE[item.id ?? key] ?? []).length === 0;
 
+      const rawUsedEvidence = Array.isArray(item.usedEvidence) ? item.usedEvidence : [];
+      const usedEvidence =
+        rawUsedEvidence.length > 0
+          ? rawUsedEvidence
+          : effectiveEvidenceUrls.length > 0
+            ? effectiveEvidenceUrls.map((url) => ({
+                type: "evidence",
+                status: "ok",
+                link: url,
+              }))
+            : [
+                {
+                  type: "evidence",
+                  status: "missing",
+                },
+              ];
+
       return {
         key,
         id: typeof item.id === "string" && item.id.trim() ? item.id.trim() : key,
@@ -704,9 +729,10 @@ function buildBreakdownItems(
         score: shouldWithhold ? null : numericScore,
         status,
         inputsRaw,
+        inputMissing,
         evidenceUrls: effectiveEvidenceUrls,
         why: withheldWhy,
-        usedEvidence: Array.isArray(item.usedEvidence) ? item.usedEvidence : [],
+        usedEvidence,
         specMissingEvidence: rawItem.__specMissingEvidenceLink === true,
         missingEvidenceRule,
       };

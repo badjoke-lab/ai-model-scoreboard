@@ -272,6 +272,7 @@ export default async function ModelDetailPage({
       score: item.score,
       status: item.status,
       inputs,
+      inputMissing: item.inputMissing ?? null,
       reason: item.why,
       why: item.why,
       usedEvidence: item.usedEvidence,
