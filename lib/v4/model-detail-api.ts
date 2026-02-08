@@ -19,7 +19,10 @@ import {
 import type {
   AbsVal,
   AbsoluteBlock,
+  EvidenceItem,
   Missing,
+  V4EvidenceKey,
+  V4EvidenceStatus,
   V4ModelDetailBreakdownItem,
   V4ModelDetailResponse,
 } from "@/types/v4";
@@ -27,6 +30,22 @@ import type {
 type EvidenceImpactKey = "official_page" | "dev_activity" | "paper" | "audit";
 
 const REQUIRED_EVIDENCE: Record<string, string[]> = evidencePolicy;
+const REQUIRED_EVIDENCE_TYPES: V4EvidenceKey[] = [
+  "official_page",
+  "dev_activity",
+  "paper",
+  "audit",
+];
+const EVIDENCE_STATUSES = new Set<V4EvidenceStatus>([
+  "ok",
+  "not_found",
+  "blocked",
+  "rate_limited",
+  "invalid",
+  "ambiguous",
+  "missing_source_link",
+  "missing",
+]);
 
 function formatUpdatedDate(value?: string): string | null {
   if (!value) return null;
@@ -102,6 +121,115 @@ function asStringArray(value: unknown): string[] | null {
   }
   const single = asString(value);
   return single ? [single] : null;
+}
+
+function normalizeEvidenceStatus(value: unknown): V4EvidenceStatus {
+  const raw = typeof value === "string" ? value.trim() : "";
+  const normalized = raw.toLowerCase();
+  if (EVIDENCE_STATUSES.has(normalized as V4EvidenceStatus)) {
+    return normalized as V4EvidenceStatus;
+  }
+  return "invalid";
+}
+
+function normalizeEvidenceReasons(value: unknown): string[] {
+  if (Array.isArray(value)) {
+    return value
+      .filter((entry) => typeof entry === "string" && entry.trim())
+      .map((entry) => entry.trim());
+  }
+  if (typeof value === "string" && value.trim()) {
+    return [value.trim()];
+  }
+  return [];
+}
+
+function normalizeEvidenceRefs(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map((entry) => {
+      if (typeof entry === "string") return entry.trim();
+      if (isObject(entry)) {
+        const url =
+          typeof entry.url === "string"
+            ? entry.url
+            : typeof entry.link === "string"
+              ? entry.link
+              : typeof entry.href === "string"
+                ? entry.href
+                : undefined;
+        return typeof url === "string" ? url.trim() : "";
+      }
+      return "";
+    })
+    .filter(Boolean);
+}
+
+function buildMissingEvidenceItem(type: V4EvidenceKey): EvidenceItem {
+  return {
+    type,
+    status: "not_found",
+    reasons: [`missing_evidence_type:${type}`],
+    refs: [],
+    label: formatKeyLabel(type),
+  };
+}
+
+function normalizeEvidenceItem(type: V4EvidenceKey, source: unknown): EvidenceItem {
+  if (!isObject(source)) return buildMissingEvidenceItem(type);
+  const refs = normalizeEvidenceRefs(
+    source.refs ?? source.references ?? source.urls ?? source.sources
+  );
+  const directRef =
+    typeof source.url === "string"
+      ? source.url
+      : typeof source.link === "string"
+        ? source.link
+        : undefined;
+  if (directRef && directRef.trim()) {
+    refs.unshift(directRef.trim());
+  }
+  return {
+    type,
+    status: normalizeEvidenceStatus(
+      source.status ?? source.state ?? source.status_code ?? "missing"
+    ),
+    reasons: normalizeEvidenceReasons(
+      source.reasons ?? source.reasonCodes ?? source.reason_codes ?? source.reason
+    ),
+    refs: dedupeUrls(refs),
+    extracted: source.extracted,
+    label: typeof source.label === "string" ? source.label : formatKeyLabel(type),
+  };
+}
+
+function normalizeEvidenceItems(rawEvidence: unknown): EvidenceItem[] {
+  const map = new Map<V4EvidenceKey, EvidenceItem>();
+  if (isObject(rawEvidence)) {
+    for (const key of REQUIRED_EVIDENCE_TYPES) {
+      if (isObject(rawEvidence[key])) {
+        map.set(key, normalizeEvidenceItem(key, rawEvidence[key]));
+      }
+    }
+    const evidenceItems = Array.isArray(rawEvidence.evidenceItems)
+      ? rawEvidence.evidenceItems
+      : Array.isArray(rawEvidence.items)
+        ? rawEvidence.items
+        : Array.isArray(rawEvidence.evidence)
+          ? rawEvidence.evidence
+          : [];
+    for (const entry of evidenceItems) {
+      if (!isObject(entry)) continue;
+      const type = typeof entry.type === "string" ? entry.type.trim() : "";
+      if (!type) continue;
+      if (!REQUIRED_EVIDENCE_TYPES.includes(type as V4EvidenceKey)) continue;
+      const typed = type as V4EvidenceKey;
+      if (!map.has(typed)) {
+        map.set(typed, normalizeEvidenceItem(typed, entry));
+      }
+    }
+  }
+  return REQUIRED_EVIDENCE_TYPES.map((type) => map.get(type) ?? buildMissingEvidenceItem(type));
 }
 
 function asAbsValue(value: unknown, field: string): AbsVal {
@@ -560,6 +688,7 @@ export async function getModelDetailPayload(
 
   const evidenceImpact = buildEvidenceImpactSummary(breakdownItems);
   const referenceSections = buildReferenceSections(evidenceBlocks, breakdownItems);
+  const normalizedEvidence = normalizeEvidenceItems(evidenceRaw);
 
   const sourceLabel =
     typeof modelRow?.source === "string" && modelRow?.source.trim()
@@ -581,6 +710,7 @@ export async function getModelDetailPayload(
       decisionSource: detail.decisionSource ?? null,
     },
     absolute,
+    evidence: normalizedEvidence,
     evidenceCards: {
       blocks: evidenceBlocks,
       errorMessage: evidenceErrorMessage,

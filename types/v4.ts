@@ -80,6 +80,25 @@ export type AbsoluteBlock = {
 
 export type V4EvidenceKey = "official_page" | "dev_activity" | "paper" | "audit";
 
+export type V4EvidenceStatus =
+  | "ok"
+  | "not_found"
+  | "blocked"
+  | "rate_limited"
+  | "invalid"
+  | "ambiguous"
+  | "missing_source_link"
+  | "missing";
+
+export type EvidenceItem = {
+  type: V4EvidenceKey;
+  status: V4EvidenceStatus;
+  reasons: string[];
+  refs: string[];
+  extracted?: unknown;
+  label?: string;
+};
+
 export type V4ModelDetailEvidenceBlock = {
   key: V4EvidenceKey;
   status: string;
@@ -118,6 +137,7 @@ export type V4ModelDetailResponse = {
     decisionSource: string | null;
   };
   absolute: AbsoluteBlock;
+  evidence: EvidenceItem[];
   evidenceCards: {
     blocks: Record<string, V4ModelDetailEvidenceBlock>;
     errorMessage: string | null;

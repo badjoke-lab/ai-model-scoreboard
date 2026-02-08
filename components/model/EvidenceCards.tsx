@@ -1,15 +1,17 @@
 import Link from "next/link";
 
-import { type EvidenceBlock, formatStatusLabel, truncateJson } from "@/lib/v4/explainability";
+import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
+import { formatStatusLabel, formatKeyLabel } from "@/lib/v4/explainability";
 import { formatReasonList } from "@/lib/v4/deriveReasons";
+import type { EvidenceItem, V4EvidenceKey } from "@/types/v4";
 
 type EvidenceCardsProps = {
-  blocks: Record<string, EvidenceBlock>;
+  evidence: EvidenceItem[];
   errorMessage?: string | null;
   impactByKey?: Record<string, string>;
 };
 
-const CARD_TITLES: Record<string, string> = {
+const CARD_TITLES: Record<V4EvidenceKey, string> = {
   official_page: "Official Page",
   dev_activity: "Dev Activity",
   paper: "Paper",
@@ -55,17 +57,32 @@ function impactText(
   }
 }
 
-function renderExtracted(extracted: unknown): string | null {
+function formatExtracted(extracted: unknown): string | null {
   if (extracted === null || extracted === undefined) return null;
   if (typeof extracted === "string" && extracted.trim()) return extracted.trim();
   if (typeof extracted === "object") {
-    return truncateJson(extracted, 220);
+    return JSON.stringify(extracted, null, 2);
   }
   return String(extracted);
 }
 
-export default function EvidenceCards({ blocks, errorMessage, impactByKey }: EvidenceCardsProps) {
-  const orderedKeys = ["official_page", "dev_activity", "paper", "audit"];
+function normalizeEvidenceItems(items: EvidenceItem[]): EvidenceItem[] {
+  const orderedKeys: V4EvidenceKey[] = ["official_page", "dev_activity", "paper", "audit"];
+  const map = new Map(items.map((item) => [item.type, item]));
+  return orderedKeys.map(
+    (key) =>
+      map.get(key) ?? {
+        type: key,
+        status: "not_found",
+        reasons: [`missing_evidence_type:${key}`],
+        refs: [],
+        label: formatKeyLabel(key),
+      }
+  );
+}
+
+export default function EvidenceCards({ evidence, errorMessage, impactByKey }: EvidenceCardsProps) {
+  const orderedEvidence = normalizeEvidenceItems(evidence);
   return (
     <section className="rounded-2xl border border-slate-800 bg-surface/70 p-6 shadow-lg">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -79,27 +96,48 @@ export default function EvidenceCards({ blocks, errorMessage, impactByKey }: Evi
         </div>
       ) : null}
       <div className="mt-4 grid gap-4 md:grid-cols-2">
-        {orderedKeys.map((key) => {
-          const block = blocks[key];
-          const reasons = block ? formatReasonList(block.reasons) : [];
-          const extracted = block ? renderExtracted(block.extracted) : null;
+        {orderedEvidence.map((item) => {
+          const key = item.type;
+          const reasons = formatReasonList(item.reasons).slice(0, 3);
+          const extracted = formatExtracted(item.extracted);
+          const url = pickEvidenceUrl(item);
           return (
             <div
-              key={key}
+              key={item.type}
               className="rounded-xl border border-slate-800 bg-background/60 p-4 text-sm text-slate-200"
             >
               <div className="flex items-center justify-between">
-                <h3 className="font-semibold text-slate-100">{CARD_TITLES[key]}</h3>
+                <div>
+                  <h3 className="font-semibold text-slate-100">
+                    {item.label ?? CARD_TITLES[key]}
+                  </h3>
+                  <p className="text-xs text-slate-400">type: {item.type}</p>
+                </div>
                 <span className="text-base">
-                  {statusIcon(block?.status)} {formatStatusText(block?.status)}
+                  {statusIcon(item.status)} {formatStatusText(item.status)}
                 </span>
               </div>
               <div className="mt-3 space-y-2 text-xs text-slate-300">
                 <div>
+                  <span className="uppercase text-[0.65rem] text-slate-400">url:</span>{" "}
+                  {url ? (
+                    <Link
+                      href={url}
+                      className="font-semibold text-accent hover:text-accent/80"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {url}
+                    </Link>
+                  ) : (
+                    <span>No link provided.</span>
+                  )}
+                </div>
+                <div>
                   <span className="uppercase text-[0.65rem] text-slate-400">refs:</span>{" "}
-                  {block?.refs?.length ? (
+                  {item.refs.length ? (
                     <ul className="mt-1 space-y-1">
-                      {block.refs.map((ref) => (
+                      {item.refs.map((ref) => (
                         <li key={ref}>
                           <Link
                             href={ref}
@@ -116,14 +154,6 @@ export default function EvidenceCards({ blocks, errorMessage, impactByKey }: Evi
                     <p>No references provided.</p>
                   )}
                 </div>
-                {extracted ? (
-                  <div>
-                    <span className="uppercase text-[0.65rem] text-slate-400">extracted:</span>
-                    <pre className="mt-1 whitespace-pre-wrap rounded-lg border border-slate-800 bg-slate-950/40 p-2 text-[0.65rem] text-slate-200">
-                      {extracted}
-                    </pre>
-                  </div>
-                ) : null}
                 {reasons.length ? (
                   <div>
                     <span className="uppercase text-[0.65rem] text-slate-400">reasons:</span>
@@ -144,9 +174,17 @@ export default function EvidenceCards({ blocks, errorMessage, impactByKey }: Evi
                     How this affected scoring
                   </span>
                   <p className="mt-1">
-                    {impactText(key, block?.status, impactByKey?.[key] ?? null)}
+                    {impactText(key, item.status, impactByKey?.[key] ?? null)}
                   </p>
                 </div>
+                <details className="rounded-lg border border-slate-800 bg-slate-950/40 p-2 text-[0.7rem] text-slate-200">
+                  <summary className="cursor-pointer uppercase text-[0.65rem] text-slate-400">
+                    extracted
+                  </summary>
+                  <pre className="mt-2 whitespace-pre-wrap text-[0.65rem] text-slate-200">
+                    {extracted ?? "No extracted data."}
+                  </pre>
+                </details>
               </div>
             </div>
           );

@@ -148,9 +148,9 @@ export default async function ModelDetailPage({
   const { data: detailResponse, error: detailError } = await fetchModelDetail(modelKey);
   const detail = detailResponse?.header ?? null;
   const breakdownItems = detailResponse?.breakdown.items ?? [];
-  const evidenceBlocks = detailResponse?.evidenceCards.blocks ?? {};
   const evidenceErrorMessage = detailResponse?.evidenceCards.errorMessage ?? null;
   const evidenceImpact = detailResponse?.evidenceCards.impactByKey ?? {};
+  const evidenceItems = detailResponse?.evidence ?? [];
   const referenceSections = detailResponse?.references ?? [];
   const absolute = detailResponse?.absolute ?? buildMissingAbsoluteBlock(modelKey);
   const topDrivers = detailResponse?.evidenceCards.topReasons ?? [];
@@ -230,7 +230,7 @@ export default async function ModelDetailPage({
           topDrivers={[]}
         />
 
-        <EvidenceCards blocks={evidenceBlocks} errorMessage={evidenceErrorMessage} impactByKey={{}} />
+        <EvidenceCards evidence={evidenceItems} errorMessage={evidenceErrorMessage} impactByKey={{}} />
 
         <section className="rounded-2xl border border-rose-500/50 bg-rose-500/10 p-6 shadow-lg">
           <h2 className="text-lg font-semibold text-rose-100">Detail data unavailable</h2>
@@ -294,7 +294,7 @@ export default async function ModelDetailPage({
       />
 
       <EvidenceCards
-        blocks={evidenceBlocks}
+        evidence={evidenceItems}
         errorMessage={evidenceErrorMessage}
         impactByKey={evidenceImpact}
       />
