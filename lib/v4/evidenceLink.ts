@@ -1,34 +1,15 @@
-import { isHttpUrl } from "@/lib/v4/explainability";
-import type { EvidenceItem } from "@/types/v4";
+export function pickEvidenceUrl(e: any): string | null {
+  const refs = e?.refs;
+  if (Array.isArray(refs) && typeof refs[0] === "string" && refs[0]) return refs[0];
 
-const URL_KEYS = ["url", "link", "href"];
+  const ex = e?.extracted?.url;
+  if (typeof ex === "string" && ex) return ex;
 
-function extractUrls(value: unknown): string[] {
-  if (!value) return [];
-  if (typeof value === "string") return [value];
-  if (Array.isArray(value)) {
-    return value.flatMap((entry) => extractUrls(entry));
-  }
-  if (typeof value === "object") {
-    return URL_KEYS.flatMap((key) => {
-      const record = value as Record<string, unknown>;
-      const candidate = record[key];
-      return typeof candidate === "string" ? [candidate] : [];
-    });
-  }
-  return [];
-}
+  const link = e?.link;
+  if (typeof link === "string" && link) return link;
 
-export function pickEvidenceUrl(item: EvidenceItem): string | null {
-  const candidates = [
-    ...(Array.isArray(item.refs) ? item.refs : []),
-    ...extractUrls(item.extracted),
-  ];
-  for (const candidate of candidates) {
-    if (typeof candidate !== "string") continue;
-    const trimmed = candidate.trim();
-    if (!trimmed) continue;
-    if (isHttpUrl(trimmed)) return trimmed;
-  }
+  const url = e?.url;
+  if (typeof url === "string" && url) return url;
+
   return null;
 }

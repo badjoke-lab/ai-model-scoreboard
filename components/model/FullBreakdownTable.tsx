@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { formatKeyLabel, formatMetricValue } from "@/lib/v4/explainability";
+import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
 import { checkVerifiableScore } from "@/lib/v4/verifiable-score";
 
 export type BreakdownEvidence = {
@@ -35,7 +36,7 @@ function formatScore(value: number | null): string {
 
 function formatEvidenceLabel(item: BreakdownEvidence): string {
   const typeLabel = item.type ? formatKeyLabel(item.type) : "Evidence";
-  if (item.link) return `${typeLabel}:`;
+  if (pickEvidenceUrl(item)) return `${typeLabel}:`;
   if (item.status) return `${typeLabel} (${item.status})`;
   return typeLabel;
 }
@@ -110,25 +111,33 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                     </p>
                     <div className="mt-2 space-y-1">
                       {item.usedEvidence.length ? (
-                        item.usedEvidence.map((evidence, index) => (
-                          <div key={`${item.key}-evidence-${index}`}>
+                        item.usedEvidence.map((evidence, index) => {
+                          const url = pickEvidenceUrl(evidence);
+                          return (
+                            <div key={`${item.key}-evidence-${index}`} className="space-y-1">
                             <span className="font-semibold text-slate-200">
                               Evidence:
                             </span>{" "}
-                            {evidence.link ? (
+                            {url ? (
                               <Link
-                                href={evidence.link}
+                                href={url}
                                 target="_blank"
                                 rel="noreferrer"
                                 className="font-semibold text-accent hover:text-accent/80"
                               >
-                                {formatEvidenceLabel(evidence)} {evidence.link}
+                                {formatEvidenceLabel(evidence)} {url}
                               </Link>
                             ) : (
                               <span>{formatEvidenceLabel(evidence)} No link provided.</span>
                             )}
+                            {!url ? (
+                              <p className="rounded-md border border-amber-500/60 bg-amber-500/10 px-2 py-1 text-[0.7rem] text-amber-200">
+                                Missing evidence link (spec violation).
+                              </p>
+                            ) : null}
                           </div>
-                        ))
+                          );
+                        })
                       ) : (
                         <p className="text-xs text-slate-400">Evidence not provided.</p>
                       )}
