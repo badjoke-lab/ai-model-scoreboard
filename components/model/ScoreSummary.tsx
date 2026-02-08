@@ -35,7 +35,7 @@ function resolveCategoryScore(
     categoryScores,
   }: Pick<ScoreSummaryProps, "detail" | "scoreBreakdown" | "categoryScores">
 ): number {
-  const sources: Array<unknown> = [
+  const sources: Array<any> = [
     detail?.categoryScores,
     detail?.scores?.categories,
     detail?.categories?.find((c) => c.id === categoryId)?.score,
@@ -46,7 +46,7 @@ function resolveCategoryScore(
   for (const source of sources) {
     if (typeof source === "number" && Number.isFinite(source)) return source;
     if (typeof source === "object" && source !== null) {
-      const candidate = (source as Record<string, unknown>)[categoryId];
+      const candidate = (source as Record<string, any>)[categoryId];
       if (typeof candidate === "number" && Number.isFinite(candidate)) return candidate;
     }
   }

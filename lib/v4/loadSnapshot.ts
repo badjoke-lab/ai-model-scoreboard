@@ -45,7 +45,7 @@ export type V4ModelMetadata = {
   scores?: {
     overall?: number;
     categories?: Record<string, number>;
-    items?: Record<string, unknown>;
+    items?: Record<string, any>;
   };
 };
 
@@ -57,7 +57,7 @@ export type V4RankingEntry = {
   scores: {
     overall?: number;
     categories?: Record<string, number>;
-    items?: Record<string, unknown>;
+    items?: Record<string, any>;
   };
   updatedAt: string;
 };
@@ -67,7 +67,7 @@ export type V4SnapshotData = {
   rankings: V4RankingEntry[];
   modelsByKey: Record<string, V4ModelMetadata>;
   modelsArray: Array<V4ModelMetadata & { modelKey: string }>;
-  notListed: unknown[];
+  notListed: any[];
   evidenceIndex: V4EvidenceIndexEntry[];
   evidenceIndexByKey: Record<string, string>;
 };
@@ -80,11 +80,11 @@ const DEFAULT_FILES: V4SnapshotFiles = {
   evidenceDir: "evidence",
 };
 
-function isObject(value: unknown): value is Record<string, unknown> {
+function isObject(value: any): value is Record<string, any> {
   return typeof value === "object" && value !== null;
 }
 
-function parseSnapshotMeta(source: Record<string, unknown>): V4SnapshotMeta {
+function parseSnapshotMeta(source: Record<string, any>): V4SnapshotMeta {
   return {
     version: typeof source.version === "string" ? source.version : "v4",
     updatedAt: typeof source.updatedAt === "string" ? source.updatedAt : "",
@@ -97,14 +97,14 @@ function parseSnapshotMeta(source: Record<string, unknown>): V4SnapshotMeta {
   };
 }
 
-function normalizeEvidenceDir(raw: unknown): string {
+function normalizeEvidenceDir(raw: any): string {
   if (typeof raw !== "string") return DEFAULT_FILES.evidenceDir;
   const cleaned = raw.trim();
   if (!cleaned) return DEFAULT_FILES.evidenceDir;
   return cleaned.replace(/\/+$/, "");
 }
 
-export function resolveSnapshotFiles(rawIndex: unknown): V4SnapshotFiles {
+export function resolveSnapshotFiles(rawIndex: any): V4SnapshotFiles {
   if (!isObject(rawIndex)) return DEFAULT_FILES;
 
   const manifest = isObject(rawIndex.manifest)
@@ -138,7 +138,7 @@ export function resolveSnapshotFiles(rawIndex: unknown): V4SnapshotFiles {
   };
 }
 
-function normalizeModelEntry(raw: unknown): V4ModelMetadata | null {
+function normalizeModelEntry(raw: any): V4ModelMetadata | null {
   if (!isObject(raw)) return null;
   if (typeof raw.name !== "string" || typeof raw.vendor !== "string") return null;
   return {
@@ -159,7 +159,7 @@ function normalizeModelEntry(raw: unknown): V4ModelMetadata | null {
   };
 }
 
-export function normalizeModels(raw: unknown): {
+export function normalizeModels(raw: any): {
   modelsByKey: Record<string, V4ModelMetadata>;
   modelsArray: Array<V4ModelMetadata & { modelKey: string }>;
 } {
@@ -197,7 +197,7 @@ export function normalizeModels(raw: unknown): {
   return { modelsByKey, modelsArray };
 }
 
-export function normalizeRankings(raw: unknown): V4RankingEntry[] {
+export function normalizeRankings(raw: any): V4RankingEntry[] {
   if (Array.isArray(raw)) {
     return raw.filter((entry): entry is V4RankingEntry => isObject(entry)) as V4RankingEntry[];
   }
@@ -207,7 +207,7 @@ export function normalizeRankings(raw: unknown): V4RankingEntry[] {
   return [];
 }
 
-export function normalizeEvidenceIndex(raw: unknown): {
+export function normalizeEvidenceIndex(raw: any): {
   evidenceIndex: V4EvidenceIndexEntry[];
   evidenceIndexByKey: Record<string, string>;
 } {
@@ -293,26 +293,26 @@ export async function loadEvidenceForModel(
   modelKey: string,
   evidenceIndexByKey: Record<string, string>,
   files: V4SnapshotFiles
-): Promise<unknown> {
+): Promise<any> {
   const evidencePath = resolveEvidencePath(modelKey, evidenceIndexByKey, files);
-  return readJsonFile<unknown>(evidencePath);
+  return readJsonFile<any>(evidencePath);
 }
 
 export async function loadV4Snapshot(): Promise<V4SnapshotData> {
-  const indexRaw = await readJsonFile<unknown>("index.json");
+  const indexRaw = await readJsonFile<any>("index.json");
   const indexMetaSource = isObject(indexRaw)
     ? isObject(indexRaw.meta)
       ? indexRaw.meta
       : indexRaw
     : {};
-  const meta = parseSnapshotMeta(indexMetaSource as Record<string, unknown>);
+  const meta = parseSnapshotMeta(indexMetaSource as Record<string, any>);
   const files = resolveSnapshotFiles(indexRaw);
 
   const [rankingsRaw, modelsRaw, notListedRaw, evidenceIndexRaw] = await Promise.all([
-    readJsonFile<unknown>(files.rankings),
-    readJsonFile<unknown>(files.models),
-    readJsonFile<unknown>(files.notListed),
-    readJsonFile<unknown>(files.evidenceIndex),
+    readJsonFile<any>(files.rankings),
+    readJsonFile<any>(files.models),
+    readJsonFile<any>(files.notListed),
+    readJsonFile<any>(files.evidenceIndex),
   ]);
 
   const { modelsByKey, modelsArray } = normalizeModels(modelsRaw);

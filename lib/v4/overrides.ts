@@ -10,35 +10,35 @@ export type EvidenceOverride = {
   url?: string;
   refs?: string[];
   reasons?: string[];
-  extracted?: unknown;
+  extracted?: any;
 };
 
 export type ModelOverride = {
   modelKey: string;
   evidence?: EvidenceOverride[];
   rawInputsBySource?: {
-    openrouter?: Record<string, unknown>;
-    huggingface?: Record<string, unknown>;
-    github?: Record<string, unknown>;
-    arxiv?: Record<string, unknown>;
-    ops?: Record<string, unknown>;
+    openrouter?: Record<string, any>;
+    huggingface?: Record<string, any>;
+    github?: Record<string, any>;
+    arxiv?: Record<string, any>;
+    ops?: Record<string, any>;
   };
   links?: string[];
 };
 
-function isObject(value: unknown): value is Record<string, unknown> {
+function isObject(value: any): value is Record<string, any> {
   return typeof value === "object" && value !== null;
 }
 
 function normalizeEvidenceOverrides(
-  value: unknown
+  value: any
 ): EvidenceOverride[] | undefined {
   if (!Array.isArray(value)) return undefined;
   const entries = value.filter((entry) => isObject(entry) && typeof entry.type === "string");
   return entries.length ? (entries as EvidenceOverride[]) : [];
 }
 
-function normalizeLinks(value: unknown): string[] | undefined {
+function normalizeLinks(value: any): string[] | undefined {
   if (!Array.isArray(value)) return undefined;
   const links = value
     .filter((entry) => typeof entry === "string")
@@ -47,11 +47,11 @@ function normalizeLinks(value: unknown): string[] | undefined {
   return links.length ? links : [];
 }
 
-function normalizeRawInputsBySource(value: unknown): ModelOverride["rawInputsBySource"] {
+function normalizeRawInputsBySource(value: any): ModelOverride["rawInputsBySource"] {
   if (!isObject(value)) return undefined;
-  const rawInputs = value as Record<string, unknown>;
+  const rawInputs = value as Record<string, any>;
   const normalizeSource = (key: string) =>
-    isObject(rawInputs[key]) ? (rawInputs[key] as Record<string, unknown>) : undefined;
+    isObject(rawInputs[key]) ? (rawInputs[key] as Record<string, any>) : undefined;
   return {
     openrouter: normalizeSource("openrouter"),
     huggingface: normalizeSource("huggingface"),
@@ -72,7 +72,7 @@ export async function loadModelOverride(modelKey: string): Promise<ModelOverride
       `${encodedKey}.json`
     );
     const raw = await fs.readFile(filePath, "utf-8");
-    const parsed = JSON.parse(raw) as unknown;
+    const parsed = JSON.parse(raw) as any;
     if (!isObject(parsed)) return null;
     const overrideKey = typeof parsed.modelKey === "string" ? parsed.modelKey : "";
     if (!overrideKey || overrideKey !== encodedKey) return null;

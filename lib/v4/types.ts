@@ -13,7 +13,7 @@ export type V4SnapshotData = {
 export type V4SnapshotApiError = {
   message: string;
   expectedPath?: string;
-  debug?: unknown;
+  debug?: any;
 };
 
 export type V4SnapshotApiResponse = {

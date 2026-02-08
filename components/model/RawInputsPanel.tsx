@@ -1,4 +1,5 @@
 import { formatKeyLabel, formatMetricValue } from "@/lib/v4/explainability";
+import { normalizeReasons, normalizeStatus } from "@/lib/v4/status";
 import type { RawInputsBySource, RawValue, MissingInfo } from "@/types/v4";
 
 type RawInputsPanelProps = {
@@ -25,12 +26,16 @@ function renderValue(value: RawValue) {
 
   if (isMissingInfo(value)) {
     const refs = value.refs ?? [];
+    const normalizedStatus = normalizeStatus(value.status, "raw");
+    const normalizedReasons = normalizeReasons(value.reasons);
     return (
       <div className="space-y-1 text-xs text-slate-300">
-        <div>status: {value.status}</div>
-        {value.reasons.length ? (
+        <div>
+          status: <span className="font-mono">{normalizedStatus}</span>
+        </div>
+        {normalizedReasons.length ? (
           <ul className="list-disc space-y-1 pl-4">
-            {value.reasons.slice(0, 5).map((reason) => (
+            {normalizedReasons.slice(0, 5).map((reason) => (
               <li key={reason}>{reason}</li>
             ))}
           </ul>
