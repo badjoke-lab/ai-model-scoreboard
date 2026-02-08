@@ -98,9 +98,15 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
       <div className="mt-4 grid gap-4 md:grid-cols-2">
         {orderedEvidence.map((item) => {
           const key = item.type;
-          const reasons = formatReasonList(item.reasons).slice(0, 3);
+          const displayStatus = item.status ? formatStatusText(item.status) : "missing_status";
+          const displayReasons =
+            Array.isArray(item.reasons) && item.reasons.length > 0
+              ? formatReasonList(item.reasons)
+              : ["missing_reasons"];
+          const reasons = displayReasons.slice(0, 5);
           const extracted = formatExtracted(item.extracted);
           const url = pickEvidenceUrl(item);
+          const isNotFound = (item.status ?? "").toLowerCase() === "not_found";
           return (
             <div
               key={item.type}
@@ -113,8 +119,8 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
                   </h3>
                   <p className="text-xs text-slate-400">type: {item.type}</p>
                 </div>
-                <span className="text-base">
-                  {statusIcon(item.status)} {formatStatusText(item.status)}
+                <span className={`text-base ${isNotFound ? "font-mono" : ""}`}>
+                  {statusIcon(item.status)} {displayStatus}
                 </span>
               </div>
               <div className="mt-3 space-y-2 text-xs text-slate-300">
@@ -138,21 +144,14 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
                     </p>
                   ) : null}
                 </div>
-                {reasons.length ? (
-                  <div>
-                    <span className="uppercase text-[0.65rem] text-slate-400">reasons:</span>
-                    <ul className="mt-1 list-disc space-y-1 pl-4">
-                      {reasons.map((reason) => (
-                        <li key={reason}>{reason}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ) : (
-                  <div>
-                    <span className="uppercase text-[0.65rem] text-slate-400">reasons:</span>
-                    <p className="mt-1">No additional reasons provided.</p>
-                  </div>
-                )}
+                <div>
+                  <span className="uppercase text-[0.65rem] text-slate-400">reasons:</span>
+                  <ul className="mt-1 list-disc space-y-1 pl-4">
+                    {reasons.map((reason) => (
+                      <li key={reason}>{reason}</li>
+                    ))}
+                  </ul>
+                </div>
                 <div className="rounded-lg border border-slate-800 bg-slate-950/40 p-2 text-[0.7rem] text-slate-200">
                   <span className="uppercase text-[0.65rem] text-slate-400">
                     How this affected scoring
