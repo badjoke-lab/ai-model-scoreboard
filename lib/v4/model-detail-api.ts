@@ -2,7 +2,6 @@ import { promises as fs } from "fs";
 import path from "path";
 
 import { formatReasonList } from "@/lib/v4/deriveReasons";
-import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
 import {
   buildEvidenceBlocks,
   dedupeUrls,
@@ -142,6 +141,17 @@ function isRawScalar(value: unknown): value is string | number | boolean {
   );
 }
 
+function normalizeRawInputBlock(value: unknown): Record<string, RawValue> {
+  if (!isObject(value)) return {};
+  const output: Record<string, RawValue> = {};
+  for (const [key, entry] of Object.entries(value)) {
+    if (isRawScalar(entry)) {
+      output[key] = entry;
+    }
+  }
+  return output;
+}
+
 function addRawValue(
   target: Record<string, RawValue>,
   key: string,
@@ -211,43 +221,6 @@ function normalizeEvidenceRefs(value: unknown): string[] {
       return "";
     })
     .filter(Boolean);
-}
-
-function collectLinks(detailLike: {
-  evidence?: EvidenceItem[];
-  breakdown?: { items?: V4ModelDetailBreakdownItem[] };
-}): string[] {
-  const out: string[] = [];
-  const seen = new Set<string>();
-  const pushNormalized = (value: string | null | undefined) => {
-    const normalized = String(value).trim();
-    if (!normalized) return;
-    if (!seen.has(normalized)) {
-      seen.add(normalized);
-      out.push(normalized);
-    }
-  };
-
-  const evidenceArray = Array.isArray(detailLike.evidence) ? detailLike.evidence : [];
-  for (const evidence of evidenceArray) {
-    const url = pickEvidenceUrl(evidence);
-    if (url) pushNormalized(url);
-  }
-
-  const breakdownItems = Array.isArray(detailLike.breakdown?.items)
-    ? detailLike.breakdown?.items
-    : [];
-  for (const item of breakdownItems) {
-    const evidenceValue = item.usedEvidence ?? (item as { evidence?: unknown }).evidence;
-    if (!evidenceValue) continue;
-    const evidenceArray = Array.isArray(evidenceValue) ? evidenceValue : [evidenceValue];
-    for (const evidence of evidenceArray) {
-      const url = pickEvidenceUrl(evidence);
-      if (url) pushNormalized(url);
-    }
-  }
-
-  return out;
 }
 
 async function readDecisionsFile(): Promise<unknown | null> {
@@ -342,14 +315,6 @@ function normalizeOverrideEvidenceEntry(entry: EvidenceOverride): EvidenceItem |
         ? entry.label.trim()
         : formatKeyLabel(type),
   };
-}
-
-function mergeRawInputs(
-  base: Record<string, RawValue>,
-  overrideInput?: Record<string, unknown>
-): Record<string, RawValue> {
-  if (!overrideInput) return base;
-  return { ...base, ...(overrideInput as Record<string, RawValue>) };
 }
 
 function findDecisionEntry(
@@ -451,81 +416,48 @@ function normalizeEvidenceItem(type: V4EvidenceKey, source: unknown): EvidenceIt
   };
 }
 
-function normalizeEvidenceItems(rawEvidence: unknown): EvidenceItem[] {
-  const map = new Map<V4EvidenceKey, EvidenceItem>();
-  if (isObject(rawEvidence)) {
-    for (const key of REQUIRED_EVIDENCE_TYPES) {
-      if (isObject(rawEvidence[key])) {
-        map.set(key, normalizeEvidenceItem(key, rawEvidence[key]));
-      }
-    }
-    const evidenceItems = Array.isArray(rawEvidence.evidenceItems)
-      ? rawEvidence.evidenceItems
-      : Array.isArray(rawEvidence.items)
-        ? rawEvidence.items
-        : Array.isArray(rawEvidence.evidence)
-          ? rawEvidence.evidence
-          : [];
-    for (const entry of evidenceItems) {
-      if (!isObject(entry)) continue;
-      const type = typeof entry.type === "string" ? entry.type.trim() : "";
-      if (!type) continue;
-      if (!REQUIRED_EVIDENCE_TYPES.includes(type as V4EvidenceKey)) continue;
-      const typed = type as V4EvidenceKey;
-      const normalized = normalizeEvidenceItem(typed, entry);
-      const current = map.get(typed);
-      if (!current) {
-        map.set(typed, normalized);
-        continue;
-      }
-      if (current.status !== "ok" && normalized.status === "ok") {
-        map.set(typed, normalized);
-      }
-    }
-  }
-  return REQUIRED_EVIDENCE_TYPES.map((type) => map.get(type) ?? buildMissingEvidenceItem(type));
+function normalizeBaseEvidenceEntry(entry: unknown): EvidenceItem | null {
+  if (!isObject(entry)) return null;
+  const type = typeof entry.type === "string" ? entry.type.trim() : "";
+  if (!REQUIRED_EVIDENCE_TYPES.includes(type as V4EvidenceKey)) return null;
+  return normalizeEvidenceItem(type as V4EvidenceKey, entry);
 }
 
-function normalizeEvidenceSlots(incoming: EvidenceItem[] | null | undefined): EvidenceItem[] {
-  const byType = new Map<V4EvidenceKey, EvidenceItem>();
-  const evidenceItems = Array.isArray(incoming) ? incoming : [];
-  for (const evidence of evidenceItems) {
-    if (!evidence || typeof evidence !== "object") continue;
-    const type = evidence.type;
-    if (!REQUIRED_EVIDENCE_TYPES.includes(type)) continue;
-    const existing = byType.get(type);
+function buildEvidenceMap(
+  entries: EvidenceItem[],
+  map: Map<V4EvidenceKey, EvidenceItem>
+): Map<V4EvidenceKey, EvidenceItem> {
+  for (const entry of entries) {
+    const existing = map.get(entry.type);
     if (!existing) {
-      byType.set(type, evidence);
+      map.set(entry.type, entry);
       continue;
     }
-    if (existing.status !== "ok" && evidence.status === "ok") {
-      byType.set(type, evidence);
+    if (existing.status !== "ok" && entry.status === "ok") {
+      map.set(entry.type, entry);
     }
   }
+  return map;
+}
 
-  if (!byType.has("audit")) {
-    byType.set("audit", {
-      type: "audit",
-      status: "not_found",
-      label: "Independent third-party security audit",
-      reasons: ["missing_evidence_type:audit"],
-      refs: [],
-    });
+function extractEvidenceLink(entry: EvidenceItem): string | null {
+  if (Array.isArray(entry.refs) && typeof entry.refs[0] === "string") {
+    const ref = entry.refs[0].trim();
+    if (ref) return ref;
   }
-
-  const audit = byType.get("audit");
-  if (audit) {
-    const reasons = Array.isArray(audit.reasons) && audit.reasons.length > 0
-      ? audit.reasons
-      : ["missing_reasons"];
-    byType.set("audit", {
-      ...audit,
-      status: audit.status ? audit.status : "not_found",
-      reasons,
-    });
+  if (isObject(entry.extracted) && typeof entry.extracted.url === "string") {
+    const url = entry.extracted.url.trim();
+    if (url) return url;
   }
-
-  return REQUIRED_EVIDENCE_TYPES.map((type) => byType.get(type) ?? buildMissingEvidenceItem(type));
+  if (typeof (entry as { url?: unknown }).url === "string") {
+    const url = (entry as { url?: string }).url?.trim();
+    if (url) return url;
+  }
+  if (typeof (entry as { link?: unknown }).link === "string") {
+    const link = (entry as { link?: string }).link?.trim();
+    if (link) return link;
+  }
+  return null;
 }
 
 function asAbsValue(value: unknown, field: string): AbsVal {
@@ -1068,12 +1000,8 @@ export async function getModelDetailPayload(
 
   const evidenceImpact = buildEvidenceImpactSummary(breakdownItems);
   const referenceSections = buildReferenceSections(evidenceBlocks, breakdownItems);
-  const normalizedEvidence = normalizeEvidenceItems(evidenceRaw);
   const rawInputsBySource = buildRawInputsBySource(detail, absoluteMetrics);
-  const links = collectLinks({ evidence: normalizedEvidence, breakdown: { items: breakdownItems } });
-  let mergedEvidence = normalizedEvidence;
-  let mergedRawInputsBySource = rawInputsBySource;
-  let mergedLinks = links;
+  const baseEvidence = (detail as { evidence?: unknown }).evidence ?? [];
   let override: ModelOverride | null = null;
 
   try {
@@ -1082,70 +1010,93 @@ export async function getModelDetailPayload(
     override = null;
   }
 
-  if (override) {
-    try {
-      if (Array.isArray(override.evidence)) {
-        const evidenceMap = new Map<V4EvidenceKey, EvidenceItem>();
-        mergedEvidence.forEach((item) => evidenceMap.set(item.type, item));
-        for (const entry of override.evidence) {
-          if (!entry || typeof entry !== "object") continue;
-          const normalized = normalizeOverrideEvidenceEntry(entry as EvidenceOverride);
-          if (!normalized) continue;
-          evidenceMap.set(normalized.type, normalized);
-        }
-        mergedEvidence = Array.from(evidenceMap.values());
-      }
+  const overrideEvidence = override?.evidence ?? [];
+  const baseEvidenceEntries = Array.isArray(baseEvidence)
+    ? baseEvidence
+        .map((entry) => normalizeBaseEvidenceEntry(entry))
+        .filter((entry): entry is EvidenceItem => Boolean(entry))
+    : [];
+  const overrideEvidenceEntries = Array.isArray(overrideEvidence)
+    ? overrideEvidence
+        .map((entry) => normalizeOverrideEvidenceEntry(entry as EvidenceOverride))
+        .filter((entry): entry is EvidenceItem => Boolean(entry))
+    : [];
+  const baseMap = buildEvidenceMap(baseEvidenceEntries, new Map<V4EvidenceKey, EvidenceItem>());
+  const overrideMap = buildEvidenceMap(
+    overrideEvidenceEntries,
+    new Map<V4EvidenceKey, EvidenceItem>()
+  );
+  const finalEvidence = REQUIRED_EVIDENCE_TYPES.map((type) => {
+    const selected =
+      overrideMap.get(type) ??
+      baseMap.get(type) ?? {
+        type,
+        status: "not_found",
+        label: type === "audit" ? "Independent third-party security audit" : undefined,
+        reasons: [`missing_evidence_type:${type}`],
+        refs: [],
+      };
+    const reasons =
+      Array.isArray(selected.reasons) && selected.reasons.length > 0
+        ? selected.reasons
+        : ["missing_reasons"];
+    return {
+      ...selected,
+      status: selected.status ? selected.status : "not_found",
+      reasons,
+      refs: Array.isArray(selected.refs) ? selected.refs : [],
+    };
+  });
 
-      if (override.rawInputsBySource) {
-        mergedRawInputsBySource = {
-          ...mergedRawInputsBySource,
-          openrouter: mergeRawInputs(
-            mergedRawInputsBySource.openrouter,
-            override.rawInputsBySource.openrouter
-          ),
-          huggingface: mergeRawInputs(
-            mergedRawInputsBySource.huggingface,
-            override.rawInputsBySource.huggingface
-          ),
-          github: mergeRawInputs(
-            mergedRawInputsBySource.github,
-            override.rawInputsBySource.github
-          ),
-          arxiv: mergeRawInputs(
-            mergedRawInputsBySource.arxiv,
-            override.rawInputsBySource.arxiv
-          ),
-          ops: mergeRawInputs(mergedRawInputsBySource.ops, override.rawInputsBySource.ops),
-        };
-      }
+  const rawInputsOverride = (detail as { rawInputsBySource?: unknown }).rawInputsBySource;
+  const baseRaw =
+    isObject(rawInputsOverride) || rawInputsOverride === undefined
+      ? (rawInputsOverride ?? rawInputsBySource)
+      : rawInputsBySource;
+  const ovRaw = override?.rawInputsBySource ?? {};
+  const finalRawInputsBySource: RawInputsBySource = {
+    openrouter: {
+      ...normalizeRawInputBlock(baseRaw.openrouter),
+      ...normalizeRawInputBlock(ovRaw.openrouter),
+    },
+    huggingface: {
+      ...normalizeRawInputBlock(baseRaw.huggingface),
+      ...normalizeRawInputBlock(ovRaw.huggingface),
+    },
+    github: {
+      ...normalizeRawInputBlock(baseRaw.github),
+      ...normalizeRawInputBlock(ovRaw.github),
+    },
+    arxiv: {
+      ...normalizeRawInputBlock(baseRaw.arxiv),
+      ...normalizeRawInputBlock(ovRaw.arxiv),
+    },
+    ops: {
+      ...normalizeRawInputBlock(baseRaw.ops),
+      ...normalizeRawInputBlock(ovRaw.ops),
+    },
+  };
 
-      if (Array.isArray(override.links)) {
-        const merged = new Set<string>();
-        const addLink = (value: string) => {
-          const trimmed = value.trim();
-          if (!trimmed) return;
-          merged.add(trimmed);
-        };
-        mergedLinks.forEach((link) => {
-          if (typeof link === "string") addLink(link);
-        });
-        override.links.forEach((link) => {
-          if (typeof link === "string") addLink(link);
-        });
-        mergedLinks = Array.from(merged);
-      }
-    } catch {
-      // ignore override errors
-    }
-  }
+  const baseLinks = Array.isArray((detail as { links?: unknown }).links)
+    ? ((detail as { links?: unknown[] }).links ?? [])
+    : [];
+  const overrideLinks = Array.isArray(override?.links) ? override.links : [];
+  const evidenceLinks = finalEvidence
+    .map((entry) => extractEvidenceLink(entry))
+    .filter((entry): entry is string => Boolean(entry));
+  const mergedLinks = Array.from(
+    new Set(
+      [...baseLinks, ...overrideLinks, ...evidenceLinks]
+        .map((entry) => (typeof entry === "string" ? entry.trim() : ""))
+        .filter(Boolean)
+    )
+  );
 
   const sourceLabel =
     typeof modelRow?.source === "string" && modelRow?.source.trim()
       ? modelRow.source
       : detail.layer;
   const adoption = buildAdoptionBlock(findDecisionEntry(decisionsData, modelKey));
-  const normalizedEvidenceSlots = normalizeEvidenceSlots(mergedEvidence);
-
   return {
     status: "ok",
     modelKey,
@@ -1162,7 +1113,7 @@ export async function getModelDetailPayload(
     },
     absolute,
     adoption,
-    evidence: normalizedEvidenceSlots,
+    evidence: finalEvidence,
     evidenceCards: {
       blocks: evidenceBlocks,
       errorMessage: evidenceErrorMessage,
@@ -1172,7 +1123,7 @@ export async function getModelDetailPayload(
     breakdown: {
       items: breakdownItems,
     },
-    rawInputsBySource: mergedRawInputsBySource,
+    rawInputsBySource: finalRawInputsBySource,
     links: mergedLinks,
     references: referenceSections,
   };
