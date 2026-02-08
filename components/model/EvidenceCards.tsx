@@ -132,6 +132,11 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
                   ) : (
                     <span>No link provided.</span>
                   )}
+                  {!url ? (
+                    <p className="mt-2 rounded-md border border-amber-500/60 bg-amber-500/10 px-2 py-1 text-[0.7rem] text-amber-200">
+                      Missing evidence link (spec violation).
+                    </p>
+                  ) : null}
                 </div>
                 <div>
                   <span className="uppercase text-[0.65rem] text-slate-400">refs:</span>{" "}

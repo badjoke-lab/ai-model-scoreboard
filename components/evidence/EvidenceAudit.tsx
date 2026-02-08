@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { formatKeyLabel, isHttpUrl } from "@/lib/v4/explainability";
+import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
 import type { BreakdownItem } from "@/components/score/BreakdownTable";
 
 type EvidenceFileRow = {
@@ -166,10 +167,7 @@ function extractUsedEvidenceRows(items: BreakdownItem[]): UsedEvidenceRow[] {
     const evidenceEntries = Array.isArray(item.usedEvidence) ? item.usedEvidence : [];
     let hasMissingRow = false;
     for (const evidence of evidenceEntries) {
-      const link =
-        getString(evidence.link) ??
-        getString((evidence as Record<string, unknown>).url) ??
-        getString((evidence as Record<string, unknown>).href);
+      const link = pickEvidenceUrl(evidence) ?? undefined;
       const type =
         getString(evidence.type) ??
         getString((evidence as Record<string, unknown>).kind) ??

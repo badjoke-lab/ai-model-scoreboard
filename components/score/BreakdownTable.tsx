@@ -1,11 +1,15 @@
 import Link from "next/link";
 
 import { formatStatusLabel, formatMetricValue } from "@/lib/v4/explainability";
+import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
 
 export type BreakdownEvidence = {
   type?: string;
   status?: string;
   link?: string;
+  url?: string;
+  refs?: string[];
+  extracted?: unknown;
 };
 
 export type BreakdownItem = {
@@ -53,9 +57,9 @@ export default function BreakdownTable({ items }: { items: BreakdownItem[] }) {
           {items.map((item) => {
             const evidenceEntries = item.usedEvidence ?? [];
             const scoreOk = typeof (item as any).score === "number" && Number.isFinite((item as any).score);
-            const evidenceLinks = evidenceEntries.filter(
-              (evidence) => typeof evidence.link === "string" && evidence.link.trim()
-            );
+            const evidenceLinks = evidenceEntries
+              .map((evidence) => pickEvidenceUrl(evidence))
+              .filter((link): link is string => typeof link === "string" && !!link.trim());
             const showWarning = scoreOk && (scoreOk && (item.specMissingEvidence || evidenceLinks.length === 0));
 
             return (
@@ -77,29 +81,37 @@ export default function BreakdownTable({ items }: { items: BreakdownItem[] }) {
                     <p className="text-xs text-slate-500">Withheld: missing item evidence.</p>
                   ) : evidenceEntries.length ? (
                     <ul className="space-y-1">
-                      {evidenceEntries.map((evidence, index) => (
-                        <li key={`${item.key}-evidence-${index}`}>
-                          {evidence.link ? (
-                            <Link
-                              href={evidence.link}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="font-semibold text-accent hover:text-accent/80"
-                            >
-                              [{evidence.type ?? "evidence"}] link
-                            </Link>
-                          ) : (
-                            <span className="text-slate-400">
-                              [{evidence.type ?? "evidence"}] link unavailable
-                            </span>
-                          )}
-                          {evidence.status ? (
-                            <span className="ml-2 text-[0.65rem] uppercase tracking-wide text-slate-500">
-                              {formatStatusLabel(evidence.status)}
-                            </span>
-                          ) : null}
-                        </li>
-                      ))}
+                      {evidenceEntries.map((evidence, index) => {
+                        const url = pickEvidenceUrl(evidence);
+                        return (
+                          <li key={`${item.key}-evidence-${index}`}>
+                            {url ? (
+                              <Link
+                                href={url}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="font-semibold text-accent hover:text-accent/80"
+                              >
+                                [{evidence.type ?? "evidence"}] link
+                              </Link>
+                            ) : (
+                              <span className="text-slate-400">
+                                [{evidence.type ?? "evidence"}] link unavailable
+                              </span>
+                            )}
+                            {!url ? (
+                              <p className="mt-1 text-[0.7rem] font-semibold text-amber-200">
+                                Missing evidence link (spec violation).
+                              </p>
+                            ) : null}
+                            {evidence.status ? (
+                              <span className="ml-2 text-[0.65rem] uppercase tracking-wide text-slate-500">
+                                {formatStatusLabel(evidence.status)}
+                              </span>
+                            ) : null}
+                          </li>
+                        );
+                      })}
                     </ul>
                   ) : (
                     <p className="text-xs text-slate-500">No evidence links listed.</p>
