@@ -1,3 +1,6 @@
+import { promises as fs } from "fs";
+import path from "path";
+
 import { formatReasonList } from "@/lib/v4/deriveReasons";
 import {
   buildEvidenceBlocks,
@@ -19,6 +22,7 @@ import {
 import type {
   AbsVal,
   AbsoluteBlock,
+  AdoptionBlock,
   EvidenceItem,
   Missing,
   V4EvidenceKey,
@@ -36,6 +40,16 @@ const REQUIRED_EVIDENCE_TYPES: V4EvidenceKey[] = [
   "paper",
   "audit",
 ];
+const ADOPTION_STATUSES = new Set<AdoptionBlock["status"]>([
+  "adopted",
+  "provisional",
+  "denied",
+]);
+const ADOPTION_SOURCES = new Set<AdoptionBlock["source"]>([
+  "decisions",
+  "openrouter",
+  "seed",
+]);
 const EVIDENCE_STATUSES = new Set<V4EvidenceStatus>([
   "ok",
   "not_found",
@@ -163,6 +177,139 @@ function normalizeEvidenceRefs(value: unknown): string[] {
       return "";
     })
     .filter(Boolean);
+}
+
+async function readDecisionsFile(): Promise<unknown | null> {
+  try {
+    const filePath = path.join(process.cwd(), "public", "data", "v4", "decisions.json");
+    const raw = await fs.readFile(filePath, "utf-8");
+    return JSON.parse(raw) as unknown;
+  } catch {
+    return null;
+  }
+}
+
+function normalizeAdoptionReasons(value: unknown): string[] {
+  if (Array.isArray(value)) {
+    return value
+      .filter((entry) => typeof entry === "string" && entry.trim())
+      .map((entry) => entry.trim());
+  }
+  if (typeof value === "string" && value.trim()) {
+    return value
+      .split(",")
+      .map((entry) => entry.trim())
+      .filter(Boolean);
+  }
+  return [];
+}
+
+function normalizeAdoptionSource(value: unknown): AdoptionBlock["source"] {
+  const normalized = typeof value === "string" ? value.trim().toLowerCase() : "";
+  if (ADOPTION_SOURCES.has(normalized as AdoptionBlock["source"])) {
+    return normalized as AdoptionBlock["source"];
+  }
+  return "decisions";
+}
+
+function normalizeAdoptionRefs(entry: Record<string, unknown>): string[] {
+  const refs = normalizeEvidenceRefs(
+    entry.refs ?? entry.references ?? entry.urls ?? entry.sources ?? entry.source_urls
+  );
+  const directRef =
+    typeof entry.url === "string"
+      ? entry.url
+      : typeof entry.link === "string"
+        ? entry.link
+        : typeof entry.href === "string"
+          ? entry.href
+          : undefined;
+  if (directRef && directRef.trim()) {
+    refs.unshift(directRef.trim());
+  }
+  if (isObject(entry.rawRef)) {
+    const rawRefs = normalizeEvidenceRefs(
+      entry.rawRef.refs ??
+        entry.rawRef.references ??
+        entry.rawRef.urls ??
+        entry.rawRef.sources ??
+        entry.rawRef.source_urls
+    );
+    refs.push(...rawRefs);
+    const rawDirect =
+      typeof entry.rawRef.url === "string"
+        ? entry.rawRef.url
+        : typeof entry.rawRef.link === "string"
+          ? entry.rawRef.link
+          : typeof entry.rawRef.href === "string"
+            ? entry.rawRef.href
+            : undefined;
+    if (rawDirect && rawDirect.trim()) {
+      refs.push(rawDirect.trim());
+    }
+  }
+  return dedupeUrls(refs.filter((ref) => isHttpUrl(ref)));
+}
+
+function findDecisionEntry(
+  decisionsData: unknown,
+  modelKey: string
+): Record<string, unknown> | null {
+  if (!decisionsData) return null;
+  const entries = Array.isArray(decisionsData)
+    ? decisionsData
+    : isObject(decisionsData) && Array.isArray(decisionsData.decisions)
+      ? decisionsData.decisions
+      : null;
+  if (!entries) return null;
+  for (const entry of entries) {
+    if (!isObject(entry)) continue;
+    const key =
+      typeof entry.modelKey === "string"
+        ? entry.modelKey
+        : typeof entry.key === "string"
+          ? entry.key
+          : typeof entry.id === "string"
+            ? entry.id
+            : typeof entry.slug === "string"
+              ? entry.slug
+              : null;
+    if (key === modelKey) return entry;
+  }
+  return null;
+}
+
+function buildAdoptionBlock(
+  decisionEntry: Record<string, unknown> | null
+): AdoptionBlock | Missing {
+  if (!decisionEntry) {
+    return missing("not_found", ["missing_decision_entry"], []);
+  }
+  const rawStatus =
+    typeof decisionEntry.status === "string" ? decisionEntry.status.trim().toLowerCase() : "";
+  const reasons = normalizeAdoptionReasons(
+    decisionEntry.reasons ??
+      decisionEntry.reason ??
+      decisionEntry.decision_reason ??
+      decisionEntry.decisionReason
+  );
+  let status: AdoptionBlock["status"] = "denied";
+  if (ADOPTION_STATUSES.has(rawStatus as AdoptionBlock["status"])) {
+    status = rawStatus as AdoptionBlock["status"];
+  } else {
+    reasons.push("invalid_decision_status");
+  }
+  if (!reasons.length) {
+    reasons.push("missing_decision_reason");
+  }
+  return {
+    status,
+    reasons,
+    source: normalizeAdoptionSource(
+      decisionEntry.source ?? decisionEntry.decision_source ?? decisionEntry.decisionSource
+    ),
+    refs: normalizeAdoptionRefs(decisionEntry),
+  };
 }
 
 function buildMissingEvidenceItem(type: V4EvidenceKey): EvidenceItem {
@@ -652,6 +799,7 @@ export async function getModelDetailPayload(
   const models = snapshot.models ?? {};
   const modelRow = (models[modelKey] ?? null) as Record<string, unknown> | null;
   const { detail, evidenceRaw, evidencePath, index } = await loadV4ModelDetail(modelKey);
+  const decisionsData = await readDecisionsFile();
 
   if (!detail) return null;
 
@@ -694,6 +842,7 @@ export async function getModelDetailPayload(
     typeof modelRow?.source === "string" && modelRow?.source.trim()
       ? modelRow.source
       : detail.layer;
+  const adoption = buildAdoptionBlock(findDecisionEntry(decisionsData, modelKey));
 
   return {
     status: "ok",
@@ -710,6 +859,7 @@ export async function getModelDetailPayload(
       decisionSource: detail.decisionSource ?? null,
     },
     absolute,
+    adoption,
     evidence: normalizedEvidence,
     evidenceCards: {
       blocks: evidenceBlocks,

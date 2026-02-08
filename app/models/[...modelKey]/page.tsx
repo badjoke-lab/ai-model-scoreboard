@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import {redirect, notFound} from "next/navigation";
 
 import AbsoluteMetrics from "@/components/model/AbsoluteMetrics";
+import AdoptionStatus from "@/components/model/AdoptionStatus";
 import EvidenceCards from "@/components/model/EvidenceCards";
 import FullBreakdownTable, {
   extractInputs,
@@ -94,6 +95,13 @@ const buildMissingAbsoluteBlock = (modelKey: string): AbsoluteBlock => ({
   trainingCutoff: missingValue("trainingCutoff"),
 });
 
+const buildMissingAdoption = (): Missing => ({
+  value: null,
+  status: "not_found",
+  reasons: ["missing_decision_entry"],
+  refs: [],
+});
+
 export default async function ModelDetailPage({
   params,
 }: {
@@ -153,6 +161,7 @@ export default async function ModelDetailPage({
   const evidenceItems = detailResponse?.evidence ?? [];
   const referenceSections = detailResponse?.references ?? [];
   const absolute = detailResponse?.absolute ?? buildMissingAbsoluteBlock(modelKey);
+  const adoption = detailResponse?.adoption ?? buildMissingAdoption();
   const topDrivers = detailResponse?.evidenceCards.topReasons ?? [];
 
   const { isNotListed, notListedEntry } = await loadV4ModelDetail(modelKey);
@@ -222,6 +231,8 @@ export default async function ModelDetailPage({
 
         <AbsoluteMetrics absolute={absolute} />
 
+        <AdoptionStatus adoption={adoption} />
+
         <ModelStatus status={statusLabel} reasons={[]} source={null} />
 
         <ScoreSummary
@@ -280,6 +291,8 @@ export default async function ModelDetailPage({
       />
 
       <AbsoluteMetrics absolute={absolute} />
+
+      <AdoptionStatus adoption={adoption} />
 
       <ModelStatus
         status={header.status}
