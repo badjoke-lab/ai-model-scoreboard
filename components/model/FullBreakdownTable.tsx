@@ -2,7 +2,9 @@ import Link from "next/link";
 
 import { formatKeyLabel, formatMetricValue } from "@/lib/v4/explainability";
 import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
+import { getDefaultRule, getFormula } from "@/lib/v4/formulas";
 import { checkVerifiableScore } from "@/lib/v4/verifiable-score";
+import type { Missing } from "@/types/v4";
 
 export type BreakdownEvidence = {
   type?: string;
@@ -18,6 +20,7 @@ export type FullBreakdownItem = {
   score: number | null;
   status?: string;
   inputs: Array<[string, string]>;
+  inputMissing?: Missing | null;
   reason: string;
   why: string | null;
   usedEvidence: BreakdownEvidence[];
@@ -36,9 +39,24 @@ function formatScore(value: number | null): string {
 
 function formatEvidenceLabel(item: BreakdownEvidence): string {
   const typeLabel = item.type ? formatKeyLabel(item.type) : "Evidence";
-  if (pickEvidenceUrl(item)) return `${typeLabel}:`;
-  if (item.status) return `${typeLabel} (${item.status})`;
-  return typeLabel;
+  const statusLabel = item.status ? ` (${item.status})` : "";
+  return `${typeLabel}${statusLabel}:`;
+}
+
+function isMissingValue(value: Missing | null | undefined): value is Missing {
+  if (!value || typeof value !== "object") return false;
+  return (
+    "value" in value &&
+    "status" in value &&
+    "reasons" in value &&
+    "refs" in value &&
+    value.value === null
+  );
+}
+
+function truncateText(value: string, maxLength: number): string {
+  if (value.length <= maxLength) return value;
+  return `${value.slice(0, maxLength - 1)}…`;
 }
 
 export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdownTableProps) {
@@ -53,8 +71,11 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
             <tr>
               <th className="px-4 py-3 text-left">Item</th>
               <th className="px-4 py-3 text-left">Score</th>
-              <th className="px-4 py-3 text-left">Inputs (raw)</th>
-              <th className="px-4 py-3 text-left">Evidence &amp; Why</th>
+              <th className="px-4 py-3 text-left">Input</th>
+              <th className="px-4 py-3 text-left">Evidence</th>
+              <th className="px-4 py-3 text-left">Formula</th>
+              <th className="px-4 py-3 text-left">Default rule</th>
+              <th className="px-4 py-3 text-left">Why</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-slate-800">
@@ -102,22 +123,47 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                         ))}
                       </ul>
                     ) : (
-                      <p className="text-xs text-slate-400">No input data provided.</p>
+                      <div className="space-y-2 text-xs text-slate-400">
+                        <div>Missing</div>
+                        {isMissingValue(item.inputMissing) ? (
+                          <div className="space-y-1">
+                            <div>status: {item.inputMissing.status}</div>
+                            {item.inputMissing.reasons.length ? (
+                              <ul className="list-disc space-y-1 pl-4">
+                                {item.inputMissing.reasons.slice(0, 3).map((reason) => (
+                                  <li key={reason}>{reason}</li>
+                                ))}
+                              </ul>
+                            ) : null}
+                            {item.inputMissing.refs.length ? (
+                              <ul className="space-y-1">
+                                {item.inputMissing.refs.slice(0, 3).map((ref) => (
+                                  <li key={ref}>
+                                    <a
+                                      href={ref}
+                                      className="text-accent underline hover:text-accent/80"
+                                      target="_blank"
+                                      rel="noreferrer"
+                                    >
+                                      {ref}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            ) : null}
+                          </div>
+                        ) : (
+                          <div>status: missing</div>
+                        )}
+                      </div>
                     )}
                   </td>
                   <td className="px-4 py-3 text-xs text-slate-300">
-                    <p>
-                      <span className="font-semibold text-slate-200">Why:</span> {item.reason}
-                    </p>
-                    <div className="mt-2 space-y-1">
-                      {item.usedEvidence.length ? (
-                        item.usedEvidence.map((evidence, index) => {
-                          const url = pickEvidenceUrl(evidence);
-                          return (
-                            <div key={`${item.key}-evidence-${index}`} className="space-y-1">
-                            <span className="font-semibold text-slate-200">
-                              Evidence:
-                            </span>{" "}
+                    <div className="space-y-1">
+                      {item.usedEvidence.map((evidence, index) => {
+                        const url = pickEvidenceUrl(evidence);
+                        return (
+                          <div key={`${item.key}-evidence-${index}`} className="space-y-1">
                             {url ? (
                               <Link
                                 href={url}
@@ -136,11 +182,8 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                               </p>
                             ) : null}
                           </div>
-                          );
-                        })
-                      ) : (
-                        <p className="text-xs text-slate-400">Evidence not provided.</p>
-                      )}
+                        );
+                      })}
                       {item.specMissingEvidence ? (
                         typeof item.score === "number" && Number.isFinite(item.score) ? (
                           <p className="rounded-md border border-rose-500/60 bg-rose-500/10 px-2 py-1 text-xs text-rose-200">
@@ -154,11 +197,31 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                       ) : null}
                     </div>
                   </td>
+                  <td className="px-4 py-3 text-xs text-slate-300">
+                    {getFormula(item.id ?? item.key) || "Formula not specified."}
+                  </td>
+                  <td className="px-4 py-3 text-xs text-slate-300">
+                    {getDefaultRule(item.id ?? item.key) || "No default rule provided."}
+                  </td>
+                  <td className="px-4 py-3 text-xs text-slate-300">
+                    {(() => {
+                      const rawWhy =
+                        typeof item.why === "string" && item.why.trim()
+                          ? item.why.trim()
+                          : "No explanation provided.";
+                      const truncatedWhy = truncateText(rawWhy, 120);
+                      return (
+                        <span title={rawWhy}>
+                          {truncatedWhy}
+                        </span>
+                      );
+                    })()}
+                  </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan={4} className="px-4 py-6 text-sm text-slate-400">
+                <td colSpan={7} className="px-4 py-6 text-sm text-slate-400">
                   {emptyMessage}
                 </td>
               </tr>
