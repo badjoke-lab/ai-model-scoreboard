@@ -45,6 +45,39 @@ export type V4ModelDetailEvidence = {
   url?: string;
 };
 
+export type Missing = {
+  value: null;
+  status:
+    | "ok"
+    | "not_found"
+    | "blocked"
+    | "rate_limited"
+    | "invalid"
+    | "ambiguous"
+    | "missing_source_link"
+    | "missing";
+  reasons: string[];
+  refs: string[];
+};
+
+export type AbsVal = string | number | boolean | string[] | Missing;
+
+export type AbsoluteBlock = {
+  modelKey: AbsVal;
+  displayName: AbsVal;
+  provider: AbsVal;
+  canonicalSlug: AbsVal;
+  contextLength: AbsVal;
+  maxOutputTokens: AbsVal;
+  pricingInputPer1M: AbsVal;
+  pricingOutputPer1M: AbsVal;
+  modalities: AbsVal;
+  supportsTools: AbsVal;
+  supportsJson: AbsVal;
+  releaseDate: AbsVal;
+  trainingCutoff: AbsVal;
+};
+
 export type V4EvidenceKey = "official_page" | "dev_activity" | "paper" | "audit";
 
 export type V4ModelDetailEvidenceBlock = {
@@ -84,7 +117,7 @@ export type V4ModelDetailResponse = {
     decisionReasons: string[];
     decisionSource: string | null;
   };
-  absoluteMetrics: Array<{ label: string; value: string; note?: string | null }>;
+  absolute: AbsoluteBlock;
   evidenceCards: {
     blocks: Record<string, V4ModelDetailEvidenceBlock>;
     errorMessage: string | null;

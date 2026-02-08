@@ -13,7 +13,7 @@ import ModelStatus from "@/components/model/ModelStatus";
 import ReferencesList from "@/components/model/ReferencesList";
 import ScoreSummary from "@/components/model/ScoreSummary";
 import { loadV4ModelDetail, loadV4SnapshotWithDiagnostics } from "@/lib/v4-snapshot";
-import type { V4ModelDetailResponse } from "@/types/v4";
+import type { AbsoluteBlock, Missing, V4ModelDetailResponse } from "@/types/v4";
 
 type ModelDetailFetchError = {
   status: number | null;
@@ -70,6 +70,29 @@ async function fetchModelDetail(modelKey: string): Promise<{
     };
   }
 }
+
+const missingValue = (field: string): Missing => ({
+  value: null,
+  status: "missing",
+  reasons: [`missing_field:${field}`],
+  refs: [],
+});
+
+const buildMissingAbsoluteBlock = (modelKey: string): AbsoluteBlock => ({
+  modelKey,
+  displayName: missingValue("displayName"),
+  provider: missingValue("provider"),
+  canonicalSlug: missingValue("canonicalSlug"),
+  contextLength: missingValue("contextLength"),
+  maxOutputTokens: missingValue("maxOutputTokens"),
+  pricingInputPer1M: missingValue("pricingInputPer1M"),
+  pricingOutputPer1M: missingValue("pricingOutputPer1M"),
+  modalities: missingValue("modalities"),
+  supportsTools: missingValue("supportsTools"),
+  supportsJson: missingValue("supportsJson"),
+  releaseDate: missingValue("releaseDate"),
+  trainingCutoff: missingValue("trainingCutoff"),
+});
 
 export default async function ModelDetailPage({
   params,
@@ -129,7 +152,7 @@ export default async function ModelDetailPage({
   const evidenceErrorMessage = detailResponse?.evidenceCards.errorMessage ?? null;
   const evidenceImpact = detailResponse?.evidenceCards.impactByKey ?? {};
   const referenceSections = detailResponse?.references ?? [];
-  const absoluteRows = detailResponse?.absoluteMetrics ?? [];
+  const absolute = detailResponse?.absolute ?? buildMissingAbsoluteBlock(modelKey);
   const topDrivers = detailResponse?.evidenceCards.topReasons ?? [];
 
   const { isNotListed, notListedEntry } = await loadV4ModelDetail(modelKey);
@@ -197,9 +220,9 @@ export default async function ModelDetailPage({
           updatedAt={null}
         />
 
-        <ModelStatus status={statusLabel} reasons={[]} source={null} />
+        <AbsoluteMetrics absolute={absolute} />
 
-        <AbsoluteMetrics rows={absoluteRows} />
+        <ModelStatus status={statusLabel} reasons={[]} source={null} />
 
         <ScoreSummary
           overallScore={modelMeta?.scores?.overall ?? null}
@@ -226,7 +249,7 @@ export default async function ModelDetailPage({
     notFound();
   }
 
-const header = detailResponse.header;
+  const header = detailResponse.header;
   const decisionReasons = header.decisionReasons ?? [];
   const missingEvidenceRules = breakdownItems.filter((item) => item.missingEvidenceRule);
   const breakdownItemsForTable: FullBreakdownItem[] = breakdownItems.map((item) => {
@@ -256,13 +279,13 @@ const header = detailResponse.header;
         updatedAt={header.updatedAt}
       />
 
+      <AbsoluteMetrics absolute={absolute} />
+
       <ModelStatus
         status={header.status}
         reasons={decisionReasons}
         source={header.decisionSource}
       />
-
-      <AbsoluteMetrics rows={absoluteRows} />
 
       <ScoreSummary
         overallScore={header.overallScore}

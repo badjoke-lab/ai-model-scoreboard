@@ -1,8 +1,3 @@
-import {
-  formatEvidenceStatus,
-  formatMetricOrMissing,
-  type AbsoluteMetricRow,
-} from "@/components/model/AbsoluteMetrics";
 import { formatReasonList } from "@/lib/v4/deriveReasons";
 import {
   buildEvidenceBlocks,
@@ -22,6 +17,9 @@ import {
   type V4ScoreItem,
 } from "@/lib/v4-snapshot";
 import type {
+  AbsVal,
+  AbsoluteBlock,
+  Missing,
   V4ModelDetailBreakdownItem,
   V4ModelDetailResponse,
 } from "@/types/v4";
@@ -42,6 +40,14 @@ function formatUpdatedDate(value?: string): string | null {
 
 function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null;
+}
+
+export function missing(
+  status: Missing["status"],
+  reasons: string[],
+  refs: string[] = []
+): Missing {
+  return { value: null, status, reasons, refs };
 }
 
 function extractAbsoluteMetrics(
@@ -71,126 +77,152 @@ function pickMetric(
   return fallback;
 }
 
-function formatPricing(pricing?: { input?: number; output?: number; currency?: string }): string {
-  if (!pricing) return "Missing";
-  const currency = pricing.currency ?? "USD";
-  const input = typeof pricing.input === "number" ? pricing.input : null;
-  const output = typeof pricing.output === "number" ? pricing.output : null;
-  if (input === null && output === null) return "Missing";
-  const inputLabel = input !== null ? `${input.toFixed(2)}` : "—";
-  const outputLabel = output !== null ? `${output.toFixed(2)}` : "—";
-  return `in: ${currency} ${inputLabel}   out: ${currency} ${outputLabel}`;
+function asString(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  return trimmed ? trimmed : null;
 }
 
-function formatSupportFlag(value: unknown): string {
-  if (typeof value === "boolean") return value ? "yes" : "no";
-  if (typeof value === "string" && value.trim()) return value.trim();
-  return "Missing";
+function asNumber(value: unknown): number | null {
+  if (typeof value !== "number") return null;
+  return Number.isFinite(value) ? value : null;
 }
 
-function buildAbsoluteMetricRows(
+function asBoolean(value: unknown): boolean | null {
+  if (typeof value !== "boolean") return null;
+  return value;
+}
+
+function asStringArray(value: unknown): string[] | null {
+  if (Array.isArray(value)) {
+    const trimmed = value
+      .map((entry) => (typeof entry === "string" ? entry.trim() : ""))
+      .filter(Boolean);
+    return trimmed.length ? trimmed : null;
+  }
+  const single = asString(value);
+  return single ? [single] : null;
+}
+
+function asAbsValue(value: unknown, field: string): AbsVal {
+  if (Array.isArray(value)) {
+    const arr = asStringArray(value);
+    return arr ?? missing("missing", [`missing_field:${field}`]);
+  }
+  if (typeof value === "string") {
+    const str = asString(value);
+    return str ?? missing("missing", [`missing_field:${field}`]);
+  }
+  if (typeof value === "number") {
+    const num = asNumber(value);
+    return num ?? missing("missing", [`missing_field:${field}`]);
+  }
+  if (typeof value === "boolean") {
+    const bool = asBoolean(value);
+    return bool ?? missing("missing", [`missing_field:${field}`]);
+  }
+  return missing("missing", [`missing_field:${field}`]);
+}
+
+function buildAbsoluteBlock(
+  modelKey: string,
   detail: {
     context?: number;
     pricing?: { input?: number; output?: number; currency?: string };
     type?: string;
     released?: string;
+    vendor?: string;
+    name?: string;
   },
-  metrics: Record<string, unknown>,
-  evidenceStatus?: string
-): AbsoluteMetricRow[] {
-  const contextLength = formatMetricOrMissing(
-    pickMetric(
-      metrics,
-      ["context_length", "context_window", "max_context_length", "contextLength"],
-      detail.context
-    ),
-    "Missing context length => affects score: performance signals reduced."
+  modelRow: Record<string, unknown> | null,
+  metrics: Record<string, unknown>
+): AbsoluteBlock {
+  const displayNameValue =
+    asString(modelRow?.name) ?? asString(detail.name) ?? null;
+  const providerValue =
+    asString(modelRow?.vendor) ?? asString(detail.vendor) ?? null;
+  const canonicalSlugValue = asString(modelRow?.slug);
+  const contextLengthValue = pickMetric(
+    metrics,
+    ["context_length", "context_window", "max_context_length", "contextLength"],
+    detail.context
   );
-  const maxOutputTokens = formatMetricOrMissing(
-    pickMetric(metrics, ["max_output_tokens", "max_output", "maxOutputTokens"]),
-    "Missing max output tokens => affects score: performance signals reduced."
+  const maxOutputTokensValue = pickMetric(
+    metrics,
+    ["max_output_tokens", "max_output", "maxOutputTokens"]
   );
-  const pricing = formatMetricOrMissing(
-    pickMetric(metrics, ["pricing", "price"], detail.pricing),
-    "Missing pricing => affects score: cost signals reduced.",
-    (value) => formatPricing(value as { input?: number; output?: number; currency?: string })
-  );
-  const modalities = formatMetricOrMissing(
-    pickMetric(metrics, ["modalities", "modality"], detail.type),
-    "Missing modalities => affects score: modality coverage signals reduced."
-  );
-  const toolSupport = formatSupportFlag(
-    pickMetric(metrics, ["tool_support", "tools", "tooling", "supports_tools"])
-  );
-  const jsonSupport = formatSupportFlag(
-    pickMetric(metrics, ["json_support", "json_mode", "supports_json"])
-  );
-  const toolJsonValue =
-    toolSupport === "Missing" && jsonSupport === "Missing"
-      ? "Missing"
-      : `tools: ${toolSupport}  json: ${jsonSupport}`;
-  const toolJsonNote =
-    toolJsonValue === "Missing"
-      ? "Missing tool/JSON support => affects score: tooling capability signals reduced."
-      : null;
+  const pricingValue = pickMetric(metrics, ["pricing", "price"], detail.pricing);
+  const directInputPrice = pickMetric(metrics, [
+    "pricing_input_per_1m",
+    "pricingInputPer1M",
+    "input_price_per_1m",
+    "input_price_per_million",
+  ]);
+  const directOutputPrice = pickMetric(metrics, [
+    "pricing_output_per_1m",
+    "pricingOutputPer1M",
+    "output_price_per_1m",
+    "output_price_per_million",
+  ]);
+  const pricingInput =
+    asNumber(directInputPrice) ??
+    (isObject(pricingValue) ? asNumber(pricingValue.input) : null);
+  const pricingOutput =
+    asNumber(directOutputPrice) ??
+    (isObject(pricingValue) ? asNumber(pricingValue.output) : null);
+  const modalitiesValue =
+    asStringArray(pickMetric(metrics, ["modalities", "modality"])) ??
+    asStringArray(modelRow?.modality) ??
+    asStringArray(detail.type);
+  const supportsToolsValue = pickMetric(metrics, [
+    "supports_tools",
+    "supportsTools",
+    "tool_support",
+    "tools",
+    "tooling",
+  ]);
+  const supportsJsonValue = pickMetric(metrics, [
+    "supports_json",
+    "supportsJson",
+    "json_support",
+    "json_mode",
+  ]);
+  const releaseDateValue = pickMetric(metrics, ["release_date", "releaseDate"], detail.released);
+  const trainingCutoffValue = pickMetric(metrics, [
+    "training_cutoff",
+    "training_data_cutoff",
+    "trainingCutoff",
+  ]);
 
-  const trainingCutoffValue = pickMetric(metrics, ["training_cutoff", "training_data_cutoff"]);
-  const trainingCutoff = formatMetricOrMissing(
-    trainingCutoffValue,
-    `Missing training cutoff => affects score: openness signals reduced. ${formatEvidenceStatus(
-      evidenceStatus
-    )}.`
-  );
-  const releaseDate = formatMetricOrMissing(
-    pickMetric(metrics, ["release_date"], detail.released),
-    `Missing release date => affects score: openness signals reduced. ${formatEvidenceStatus(
-      evidenceStatus
-    )}.`
-  );
-
-  return [
-    {
-      label: "Context length",
-      value: contextLength.value,
-      note: contextLength.note,
-    },
-    {
-      label: "Max output tokens",
-      value: maxOutputTokens.value,
-      note: maxOutputTokens.note,
-    },
-    {
-      label: "Pricing (per 1M tokens)",
-      value: pricing.value,
-      note: pricing.note,
-    },
-    {
-      label: "Modalities",
-      value: modalities.value,
-      note: modalities.note,
-    },
-    {
-      label: "Tool / JSON support",
-      value: toolJsonValue,
-      note: toolJsonNote,
-    },
-    {
-      label: "Training cutoff (evidence)",
-      value:
-        trainingCutoff.value === "Missing"
-          ? "Missing"
-          : `${trainingCutoff.value} (${formatEvidenceStatus(evidenceStatus)})`,
-      note: trainingCutoff.note,
-    },
-    {
-      label: "Release date (evidence)",
-      value:
-        releaseDate.value === "Missing"
-          ? "Missing"
-          : `${releaseDate.value} (${formatEvidenceStatus(evidenceStatus)})`,
-      note: releaseDate.note,
-    },
-  ];
+  return {
+    modelKey,
+    displayName: displayNameValue
+      ? displayNameValue
+      : missing("missing", ["missing_field:displayName"]),
+    provider: providerValue
+      ? providerValue
+      : missing("missing", ["missing_field:provider"]),
+    canonicalSlug: canonicalSlugValue
+      ? canonicalSlugValue
+      : missing("missing", ["missing_field:canonicalSlug"]),
+    contextLength: asAbsValue(contextLengthValue, "contextLength"),
+    maxOutputTokens: asAbsValue(maxOutputTokensValue, "maxOutputTokens"),
+    pricingInputPer1M:
+      pricingInput !== null
+        ? pricingInput
+        : missing("missing", ["missing_field:pricingInputPer1M"]),
+    pricingOutputPer1M:
+      pricingOutput !== null
+        ? pricingOutput
+        : missing("missing", ["missing_field:pricingOutputPer1M"]),
+    modalities: modalitiesValue
+      ? modalitiesValue
+      : missing("missing", ["missing_field:modalities"]),
+    supportsTools: asAbsValue(supportsToolsValue, "supportsTools"),
+    supportsJson: asAbsValue(supportsJsonValue, "supportsJson"),
+    releaseDate: asAbsValue(releaseDateValue, "releaseDate"),
+    trainingCutoff: asAbsValue(trainingCutoffValue, "trainingCutoff"),
+  };
 }
 
 function buildEvidenceImpactSummary(
@@ -515,11 +547,7 @@ export async function getModelDetailPayload(
   );
   const topDrivers = deriveTopDrivers(breakdownItems, evidenceBlocks);
 
-  const absoluteRows = buildAbsoluteMetricRows(
-    detail,
-    absoluteMetrics,
-    evidenceBlocks.official_page?.status
-  );
+  const absolute = buildAbsoluteBlock(modelKey, detail, modelRow, absoluteMetrics);
 
   const decisionReasons = detail.decisionReasons?.length
     ? detail.decisionReasons
@@ -552,7 +580,7 @@ export async function getModelDetailPayload(
       decisionReasons,
       decisionSource: detail.decisionSource ?? null,
     },
-    absoluteMetrics: absoluteRows,
+    absolute,
     evidenceCards: {
       blocks: evidenceBlocks,
       errorMessage: evidenceErrorMessage,
