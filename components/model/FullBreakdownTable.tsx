@@ -1,8 +1,9 @@
 import Link from "next/link";
 
-import { formatKeyLabel, formatMetricValue } from "@/lib/v4/explainability";
 import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
+import { formatKeyLabel, formatMetricValue } from "@/lib/v4/explainability";
 import { getItemDefaultEn, getItemFormulaEn } from "@/lib/v4/formulas";
+import { normalizeReasons, normalizeStatus } from "@/lib/v4/status";
 import { checkVerifiableScore } from "@/lib/v4/verifiable-score";
 import type { Missing } from "@/types/v4";
 
@@ -43,7 +44,7 @@ function formatScore(value: number | null): string {
 
 function formatEvidenceLabel(item: BreakdownEvidence): string {
   const typeLabel = item.type ? formatKeyLabel(item.type) : "Evidence";
-  const statusLabel = item.status ? ` (${item.status})` : "";
+  const statusLabel = item.status ? ` (${normalizeStatus(item.status, "breakdown")})` : " (missing)";
   return `${typeLabel}${statusLabel}:`;
 }
 
@@ -66,7 +67,7 @@ function getDefaultText(itemId: string): string {
   return getItemDefaultEn(itemId) || "—";
 }
 
-function normalizeWhy1Line(input: unknown): { short: string; full: string } {
+function normalizeWhy1Line(input: any): { short: string; full: string } {
   const raw = input === null || input === undefined ? "" : String(input);
   const full = raw.replace(/\r\n|\n|\r/g, " ").replace(/\s+/g, " ").trim();
   const short = full.length > 120 ? `${full.slice(0, 120)}…` : full;
@@ -139,12 +140,19 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                         <div>Missing</div>
                         {isMissingValue(item.inputMissing) ? (
                           <div className="space-y-1">
-                            <div>status: {item.inputMissing.status}</div>
-                            {item.inputMissing.reasons.length ? (
+                            <div>
+                              status:{" "}
+                              <span className="font-mono">
+                                {normalizeStatus(item.inputMissing.status, "breakdown")}
+                              </span>
+                            </div>
+                            {normalizeReasons(item.inputMissing.reasons).length ? (
                               <ul className="list-disc space-y-1 pl-4">
-                                {item.inputMissing.reasons.slice(0, 3).map((reason) => (
-                                  <li key={reason}>{reason}</li>
-                                ))}
+                                {normalizeReasons(item.inputMissing.reasons)
+                                  .slice(0, 3)
+                                  .map((reason) => (
+                                    <li key={reason}>{reason}</li>
+                                  ))}
                               </ul>
                             ) : null}
                             {item.inputMissing.refs.length ? (
@@ -165,7 +173,12 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                             ) : null}
                           </div>
                         ) : (
-                          <div>status: missing</div>
+                          <div>
+                            status:{" "}
+                            <span className="font-mono">
+                              {normalizeStatus(null, "breakdown")}
+                            </span>
+                          </div>
                         )}
                       </div>
                     )}
@@ -270,7 +283,7 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
   );
 }
 
-export function extractInputs(raw: Record<string, unknown>): Array<[string, string]> {
+export function extractInputs(raw: Record<string, any>): Array<[string, string]> {
   const inputs: Array<[string, string]> = [];
   const directInputs = raw.inputs_raw ?? raw.inputs;
   if (typeof directInputs === "object" && directInputs !== null) {

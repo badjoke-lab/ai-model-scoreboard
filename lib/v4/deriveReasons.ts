@@ -11,7 +11,6 @@ export const REASON_TEXT_MAP: Record<string, string> = {
   "blocked": "Evidence source was blocked; penalty applied per policy.",
   "error": "Evidence lookup failed; penalty applied per policy.",
   "invalid": "Evidence data was invalid; penalty applied per policy.",
-  "unknown": "Evidence status unavailable; penalty applied per policy.",
   "outdated": "Evidence exists but is outdated; penalty applied per policy.",
   "openrouter_model_page_only":
     "Only a model registry page was found; primary sources are missing so transparency score was reduced.",

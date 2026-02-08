@@ -1,4 +1,5 @@
 import { formatReasonSentence } from "@/lib/v4/deriveReasons";
+import { normalizeReasons, normalizeStatus } from "@/lib/v4/status";
 
 export type EvidenceKey = "official_page" | "dev_activity" | "paper" | "audit";
 
@@ -8,7 +9,7 @@ export type EvidenceBlock = {
   reasons: string[];
   refs: string[];
   updatedAt?: string;
-  extracted?: unknown;
+  extracted?: any;
 };
 
 const REASON_TOKEN_MAP: Record<string, string> = {
@@ -17,33 +18,22 @@ const REASON_TOKEN_MAP: Record<string, string> = {
   verified: "Evidence is verified and current.",
 };
 
-const POSITIVE_STATUSES = new Set(["ok", "found", "verified", "available", "present"]);
+const POSITIVE_STATUSES = new Set(["ok"]);
 const NEGATIVE_STATUSES = new Set([
   "not_found",
   "missing",
-  "unknown",
   "missing_source_link",
-  "error",
+  "blocked",
+  "rate_limited",
+  "ambiguous",
   "invalid",
 ]);
 
-function isObject(value: unknown): value is Record<string, unknown> {
+function isObject(value: any): value is Record<string, any> {
   return typeof value === "object" && value !== null;
 }
 
-function normalizeReasonList(value: unknown): string[] {
-  if (Array.isArray(value)) {
-    return value
-      .filter((entry) => typeof entry === "string" && entry.trim())
-      .map((entry) => entry.trim());
-  }
-  if (typeof value === "string" && value.trim()) {
-    return [value.trim()];
-  }
-  return [];
-}
-
-function normalizeRefEntries(value: unknown): string[] {
+function normalizeRefEntries(value: any): string[] {
   if (!Array.isArray(value)) return [];
   const refs = value
     .map((entry) => {
@@ -65,7 +55,7 @@ function normalizeRefEntries(value: unknown): string[] {
   return refs;
 }
 
-function getString(value: unknown): string | undefined {
+function getString(value: any): string | undefined {
   return typeof value === "string" && value.trim() ? value.trim() : undefined;
 }
 
@@ -105,24 +95,26 @@ export function toEnglishReason(item: {
 
 function normalizeEvidenceBlock(
   key: EvidenceKey,
-  source: unknown,
+  source: any,
   fallbackUpdatedAt?: string
 ): EvidenceBlock {
   if (!isObject(source)) {
     return {
       key,
-      status: "unknown",
-      reasons: [],
+      status: normalizeStatus("missing", "evidence"),
+      reasons: normalizeReasons([]),
       refs: [],
       updatedAt: fallbackUpdatedAt,
     };
   }
-  const status =
+  const status = normalizeStatus(
     getString(source.status) ??
-    getString(source.state) ??
-    getString(source.status_code) ??
-    "unknown";
-  const reasons = normalizeReasonList(
+      getString(source.state) ??
+      getString(source.status_code) ??
+      "missing",
+    "evidence"
+  );
+  const reasons = normalizeReasons(
     source.reasons ?? source.reasonCodes ?? source.reason_codes ?? source.reason
   );
   const refs = normalizeRefEntries(
@@ -146,7 +138,7 @@ function normalizeEvidenceBlock(
   };
 }
 
-export function buildEvidenceBlocks(rawEvidence: unknown): Record<EvidenceKey, EvidenceBlock> {
+export function buildEvidenceBlocks(rawEvidence: any): Record<EvidenceKey, EvidenceBlock> {
   const keys: EvidenceKey[] = ["official_page", "dev_activity", "paper", "audit"];
   if (!isObject(rawEvidence)) {
     return Object.fromEntries(keys.map((key) => [key, normalizeEvidenceBlock(key, null)])) as Record<
@@ -181,12 +173,12 @@ export function buildEvidenceBlocks(rawEvidence: unknown): Record<EvidenceKey, E
           normalizeEvidenceBlock(
             key,
             {
-              status: (item as Record<string, unknown>).status,
-              reasons: (item as Record<string, unknown>).reasons,
-              reasonCodes: (item as Record<string, unknown>).reasonCodes,
-              refs: (item as Record<string, unknown>).refs,
-              extracted: (item as Record<string, unknown>).extracted,
-              updatedAt: (item as Record<string, unknown>).updatedAt,
+              status: (item as Record<string, any>).status,
+              reasons: (item as Record<string, any>).reasons,
+              reasonCodes: (item as Record<string, any>).reasonCodes,
+              refs: (item as Record<string, any>).refs,
+              extracted: (item as Record<string, any>).extracted,
+              updatedAt: (item as Record<string, any>).updatedAt,
             },
             metaUpdatedAt
           ),
@@ -248,8 +240,7 @@ export function dedupeUrls(urls: string[]): string[] {
 }
 
 export function formatStatusLabel(status?: string): string {
-  if (!status) return "unknown";
-  return status.replace(/[_-]+/g, " ");
+  return normalizeStatus(status, "evidence");
 }
 
 export function formatKeyLabel(key: string): string {
@@ -257,7 +248,7 @@ export function formatKeyLabel(key: string): string {
   return normalized ? normalized.charAt(0).toUpperCase() + normalized.slice(1) : key;
 }
 
-export function orderSpecEntries(metrics: Record<string, unknown>): Array<[string, unknown]> {
+export function orderSpecEntries(metrics: Record<string, any>): Array<[string, any]> {
   const curatedOrder = [
     "parameters",
     "context_length",
@@ -270,14 +261,14 @@ export function orderSpecEntries(metrics: Record<string, unknown>): Array<[strin
   const entries = Object.entries(metrics);
   const curated = curatedOrder
     .map((key) => entries.find(([entryKey]) => entryKey === key))
-    .filter(Boolean) as Array<[string, unknown]>;
+    .filter(Boolean) as Array<[string, any]>;
   const remaining = entries
     .filter(([entryKey]) => !curatedOrder.includes(entryKey))
     .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }));
   return [...curated, ...remaining];
 }
 
-export function formatMetricValue(value: unknown): string {
+export function formatMetricValue(value: any): string {
   if (value === null || value === undefined) return "—";
   if (typeof value === "number") return Number.isFinite(value) ? value.toLocaleString("en-US") : "—";
   if (typeof value === "string" && value.trim()) return value;
@@ -292,7 +283,7 @@ export function formatMetricValue(value: unknown): string {
   return String(value);
 }
 
-export function truncateJson(value: unknown, maxLength = 800): string {
+export function truncateJson(value: any, maxLength = 800): string {
   const raw = JSON.stringify(value, null, 2);
   if (!raw) return "";
   if (raw.length <= maxLength) return raw;

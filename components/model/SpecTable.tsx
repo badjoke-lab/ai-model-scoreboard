@@ -1,6 +1,6 @@
 import { formatKeyLabel, formatMetricValue, orderSpecEntries } from "@/lib/v4/explainability";
 
-export default function SpecTable({ metrics }: { metrics: Record<string, unknown> | null }) {
+export default function SpecTable({ metrics }: { metrics: Record<string, any> | null }) {
   const entries = metrics ? orderSpecEntries(metrics) : [];
 
   return (

@@ -9,6 +9,7 @@ import {
   isHttpUrl,
   toEnglishReason,
 } from "@/lib/v4/explainability";
+import { normalizeReasons, normalizeStatus } from "@/lib/v4/status";
 import evidencePolicy from "@/lib/v4/evidence-policy.json";
 import {
   OFFICIAL_PAGE_ALLOWED_ITEMS,
@@ -57,17 +58,6 @@ const ADOPTION_SOURCES = new Set<AdoptionBlock["source"]>([
   "openrouter",
   "seed",
 ]);
-const EVIDENCE_STATUSES = new Set<V4EvidenceStatus>([
-  "ok",
-  "not_found",
-  "blocked",
-  "rate_limited",
-  "invalid",
-  "ambiguous",
-  "missing_source_link",
-  "missing",
-]);
-
 function formatUpdatedDate(value?: string): string | null {
   if (!value) return null;
   const date = new Date(value);
@@ -78,7 +68,7 @@ function formatUpdatedDate(value?: string): string | null {
   });
 }
 
-function isObject(value: unknown): value is Record<string, unknown> {
+function isObject(value: any): value is Record<string, any> {
   return typeof value === "object" && value !== null;
 }
 
@@ -87,12 +77,17 @@ export function missing(
   reasons: string[],
   refs: string[] = []
 ): Missing {
-  return { value: null, status, reasons, refs };
+  return {
+    value: null,
+    status: normalizeStatus(status, "breakdown"),
+    reasons: normalizeReasons(reasons),
+    refs,
+  };
 }
 
 function extractAbsoluteMetrics(
-  modelRow: Record<string, unknown> | null
-): Record<string, unknown> {
+  modelRow: Record<string, any> | null
+): Record<string, any> {
   if (!modelRow) return {};
   const direct = modelRow.absoluteMetrics;
   if (isObject(direct)) return direct;
@@ -104,10 +99,10 @@ function extractAbsoluteMetrics(
 }
 
 function pickMetric(
-  metrics: Record<string, unknown>,
+  metrics: Record<string, any>,
   keys: string[],
-  fallback?: unknown
-): unknown {
+  fallback?: any
+): any {
   for (const key of keys) {
     const value = metrics[key];
     if (value !== null && value !== undefined && value !== "") {
@@ -117,23 +112,23 @@ function pickMetric(
   return fallback;
 }
 
-function asString(value: unknown): string | null {
+function asString(value: any): string | null {
   if (typeof value !== "string") return null;
   const trimmed = value.trim();
   return trimmed ? trimmed : null;
 }
 
-function asNumber(value: unknown): number | null {
+function asNumber(value: any): number | null {
   if (typeof value !== "number") return null;
   return Number.isFinite(value) ? value : null;
 }
 
-function asBoolean(value: unknown): boolean | null {
+function asBoolean(value: any): boolean | null {
   if (typeof value !== "boolean") return null;
   return value;
 }
 
-function isRawScalar(value: unknown): value is string | number | boolean {
+function isRawScalar(value: any): value is string | number | boolean {
   return (
     typeof value === "string" ||
     (typeof value === "number" && Number.isFinite(value)) ||
@@ -141,7 +136,7 @@ function isRawScalar(value: unknown): value is string | number | boolean {
   );
 }
 
-function normalizeRawInputBlock(value: unknown): Record<string, RawValue> {
+function normalizeRawInputBlock(value: any): Record<string, RawValue> {
   if (!isObject(value)) return {};
   const output: Record<string, RawValue> = {};
   for (const [key, entry] of Object.entries(value)) {
@@ -155,7 +150,7 @@ function normalizeRawInputBlock(value: unknown): Record<string, RawValue> {
 function addRawValue(
   target: Record<string, RawValue>,
   key: string,
-  value: unknown
+  value: any
 ): void {
   if (value === null || value === undefined) return;
   if (isRawScalar(value)) {
@@ -163,7 +158,7 @@ function addRawValue(
   }
 }
 
-function asStringArray(value: unknown): string[] | null {
+function asStringArray(value: any): string[] | null {
   if (Array.isArray(value)) {
     const trimmed = value
       .map((entry) => (typeof entry === "string" ? entry.trim() : ""))
@@ -174,35 +169,22 @@ function asStringArray(value: unknown): string[] | null {
   return single ? [single] : null;
 }
 
-function normalizeEvidenceStatus(value: unknown): V4EvidenceStatus {
-  const raw = typeof value === "string" ? value.trim() : "";
-  const normalized = raw.toLowerCase();
-  if (EVIDENCE_STATUSES.has(normalized as V4EvidenceStatus)) {
-    return normalized as V4EvidenceStatus;
-  }
-  return "invalid";
+function normalizeEvidenceStatus(value: any): V4EvidenceStatus {
+  return normalizeStatus(value, "evidence");
 }
 
-function normalizeEvidenceReasons(value: unknown): string[] {
-  if (Array.isArray(value)) {
-    return value
-      .filter((entry) => typeof entry === "string" && entry.trim())
-      .map((entry) => entry.trim());
-  }
-  if (typeof value === "string" && value.trim()) {
-    return [value.trim()];
-  }
-  return [];
+function normalizeEvidenceReasons(value: any): string[] {
+  return normalizeReasons(value);
 }
 
-function normalizeOverrideReasons(value: unknown): string[] {
+function normalizeOverrideReasons(value: any): string[] {
   if (!Array.isArray(value)) return [];
   return value
     .filter((entry) => typeof entry === "string" && entry.trim())
     .map((entry) => entry.trim());
 }
 
-function normalizeEvidenceRefs(value: unknown): string[] {
+function normalizeEvidenceRefs(value: any): string[] {
   if (!Array.isArray(value)) return [];
   return value
     .map((entry) => {
@@ -223,17 +205,17 @@ function normalizeEvidenceRefs(value: unknown): string[] {
     .filter(Boolean);
 }
 
-async function readDecisionsFile(): Promise<unknown | null> {
+async function readDecisionsFile(): Promise<any | null> {
   try {
     const filePath = path.join(process.cwd(), "public", "data", "v4", "decisions.json");
     const raw = await fs.readFile(filePath, "utf-8");
-    return JSON.parse(raw) as unknown;
+    return JSON.parse(raw) as any;
   } catch {
     return null;
   }
 }
 
-function normalizeAdoptionReasons(value: unknown): string[] {
+function normalizeAdoptionReasons(value: any): string[] {
   if (Array.isArray(value)) {
     return value
       .filter((entry) => typeof entry === "string" && entry.trim())
@@ -248,7 +230,7 @@ function normalizeAdoptionReasons(value: unknown): string[] {
   return [];
 }
 
-function normalizeAdoptionSource(value: unknown): AdoptionBlock["source"] {
+function normalizeAdoptionSource(value: any): AdoptionBlock["source"] {
   const normalized = typeof value === "string" ? value.trim().toLowerCase() : "";
   if (ADOPTION_SOURCES.has(normalized as AdoptionBlock["source"])) {
     return normalized as AdoptionBlock["source"];
@@ -256,7 +238,7 @@ function normalizeAdoptionSource(value: unknown): AdoptionBlock["source"] {
   return "decisions";
 }
 
-function normalizeAdoptionRefs(entry: Record<string, unknown>): string[] {
+function normalizeAdoptionRefs(entry: Record<string, any>): string[] {
   const refs = normalizeEvidenceRefs(
     entry.refs ?? entry.references ?? entry.urls ?? entry.sources ?? entry.source_urls
   );
@@ -318,9 +300,9 @@ function normalizeOverrideEvidenceEntry(entry: EvidenceOverride): EvidenceItem |
 }
 
 function findDecisionEntry(
-  decisionsData: unknown,
+  decisionsData: any,
   modelKey: string
-): Record<string, unknown> | null {
+): Record<string, any> | null {
   if (!decisionsData) return null;
   const entries = Array.isArray(decisionsData)
     ? decisionsData
@@ -346,7 +328,7 @@ function findDecisionEntry(
 }
 
 function buildAdoptionBlock(
-  decisionEntry: Record<string, unknown> | null
+  decisionEntry: Record<string, any> | null
 ): AdoptionBlock | Missing {
   if (!decisionEntry) {
     return missing("not_found", ["missing_decision_entry"], []);
@@ -381,14 +363,14 @@ function buildAdoptionBlock(
 function buildMissingEvidenceItem(type: V4EvidenceKey): EvidenceItem {
   return {
     type,
-    status: "not_found",
-    reasons: [`missing_evidence_type:${type}`],
+    status: normalizeEvidenceStatus("not_found"),
+    reasons: normalizeEvidenceReasons([`missing_evidence_type:${type}`]),
     refs: [],
     label: formatKeyLabel(type),
   };
 }
 
-function normalizeEvidenceItem(type: V4EvidenceKey, source: unknown): EvidenceItem {
+function normalizeEvidenceItem(type: V4EvidenceKey, source: any): EvidenceItem {
   if (!isObject(source)) return buildMissingEvidenceItem(type);
   const refs = normalizeEvidenceRefs(
     source.refs ?? source.references ?? source.urls ?? source.sources
@@ -416,7 +398,7 @@ function normalizeEvidenceItem(type: V4EvidenceKey, source: unknown): EvidenceIt
   };
 }
 
-function normalizeBaseEvidenceEntry(entry: unknown): EvidenceItem | null {
+function normalizeBaseEvidenceEntry(entry: any): EvidenceItem | null {
   if (!isObject(entry)) return null;
   const type = typeof entry.type === "string" ? entry.type.trim() : "";
   if (!REQUIRED_EVIDENCE_TYPES.includes(type as V4EvidenceKey)) return null;
@@ -449,18 +431,18 @@ function extractEvidenceLink(entry: EvidenceItem): string | null {
     const url = entry.extracted.url.trim();
     if (url) return url;
   }
-  if (typeof (entry as { url?: unknown }).url === "string") {
+  if (typeof (entry as { url?: any }).url === "string") {
     const url = (entry as { url?: string }).url?.trim();
     if (url) return url;
   }
-  if (typeof (entry as { link?: unknown }).link === "string") {
+  if (typeof (entry as { link?: any }).link === "string") {
     const link = (entry as { link?: string }).link?.trim();
     if (link) return link;
   }
   return null;
 }
 
-function asAbsValue(value: unknown, field: string): AbsVal {
+function asAbsValue(value: any, field: string): AbsVal {
   if (Array.isArray(value)) {
     const arr = asStringArray(value);
     return arr ?? missing("missing", [`missing_field:${field}`]);
@@ -490,8 +472,8 @@ function buildAbsoluteBlock(
     vendor?: string;
     name?: string;
   },
-  modelRow: Record<string, unknown> | null,
-  metrics: Record<string, unknown>
+  modelRow: Record<string, any> | null,
+  metrics: Record<string, any>
 ): AbsoluteBlock {
   const displayNameValue =
     asString(modelRow?.name) ?? asString(detail.name) ?? null;
@@ -707,7 +689,7 @@ function normalizeEvidenceUrls(item: V4ScoreItem): string[] {
   return Array.from(urls);
 }
 
-function hasMeaningfulInputs(inputsRaw: Record<string, unknown> | null): boolean {
+function hasMeaningfulInputs(inputsRaw: Record<string, any> | null): boolean {
   if (!inputsRaw) return false;
   return Object.entries(inputsRaw).some(([key, value]) => {
     if (!key.trim()) return false;
@@ -726,7 +708,7 @@ function buildRawInputsBySource(
     released?: string;
     enrichment?: { github?: { status?: string; status_code?: string } | null } | null;
   },
-  absoluteMetrics: Record<string, unknown>
+  absoluteMetrics: Record<string, any>
 ): RawInputsBySource {
   const openrouter: Record<string, RawValue> = {};
   const github: Record<string, RawValue> = {};
@@ -797,7 +779,7 @@ function buildBreakdownItems(
   return Object.entries(scoreItems)
     .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
     .map(([key, item]) => {
-      const rawItem = item as Record<string, unknown>;
+      const rawItem = item as Record<string, any>;
       const inputsRaw = isObject(item.inputs_raw)
         ? item.inputs_raw
         : isObject(item.inputs)
@@ -850,13 +832,13 @@ function buildBreakdownItems(
           : effectiveEvidenceUrls.length > 0
             ? effectiveEvidenceUrls.map((url) => ({
                 type: "evidence",
-                status: "ok",
+                status: normalizeEvidenceStatus("ok"),
                 link: url,
               }))
             : [
                 {
                   type: "evidence",
-                  status: "missing",
+                  status: normalizeEvidenceStatus("missing"),
                 },
               ];
 
@@ -961,7 +943,7 @@ export async function getModelDetailPayload(
 ): Promise<V4ModelDetailResponse | null> {
   const snapshot = await loadV4SnapshotWithDiagnostics();
   const models = snapshot.models ?? {};
-  const modelRow = (models[modelKey] ?? null) as Record<string, unknown> | null;
+  const modelRow = (models[modelKey] ?? null) as Record<string, any> | null;
   const { detail, evidenceRaw, evidencePath, index } = await loadV4ModelDetail(modelKey);
   const decisionsData = await readDecisionsFile();
 
@@ -1001,7 +983,7 @@ export async function getModelDetailPayload(
   const evidenceImpact = buildEvidenceImpactSummary(breakdownItems);
   const referenceSections = buildReferenceSections(evidenceBlocks, breakdownItems);
   const rawInputsBySource = buildRawInputsBySource(detail, absoluteMetrics);
-  const baseEvidence = (detail as { evidence?: unknown }).evidence ?? [];
+  const baseEvidence = (detail as { evidence?: any }).evidence ?? [];
   let override: ModelOverride | null = null;
 
   try {
@@ -1031,24 +1013,21 @@ export async function getModelDetailPayload(
       overrideMap.get(type) ??
       baseMap.get(type) ?? {
         type,
-        status: "not_found",
+        status: normalizeEvidenceStatus("not_found"),
         label: type === "audit" ? "Independent third-party security audit" : undefined,
-        reasons: [`missing_evidence_type:${type}`],
+        reasons: normalizeEvidenceReasons([`missing_evidence_type:${type}`]),
         refs: [],
       };
-    const reasons =
-      Array.isArray(selected.reasons) && selected.reasons.length > 0
-        ? selected.reasons
-        : ["missing_reasons"];
+    const reasons = normalizeEvidenceReasons(selected.reasons);
     return {
       ...selected,
-      status: selected.status ? selected.status : "not_found",
+      status: normalizeEvidenceStatus(selected.status ?? "missing"),
       reasons,
       refs: Array.isArray(selected.refs) ? selected.refs : [],
     };
   });
 
-  const rawInputsOverride = (detail as { rawInputsBySource?: unknown }).rawInputsBySource;
+  const rawInputsOverride = (detail as { rawInputsBySource?: any }).rawInputsBySource;
   const baseRaw =
     isObject(rawInputsOverride) || rawInputsOverride === undefined
       ? (rawInputsOverride ?? rawInputsBySource)
@@ -1077,8 +1056,8 @@ export async function getModelDetailPayload(
     },
   };
 
-  const baseLinks = Array.isArray((detail as { links?: unknown }).links)
-    ? ((detail as { links?: unknown[] }).links ?? [])
+  const baseLinks = Array.isArray((detail as { links?: any }).links)
+    ? ((detail as { links?: any[] }).links ?? [])
     : [];
   const overrideLinks = Array.isArray(override?.links) ? override.links : [];
   const evidenceLinks = finalEvidence

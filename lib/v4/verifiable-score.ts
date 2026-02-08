@@ -9,7 +9,7 @@ export type V4VerifiableScoreItem = {
   id: string;
   label: string;
   score: number | null;
-  inputs: Record<string, unknown> | Array<unknown> | null;
+  inputs: Record<string, any> | Array<any> | null;
   why: string | null;
   usedEvidence: V4VerifiableEvidence[];
 };
