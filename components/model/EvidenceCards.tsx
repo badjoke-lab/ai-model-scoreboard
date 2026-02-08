@@ -138,27 +138,6 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
                     </p>
                   ) : null}
                 </div>
-                <div>
-                  <span className="uppercase text-[0.65rem] text-slate-400">refs:</span>{" "}
-                  {item.refs.length ? (
-                    <ul className="mt-1 space-y-1">
-                      {item.refs.map((ref) => (
-                        <li key={ref}>
-                          <Link
-                            href={ref}
-                            className="font-semibold text-accent hover:text-accent/80"
-                            target="_blank"
-                            rel="noreferrer"
-                          >
-                            {ref}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <p>No references provided.</p>
-                  )}
-                </div>
                 {reasons.length ? (
                   <div>
                     <span className="uppercase text-[0.65rem] text-slate-400">reasons:</span>
