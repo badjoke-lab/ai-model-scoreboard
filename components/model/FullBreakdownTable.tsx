@@ -9,6 +9,10 @@ import type { Missing } from "@/types/v4";
 export type BreakdownEvidence = {
   type?: string;
   status?: string;
+  refs?: string[];
+  extracted?: {
+    url?: string;
+  };
   link?: string;
   url?: string;
 };
