@@ -437,6 +437,83 @@ function uniqKeepOrder(xs: string[]): string[] {
   return out;
 }
 
+function collectBaseLinks(detail: Record<string, any>): string[] {
+  const out: string[] = [];
+  const candidates = [
+    (detail as { links?: any }).links,
+    (detail as { link?: any }).link,
+    (detail as { urls?: any }).urls,
+    (detail as { url?: any }).url,
+  ];
+  for (const candidate of candidates) {
+    const entries = asStringArray(candidate);
+    if (entries) out.push(...entries);
+  }
+  return out;
+}
+
+function collectLinksFromEvidenceBlocks(
+  evidenceBlocks: ReturnType<typeof buildEvidenceBlocks> | null | undefined
+): string[] {
+  if (!evidenceBlocks) return [];
+  const out: string[] = [];
+  for (const block of Object.values(evidenceBlocks)) {
+    const refs = (block as { refs?: unknown }).refs;
+    if (Array.isArray(refs)) {
+      for (const ref of refs) {
+        if (typeof ref === "string") out.push(ref);
+      }
+    }
+    const extracted = (block as { extracted?: unknown }).extracted;
+    if (isObject(extracted) && typeof extracted.url === "string") {
+      out.push(extracted.url);
+    }
+  }
+  return out;
+}
+
+function collectLinksFromBreakdownItems(
+  items: V4ModelDetailBreakdownItem[] | null | undefined
+): string[] {
+  if (!Array.isArray(items)) return [];
+  const out: string[] = [];
+  for (const item of items) {
+    if (Array.isArray(item.evidenceUrls)) {
+      for (const url of item.evidenceUrls) {
+        if (typeof url === "string") out.push(url);
+      }
+    }
+    if (Array.isArray(item.usedEvidence)) {
+      for (const evidence of item.usedEvidence) {
+        if (typeof evidence?.link === "string") out.push(evidence.link);
+        if (typeof evidence?.url === "string") out.push(evidence.url);
+        const refs = (evidence as { refs?: unknown }).refs;
+        if (Array.isArray(refs)) {
+          for (const ref of refs) {
+            if (typeof ref === "string") out.push(ref);
+          }
+        }
+      }
+    }
+  }
+  return out;
+}
+
+function collectLinksFromReferenceSections(
+  references: { urls?: string[] }[] | null | undefined
+): string[] {
+  if (!Array.isArray(references)) return [];
+  const out: string[] = [];
+  for (const reference of references) {
+    if (Array.isArray(reference?.urls)) {
+      for (const url of reference.urls) {
+        if (typeof url === "string") out.push(url);
+      }
+    }
+  }
+  return out;
+}
+
 function collectLinksFromEvidence(evidenceList: any[] | undefined | null): string[] {
   if (!Array.isArray(evidenceList)) return [];
   const out: string[] = [];
@@ -1090,21 +1167,24 @@ export async function getModelDetailPayload(
     },
   };
 
-  const baseLinks = Array.isArray((detail as { links?: any }).links)
-    ? ((detail as { links?: any[] }).links ?? [])
-    : [];
   const overrideLinks = Array.isArray(override?.links) ? override.links : [];
   const evidenceLinks = collectLinksFromEvidence((detail as { evidence?: any }).evidence);
+  const evidenceCardLinks = collectLinksFromEvidenceBlocks(evidenceBlocks);
   const breakdownSource =
     (detail as { fullBreakdown?: any }).fullBreakdown ??
     (detail as { scoreItems?: any }).scoreItems ??
     (detail as { breakdown?: any }).breakdown;
   const breakdownLinks = collectLinksFromFullBreakdown(breakdownSource);
+  const breakdownItemLinks = collectLinksFromBreakdownItems(breakdownItems);
+  const referenceLinks = collectLinksFromReferenceSections(referenceSections);
   const mergedLinks = uniqKeepOrder([
-    ...baseLinks,
+    ...collectBaseLinks(detail),
     ...overrideLinks,
     ...evidenceLinks,
+    ...evidenceCardLinks,
     ...breakdownLinks,
+    ...breakdownItemLinks,
+    ...referenceLinks,
   ]);
 
   const sourceLabel =
