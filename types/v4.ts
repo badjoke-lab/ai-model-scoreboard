@@ -154,6 +154,14 @@ export type V4ModelDetailBreakdownItem = {
   missingEvidenceRule: boolean;
 };
 
+export type CategoryReason1L = {
+  performance: string;
+  safety: string;
+  adoption: string;
+  openness: string;
+  cost: string;
+};
+
 export type V4ModelDetailResponse = {
   status: "ok";
   modelKey: string;
@@ -180,6 +188,7 @@ export type V4ModelDetailResponse = {
   breakdown: {
     items: V4ModelDetailBreakdownItem[];
   };
+  categoryReason1L: CategoryReason1L;
   rawInputsBySource: RawInputsBySource;
   links: string[];
   references: Array<{ label: string; urls: string[] }>;
