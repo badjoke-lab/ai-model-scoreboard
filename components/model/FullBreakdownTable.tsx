@@ -10,6 +10,7 @@ import type { Missing } from "@/types/v4";
 export type BreakdownEvidence = {
   type?: string;
   status?: string;
+  reasons?: string[];
   refs?: string[];
   extracted?: {
     url?: string;
@@ -30,6 +31,11 @@ export type FullBreakdownItem = {
   why: string | null;
   usedEvidence: BreakdownEvidence[];
   specMissingEvidence: boolean;
+  penaltyReasons?: string[];
+  penaltyReason?: string;
+  withheld?: boolean;
+  withheldReason?: string;
+  withheldReasons?: string[];
 };
 
 type FullBreakdownTableProps = {
@@ -72,6 +78,27 @@ function normalizeWhy1Line(input: any): { short: string; full: string } {
   const full = raw.replace(/\r\n|\n|\r/g, " ").replace(/\s+/g, " ").trim();
   const short = full.length > 120 ? `${full.slice(0, 120)}…` : full;
   return { short, full };
+}
+
+function getPenaltyReasons(item: FullBreakdownItem): string[] {
+  const reasons = Array.isArray(item.penaltyReasons)
+    ? item.penaltyReasons.filter((reason) => typeof reason === "string" && reason.trim())
+    : [];
+  if (reasons.length) return reasons;
+  if (typeof item.penaltyReason === "string" && item.penaltyReason.trim()) {
+    return [item.penaltyReason.trim()];
+  }
+  return [];
+}
+
+function getWithheldReasons(item: FullBreakdownItem): string[] {
+  if (Array.isArray(item.withheldReasons)) {
+    return item.withheldReasons.filter((reason) => typeof reason === "string" && reason.trim());
+  }
+  if (typeof item.withheldReason === "string" && item.withheldReason.trim()) {
+    return [item.withheldReason.trim()];
+  }
+  return [];
 }
 
 export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdownTableProps) {
@@ -221,6 +248,116 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                         )
                       ) : null}
                     </div>
+                    <details className="mt-3 rounded-md border border-slate-800 bg-slate-950/50 p-2 text-xs">
+                      <summary className="cursor-pointer font-semibold text-slate-100">
+                        Details
+                      </summary>
+                      {(() => {
+                        const evidenceEntries = item.usedEvidence.length
+                          ? item.usedEvidence
+                          : [{ type: "evidence" as const }];
+                        const penaltyReasons = getPenaltyReasons(item);
+                        const withheldReasons = getWithheldReasons(item);
+                        const specChecks: string[] = [];
+                        if (item.specMissingEvidence) {
+                          specChecks.push(
+                            "spec_missing_evidence: score exists but no verifiable URL is present"
+                          );
+                        }
+                        if (item.withheld) {
+                          specChecks.push("withheld: evidence or data withheld");
+                        }
+                        return (
+                          <div className="mt-3 space-y-4 text-xs text-slate-200">
+                            <section className="space-y-2">
+                              <div className="text-[0.65rem] font-semibold uppercase tracking-wide text-slate-400">
+                                Evidence status
+                              </div>
+                              <div className="space-y-3">
+                                {evidenceEntries.map((evidence, index) => {
+                                  const url = pickEvidenceUrl(evidence);
+                                  const status = normalizeStatus(
+                                    evidence.status,
+                                    "evidence"
+                                  );
+                                  const reasons = normalizeReasons(evidence.reasons).slice(0, 5);
+                                  return (
+                                    <div
+                                      key={`${item.key}-details-evidence-${index}`}
+                                      className="space-y-1 rounded-md border border-slate-800/60 bg-slate-900/40 p-2"
+                                    >
+                                      {evidenceEntries.length > 1 ? (
+                                        <div className="text-[0.65rem] uppercase tracking-wide text-slate-500">
+                                          Evidence {index + 1}
+                                        </div>
+                                      ) : null}
+                                      <div>
+                                        Status: <span className="font-mono">{status}</span>
+                                      </div>
+                                      <div>URL: {url ? "present" : "missing"}</div>
+                                      <div className="space-y-1">
+                                        <div>Reasons:</div>
+                                        <ul className="list-disc space-y-1 pl-4">
+                                          {reasons.map((reason) => (
+                                            <li key={reason}>{reason}</li>
+                                          ))}
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </section>
+                            <section className="space-y-2">
+                              <div className="text-[0.65rem] font-semibold uppercase tracking-wide text-slate-400">
+                                Penalty
+                              </div>
+                              {penaltyReasons.length ? (
+                                <div className="space-y-1">
+                                  <div>Penalty: present</div>
+                                  <div className="space-y-1">
+                                    <div>Penalty reasons:</div>
+                                    <ul className="list-disc space-y-1 pl-4">
+                                      {penaltyReasons.slice(0, 5).map((reason) => (
+                                        <li key={reason}>{reason}</li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                </div>
+                              ) : (
+                                <div>Penalty: none</div>
+                              )}
+                            </section>
+                            <section className="space-y-2">
+                              <div className="text-[0.65rem] font-semibold uppercase tracking-wide text-slate-400">
+                                Spec checks
+                              </div>
+                              {specChecks.length ? (
+                                <div className="space-y-2">
+                                  <ul className="list-disc space-y-1 pl-4">
+                                    {specChecks.map((check) => (
+                                      <li key={check}>{check}</li>
+                                    ))}
+                                  </ul>
+                                  {withheldReasons.length ? (
+                                    <div className="space-y-1">
+                                      <div>Withheld reasons:</div>
+                                      <ul className="list-disc space-y-1 pl-4">
+                                        {withheldReasons.slice(0, 5).map((reason) => (
+                                          <li key={reason}>{reason}</li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  ) : null}
+                                </div>
+                              ) : (
+                                <div>Spec checks: none</div>
+                              )}
+                            </section>
+                          </div>
+                        );
+                      })()}
+                    </details>
                   </td>
                   <td className="px-4 py-3 text-slate-300">
                     {(() => {

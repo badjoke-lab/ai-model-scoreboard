@@ -2,10 +2,12 @@ import Link from "next/link";
 
 import { formatStatusLabel, formatMetricValue } from "@/lib/v4/explainability";
 import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
+import { normalizeReasons, normalizeStatus } from "@/lib/v4/status";
 
 export type BreakdownEvidence = {
   type?: string;
   status?: string;
+  reasons?: string[];
   link?: string;
   url?: string;
   refs?: string[];
@@ -20,7 +22,33 @@ export type BreakdownItem = {
   reason: string;
   usedEvidence?: BreakdownEvidence[];
   specMissingEvidence?: boolean;
+  penaltyReasons?: string[];
+  penaltyReason?: string;
+  withheld?: boolean;
+  withheldReason?: string;
+  withheldReasons?: string[];
 };
+
+function getPenaltyReasons(item: BreakdownItem): string[] {
+  const reasons = Array.isArray(item.penaltyReasons)
+    ? item.penaltyReasons.filter((reason) => typeof reason === "string" && reason.trim())
+    : [];
+  if (reasons.length) return reasons;
+  if (typeof item.penaltyReason === "string" && item.penaltyReason.trim()) {
+    return [item.penaltyReason.trim()];
+  }
+  return [];
+}
+
+function getWithheldReasons(item: BreakdownItem): string[] {
+  if (Array.isArray(item.withheldReasons)) {
+    return item.withheldReasons.filter((reason) => typeof reason === "string" && reason.trim());
+  }
+  if (typeof item.withheldReason === "string" && item.withheldReason.trim()) {
+    return [item.withheldReason.trim()];
+  }
+  return [];
+}
 
 function formatImpact(item: BreakdownItem): string {
   if (typeof item.delta === "number" && Number.isFinite(item.delta)) {
@@ -56,11 +84,27 @@ export default function BreakdownTable({ items }: { items: BreakdownItem[] }) {
         <tbody>
           {items.map((item) => {
             const evidenceEntries = item.usedEvidence ?? [];
-            const scoreOk = typeof (item as any).score === "number" && Number.isFinite((item as any).score);
+            const scoreOk =
+              typeof (item as any).score === "number" && Number.isFinite((item as any).score);
             const evidenceLinks = evidenceEntries
               .map((evidence) => pickEvidenceUrl(evidence))
               .filter((link): link is string => typeof link === "string" && !!link.trim());
-            const showWarning = scoreOk && (scoreOk && (item.specMissingEvidence || evidenceLinks.length === 0));
+            const showWarning =
+              scoreOk && (scoreOk && (item.specMissingEvidence || evidenceLinks.length === 0));
+            const penaltyReasons = getPenaltyReasons(item);
+            const withheldReasons = getWithheldReasons(item);
+            const specChecks: string[] = [];
+            if (item.specMissingEvidence) {
+              specChecks.push(
+                "spec_missing_evidence: score exists but no verifiable URL is present"
+              );
+            }
+            if (item.withheld) {
+              specChecks.push("withheld: evidence or data withheld");
+            }
+            const detailEvidenceEntries = evidenceEntries.length
+              ? evidenceEntries
+              : [{ type: "evidence" as const }];
 
             return (
               <tr key={item.key} className="border-t border-slate-800">
@@ -121,6 +165,95 @@ export default function BreakdownTable({ items }: { items: BreakdownItem[] }) {
                       Missing evidence link (spec should fail until fixed)
                     </p>
                   ) : null}
+                  <details className="mt-3 rounded-md border border-slate-800 bg-slate-950/50 p-2 text-xs">
+                    <summary className="cursor-pointer font-semibold text-slate-100">
+                      Details
+                    </summary>
+                    <div className="mt-3 space-y-4 text-xs text-slate-200">
+                      <section className="space-y-2">
+                        <div className="text-[0.65rem] font-semibold uppercase tracking-wide text-slate-400">
+                          Evidence status
+                        </div>
+                        <div className="space-y-3">
+                          {detailEvidenceEntries.map((evidence, index) => {
+                            const url = pickEvidenceUrl(evidence);
+                            const status = normalizeStatus(evidence.status, "evidence");
+                            const reasons = normalizeReasons(evidence.reasons).slice(0, 5);
+                            return (
+                              <div
+                                key={`${item.key}-details-evidence-${index}`}
+                                className="space-y-1 rounded-md border border-slate-800/60 bg-slate-900/40 p-2"
+                              >
+                                {detailEvidenceEntries.length > 1 ? (
+                                  <div className="text-[0.65rem] uppercase tracking-wide text-slate-500">
+                                    Evidence {index + 1}
+                                  </div>
+                                ) : null}
+                                <div>
+                                  Status: <span className="font-mono">{status}</span>
+                                </div>
+                                <div>URL: {url ? "present" : "missing"}</div>
+                                <div className="space-y-1">
+                                  <div>Reasons:</div>
+                                  <ul className="list-disc space-y-1 pl-4">
+                                    {reasons.map((reason) => (
+                                      <li key={reason}>{reason}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </section>
+                      <section className="space-y-2">
+                        <div className="text-[0.65rem] font-semibold uppercase tracking-wide text-slate-400">
+                          Penalty
+                        </div>
+                        {penaltyReasons.length ? (
+                          <div className="space-y-1">
+                            <div>Penalty: present</div>
+                            <div className="space-y-1">
+                              <div>Penalty reasons:</div>
+                              <ul className="list-disc space-y-1 pl-4">
+                                {penaltyReasons.slice(0, 5).map((reason) => (
+                                  <li key={reason}>{reason}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        ) : (
+                          <div>Penalty: none</div>
+                        )}
+                      </section>
+                      <section className="space-y-2">
+                        <div className="text-[0.65rem] font-semibold uppercase tracking-wide text-slate-400">
+                          Spec checks
+                        </div>
+                        {specChecks.length ? (
+                          <div className="space-y-2">
+                            <ul className="list-disc space-y-1 pl-4">
+                              {specChecks.map((check) => (
+                                <li key={check}>{check}</li>
+                              ))}
+                            </ul>
+                            {withheldReasons.length ? (
+                              <div className="space-y-1">
+                                <div>Withheld reasons:</div>
+                                <ul className="list-disc space-y-1 pl-4">
+                                  {withheldReasons.slice(0, 5).map((reason) => (
+                                    <li key={reason}>{reason}</li>
+                                  ))}
+                                </ul>
+                              </div>
+                            ) : null}
+                          </div>
+                        ) : (
+                          <div>Spec checks: none</div>
+                        )}
+                      </section>
+                    </div>
+                  </details>
                 </td>
               </tr>
             );
