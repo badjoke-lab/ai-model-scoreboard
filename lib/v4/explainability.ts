@@ -1,5 +1,6 @@
 import { formatReasonSentence } from "@/lib/v4/deriveReasons";
-import { normalizeReasons, normalizeStatus } from "@/lib/v4/status";
+import { normalizeReasons } from "@/lib/v4/reasons";
+import { normalizeStatus } from "@/lib/v4/status";
 
 export type EvidenceKey = "official_page" | "dev_activity" | "paper" | "audit";
 

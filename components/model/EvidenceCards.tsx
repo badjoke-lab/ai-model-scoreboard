@@ -3,7 +3,8 @@ import Link from "next/link";
 import { formatReasonList } from "@/lib/v4/deriveReasons";
 import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
 import { formatKeyLabel } from "@/lib/v4/explainability";
-import { normalizeReasons, normalizeStatus } from "@/lib/v4/status";
+import { normalizeReasons } from "@/lib/v4/reasons";
+import { normalizeStatus } from "@/lib/v4/status";
 import type { EvidenceItem, V4EvidenceKey } from "@/types/v4";
 
 type EvidenceCardsProps = {

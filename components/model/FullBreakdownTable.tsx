@@ -3,7 +3,9 @@ import Link from "next/link";
 import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
 import { formatKeyLabel, formatMetricValue } from "@/lib/v4/explainability";
 import { getItemDefaultEn, getItemFormulaEn } from "@/lib/v4/formulas";
-import { normalizeReasons, normalizeStatus } from "@/lib/v4/status";
+import { REASON } from "@/lib/v4/reason-codes";
+import { normalizeReasons } from "@/lib/v4/reasons";
+import { normalizeStatus } from "@/lib/v4/status";
 import { checkVerifiableScore } from "@/lib/v4/verifiable-score";
 import type { Missing } from "@/types/v4";
 
@@ -101,6 +103,12 @@ function getWithheldReasons(item: FullBreakdownItem): string[] {
   return [];
 }
 
+function normalizeReasonsWithSafety(raw: any, safetyReasons: string[]): string[] {
+  if (!safetyReasons.length) return normalizeReasons(raw);
+  const base = Array.isArray(raw) ? raw : raw ? [raw] : [];
+  return normalizeReasons([...base, ...safetyReasons]);
+}
+
 export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdownTableProps) {
   return (
     <section className="rounded-2xl border border-slate-800 bg-surface/70 p-6 shadow-lg">
@@ -173,9 +181,15 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                                 {normalizeStatus(item.inputMissing.status, "breakdown")}
                               </span>
                             </div>
-                            {normalizeReasons(item.inputMissing.reasons).length ? (
+                            {normalizeReasonsWithSafety(
+                              item.inputMissing.reasons,
+                              item.specMissingEvidence ? [REASON.POLICY_SAFETY] : []
+                            ).length ? (
                               <ul className="list-disc space-y-1 pl-4">
-                                {normalizeReasons(item.inputMissing.reasons)
+                                {normalizeReasonsWithSafety(
+                                  item.inputMissing.reasons,
+                                  item.specMissingEvidence ? [REASON.POLICY_SAFETY] : []
+                                )
                                   .slice(0, 3)
                                   .map((reason) => (
                                     <li key={reason}>{reason}</li>
@@ -256,8 +270,9 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                         const evidenceEntries = item.usedEvidence.length
                           ? item.usedEvidence
                           : [{ type: "evidence" as const }];
-                        const penaltyReasons = getPenaltyReasons(item);
-                        const withheldReasons = getWithheldReasons(item);
+                        const safetyReasons = item.specMissingEvidence ? [REASON.POLICY_SAFETY] : [];
+                        const penaltyReasons = normalizeReasons(getPenaltyReasons(item));
+                        const withheldReasons = normalizeReasons(getWithheldReasons(item));
                         const specChecks: string[] = [];
                         if (item.specMissingEvidence) {
                           specChecks.push(
@@ -280,7 +295,10 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                                     evidence.status,
                                     "evidence"
                                   );
-                                  const reasons = normalizeReasons(evidence.reasons).slice(0, 5);
+                                  const reasons = normalizeReasonsWithSafety(
+                                    evidence.reasons,
+                                    safetyReasons
+                                  ).slice(0, 5);
                                   return (
                                     <div
                                       key={`${item.key}-details-evidence-${index}`}
@@ -312,19 +330,19 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                               <div className="text-[0.65rem] font-semibold uppercase tracking-wide text-slate-400">
                                 Penalty
                               </div>
-                              {penaltyReasons.length ? (
-                                <div className="space-y-1">
-                                  <div>Penalty: present</div>
-                                  <div className="space-y-1">
-                                    <div>Penalty reasons:</div>
-                                    <ul className="list-disc space-y-1 pl-4">
-                                      {penaltyReasons.slice(0, 5).map((reason) => (
-                                        <li key={reason}>{reason}</li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                                </div>
-                              ) : (
+                                  {penaltyReasons.length ? (
+                                    <div className="space-y-1">
+                                      <div>Penalty: present</div>
+                                      <div className="space-y-1">
+                                        <div>Penalty reasons:</div>
+                                        <ul className="list-disc space-y-1 pl-4">
+                                          {penaltyReasons.slice(0, 5).map((reason) => (
+                                            <li key={reason}>{reason}</li>
+                                          ))}
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  ) : (
                                 <div>Penalty: none</div>
                               )}
                             </section>
