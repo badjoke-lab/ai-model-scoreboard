@@ -17,6 +17,7 @@ import {
   OFFICIAL_PAGE_ALLOWED_ITEMS,
   type ScoreItemKey,
 } from "@/lib/v4/score-item-policy";
+import { buildCategoryReason1L } from "@/lib/v4/reason-templates";
 import {
   loadV4ModelDetail,
   loadV4SnapshotWithDiagnostics,
@@ -1123,6 +1124,7 @@ export async function getModelDetailPayload(
   const evidenceImpact = buildEvidenceImpactSummary(breakdownItems);
   const referenceSections = buildReferenceSections(evidenceBlocks, breakdownItems);
   const rawInputsBySource = buildRawInputsBySource(detail, absoluteMetrics);
+  const categoryReason1L = buildCategoryReason1L(breakdownItems);
   const baseEvidence = (detail as { evidence?: any }).evidence ?? [];
   let override: ModelOverride | null = null;
 
@@ -1239,6 +1241,7 @@ export async function getModelDetailPayload(
     breakdown: {
       items: breakdownItems,
     },
+    categoryReason1L,
     rawInputsBySource: finalRawInputsBySource,
     links: mergedLinks,
     references: referenceSections,
