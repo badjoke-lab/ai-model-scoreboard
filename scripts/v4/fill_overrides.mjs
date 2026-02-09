@@ -39,19 +39,109 @@ function byType(arr) {
   return m;
 }
 
-function shouldKeep(e) {
-  const reasons = Array.isArray(e?.reasons) ? e.reasons : [];
-  return reasons.includes("manual_override");
+const EVIDENCE_TYPES = ["official_page", "dev_activity", "paper", "audit"];
+const STATUS_SET = new Set([
+  "ok",
+  "not_found",
+  "blocked",
+  "rate_limited",
+  "ambiguous",
+  "invalid",
+  "missing_source_link",
+  "missing",
+]);
+const LABELS = {
+  official_page: "Official page",
+  dev_activity: "Developer activity (repo/org)",
+  paper: "Paper / technical report",
+  audit: "Independent third-party security audit",
+};
+
+function isHttpUrl(value) {
+  if (typeof value !== "string") return false;
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === "http:" || parsed.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+function normalizeStatus(value) {
+  if (value === null || value === undefined) return "missing";
+  if (typeof value !== "string") return "invalid";
+  const trimmed = value.trim();
+  if (!trimmed) return "missing";
+  const normalized = trimmed.toLowerCase();
+  return STATUS_SET.has(normalized) ? normalized : "invalid";
+}
+
+function mergeUniq(arrA, arrB) {
+  const listA = Array.isArray(arrA) ? arrA : [];
+  const listB = Array.isArray(arrB) ? arrB : [];
+  return Array.from(new Set([...listA, ...listB]));
+}
+
+function normalizeEvidenceItem(item, type) {
+  const raw = item && typeof item === "object" ? item : {};
+  const status = normalizeStatus(raw.status);
+  const url = isHttpUrl(raw.url) ? raw.url : null;
+  let refs = mergeUniq([], Array.isArray(raw.refs) ? raw.refs : []).filter(
+    (ref) => typeof ref === "string" && ref
+  );
+  if (url) {
+    refs = mergeUniq(refs, [url]);
+  }
+
+  const reasons = mergeUniq(
+    [],
+    Array.isArray(raw.reasons)
+      ? raw.reasons.filter((reason) => typeof reason === "string" && reason)
+      : []
+  );
+
+  if (status === "ok") reasons.push("ok");
+  if (status === "ambiguous") reasons.push("ambiguous");
+  if (status === "invalid") reasons.push("invalid");
+  if (!url && status === "missing_source_link") {
+    reasons.push("missing_source_link");
+  }
+  if (!url && (status === "not_found" || status === "missing")) {
+    reasons.push(`missing_evidence_type:${type}`);
+  }
+
+  let normalizedReasons = Array.from(new Set(reasons));
+  if (!normalizedReasons.length) {
+    normalizedReasons = [`missing_evidence_type:${type}`];
+  }
+
+  return {
+    type,
+    status,
+    label: LABELS[type] || "",
+    url,
+    refs,
+    reasons: normalizedReasons,
+  };
+}
+
+function finalizeEvidenceArray(evidenceArray) {
+  const map = byType(evidenceArray);
+  return EVIDENCE_TYPES.map((type) =>
+    normalizeEvidenceItem(map.get(type) || { type }, type)
+  );
 }
 
 function labelForType(type) {
   switch (type) {
     case "official_page":
-      return "Official page (model map)";
+      return LABELS.official_page;
     case "dev_activity":
-      return "Development activity (model map)";
+      return LABELS.dev_activity;
     case "paper":
-      return "Paper / technical report (model map)";
+      return LABELS.paper;
+    case "audit":
+      return LABELS.audit;
     default:
       return "";
   }
@@ -94,7 +184,7 @@ for (const m of list) {
   const modelMap = getModelMap(modelMaps, modelKey);
 
   // required types
-  const required = ["official_page", "dev_activity", "paper", "audit"];
+  const required = EVIDENCE_TYPES;
 
   // proposals
   const provider =
@@ -124,7 +214,7 @@ for (const m of list) {
   const nextEvidence = [];
   for (const t of required) {
     const cur = map.get(t);
-    if (cur && shouldKeep(cur)) {
+    if (cur) {
       nextEvidence.push(cur);
       continue;
     }
@@ -138,9 +228,11 @@ for (const m of list) {
     nextEvidence.push(applyModelMapOverride(candidate, modelMap, t));
   }
 
+  const normalizedEvidence = finalizeEvidenceArray(nextEvidence);
+
   // links (collect from evidence urls/refs)
   const links = new Set(existing.links || []);
-  for (const e of nextEvidence) {
+  for (const e of normalizedEvidence) {
     if (typeof e?.url === "string" && e.url) links.add(e.url);
     if (Array.isArray(e?.refs)) {
       for (const u of e.refs) {
@@ -150,8 +242,9 @@ for (const m of list) {
   }
 
   const out = {
+    ...existing,
     modelKey,
-    evidence: nextEvidence,
+    evidence: normalizedEvidence,
     links: Array.from(links),
   };
 
