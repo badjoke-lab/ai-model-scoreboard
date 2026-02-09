@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "models": {
+    "meta-llama%2Fllama-3.1-8b-instruct": {
+      "official_page": "https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct",
+      "dev_activity": "https://github.com/meta-llama/llama-models",
+      "paper": "https://arxiv.org/abs/2407.21783"
+    }
+  }
+}

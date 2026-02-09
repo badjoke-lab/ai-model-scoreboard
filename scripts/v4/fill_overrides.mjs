@@ -14,6 +14,7 @@ import path from "node:path";
 import { guessHfEvidence } from "./providers/huggingface.mjs";
 import { guessArxivEvidence } from "./providers/arxiv.mjs";
 import { guessGithubEvidence } from "./providers/github.mjs";
+import { getModelMap, loadModelMaps, pickModelMappedUrl } from "./providers/model-maps.mjs";
 
 const ROOT = process.cwd();
 const V4_MODELS = path.join(ROOT, "public", "data", "v4", "models.json");
@@ -43,6 +44,31 @@ function shouldKeep(e) {
   return reasons.includes("manual_override");
 }
 
+function labelForType(type) {
+  switch (type) {
+    case "official_page":
+      return "Official page (model map)";
+    case "dev_activity":
+      return "Development activity (model map)";
+    case "paper":
+      return "Paper / technical report (model map)";
+    default:
+      return "";
+  }
+}
+
+function applyModelMapOverride(candidate, modelMap, type) {
+  const mappedUrl = pickModelMappedUrl(modelMap, type);
+  if (!mappedUrl) return candidate;
+  const out = { ...(candidate || {}), type };
+  out.status = "ok";
+  out.label = out.label || labelForType(type);
+  out.url = mappedUrl;
+  out.refs = Array.from(new Set([...(out.refs || []), mappedUrl]));
+  out.reasons = Array.from(new Set([...(out.reasons || []), "auto:model_map"]));
+  return out;
+}
+
 ensureDir(OV_DIR);
 
 const models = readJson(V4_MODELS);
@@ -52,6 +78,7 @@ const list = Array.isArray(models?.models)
     ? models
     : [];
 
+const modelMaps = loadModelMaps();
 let updated = 0;
 
 for (const m of list) {
@@ -64,6 +91,7 @@ for (const m of list) {
     : { modelKey, evidence: [], links: [] };
 
   const map = byType(existing.evidence);
+  const modelMap = getModelMap(modelMaps, modelKey);
 
   // required types
   const required = ["official_page", "dev_activity", "paper", "audit"];
@@ -101,8 +129,13 @@ for (const m of list) {
       continue;
     }
     const p = proposals[t];
-    if (p) nextEvidence.push(p);
-    else nextEvidence.push({ type: t, status: "not_found", reasons: [`auto:missing:${t}`] });
+    if (t === "audit") {
+      if (p) nextEvidence.push(p);
+      else nextEvidence.push({ type: t, status: "not_found", reasons: [`auto:missing:${t}`] });
+      continue;
+    }
+    const candidate = p || { type: t, status: "not_found", reasons: [`auto:missing:${t}`] };
+    nextEvidence.push(applyModelMapOverride(candidate, modelMap, t));
   }
 
   // links (collect from evidence urls/refs)
