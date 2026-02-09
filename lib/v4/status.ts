@@ -67,21 +67,3 @@ export function normalizeStatus(
 
   return "invalid";
 }
-
-export function normalizeReasons(reasons: any): string[] {
-  const blockedReason = ["u", "n", "k", "n", "o", "w", "n"].join("");
-  const normalized =
-    typeof reasons === "string"
-      ? [reasons]
-      : Array.isArray(reasons)
-        ? reasons
-        : [];
-  const trimmed = normalized
-    .filter((reason) => typeof reason === "string")
-    .map((reason) => reason.trim())
-    .filter(Boolean)
-    .map((reason) =>
-      reason.toLowerCase() === blockedReason ? "invalid_reason" : reason
-    );
-  return trimmed.length ? trimmed : ["missing_reasons"];
-}

@@ -2,7 +2,8 @@ import Link from "next/link";
 
 import { formatStatusLabel, formatMetricValue } from "@/lib/v4/explainability";
 import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
-import { normalizeReasons, normalizeStatus } from "@/lib/v4/status";
+import { normalizeReasons } from "@/lib/v4/reasons";
+import { normalizeStatus } from "@/lib/v4/status";
 
 export type BreakdownEvidence = {
   type?: string;

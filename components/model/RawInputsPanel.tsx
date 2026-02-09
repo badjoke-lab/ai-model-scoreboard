@@ -1,5 +1,6 @@
 import { formatKeyLabel, formatMetricValue } from "@/lib/v4/explainability";
-import { normalizeReasons, normalizeStatus } from "@/lib/v4/status";
+import { normalizeReasons } from "@/lib/v4/reasons";
+import { normalizeStatus } from "@/lib/v4/status";
 import type { RawInputsBySource, RawValue, MissingInfo } from "@/types/v4";
 
 type RawInputsPanelProps = {

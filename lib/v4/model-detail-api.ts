@@ -10,7 +10,8 @@ import {
   isHttpUrl,
   toEnglishReason,
 } from "@/lib/v4/explainability";
-import { normalizeReasons, normalizeStatus } from "@/lib/v4/status";
+import { normalizeReasons } from "@/lib/v4/reasons";
+import { normalizeStatus } from "@/lib/v4/status";
 import evidencePolicy from "@/lib/v4/evidence-policy.json";
 import {
   OFFICIAL_PAGE_ALLOWED_ITEMS,
@@ -179,10 +180,7 @@ function normalizeEvidenceReasons(value: any): string[] {
 }
 
 function normalizeOverrideReasons(value: any): string[] {
-  if (!Array.isArray(value)) return [];
-  return value
-    .filter((entry) => typeof entry === "string" && entry.trim())
-    .map((entry) => entry.trim());
+  return normalizeReasons(value);
 }
 
 function normalizeEvidenceRefs(value: any): string[] {
