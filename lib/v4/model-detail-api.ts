@@ -421,33 +421,53 @@ function buildEvidenceMap(
   return map;
 }
 
-function uniqKeepOrder(xs: string[]): string[] {
-  const out: string[] = [];
-  const seen = new Set<string>();
-  for (const entry of xs) {
-    const value = typeof entry === "string" ? entry.trim() : "";
-    if (!value) continue;
-    if (!isHttpUrl(value)) continue;
-    if (seen.has(value)) continue;
-    seen.add(value);
-    out.push(value);
+const URL_TRAILING_NOISE = new Set([")", "]", ",", ".", "\"", "'", ";", ":"]);
+const MAX_LINKS_COUNT = 100;
+const MAX_URL_LENGTH = 2048;
+const SENSITIVE_QUERY_MARKERS = [
+  "token=",
+  "apikey=",
+  "key=",
+  "secret=",
+  "signature=",
+];
+
+function trimTrailingNoise(value: string): string {
+  let trimmed = value.trim();
+  while (trimmed.length > 0 && URL_TRAILING_NOISE.has(trimmed.at(-1) ?? "")) {
+    trimmed = trimmed.slice(0, -1);
   }
-  return out;
+  return trimmed;
 }
 
-function collectBaseLinks(detail: Record<string, any>): string[] {
-  const out: string[] = [];
-  const candidates = [
-    (detail as { links?: any }).links,
-    (detail as { link?: any }).link,
-    (detail as { urls?: any }).urls,
-    (detail as { url?: any }).url,
-  ];
-  for (const candidate of candidates) {
-    const entries = asStringArray(candidate);
-    if (entries) out.push(...entries);
+function hasSensitiveQuery(value: string): boolean {
+  const lower = value.toLowerCase();
+  return SENSITIVE_QUERY_MARKERS.some((marker) => lower.includes(marker));
+}
+
+function normalizeLinkCandidate(value: string): string | null {
+  if (typeof value !== "string") return null;
+  let trimmed = value.trim();
+  if (!trimmed.startsWith("http://") && !trimmed.startsWith("https://")) {
+    return null;
   }
-  return out;
+  trimmed = trimTrailingNoise(trimmed);
+  if (!trimmed) return null;
+  if (trimmed.length > MAX_URL_LENGTH) return null;
+
+  let parsed: URL;
+  try {
+    parsed = new URL(trimmed);
+  } catch {
+    return null;
+  }
+  if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return null;
+  const host = parsed.hostname.toLowerCase();
+  if (host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0") {
+    return null;
+  }
+  if (hasSensitiveQuery(trimmed)) return null;
+  return parsed.toString();
 }
 
 function collectLinksFromEvidenceBlocks(
@@ -497,58 +517,58 @@ function collectLinksFromBreakdownItems(
   return out;
 }
 
-function collectLinksFromReferenceSections(
-  references: { urls?: string[] }[] | null | undefined
-): string[] {
-  if (!Array.isArray(references)) return [];
-  const out: string[] = [];
-  for (const reference of references) {
-    if (Array.isArray(reference?.urls)) {
-      for (const url of reference.urls) {
-        if (typeof url === "string") out.push(url);
-      }
-    }
-  }
-  return out;
-}
-
 function collectLinksFromEvidence(evidenceList: any[] | undefined | null): string[] {
   if (!Array.isArray(evidenceList)) return [];
   const out: string[] = [];
   for (const evidence of evidenceList) {
-    const picked = pickEvidenceUrl(evidence);
-    if (typeof picked === "string" && isHttpUrl(picked.trim())) {
-      out.push(picked.trim());
-    }
+    const url = typeof evidence?.url === "string" ? evidence.url : null;
+    const picked = url ?? pickEvidenceUrl(evidence);
+    if (typeof picked === "string") out.push(picked);
 
     const refs = evidence?.refs;
     if (Array.isArray(refs)) {
       for (const ref of refs) {
-        if (typeof ref === "string" && isHttpUrl(ref.trim())) {
-          out.push(ref.trim());
-        }
+        if (typeof ref === "string") out.push(ref);
       }
     }
   }
   return out;
 }
 
-function collectLinksFromFullBreakdown(fullBreakdown: any): string[] {
+function collectLinksFromRawInputs(rawInputsBySource: RawInputsBySource | null | undefined): string[] {
   const out: string[] = [];
-  const candidates: any[] = [];
-
-  if (Array.isArray(fullBreakdown)) candidates.push(...fullBreakdown);
-  else if (Array.isArray(fullBreakdown?.items)) candidates.push(...fullBreakdown.items);
-  else if (Array.isArray(fullBreakdown?.rows)) candidates.push(...fullBreakdown.rows);
-  else if (Array.isArray(fullBreakdown?.data)) candidates.push(...fullBreakdown.data);
-
-  for (const item of candidates) {
-    out.push(...collectLinksFromEvidence(item?.evidence));
-    out.push(...collectLinksFromEvidence(item?.evidences));
-    out.push(...collectLinksFromEvidence(item?.references));
-    out.push(...collectLinksFromEvidence(item?.usedEvidence));
-  }
+  const visit = (value: any) => {
+    if (typeof value === "string") {
+      const matches = value.match(/https?:\/\/[^\s]+/g);
+      if (matches) out.push(...matches);
+      return;
+    }
+    if (Array.isArray(value)) {
+      value.forEach(visit);
+      return;
+    }
+    if (isObject(value)) {
+      Object.values(value).forEach(visit);
+    }
+  };
+  visit(rawInputsBySource);
   return out;
+}
+
+function mergeModelLinks(sources: string[][]): string[] {
+  const merged: string[] = [];
+  const seen = new Set<string>();
+  for (const group of sources) {
+    for (const candidate of group) {
+      const normalized = normalizeLinkCandidate(candidate);
+      if (!normalized) continue;
+      if (seen.has(normalized)) continue;
+      seen.add(normalized);
+      merged.push(normalized);
+      if (merged.length >= MAX_LINKS_COUNT) return merged;
+    }
+  }
+  return merged;
 }
 
 function asAbsValue(value: any, field: string): AbsVal {
@@ -1165,24 +1185,15 @@ export async function getModelDetailPayload(
     },
   };
 
-  const overrideLinks = Array.isArray(override?.links) ? override.links : [];
   const evidenceLinks = collectLinksFromEvidence((detail as { evidence?: any }).evidence);
   const evidenceCardLinks = collectLinksFromEvidenceBlocks(evidenceBlocks);
-  const breakdownSource =
-    (detail as { fullBreakdown?: any }).fullBreakdown ??
-    (detail as { scoreItems?: any }).scoreItems ??
-    (detail as { breakdown?: any }).breakdown;
-  const breakdownLinks = collectLinksFromFullBreakdown(breakdownSource);
   const breakdownItemLinks = collectLinksFromBreakdownItems(breakdownItems);
-  const referenceLinks = collectLinksFromReferenceSections(referenceSections);
-  const mergedLinks = uniqKeepOrder([
-    ...collectBaseLinks(detail),
-    ...overrideLinks,
-    ...evidenceLinks,
-    ...evidenceCardLinks,
-    ...breakdownLinks,
-    ...breakdownItemLinks,
-    ...referenceLinks,
+  const rawInputLinks = collectLinksFromRawInputs(finalRawInputsBySource);
+  const mergedLinks = mergeModelLinks([
+    breakdownItemLinks,
+    evidenceCardLinks,
+    evidenceLinks,
+    rawInputLinks,
   ]);
 
   const sourceLabel =

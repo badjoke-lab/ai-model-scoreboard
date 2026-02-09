@@ -9,10 +9,10 @@ import FullBreakdownTable, {
   extractInputs,
   type FullBreakdownItem,
 } from "@/components/model/FullBreakdownTable";
+import LinksSection from "@/components/model/LinksSection";
 import ModelHeader from "@/components/model/ModelHeader";
 import ModelStatus from "@/components/model/ModelStatus";
 import RawInputsPanel from "@/components/model/RawInputsPanel";
-import ReferencesList from "@/components/model/ReferencesList";
 import ScoreSummary from "@/components/model/ScoreSummary";
 import { loadV4ModelDetail, loadV4SnapshotWithDiagnostics } from "@/lib/v4-snapshot";
 import type { AbsoluteBlock, Missing, V4ModelDetailResponse } from "@/types/v4";
@@ -252,7 +252,7 @@ export default async function ModelDetailPage({
           <p className="mt-1 text-sm text-rose-200">{detailError.message}</p>
         </section>
 
-        <ReferencesList links={links} />
+        <LinksSection links={links} />
       </div>
     );
   }
@@ -327,7 +327,7 @@ export default async function ModelDetailPage({
         emptyMessage="Score breakdown data is missing; category-level scoring applied with fixed penalties."
       />
 
-      <ReferencesList links={links} />
+      <LinksSection links={links} />
     </div>
   );
 }
