@@ -69,9 +69,16 @@ for (const m of list) {
   const required = ["official_page", "dev_activity", "paper", "audit"];
 
   // proposals
+  const provider =
+    m?.header?.provider ||
+    m?.absolute?.provider ||
+    m?.adoption?.provider ||
+    m?.provider ||
+    m?.org ||
+    "";
   const hf = guessHfEvidence(m);
-  const gh = guessGithubEvidence(m);
-  const ax = guessArxivEvidence(m);
+  const gh = guessGithubEvidence(m, provider);
+  const ax = guessArxivEvidence(m, provider);
 
   const proposals = {
     official_page: hf,

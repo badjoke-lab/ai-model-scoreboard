@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "providers": {
+    "meta": {
+      "github_org": "https://github.com/meta-llama",
+      "default_repo": "https://github.com/meta-llama/llama-models",
+      "paper": "https://arxiv.org/abs/2407.21783"
+    },
+    "mistral": {
+      "github_org": "https://github.com/mistralai"
+    },
+    "openai": {
+      "github_org": "https://github.com/openai"
+    },
+    "anthropic": {
+      "github_org": "https://github.com/anthropics"
+    },
+    "google": {
+      "github_org": "https://github.com/google"
+    }
+  }
+}
