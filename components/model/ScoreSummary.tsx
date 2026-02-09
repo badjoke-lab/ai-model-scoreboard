@@ -5,11 +5,13 @@ import {
   CATEGORY_WEIGHTS,
   type CategoryId,
 } from "@/lib/v4/scoringSpec";
+import type { CategoryReason1L } from "@/types/v4";
 
 type ScoreSummaryProps = {
   overallScore?: number | null;
   categoryScores: Record<string, number>;
   topDrivers: string[];
+  categoryReason1L?: CategoryReason1L | null;
   detail?: {
     categoryScores?: Record<string, number>;
     scores?: {
@@ -66,6 +68,7 @@ export default function ScoreSummary({
   overallScore,
   categoryScores,
   topDrivers,
+  categoryReason1L = null,
   detail = null,
   scoreBreakdown = null,
 }: ScoreSummaryProps) {
@@ -142,6 +145,35 @@ export default function ScoreSummary({
               No score driver details were available.
             </p>
           )}
+          {categoryReason1L ? (
+            <div className="mt-6 space-y-2">
+              <p className="text-xs uppercase tracking-wide text-slate-400">
+                Why these scores
+              </p>
+              <ul className="space-y-2 text-sm text-slate-200">
+                <li>
+                  <span className="font-medium">Performance:</span>{" "}
+                  <span className="text-sm">{categoryReason1L.performance}</span>
+                </li>
+                <li>
+                  <span className="font-medium">Safety:</span>{" "}
+                  <span className="text-sm">{categoryReason1L.safety}</span>
+                </li>
+                <li>
+                  <span className="font-medium">Adoption:</span>{" "}
+                  <span className="text-sm">{categoryReason1L.adoption}</span>
+                </li>
+                <li>
+                  <span className="font-medium">Openness:</span>{" "}
+                  <span className="text-sm">{categoryReason1L.openness}</span>
+                </li>
+                <li>
+                  <span className="font-medium">Cost:</span>{" "}
+                  <span className="text-sm">{categoryReason1L.cost}</span>
+                </li>
+              </ul>
+            </div>
+          ) : null}
         </div>
       </div>
     </section>
