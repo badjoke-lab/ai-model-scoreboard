@@ -886,6 +886,17 @@ function buildRawInputsBySource(
   };
 }
 
+function ensureRawInputsBySource(value: any): RawInputsBySource {
+  const source = isObject(value) ? value : {};
+  return {
+    openrouter: isObject(source.openrouter) ? source.openrouter : {},
+    huggingface: isObject(source.huggingface) ? source.huggingface : {},
+    github: isObject(source.github) ? source.github : {},
+    arxiv: isObject(source.arxiv) ? source.arxiv : {},
+    ops: isObject(source.ops) ? source.ops : {},
+  };
+}
+
 function getOfficialPageUrlSet(
   evidenceBlocks: Record<string, { refs?: string[] }> | null | undefined
 ): Set<string> {
@@ -1157,11 +1168,12 @@ export async function getModelDetailPayload(
   });
 
   const rawInputsOverride = (detail as { rawInputsBySource?: any }).rawInputsBySource;
-  const baseRaw =
+  const baseRaw = ensureRawInputsBySource(
     isObject(rawInputsOverride) || rawInputsOverride === undefined
-      ? (rawInputsOverride ?? rawInputsBySource)
-      : rawInputsBySource;
-  const ovRaw = override?.rawInputsBySource ?? {};
+      ? rawInputsOverride ?? rawInputsBySource
+      : rawInputsBySource
+  );
+  const ovRaw = ensureRawInputsBySource(override?.rawInputsBySource ?? {});
   const finalRawInputsBySource: RawInputsBySource = {
     openrouter: {
       ...normalizeRawInputBlock(baseRaw.openrouter),

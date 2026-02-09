@@ -1,7 +1,4 @@
-import { formatKeyLabel, formatMetricValue } from "@/lib/v4/explainability";
-import { normalizeReasons } from "@/lib/v4/reasons";
-import { normalizeStatus } from "@/lib/v4/status";
-import type { RawInputsBySource, RawValue, MissingInfo } from "@/types/v4";
+import type { RawInputsBySource, RawValue } from "@/types/v4";
 
 type RawInputsPanelProps = {
   rawInputsBySource: RawInputsBySource;
@@ -15,93 +12,131 @@ const SOURCE_BLOCKS: Array<{ key: keyof RawInputsBySource; title: string }> = [
   { key: "ops", title: "Ops (speed/reliability)" },
 ];
 
-function isMissingInfo(value: RawValue): value is MissingInfo {
-  if (!value || typeof value !== "object") return false;
-  return "status" in value && "reasons" in value && "value" in value && value.value === null;
+const SENSITIVE_KEY_PARTS = [
+  "key",
+  "token",
+  "secret",
+  "password",
+  "authorization",
+  "bearer",
+  "cookie",
+];
+
+const MAX_ROWS = 30;
+const MAX_JSON_CHARS = 800;
+
+function isSensitiveKey(key: string): boolean {
+  const lowered = key.toLowerCase();
+  return SENSITIVE_KEY_PARTS.some((part) => lowered.includes(part));
 }
 
-function renderValue(value: RawValue) {
-  if (value === null || value === undefined) {
-    return <span className="text-xs text-slate-400">missing</span>;
+function formatRawValue(value: RawValue, masked: boolean): string {
+  if (masked) return "***";
+  if (value === null) return "null";
+  if (value === undefined) return "missing";
+  if (typeof value === "string" || typeof value === "number" || typeof value === "boolean") {
+    return String(value);
   }
+  try {
+    const json = JSON.stringify(value, null, 2);
+    if (!json) return "missing";
+    return json.length > MAX_JSON_CHARS ? `${json.slice(0, MAX_JSON_CHARS)}…` : json;
+  } catch {
+    return "unserializable";
+  }
+}
 
-  if (isMissingInfo(value)) {
-    const refs = value.refs ?? [];
-    const normalizedStatus = normalizeStatus(value.status, "raw");
-    const normalizedReasons = normalizeReasons(value.reasons);
-    return (
-      <div className="space-y-1 text-xs text-slate-300">
-        <div>
-          status: <span className="font-mono">{normalizedStatus}</span>
+function SourceBlock({
+  title,
+  data,
+  sourceKey,
+}: {
+  title: string;
+  data: Record<string, RawValue> | null | undefined;
+  sourceKey: keyof RawInputsBySource;
+}) {
+  const entries = Object.entries(data ?? {});
+  const status = entries.length > 0 ? "ok" : "missing";
+  const missingReasons = [`missing_raw_inputs:${sourceKey}`];
+  const visibleEntries = entries.slice(0, MAX_ROWS);
+  const hiddenCount = Math.max(entries.length - MAX_ROWS, 0);
+
+  return (
+    <details
+      className="rounded-xl border border-slate-800 bg-slate-950/40 p-4"
+      open={sourceKey === "openrouter"}
+    >
+      <summary className="cursor-pointer text-sm font-semibold text-slate-100">
+        {title}
+      </summary>
+      <div className="mt-3 space-y-3 text-sm text-slate-200">
+        <div className="text-xs">
+          Status: <span className="font-mono">{status}</span>
         </div>
-        {normalizedReasons.length ? (
-          <ul className="list-disc space-y-1 pl-4">
-            {normalizedReasons.slice(0, 5).map((reason) => (
+        {status === "missing" ? (
+          <ul className="list-disc space-y-1 pl-5 text-xs font-mono text-slate-300">
+            {missingReasons.slice(0, 5).map((reason) => (
               <li key={reason}>{reason}</li>
             ))}
           </ul>
         ) : null}
-        {refs.length ? (
-          <ul className="space-y-1">
-            {refs.slice(0, 3).map((ref) => (
-              <li key={ref}>
-                <a
-                  href={ref}
-                  className="text-accent underline hover:text-accent/80"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {ref}
-                </a>
-              </li>
-            ))}
-          </ul>
+        {status === "ok" ? (
+          <div className="overflow-hidden rounded-lg border border-slate-800">
+            <table className="w-full text-left text-xs">
+              <thead className="bg-slate-900/60 text-[11px] uppercase tracking-wide text-slate-400">
+                <tr>
+                  <th className="w-1/3 px-3 py-2">Key</th>
+                  <th className="px-3 py-2">Value</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-900/60">
+                {visibleEntries.map(([key, value]) => {
+                  const masked = isSensitiveKey(key);
+                  const formatted = formatRawValue(value, masked);
+                  return (
+                    <tr key={key} className="align-top">
+                      <td className="px-3 py-2 font-mono text-slate-300">{key}</td>
+                      <td className="px-3 py-2 whitespace-pre-wrap break-words text-slate-100">
+                        {formatted}
+                      </td>
+                    </tr>
+                  );
+                })}
+                {hiddenCount > 0 ? (
+                  <tr>
+                    <td
+                      colSpan={2}
+                      className="px-3 py-2 text-xs italic text-slate-400"
+                    >
+                      +{hiddenCount} more
+                    </td>
+                  </tr>
+                ) : null}
+              </tbody>
+            </table>
+          </div>
         ) : null}
       </div>
-    );
-  }
-
-  return <span className="text-sm text-slate-100">{formatMetricValue(value)}</span>;
-}
-
-function SourceBlock({ title, data }: { title: string; data: Record<string, RawValue> }) {
-  const entries = Object.entries(data ?? {});
-  return (
-    <div className="rounded-xl border border-slate-800 bg-slate-950/40 p-4">
-      <h3 className="text-sm font-semibold text-slate-100">{title}</h3>
-      {entries.length ? (
-        <div className="mt-3 space-y-3 text-sm">
-          {entries.map(([key, value]) => (
-            <div key={key} className="space-y-1">
-              <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                {formatKeyLabel(key)}
-              </div>
-              {renderValue(value)}
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p className="mt-3 text-xs text-slate-400">No data</p>
-      )}
-    </div>
+    </details>
   );
 }
 
 export default function RawInputsPanel({ rawInputsBySource }: RawInputsPanelProps) {
   return (
-    <section className="rounded-2xl border border-slate-800 bg-surface/70 p-6 shadow-lg">
-      <h2 className="text-lg font-semibold text-slate-100">
-        Raw Inputs (source-by-source)
-      </h2>
+    <details className="rounded-2xl border border-slate-800 bg-surface/70 p-6 shadow-lg">
+      <summary className="cursor-pointer text-lg font-semibold text-slate-100">
+        Raw Inputs
+      </summary>
       <div className="mt-4 grid gap-4 lg:grid-cols-2">
         {SOURCE_BLOCKS.map((block) => (
           <SourceBlock
             key={block.key}
             title={block.title}
             data={rawInputsBySource[block.key]}
+            sourceKey={block.key}
           />
         ))}
       </div>
-    </section>
+    </details>
   );
 }
