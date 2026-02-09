@@ -2,6 +2,7 @@ import { promises as fs } from "fs";
 import path from "path";
 
 import { formatReasonList } from "@/lib/v4/deriveReasons";
+import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
 import {
   buildEvidenceBlocks,
   dedupeUrls,
@@ -422,24 +423,57 @@ function buildEvidenceMap(
   return map;
 }
 
-function extractEvidenceLink(entry: EvidenceItem): string | null {
-  if (Array.isArray(entry.refs) && typeof entry.refs[0] === "string") {
-    const ref = entry.refs[0].trim();
-    if (ref) return ref;
+function uniqKeepOrder(xs: string[]): string[] {
+  const out: string[] = [];
+  const seen = new Set<string>();
+  for (const entry of xs) {
+    const value = typeof entry === "string" ? entry.trim() : "";
+    if (!value) continue;
+    if (!isHttpUrl(value)) continue;
+    if (seen.has(value)) continue;
+    seen.add(value);
+    out.push(value);
   }
-  if (isObject(entry.extracted) && typeof entry.extracted.url === "string") {
-    const url = entry.extracted.url.trim();
-    if (url) return url;
+  return out;
+}
+
+function collectLinksFromEvidence(evidenceList: any[] | undefined | null): string[] {
+  if (!Array.isArray(evidenceList)) return [];
+  const out: string[] = [];
+  for (const evidence of evidenceList) {
+    const picked = pickEvidenceUrl(evidence);
+    if (typeof picked === "string" && isHttpUrl(picked.trim())) {
+      out.push(picked.trim());
+    }
+
+    const refs = evidence?.refs;
+    if (Array.isArray(refs)) {
+      for (const ref of refs) {
+        if (typeof ref === "string" && isHttpUrl(ref.trim())) {
+          out.push(ref.trim());
+        }
+      }
+    }
   }
-  if (typeof (entry as { url?: any }).url === "string") {
-    const url = (entry as { url?: string }).url?.trim();
-    if (url) return url;
+  return out;
+}
+
+function collectLinksFromFullBreakdown(fullBreakdown: any): string[] {
+  const out: string[] = [];
+  const candidates: any[] = [];
+
+  if (Array.isArray(fullBreakdown)) candidates.push(...fullBreakdown);
+  else if (Array.isArray(fullBreakdown?.items)) candidates.push(...fullBreakdown.items);
+  else if (Array.isArray(fullBreakdown?.rows)) candidates.push(...fullBreakdown.rows);
+  else if (Array.isArray(fullBreakdown?.data)) candidates.push(...fullBreakdown.data);
+
+  for (const item of candidates) {
+    out.push(...collectLinksFromEvidence(item?.evidence));
+    out.push(...collectLinksFromEvidence(item?.evidences));
+    out.push(...collectLinksFromEvidence(item?.references));
+    out.push(...collectLinksFromEvidence(item?.usedEvidence));
   }
-  if (typeof (entry as { link?: any }).link === "string") {
-    const link = (entry as { link?: string }).link?.trim();
-    if (link) return link;
-  }
-  return null;
+  return out;
 }
 
 function asAbsValue(value: any, field: string): AbsVal {
@@ -1060,16 +1094,18 @@ export async function getModelDetailPayload(
     ? ((detail as { links?: any[] }).links ?? [])
     : [];
   const overrideLinks = Array.isArray(override?.links) ? override.links : [];
-  const evidenceLinks = finalEvidence
-    .map((entry) => extractEvidenceLink(entry))
-    .filter((entry): entry is string => Boolean(entry));
-  const mergedLinks = Array.from(
-    new Set(
-      [...baseLinks, ...overrideLinks, ...evidenceLinks]
-        .map((entry) => (typeof entry === "string" ? entry.trim() : ""))
-        .filter(Boolean)
-    )
-  );
+  const evidenceLinks = collectLinksFromEvidence((detail as { evidence?: any }).evidence);
+  const breakdownSource =
+    (detail as { fullBreakdown?: any }).fullBreakdown ??
+    (detail as { scoreItems?: any }).scoreItems ??
+    (detail as { breakdown?: any }).breakdown;
+  const breakdownLinks = collectLinksFromFullBreakdown(breakdownSource);
+  const mergedLinks = uniqKeepOrder([
+    ...baseLinks,
+    ...overrideLinks,
+    ...evidenceLinks,
+    ...breakdownLinks,
+  ]);
 
   const sourceLabel =
     typeof modelRow?.source === "string" && modelRow?.source.trim()
