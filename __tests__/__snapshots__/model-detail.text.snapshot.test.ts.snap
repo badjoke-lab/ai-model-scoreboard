@@ -1,0 +1,214 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports["model detail text snapshot > openai/gpt-5-codex 1"] = `
+## Identity
+provider: openai
+displayName: OpenAI: GPT-5 Codex
+modelKey: openai/gpt-5-codex
+updatedAt: <DATE>
+
+## Scores
+overall: 80.02114740615355
+categories: {"performance":81.46420000000002,"safety":75,"adoption":74.57,"openness":75,"cost":99.99967406153525}
+adoption: adopted
+
+## Evidence
+- official_page: ok
+  reasons: missing:reasons, note:ok, note:openrouter_model_page
+  refs: https://openai.com | https://openrouter.ai/models/openai/gpt-5-codex
+- dev_activity: missing_source_link
+  reasons: missing:url, note:missing_source_link, note:repo_link_missing
+  refs: missing:github_repo
+- paper: not_found
+  reasons: missing:url, note:no_known_paper_source, note:not_found
+  refs: arxiv_query:"OpenAI: GPT-5 Codex"
+- audit: missing_source_link
+  reasons: missing:url, note:missing_source_link, note:no_known_audit_source
+  refs: missing:audit_link
+
+## RawInputsBySource
+- openrouter: keys=6
+  context_length: 400000
+  modality: text+image->text
+  pricing_currency: USD
+  pricing_input_per_1m: 0.00000125
+  pricing_output_per_1m: 0.00001
+  release_date: 2025-09-23T16:03:23.000Z
+- huggingface: keys=0
+  (empty)
+- github: keys=0
+  (empty)
+- arxiv: keys=0
+  (empty)
+- ops: keys=0
+  (empty)
+
+## Breakdown (first 50)
+- Q1: General benchmarks | status=WITHHELD | score=
+  why: Missing item evidence: score withheld (missing evidence (official-page only)).
+  flag: missingEvidenceRule
+- Q2: Coding benchmarks | status=WITHHELD | score=
+  why: Missing item evidence: score withheld (missing evidence (official-page only)).
+  flag: missingEvidenceRule
+- Q3: Math & chat benchmarks | status=WITHHELD | score=
+  why: Missing item evidence: score withheld (missing evidence (official-page only)).
+  flag: missingEvidenceRule
+- S1: Safety documentation | status=ok | score=50
+  why: Score verified from available inputs and evidence.
+  evidenceUrls: https://openai.com | https://openrouter.ai/models/openai/gpt-5-codex
+  flag: missingEvidenceRule
+- S2: Alignment disclosure | status=ok | score=100
+  why: Score verified from available inputs and evidence.
+  evidenceUrls: https://openai.com | https://openrouter.ai/models/openai/gpt-5-codex
+  flag: missingEvidenceRule
+- S3: Misuse policy coverage | status=ok | score=0
+  why: Score verified from available inputs and evidence.
+  evidenceUrls: https://openai.com | https://openrouter.ai/models/openai/gpt-5-codex
+  flag: missingEvidenceRule
+- S4: External audit & red teaming | status=ok | score=
+  why: Evidence links are missing, so the score is withheld until sources are provided.
+  flag: specMissingEvidence
+  flag: missingEvidenceRule
+- S5: Transparency updates | status=ok | score=0
+  why: Score verified from available inputs and evidence.
+  evidenceUrls: https://openai.com | https://openrouter.ai/models/openai/gpt-5-codex
+  flag: missingEvidenceRule
+- S6: Minor incidents | status=WITHHELD | score=
+  why: Missing item evidence: score withheld (missing inputs, evidence (official-page only)).
+  flag: missingEvidenceRule
+- S7: Major incidents | status=WITHHELD | score=
+  why: Missing item evidence: score withheld (missing inputs, evidence (official-page only)).
+  flag: missingEvidenceRule
+- S8: Critical incidents | status=WITHHELD | score=
+  why: Missing item evidence: score withheld (missing inputs, evidence (official-page only)).
+  flag: missingEvidenceRule
+- T1: Model documentation | status=ok | score=100
+  why: Score verified from available inputs and evidence.
+  evidenceUrls: https://openai.com | https://openrouter.ai/models/openai/gpt-5-codex
+  flag: missingEvidenceRule
+- T2: Training data disclosure | status=ok | score=66.66666666666666
+  why: Score verified from available inputs and evidence.
+  evidenceUrls: https://openai.com | https://openrouter.ai/models/openai/gpt-5-codex
+  flag: missingEvidenceRule
+- T3: Paper / technical report | status=ok | score=
+  why: Evidence links are missing, so the score is withheld until sources are provided.
+  flag: specMissingEvidence
+  flag: missingEvidenceRule
+- T4: External review & transparency | status=ok | score=
+  why: Evidence links are missing, so the score is withheld until sources are provided.
+  flag: specMissingEvidence
+  flag: missingEvidenceRule
+
+## Links
+- https://openai.com/
+- https://openrouter.ai/models/openai/gpt-5-codex
+
+`;
+
+exports["model detail text snapshot > meta-llama/llama-3.1-8b-instruct 1"] = `
+## Identity
+provider: meta-llama
+displayName: Meta: Llama 3.1 8B Instruct
+modelKey: meta-llama/llama-3.1-8b-instruct
+updatedAt: <DATE>
+
+## Scores
+overall: 72.36109982923077
+categories: {"performance":79.69900000000003,"safety":55,"adoption":88.21000000000001,"openness":41.66666666666667,"cost":99.99999829230767}
+adoption: adopted
+
+## Evidence
+- official_page: ok
+  reasons: missing:reasons, note:ok, note:openrouter_model_page_only
+  refs: https://openrouter.ai/models/meta-llama/llama-3.1-8b-instruct
+- dev_activity: missing_source_link
+  reasons: missing:url, note:missing_source_link, note:repo_link_missing
+  refs: missing:github_repo
+- paper: not_found
+  reasons: missing:url, note:no_known_paper_source, note:not_found
+  refs: arxiv_query:"Meta: Llama 3.1 8B Instruct"
+- audit: missing_source_link
+  reasons: missing:url, note:missing_source_link, note:no_known_audit_source
+  refs: missing:audit_link
+
+## RawInputsBySource
+- openrouter: keys=6
+  context_length: 16384
+  modality: text->text
+  pricing_currency: USD
+  pricing_input_per_1m: 2e-8
+  pricing_output_per_1m: 5e-8
+  release_date: 2024-07-23T00:00:00.000Z
+- huggingface: keys=3
+  license: llama3.1
+  model_card_url: https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct
+  override_note: manual_override_sample
+- github: keys=0
+  (empty)
+- arxiv: keys=0
+  (empty)
+- ops: keys=0
+  (empty)
+
+## Breakdown (first 50)
+- Q1: General benchmarks | status=WITHHELD | score=
+  why: Missing item evidence: score withheld (missing evidence (official-page only)).
+  flag: missingEvidenceRule
+- Q2: Coding benchmarks | status=WITHHELD | score=
+  why: Missing item evidence: score withheld (missing evidence (official-page only)).
+  flag: missingEvidenceRule
+- Q3: Math & chat benchmarks | status=WITHHELD | score=
+  why: Missing item evidence: score withheld (missing evidence (official-page only)).
+  flag: missingEvidenceRule
+- S1: Safety documentation | status=ok | score=50
+  why: Score verified from available inputs and evidence.
+  evidenceUrls: https://openrouter.ai/models/meta-llama/llama-3.1-8b-instruct
+  flag: missingEvidenceRule
+- S2: Alignment disclosure | status=ok | score=100
+  why: Score verified from available inputs and evidence.
+  evidenceUrls: https://openrouter.ai/models/meta-llama/llama-3.1-8b-instruct
+  flag: missingEvidenceRule
+- S3: Misuse policy coverage | status=ok | score=0
+  why: Score verified from available inputs and evidence.
+  evidenceUrls: https://openrouter.ai/models/meta-llama/llama-3.1-8b-instruct
+  flag: missingEvidenceRule
+- S4: External audit & red teaming | status=ok | score=
+  why: Evidence links are missing, so the score is withheld until sources are provided.
+  flag: specMissingEvidence
+  flag: missingEvidenceRule
+- S5: Transparency updates | status=ok | score=0
+  why: Score verified from available inputs and evidence.
+  evidenceUrls: https://openrouter.ai/models/meta-llama/llama-3.1-8b-instruct
+  flag: missingEvidenceRule
+- S6: Minor incidents | status=WITHHELD | score=
+  why: Missing item evidence: score withheld (missing inputs, evidence (official-page only)).
+  flag: missingEvidenceRule
+- S7: Major incidents | status=WITHHELD | score=
+  why: Missing item evidence: score withheld (missing inputs, evidence (official-page only)).
+  flag: missingEvidenceRule
+- S8: Critical incidents | status=WITHHELD | score=
+  why: Missing item evidence: score withheld (missing inputs, evidence (official-page only)).
+  flag: missingEvidenceRule
+- T1: Model documentation | status=ok | score=66.66666666666666
+  why: Score verified from available inputs and evidence.
+  evidenceUrls: https://openrouter.ai/models/meta-llama/llama-3.1-8b-instruct
+  flag: missingEvidenceRule
+- T2: Training data disclosure | status=ok | score=33.33333333333333
+  why: Score verified from available inputs and evidence.
+  evidenceUrls: https://openrouter.ai/models/meta-llama/llama-3.1-8b-instruct
+  flag: missingEvidenceRule
+- T3: Paper / technical report | status=ok | score=
+  why: Evidence links are missing, so the score is withheld until sources are provided.
+  flag: specMissingEvidence
+  flag: missingEvidenceRule
+- T4: External review & transparency | status=ok | score=
+  why: Evidence links are missing, so the score is withheld until sources are provided.
+  flag: specMissingEvidence
+  flag: missingEvidenceRule
+
+## Links
+- https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct
+- https://openrouter.ai/models/meta-llama/llama-3.1-8b-instruct
+
+`;
+
