@@ -1,0 +1,21 @@
+name: validate-overrides
+
+on:
+  pull_request:
+    paths:
+      - "overrides/v4/models/**"
+      - "scripts/v4/validate_overrides.mjs"
+      - ".github/workflows/validate-overrides.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Validate overrides JSON
+        run: node scripts/v4/validate_overrides.mjs
