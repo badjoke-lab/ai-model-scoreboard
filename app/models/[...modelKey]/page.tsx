@@ -13,6 +13,7 @@ import LinksSection from "@/components/model/LinksSection";
 import ModelHeader from "@/components/model/ModelHeader";
 import ModelStatus from "@/components/model/ModelStatus";
 import RawInputsPanel from "@/components/model/RawInputsPanel";
+import ScoreFormulaPanel from "@/components/model/ScoreFormulaPanel";
 import ScoreSummary from "@/components/model/ScoreSummary";
 import { loadV4ModelDetail, loadV4SnapshotWithDiagnostics } from "@/lib/v4-snapshot";
 import type { AbsoluteBlock, Missing, V4ModelDetailResponse } from "@/types/v4";
@@ -321,6 +322,8 @@ export default async function ModelDetailPage({
       ) : null}
 
       <RawInputsPanel rawInputsBySource={rawInputsBySource} />
+
+      <ScoreFormulaPanel />
 
       <FullBreakdownTable
         items={breakdownItemsForTable}
