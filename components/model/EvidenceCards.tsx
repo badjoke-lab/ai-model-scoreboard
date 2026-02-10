@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-import { formatReasonList } from "@/lib/v4/deriveReasons";
 import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
 import { formatKeyLabel } from "@/lib/v4/explainability";
 import { normalizeReasons } from "@/lib/v4/reasons";
 import { normalizeStatus } from "@/lib/v4/status";
+import { STATUS_TEXT, toUiStatus } from "@/lib/v4/status-text";
 import type { EvidenceItem, V4EvidenceKey } from "@/types/v4";
 
 type EvidenceCardsProps = {
@@ -25,6 +25,21 @@ function statusIcon(status: string): string {
   if (status === "blocked") return "⛔";
   if (status === "rate_limited") return "⏳";
   return "⚠️";
+}
+
+function splitReasons(reasons: string[]): { codes: string[]; notes: string[] } {
+  const codes: string[] = [];
+  const notes: string[] = [];
+
+  for (const reason of reasons) {
+    if (reason.startsWith("note:")) {
+      notes.push(reason.replace(/^note:/, "").trim() || reason);
+      continue;
+    }
+    codes.push(reason);
+  }
+
+  return { codes, notes };
 }
 
 function impactText(
@@ -91,9 +106,12 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
       <div className="mt-4 grid gap-4 md:grid-cols-2">
         {orderedEvidence.map((item) => {
           const key = item.type;
-          const normalizedStatus = normalizeStatus(item.status, "evidence");
+          const normalizedStatus = toUiStatus(normalizeStatus(item.status, "evidence"));
+          const statusText = STATUS_TEXT[normalizedStatus];
           const normalizedReasons = normalizeReasons(item.reasons);
-          const reasons = formatReasonList(normalizedReasons).slice(0, 5);
+          const { codes: reasonCodes, notes: reasonNotes } = splitReasons(normalizedReasons);
+          const topReasonCodes = reasonCodes.slice(0, 5);
+          const topReasonNotes = reasonNotes.slice(0, 2);
           const extracted = formatExtracted(item.extracted);
           const url = pickEvidenceUrl(item);
           return (
@@ -109,10 +127,13 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
                   <p className="text-xs text-slate-400">type: {item.type}</p>
                 </div>
                 <span className="text-base font-mono">
-                  {statusIcon(normalizedStatus)} {normalizedStatus}
+                  {statusIcon(normalizedStatus)} {statusText.label}
                 </span>
               </div>
               <div className="mt-3 space-y-2 text-xs text-slate-300">
+                <p className="rounded-md border border-slate-800 bg-slate-950/40 px-2 py-1 text-[0.75rem] text-slate-200">
+                  {statusText.description}
+                </p>
                 <div>
                   <span className="uppercase text-[0.65rem] text-slate-400">url:</span>{" "}
                   {url ? (
@@ -133,14 +154,33 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
                     </p>
                   ) : null}
                 </div>
-                <div>
-                  <span className="uppercase text-[0.65rem] text-slate-400">reasons:</span>
-                  <ul className="mt-1 list-disc space-y-1 pl-4">
-                    {reasons.map((reason) => (
-                      <li key={reason}>{reason}</li>
-                    ))}
-                  </ul>
-                </div>
+                <details className="rounded-lg border border-slate-800 bg-slate-950/40 p-2 text-[0.7rem] text-slate-200">
+                  <summary className="cursor-pointer uppercase text-[0.65rem] text-slate-400">
+                    reasons ({topReasonCodes.length})
+                  </summary>
+                  <div className="mt-2 space-y-2">
+                    <div>
+                      <p className="uppercase text-[0.65rem] text-slate-400">codes:</p>
+                      <ul className="mt-1 list-disc space-y-1 pl-4">
+                        {topReasonCodes.map((reason) => (
+                          <li key={reason} className="font-mono">
+                            {reason}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    {topReasonNotes.length ? (
+                      <div>
+                        <p className="uppercase text-[0.65rem] text-slate-400">notes:</p>
+                        <ul className="mt-1 list-disc space-y-1 pl-4">
+                          {topReasonNotes.map((reason) => (
+                            <li key={reason}>{reason}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ) : null}
+                  </div>
+                </details>
                 <div className="rounded-lg border border-slate-800 bg-slate-950/40 p-2 text-[0.7rem] text-slate-200">
                   <span className="uppercase text-[0.65rem] text-slate-400">
                     How this affected scoring
