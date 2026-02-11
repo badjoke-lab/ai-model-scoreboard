@@ -1,6 +1,8 @@
 import { promises as fs } from "fs";
 import path from "path";
 
+import { normalizeModelKey, toEncodedModelKey } from "@/lib/v4/modelKey";
+
 export type EvidenceType = "official_page" | "dev_activity" | "paper" | "audit";
 
 export type EvidenceOverride = {
@@ -63,7 +65,9 @@ function normalizeRawInputsBySource(value: any): ModelOverride["rawInputsBySourc
 
 export async function loadModelOverride(modelKey: string): Promise<ModelOverride | null> {
   try {
-    const encodedKey = encodeURIComponent(modelKey);
+    const canonicalModelKey = normalizeModelKey(modelKey);
+    if (!canonicalModelKey) return null;
+    const encodedKey = toEncodedModelKey(canonicalModelKey);
     const filePath = path.join(
       process.cwd(),
       "overrides",
@@ -74,15 +78,16 @@ export async function loadModelOverride(modelKey: string): Promise<ModelOverride
     const raw = await fs.readFile(filePath, "utf-8");
     const parsed = JSON.parse(raw) as any;
     if (!isObject(parsed)) return null;
-    const overrideKey = typeof parsed.modelKey === "string" ? parsed.modelKey : "";
-    if (!overrideKey || overrideKey !== encodedKey) return null;
+    const overrideKey =
+      typeof parsed.modelKey === "string" ? normalizeModelKey(parsed.modelKey) : "";
+    if (overrideKey && overrideKey !== canonicalModelKey) return null;
 
     const evidence = normalizeEvidenceOverrides(parsed.evidence);
     const rawInputsBySource = normalizeRawInputsBySource(parsed.rawInputsBySource);
     const links = normalizeLinks(parsed.links);
 
     return {
-      modelKey: overrideKey,
+      modelKey: overrideKey || canonicalModelKey,
       evidence,
       rawInputsBySource,
       links,

@@ -1,6 +1,8 @@
 import { promises as fs } from "fs";
 import path from "path";
 
+import { normalizeModelKey, toEncodedModelKey } from "@/lib/v4/modelKey";
+
 export type V4SnapshotMeta = {
   version: string;
   updatedAt: string;
@@ -180,17 +182,21 @@ export function normalizeModels(raw: any): {
                 ? entry.slug
                 : undefined;
       if (!modelKey) continue;
+      const canonicalModelKey = normalizeModelKey(modelKey);
+      if (!canonicalModelKey) continue;
       const model = normalizeModelEntry(entry.model ?? entry);
       if (!model) continue;
-      modelsByKey[modelKey] = model;
-      modelsArray.push({ modelKey, ...model });
+      modelsByKey[canonicalModelKey] = model;
+      modelsArray.push({ modelKey: canonicalModelKey, ...model });
     }
   } else if (isObject(raw)) {
     for (const [modelKey, value] of Object.entries(raw)) {
+      const canonicalModelKey = normalizeModelKey(modelKey);
+      if (!canonicalModelKey) continue;
       const model = normalizeModelEntry(value);
       if (!model) continue;
-      modelsByKey[modelKey] = model;
-      modelsArray.push({ modelKey, ...model });
+      modelsByKey[canonicalModelKey] = model;
+      modelsArray.push({ modelKey: canonicalModelKey, ...model });
     }
   }
 
@@ -238,11 +244,15 @@ export function normalizeEvidenceIndex(raw: any): {
               ? entry.filename
               : undefined;
       if (!modelKey || !filePath) continue;
-      evidenceIndex.push({ modelKey, path: filePath });
-      evidenceIndexByKey[modelKey] = filePath;
+      const canonicalModelKey = normalizeModelKey(modelKey);
+      if (!canonicalModelKey) continue;
+      evidenceIndex.push({ modelKey: canonicalModelKey, path: filePath });
+      evidenceIndexByKey[canonicalModelKey] = filePath;
     }
   } else if (isObject(source)) {
     for (const [modelKey, value] of Object.entries(source)) {
+      const canonicalModelKey = normalizeModelKey(modelKey);
+      if (!canonicalModelKey) continue;
       if (typeof value !== "string" && !isObject(value)) continue;
       const filePath =
         typeof value === "string"
@@ -255,8 +265,8 @@ export function normalizeEvidenceIndex(raw: any): {
                 ? value.filename
                 : undefined;
       if (!filePath) continue;
-      evidenceIndex.push({ modelKey, path: filePath });
-      evidenceIndexByKey[modelKey] = filePath;
+      evidenceIndex.push({ modelKey: canonicalModelKey, path: filePath });
+      evidenceIndexByKey[canonicalModelKey] = filePath;
     }
   }
 
@@ -276,10 +286,11 @@ export function resolveEvidencePath(
   evidenceIndexByKey: Record<string, string>,
   files: V4SnapshotFiles
 ): string {
-  const fromIndex = evidenceIndexByKey[modelKey];
+  const canonicalModelKey = normalizeModelKey(modelKey);
+  const fromIndex = evidenceIndexByKey[canonicalModelKey];
   const evidencePath = fromIndex
     ? normalizeEvidencePath(fromIndex, files.evidenceDir)
-    : path.posix.join(files.evidenceDir, `${modelKey}.json`);
+    : path.posix.join(files.evidenceDir, `${toEncodedModelKey(canonicalModelKey)}.json`);
   return evidencePath;
 }
 
