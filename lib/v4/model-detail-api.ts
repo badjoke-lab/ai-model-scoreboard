@@ -27,6 +27,7 @@ import {
   type EvidenceOverride,
   type ModelOverride,
 } from "@/lib/v4/overrides";
+import { normalizeModelKey } from "@/lib/v4/modelKey";
 import type {
   AbsVal,
   AbsoluteBlock,
@@ -321,7 +322,7 @@ function findDecisionEntry(
             : typeof entry.slug === "string"
               ? entry.slug
               : null;
-    if (key === modelKey) return entry;
+    if (normalizeModelKey(String(key)) === modelKey) return entry;
   }
   return null;
 }
@@ -1081,10 +1082,13 @@ function deriveTopDrivers(
 export async function getModelDetailPayload(
   modelKey: string
 ): Promise<V4ModelDetailResponse | null> {
+  const canonicalModelKey = normalizeModelKey(modelKey);
+  if (!canonicalModelKey) return null;
+
   const snapshot = await loadV4SnapshotWithDiagnostics();
   const models = snapshot.models ?? {};
-  const modelRow = (models[modelKey] ?? null) as Record<string, any> | null;
-  const { detail, evidenceRaw, evidencePath, index } = await loadV4ModelDetail(modelKey);
+  const modelRow = (models[canonicalModelKey] ?? null) as Record<string, any> | null;
+  const { detail, evidenceRaw, evidencePath, index } = await loadV4ModelDetail(canonicalModelKey);
   const decisionsData = await readDecisionsFile();
 
   if (!detail) return null;
@@ -1109,7 +1113,7 @@ export async function getModelDetailPayload(
   );
   const topDrivers = deriveTopDrivers(breakdownItems, evidenceBlocks);
 
-  const absolute = buildAbsoluteBlock(modelKey, detail, modelRow, absoluteMetrics);
+  const absolute = buildAbsoluteBlock(canonicalModelKey, detail, modelRow, absoluteMetrics);
 
   const decisionReasons = detail.decisionReasons?.length
     ? detail.decisionReasons
@@ -1127,7 +1131,7 @@ export async function getModelDetailPayload(
   let override: ModelOverride | null = null;
 
   try {
-    override = await loadModelOverride(modelKey);
+    override = await loadModelOverride(canonicalModelKey);
   } catch {
     override = null;
   }
@@ -1212,10 +1216,10 @@ export async function getModelDetailPayload(
     typeof modelRow?.source === "string" && modelRow?.source.trim()
       ? modelRow.source
       : detail.layer;
-  const adoption = buildAdoptionBlock(findDecisionEntry(decisionsData, modelKey));
+  const adoption = buildAdoptionBlock(findDecisionEntry(decisionsData, canonicalModelKey));
   return {
     status: "ok",
-    modelKey,
+    modelKey: canonicalModelKey,
     header: {
       title: `${detail.vendor} ${detail.name}`,
       provider: detail.vendor,

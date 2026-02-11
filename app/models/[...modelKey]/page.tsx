@@ -15,6 +15,7 @@ import ModelStatus from "@/components/model/ModelStatus";
 import RawInputsPanel from "@/components/model/RawInputsPanel";
 import ScoreFormulaPanel from "@/components/model/ScoreFormulaPanel";
 import ScoreSummary from "@/components/model/ScoreSummary";
+import { fromRouteParam, toEncodedModelKey } from "@/lib/v4/modelKey";
 import { loadV4ModelDetail, loadV4SnapshotWithDiagnostics } from "@/lib/v4-snapshot";
 import type { AbsoluteBlock, Missing, V4ModelDetailResponse } from "@/types/v4";
 
@@ -32,7 +33,7 @@ async function fetchModelDetail(modelKey: string): Promise<{
     const host = h.get("host") ?? "localhost:3000";
     const proto = h.get("x-forwarded-proto") ?? "https";
     const base = `${proto}://${host}`;
-    const response = await fetch(`${base}/api/v4/model/${encodeURIComponent(modelKey)}`, {
+    const response = await fetch(`${base}/api/v4/model/${toEncodedModelKey(modelKey)}`, {
       cache: "no-store",
     });
     if (!response.ok) {
@@ -109,17 +110,19 @@ export default async function ModelDetailPage({
 }: {
   params: { modelKey: string[] };
 }) {
-  const segments = (params.modelKey ?? []).map((segment) => decodeURIComponent(segment));
-  const modelKey = segments.join("/");
+  const rawParam = Array.isArray(params.modelKey)
+    ? params.modelKey.join("/")
+    : params.modelKey;
+  const modelKey = fromRouteParam(rawParam ?? "");
   const snapshot = await loadV4SnapshotWithDiagnostics();
   const models = snapshot.models ?? {};
 
-  if (!models[modelKey] && segments.length === 1) {
-    const slug = segments[0];
+  if (!models[modelKey] && modelKey && !modelKey.includes("/")) {
+    const slug = modelKey;
     const matches = Object.keys(models).filter((key) => key.split("/").pop() === slug);
 
     if (matches.length === 1) {
-      redirect(`/models/${encodeURIComponent(matches[0])}`);
+      redirect(`/models/${toEncodedModelKey(matches[0])}`);
     }
 
     if (matches.length > 1) {
@@ -138,7 +141,7 @@ export default async function ModelDetailPage({
             {matches.map((match) => (
               <li key={match}>
                 <Link
-                  href={`/models/${encodeURIComponent(match)}`}
+                  href={`/models/${toEncodedModelKey(match)}`}
                   className="font-semibold text-accent hover:text-accent/80"
                 >
                   {models[match]?.name ?? match}

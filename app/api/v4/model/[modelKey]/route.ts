@@ -4,6 +4,7 @@ import {
   enforceModelDetailEvidenceIntegrity,
   getModelDetailPayload,
 } from "@/lib/v4/model-detail-api";
+import { fromRouteParam } from "@/lib/v4/modelKey";
 
 type RouteParams = {
   params: {
@@ -13,10 +14,8 @@ type RouteParams = {
 
 export async function GET(_request: Request, { params }: RouteParams) {
   const rawModelKey = params.modelKey;
-  const segments = (Array.isArray(rawModelKey) ? rawModelKey : [rawModelKey]).map(
-    (segment) => decodeURIComponent(segment)
-  );
-  const modelKey = segments.join("/");
+  const routeParam = (Array.isArray(rawModelKey) ? rawModelKey : [rawModelKey]).join("/");
+  const modelKey = fromRouteParam(routeParam);
 
   if (!modelKey) {
     return NextResponse.json(
