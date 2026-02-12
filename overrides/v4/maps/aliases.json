@@ -1,0 +1,6 @@
+{
+  "aliases": {
+    "meta-llama/llama-3.1-8b": "meta-llama/llama-3.1-8b-instruct",
+    "openai/gpt-4o": "openai/gpt-4o-2024-xx-xx"
+  }
+}

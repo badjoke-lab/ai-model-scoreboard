@@ -19,6 +19,13 @@ import { getModelMap, loadModelMaps, pickModelMappedUrl } from "./providers/mode
 const ROOT = process.cwd();
 const V4_MODELS = path.join(ROOT, "public", "data", "v4", "models.json");
 const OV_DIR = path.join(ROOT, "overrides", "v4", "models");
+const ALIASES_FILE = path.join(ROOT, "overrides", "v4", "maps", "aliases.json");
+
+const DASH_VARIANTS = /[‐‑‒–—―ー－]+/g;
+const WHITESPACE_OR_UNDERSCORE = /[\s_]+/g;
+const DISALLOWED_CHARS = /[^a-z0-9./-]+/g;
+const MULTI_DASH = /-+/g;
+const MAX_ALIAS_HOPS = 10;
 
 function readJson(p) {
   return JSON.parse(fs.readFileSync(p, "utf-8"));
@@ -29,6 +36,37 @@ function writeJson(p, obj) {
 
 function ensureDir(p) {
   if (!fs.existsSync(p)) fs.mkdirSync(p, { recursive: true });
+}
+
+function normalizeSegment(segment) {
+  return segment
+    .replace(DASH_VARIANTS, "-")
+    .replace(WHITESPACE_OR_UNDERSCORE, "-")
+    .replace(DISALLOWED_CHARS, "-")
+    .replace(MULTI_DASH, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function safeDecodeOnce(input) {
+  if (typeof input !== "string") return "";
+  if (!input.includes("%")) return input;
+  try {
+    return decodeURIComponent(input);
+  } catch {
+    return input;
+  }
+}
+
+function normalizeModelKey(raw) {
+  if (typeof raw !== "string") return "";
+  const normalized = safeDecodeOnce(raw).normalize("NFKC").toLowerCase().trim();
+  if (!normalized) return "";
+
+  return normalized
+    .split("/")
+    .map((segment) => normalizeSegment(segment))
+    .filter(Boolean)
+    .join("/");
 }
 
 function byType(arr) {
@@ -57,6 +95,60 @@ const LABELS = {
   audit: "Independent third-party security audit",
 };
 
+function loadAliases() {
+  if (!fs.existsSync(ALIASES_FILE)) return {};
+  try {
+    const parsed = readJson(ALIASES_FILE);
+    const rawAliases = parsed?.aliases ?? {};
+    const aliases = {};
+    for (const [from, to] of Object.entries(rawAliases)) {
+      if (typeof to !== "string") continue;
+      const normalizedFrom = normalizeModelKey(from);
+      const normalizedTo = normalizeModelKey(to);
+      if (!normalizedFrom || !normalizedTo) continue;
+      aliases[normalizedFrom] = normalizedTo;
+    }
+    return aliases;
+  } catch {
+    return {};
+  }
+}
+
+function applyAlias(canonicalKey, aliases) {
+  const startKey = normalizeModelKey(canonicalKey);
+  if (!startKey) return { key: "", hops: [], loop: false };
+
+  const hops = [startKey];
+  const visited = new Set([startKey]);
+  let currentKey = startKey;
+
+  for (let i = 0; i < MAX_ALIAS_HOPS; i += 1) {
+    const nextKey = aliases[currentKey];
+    if (!nextKey) return { key: currentKey, hops, loop: false };
+    if (visited.has(nextKey)) {
+      hops.push(nextKey);
+      return { key: currentKey, hops, loop: true };
+    }
+    visited.add(nextKey);
+    hops.push(nextKey);
+    currentKey = nextKey;
+  }
+
+  return { key: currentKey, hops, loop: false };
+}
+
+function validateAliasesOrExit(aliases) {
+  for (const key of Object.keys(aliases)) {
+    const resolved = applyAlias(key, aliases);
+    if (resolved.loop) {
+      console.error(
+        `[fill_overrides] alias loop detected: ${resolved.hops.join(" -> ")} (from: ${key})`
+      );
+      process.exit(1);
+    }
+  }
+}
+
 function isHttpUrl(value) {
   if (typeof value !== "string") return false;
   try {
@@ -82,7 +174,7 @@ function mergeUniq(arrA, arrB) {
   return Array.from(new Set([...listA, ...listB]));
 }
 
-function normalizeEvidenceItem(item, type) {
+function normalizeEvidenceItem(item, type, aliasUsed = false) {
   const raw = item && typeof item === "object" ? item : {};
   const status = normalizeStatus(raw.status);
   const url = isHttpUrl(raw.url) ? raw.url : null;
@@ -109,6 +201,9 @@ function normalizeEvidenceItem(item, type) {
   if (!url && (status === "not_found" || status === "missing")) {
     reasons.push(`missing_evidence_type:${type}`);
   }
+  if (aliasUsed) {
+    reasons.push("auto:alias");
+  }
 
   let normalizedReasons = Array.from(new Set(reasons));
   if (!normalizedReasons.length) {
@@ -125,10 +220,10 @@ function normalizeEvidenceItem(item, type) {
   };
 }
 
-function finalizeEvidenceArray(evidenceArray) {
+function finalizeEvidenceArray(evidenceArray, aliasUsed = false) {
   const map = byType(evidenceArray);
   return EVIDENCE_TYPES.map((type) =>
-    normalizeEvidenceItem(map.get(type) || { type }, type)
+    normalizeEvidenceItem(map.get(type) || { type }, type, aliasUsed)
   );
 }
 
@@ -168,25 +263,36 @@ const list = Array.isArray(models?.models)
     ? models
     : [];
 
+const aliases = loadAliases();
+validateAliasesOrExit(aliases);
+
 const modelMaps = loadModelMaps();
 let updated = 0;
 
 for (const m of list) {
-  const modelKey = m?.modelKey || m?.key || m?.id;
-  if (!modelKey) continue;
+  const rawModelKey = m?.modelKey || m?.key || m?.id;
+  const normalizedModelKey = normalizeModelKey(rawModelKey);
+  if (!normalizedModelKey) continue;
 
-  const outPath = path.join(OV_DIR, `${modelKey}.json`);
+  const aliasResult = applyAlias(normalizedModelKey, aliases);
+  if (aliasResult.loop) {
+    console.error(
+      `[fill_overrides] alias loop detected while resolving ${normalizedModelKey}: ${aliasResult.hops.join(" -> ")}`
+    );
+    process.exit(1);
+  }
+
+  const canonicalFinal = aliasResult.key;
+  const aliasUsed = canonicalFinal !== normalizedModelKey;
+  const encodedModelKey = encodeURIComponent(canonicalFinal);
+  const outPath = path.join(OV_DIR, `${encodedModelKey}.json`);
   const existing = fs.existsSync(outPath)
     ? readJson(outPath)
-    : { modelKey, evidence: [], links: [] };
+    : { modelKey: canonicalFinal, evidence: [], links: [] };
 
   const map = byType(existing.evidence);
-  const modelMap = getModelMap(modelMaps, modelKey);
+  const modelMap = getModelMap(modelMaps, canonicalFinal);
 
-  // required types
-  const required = EVIDENCE_TYPES;
-
-  // proposals
   const provider =
     m?.header?.provider ||
     m?.absolute?.provider ||
@@ -212,7 +318,7 @@ for (const m of list) {
   };
 
   const nextEvidence = [];
-  for (const t of required) {
+  for (const t of EVIDENCE_TYPES) {
     const cur = map.get(t);
     if (cur) {
       nextEvidence.push(cur);
@@ -228,9 +334,8 @@ for (const m of list) {
     nextEvidence.push(applyModelMapOverride(candidate, modelMap, t));
   }
 
-  const normalizedEvidence = finalizeEvidenceArray(nextEvidence);
+  const normalizedEvidence = finalizeEvidenceArray(nextEvidence, aliasUsed);
 
-  // links (collect from evidence urls/refs)
   const links = new Set(existing.links || []);
   for (const e of normalizedEvidence) {
     if (typeof e?.url === "string" && e.url) links.add(e.url);
@@ -243,12 +348,11 @@ for (const m of list) {
 
   const out = {
     ...existing,
-    modelKey,
+    modelKey: canonicalFinal,
     evidence: normalizedEvidence,
     links: Array.from(links),
   };
 
-  // write only if changed
   const prevStr = JSON.stringify(existing);
   const nextStr = JSON.stringify(out);
   if (prevStr !== nextStr) {
