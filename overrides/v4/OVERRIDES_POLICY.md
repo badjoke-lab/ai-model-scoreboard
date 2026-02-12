@@ -105,6 +105,24 @@ Forbidden:
 
 ---
 
+## 6.5) Free-tier operation contract rules (required)
+
+### Allowed
+- Manual settings for official/dev/paper `url` / `label` / `status` / `reasons`
+- For audit evidence: `status="not_found"` is allowed; `status="ok"` is allowed only with a third-party audit URL
+- Additions to `links[]` (primary-source-first)
+
+### Forbidden
+- Setting `status="ok"` from speculation ("looks like search result", "probably official", etc.)
+- Using vendor blogs, self-claims, or repost/roundup pages as audit `ok`
+- Marking "looks like GitHub" sources as `dev_activity="ok"` without verified official org/repo
+
+### Required
+- Any `status="ok"` MUST include `manual_override` or `auto:*_map` in `reasons`
+- All 4 evidence slots MUST exist, and each MUST have non-empty `status` and non-empty `reasons`
+
+---
+
 ## 7) PR review checklist (required)
 
 For EACH override JSON added/edited:
