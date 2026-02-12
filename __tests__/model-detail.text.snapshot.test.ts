@@ -3,7 +3,7 @@ import path from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import { renderModelDetailText } from "../scripts/test/renderModelDetailText.mjs";
+import { renderModelDetailText } from "@/lib/v4/render-detail-text";
 
 function readJson(rel: string) {
   const p = path.join(process.cwd(), rel);
@@ -15,21 +15,21 @@ describe("model detail text snapshot", () => {
     const j = readJson("__tests__/fixtures/model-openai-gpt-5-codex.json");
     const txt = renderModelDetailText(j);
 
-    expect(txt).toContain("## Identity");
-    expect(txt).toContain("## Scores");
+    expect(txt).toContain("## Model");
+    expect(txt).toContain("## Overall");
     expect(txt).toContain("## Evidence");
-    expect(txt).toContain("## RawInputsBySource");
-    expect(txt).toContain("## Breakdown (first 50)");
+    expect(txt).toContain("## Raw Inputs");
+    expect(txt).toContain("## Breakdown");
     expect(txt).toContain("## Links");
-    expect(txt).toContain("- official_page:");
-    expect(txt).toContain("- dev_activity:");
-    expect(txt).toContain("- paper:");
-    expect(txt).toContain("- audit:");
-    expect(txt).toContain("- openrouter: keys=");
-    expect(txt).toContain("- huggingface: keys=");
-    expect(txt).toContain("- github: keys=");
-    expect(txt).toContain("- arxiv: keys=");
-    expect(txt).toContain("- ops: keys=");
+    expect(txt).toContain("- official_page");
+    expect(txt).toContain("- dev_activity");
+    expect(txt).toContain("- paper");
+    expect(txt).toContain("- audit");
+    expect(txt).toContain("- openrouter");
+    expect(txt).toContain("- huggingface");
+    expect(txt).toContain("- github");
+    expect(txt).toContain("- arxiv");
+    expect(txt).toContain("- ops");
 
     expect(txt).toMatchSnapshot();
   });
@@ -38,11 +38,11 @@ describe("model detail text snapshot", () => {
     const j = readJson("__tests__/fixtures/model-meta-llama-llama-3.1-8b-instruct.json");
     const txt = renderModelDetailText(j);
 
-    expect(txt).toContain("## Identity");
-    expect(txt).toContain("## Scores");
+    expect(txt).toContain("## Model");
+    expect(txt).toContain("## Overall");
     expect(txt).toContain("## Evidence");
-    expect(txt).toContain("## RawInputsBySource");
-    expect(txt).toContain("## Breakdown (first 50)");
+    expect(txt).toContain("## Raw Inputs");
+    expect(txt).toContain("## Breakdown");
     expect(txt).toContain("## Links");
 
     expect(txt).toMatchSnapshot();
