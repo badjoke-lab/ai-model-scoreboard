@@ -15,7 +15,7 @@ import ModelStatus from "@/components/model/ModelStatus";
 import RawInputsPanel from "@/components/model/RawInputsPanel";
 import ScoreFormulaPanel from "@/components/model/ScoreFormulaPanel";
 import ScoreSummary from "@/components/model/ScoreSummary";
-import { fromRouteParam, toEncodedModelKey } from "@/lib/v4/modelKey";
+import { applyAlias, fromRouteParam, toEncodedModelKey } from "@/lib/v4/modelKey";
 import { loadV4ModelDetail, loadV4SnapshotWithDiagnostics } from "@/lib/v4-snapshot";
 import type { AbsoluteBlock, Missing, V4ModelDetailResponse } from "@/types/v4";
 
@@ -113,7 +113,18 @@ export default async function ModelDetailPage({
   const rawParam = Array.isArray(params.modelKey)
     ? params.modelKey.join("/")
     : params.modelKey;
-  const modelKey = fromRouteParam(rawParam ?? "");
+  const routeModelKey = fromRouteParam(rawParam ?? "");
+  const aliasResult = applyAlias(routeModelKey);
+  if (aliasResult.loop) {
+    notFound();
+  }
+
+  const modelKey = aliasResult.key;
+
+  if (modelKey && modelKey !== routeModelKey) {
+    redirect(`/models/${toEncodedModelKey(modelKey)}`);
+  }
+
   const snapshot = await loadV4SnapshotWithDiagnostics();
   const models = snapshot.models ?? {};
 

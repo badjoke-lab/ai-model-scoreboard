@@ -27,7 +27,7 @@ import {
   type EvidenceOverride,
   type ModelOverride,
 } from "@/lib/v4/overrides";
-import { normalizeModelKey } from "@/lib/v4/modelKey";
+import { applyAlias, normalizeModelKey } from "@/lib/v4/modelKey";
 import type {
   AbsVal,
   AbsoluteBlock,
@@ -1085,10 +1085,15 @@ export async function getModelDetailPayload(
   const canonicalModelKey = normalizeModelKey(modelKey);
   if (!canonicalModelKey) return null;
 
+  const aliasResult = applyAlias(canonicalModelKey);
+  if (aliasResult.loop) return null;
+  const canonicalFinal = aliasResult.key;
+  if (!canonicalFinal) return null;
+
   const snapshot = await loadV4SnapshotWithDiagnostics();
   const models = snapshot.models ?? {};
-  const modelRow = (models[canonicalModelKey] ?? null) as Record<string, any> | null;
-  const { detail, evidenceRaw, evidencePath, index } = await loadV4ModelDetail(canonicalModelKey);
+  const modelRow = (models[canonicalFinal] ?? null) as Record<string, any> | null;
+  const { detail, evidenceRaw, evidencePath, index } = await loadV4ModelDetail(canonicalFinal);
   const decisionsData = await readDecisionsFile();
 
   if (!detail) return null;
@@ -1113,7 +1118,7 @@ export async function getModelDetailPayload(
   );
   const topDrivers = deriveTopDrivers(breakdownItems, evidenceBlocks);
 
-  const absolute = buildAbsoluteBlock(canonicalModelKey, detail, modelRow, absoluteMetrics);
+  const absolute = buildAbsoluteBlock(canonicalFinal, detail, modelRow, absoluteMetrics);
 
   const decisionReasons = detail.decisionReasons?.length
     ? detail.decisionReasons
@@ -1131,7 +1136,7 @@ export async function getModelDetailPayload(
   let override: ModelOverride | null = null;
 
   try {
-    override = await loadModelOverride(canonicalModelKey);
+    override = await loadModelOverride(canonicalFinal);
   } catch {
     override = null;
   }
@@ -1216,10 +1221,10 @@ export async function getModelDetailPayload(
     typeof modelRow?.source === "string" && modelRow?.source.trim()
       ? modelRow.source
       : detail.layer;
-  const adoption = buildAdoptionBlock(findDecisionEntry(decisionsData, canonicalModelKey));
+  const adoption = buildAdoptionBlock(findDecisionEntry(decisionsData, canonicalFinal));
   return {
     status: "ok",
-    modelKey: canonicalModelKey,
+    modelKey: canonicalFinal,
     header: {
       title: `${detail.vendor} ${detail.name}`,
       provider: detail.vendor,
