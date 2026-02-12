@@ -941,7 +941,9 @@ function buildBreakdownItems(
         : typeof item.status === "string" && item.status.trim()
           ? item.status
           : "ok";
-      const missingEvidenceRule = (REQUIRED_EVIDENCE[item.id ?? key] ?? []).length === 0;
+      const missingEvidenceRule =
+        rawItem.missingEvidenceRule === true ||
+        (REQUIRED_EVIDENCE[item.id ?? key] ?? []).length === 0;
 
       const rawUsedEvidence = Array.isArray(item.usedEvidence) ? item.usedEvidence : [];
       const usedEvidence =
@@ -971,7 +973,8 @@ function buildBreakdownItems(
         evidenceUrls: effectiveEvidenceUrls,
         why: withheldWhy,
         usedEvidence,
-        specMissingEvidence: rawItem.__specMissingEvidenceLink === true,
+        specMissingEvidence:
+          rawItem.specMissingEvidence === true || rawItem.__specMissingEvidenceLink === true,
         missingEvidenceRule,
       };
     });

@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { pickUrl, pickUrls } from "@/lib/v4/evidence-link";
 import { formatKeyLabel } from "@/lib/v4/explainability";
+import { getFlagStyle } from "@/lib/v4/flags";
 import { normalizeReasons } from "@/lib/v4/reasons";
 import { normalizeStatus } from "@/lib/v4/status";
 import { STATUS_TEXT, toUiStatus } from "@/lib/v4/status-text";
@@ -115,6 +116,11 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
           const extracted = formatExtracted(item.extracted);
           const url = pickUrl(item);
           const refs = pickUrls(item).slice(0, 3);
+          const flagStyle = getFlagStyle({
+            status: item.status,
+            missingEvidenceRule: true,
+            usedEvidence: [{ link: url, refs }],
+          });
           return (
             <div
               key={item.type}
@@ -165,9 +171,9 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
                       ))}
                     </ul>
                   ) : null}
-                  {!url ? (
-                    <p className="mt-2 rounded-md border border-amber-500/60 bg-amber-500/10 px-2 py-1 text-[0.7rem] text-amber-200">
-                      Missing evidence link (spec violation).
+                  {flagStyle.label === "SPEC VIOLATION" ? (
+                    <p className="mt-2 rounded-md border border-rose-500/60 bg-rose-500/10 px-2 py-1 text-[0.7rem] text-rose-200">
+                      <span className="font-semibold">SPEC VIOLATION</span>: {flagStyle.message}
                     </p>
                   ) : null}
                 </div>
