@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
+import { isHttpUrl, pickUrl, pickUrls } from "@/lib/v4/evidence-link";
 import { formatKeyLabel, formatMetricValue } from "@/lib/v4/explainability";
 import { getItemDefaultEn, getItemFormulaEn } from "@/lib/v4/formulas";
 import { REASON } from "@/lib/v4/reason-codes";
@@ -32,6 +32,7 @@ export type FullBreakdownItem = {
   reason: string;
   why: string | null;
   usedEvidence: BreakdownEvidence[];
+  evidenceUrls?: string[];
   specMissingEvidence: boolean;
   penaltyReasons?: string[];
   penaltyReason?: string;
@@ -226,30 +227,56 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                   </td>
                   <td className="px-4 py-3 text-xs text-slate-300">
                     <div className="space-y-1">
-                      {item.usedEvidence.map((evidence, index) => {
-                        const url = pickEvidenceUrl(evidence);
-                        return (
-                          <div key={`${item.key}-evidence-${index}`} className="space-y-1">
-                            {url ? (
-                              <Link
-                                href={url}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="font-semibold text-accent hover:text-accent/80"
-                              >
-                                {formatEvidenceLabel(evidence)} {url}
-                              </Link>
-                            ) : (
-                              <span>{formatEvidenceLabel(evidence)} No link provided.</span>
-                            )}
-                            {!url ? (
-                              <p className="rounded-md border border-amber-500/60 bg-amber-500/10 px-2 py-1 text-[0.7rem] text-amber-200">
-                                Missing evidence link (spec violation).
-                              </p>
-                            ) : null}
-                          </div>
-                        );
-                      })}
+                      {(() => {
+                        const fallbackUrls = Array.isArray(item.evidenceUrls)
+                          ? item.evidenceUrls.filter((entry) => isHttpUrl(entry))
+                          : [];
+                        const evidenceEntries = item.usedEvidence.length
+                          ? item.usedEvidence
+                          : fallbackUrls.map((url) => ({ type: "evidence", url }));
+
+                        return evidenceEntries.map((evidence, index) => {
+                          const url = pickUrl(evidence);
+                          const urls = pickUrls(evidence);
+                          return (
+                            <div key={`${item.key}-evidence-${index}`} className="space-y-1">
+                              {url ? (
+                                <Link
+                                  href={url}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="font-semibold text-accent hover:text-accent/80"
+                                >
+                                  {formatEvidenceLabel(evidence)} {url}
+                                </Link>
+                              ) : (
+                                <span>{formatEvidenceLabel(evidence)} No link provided.</span>
+                              )}
+                              {urls.length > 1 ? (
+                                <ul className="list-disc space-y-1 pl-4">
+                                  {urls.slice(1, 4).map((ref) => (
+                                    <li key={ref}>
+                                      <Link
+                                        href={ref}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="font-semibold text-accent hover:text-accent/80"
+                                      >
+                                        {ref}
+                                      </Link>
+                                    </li>
+                                  ))}
+                                </ul>
+                              ) : null}
+                              {!url ? (
+                                <p className="rounded-md border border-amber-500/60 bg-amber-500/10 px-2 py-1 text-[0.7rem] text-amber-200">
+                                  Missing evidence link (spec violation).
+                                </p>
+                              ) : null}
+                            </div>
+                          );
+                        });
+                      })()}
                       {item.specMissingEvidence ? (
                         typeof item.score === "number" && Number.isFinite(item.score) ? (
                           <p className="rounded-md border border-rose-500/60 bg-rose-500/10 px-2 py-1 text-xs text-rose-200">
@@ -290,7 +317,7 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                               </div>
                               <div className="space-y-3">
                                 {evidenceEntries.map((evidence, index) => {
-                                  const url = pickEvidenceUrl(evidence);
+                                  const url = pickUrl(evidence);
                                   const status = normalizeStatus(
                                     evidence.status,
                                     "evidence"
