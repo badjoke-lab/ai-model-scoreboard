@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
+import { pickUrl, pickUrls } from "@/lib/v4/evidence-link";
 import { formatKeyLabel } from "@/lib/v4/explainability";
 import { normalizeReasons } from "@/lib/v4/reasons";
 import { normalizeStatus } from "@/lib/v4/status";
@@ -113,7 +113,8 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
           const topReasonCodes = reasonCodes.slice(0, 5);
           const topReasonNotes = reasonNotes.slice(0, 2);
           const extracted = formatExtracted(item.extracted);
-          const url = pickEvidenceUrl(item);
+          const url = pickUrl(item);
+          const refs = pickUrls(item).slice(0, 3);
           return (
             <div
               key={item.type}
@@ -148,6 +149,22 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
                   ) : (
                     <span>No link provided.</span>
                   )}
+                  {refs.length > 1 ? (
+                    <ul className="mt-2 list-disc space-y-1 pl-4 text-[0.7rem] text-slate-300">
+                      {refs.slice(1).map((ref) => (
+                        <li key={ref}>
+                          <Link
+                            href={ref}
+                            className="font-semibold text-accent hover:text-accent/80"
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {ref}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : null}
                   {!url ? (
                     <p className="mt-2 rounded-md border border-amber-500/60 bg-amber-500/10 px-2 py-1 text-[0.7rem] text-amber-200">
                       Missing evidence link (spec violation).

@@ -2,7 +2,7 @@ import { promises as fs } from "fs";
 import path from "path";
 
 import { formatReasonList } from "@/lib/v4/deriveReasons";
-import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
+import { pickUrl, pickUrls } from "@/lib/v4/evidence-link";
 import {
   buildEvidenceBlocks,
   dedupeUrls,
@@ -477,16 +477,7 @@ function collectLinksFromEvidenceBlocks(
   if (!evidenceBlocks) return [];
   const out: string[] = [];
   for (const block of Object.values(evidenceBlocks)) {
-    const refs = (block as { refs?: unknown }).refs;
-    if (Array.isArray(refs)) {
-      for (const ref of refs) {
-        if (typeof ref === "string") out.push(ref);
-      }
-    }
-    const extracted = (block as { extracted?: unknown }).extracted;
-    if (isObject(extracted) && typeof extracted.url === "string") {
-      out.push(extracted.url);
-    }
+    out.push(...pickUrls(block));
   }
   return out;
 }
@@ -504,14 +495,7 @@ function collectLinksFromBreakdownItems(
     }
     if (Array.isArray(item.usedEvidence)) {
       for (const evidence of item.usedEvidence) {
-        if (typeof evidence?.link === "string") out.push(evidence.link);
-        if (typeof evidence?.url === "string") out.push(evidence.url);
-        const refs = (evidence as { refs?: unknown }).refs;
-        if (Array.isArray(refs)) {
-          for (const ref of refs) {
-            if (typeof ref === "string") out.push(ref);
-          }
-        }
+        out.push(...pickUrls(evidence));
       }
     }
   }
@@ -522,16 +506,9 @@ function collectLinksFromEvidence(evidenceList: any[] | undefined | null): strin
   if (!Array.isArray(evidenceList)) return [];
   const out: string[] = [];
   for (const evidence of evidenceList) {
-    const url = typeof evidence?.url === "string" ? evidence.url : null;
-    const picked = url ?? pickEvidenceUrl(evidence);
+    const picked = pickUrl(evidence);
     if (typeof picked === "string") out.push(picked);
-
-    const refs = evidence?.refs;
-    if (Array.isArray(refs)) {
-      for (const ref of refs) {
-        if (typeof ref === "string") out.push(ref);
-      }
-    }
+    out.push(...pickUrls(evidence));
   }
   return out;
 }
@@ -774,18 +751,21 @@ function buildReferenceSections(
 
   for (const item of breakdownItems) {
     for (const evidence of item.usedEvidence ?? []) {
-      if (!evidence.link) continue;
+      const links = pickUrls(evidence);
+      if (!links.length) continue;
       const type = evidence.type?.toLowerCase() ?? "";
-      if (type.includes("paper")) {
-        addUrl("paper", evidence.link);
-      } else if (type.includes("audit")) {
-        addUrl("audit", evidence.link);
-      } else if (type.includes("repo") || type.includes("dev")) {
-        addUrl("repo/dev", evidence.link);
-      } else if (type.includes("official")) {
-        addUrl("official_page", evidence.link);
-      } else {
-        addUrl("other", evidence.link);
+      for (const link of links) {
+        if (type.includes("paper")) {
+          addUrl("paper", link);
+        } else if (type.includes("audit")) {
+          addUrl("audit", link);
+        } else if (type.includes("repo") || type.includes("dev")) {
+          addUrl("repo/dev", link);
+        } else if (type.includes("official")) {
+          addUrl("official_page", link);
+        } else {
+          addUrl("other", link);
+        }
       }
     }
   }
@@ -810,10 +790,7 @@ function normalizeEvidenceUrls(item: V4ScoreItem): string[] {
   }
   if (Array.isArray(item.usedEvidence)) {
     item.usedEvidence.forEach((entry) => {
-      const link = typeof entry.link === "string" ? entry.link.trim() : "";
-      const url = typeof entry.url === "string" ? entry.url.trim() : "";
-      if (link && isHttpUrl(link)) urls.add(link);
-      if (url && isHttpUrl(url)) urls.add(url);
+      pickUrls(entry).forEach((url) => urls.add(url));
     });
   }
   return Array.from(urls);
