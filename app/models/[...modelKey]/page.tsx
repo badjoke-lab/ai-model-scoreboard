@@ -16,6 +16,7 @@ import RawInputsPanel from "@/components/model/RawInputsPanel";
 import ScoreFormulaPanel from "@/components/model/ScoreFormulaPanel";
 import ScoreSummary from "@/components/model/ScoreSummary";
 import { applyAlias, fromRouteParam, toEncodedModelKey } from "@/lib/v4/modelKey";
+import { renderModelDetailText } from "@/lib/v4/render-detail-text";
 import { loadV4ModelDetail, loadV4SnapshotWithDiagnostics } from "@/lib/v4-snapshot";
 import type { AbsoluteBlock, Missing, V4ModelDetailResponse } from "@/types/v4";
 
@@ -107,8 +108,10 @@ const buildMissingAdoption = (): Missing => ({
 
 export default async function ModelDetailPage({
   params,
+  searchParams,
 }: {
   params: { modelKey: string[] };
+  searchParams?: { format?: string };
 }) {
   const rawParam = Array.isArray(params.modelKey)
     ? params.modelKey.join("/")
@@ -120,9 +123,11 @@ export default async function ModelDetailPage({
   }
 
   const modelKey = aliasResult.key;
+  const isTextFormat = searchParams?.format === "text";
+  const formatSuffix = isTextFormat ? "?format=text" : "";
 
   if (modelKey && modelKey !== routeModelKey) {
-    redirect(`/models/${toEncodedModelKey(modelKey)}`);
+    redirect(`/models/${toEncodedModelKey(modelKey)}${formatSuffix}`);
   }
 
   const snapshot = await loadV4SnapshotWithDiagnostics();
@@ -133,7 +138,7 @@ export default async function ModelDetailPage({
     const matches = Object.keys(models).filter((key) => key.split("/").pop() === slug);
 
     if (matches.length === 1) {
-      redirect(`/models/${toEncodedModelKey(matches[0])}`);
+      redirect(`/models/${toEncodedModelKey(matches[0])}${formatSuffix}`);
     }
 
     if (matches.length > 1) {
@@ -280,6 +285,21 @@ export default async function ModelDetailPage({
   const decisionReasons = header.decisionReasons ?? [];
   const missingEvidenceRules = breakdownItems.filter((item) => item.missingEvidenceRule);
   const rawInputsBySource = detailResponse.rawInputsBySource;
+  if (isTextFormat) {
+    const text = renderModelDetailText(detailResponse);
+    return (
+      <main className="space-y-4">
+        <header className="space-y-1">
+          <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Model Debug Text</p>
+          <h1 className="text-xl font-semibold text-slate-100">{modelKey}</h1>
+        </header>
+        <pre className="overflow-x-auto rounded-lg border border-slate-700 bg-slate-950 p-4 text-xs text-slate-200">
+          {text}
+        </pre>
+      </main>
+    );
+  }
+
   const breakdownItemsForTable: FullBreakdownItem[] = breakdownItems.map((item) => {
     const inputs = extractInputs({ inputs_raw: item.inputsRaw });
     return {
