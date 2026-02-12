@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { formatStatusLabel, formatMetricValue } from "@/lib/v4/explainability";
 import { pickEvidenceUrl } from "@/lib/v4/evidenceLink";
+import { getFlagStyle, isSpecMissingEvidence, isWithheldScore } from "@/lib/v4/flags";
 import { normalizeReasons } from "@/lib/v4/reasons";
 import { normalizeStatus } from "@/lib/v4/status";
 
@@ -20,9 +21,14 @@ export type BreakdownItem = {
   label: string;
   impact?: number;
   delta?: number;
+  score?: number | null;
+  status?: string;
   reason: string;
+  why?: string | null;
   usedEvidence?: BreakdownEvidence[];
   specMissingEvidence?: boolean;
+  missingEvidenceRule?: boolean;
+  evidenceUrls?: string[];
   penaltyReasons?: string[];
   penaltyReason?: string;
   withheld?: boolean;
@@ -90,17 +96,24 @@ export default function BreakdownTable({ items }: { items: BreakdownItem[] }) {
             const evidenceLinks = evidenceEntries
               .map((evidence) => pickEvidenceUrl(evidence))
               .filter((link): link is string => typeof link === "string" && !!link.trim());
-            const showWarning =
-              scoreOk && (scoreOk && (item.specMissingEvidence || evidenceLinks.length === 0));
+            const withheld = isWithheldScore(item);
+            const specMissingEvidence = isSpecMissingEvidence({
+              ...item,
+              evidenceUrls: evidenceLinks,
+            });
+            const flagStyle = getFlagStyle({
+              ...item,
+              evidenceUrls: evidenceLinks,
+            });
             const penaltyReasons = getPenaltyReasons(item);
             const withheldReasons = getWithheldReasons(item);
             const specChecks: string[] = [];
-            if (item.specMissingEvidence) {
+            if (specMissingEvidence) {
               specChecks.push(
                 "spec_missing_evidence: score exists but no verifiable URL is present"
               );
             }
-            if (item.withheld) {
+            if (withheld) {
               specChecks.push("withheld: evidence or data withheld");
             }
             const detailEvidenceEntries = evidenceEntries.length
@@ -122,8 +135,11 @@ export default function BreakdownTable({ items }: { items: BreakdownItem[] }) {
                   {item.reason}
                 </td>
                 <td className="px-4 py-3 align-top text-xs text-slate-300">
-                  {!scoreOk ? (
-                    <p className="text-xs text-slate-500">Withheld: missing item evidence.</p>
+                  {withheld ? (
+                    <p className="text-xs text-amber-200">
+                      <span className="mr-1 font-semibold">WITHHELD</span>
+                      {flagStyle.message}
+                    </p>
                   ) : evidenceEntries.length ? (
                     <ul className="space-y-1">
                       {evidenceEntries.map((evidence, index) => {
@@ -144,9 +160,9 @@ export default function BreakdownTable({ items }: { items: BreakdownItem[] }) {
                                 [{evidence.type ?? "evidence"}] link unavailable
                               </span>
                             )}
-                            {!url ? (
-                              <p className="mt-1 text-[0.7rem] font-semibold text-amber-200">
-                                Missing evidence link (spec violation).
+                            {!url && specMissingEvidence ? (
+                              <p className="mt-1 text-[0.7rem] font-semibold text-rose-200">
+                                {flagStyle.message}
                               </p>
                             ) : null}
                             {evidence.status ? (
@@ -161,9 +177,10 @@ export default function BreakdownTable({ items }: { items: BreakdownItem[] }) {
                   ) : (
                     <p className="text-xs text-slate-500">No evidence links listed.</p>
                   )}
-                  {showWarning ? (
-                    <p className="mt-2 text-xs font-semibold text-amber-200">
-                      Missing evidence link (spec should fail until fixed)
+                  {flagStyle.label === "SPEC VIOLATION" ? (
+                    <p className="mt-2 text-xs font-semibold text-rose-200">
+                      <span className="mr-1">SPEC VIOLATION</span>
+                      {flagStyle.message}
                     </p>
                   ) : null}
                   <details className="mt-3 rounded-md border border-slate-800 bg-slate-950/50 p-2 text-xs">

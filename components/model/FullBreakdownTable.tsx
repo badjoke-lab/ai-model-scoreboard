@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { isHttpUrl, pickUrl, pickUrls } from "@/lib/v4/evidence-link";
 import { formatKeyLabel, formatMetricValue } from "@/lib/v4/explainability";
+import { getFlagStyle, isSpecMissingEvidence, isWithheldScore } from "@/lib/v4/flags";
 import { getItemDefaultEn, getItemFormulaEn } from "@/lib/v4/formulas";
 import { REASON } from "@/lib/v4/reason-codes";
 import { normalizeReasons } from "@/lib/v4/reasons";
@@ -34,6 +35,7 @@ export type FullBreakdownItem = {
   usedEvidence: BreakdownEvidence[];
   evidenceUrls?: string[];
   specMissingEvidence: boolean;
+  missingEvidenceRule?: boolean;
   penaltyReasons?: string[];
   penaltyReason?: string;
   withheld?: boolean;
@@ -129,8 +131,19 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
           </thead>
           <tbody className="divide-y divide-slate-800">
             {items.length ? (
-              items.map((item) => (
-                <tr key={item.key} className="align-top">
+              items.map((item) => {
+                const rowFlagStyle = getFlagStyle(item);
+                return (
+                <tr
+                  key={item.key}
+                  className={`align-top ${
+                    rowFlagStyle.tone === "danger"
+                      ? "bg-rose-950/10"
+                      : rowFlagStyle.tone === "warning"
+                        ? "bg-amber-950/10"
+                        : ""
+                  }`}
+                >
                   <td className="px-4 py-3 font-semibold text-slate-100">{item.label}</td>
                   <td className="px-4 py-3">
                     {(() => {
@@ -144,6 +157,7 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                         typeof item.score === "number" &&
                         Number.isFinite(item.score) &&
                         verification.isVerifiable;
+                      const flagStyle = getFlagStyle(item);
                       const missingNote =
                         typeof item.score === "number" && !verification.isVerifiable
                           ? `Unverifiable score (spec violation): missing ${verification.missing.join(
@@ -153,6 +167,17 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                       return (
                         <div className="space-y-2">
                           <span>{showScore ? formatScore(item.score) : "—"}</span>
+                          {flagStyle.label ? (
+                            <p
+                              className={`rounded-md px-2 py-1 text-xs font-semibold ${
+                                flagStyle.tone === "warning"
+                                  ? "border border-amber-500/60 bg-amber-500/10 text-amber-200"
+                                  : "border border-rose-500/60 bg-rose-500/10 text-rose-200"
+                              }`}
+                            >
+                              {flagStyle.label}: {flagStyle.message}
+                            </p>
+                          ) : null}
                           {missingNote ? (
                             <p className="rounded-md border border-rose-500/60 bg-rose-500/10 px-2 py-1 text-xs text-rose-200">
                               {missingNote}
@@ -184,12 +209,12 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                             </div>
                             {normalizeReasonsWithSafety(
                               item.inputMissing.reasons,
-                              item.specMissingEvidence ? [REASON.POLICY_SAFETY] : []
+                              isSpecMissingEvidence(item) ? [REASON.POLICY_SAFETY] : []
                             ).length ? (
                               <ul className="list-disc space-y-1 pl-4">
                                 {normalizeReasonsWithSafety(
                                   item.inputMissing.reasons,
-                                  item.specMissingEvidence ? [REASON.POLICY_SAFETY] : []
+                                  isSpecMissingEvidence(item) ? [REASON.POLICY_SAFETY] : []
                                 )
                                   .slice(0, 3)
                                   .map((reason) => (
@@ -268,26 +293,30 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                                   ))}
                                 </ul>
                               ) : null}
-                              {!url ? (
-                                <p className="rounded-md border border-amber-500/60 bg-amber-500/10 px-2 py-1 text-[0.7rem] text-amber-200">
-                                  Missing evidence link (spec violation).
+                              {!url && isSpecMissingEvidence(item) ? (
+                                <p className="rounded-md border border-rose-500/60 bg-rose-500/10 px-2 py-1 text-[0.7rem] text-rose-200">
+                                  Spec missing evidence: evidence URLs are required for this score.
                                 </p>
                               ) : null}
                             </div>
                           );
                         });
                       })()}
-                      {item.specMissingEvidence ? (
-                        typeof item.score === "number" && Number.isFinite(item.score) ? (
-                          <p className="rounded-md border border-rose-500/60 bg-rose-500/10 px-2 py-1 text-xs text-rose-200">
-                            Missing evidence link (spec violation).
+                      {(() => {
+                        const flagStyle = getFlagStyle(item);
+                        if (!flagStyle.label) return null;
+                        return (
+                          <p
+                            className={`rounded-md px-2 py-1 text-xs ${
+                              flagStyle.tone === "warning"
+                                ? "border border-amber-500/60 bg-amber-500/10 text-amber-200"
+                                : "border border-rose-500/60 bg-rose-500/10 text-rose-200"
+                            }`}
+                          >
+                            <span className="font-semibold">{flagStyle.label}</span>: {flagStyle.message}
                           </p>
-                        ) : (
-                          <p className="rounded-md border border-amber-500/60 bg-amber-500/10 px-2 py-1 text-xs text-amber-200">
-                            Score withheld: required evidence link is missing (expected until evidence is provided).
-                          </p>
-                        )
-                      ) : null}
+                        );
+                      })()}
                     </div>
                     <details className="mt-3 rounded-md border border-slate-800 bg-slate-950/50 p-2 text-xs">
                       <summary className="cursor-pointer font-semibold text-slate-100">
@@ -297,16 +326,18 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                         const evidenceEntries = item.usedEvidence.length
                           ? item.usedEvidence
                           : [{ type: "evidence" as const }];
-                        const safetyReasons = item.specMissingEvidence ? [REASON.POLICY_SAFETY] : [];
+                        const specMissingEvidence = isSpecMissingEvidence(item);
+                        const withheld = isWithheldScore(item);
+                        const safetyReasons = specMissingEvidence ? [REASON.POLICY_SAFETY] : [];
                         const penaltyReasons = normalizeReasons(getPenaltyReasons(item));
                         const withheldReasons = normalizeReasons(getWithheldReasons(item));
                         const specChecks: string[] = [];
-                        if (item.specMissingEvidence) {
+                        if (specMissingEvidence) {
                           specChecks.push(
                             "spec_missing_evidence: score exists but no verifiable URL is present"
                           );
                         }
-                        if (item.withheld) {
+                        if (withheld) {
                           specChecks.push("withheld: evidence or data withheld");
                         }
                         return (
@@ -446,7 +477,8 @@ export default function FullBreakdownTable({ items, emptyMessage }: FullBreakdow
                     })()}
                   </td>
                 </tr>
-              ))
+                );
+              })
             ) : (
               <tr>
                 <td colSpan={5} className="px-4 py-6 text-sm text-slate-400">
