@@ -25,6 +25,17 @@ Evidence types are fixed:
 - paper
 - audit
 
+### A. Evidence（4タイプ固定）
+
+| Evidence type | 自動生成 | 手動override | ok許可条件 | 禁止 |
+| --- | ---: | ---: | --- | --- |
+| official_page | △ | ✅ | 一次ソースURLが確定 | 推測でok |
+| dev_activity | △ | ✅ | 公式GitHub org/repo確定 | 推測でok |
+| paper | △ | ✅ | arXiv/公式PDF等の一次ソース確定 | 推測でok |
+| audit | ✗ | ✅ | **第三者監査のみ** | ベンダー自己申告でok |
+
+※ △ = 辞書（provider/model map）にヒットしたときだけ `ok` 可。ヒットしない場合は `ambiguous` / `not_found`。
+
 Each evidence entry MUST include:
 - type (one of the fixed types)
 - status (allowed status vocabulary)
@@ -47,8 +58,30 @@ Sources are fixed:
 - arxiv
 - ops
 
+### B. Raw Inputs（5ソース固定）
+
+| Source | 収集 | 表示 | 欠損扱いの理由コード必須 |
+| --- | ---: | ---: | ---: |
+| OpenRouter | ✅ | ✅ | ✅ |
+| HuggingFace | △ | ✅ | ✅ |
+| GitHub | △ | ✅ | ✅ |
+| arXiv | △ | ✅ | ✅ |
+| Ops | ✗（無料） | ✅（欠損表示） | ✅ |
+
+### C. 継続計測系（無料では原則不可）
+
+- TTFT/TPS/success/uptime の継続収集は **原則欠損**（理由コード必須）。
+- レート制限の正確値は **原則欠損**。
+
 Payload MUST provide `rawInputsBySource` keys for all sources (empty objects allowed),
 and UI MUST show missing explicitly.
+
+---
+
+## 欠損の厳格運用（MUST）
+
+- 欠損は `missing` / `not_found` / `ambiguous` / `missing_source_link` のいずれかで明示する。
+- 欠損がある場合は、既存仕様どおり `withheld` および `specMissingEvidence` に影響させる（本書では再定義しない）。
 
 ---
 
