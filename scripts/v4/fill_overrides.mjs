@@ -2,7 +2,8 @@
  * fill_overrides.mjs
  * 目的: public/data/v4/models.json を走査し、overrides/v4/models/*.json を「候補URL付き」で生成/更新する。
  * 方針:
- * - 既存overrideがあれば尊重（manual_overrideがあるものは上書きしない）
+ * - デフォルトでは既存overrideを上書きしない（--forceで許可）
+ * - manual_overrideがある既存overrideはデフォルト除外（--include-manualで許可）
  * - 取れないものは not_found の枠だけ作る
  *
  * 注意:
@@ -15,6 +16,7 @@ import { guessHfEvidence } from "./providers/huggingface.mjs";
 import { guessArxivEvidence } from "./providers/arxiv.mjs";
 import { guessGithubEvidence } from "./providers/github.mjs";
 import { getModelMap, loadModelMaps, pickModelMappedUrl } from "./providers/model-maps.mjs";
+import { computeFingerprintState, ensureDir, indexPath, readJson } from "./fingerprint.mjs";
 
 const ROOT = process.cwd();
 const V4_MODELS = path.join(ROOT, "public", "data", "v4", "models.json");
@@ -27,15 +29,8 @@ const DISALLOWED_CHARS = /[^a-z0-9./-]+/g;
 const MULTI_DASH = /-+/g;
 const MAX_ALIAS_HOPS = 10;
 
-function readJson(p) {
-  return JSON.parse(fs.readFileSync(p, "utf-8"));
-}
 function writeJson(p, obj) {
   fs.writeFileSync(p, `${JSON.stringify(obj, null, 2)}\n`, "utf-8");
-}
-
-function ensureDir(p) {
-  if (!fs.existsSync(p)) fs.mkdirSync(p, { recursive: true });
 }
 
 function normalizeSegment(segment) {
@@ -95,10 +90,84 @@ const LABELS = {
   audit: "Independent third-party security audit",
 };
 
+function parseArgs(argv) {
+  const only = [];
+  let onlyFile = null;
+  let onlyChanged = false;
+  let writeIndex = false;
+  let force = false;
+  let includeManual = false;
+
+  for (let i = 0; i < argv.length; i += 1) {
+    const arg = argv[i];
+    if (arg === "--only") {
+      const value = argv[i + 1];
+      if (!value) throw new Error("--only requires a value");
+      only.push(value);
+      i += 1;
+      continue;
+    }
+    if (arg === "--only-file") {
+      const value = argv[i + 1];
+      if (!value) throw new Error("--only-file requires a value");
+      onlyFile = value;
+      i += 1;
+      continue;
+    }
+    if (arg === "--only-changed") {
+      onlyChanged = true;
+      continue;
+    }
+    if (arg === "--write-index") {
+      writeIndex = true;
+      continue;
+    }
+    if (arg === "--force") {
+      force = true;
+      continue;
+    }
+    if (arg === "--include-manual") {
+      includeManual = true;
+      continue;
+    }
+    throw new Error(`unknown argument: ${arg}`);
+  }
+
+  return { only, onlyFile, onlyChanged, writeIndex, force, includeManual };
+}
+
+function collectOnlyFromFile(filePath) {
+  const content = fs.readFileSync(path.resolve(ROOT, filePath), "utf-8");
+  return content
+    .split(/\r?\n/u)
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith("#"));
+}
+
+function hasManualOverride(existing) {
+  if (!existing || typeof existing !== "object") return false;
+  if (existing.manual_override === true) return true;
+  if (existing?.meta?.manual_override === true) return true;
+
+  if (Array.isArray(existing.evidence)) {
+    for (const evidence of existing.evidence) {
+      if (evidence?.manual_override === true) return true;
+      if (
+        Array.isArray(evidence?.reasons) &&
+        evidence.reasons.some((reason) => typeof reason === "string" && reason.includes("manual_override"))
+      ) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
 function loadAliases() {
   if (!fs.existsSync(ALIASES_FILE)) return {};
   try {
-    const parsed = readJson(ALIASES_FILE);
+    const parsed = readJson(ALIASES_FILE, {});
     const rawAliases = parsed?.aliases ?? {};
     const aliases = {};
     for (const [from, to] of Object.entries(rawAliases)) {
@@ -254,9 +323,10 @@ function applyModelMapOverride(candidate, modelMap, type) {
   return out;
 }
 
-ensureDir(OV_DIR);
+const args = parseArgs(process.argv.slice(2));
 
-const models = readJson(V4_MODELS);
+ensureDir(OV_DIR);
+const models = readJson(V4_MODELS, {});
 const list = Array.isArray(models?.models)
   ? models.models
   : Array.isArray(models)
@@ -266,8 +336,23 @@ const list = Array.isArray(models?.models)
 const aliases = loadAliases();
 validateAliasesOrExit(aliases);
 
+const selectors = new Set();
+for (const onlyValue of args.only) selectors.add(normalizeModelKey(onlyValue));
+if (args.onlyFile) {
+  for (const key of collectOnlyFromFile(args.onlyFile)) selectors.add(normalizeModelKey(key));
+}
+if (args.onlyChanged) {
+  const changedState = computeFingerprintState();
+  for (const key of changedState.changed) selectors.add(normalizeModelKey(key));
+}
+selectors.delete("");
+const hasSelector = selectors.size > 0;
+
 const modelMaps = loadModelMaps();
 let updated = 0;
+let skippedExisting = 0;
+let skippedManual = 0;
+let considered = 0;
 
 for (const m of list) {
   const rawModelKey = m?.modelKey || m?.key || m?.id;
@@ -283,12 +368,28 @@ for (const m of list) {
   }
 
   const canonicalFinal = aliasResult.key;
+  if (hasSelector && !selectors.has(normalizedModelKey) && !selectors.has(canonicalFinal)) {
+    continue;
+  }
+
+  considered += 1;
   const aliasUsed = canonicalFinal !== normalizedModelKey;
   const encodedModelKey = encodeURIComponent(canonicalFinal);
   const outPath = path.join(OV_DIR, `${encodedModelKey}.json`);
-  const existing = fs.existsSync(outPath)
-    ? readJson(outPath)
+  const hasExisting = fs.existsSync(outPath);
+  const existing = hasExisting
+    ? readJson(outPath, { modelKey: canonicalFinal, evidence: [], links: [] })
     : { modelKey: canonicalFinal, evidence: [], links: [] };
+
+  if (hasExisting && hasManualOverride(existing) && !args.includeManual) {
+    skippedManual += 1;
+    continue;
+  }
+
+  if (hasExisting && !args.force) {
+    skippedExisting += 1;
+    continue;
+  }
 
   const map = byType(existing.evidence);
   const modelMap = getModelMap(modelMaps, canonicalFinal);
@@ -355,10 +456,19 @@ for (const m of list) {
 
   const prevStr = JSON.stringify(existing);
   const nextStr = JSON.stringify(out);
-  if (prevStr !== nextStr) {
+  if (!hasExisting || prevStr !== nextStr) {
     writeJson(outPath, out);
-    updated++;
+    updated += 1;
   }
 }
 
-console.log(`overrides updated: ${updated}`);
+if (args.writeIndex) {
+  const state = computeFingerprintState();
+  const idxPath = indexPath();
+  ensureDir(path.dirname(idxPath));
+  writeJson(idxPath, { version: state.version, fingerprints: state.fingerprints });
+}
+
+console.log(
+  `overrides updated: ${updated} (considered=${considered}, skipped_existing=${skippedExisting}, skipped_manual=${skippedManual})`
+);
