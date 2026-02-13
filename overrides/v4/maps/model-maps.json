@@ -5,6 +5,56 @@
       "official_page": "https://huggingface.co/meta-llama/Meta-Llama-3.1-8B-Instruct",
       "dev_activity": "https://github.com/meta-llama/llama-models",
       "paper": "https://arxiv.org/abs/2407.21783"
+    },
+    "openai%2Fgpt-5-codex": {
+      "official_page": "https://openai.com/index/introducing-codex/",
+      "dev_activity": "https://github.com/openai/codex",
+      "paper": "https://openai.com/index/gpt-4-technical-report/"
+    },
+    "qwen%2Fqwen3-vl-30b-a3b-thinking": {
+      "official_page": "https://huggingface.co/Qwen/Qwen3-VL-30B-A3B-Thinking",
+      "dev_activity": "https://github.com/QwenLM/Qwen3-VL",
+      "paper": "https://qwenlm.github.io/blog/qwen3-vl/"
+    },
+    "z-ai%2Fglm-4.5-air": {
+      "official_page": "https://z.ai/blog/glm-4.5",
+      "dev_activity": "https://github.com/THUDM/GLM-4",
+      "paper": "https://arxiv.org/abs/2406.12793"
+    },
+    "allenai%2Fmolmo-2-8b-20260109": {
+      "official_page": "https://allenai.org/blog/molmo",
+      "dev_activity": "https://github.com/allenai/molmo",
+      "paper": "https://arxiv.org/abs/2409.17146"
+    },
+    "meituan%2Flongcat-flash-chat": {
+      "official_page": "https://huggingface.co/meituan-longcat/LongCat-Flash-Chat",
+      "dev_activity": "https://github.com/Meituan-AutoML/LongCat-Flash",
+      "paper": "https://arxiv.org/abs/2402.10174"
+    },
+    "perplexity%2Fsonar": {
+      "official_page": "https://docs.perplexity.ai/guides/model-cards/sonar",
+      "dev_activity": "https://github.com/perplexityai",
+      "paper": "https://www.perplexity.ai/hub/blog/introducing-sonar"
+    },
+    "x-ai%2Fgrok-4-07-09": {
+      "official_page": "https://x.ai/news/grok-4",
+      "dev_activity": "https://github.com/xai-org/grok-1",
+      "paper": "https://arxiv.org/abs/2404.11912"
+    },
+    "openai%2Fgpt-4o": {
+      "official_page": "https://openai.com/index/hello-gpt-4o/",
+      "dev_activity": "https://github.com/openai/openai-cookbook",
+      "paper": "https://openai.com/index/gpt-4-technical-report/"
+    },
+    "openai%2Fgpt-3.5-turbo-16k": {
+      "official_page": "https://platform.openai.com/docs/models/gpt-3-5-turbo",
+      "dev_activity": "https://github.com/openai/openai-cookbook",
+      "paper": "https://arxiv.org/abs/2203.02155"
+    },
+    "google%2Fgemma-3n-e4b-it": {
+      "official_page": "https://ai.google.dev/gemma/docs/core/model_card_3n",
+      "dev_activity": "https://github.com/google/gemma_pytorch",
+      "paper": "https://arxiv.org/abs/2403.08295"
     }
   }
 }
