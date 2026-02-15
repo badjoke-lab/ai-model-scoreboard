@@ -342,6 +342,7 @@ export default async function ModelDetailPage({
         overallScore={header.overallScore}
         categoryScores={header.categoryScores}
         topDrivers={topDrivers}
+        categoryReason1L={detailResponse.categoryReason1L}
       />
 
       <EvidenceCards
