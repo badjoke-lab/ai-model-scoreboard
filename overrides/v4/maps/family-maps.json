@@ -1,0 +1,14 @@
+{
+  "families": [
+    {
+      "id": "mistral_mixtral",
+      "match": { "type": "prefix", "value": "mistral/" },
+      "paper": "https://arxiv.org/abs/2401.04088"
+    },
+    {
+      "id": "meta_llama_31",
+      "match": { "type": "prefix", "value": "meta-llama/" },
+      "paper": "https://arxiv.org/abs/2407.21783"
+    }
+  ]
+}
