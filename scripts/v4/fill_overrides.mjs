@@ -16,6 +16,7 @@ import { guessHfEvidence } from "./providers/huggingface.mjs";
 import { guessArxivEvidence } from "./providers/arxiv.mjs";
 import { guessGithubEvidence } from "./providers/github.mjs";
 import { getModelMap, loadModelMaps, pickModelMappedUrl } from "./providers/model-maps.mjs";
+import { matchFamilyPaper } from "./providers/family-maps.mjs";
 import { computeFingerprintState, ensureDir, indexPath, readJson } from "./fingerprint.mjs";
 
 const ROOT = process.cwd();
@@ -323,6 +324,20 @@ function applyModelMapOverride(candidate, modelMap, type) {
   return out;
 }
 
+function buildFamilyMappedPaperEvidence(modelKey) {
+  const hit = matchFamilyPaper(modelKey);
+  if (!hit) return null;
+
+  return {
+    type: "paper",
+    status: "ok",
+    label: LABELS.paper,
+    url: hit.paper,
+    refs: [hit.paper],
+    reasons: ["auto:family_map"],
+  };
+}
+
 const args = parseArgs(process.argv.slice(2));
 
 ensureDir(OV_DIR);
@@ -404,11 +419,14 @@ for (const m of list) {
   const hf = guessHfEvidence(m);
   const gh = guessGithubEvidence(m, provider);
   const ax = guessArxivEvidence(m, provider);
+  const familyPaper = buildFamilyMappedPaperEvidence(canonicalFinal);
+  const hasModelMapPaper = Boolean(pickModelMappedUrl(modelMap, "paper"));
+  const paperProposal = hasModelMapPaper ? ax : familyPaper || ax;
 
   const proposals = {
     official_page: hf,
     dev_activity: gh,
-    paper: ax,
+    paper: paperProposal,
     audit: {
       type: "audit",
       status: "not_found",
