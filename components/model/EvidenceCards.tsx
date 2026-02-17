@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { pickUrl, pickUrls } from "@/lib/v4/evidence-link";
+import { calculateEvidenceQuality } from "@/lib/v4/evidence-quality";
 import { formatKeyLabel } from "@/lib/v4/explainability";
 import { getFlagStyle } from "@/lib/v4/flags";
 import { normalizeReasons } from "@/lib/v4/reasons";
@@ -92,6 +93,8 @@ function normalizeEvidenceItems(items: EvidenceItem[]): EvidenceItem[] {
 
 export default function EvidenceCards({ evidence, errorMessage, impactByKey }: EvidenceCardsProps) {
   const orderedEvidence = normalizeEvidenceItems(evidence);
+  const evidenceQuality = calculateEvidenceQuality(orderedEvidence);
+
   return (
     <section className="rounded-2xl border border-slate-800 bg-surface/70 p-6 shadow-lg">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
@@ -104,6 +107,24 @@ export default function EvidenceCards({ evidence, errorMessage, impactByKey }: E
           {errorMessage}
         </div>
       ) : null}
+      <div className="mt-4 rounded-lg border border-slate-800 bg-slate-950/40 p-3 text-xs text-slate-300">
+        <p className="text-sm font-semibold text-slate-100">
+          Evidence Quality: {evidenceQuality.quality}/100
+        </p>
+        <p className="mt-1 text-[0.72rem] text-slate-400">
+          Based on evidence availability only. Does not affect the score.
+        </p>
+        <details className="mt-2 text-[0.72rem] text-slate-300">
+          <summary className="cursor-pointer text-slate-400">Show quality breakdown</summary>
+          <ul className="mt-2 list-disc space-y-1 pl-4">
+            {evidenceQuality.breakdown.map((row) => (
+              <li key={row.type}>
+                {row.type} {row.status} +{row.points.toFixed(2)}
+              </li>
+            ))}
+          </ul>
+        </details>
+      </div>
       <div className="mt-4 grid gap-4 md:grid-cols-2">
         {orderedEvidence.map((item) => {
           const key = item.type;
