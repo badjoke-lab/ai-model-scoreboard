@@ -15,6 +15,7 @@ import path from "node:path";
 import { guessHfEvidence } from "./providers/huggingface.mjs";
 import { guessArxivEvidence } from "./providers/arxiv.mjs";
 import { guessGithubEvidence } from "./providers/github.mjs";
+import { loadAuditCandidates, pickAuditCandidate } from "./providers/audit-maps.mjs";
 import { getModelMap, loadModelMaps, pickModelMappedUrl } from "./providers/model-maps.mjs";
 import { matchFamilyPaper } from "./providers/family-maps.mjs";
 import { computeFingerprintState, ensureDir, indexPath, readJson } from "./fingerprint.mjs";
@@ -364,6 +365,7 @@ selectors.delete("");
 const hasSelector = selectors.size > 0;
 
 const modelMaps = loadModelMaps();
+const auditMaps = loadAuditCandidates(normalizeModelKey);
 let updated = 0;
 let skippedExisting = 0;
 let skippedManual = 0;
@@ -416,9 +418,11 @@ for (const m of list) {
     m?.provider ||
     m?.org ||
     "";
+  const normalizedProvider = typeof provider === "string" ? provider.trim().toLowerCase() : "";
   const hf = guessHfEvidence(m);
   const gh = guessGithubEvidence(m, provider);
   const ax = guessArxivEvidence(m, provider);
+  const auditCandidate = pickAuditCandidate(auditMaps, canonicalFinal, normalizedProvider);
   const familyPaper = buildFamilyMappedPaperEvidence(canonicalFinal);
   const hasModelMapPaper = Boolean(pickModelMappedUrl(modelMap, "paper"));
   const paperProposal = hasModelMapPaper ? ax : familyPaper || ax;
@@ -429,10 +433,11 @@ for (const m of list) {
     paper: paperProposal,
     audit: {
       type: "audit",
-      status: "not_found",
-      label: "Independent third-party security audit",
-      reasons: ["auto: not searched"],
-      refs: [],
+      status: auditCandidate ? "ok" : "not_found",
+      label: auditCandidate?.label || "Independent third-party audit",
+      url: auditCandidate?.url || null,
+      reasons: auditCandidate ? ["manual_audit_db"] : ["auto: not searched"],
+      refs: auditCandidate?.url ? [auditCandidate.url] : [],
     },
   };
 
