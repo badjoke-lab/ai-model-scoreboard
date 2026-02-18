@@ -5,6 +5,8 @@ on:
     paths:
       - "overrides/v4/models/**"
       - "scripts/v4/validate_overrides.mjs"
+      - "overrides/v4/maps/**"
+      - "scripts/v4/validate_maps.mjs"
       - ".github/workflows/validate-overrides.yml"
 
 jobs:
@@ -19,3 +21,6 @@ jobs:
 
       - name: Validate overrides JSON
         run: node scripts/v4/validate_overrides.mjs
+
+      - name: Validate map JSON
+        run: node scripts/v4/validate_maps.mjs
