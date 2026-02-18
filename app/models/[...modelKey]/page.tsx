@@ -181,6 +181,7 @@ export default async function ModelDetailPage({
   const evidenceImpact = detailResponse?.evidenceCards.impactByKey ?? {};
   const evidenceItems = detailResponse?.evidence ?? [];
   const links = detailResponse?.links ?? [];
+  const linksByType = detailResponse?.linksByType;
   const absolute = detailResponse?.absolute ?? buildMissingAbsoluteBlock(modelKey);
   const adoption = detailResponse?.adoption ?? buildMissingAdoption();
   const topDrivers = detailResponse?.evidenceCards.topReasons ?? [];
@@ -272,7 +273,7 @@ export default async function ModelDetailPage({
           <p className="mt-1 text-sm text-rose-200">{detailError.message}</p>
         </section>
 
-        <LinksSection links={links} />
+        <LinksSection links={links} linksByType={linksByType} />
       </div>
     );
   }
@@ -364,7 +365,7 @@ export default async function ModelDetailPage({
         emptyMessage="Score breakdown data is missing; category-level scoring applied with fixed penalties."
       />
 
-      <LinksSection links={links} />
+      <LinksSection links={links} linksByType={linksByType} />
     </div>
   );
 }

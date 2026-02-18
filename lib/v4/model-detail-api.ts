@@ -44,6 +44,13 @@ import type {
 } from "@/types/v4";
 
 type EvidenceImpactKey = "official_page" | "dev_activity" | "paper" | "audit";
+type LinksByType = {
+  official_page: string[];
+  dev_activity: string[];
+  paper: string[];
+  audit: string[];
+  other: string[];
+};
 
 const REQUIRED_EVIDENCE: Record<string, string[]> = evidencePolicy;
 const REQUIRED_EVIDENCE_TYPES: V4EvidenceKey[] = [
@@ -472,12 +479,68 @@ function normalizeLinkCandidate(value: string): string | null {
     return null;
   }
   if (parsed.protocol !== "http:" && parsed.protocol !== "https:") return null;
+  if (parsed.pathname.length > 1) {
+    parsed.pathname = parsed.pathname.replace(/\/+$/, "");
+  }
   const host = parsed.hostname.toLowerCase();
   if (host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0") {
     return null;
   }
   if (hasSensitiveQuery(trimmed)) return null;
   return parsed.toString();
+}
+
+function buildLinksByType(evidenceList: EvidenceItem[], allLinks: string[]): LinksByType {
+  const linksByType: LinksByType = {
+    official_page: [],
+    dev_activity: [],
+    paper: [],
+    audit: [],
+    other: [],
+  };
+  const seenByType: Record<keyof LinksByType, Set<string>> = {
+    official_page: new Set<string>(),
+    dev_activity: new Set<string>(),
+    paper: new Set<string>(),
+    audit: new Set<string>(),
+    other: new Set<string>(),
+  };
+
+  const add = (type: keyof LinksByType, candidate: string) => {
+    const normalized = normalizeLinkCandidate(candidate);
+    if (!normalized) return;
+    if (seenByType[type].has(normalized)) return;
+    seenByType[type].add(normalized);
+    linksByType[type].push(normalized);
+  };
+
+  for (const evidence of evidenceList) {
+    if (!REQUIRED_EVIDENCE_TYPES.includes(evidence.type)) continue;
+    const evidenceType = evidence.type;
+    const picked = pickUrl(evidence);
+    if (picked) add(evidenceType, picked);
+    for (const url of pickUrls(evidence)) {
+      add(evidenceType, url);
+    }
+    for (const ref of evidence.refs ?? []) {
+      add(evidenceType, ref);
+    }
+  }
+
+  const evidenceLinkKeys = new Set<string>([
+    ...seenByType.official_page,
+    ...seenByType.dev_activity,
+    ...seenByType.paper,
+    ...seenByType.audit,
+  ]);
+
+  for (const link of allLinks) {
+    const normalized = normalizeLinkCandidate(link);
+    if (!normalized || evidenceLinkKeys.has(normalized)) continue;
+    add("other", normalized);
+  }
+
+  return linksByType;
 }
 
 function collectLinksFromEvidenceBlocks(
@@ -1300,6 +1363,7 @@ export async function getModelDetailPayload(
     evidenceLinks,
     rawInputLinks,
   ]);
+  const linksByType = buildLinksByType(finalEvidence, mergedLinks);
 
   const sourceLabel =
     typeof modelRow?.source === "string" && modelRow?.source.trim()
@@ -1334,6 +1398,7 @@ export async function getModelDetailPayload(
     },
     rawInputsBySource: finalRawInputsBySource,
     links: mergedLinks,
+    linksByType,
     references: referenceSections,
   };
 }
