@@ -54,6 +54,9 @@ export function renderModelDetailText(detail: ModelDetail): string {
 
   const overallLines = [
     `overallScore: ${header.overallScore ?? ""}`,
+  ];
+
+  const categoryTotalsLines = [
     `categoryScores: ${JSON.stringify(header.categoryScores ?? {})}`,
   ];
 
@@ -135,8 +138,9 @@ export function renderModelDetailText(detail: ModelDetail): string {
   return [
     section("Model", modelLines),
     section("Overall", overallLines),
+    section("Category totals", categoryTotalsLines),
     section("Evidence", evidenceLines),
-    section("Raw Inputs", rawLines),
+    section("Raw inputs", rawLines),
     section("Breakdown", breakdownLines),
     section("Links", linkLines),
   ].join("\n");

@@ -1,0 +1,71 @@
+## Model
+provider: allenai
+displayName: AllenAI: Molmo2 8B (free)
+modelKey: allenai/molmo-2-8b-20260109
+
+## Overall
+overallScore: 77.50772
+
+## Category totals
+categoryScores: {"performance":78.71180000000001,"safety":75,"adoption":81.82,"openness":58.333333333333336,"cost":100}
+
+## Evidence
+- official_page
+  status: ok
+  reasons: ok | openrouter_model_page_only
+  url: https://openrouter.ai/models/allenai/molmo-2-8b-20260109
+- dev_activity
+  status: missing_source_link
+  reasons: missing_source_link | repo_link_missing
+  url: missing:github_repo
+- paper
+  status: not_found
+  reasons: no_known_paper_source | not_found
+  url: arxiv_query:"AllenAI: Molmo2 8B (free)"
+- audit
+  status: missing_source_link
+  reasons: missing_source_link | no_known_audit_source
+  url: missing:audit_link
+
+## Raw inputs
+- openrouter
+  status: present
+  data: missing
+- huggingface
+  status: present
+  data: missing
+- github
+  status: present
+  data: missing
+- arxiv
+  status: present
+  data: missing
+- ops
+  status: present
+  data: missing
+- manual
+  status: present
+  data: missing
+
+## Breakdown
+- Q1: General benchmarks | score=87.49 | flags=ok
+- Q2: Coding benchmarks | score=76.68 | flags=ok
+- Q3: Math & chat benchmarks | score=69.01264 | flags=ok
+- S1: Safety documentation | score=50 | flags=ok
+- S2: Alignment disclosure | score=50 | flags=ok
+- S3: Misuse policy coverage | score=50 | flags=ok
+- S4: External audit & red teaming | score=null | flags=missing_evidence,specMissingEvidence
+- S5: Transparency updates | score=100 | flags=ok
+- S6: Minor incidents | score=100 | flags=ok
+- S7: Major incidents | score=100 | flags=ok
+- S8: Critical incidents | score=100 | flags=ok
+- T1: Model documentation | score=33.33333333333333 | flags=ok
+- T2: Training data disclosure | score=100 | flags=ok
+- T3: Paper / technical report | score=null | flags=missing_evidence,specMissingEvidence
+- T4: External review & transparency | score=null | flags=missing_evidence,specMissingEvidence
+
+## Links
+- arxiv_query:"AllenAI: Molmo2 8B (free)"
+- https://openrouter.ai/models/allenai/molmo-2-8b-20260109
+- missing:audit_link
+- missing:github_repo

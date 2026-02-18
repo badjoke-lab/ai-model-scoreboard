@@ -1,0 +1,72 @@
+## Model
+provider: qwen
+displayName: Qwen: Qwen3 VL 30B A3B Thinking
+modelKey: qwen/qwen3-vl-30b-a3b-thinking
+
+## Overall
+overallScore: 77.76955625230767
+
+## Category totals
+categoryScores: {"performance":76.29890000000002,"safety":80,"adoption":75,"openness":66.66666666666666,"cost":99.99996252307655}
+
+## Evidence
+- official_page
+  status: ok
+  reasons: ok | openrouter_model_page | provider_fallback
+  url: https://qwenlm.ai
+- dev_activity
+  status: missing_source_link
+  reasons: missing_source_link | repo_link_missing
+  url: missing:github_repo
+- paper
+  status: not_found
+  reasons: no_known_paper_source | not_found
+  url: arxiv_query:"Qwen: Qwen3 VL 30B A3B Thinking"
+- audit
+  status: missing_source_link
+  reasons: missing_source_link | no_known_audit_source
+  url: missing:audit_link
+
+## Raw inputs
+- openrouter
+  status: present
+  data: missing
+- huggingface
+  status: present
+  data: missing
+- github
+  status: present
+  data: missing
+- arxiv
+  status: present
+  data: missing
+- ops
+  status: present
+  data: missing
+- manual
+  status: present
+  data: missing
+
+## Breakdown
+- Q1: General benchmarks | score=68.39 | flags=ok
+- Q2: Coding benchmarks | score=87.72 | flags=ok
+- Q3: Math & chat benchmarks | score=75.45887 | flags=ok
+- S1: Safety documentation | score=50 | flags=ok
+- S2: Alignment disclosure | score=100 | flags=ok
+- S3: Misuse policy coverage | score=50 | flags=ok
+- S4: External audit & red teaming | score=null | flags=missing_evidence,specMissingEvidence
+- S5: Transparency updates | score=100 | flags=ok
+- S6: Minor incidents | score=100 | flags=ok
+- S7: Major incidents | score=100 | flags=ok
+- S8: Critical incidents | score=100 | flags=ok
+- T1: Model documentation | score=66.66666666666666 | flags=ok
+- T2: Training data disclosure | score=100 | flags=ok
+- T3: Paper / technical report | score=null | flags=missing_evidence,specMissingEvidence
+- T4: External review & transparency | score=null | flags=missing_evidence,specMissingEvidence
+
+## Links
+- arxiv_query:"Qwen: Qwen3 VL 30B A3B Thinking"
+- https://openrouter.ai/models/qwen/qwen3-vl-30b-a3b-thinking
+- https://qwenlm.ai
+- missing:audit_link
+- missing:github_repo
