@@ -1,0 +1,36 @@
+{
+  "models": {
+    "meta-llama/llama-3.1-8b-instruct": {
+      "license": {
+        "value": "Llama 3.1 Community License",
+        "source_url": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct"
+      },
+      "release_date": {
+        "value": "2024-07-23",
+        "source_url": "https://huggingface.co/meta-llama/Llama-3.1-8B-Instruct"
+      },
+      "modality": {
+        "value": "text->text",
+        "source_url": "https://openrouter.ai/meta-llama/llama-3.1-8b-instruct"
+      },
+      "context_length": {
+        "value": 131072,
+        "source_url": "https://openrouter.ai/meta-llama/llama-3.1-8b-instruct"
+      }
+    },
+    "openai/gpt-4o-mini": {
+      "modality": {
+        "value": "text+image->text",
+        "source_url": "https://openrouter.ai/openai/gpt-4o-mini"
+      },
+      "context_length": {
+        "value": 128000,
+        "source_url": "https://openrouter.ai/openai/gpt-4o-mini"
+      },
+      "max_output_tokens": {
+        "value": 16384,
+        "source_url": "https://platform.openai.com/docs/models/gpt-4o-mini"
+      }
+    }
+  }
+}

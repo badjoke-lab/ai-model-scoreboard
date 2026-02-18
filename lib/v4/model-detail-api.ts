@@ -27,13 +27,14 @@ import {
   type EvidenceOverride,
   type ModelOverride,
 } from "@/lib/v4/overrides";
-import { applyAlias, normalizeModelKey } from "@/lib/v4/modelKey";
+import { applyAlias, normalizeModelKey, toEncodedModelKey } from "@/lib/v4/modelKey";
 import type {
   AbsVal,
   AbsoluteBlock,
   AdoptionBlock,
   EvidenceItem,
   Missing,
+  ManualRawInputs,
   RawInputsBySource,
   RawValue,
   V4EvidenceKey,
@@ -61,6 +62,14 @@ const ADOPTION_SOURCES = new Set<AdoptionBlock["source"]>([
   "openrouter",
   "seed",
 ]);
+const MANUAL_RAW_FIELDS = [
+  "license",
+  "release_date",
+  "modality",
+  "context_length",
+  "max_output_tokens",
+] as const;
+
 function formatUpdatedDate(value?: string): string | null {
   if (!value) return null;
   const date = new Date(value);
@@ -807,6 +816,72 @@ function hasMeaningfulInputs(inputsRaw: Record<string, any> | null): boolean {
   });
 }
 
+async function readManualRawInputsMap(): Promise<Record<string, any>> {
+  try {
+    const filePath = path.join(
+      process.cwd(),
+      "overrides",
+      "v4",
+      "maps",
+      "raw-inputs-maps.json"
+    );
+    const raw = await fs.readFile(filePath, "utf-8");
+    const parsed = JSON.parse(raw) as { models?: Record<string, any> };
+    return isObject(parsed?.models) ? parsed.models : {};
+  } catch {
+    return {};
+  }
+}
+
+function buildManualRawInputs(
+  modelKey: string,
+  manualModels: Record<string, any>
+): ManualRawInputs {
+  const rawModel = manualModels[modelKey] ?? manualModels[toEncodedModelKey(modelKey)];
+  if (!isObject(rawModel)) {
+    return {
+      status: "missing",
+      data: {},
+      missing: [{ field: "manual", reasons: ["missing:manual_map"] }],
+      refs: [],
+    };
+  }
+
+  const data: ManualRawInputs["data"] = {};
+  const missing: ManualRawInputs["missing"] = [];
+  const refs = new Set<string>();
+
+  for (const field of MANUAL_RAW_FIELDS) {
+    const entry = rawModel[field];
+    if (!isObject(entry)) {
+      missing.push({ field, reasons: ["missing:field"] });
+      continue;
+    }
+
+    const sourceUrl = asString(entry.source_url);
+    if (!sourceUrl || !isHttpUrl(sourceUrl)) {
+      missing.push({ field, reasons: ["invalid:missing_source_url"] });
+      continue;
+    }
+
+    const value = entry.value;
+    if (!isRawScalar(value)) {
+      missing.push({ field, reasons: ["missing:field"] });
+      continue;
+    }
+
+    data[field] = { value, source_url: sourceUrl };
+    refs.add(sourceUrl);
+  }
+
+  return {
+    status: Object.keys(data).length > 0 ? "ok" : "missing",
+    data,
+    missing,
+    refs: Array.from(refs),
+  };
+}
+
 function buildRawInputsBySource(
   detail: {
     context?: number;
@@ -815,7 +890,8 @@ function buildRawInputsBySource(
     released?: string;
     enrichment?: { github?: { status?: string; status_code?: string } | null } | null;
   },
-  absoluteMetrics: Record<string, any>
+  absoluteMetrics: Record<string, any>,
+  manual: ManualRawInputs
 ): RawInputsBySource {
   const openrouter: Record<string, RawValue> = {};
   const github: Record<string, RawValue> = {};
@@ -861,17 +937,25 @@ function buildRawInputsBySource(
     github,
     arxiv: {},
     ops,
+    manual,
   };
 }
 
 function ensureRawInputsBySource(value: any): RawInputsBySource {
   const source = isObject(value) ? value : {};
+  const manual = isObject(source.manual) ? source.manual : {};
   return {
     openrouter: isObject(source.openrouter) ? source.openrouter : {},
     huggingface: isObject(source.huggingface) ? source.huggingface : {},
     github: isObject(source.github) ? source.github : {},
     arxiv: isObject(source.arxiv) ? source.arxiv : {},
     ops: isObject(source.ops) ? source.ops : {},
+    manual: {
+      status: manual.status === "ok" ? "ok" : "missing",
+      data: isObject(manual.data) ? manual.data : {},
+      missing: Array.isArray(manual.missing) ? manual.missing : [],
+      refs: Array.isArray(manual.refs) ? manual.refs : [],
+    },
   };
 }
 
@@ -1111,7 +1195,9 @@ export async function getModelDetailPayload(
 
   const evidenceImpact = buildEvidenceImpactSummary(breakdownItems);
   const referenceSections = buildReferenceSections(evidenceBlocks, breakdownItems);
-  const rawInputsBySource = buildRawInputsBySource(detail, absoluteMetrics);
+  const manualRawInputsMap = await readManualRawInputsMap();
+  const manualRawInputs = buildManualRawInputs(canonicalFinal, manualRawInputsMap);
+  const rawInputsBySource = buildRawInputsBySource(detail, absoluteMetrics, manualRawInputs);
   const baseEvidence = (detail as { evidence?: any }).evidence ?? [];
   let override: ModelOverride | null = null;
 
@@ -1184,6 +1270,24 @@ export async function getModelDetailPayload(
       ...normalizeRawInputBlock(baseRaw.ops),
       ...normalizeRawInputBlock(ovRaw.ops),
     },
+    manual: (() => {
+      const data = {
+        ...(isObject(baseRaw.manual.data) ? baseRaw.manual.data : {}),
+        ...(isObject(ovRaw.manual.data) ? ovRaw.manual.data : {}),
+      };
+      return {
+        status: Object.keys(data).length > 0 ? "ok" : "missing",
+        data,
+        missing: [
+          ...(Array.isArray(baseRaw.manual.missing) ? baseRaw.manual.missing : []),
+          ...(Array.isArray(ovRaw.manual.missing) ? ovRaw.manual.missing : []),
+        ],
+        refs: dedupeUrls([
+          ...(Array.isArray(baseRaw.manual.refs) ? baseRaw.manual.refs : []),
+          ...(Array.isArray(ovRaw.manual.refs) ? ovRaw.manual.refs : []),
+        ]),
+      };
+    })(),
   };
 
   const evidenceLinks = collectLinksFromEvidence((detail as { evidence?: any }).evidence);

@@ -24,6 +24,7 @@ export type ModelOverride = {
     github?: Record<string, any>;
     arxiv?: Record<string, any>;
     ops?: Record<string, any>;
+    manual?: Record<string, any>;
   };
   links?: string[];
 };
@@ -60,6 +61,7 @@ function normalizeRawInputsBySource(value: any): ModelOverride["rawInputsBySourc
     github: normalizeSource("github"),
     arxiv: normalizeSource("arxiv"),
     ops: normalizeSource("ops"),
+    manual: normalizeSource("manual"),
   };
 }
 

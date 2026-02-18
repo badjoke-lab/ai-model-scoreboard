@@ -3,7 +3,7 @@ import type { V4ModelDetailResponse } from "@/types/v4";
 export type ModelDetail = V4ModelDetailResponse;
 
 const EVIDENCE_KEYS = ["official_page", "dev_activity", "paper", "audit"] as const;
-const RAW_SOURCE_KEYS = ["openrouter", "huggingface", "github", "arxiv", "ops"] as const;
+const RAW_SOURCE_KEYS = ["openrouter", "huggingface", "github", "arxiv", "ops", "manual"] as const;
 
 function section(title: string, lines: string[]): string {
   return [`## ${title}`, ...lines, ""].join("\n");

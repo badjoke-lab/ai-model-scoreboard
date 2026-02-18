@@ -1,10 +1,14 @@
-import type { RawInputsBySource, RawValue } from "@/types/v4";
+import type {
+  ManualRawInputs,
+  RawInputsBySource,
+  RawValue,
+} from "@/types/v4";
 
 type RawInputsPanelProps = {
   rawInputsBySource: RawInputsBySource;
 };
 
-const SOURCE_BLOCKS: Array<{ key: keyof RawInputsBySource; title: string }> = [
+const SOURCE_BLOCKS: Array<{ key: "openrouter" | "huggingface" | "github" | "arxiv" | "ops"; title: string }> = [
   { key: "openrouter", title: "From OpenRouter" },
   { key: "huggingface", title: "From Hugging Face" },
   { key: "github", title: "From GitHub" },
@@ -53,7 +57,7 @@ function SourceBlock({
 }: {
   title: string;
   data: Record<string, RawValue> | null | undefined;
-  sourceKey: keyof RawInputsBySource;
+  sourceKey: "openrouter" | "huggingface" | "github" | "arxiv" | "ops";
 }) {
   const entries = Object.entries(data ?? {});
   const status = entries.length > 0 ? "ok" : "missing";
@@ -121,6 +125,68 @@ function SourceBlock({
   );
 }
 
+function ManualSourceBlock({ data }: { data: ManualRawInputs }) {
+  const entries = Object.entries(data.data);
+  return (
+    <details className="rounded-xl border border-slate-800 bg-slate-950/40 p-4" open>
+      <summary className="cursor-pointer text-sm font-semibold text-slate-100">
+        Manual (curated)
+      </summary>
+      <div className="mt-3 space-y-3 text-sm text-slate-200">
+        <div className="text-xs">
+          Status: <span className="font-mono">{data.status}</span>
+        </div>
+        {entries.length > 0 ? (
+          <div className="overflow-hidden rounded-lg border border-slate-800">
+            <table className="w-full text-left text-xs">
+              <thead className="bg-slate-900/60 text-[11px] uppercase tracking-wide text-slate-400">
+                <tr>
+                  <th className="w-1/4 px-3 py-2">Key</th>
+                  <th className="w-1/4 px-3 py-2">Value</th>
+                  <th className="px-3 py-2">Source URL</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-900/60">
+                {entries.map(([key, entry]) => (
+                  <tr key={key} className="align-top">
+                    <td className="px-3 py-2 font-mono text-slate-300">{key}</td>
+                    <td className="px-3 py-2 whitespace-pre-wrap break-words text-slate-100">
+                      {String(entry.value)}
+                    </td>
+                    <td className="px-3 py-2 break-all">
+                      <a
+                        href={entry.source_url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-sky-300 underline-offset-2 hover:underline"
+                      >
+                        {entry.source_url}
+                      </a>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ) : null}
+
+        <details className="rounded border border-slate-800 bg-slate-900/50 p-3">
+          <summary className="cursor-pointer text-xs font-semibold text-slate-200">
+            Missing / invalid reasons ({data.missing.length})
+          </summary>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-xs font-mono text-slate-300">
+            {data.missing.map((item, index) => (
+              <li key={`${item.field}-${index}`}>
+                {item.field}: {item.reasons.join(", ")}
+              </li>
+            ))}
+          </ul>
+        </details>
+      </div>
+    </details>
+  );
+}
+
 export default function RawInputsPanel({ rawInputsBySource }: RawInputsPanelProps) {
   return (
     <details className="rounded-2xl border border-slate-800 bg-surface/70 p-6 shadow-lg">
@@ -128,6 +194,7 @@ export default function RawInputsPanel({ rawInputsBySource }: RawInputsPanelProp
         Raw Inputs
       </summary>
       <div className="mt-4 grid gap-4 lg:grid-cols-2">
+        <ManualSourceBlock data={rawInputsBySource.manual} />
         {SOURCE_BLOCKS.map((block) => (
           <SourceBlock
             key={block.key}
