@@ -200,5 +200,12 @@ export type V4ModelDetailResponse = {
   };
   rawInputsBySource: RawInputsBySource;
   links: string[];
+  linksByType: {
+    official_page: string[];
+    dev_activity: string[];
+    paper: string[];
+    audit: string[];
+    other: string[];
+  };
   references: Array<{ label: string; urls: string[] }>;
 };
