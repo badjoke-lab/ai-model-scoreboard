@@ -85,12 +85,30 @@ export type MissingInfo = {
 
 export type RawValue = string | number | boolean | MissingInfo | null | undefined;
 
+export type ManualRawInputEntry = {
+  value: string | number | boolean;
+  source_url: string;
+};
+
+export type ManualRawInputMissing = {
+  field: string;
+  reasons: string[];
+};
+
+export type ManualRawInputs = {
+  status: "ok" | "missing";
+  data: Record<string, ManualRawInputEntry>;
+  missing: ManualRawInputMissing[];
+  refs: string[];
+};
+
 export type RawInputsBySource = {
   openrouter: Record<string, RawValue>;
   huggingface: Record<string, RawValue>;
   github: Record<string, RawValue>;
   arxiv: Record<string, RawValue>;
   ops: Record<string, RawValue>;
+  manual: ManualRawInputs;
 };
 
 export type AbsoluteBlock = {
