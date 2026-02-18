@@ -1,0 +1,71 @@
+## Model
+provider: x-ai
+displayName: xAI: Grok 4
+modelKey: x-ai/grok-4-07-09
+
+## Overall
+overallScore: 77.21818240615329
+
+## Category totals
+categoryScores: {"performance":79.84310000000002,"safety":80,"adoption":78.53999999999999,"openness":50,"cost":99.99942406153279}
+
+## Evidence
+- official_page
+  status: ok
+  reasons: ok | openrouter_model_page_only
+  url: https://openrouter.ai/models/x-ai/grok-4-07-09
+- dev_activity
+  status: missing_source_link
+  reasons: missing_source_link | repo_link_missing
+  url: missing:github_repo
+- paper
+  status: not_found
+  reasons: no_known_paper_source | not_found
+  url: arxiv_query:"xAI: Grok 4"
+- audit
+  status: missing_source_link
+  reasons: missing_source_link | no_known_audit_source
+  url: missing:audit_link
+
+## Raw inputs
+- openrouter
+  status: present
+  data: missing
+- huggingface
+  status: present
+  data: missing
+- github
+  status: present
+  data: missing
+- arxiv
+  status: present
+  data: missing
+- ops
+  status: present
+  data: missing
+- manual
+  status: present
+  data: missing
+
+## Breakdown
+- Q1: General benchmarks | score=78.16 | flags=ok
+- Q2: Coding benchmarks | score=84.12 | flags=ok
+- Q3: Math & chat benchmarks | score=77.76903000000001 | flags=ok
+- S1: Safety documentation | score=50 | flags=ok
+- S2: Alignment disclosure | score=50 | flags=ok
+- S3: Misuse policy coverage | score=100 | flags=ok
+- S4: External audit & red teaming | score=null | flags=missing_evidence,specMissingEvidence
+- S5: Transparency updates | score=100 | flags=ok
+- S6: Minor incidents | score=100 | flags=ok
+- S7: Major incidents | score=100 | flags=ok
+- S8: Critical incidents | score=100 | flags=ok
+- T1: Model documentation | score=66.66666666666666 | flags=ok
+- T2: Training data disclosure | score=66.66666666666666 | flags=ok
+- T3: Paper / technical report | score=null | flags=missing_evidence,specMissingEvidence
+- T4: External review & transparency | score=null | flags=missing_evidence,specMissingEvidence
+
+## Links
+- arxiv_query:"xAI: Grok 4"
+- https://openrouter.ai/models/x-ai/grok-4-07-09
+- missing:audit_link
+- missing:github_repo

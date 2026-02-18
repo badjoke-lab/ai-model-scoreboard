@@ -1,0 +1,71 @@
+## Model
+provider: z-ai
+displayName: Z.AI: GLM 4.5 Air (free)
+modelKey: z-ai/glm-4.5-air
+
+## Overall
+overallScore: 77.60412000000001
+
+## Category totals
+categoryScores: {"performance":70.02030000000002,"safety":90,"adoption":85.64,"openness":58.333333333333336,"cost":100}
+
+## Evidence
+- official_page
+  status: ok
+  reasons: ok | openrouter_model_page_only
+  url: https://openrouter.ai/models/z-ai/glm-4.5-air
+- dev_activity
+  status: missing_source_link
+  reasons: missing_source_link | repo_link_missing
+  url: missing:github_repo
+- paper
+  status: not_found
+  reasons: no_known_paper_source | not_found
+  url: arxiv_query:"Z.AI: GLM 4.5 Air (free)"
+- audit
+  status: missing_source_link
+  reasons: missing_source_link | no_known_audit_source
+  url: missing:audit_link
+
+## Raw inputs
+- openrouter
+  status: present
+  data: missing
+- huggingface
+  status: present
+  data: missing
+- github
+  status: present
+  data: missing
+- arxiv
+  status: present
+  data: missing
+- ops
+  status: present
+  data: missing
+- manual
+  status: present
+  data: missing
+
+## Breakdown
+- Q1: General benchmarks | score=62.25 | flags=ok
+- Q2: Coding benchmarks | score=84.84 | flags=ok
+- Q3: Math & chat benchmarks | score=65.52739 | flags=ok
+- S1: Safety documentation | score=50 | flags=ok
+- S2: Alignment disclosure | score=100 | flags=ok
+- S3: Misuse policy coverage | score=50 | flags=ok
+- S4: External audit & red teaming | score=null | flags=missing_evidence,specMissingEvidence
+- S5: Transparency updates | score=100 | flags=ok
+- S6: Minor incidents | score=100 | flags=ok
+- S7: Major incidents | score=100 | flags=ok
+- S8: Critical incidents | score=100 | flags=ok
+- T1: Model documentation | score=33.33333333333333 | flags=ok
+- T2: Training data disclosure | score=100 | flags=ok
+- T3: Paper / technical report | score=null | flags=missing_evidence,specMissingEvidence
+- T4: External review & transparency | score=null | flags=missing_evidence,specMissingEvidence
+
+## Links
+- arxiv_query:"Z.AI: GLM 4.5 Air (free)"
+- https://openrouter.ai/models/z-ai/glm-4.5-air
+- missing:audit_link
+- missing:github_repo

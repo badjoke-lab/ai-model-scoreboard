@@ -1,0 +1,71 @@
+## Model
+provider: perplexity
+displayName: Perplexity: Sonar
+modelKey: perplexity/sonar
+
+## Overall
+overallScore: 77.46867009846144
+
+## Category totals
+categoryScores: {"performance":81.78670000000001,"safety":70,"adoption":88.36,"openness":50,"cost":99.9999009846144}
+
+## Evidence
+- official_page
+  status: ok
+  reasons: ok | openrouter_model_page_only
+  url: https://openrouter.ai/models/perplexity/sonar
+- dev_activity
+  status: missing_source_link
+  reasons: missing_source_link | repo_link_missing
+  url: missing:github_repo
+- paper
+  status: not_found
+  reasons: no_known_paper_source | not_found
+  url: arxiv_query:"Perplexity: Sonar"
+- audit
+  status: missing_source_link
+  reasons: missing_source_link | no_known_audit_source
+  url: missing:audit_link
+
+## Raw inputs
+- openrouter
+  status: present
+  data: missing
+- huggingface
+  status: present
+  data: missing
+- github
+  status: present
+  data: missing
+- arxiv
+  status: present
+  data: missing
+- ops
+  status: present
+  data: missing
+- manual
+  status: present
+  data: missing
+
+## Breakdown
+- Q1: General benchmarks | score=86.12 | flags=ok
+- Q2: Coding benchmarks | score=80.6 | flags=ok
+- Q3: Math & chat benchmarks | score=77.22891 | flags=ok
+- S1: Safety documentation | score=100 | flags=ok
+- S2: Alignment disclosure | score=100 | flags=ok
+- S3: Misuse policy coverage | score=0 | flags=ok
+- S4: External audit & red teaming | score=null | flags=missing_evidence,specMissingEvidence
+- S5: Transparency updates | score=100 | flags=ok
+- S6: Minor incidents | score=100 | flags=ok
+- S7: Major incidents | score=100 | flags=ok
+- S8: Critical incidents | score=100 | flags=ok
+- T1: Model documentation | score=66.66666666666666 | flags=ok
+- T2: Training data disclosure | score=33.33333333333333 | flags=ok
+- T3: Paper / technical report | score=null | flags=missing_evidence,specMissingEvidence
+- T4: External review & transparency | score=null | flags=missing_evidence,specMissingEvidence
+
+## Links
+- arxiv_query:"Perplexity: Sonar"
+- https://openrouter.ai/models/perplexity/sonar
+- missing:audit_link
+- missing:github_repo
