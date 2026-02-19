@@ -3,6 +3,10 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const DIR = path.join(ROOT, "overrides", "v4", "models");
+const MAPS_DIR = path.join(ROOT, "overrides", "v4", "maps");
+const ALLOWED_SOURCES_PATH = path.join(MAPS_DIR, "allowed-official-sources.json");
+const MODEL_MAPS_PATH = path.join(MAPS_DIR, "model-maps.json");
+const PROVIDER_MAPS_PATH = path.join(MAPS_DIR, "provider-maps.json");
 
 // strict: CIでは常に4タイプ必須にする（運用をブレさせない）
 const REQUIRED_TYPES = ["official_page", "dev_activity", "paper", "audit"];
@@ -32,10 +36,101 @@ function readJson(filePath) {
   return JSON.parse(s);
 }
 
+function matchesAllowedDomain(hostname, allowedDomain) {
+  return hostname === allowedDomain || hostname.endsWith(`.${allowedDomain}`);
+}
+
+function normalizeHostname(hostname) {
+  return hostname.toLowerCase().replace(/\.+$/, "");
+}
+
+function validateOfficialPageUrl(rawUrl, location, allowedSources) {
+  if (!isNonEmptyString(rawUrl)) {
+    fail(`${location}: official_page URL is required`);
+    return;
+  }
+
+  if (!/^https?:\/\//i.test(rawUrl)) {
+    fail(`${location}: official_page URL must start with http:// or https://`);
+    return;
+  }
+
+  let parsed;
+  try {
+    parsed = new URL(rawUrl);
+  } catch {
+    fail(`${location}: official_page URL is invalid`);
+    return;
+  }
+
+  const hostname = normalizeHostname(parsed.hostname);
+  if (!hostname) {
+    fail(`${location}: official_page URL hostname is empty`);
+    return;
+  }
+
+  if (allowedSources.blockedDomains.some((d) => hostname === d)) {
+    fail(`${location}: official_page URL uses blocked domain "${hostname}"`);
+    return;
+  }
+
+  if (hostname === "huggingface.co") {
+    const segments = parsed.pathname.split("/").filter(Boolean);
+    const namespace = segments[0]?.toLowerCase();
+    if (!namespace || !allowedSources.allowedHfNamespaces.includes(namespace)) {
+      fail(
+        `${location}: official_page URL must use an allowed Hugging Face namespace (got "${namespace || "(none)"}")`,
+      );
+    }
+    return;
+  }
+
+  const allowed = allowedSources.allowedDomains.some((d) =>
+    matchesAllowedDomain(hostname, d),
+  );
+  if (!allowed) {
+    fail(`${location}: official_page URL domain "${hostname}" is not allowlisted`);
+  }
+}
+
+function validateAllowedSourcesFile() {
+  let j;
+  try {
+    j = readJson(ALLOWED_SOURCES_PATH);
+  } catch {
+    fail(`allowed-official-sources.json: invalid or missing JSON (${ALLOWED_SOURCES_PATH})`);
+    return null;
+  }
+
+  const normalizeStringArray = (arr, key) => {
+    if (!Array.isArray(arr)) {
+      fail(`allowed-official-sources.json: ${key} must be an array`);
+      return [];
+    }
+    const out = [];
+    for (const x of arr) {
+      if (!isNonEmptyString(x)) {
+        fail(`allowed-official-sources.json: ${key} must contain non-empty strings`);
+        continue;
+      }
+      out.push(x.toLowerCase());
+    }
+    return out;
+  };
+
+  return {
+    allowedDomains: normalizeStringArray(j.allowedDomains, "allowedDomains"),
+    allowedHfNamespaces: normalizeStringArray(j.allowedHfNamespaces, "allowedHfNamespaces"),
+    blockedDomains: normalizeStringArray(j.blockedDomains, "blockedDomains"),
+  };
+}
+
 if (!fs.existsSync(DIR)) {
   console.log("ok: overrides dir not found");
   process.exit(0);
 }
+
+const allowedSources = validateAllowedSourcesFile();
 
 const files = fs.readdirSync(DIR).filter((f) => f.endsWith(".json"));
 for (const f of files) {
@@ -130,6 +225,15 @@ for (const f of files) {
         if (bad !== undefined) fail(`${f}: ${e.type}: refs must be non-empty strings`);
       }
     }
+
+    if (e.type === "official_page" && allowedSources) {
+      const sourceUrl = isNonEmptyString(e.url)
+        ? e.url
+        : Array.isArray(e.refs) && isNonEmptyString(e.refs[0])
+          ? e.refs[0]
+          : null;
+      validateOfficialPageUrl(sourceUrl, `${f}: official_page`, allowedSources);
+    }
   }
 
   // links optional, but if present must be string[]
@@ -141,6 +245,41 @@ for (const f of files) {
       if (bad !== undefined) fail(`${f}: links must be non-empty strings`);
     }
   }
+}
+
+try {
+  const modelMaps = readJson(MODEL_MAPS_PATH);
+  if (!modelMaps?.models || typeof modelMaps.models !== "object") {
+    fail("model-maps.json: models must be an object");
+  } else if (allowedSources) {
+    for (const [modelKey, modelData] of Object.entries(modelMaps.models)) {
+      if (!modelData || typeof modelData !== "object") continue;
+      if ("official_page" in modelData) {
+        validateOfficialPageUrl(
+          modelData.official_page,
+          `model-maps.json: ${modelKey}.official_page`,
+          allowedSources,
+        );
+      }
+    }
+  }
+} catch {
+  fail("model-maps.json: invalid or missing JSON");
+}
+
+try {
+  const providerMaps = readJson(PROVIDER_MAPS_PATH);
+  if (!providerMaps?.providers || typeof providerMaps.providers !== "object") {
+    fail("provider-maps.json: providers must be an object");
+  } else {
+    for (const [providerKey, providerData] of Object.entries(providerMaps.providers)) {
+      if (providerData && typeof providerData === "object" && "official_page" in providerData) {
+        fail(`provider-maps.json: ${providerKey}.official_page is forbidden`);
+      }
+    }
+  }
+} catch {
+  fail("provider-maps.json: invalid or missing JSON");
 }
 
 if (process.exitCode) process.exit(1);
