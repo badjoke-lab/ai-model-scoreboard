@@ -1,0 +1,30 @@
+{
+  "allowedDomains": [
+    "openai.com",
+    "anthropic.com",
+    "ai.meta.com",
+    "google.com",
+    "google.dev",
+    "deepmind.google",
+    "z.ai",
+    "allenai.org",
+    "perplexity.ai",
+    "x.ai"
+  ],
+  "allowedHfNamespaces": [
+    "openai",
+    "meta-llama",
+    "google",
+    "mistralai",
+    "anthropic",
+    "qwen",
+    "meituan-longcat"
+  ],
+  "blockedDomains": [
+    "t.co",
+    "bit.ly",
+    "tinyurl.com",
+    "docs.google.com",
+    "notion.site"
+  ]
+}
