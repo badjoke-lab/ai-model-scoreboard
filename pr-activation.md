@@ -1,1 +1,1 @@
-trigger for Codex
+trigger for Codex tasks
